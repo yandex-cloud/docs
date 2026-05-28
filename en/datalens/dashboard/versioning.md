@@ -100,3 +100,4 @@ To edit an outdated version, select it from the list of versions. To save edits 
   * Changes to the source data (rows added, updated, or deleted in the data source).
 
 * Versions do not display a list of changes. You can only view the saved status of the dashboard configuration.
+* [Mailing lists](./settings.md#maillists) are available for the current dashboard version only.

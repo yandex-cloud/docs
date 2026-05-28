@@ -18,6 +18,7 @@ Creates desktop group in the specified folder.
   "desktop_image_id": "string",
   "name": "string",
   "description": "string",
+  "labels": "map<string, string>",
   "resources_spec": {
     "memory": "int64",
     "cores": "int64",
@@ -30,12 +31,12 @@ Creates desktop group in the specified folder.
     ]
   },
   "boot_disk_spec": {
-    "type": "Type",
-    "size": "int64"
+    "size": "int64",
+    "type": "Type"
   },
   "data_disk_spec": {
-    "type": "Type",
-    "size": "int64"
+    "size": "int64",
+    "type": "Type"
   },
   "group_config": {
     "min_ready_desktops": "int64",
@@ -56,7 +57,6 @@ Creates desktop group in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to create a DesktopGroup in.
-
 To get a folder ID make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -76,6 +76,11 @@ Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9]) `. ||
 Description of the DesktopGroup.
 
 The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Desktop group labels.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
 
 Resource specification of the desktop group. ||
@@ -128,7 +133,7 @@ The maximum string length in characters is 50. ||
 
 List of subnet IDs.
 
-The number of elements must be greater than 0. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be greater than 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
@@ -137,17 +142,17 @@ Disk specificaton.
 
 #|
 ||Field | Description ||
+|| size | **int64**
+
+Size of disk.
+
+Value must be greater than 0. ||
 || type | enum **Type**
 
 Required field. Type of disk.
 
 - `HDD`: HDD disk type.
 - `SSD`: SSD disk type. ||
-|| size | **int64**
-
-Size of disk.
-
-Value must be greater than 0. ||
 |#
 
 ## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration}
@@ -184,8 +189,7 @@ The number of elements must be in the range 0-10. ||
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -202,13 +206,11 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/grpc/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||
@@ -236,6 +238,7 @@ The maximum string length in characters is 100. ||
     "status": "Status",
     "name": "string",
     "description": "string",
+    "labels": "map<string, string>",
     "resources_spec": {
       "memory": "int64",
       "cores": "int64",
@@ -247,14 +250,13 @@ The maximum string length in characters is 100. ||
         "string"
       ]
     },
-    "labels": "map<string, string>",
     "boot_disk_spec": {
-      "type": "Type",
-      "size": "int64"
+      "size": "int64",
+      "type": "Type"
     },
     "data_disk_spec": {
-      "type": "Type",
-      "size": "int64"
+      "size": "int64",
+      "type": "Type"
     },
     "group_config": {
       "min_ready_desktops": "int64",
@@ -369,15 +371,15 @@ Name of the desktop group. ||
 || description | **string**
 
 Description of the desktop group. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Labels of the desktop group. ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec2)**
 
 Resource specification of the desktop group. ||
 || network_interface_spec | **[NetworkInterfaceSpec](#yandex.cloud.clouddesktop.v1.api.NetworkInterfaceSpec2)**
 
 Network interface specification of the desktop group. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Labels of the desktop group. ||
 || boot_disk_spec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec2)**
 
 Boot disk specification of the desktop group. ||
@@ -434,7 +436,7 @@ The maximum string length in characters is 50. ||
 
 List of subnet IDs.
 
-The number of elements must be greater than 0. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be greater than 0. ||
 |#
 
 ## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec2}
@@ -443,17 +445,17 @@ Disk specificaton.
 
 #|
 ||Field | Description ||
+|| size | **int64**
+
+Size of disk.
+
+Value must be greater than 0. ||
 || type | enum **Type**
 
 Required field. Type of disk.
 
 - `HDD`: HDD disk type.
 - `SSD`: SSD disk type. ||
-|| size | **int64**
-
-Size of disk.
-
-Value must be greater than 0. ||
 |#
 
 ## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration2}
@@ -490,8 +492,7 @@ The number of elements must be in the range 0-10. ||
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -508,13 +509,11 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/grpc/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||

@@ -5,7 +5,6 @@ editable: false
 # Identity and Access Management API, gRPC: KeyService.Get
 
 Returns the specified Key resource.
-
 To get the list of available Key resources, make a [List](/docs/iam/api-ref/grpc/Key/list#List) request.
 
 ## gRPC request

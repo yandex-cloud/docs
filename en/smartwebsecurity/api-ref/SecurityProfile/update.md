@@ -41,6 +41,8 @@ apiPlayground:
           description: |-
             **string**
             Name of the security profile. The name is unique within the folder. 1-50 characters long.
+            The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
+          pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
           type: string
         description:
           description: |-
@@ -82,45 +84,98 @@ apiPlayground:
           $ref: '#/definitions/AnalyzeRequestBody'
       additionalProperties: false
     definitions:
+      ListsMatcher:
+        type: object
+        properties:
+          listIds:
+            description: |-
+              **string**
+              List of list IDs to match against. OR semantics implied.
+              The number of elements must be in the range 1-10.
+            uniqueItems: true
+            type: array
+            items:
+              type: string
+      ListsMatchers:
+        type: object
+        properties:
+          strListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              String lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          strListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              String lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
+          regExpListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Regular expression lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          regExpListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Regular expression lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
       StringMatcher:
         type: object
         properties:
           exactMatch:
             description: |-
               **string**
+              Exact match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
           exactNotMatch:
             description: |-
               **string**
+              Exact not match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
           prefixMatch:
             description: |-
               **string**
+              Prefix match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
           prefixNotMatch:
             description: |-
               **string**
+              Prefix not match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
           pireRegexMatch:
             description: |-
               **string**
+              PIRE regex match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
           pireRegexNotMatch:
             description: |-
               **string**
+              PIRE regex not match condition.
               The string length in characters must be 0-255.
-              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
             type: string
+          defined:
+            description: |-
+              **boolean**
+              Matches if the field is defined.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
+            type: boolean
+          listsMatchers:
+            description: |-
+              **[ListsMatchers](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatchers)**
+              Matches against string and regular expression lists.
+              Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`.
+            $ref: '#/definitions/ListsMatchers'
         oneOf:
           - required:
               - exactMatch
@@ -134,6 +189,10 @@ apiPlayground:
               - pireRegexMatch
           - required:
               - pireRegexNotMatch
+          - required:
+              - defined
+          - required:
+              - listsMatchers
       AuthorityMatcher:
         type: object
         properties:
@@ -142,9 +201,15 @@ apiPlayground:
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of authorities. OR semantics implied.
               The maximum number of elements is 20.
+            deprecated: true
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
+          authorityMatcher:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Authority matcher.
+            $ref: '#/definitions/StringMatcher'
       HttpMethodMatcher:
         type: object
         properties:
@@ -153,9 +218,15 @@ apiPlayground:
               **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
               List of HTTP methods. OR semantics implied.
               The maximum number of elements is 20.
+            deprecated: true
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
+          httpMethodMatcher:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              HTTP method matcher.
+            $ref: '#/definitions/StringMatcher'
       QueryMatcher:
         type: object
         properties:
@@ -213,7 +284,7 @@ apiPlayground:
             description: |-
               **string**
               List of IP ranges. OR semantics implied.
-              The maximum number of elements is 10000.
+              The string length in characters for each value must be greater than 0. The maximum number of elements is 10000.
             type: array
             items:
               type: string
@@ -229,21 +300,244 @@ apiPlayground:
             type: array
             items:
               type: string
+      AsnRangesMatcher:
+        type: object
+        properties:
+          asnRanges:
+            description: |-
+              **string** (int64)
+              List of ASN values to match against. OR semantics implied.
+              The maximum number of elements is 10000. Acceptable values are 0 to 4294967295, inclusive.
+            type: array
+            items:
+              type: string
+              format: int64
       IpMatcher:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: |-
+              **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+              IP ranges to match with.
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**'
+            description: |-
+              **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+              IP ranges to not match with.
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: |-
+              **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+              Geo locations to match with.
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**'
+            description: |-
+              **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+              Geo locations to not match with.
             $ref: '#/definitions/GeoIpMatcher'
+          ipListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              IP lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          ipListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              IP lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
+          asnRangesMatch:
+            description: |-
+              **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+              ASN ranges to match with.
+            $ref: '#/definitions/AsnRangesMatcher'
+          asnRangesNotMatch:
+            description: |-
+              **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+              ASN ranges to not match with.
+            $ref: '#/definitions/AsnRangesMatcher'
+          asnListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              ASN lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          asnListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              ASN lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
+      CookieMatcher:
+        type: object
+        properties:
+          name:
+            description: |-
+              **string**
+              Required field. Name of the cookie parametr.
+              The string length in characters must be 1-255.
+            type: string
+          value:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              Required field. Value of the cookie parametr.
+            $ref: '#/definitions/StringMatcher'
+        required:
+          - name
+          - value
+      BotCategoryMatcher:
+        type: object
+        properties:
+          botCategoryListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Bot category lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          botCategoryListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Bot category lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
+      BotNameMatcher:
+        type: object
+        properties:
+          botNameListsMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Bot name lists to match with.
+            $ref: '#/definitions/ListsMatcher'
+          botNameListsNotMatch:
+            description: |-
+              **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+              Bot name lists to not match with.
+            $ref: '#/definitions/ListsMatcher'
+      IntLEMatcher:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string** (int64)
+              Upper bound value (inclusive).
+            type: string
+            format: int64
+      IntGEMatcher:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string** (int64)
+              Lower bound value (inclusive).
+            type: string
+            format: int64
+      IntEQMatcher:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string** (int64)
+              Value to match against.
+            type: string
+            format: int64
+      IntNEMatcher:
+        type: object
+        properties:
+          value:
+            description: |-
+              **string** (int64)
+              Value to not match against.
+            type: string
+            format: int64
+      IntMatcher:
+        type: object
+        properties:
+          leMatch:
+            description: |-
+              **[IntLEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntLEMatcher)**
+              Less than or equal condition.
+              Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`.
+            $ref: '#/definitions/IntLEMatcher'
+          geMatch:
+            description: |-
+              **[IntGEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntGEMatcher)**
+              Greater than or equal condition.
+              Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`.
+            $ref: '#/definitions/IntGEMatcher'
+          eqMatch:
+            description: |-
+              **[IntEQMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntEQMatcher)**
+              Equal condition.
+              Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`.
+            $ref: '#/definitions/IntEQMatcher'
+          neMatch:
+            description: |-
+              **[IntNEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntNEMatcher)**
+              Not equal condition.
+              Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`.
+            $ref: '#/definitions/IntNEMatcher'
+        oneOf:
+          - required:
+              - leMatch
+          - required:
+              - geMatch
+          - required:
+              - eqMatch
+          - required:
+              - neMatch
+      BotScoreMatcher:
+        type: object
+        properties:
+          value:
+            description: |-
+              **[IntMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntMatcher)**
+              List of integer matchers for bot score. OR semantics implied.
+              The maximum number of elements is 4.
+            type: array
+            items:
+              $ref: '#/definitions/IntMatcher'
+      BoolMatcher:
+        type: object
+        properties:
+          match:
+            description: |-
+              **boolean**
+              Boolean value to match against.
+            type: boolean
+      VerifiedBotMatcher:
+        type: object
+        properties:
+          verified:
+            description: |-
+              **[BoolMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BoolMatcher)**
+              Matches if the bot is verified or not.
+            $ref: '#/definitions/BoolMatcher'
+      FingerPrintMatcher:
+        type: object
+        properties:
+          ja3Ranges:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of JA3 fingerprint matchers. OR semantics implied.
+              The maximum number of elements is 20.
+            deprecated: true
+            type: array
+            items:
+              $ref: '#/definitions/StringMatcher'
+          ja4Ranges:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              List of JA4 fingerprint matchers. OR semantics implied.
+              The maximum number of elements is 20.
+            deprecated: true
+            type: array
+            items:
+              $ref: '#/definitions/StringMatcher'
+          ja3Matcher:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              JA3 fingerprint matcher.
+            $ref: '#/definitions/StringMatcher'
+          ja4Matcher:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+              JA4 fingerprint matcher.
+            $ref: '#/definitions/StringMatcher'
       Condition:
         type: object
         properties:
@@ -275,13 +569,46 @@ apiPlayground:
               **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
               Match IP.
             $ref: '#/definitions/IpMatcher'
+          cookies:
+            description: |-
+              **[CookieMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.CookieMatcher)**
+              Match cookies.
+              The maximum number of elements is 20.
+            type: array
+            items:
+              $ref: '#/definitions/CookieMatcher'
+          botCategory:
+            description: |-
+              **[BotCategoryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotCategoryMatcher)**
+              Match bot category.
+            $ref: '#/definitions/BotCategoryMatcher'
+          botName:
+            description: |-
+              **[BotNameMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotNameMatcher)**
+              Match bot name.
+            $ref: '#/definitions/BotNameMatcher'
+          botScore:
+            description: |-
+              **[BotScoreMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotScoreMatcher)**
+              Match bot score.
+            $ref: '#/definitions/BotScoreMatcher'
+          verifiedBot:
+            description: |-
+              **[VerifiedBotMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.VerifiedBotMatcher)**
+              Match verified bot.
+            $ref: '#/definitions/VerifiedBotMatcher'
+          fingerPrint:
+            description: |-
+              **[FingerPrintMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.FingerPrintMatcher)**
+              Match fingerprint.
+            $ref: '#/definitions/FingerPrintMatcher'
       RuleCondition:
         type: object
         properties:
           action:
             description: |-
               **enum** (Action)
-              Action to perform if this rule matched.
+              Required field. Action to perform if this rule matched.
               - `DENY`: Deny request.
             type: string
             enum:
@@ -292,13 +619,15 @@ apiPlayground:
               **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
+        required:
+          - action
       SmartProtection:
         type: object
         properties:
           mode:
             description: |-
               **enum** (Mode)
-              Mode of protection.
+              Required field. Mode of protection.
               - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
               with suspicious requests being sent to SmartCaptcha.
               - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -313,13 +642,15 @@ apiPlayground:
               **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition)**
               The condition for matching the rule.
             $ref: '#/definitions/Condition'
+        required:
+          - mode
       Waf:
         type: object
         properties:
           mode:
             description: |-
               **enum** (Mode)
-              Mode of protection.
+              Required field. Mode of protection.
               - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
               with suspicious requests being sent to SmartCaptcha.
               - `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
@@ -340,10 +671,29 @@ apiPlayground:
               Required field. ID of WAF profile to use in this rule.
             type: string
         required:
+          - mode
           - wafProfileId
       SecurityRule:
         type: object
         properties:
+          ruleCondition:
+            description: |-
+              **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+              Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/RuleCondition'
+          smartProtection:
+            description: |-
+              **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+              Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/SmartProtection'
+          waf:
+            description: |-
+              **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
+              Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
+              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
+            $ref: '#/definitions/Waf'
           name:
             description: |-
               **string**
@@ -369,29 +719,16 @@ apiPlayground:
               For example, you can have the number of alarms for a specific rule displayed.
               Note: if this option is true, no real action affecting your traffic regarding this rule will be taken.
             type: boolean
-          ruleCondition:
-            description: |-
-              **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
-              Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
-              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-            $ref: '#/definitions/RuleCondition'
-          smartProtection:
-            description: |-
-              **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
-              Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
-              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-            $ref: '#/definitions/SmartProtection'
-          waf:
-            description: |-
-              **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
-              Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
-              Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`.
-            $ref: '#/definitions/Waf'
           description:
             description: |-
               **string**
               Optional description of the rule. 0-512 characters long.
               The maximum string length in characters is 512.
+            type: string
+          customPageId:
+            description: |-
+              **string**
+              ID of the custom page shown to the user when the rule denies a request.
             type: string
         required:
           - name
@@ -414,12 +751,14 @@ apiPlayground:
           sizeLimitAction:
             description: |-
               **enum** (Action)
-              Action to perform if maximum size of body exceeded.
+              Required field. Action to perform if maximum size of body exceeded.
               - `DENY`: Deny request.
             type: string
             enum:
               - ACTION_UNSPECIFIED
               - DENY
+        required:
+          - sizeLimitAction
 ---
 
 # SmartWebSecurity API, REST: SecurityProfile.Update
@@ -452,9 +791,6 @@ Required field. ID of the security profile to update. ||
   "defaultAction": "string",
   "securityRules": [
     {
-      "name": "string",
-      "priority": "string",
-      "dryRun": "boolean",
       // Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`
       "ruleCondition": {
         "action": "string",
@@ -462,53 +798,211 @@ Required field. ID of the security profile to update. ||
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
-            ]
-          },
-          "httpMethod": {
-            "httpMethods": [
-              {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              }
-            ]
-          },
-          "requestUri": {
-            "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+            ],
+            "authorityMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
               "exactMatch": "string",
               "exactNotMatch": "string",
               "prefixMatch": "string",
               "prefixNotMatch": "string",
               "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "httpMethod": {
+            "httpMethods": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "httpMethodMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "requestUri": {
+            "path": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                   "exactMatch": "string",
                   "exactNotMatch": "string",
                   "prefixMatch": "string",
                   "prefixNotMatch": "string",
                   "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  "pireRegexNotMatch": "string",
+                  "defined": "boolean",
+                  "listsMatchers": {
+                    "strListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "strListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    }
+                  }
                   // end of the list of possible fields
                 }
               }
@@ -518,13 +1012,36 @@ Required field. ID of the security profile to update. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
             }
@@ -549,6 +1066,261 @@ Required field. ID of the security profile to update. ||
               "locations": [
                 "string"
               ]
+            },
+            "ipListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "ipListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnRangesMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnRangesNotMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "cookies": [
+            {
+              "name": "string",
+              "value": {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            }
+          ],
+          "botCategory": {
+            "botCategoryListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botCategoryListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botName": {
+            "botNameListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botNameListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botScore": {
+            "value": [
+              {
+                // Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`
+                "leMatch": {
+                  "value": "string"
+                },
+                "geMatch": {
+                  "value": "string"
+                },
+                "eqMatch": {
+                  "value": "string"
+                },
+                "neMatch": {
+                  "value": "string"
+                }
+                // end of the list of possible fields
+              }
+            ]
+          },
+          "verifiedBot": {
+            "verified": {
+              "match": "boolean"
+            }
+          },
+          "fingerPrint": {
+            "ja3Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja4Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja3Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            },
+            "ja4Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
             }
           }
         }
@@ -559,53 +1331,211 @@ Required field. ID of the security profile to update. ||
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
-            ]
-          },
-          "httpMethod": {
-            "httpMethods": [
-              {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              }
-            ]
-          },
-          "requestUri": {
-            "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+            ],
+            "authorityMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
               "exactMatch": "string",
               "exactNotMatch": "string",
               "prefixMatch": "string",
               "prefixNotMatch": "string",
               "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "httpMethod": {
+            "httpMethods": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "httpMethodMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "requestUri": {
+            "path": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                   "exactMatch": "string",
                   "exactNotMatch": "string",
                   "prefixMatch": "string",
                   "prefixNotMatch": "string",
                   "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  "pireRegexNotMatch": "string",
+                  "defined": "boolean",
+                  "listsMatchers": {
+                    "strListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "strListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    }
+                  }
                   // end of the list of possible fields
                 }
               }
@@ -615,13 +1545,36 @@ Required field. ID of the security profile to update. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
             }
@@ -646,6 +1599,261 @@ Required field. ID of the security profile to update. ||
               "locations": [
                 "string"
               ]
+            },
+            "ipListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "ipListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnRangesMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnRangesNotMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "cookies": [
+            {
+              "name": "string",
+              "value": {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            }
+          ],
+          "botCategory": {
+            "botCategoryListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botCategoryListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botName": {
+            "botNameListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botNameListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botScore": {
+            "value": [
+              {
+                // Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`
+                "leMatch": {
+                  "value": "string"
+                },
+                "geMatch": {
+                  "value": "string"
+                },
+                "eqMatch": {
+                  "value": "string"
+                },
+                "neMatch": {
+                  "value": "string"
+                }
+                // end of the list of possible fields
+              }
+            ]
+          },
+          "verifiedBot": {
+            "verified": {
+              "match": "boolean"
+            }
+          },
+          "fingerPrint": {
+            "ja3Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja4Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja3Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            },
+            "ja4Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
             }
           }
         }
@@ -656,53 +1864,211 @@ Required field. ID of the security profile to update. ||
           "authority": {
             "authorities": [
               {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
-            ]
-          },
-          "httpMethod": {
-            "httpMethods": [
-              {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              }
-            ]
-          },
-          "requestUri": {
-            "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+            ],
+            "authorityMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
               "exactMatch": "string",
               "exactNotMatch": "string",
               "prefixMatch": "string",
               "prefixNotMatch": "string",
               "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "httpMethod": {
+            "httpMethods": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "httpMethodMatcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          },
+          "requestUri": {
+            "path": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
               // end of the list of possible fields
             },
             "queries": [
               {
                 "key": "string",
                 "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                   "exactMatch": "string",
                   "exactNotMatch": "string",
                   "prefixMatch": "string",
                   "prefixNotMatch": "string",
                   "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
+                  "pireRegexNotMatch": "string",
+                  "defined": "boolean",
+                  "listsMatchers": {
+                    "strListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "strListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    },
+                    "regExpListsNotMatch": {
+                      "listIds": [
+                        "string"
+                      ]
+                    }
+                  }
                   // end of the list of possible fields
                 }
               }
@@ -712,13 +2078,36 @@ Required field. ID of the security profile to update. ||
             {
               "name": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
             }
@@ -743,13 +2132,272 @@ Required field. ID of the security profile to update. ||
               "locations": [
                 "string"
               ]
+            },
+            "ipListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "ipListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnRangesMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnRangesNotMatch": {
+              "asnRanges": [
+                "string"
+              ]
+            },
+            "asnListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "asnListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "cookies": [
+            {
+              "name": "string",
+              "value": {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            }
+          ],
+          "botCategory": {
+            "botCategoryListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botCategoryListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botName": {
+            "botNameListsMatch": {
+              "listIds": [
+                "string"
+              ]
+            },
+            "botNameListsNotMatch": {
+              "listIds": [
+                "string"
+              ]
+            }
+          },
+          "botScore": {
+            "value": [
+              {
+                // Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`
+                "leMatch": {
+                  "value": "string"
+                },
+                "geMatch": {
+                  "value": "string"
+                },
+                "eqMatch": {
+                  "value": "string"
+                },
+                "neMatch": {
+                  "value": "string"
+                }
+                // end of the list of possible fields
+              }
+            ]
+          },
+          "verifiedBot": {
+            "verified": {
+              "match": "boolean"
+            }
+          },
+          "fingerPrint": {
+            "ja3Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja4Ranges": [
+              {
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+                "exactMatch": "string",
+                "exactNotMatch": "string",
+                "prefixMatch": "string",
+                "prefixNotMatch": "string",
+                "pireRegexMatch": "string",
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
+                // end of the list of possible fields
+              }
+            ],
+            "ja3Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            },
+            "ja4Matcher": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
             }
           }
         },
         "wafProfileId": "string"
       },
       // end of the list of possible fields
-      "description": "string"
+      "name": "string",
+      "priority": "string",
+      "dryRun": "boolean",
+      "description": "string",
+      "customPageId": "string"
     }
   ],
   "captchaId": "string",
@@ -778,7 +2426,9 @@ The rest of the fields will be reset to the default. ||
 Labels as `` key:value `` pairs. Maximum of 64 per resource. ||
 || name | **string**
 
-Name of the security profile. The name is unique within the folder. 1-50 characters long. ||
+Name of the security profile. The name is unique within the folder. 1-50 characters long.
+
+The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
 Optional description of the security profile. ||
@@ -808,6 +2458,21 @@ A SecurityRule object, see [Rules](/docs/smartwebsecurity/concepts/rules).
 
 #|
 ||Field | Description ||
+|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
+
+Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
+
+Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
+
+Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
+
+Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
+|| waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
+
+Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
+
+Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
 || name | **string**
 
 Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
@@ -827,26 +2492,14 @@ Acceptable values are 1 to 999999, inclusive. ||
 This mode allows you to test your security profile or a single rule.
 For example, you can have the number of alarms for a specific rule displayed.
 Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. ||
-|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition)**
-
-Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection)**
-
-Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf)**
-
-Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
 || description | **string**
 
 Optional description of the rule. 0-512 characters long.
 
 The maximum string length in characters is 512. ||
+|| customPageId | **string**
+
+ID of the custom page shown to the user when the rule denies a request. ||
 |#
 
 ## RuleCondition {#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition}
@@ -857,7 +2510,7 @@ RuleCondition object.
 ||Field | Description ||
 || action | **enum** (Action)
 
-Action to perform if this rule matched.
+Required field. Action to perform if this rule matched.
 
 - `ALLOW`: Pass request to service.
 - `DENY`: Deny request. ||
@@ -890,6 +2543,26 @@ The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
+|| cookies[] | **[CookieMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.CookieMatcher)**
+
+Match cookies.
+
+The maximum number of elements is 20. ||
+|| botCategory | **[BotCategoryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotCategoryMatcher)**
+
+Match bot category. ||
+|| botName | **[BotNameMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotNameMatcher)**
+
+Match bot name. ||
+|| botScore | **[BotScoreMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotScoreMatcher)**
+
+Match bot score. ||
+|| verifiedBot | **[VerifiedBotMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.VerifiedBotMatcher)**
+
+Match verified bot. ||
+|| fingerPrint | **[FingerPrintMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.FingerPrintMatcher)**
+
+Match fingerprint. ||
 |#
 
 ## AuthorityMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher}
@@ -903,6 +2576,9 @@ AuthorityMatcher object.
 List of authorities. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| authorityMatcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+Authority matcher. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -913,34 +2589,89 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+Exact match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || exactNotMatch | **string**
 
+Exact not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || prefixMatch | **string**
 
+Prefix match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || prefixNotMatch | **string**
 
+Prefix not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || pireRegexMatch | **string**
 
+PIRE regex match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || pireRegexNotMatch | **string**
 
+PIRE regex not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|| defined | **boolean**
+
+Matches if the field is defined.
+
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|| listsMatchers | **[ListsMatchers](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatchers)**
+
+Matches against string and regular expression lists.
+
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|#
+
+## ListsMatchers {#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatchers}
+
+ListsMatchers object.
+
+#|
+||Field | Description ||
+|| strListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+String lists to match with. ||
+|| strListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+String lists to not match with. ||
+|| regExpListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Regular expression lists to match with. ||
+|| regExpListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Regular expression lists to not match with. ||
+|#
+
+## ListsMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher}
+
+ListsMatcher object.
+
+#|
+||Field | Description ||
+|| listIds[] | **string**
+
+List of list IDs to match against. OR semantics implied.
+
+The number of elements must be in the range 1-10. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -954,6 +2685,9 @@ HttpMethodMatcher object.
 List of HTTP methods. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| httpMethodMatcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+HTTP method matcher. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -1010,10 +2744,36 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+
+IP ranges to match with. ||
+|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+
+IP ranges to not match with. ||
+|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+
+Geo locations to match with. ||
+|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+
+Geo locations to not match with. ||
+|| ipListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+IP lists to match with. ||
+|| ipListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+IP lists to not match with. ||
+|| asnRangesMatch | **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+
+ASN ranges to match with. ||
+|| asnRangesNotMatch | **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+
+ASN ranges to not match with. ||
+|| asnListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+ASN lists to match with. ||
+|| asnListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+ASN lists to not match with. ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -1026,7 +2786,7 @@ IpRangesMatcher object.
 
 List of IP ranges. OR semantics implied.
 
-The maximum number of elements is 10000. ||
+The string length in characters for each value must be greater than 0. The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -1042,6 +2802,194 @@ ISO 3166-1 alpha 2. OR semantics implied.
 The minimum number of elements is 1. ||
 |#
 
+## AsnRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher}
+
+AsnRangesMatcher object.
+
+#|
+||Field | Description ||
+|| asnRanges[] | **string** (int64)
+
+List of ASN values to match against. OR semantics implied.
+
+The maximum number of elements is 10000. Acceptable values are 0 to 4294967295, inclusive. ||
+|#
+
+## CookieMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.CookieMatcher}
+
+CookieMatcher object.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the cookie parametr.
+
+The string length in characters must be 1-255. ||
+|| value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+Required field. Value of the cookie parametr. ||
+|#
+
+## BotCategoryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotCategoryMatcher}
+
+BotCategoryMatcher object. AND semantics implied.
+
+#|
+||Field | Description ||
+|| botCategoryListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot category lists to match with. ||
+|| botCategoryListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot category lists to not match with. ||
+|#
+
+## BotNameMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotNameMatcher}
+
+BotNameMatcher object. AND semantics implied.
+
+#|
+||Field | Description ||
+|| botNameListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot name lists to match with. ||
+|| botNameListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot name lists to not match with. ||
+|#
+
+## BotScoreMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotScoreMatcher}
+
+BotScoreMatcher object.
+
+#|
+||Field | Description ||
+|| value[] | **[IntMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntMatcher)**
+
+List of integer matchers for bot score. OR semantics implied.
+
+The maximum number of elements is 4. ||
+|#
+
+## IntMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntMatcher}
+
+IntMatcher object.
+
+#|
+||Field | Description ||
+|| leMatch | **[IntLEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntLEMatcher)**
+
+Less than or equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| geMatch | **[IntGEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntGEMatcher)**
+
+Greater than or equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| eqMatch | **[IntEQMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntEQMatcher)**
+
+Equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| neMatch | **[IntNEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntNEMatcher)**
+
+Not equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|#
+
+## IntLEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntLEMatcher}
+
+IntLEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Upper bound value (inclusive). ||
+|#
+
+## IntGEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntGEMatcher}
+
+IntGEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Lower bound value (inclusive). ||
+|#
+
+## IntEQMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntEQMatcher}
+
+IntEQMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Value to match against. ||
+|#
+
+## IntNEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntNEMatcher}
+
+IntNEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Value to not match against. ||
+|#
+
+## VerifiedBotMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.VerifiedBotMatcher}
+
+VerifiedBotMatcher object.
+
+#|
+||Field | Description ||
+|| verified | **[BoolMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BoolMatcher)**
+
+Matches if the bot is verified or not. ||
+|#
+
+## BoolMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BoolMatcher}
+
+BoolMatcher object.
+
+#|
+||Field | Description ||
+|| match | **boolean**
+
+Boolean value to match against. ||
+|#
+
+## FingerPrintMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.FingerPrintMatcher}
+
+FingerPrintMatcher object.
+
+#|
+||Field | Description ||
+|| ja3Ranges[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+List of JA3 fingerprint matchers. OR semantics implied.
+
+The maximum number of elements is 20. ||
+|| ja4Ranges[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+List of JA4 fingerprint matchers. OR semantics implied.
+
+The maximum number of elements is 20. ||
+|| ja3Matcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+JA3 fingerprint matcher. ||
+|| ja4Matcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+JA4 fingerprint matcher. ||
+|#
+
 ## SmartProtection {#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection}
 
 SmartProtection object.
@@ -1050,7 +2998,7 @@ SmartProtection object.
 ||Field | Description ||
 || mode | **enum** (Mode)
 
-Mode of protection.
+Required field. Mode of protection.
 
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
@@ -1069,7 +3017,7 @@ Waf object.
 ||Field | Description ||
 || mode | **enum** (Mode)
 
-Mode of protection.
+Required field. Mode of protection.
 
 - `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
 with suspicious requests being sent to SmartCaptcha.
@@ -1092,7 +3040,7 @@ Required field. ID of WAF profile to use in this rule. ||
 Maximum size of body to pass to analyzer. In kilobytes. ||
 || sizeLimitAction | **enum** (Action)
 
-Action to perform if maximum size of body exceeded.
+Required field. Action to perform if maximum size of body exceeded.
 
 - `IGNORE`: Ignore body.
 - `DENY`: Deny request. ||
@@ -1110,9 +3058,7 @@ Action to perform if maximum size of body exceeded.
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "securityProfileId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -1121,324 +3067,7 @@ Action to perform if maximum size of body exceeded.
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "labels": "object",
-    "name": "string",
-    "description": "string",
-    "defaultAction": "string",
-    "securityRules": [
-      {
-        "name": "string",
-        "priority": "string",
-        "dryRun": "boolean",
-        // Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`
-        "ruleCondition": {
-          "action": "string",
-          "condition": {
-            "authority": {
-              "authorities": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "httpMethod": {
-              "httpMethods": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "requestUri": {
-              "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              },
-              "queries": [
-                {
-                  "key": "string",
-                  "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
-                    // end of the list of possible fields
-                  }
-                }
-              ]
-            },
-            "headers": [
-              {
-                "name": "string",
-                "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              }
-            ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "ipRangesNotMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "geoIpMatch": {
-                "locations": [
-                  "string"
-                ]
-              },
-              "geoIpNotMatch": {
-                "locations": [
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "smartProtection": {
-          "mode": "string",
-          "condition": {
-            "authority": {
-              "authorities": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "httpMethod": {
-              "httpMethods": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "requestUri": {
-              "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              },
-              "queries": [
-                {
-                  "key": "string",
-                  "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
-                    // end of the list of possible fields
-                  }
-                }
-              ]
-            },
-            "headers": [
-              {
-                "name": "string",
-                "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              }
-            ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "ipRangesNotMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "geoIpMatch": {
-                "locations": [
-                  "string"
-                ]
-              },
-              "geoIpNotMatch": {
-                "locations": [
-                  "string"
-                ]
-              }
-            }
-          }
-        },
-        "waf": {
-          "mode": "string",
-          "condition": {
-            "authority": {
-              "authorities": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "httpMethod": {
-              "httpMethods": [
-                {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              ]
-            },
-            "requestUri": {
-              "path": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              },
-              "queries": [
-                {
-                  "key": "string",
-                  "value": {
-                    // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                    "exactMatch": "string",
-                    "exactNotMatch": "string",
-                    "prefixMatch": "string",
-                    "prefixNotMatch": "string",
-                    "pireRegexMatch": "string",
-                    "pireRegexNotMatch": "string"
-                    // end of the list of possible fields
-                  }
-                }
-              ]
-            },
-            "headers": [
-              {
-                "name": "string",
-                "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              }
-            ],
-            "sourceIp": {
-              "ipRangesMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "ipRangesNotMatch": {
-                "ipRanges": [
-                  "string"
-                ]
-              },
-              "geoIpMatch": {
-                "locations": [
-                  "string"
-                ]
-              },
-              "geoIpNotMatch": {
-                "locations": [
-                  "string"
-                ]
-              }
-            }
-          },
-          "wafProfileId": "string"
-        },
-        // end of the list of possible fields
-        "description": "string"
-      }
-    ],
-    "createdAt": "string",
-    "cloudId": "string",
-    "captchaId": "string",
-    "advancedRateLimiterProfileId": "string",
-    "analyzeRequestBody": {
-      "sizeLimit": "string",
-      "sizeLimitAction": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -1480,7 +3109,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateSecurityProfileMetadata](#yandex.cloud.smartwebsecurity.v1.UpdateSecurityProfileMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -1495,7 +3124,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[SecurityProfile](#yandex.cloud.smartwebsecurity.v1.SecurityProfile)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -1510,15 +3139,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateSecurityProfileMetadata {#yandex.cloud.smartwebsecurity.v1.UpdateSecurityProfileMetadata}
-
-#|
-||Field | Description ||
-|| securityProfileId | **string**
-
-ID of the SecurityProfile resource that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -1536,360 +3156,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## SecurityProfile {#yandex.cloud.smartwebsecurity.v1.SecurityProfile}
-
-A SecurityProfile resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the security profile. ||
-|| folderId | **string**
-
-ID of the folder that the security profile belongs to. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Labels as `` key:value `` pairs. Maximum of 64 per resource.
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
-|| name | **string**
-
-Required field. Name of the security profile. The name is unique within the folder. 1-50 characters long.
-
-The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
-|| description | **string**
-
-Optional description of the security profile.
-
-The maximum string length in characters is 512. ||
-|| defaultAction | **enum** (DefaultAction)
-
-Required field. Action to perform if none of rules matched.
-
-- `ALLOW`: Pass request to service.
-- `DENY`: Deny request. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartwebsecurity.v1.SecurityRule2)**
-
-List of security rules. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| cloudId | **string**
-
-ID of the cloud that the security profile belongs to. ||
-|| captchaId | **string**
-
-Captcha ID to use with this security profile. Set empty to use default. ||
-|| advancedRateLimiterProfileId | **string**
-
-Advanced rate limiter profile ID to use with this security profile. Set empty to use default. ||
-|| analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2)**
-
-Parameters for request body analyzer. ||
-|#
-
-## SecurityRule {#yandex.cloud.smartwebsecurity.v1.SecurityRule2}
-
-A SecurityRule object, see [Rules](/docs/smartwebsecurity/concepts/rules).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of the rule. The name is unique within the security profile. 1-50 characters long.
-
-The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
-|| priority | **string** (int64)
-
-Determines the priority for checking the incoming traffic.
-Enter an integer within the range of 1 and 999999.
-The rule priority must be unique within the entire security profile.
-A lower numeric value means a higher priority.
-The default_action has the lowest priority.
-
-Acceptable values are 1 to 999999, inclusive. ||
-|| dryRun | **boolean**
-
-This mode allows you to test your security profile or a single rule.
-For example, you can have the number of alarms for a specific rule displayed.
-Note: if this option is true, no real action affecting your traffic regarding this rule will be taken. ||
-|| ruleCondition | **[RuleCondition](#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition2)**
-
-Rule actions, see [Rule actions](/docs/smartwebsecurity/concepts/rules#rule-action).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| smartProtection | **[SmartProtection](#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection2)**
-
-Smart Protection rule, see [Smart Protection rules](/docs/smartwebsecurity/concepts/rules#smart-protection-rules).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| waf | **[Waf](#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf2)**
-
-Web Application Firewall (WAF) rule, see [WAF rules](/docs/smartwebsecurity/concepts/rules#waf-rules).
-
-Includes only one of the fields `ruleCondition`, `smartProtection`, `waf`. ||
-|| description | **string**
-
-Optional description of the rule. 0-512 characters long.
-
-The maximum string length in characters is 512. ||
-|#
-
-## RuleCondition {#yandex.cloud.smartwebsecurity.v1.SecurityRule.RuleCondition2}
-
-RuleCondition object.
-
-#|
-||Field | Description ||
-|| action | **enum** (Action)
-
-Action to perform if this rule matched.
-
-- `ALLOW`: Pass request to service.
-- `DENY`: Deny request. ||
-|| condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
-
-The condition for matching the rule. ||
-|#
-
-## Condition {#yandex.cloud.smartwebsecurity.v1.Condition2}
-
-Condition object. AND semantics implied.
-See [documentation](/docs/smartwebsecurity/concepts/conditions) for matchers description.
-
-#|
-||Field | Description ||
-|| authority | **[AuthorityMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher2)**
-
-Match authority (Host header). ||
-|| httpMethod | **[HttpMethodMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2)**
-
-Match HTTP method. ||
-|| requestUri | **[RequestUriMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2)**
-
-Match Request URI. ||
-|| headers[] | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2)**
-
-Match HTTP headers.
-
-The maximum number of elements is 20. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2)**
-
-Match IP. ||
-|#
-
-## AuthorityMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher2}
-
-AuthorityMatcher object.
-
-#|
-||Field | Description ||
-|| authorities[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
-
-List of authorities. OR semantics implied.
-
-The maximum number of elements is 20. ||
-|#
-
-## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2}
-
-StringMatcher object.
-
-#|
-||Field | Description ||
-|| exactMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|#
-
-## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher2}
-
-HttpMethodMatcher object.
-
-#|
-||Field | Description ||
-|| httpMethods[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
-
-List of HTTP methods. OR semantics implied.
-
-The maximum number of elements is 20. ||
-|#
-
-## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher2}
-
-RequestUriMatcher object. AND semantics implied.
-
-#|
-||Field | Description ||
-|| path | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
-
-Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
-|| queries[] | **[QueryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2)**
-
-List of query matchers. AND semantics implied.
-
-The maximum number of elements is 20. ||
-|#
-
-## QueryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.QueryMatcher2}
-
-QueryMatcher object.
-
-#|
-||Field | Description ||
-|| key | **string**
-
-Required field. Key of the query parameter.
-
-The string length in characters must be 1-255. ||
-|| value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
-
-Required field. Value of the query parameter. ||
-|#
-
-## HeaderMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HeaderMatcher2}
-
-HeaderMatcher object.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of header (case insensitive).
-
-The string length in characters must be 1-255. ||
-|| value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher2)**
-
-Required field. Value of the header. ||
-|#
-
-## IpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher2}
-
-IpMatcher object. AND semantics implied.
-
-#|
-||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2)** ||
-|#
-
-## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher2}
-
-IpRangesMatcher object.
-
-#|
-||Field | Description ||
-|| ipRanges[] | **string**
-
-List of IP ranges. OR semantics implied.
-
-The maximum number of elements is 10000. ||
-|#
-
-## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher2}
-
-GeoIpMatcher object.
-
-#|
-||Field | Description ||
-|| locations[] | **string**
-
-ISO 3166-1 alpha 2. OR semantics implied.
-
-The minimum number of elements is 1. ||
-|#
-
-## SmartProtection {#yandex.cloud.smartwebsecurity.v1.SecurityRule.SmartProtection2}
-
-SmartProtection object.
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Mode of protection.
-
-- `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
-with suspicious requests being sent to SmartCaptcha.
-- `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
-requests to SmartCaptcha. The suspicious requests will be blocked. ||
-|| condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
-
-The condition for matching the rule. ||
-|#
-
-## Waf {#yandex.cloud.smartwebsecurity.v1.SecurityRule.Waf2}
-
-Waf object.
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Mode of protection.
-
-- `FULL`: Full protection means that the traffic will be checked based on ML models and behavioral analysis,
-with suspicious requests being sent to SmartCaptcha.
-- `API`: API protection means checking the traffic based on ML models and behavioral analysis without sending suspicious
-requests to SmartCaptcha. The suspicious requests will be blocked. ||
-|| condition | **[Condition](#yandex.cloud.smartwebsecurity.v1.Condition2)**
-
-The condition for matching the rule. ||
-|| wafProfileId | **string**
-
-Required field. ID of WAF profile to use in this rule. ||
-|#
-
-## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.SecurityProfile.AnalyzeRequestBody2}
-
-#|
-||Field | Description ||
-|| sizeLimit | **string** (int64)
-
-Maximum size of body to pass to analyzer. In kilobytes. ||
-|| sizeLimitAction | **enum** (Action)
-
-Action to perform if maximum size of body exceeded.
-
-- `IGNORE`: Ignore body.
-- `DENY`: Deny request. ||
 |#

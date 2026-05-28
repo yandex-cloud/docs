@@ -1,34 +1,14 @@
 ## Hardware requirements for STT and TTS servers {#hardware}
 
-Recommended hardware requirements for running {{ sk-hybrid-name }} containers estimated values of {{ sk-hybrid-name }} specifications are given for reference based on hardware using the NVIDIA 535 driver. The actual values may change after containers are updated and new features are added.
+Below are the recommended hardware requirements for running {{ sk-hybrid-name }} containers. The estimated values of {{ sk-hybrid-name }} specifications are given for reference for the hardware with the NVIDIA 535 driver. The actual values may change after containers are updated and new features arrive.
 
 The data in the tables is for the Russian language only, unless otherwise specified:
 
 {% list tabs group=gpu_type %}
 
-- Containers with GPU T4 {#t4}
+- Containers with the L4 GPU {#l4}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
-   |---|---|---|---|---|---|
-   | **Speech recognition** |
-   | Streaming recognition | 50 | 64 | 200 | 8 | 16 |
-   | Audio file recognition | 250 | 64 | 200 | 8 | 16 |
-   | **Speech synthesis** |
-   | Speech synthesis | 147 | 64 | 200 | 8 | 16 |
-
-- Containers with GPU V100 {#v100}
-
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
-   |---|---|---|---|---|---|
-   | **Speech recognition** |
-   | Streaming recognition | 110 | 64 | 200 | 8 | 16 |
-   | Audio file recognition | 500 | 64 | 200 | 8 | 16 |
-   | **Speech synthesis** |
-   | Speech synthesis | 105 | 64 | 200 | 8 | 16 |
-
-- Containers with GPU L4 {#l4}
-
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Logical cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 66 | 64 | 200 | 8 | 16 |
@@ -36,9 +16,9 @@ The data in the tables is for the Russian language only, unless otherwise specif
    | **Speech synthesis** |
    | Speech synthesis | 266 | 64 | 200 | 8 | 16 |
 
-- Containers with GPU A100 {#a100}
+- Containers with the A100 GPU {#a100}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Logical cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition | 245 | 64 | 200 | 14 | 28 |
@@ -46,9 +26,9 @@ The data in the tables is for the Russian language only, unless otherwise specif
    | **Speech synthesis** |
    | Speech synthesis | 581 | 64 | 200 | 14 | 28 |
 
-- Containers with GPU H100 PCI {#h100}
+- Containers with the H100 PCI GPU {#h100}
 
-   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Boolean cores <br>Intel Gold 6230R <br>per card, pcs |
+   | Operation mode | Guaranteed<br>SPS^1^ | RAM per card, <br>GB | HDD per card, <br>GB | Physical processor<br>cores<br>Intel Gold 6230R <br>per card, pcs | Logical cores <br>Intel Gold 6230R <br>per card, pcs |
    |---|---|---|---|---|---|
    | **Speech recognition** |
    | Streaming recognition, Russian | 385 | 64 | 200 | 8 | 16 |
@@ -74,8 +54,8 @@ The number of cards required for speech recognition or speech-to-text synthesis 
 
    Where:
 
-   * X is the percentage of conversation with recognition enabled. If interruptions need to be factored in, X = 1.
-   * Y is the number of concurrent calls.
+   * X: Conversation portion with recognition enabled. If you need to factor in interruptions, X = 1.
+   * Y: Number of concurrent calls.
 
 - Audio file recognition
 
@@ -83,8 +63,8 @@ The number of cards required for speech recognition or speech-to-text synthesis 
 
    Where:
 
-   * X is the duration of audio to recognize, in seconds.
-   * Y is the time required for audio recognition, in seconds.
+   * X: Duration of audio to recognize in seconds.
+   * Y: Time required for audio recognition in seconds.
 
 - Speech synthesis
 
@@ -92,8 +72,8 @@ The number of cards required for speech recognition or speech-to-text synthesis 
 
    Where:
 
-   * X is the expected number of requests per second.
-   * Y is the average request length in characters.
+   * X: Expected number of requests per second.
+   * Y: Average request length in characters.
 
 {% endlist %}
 

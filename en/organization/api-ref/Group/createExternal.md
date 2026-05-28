@@ -43,6 +43,7 @@ apiPlayground:
             **string**
             Required field. Id of the group from external system.
             Combination of subject_container_id and external_id must be unique
+            The maximum string length in characters is 1024.
           type: string
         makeEditor:
           description: |-
@@ -53,7 +54,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -128,7 +129,9 @@ The maximum string length in characters is 50. ||
 || externalId | **string**
 
 Required field. Id of the group from external system.
-Combination of subject_container_id and external_id must be unique ||
+Combination of subject_container_id and external_id must be unique
+
+The maximum string length in characters is 1024. ||
 || makeEditor | **boolean**
 
 If true, then creator of group will be assigned to role that allows modification of group as external group. ||
@@ -136,7 +139,7 @@ If true, then creator of group will be assigned to role that allows modification
 
 Resource labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -151,14 +154,7 @@ No more than 64 per resource. The maximum string length in characters for each v
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "groupId": "string",
-    "organizationId": "string",
-    "groupName": "string",
-    "subjectContainerId": "string",
-    "externalId": "string",
-    "makeEditor": "boolean"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -167,16 +163,7 @@ No more than 64 per resource. The maximum string length in characters for each v
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "organizationId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "subjectContainerId": "string",
-    "externalId": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -218,7 +205,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateExternalGroupMetadata](#yandex.cloud.organizationmanager.v1.CreateExternalGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -233,7 +220,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Group](#yandex.cloud.organizationmanager.v1.Group)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -248,30 +235,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateExternalGroupMetadata {#yandex.cloud.organizationmanager.v1.CreateExternalGroupMetadata}
-
-#|
-||Field | Description ||
-|| groupId | **string**
-
-ID of the group that is being created. ||
-|| organizationId | **string**
-
-ID of the organization that the group belongs to. ||
-|| groupName | **string**
-
-Name of the group. ||
-|| subjectContainerId | **string**
-
-Id of the subject container that created external group belongs to. ||
-|| externalId | **string**
-
-Id of the created group from external system. ||
-|| makeEditor | **boolean**
-
-If true, then creator of group was assigned to role that allows modification of group as external group. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -289,44 +252,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Group {#yandex.cloud.organizationmanager.v1.Group}
-
-A Group resource.
-For more information, see [Groups](/docs/organization/operations/manage-groups).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the group. ||
-|| organizationId | **string**
-
-ID of the organization that the group belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the group. ||
-|| description | **string**
-
-Description of the group. ||
-|| subjectContainerId | **string**
-
-Id of the subject container that external group belongs to. It is set if group is external. ||
-|| externalId | **string**
-
-Id of the group from external system. It is set if group is external. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
 |#

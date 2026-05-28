@@ -90,7 +90,8 @@ Required field. Name of the listener to remove from the application load balance
             },
             "allow_http10": "bool",
             // end of the list of possible fields
-            "rewrite_request_id": "bool"
+            "rewrite_request_id": "bool",
+            "preserve_http1_header_casing": "bool"
           },
           "redirects": {
             "http_to_https": "bool"
@@ -107,7 +108,8 @@ Required field. Name of the listener to remove from the application load balance
               },
               "allow_http10": "bool",
               // end of the list of possible fields
-              "rewrite_request_id": "bool"
+              "rewrite_request_id": "bool",
+              "preserve_http1_header_casing": "bool"
             },
             "stream_handler": {
               "backend_group_id": "string",
@@ -140,7 +142,8 @@ Required field. Name of the listener to remove from the application load balance
                   },
                   "allow_http10": "bool",
                   // end of the list of possible fields
-                  "rewrite_request_id": "bool"
+                  "rewrite_request_id": "bool",
+                  "preserve_http1_header_casing": "bool"
                 },
                 "stream_handler": {
                   "backend_group_id": "string",
@@ -545,6 +548,10 @@ negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Prot
 || rewrite_request_id | **bool**
 
 When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
+|| preserve_http1_header_casing | **bool**
+
+When enabled, preserves the original casing of HTTP/1.1 header names (e.g. "CONTENT-Type" -> "CONTENT-Type").
+Has no effect on HTTP/2 connections where headers are always lowercase per RFC 7540. ||
 |#
 
 ## Http2Options {#yandex.cloud.apploadbalancer.v1.Http2Options}

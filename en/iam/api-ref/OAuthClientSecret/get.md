@@ -24,7 +24,6 @@ apiPlayground:
 # Identity and Access Management API, REST: OAuthClientSecret.Get
 
 Returns the sepcified OAuthClientSecret resource.
-
 To get the list of available OAuthClientSecret resources, make a [List](/docs/iam/api-ref/OAuthClientSecret/list#List) request.
 
 ## HTTP request

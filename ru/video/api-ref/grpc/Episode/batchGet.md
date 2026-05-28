@@ -33,7 +33,7 @@ The maximum string length in characters is 50. ||
 
 List of episode IDs to retrieve.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 |#
 
 ## BatchGetEpisodesResponse {#yandex.cloud.video.v1.BatchGetEpisodesResponse}
@@ -109,7 +109,6 @@ Timestamp marking the end of the episode content. ||
 
 Controls the Digital Video Recording (DVR) functionality for the episode.
 Determines how many seconds of the stream are available for time-shifted viewing.
-
 Possible values:
 * `0`: Infinite DVR size, the full length of the stream is available for viewing.
 * `>0`: Size of DVR window in seconds, the minimum value is 30s. ||

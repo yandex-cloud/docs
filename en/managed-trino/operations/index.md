@@ -15,6 +15,7 @@ description: In this article, you will learn how to work with {{ mtr-full-name }
 * [Connecting to a cluster](connect.md)
 * [Managing cluster access](cluster-access.md)
 * [Maintenance](cluster-maintenance.md)
+* [Managing resource groups](manage-resource-groups.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## {{ TR }} catalogs {#catalogs}

@@ -44,7 +44,7 @@ The maximum string length in characters is 256. ||
 
 Scopes of the API key.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 256. ||
+The maximum string length in characters for each value is 256. The number of elements must be in the range 1-100. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp, if not specified, then the API key doesn't expire ||
@@ -60,24 +60,10 @@ API key expiration timestamp, if not specified, then the API key doesn't expire 
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "api_key_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "service_account_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "description": "string",
-    "last_used_at": "google.protobuf.Timestamp",
-    "scope": "string",
-    "scopes": [
-      "string"
-    ],
-    "expires_at": "google.protobuf.Timestamp",
-    "masked_secret": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -105,7 +91,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateApiKeyMetadata](#yandex.cloud.iam.v1.UpdateApiKeyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -120,7 +106,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ApiKey](#yandex.cloud.iam.v1.ApiKey)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -135,45 +121,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateApiKeyMetadata {#yandex.cloud.iam.v1.UpdateApiKeyMetadata}
-
-#|
-||Field | Description ||
-|| api_key_id | **string**
-
-ID of the ApiKey resource that is being updated. ||
-|#
-
-## ApiKey {#yandex.cloud.iam.v1.ApiKey}
-
-An ApiKey resource. For more information, see [Api-Key](/docs/iam/concepts/authorization/api-key).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the API Key. ||
-|| service_account_id | **string**
-
-ID of the service account that the API key belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| description | **string**
-
-Description of the API key. 0-256 characters long. ||
-|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp for the last authentication using this API key. ||
-|| scopes[] | **string**
-
-Scopes of the API key. 0-256 characters long. ||
-|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-API key expiration timestamp. ||
-|| masked_secret | **string**
-
-Masked value of the API key's secret part: `\*{4}[a-zA-Z0-9_]{6}` ||
 |#

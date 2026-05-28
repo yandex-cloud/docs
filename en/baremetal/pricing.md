@@ -319,7 +319,7 @@ The final cost of a custom configuration depends on the server components you se
 
 <MDX>
   <PriceList
-    serviceIds={['{{ pcs|baremetal }}']}
+    serviceIds={['{{ pcs|baremetal_custom }}']}
     skuIds={[
       '{{ pc|baremetal.component.bms-4-body.1-month }}',
       '{{ pc|baremetal.component.bms-4-body.6-month }}',

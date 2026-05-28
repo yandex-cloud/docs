@@ -1,14 +1,14 @@
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. In the ![image](../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, select the broadcast you need.
   1. In the stream settings window that opens, copy the following field values:
 
-      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**
       * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**
+      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
 - API {#api}
 

@@ -5,7 +5,7 @@ description: 'Лимиты и квоты {{ traces-name }}: хранение, з
 
 # Ограничения
 
-## Лимиты {#traces-limits}
+В {{ traces-name }} действуют [настраиваемые квоты](../concepts/limits.md) и лимиты, которые нельзя изменить.
 
 {% include [limits-traces.md](../../_includes/monium/limits-traces.md) %}
 

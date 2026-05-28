@@ -1,3 +1,9 @@
+---
+title: Концепции {{ quota-manager-name }}
+description: В этой статье вы узнаете о концепциях {{ quota-manager-name }}.
+---
+
+
 # Концепции {{ quota-manager-name }}
 
 {% include [preview-quota](../../_includes/quota-manager/preview-quota.md) %}

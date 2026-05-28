@@ -1,0 +1,1 @@
+Connecting the Kazakhstan region is only available to organization owners, i.e., users with the `organization-manager.organizations.owner` role.

@@ -1,3 +1,8 @@
+---
+title: Эскалации
+description: Политика эскалаций в {{ monitoring-short-name }} — последовательность уведомлений, которую можно запустить при переходе алерта в статус Alarm.
+---
+
 # Эскалации
 
 {% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}

@@ -1,6 +1,6 @@
 ---
 title: '{{ lockbox-full-name }} use cases'
-description: Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ lockbox-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ lockbox-name }} tutorials
@@ -13,6 +13,6 @@ description: Various {{ lockbox-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](websocket-app.md)
 * [{#T}](bucket-to-bucket-copying.md)
 * [{#T}](nodejs-cron-restart-vm.md)
-* [{#T}](secure-password-script.md)
+* [{#T}](secure-password-script/index.md)
 * [{#T}](data-transfer-direct-to-mch.md)
 * [{#T}](job-pyspark-secret-access.md)

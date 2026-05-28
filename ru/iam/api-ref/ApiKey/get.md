@@ -24,7 +24,6 @@ apiPlayground:
 # Identity and Access Management API, REST: ApiKey.Get
 
 Returns the specified API key.
-
 To get the list of available API keys, make a [List](/docs/iam/api-ref/ApiKey/list#List) request.
 
 ## HTTP request

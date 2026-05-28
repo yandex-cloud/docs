@@ -5,7 +5,6 @@ editable: false
 # Federation, gRPC: FederationService.Get
 
 Returns the specified OIDC workload identity federation.
-
 To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload/oidc/workload-identity/api-ref/grpc/Federation/list#List) request.
 
 ## gRPC request

@@ -319,7 +319,7 @@ default:
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
-  link-docs-ai: https://aistudio.yandex.ru/docs/ru/
+  link-docs-ai: https://aistudio.yandex.ru/docs/en/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
@@ -980,6 +980,7 @@ default:
   pcs|api-gateway: dn25mc2lq81eqg1ohe4i
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -5278,13 +5279,11 @@ default:
         section_wigets-settings: Widget settings
         title_presets: Player template
       stream-lines:
-        action_create-line: Create a line
         label_input-stream-protocol: Stream input protocol
         label_input-stream-type: Stream type
         label_server-address: Server address
         label_stream-key: Broadcast key
         label_url: Server address
-        title_lines: Lines
       streams:
         action_add-stream-episode: Add an episode
         action_copy-code: Copy
@@ -5305,9 +5304,6 @@ default:
         label_start-broadcast-auto: automatically
         label_stream-episode-end: Episode end
         label_stream-episode-start: Episode start
-        label_stream-type: Stream type
-        label_type-on-demand: On demand
-        label_type-schedule: By schedule
         option_segment-duration-low: Low
         option_segment-duration-standart: Standard
         status_finished: Finished
@@ -5315,7 +5311,6 @@ default:
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
-        title_past-code: Embed in site
         title_stream-episodes: Episodes
         title_streams: Broadcasts
       thumbnails:

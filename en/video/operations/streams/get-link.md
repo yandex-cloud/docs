@@ -7,18 +7,18 @@ description: Follow this guide to get a {{ video-full-name }} embed code or link
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
   1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, select the broadcast you need.
-  1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, click **</> {{ ui-key.yacloud_video.streams.title_past-code }}**.
+  1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, select an episode.
 
-  1. Set the required playback parameters for the broadcast:
+  1. Specify the required playback settings for the broadcast episode:
 
       1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`
       1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`
-      1. `Display controls in the player`.
+      1. `{{ ui-key.yacloud_video.streams.label_episode-hidden }}`.
 
       {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
 

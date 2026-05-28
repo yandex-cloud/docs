@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [08.05.2026 — CVE-2026-43284 / CVE-2026-43500](../../_includes/security/security-bulletins/cve-2026-43284-cve-2026-43500-dirty-frag-copy-fail-2-linux.md) %}
+
 {% include [30.04.2026 — CVE-2026-31431](../../_includes/security/security-bulletins/cve-2026-31431-copy-fail-linux-distributions.md) %}
 
 {% include [25.12.2025 — CVE-2025-14847](../../_includes/security/security-bulletins/cve-2025-14847-storedoc-reading-uninitialized-memory-zlib.md) %}

@@ -5,7 +5,6 @@ editable: false
 # Resource Manager API, gRPC: FolderService.Get
 
 Returns the specified Folder resource.
-
 To get the list of available Folder resources, make a [List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 ## gRPC request

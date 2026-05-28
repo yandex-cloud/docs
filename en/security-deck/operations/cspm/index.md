@@ -6,5 +6,6 @@ description: This section contains a step-by-step guide on how to use {{ cspm-na
 # {{ cspm-full-name }} ({{ cspm-name }})
 
 * [{#T}](view-rules.md).
+* [{#T}](check-environment.md).
 * [{#T}](check-compliance.md).
 * [{#T}](manage-exceptions.md).

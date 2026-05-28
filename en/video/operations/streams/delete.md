@@ -7,11 +7,11 @@ description: Follow this guide to delete a {{ video-full-name }} broadcast.
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, in the row with the broadcast you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_delete }}**.
+  1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_video.common.action_delete }}** next to the broadcast.
   1. Click **{{ ui-key.yacloud_video.common.action_delete }}**.
 
 - API {#api}

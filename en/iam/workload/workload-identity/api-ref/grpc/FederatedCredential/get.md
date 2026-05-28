@@ -5,7 +5,6 @@ editable: false
 # Workload Identity, gRPC: FederatedCredentialService.Get
 
 Returns the specified federated credential.
-
 To get the list of available federated credentials, make a [List](/docs/iam/workload/workload-identity/api-ref/grpc/FederatedCredential/list#List) request.
 
 ## gRPC request

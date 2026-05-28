@@ -24,7 +24,6 @@ apiPlayground:
 # Cloud Desktop API, REST: Desktop.Get
 
 Returns the specified desktop resource.
-
 To get the list of available desktops, make a [List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 || desktopId | **string**
 
 Required field. ID of the desktop resource to return.
-
 To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -58,6 +56,8 @@ The maximum string length in characters is 50. ||
   "createdAt": "string",
   "status": "string",
   "name": "string",
+  "labels": "object",
+  "description": "string",
   "resources": {
     "memory": "string",
     "cores": "string",
@@ -74,8 +74,7 @@ The maximum string length in characters is 50. ||
       "subjectId": "string",
       "subjectType": "string"
     }
-  ],
-  "labels": "object"
+  ]
 }
 ```
 
@@ -120,14 +119,21 @@ Status of the desktop.
 || name | **string**
 
 Name of the desktop. ||
-|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
-
-Resources of the desktop. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
-|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the desktop. ||
+|| description | **string**
+
+Description of the desktop. ||
+|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
+
+Resources of the desktop. ||
+|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)**
+
+Network interfaces of the desktop. ||
+|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+
+Users of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
@@ -136,11 +142,19 @@ Labels of the desktop. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
+The amount of memory available to the desktop, specified in bytes.
+
 The minimum value is 1. ||
 || cores | **string** (int64)
 
+The number of cores available to the desktop.
+
 The minimum value is 1. ||
 || coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core.
+For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
 
 Acceptable values are 0 to 100, inclusive. ||
 |#
@@ -151,12 +165,12 @@ Acceptable values are 0 to 100, inclusive. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.
+Required field. ID of the network.
 
 The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.
+Required field. ID of the subnet.
 
 The maximum string length in characters is 50. ||
 |#

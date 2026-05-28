@@ -66,7 +66,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](./terraform-state-storage.md)
 * [{#T}](./terraform-state-lock.md)
 * [{#T}](./api-gw-integration.md)
-* [{#T}](./serverless-url-shortener.md)
+* [{#T}](./serverless-url-shortener/index.md)
 * [{#T}](./log-ingestion.md)
 * [{#T}](./alice-shareable-todolist.md)
 * [{#T}](./websocket-app.md)

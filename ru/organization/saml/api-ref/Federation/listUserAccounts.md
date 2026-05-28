@@ -46,7 +46,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
             `[a-z0-9A-Z/@_.\-=+*\\]+`.
-            The maximum string length in characters is 1010.
+            The string length in characters must be less than 1000.
           type: string
       additionalProperties: false
     body: null
@@ -102,7 +102,7 @@ The expression must specify:
 3. The value in double quotes (`"`). Must be 1-1000 characters long and match the regular expression
 `[a-z0-9A-Z/@_.\-=+*\\]+`.
 
-The maximum string length in characters is 1010. ||
+The string length in characters must be less than 1000. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.saml.ListFederatedUserAccountsResponse}

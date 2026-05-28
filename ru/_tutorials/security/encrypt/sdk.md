@@ -34,10 +34,10 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 
 ## Аутентификация {#auth}
 
-Аутентифицироваться можно с помощью: 
+Аутентифицироваться можно с помощью:
 * [сервисного аккаунта, привязанного к виртуальной машине {{ yandex-cloud }}](#vm);
 * [произвольного сервисного аккаунта](#sa);
-* [аккаунта на Яндексе](#yandex-acc).
+* [пользовательского аккаунта](#yandex-acc).
 
 ### Аутентификация с сервисным аккаунтом, привязанным к виртуальной машине {{ yandex-cloud }} {#vm}
 
@@ -90,30 +90,35 @@ SDK {{ yandex-cloud }} наиболее удобен для шифрования
 {% endlist %}
 
 
-### Аутентификация с аккаунтом на Яндексе {#yandex-acc}
+### Аутентификация с пользовательским аккаунтом {#yandex-acc}
 
-Переменная `token` — это ваш [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
+Пользовательским аккаунтом считается [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративный](../../../iam/concepts/users/accounts.md#saml-federation) и [локальный аккаунт](../../../iam/concepts/users/accounts.md#local).
+
+{% note warning %}
+
+Аутентификация с пользовательским аккаунтом может быть небезопасна. Рекомендуем использовать сервисный аккаунт.
+
+{% endnote %}
+
+Переменная `token` — это ваш [IAM-токен](../../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена читайте в документации [{{ iam-full-name }}](../../../iam/operations/iam-token/create.md).
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
 
-    Аутентифицируйтесь с аккаунтом на Яндексе:
-
     ```java
-    CredentialProvider credentialProvider = Auth.oauthTokenBuilder().build();
+    CredentialProvider credentialProvider = Auth.iamTokenBuilder()
+            .token(token)
+            .build();
     ```
 
 - Go {#go}
 
-    Аутентифицируйтесь с аккаунтом на Яндексе:
-
     ```Go
-    credentials := ycsdk.OAuthToken(token)
+    credentials := ycsdk.NewIAMTokenCredentials(token)
     ```
 
 {% endlist %}
-
 
 ## Шифрование и расшифрование данных {#enc-dec}
 

@@ -5,7 +5,7 @@ description: This page describes possible {{ video-player-name }} events to whic
 
 # Player events
 
-Using the [on and once](./player-methods.md#subscribe-methods) methods of JavaScript SDK, you can subscribe to [Cloud Video Player](../../concepts/player.md) events:
+Using the [on and once](./player-methods.md#subscribe-methods) methods of the JavaScript SDK, you can subscribe to [{{ video-player-name }}](../../concepts/player.md) events:
 
 #### SourceChange {#sourcechange}
 
@@ -21,7 +21,7 @@ player.on('SourceChange', ({ source }) => {
 });
 ```
 
-#### StatusChange {#StatusChange}
+#### StatusChange {#statuschange}
 
 Changing the [playback status](./player-state.md#state-status).
 
@@ -191,14 +191,28 @@ player.on('BufferedRangesChange', ({ bufferedRanges }) => {
 
 #### FullscreenStateChange {#fullscreenstatechange}
 
-Changing the fullscreen mode state. 
+Changing the fullscreen mode state.
 
-The handler in the `{ isFullscreen }` object receives a new [fullscreen mode state](./player-state.md#state-isFullscreen) value.
+The handler receives the `{ isFullscreen }` object containing the updated [fullscreen state](./player-state.md#state-isFullscreen) value.
 
 Here is an example:
 ```javascript
 player.on('FullscreenStateChange', ({ isFullscreen }) => {
     console.log(isFullscreen);
+});
+```
+
+#### TextTracksChange {#texttrackschange}
+
+Updating the list of available text tracks (captions).
+
+The handler receives the `{ textTracks }` object containing the new array of [available tracks](./player-state.md#state-textTracks).
+
+Example:
+
+```javascript
+player.on('TextTracksChange', ({ textTracks }) => {
+    console.log(textTracks);
 });
 ```
 

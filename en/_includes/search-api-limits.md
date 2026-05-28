@@ -13,6 +13,7 @@
 | Number of requests per second for image search by text description | 10 |
 | Number of requests per hour for image search by image | 36,000 |
 | Number of requests per second for image search by image | 10 |
+| **{{ wordstat-name }} features**| |
 | Number of requests per second for statistics | 10 |
 | Number of requests per hour for statistics | 100 |
 
@@ -29,3 +30,5 @@
 | Maximum number of websites per request | 5 |
 | Maximum number of hosts per request | 5 |
 | Maximum number of pages per request | 10 |
+| **{{ wordstat-name }} features**| |
+| Maximum number of associations to return | 20 |

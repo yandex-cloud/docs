@@ -50,4 +50,4 @@ If you delete a key or its parent resource (folder or cloud), this destroys the 
 * [{#T}](../tutorials/terraform-key.md)
 * [{#T}](../tutorials/terraform-secret.md)
 * [{#T}](../tutorials/vault-secret.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

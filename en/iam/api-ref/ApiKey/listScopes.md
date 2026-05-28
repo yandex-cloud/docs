@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://iam.{{ api-host }}/iam/v1/apiKeys/scopes
+  - url: https://iam.{{ api-host }}/iam/v1/apiKeyScopes
     method: get
     path: null
     query:
@@ -38,7 +38,7 @@ Retrieves the list of scopes.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/apiKeys/scopes
+GET https://iam.{{ api-host }}/iam/v1/apiKeyScopes
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListApiKeyScopesRequest}

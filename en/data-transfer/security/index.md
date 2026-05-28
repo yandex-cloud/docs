@@ -8,8 +8,8 @@ description: Access management in {{ data-transfer-full-name }}, a service for d
 
 In this section, you will learn about:
 
-* [Resources available for role assignment](#resources).
-* [Available service roles](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
@@ -18,11 +18,11 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources available for role assignment {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Available service roles {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 

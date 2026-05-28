@@ -24,7 +24,6 @@ apiPlayground:
 # Access Key, REST: AccessKey.Get
 
 Returns the specified access key.
-
 To get the list of available access keys, make a [List](/docs/iam/awscompatibility/api-ref/AccessKey/list#List) request.
 
 ## HTTP request

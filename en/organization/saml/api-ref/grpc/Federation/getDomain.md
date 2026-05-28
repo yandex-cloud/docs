@@ -5,7 +5,6 @@ editable: false
 # SAML Federation API, gRPC: FederationService.GetDomain
 
 Returns the specified domain in the federation.
-
 To get the list of available domains, make a [ListDomains](/docs/organization/saml/api-ref/grpc/Federation/listDomains#ListDomains) request.
 
 ## gRPC request

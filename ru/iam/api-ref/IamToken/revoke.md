@@ -12,6 +12,7 @@ apiPlayground:
           description: |-
             **string**
             Required field.
+            The maximum string length in characters is 4096.
           type: string
       required:
         - iamToken
@@ -41,7 +42,9 @@ POST https://iam.{{ api-host }}/iam/v1/tokens:revoke
 ||Field | Description ||
 || iamToken | **string**
 
-Required field. ||
+Required field.
+
+The maximum string length in characters is 4096. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.RevokeIamTokenResponse}

@@ -45,7 +45,7 @@ items:
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
               Analyzing sales and locations of pizzerias based on data from a {{
-              CH }} database and Marketplace
+              CH }} database and {{ datalens-short-name }} Gallery
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Geocoding with the Yandex Maps API for data visualization in {{
@@ -182,11 +182,11 @@ items:
             href: operations/connection/create-speechsense.md
       - name: Partner connections
         items:
-          - name: Creating a 1C Extractor connection
+          - name: Creating a connection to 1C Extractor
             href: operations/connection/create-extractor1c.md
           - name: Creating a Bitrix24 connection
             href: operations/connection/create-bitrix24.md
-          - name: Creating a Yandex Music podcast connection
+          - name: Creating a connection to Yandex Music podcasts
             href: operations/connection/create-podcasts.md
           - name: Offering a custom partner connector
             href: operations/marketplace/create-connector-for-partners.md
@@ -206,6 +206,8 @@ items:
         href: dataset/add-description.md
       - name: Source parameterization
         href: dataset/parametrization.md
+      - name: Cache invalidation
+        href: dataset/cache-invalidation.md
       - name: Data types
         href: dataset/data-types.md
       - name: Data type mapping
@@ -890,6 +892,8 @@ items:
             href: operations/dashboard/copying-widgets.md
           - name: Adding dashboard info
             href: operations/dashboard/add-description.md
+          - name: Adding a mailing list for a dashboard
+            href: operations/dashboard/add-maillists.md
           - name: Adding a message displayed when contacting support
             href: operations/dashboard/add-support-message.md
           - name: Adding an access error message

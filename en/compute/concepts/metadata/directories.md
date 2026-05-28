@@ -85,7 +85,7 @@ All data in the `user-data` metadata folder will be publicly available to any us
 
 ## Use cases {#examples}
 
-* [{#T}](../../tutorials/secure-password-script.md)
+* [{#T}](../../tutorials/secure-password-script/index.md)
 * [{#T}](../../tutorials/rds-gw.md)
 * [{#T}](../../../tutorials/security/gitlab-lockbox-integration.md)
 * [{#T}](../../../tutorials/archive/vm-with-backup-policy/index.md)

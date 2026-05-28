@@ -41,7 +41,6 @@ The maximum string length in characters is 50. ||
 || iam_token | **string**
 
 IAM token for the specified identity.
-
 You should pass the token in the `Authorization` header for any further API requests.
 For example, `Authorization: Bearer `iam_token``. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**

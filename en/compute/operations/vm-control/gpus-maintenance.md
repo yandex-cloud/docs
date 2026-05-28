@@ -5,8 +5,6 @@ description: Follow this guide to manage maintenance of GPU virtual machines in 
 
 # Managing maintenance of GPU VMs
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
 {{ compute-name }} performs occasional [maintenance](../../concepts/gpus-maintenance.md) of GPU VMs and notifies users of the scheduled date and time. You can view the list of maintenance [tasks](../../concepts/gpus-maintenance.md#tasks) scheduled for your VMs and reschedule them as needed.
 
 ## Viewing VM maintenance tasks
@@ -68,10 +66,10 @@ description: Follow this guide to manage maintenance of GPU virtual machines in 
 
           {% endnote %}
 
-      * `--filter`: Filter to apply to the task list you obtained. This is an optional parameter. By default, the command outputs the full list of maintenance tasks.
+      * `--filter`: Filter to apply to the task list you obtained. This is an optional setting. By default, the command outputs the full list of maintenance tasks.
       
-          You can filter the list by task status (`status`) or by VM ID (`resource_id`). For example: `--filter 'status = "SCHEDULED"'` or `--filter 'resource_id = "a7loutvf73vg********"'`.
-      * `sort_order`: Task list sorting order. This is an optional parameter. Possible values:
+          You can filter the list by task status (`status`) or by VM ID (`resource_id`), e.g., `--filter 'status = "SCHEDULED"'` or `--filter 'resource_id = "a7loutvf73vg********"'`.
+      * `sort_order`: Task list sorting order. This is an optional setting. Available values:
       
           * `created_at`: By the task creation time.
           * `start_scheduled_at`: By the scheduled time of the task.
@@ -214,7 +212,7 @@ You can instantly start a scheduled VM maintenance task.
   1. To instantly start a task, run the following command with the task ID you obtained in the previous step:
 
       ```bash
-      yc compute maintenance reschedule <task_ID> \
+      yc compute maintenance reschedule <job_ID> \
         --immediate
       ```
 

@@ -5,7 +5,7 @@ description: Various Windows use cases in {{ yandex-cloud }}. Deploying Active D
 
 # Tutorials for working with Windows in {{ yandex-cloud }}
 
-* [Secure password transmission to an initialization script](secure-password-script.md)
+* [Secure password transmission to an initialization script](secure-password-script/index.md)
 * [Deploying Active Directory](active-directory.md)
 * [Deploying Microsoft Exchange](exchange.md)
 * [Deploying Microsoft Remote Desktop Services](rds.md)

@@ -9,13 +9,14 @@ To add a thumbnail for a broadcast:
 
 {% list tabs group=instructions %}
 
-- {{ video-name }} interface {#console}
+- {{ video-name }} UI {#console}
 
   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
   1. Select a channel.
-  1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, in the row with the broadcast you need, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}**.
-  1. If the broadcast already has a thumbnail, delete it. To do this, hover over the thumbnail preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).
-  1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new image for your thumbnail.
+  1. In the ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** tab, select the broadcast you need.
+  1. Under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_video.common.action_edit }}** in the episode line.
+  1. If the episode already has a thumbnail, delete it. To do this, hover over the thumbnail preview and click ![image](../../../_assets/console-icons/circle-xmark.svg).
+  1. Click ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Select file** and select a new thumbnail image.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
 
@@ -25,8 +26,8 @@ To add a thumbnail for a broadcast:
 
   1. Getting started:
   
-      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) is in.
-      * [Get](../../api-ref/authentication.md) an IAM token required for authentication in the {{ video-name }} API.
+      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) belongs to.
+      * [Get](../../api-ref/authentication.md) an IAM token, which is required for authentication in the {{ video-name }} API.
       * To use the examples, install [cURL](https://curl.haxx.se).
   1. Get a list of {{ video-name }} channels in your organization:
 
@@ -38,13 +39,13 @@ To add a thumbnail for a broadcast:
 
       Save the `thumbnailId` value: you will need it later.
 
-  1. Get a link to upload the image to your thumbnail:
+  1. Get a thumbnail upload link:
 
       {% include [get-thumbnail-uplink-rest-command](../../../_includes/video/get-thumbnail-uplink-rest-command.md) %}
 
       {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
 
-  1. Upload the image file to the thumbnail:
+  1. Upload an image file to the thumbnail:
 
       {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
 
@@ -145,8 +146,8 @@ To add a thumbnail for a broadcast:
 
   1. Getting started:
   
-      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) is in.
-      * [Get](../../api-ref/authentication.md) an IAM token required for authentication in the {{ video-name }} API.
+      * [Get](../../../organization/operations/organization-get-id.md) the ID of the organization your {{ video-name }} [channel](../../concepts/index.md#channels) belongs to.
+      * [Get](../../api-ref/authentication.md) an IAM token, which is required for authentication in the {{ video-name }} API.
       * To use the examples, install [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl), and [jq](https://stedolan.github.io/jq).
   1. Get a list of {{ video-name }} channels in your organization:
 
@@ -158,13 +159,13 @@ To add a thumbnail for a broadcast:
 
       Save the `thumbnailId` value: you will need it later.
 
-  1. Get a link to upload the image to your thumbnail:
+  1. Get a thumbnail upload link:
 
       {% include [get-thumbnail-uplink-grpc-command](../../../_includes/video/get-thumbnail-uplink-grpc-command.md) %}
 
       {% include [get-thumbnail-uplink-api-output](../../../_includes/video/get-thumbnail-uplink-api-output.md) %}
 
-  1. Upload the image file to the thumbnail:
+  1. Upload an image file to the thumbnail:
 
       {% include [upload-thumbnail-curl](../../../_includes/video/upload-thumbnail-curl.md) %}
 

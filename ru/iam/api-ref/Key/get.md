@@ -35,7 +35,6 @@ apiPlayground:
 # Identity and Access Management API, REST: Key.Get
 
 Returns the specified Key resource.
-
 To get the list of available Key resources, make a [List](/docs/iam/api-ref/Key/list#List) request.
 
 ## HTTP request

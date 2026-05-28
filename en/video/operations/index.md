@@ -27,12 +27,6 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 * [{#T}](video/add-to-playlist.md)
 * [{#T}](video/delete.md)
 
-## Lines {#lines}
-
-* [{#T}](lines/create.md)
-* [{#T}](lines/update.md)
-* [{#T}](lines/delete.md)
-
 ## Broadcasts {#streams}
 
 * [{#T}](streams/create.md)
@@ -41,6 +35,7 @@ description: Step-by-step guides on how to use the streaming and video hosting s
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)
+* [{#T}](streams/revoke-access.md)
 * [{#T}](streams/add-to-playlist.md)
 * [{#T}](streams/delete.md)
 

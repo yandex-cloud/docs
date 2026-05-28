@@ -20,7 +20,55 @@
 
 ## Установка {#installation}
 
-Для установки s3fs воспользуйтесь [инструкцией](https://github.com/s3fs-fuse/s3fs-fuse#installation) в репозитории проекта.
+{% list tabs group=operating_system %}
+
+- Ubuntu/Debian {#ubuntu}
+
+  1. Проверьте, что в дистрибутиве установлены утилиты для работы с FUSE:
+
+     ```bash
+     apt list --installed | grep fuse
+     ```
+
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
+
+  1. Если утилиты для работы с FUSE не установлены, то выполните команду:
+
+     ```bash
+     sudo apt-get install fuse
+     ```
+  
+  1. Для установки s3fs воспользуйтесь [инструкцией](https://github.com/s3fs-fuse/s3fs-fuse#installation) в репозитории проекта.
+
+- CentOS/Fedora/Red Hat {#centos}
+
+  1. Проверьте, что в дистрибутиве установлены утилиты для работы с FUSE:
+
+     ```bash
+     dnf list installed | grep fuse
+     ```
+
+     {% include [fuse-warning](../../_includes/storage/fuse-warning.md) %}
+
+  1. Если утилиты для работы с FUSE не установлены, то выполните команду:
+
+     ```bash
+     sudo dnf install fuse
+     ```
+  
+  1. Для установки s3fs воспользуйтесь [инструкцией](https://github.com/s3fs-fuse/s3fs-fuse#installation) в репозитории проекта.
+
+- macOS {#macos}
+
+  1. Установите пакет [macFUSE](https://osxfuse.github.io/).
+  1. [Включите](https://github.com/macfuse/macfuse/wiki/Getting-Started#enabling-support-for-third-party-kernel-extensions-apple-silicon-macs) поддержку сторонних расширений ядра. Этот шаг необходим только при первом использовании MacFUSE на Apple Silicon Mac.
+  1. [Разрешите](https://github.com/macfuse/macfuse/wiki/Getting-Started#allow-the-macfuse-kernel-extension-to-load-apple-silicon-and-intel-macs) загрузку расширения ядра MacFUSE (Apple Silicon и Intel Mac).
+
+      Подробнее об установке macFUSE см. в [инструкции по установке](https://github.com/osxfuse/osxfuse/wiki/FAQ#2-installuninstall-questions) в репозитории macFUSE на GitHub.
+  
+  1. Для установки s3fs воспользуйтесь [инструкцией](https://github.com/s3fs-fuse/s3fs-fuse#installation) в репозитории проекта.
+
+   {% endlist %}
 
 ## Настройка {#setup}
 

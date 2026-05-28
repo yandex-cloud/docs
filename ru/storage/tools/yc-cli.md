@@ -14,7 +14,7 @@
 
 - Аккаунт на Яндексе {#yandex-account}
 
-  {% include [create-profile](../../_includes/cli/create-profile.md) %}
+  {% include [include](../../_includes/cli/passport-profile-create.md) %}
 
 - Федеративный аккаунт {#federated-account}
 
@@ -23,6 +23,10 @@
 - Сервисный аккаунт {#service-account}
 
   {% include [auth-as-sa](../../_includes/cli/auth-as-sa.md) %}
+
+- Аккаунт локального пользователя {#local-account}
+
+  {% include [auth-local-user](../../_includes/cli/auth-local-user.md) %}
 
 {% endlist %}
 

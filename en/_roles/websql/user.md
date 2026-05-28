@@ -1,4 +1,5 @@
-The `websql.user` role enables viewing info on the published queries within WebSQL, as well as create, modify, and delete such queries.
+
+The `websql.user` role enables viewing info on the published queries within {{ websql-name }}, as well as create, modify, and delete such queries.
 
 Users with this role can:
 * View info on the published saved queries and [access permissions](../../iam/concepts/access-control/index.md) assigned to them.

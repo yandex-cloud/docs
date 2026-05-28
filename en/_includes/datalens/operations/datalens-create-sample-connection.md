@@ -14,7 +14,7 @@
    1. In the window that opens, specify the connection parameters:
 
       * Connection type: **Specify manually**.
-      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
+      * Host name: `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`.
       * HTTP interface port: `8443` (default).
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.

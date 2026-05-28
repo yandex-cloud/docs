@@ -53,14 +53,6 @@ items:
             href: operations/video/get-statistics.md
           - name: Deleting a video
             href: operations/video/delete.md
-      - name: Lines
-        items:
-          - name: Creating a line
-            href: operations/lines/create.md
-          - name: Editing a line
-            href: operations/lines/update.md
-          - name: Deleting a line
-            href: operations/lines/delete.md
       - name: Broadcasts
         items:
           - name: Creating a broadcast
@@ -77,6 +69,8 @@ items:
             href: operations/streams/start.md
           - name: Getting an embed code or link
             href: operations/streams/get-link.md
+          - name: Revoking access to a broadcast
+            href: operations/streams/revoke-access.md
           - name: Adding a completed broadcast to a playlist
             href: operations/streams/add-to-playlist.md
           - name: Deleting a broadcast
@@ -147,7 +141,47 @@ items:
               - name: Player events
                 href: sdk/iframe/player-events.md
           - name: iOS
-            href: sdk/ios-sdk.md
+            items:
+              - name: Getting started
+                href: sdk/ios-sdk.md
+              - name: CloudVideoPlayer
+                items:
+                  - href: sdk/CloudVideoPlayerSDK/Environment.md
+                    name: Environment
+                  - href: sdk/CloudVideoPlayerSDK/PictureInPictureController.md
+                    name: PictureInPictureController
+                  - href: sdk/CloudVideoPlayerSDK/VideoSurface.md
+                    name: VideoSurface
+                  - href: sdk/CloudVideoPlayerSDK/YaPlayer.md
+                    name: YaPlayer
+                  - items:
+                      - href: sdk/CloudVideoPlayerSDK/PlayerError.md
+                        name: PlayerError
+                      - href: sdk/CloudVideoPlayerSDK/Configuration.md
+                        name: Configuration
+                      - href: sdk/CloudVideoPlayerSDK/ClientUserId.md
+                        name: ClientUserId
+                      - href: sdk/CloudVideoPlayerSDK/ContentIdEndpoint.md
+                        name: ContentIdEndpoint
+                      - href: sdk/CloudVideoPlayerSDK/From.md
+                        name: From
+                      - href: sdk/CloudVideoPlayerSDK/PlaybackConfig.md
+                        name: PlaybackConfig
+                      - href: sdk/CloudVideoPlayerSDK/PlaybackSpeed.md
+                        name: PlaybackSpeed
+                      - href: sdk/CloudVideoPlayerSDK/PlayerStatus.md
+                        name: PlayerStatus
+                      - href: sdk/CloudVideoPlayerSDK/QuasiEndpoint.md
+                        name: QuasiEndpoint
+                      - href: sdk/CloudVideoPlayerSDK/Time.md
+                        name: Time
+                      - href: sdk/CloudVideoPlayerSDK/VideoType.md
+                        name: VideoType
+                    name: Structs
+              - name: CloudVideoPlayerUI
+                items:
+                  - href: sdk/CloudVideoPlayerSDKUI/VideoView.md
+                    name: VideoView
           - name: JavaScript
             items:
               - name: Getting started
@@ -392,6 +426,10 @@ items:
                 href: api-ref/grpc/Video/getManifests.md
               - name: GenerateDownloadURL
                 href: api-ref/grpc/Video/generateDownloadURL.md
+              - name: GetScreenshots
+                href: api-ref/grpc/Video/getScreenshots.md
+              - name: BatchGetScreenshots
+                href: api-ref/grpc/Video/batchGetScreenshots.md
       - name: REST
         items:
           - name: Overview
@@ -584,6 +622,10 @@ items:
                 href: api-ref/Video/getManifests.md
               - name: GenerateDownloadURL
                 href: api-ref/Video/generateDownloadURL.md
+              - name: GetScreenshots
+                href: api-ref/Video/getScreenshots.md
+              - name: BatchGetScreenshots
+                href: api-ref/Video/batchGetScreenshots.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

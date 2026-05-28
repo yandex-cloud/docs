@@ -26,4 +26,6 @@ and generating playback URLs.
 || [BatchGetPlayerURLs](batchGetPlayerURLs.md) | Generates multiple player URLs for a list of videos in a specific channel in a single request. ||
 || [GetManifests](getManifests.md) | Retrieves the manifest URLs for a specific video. ||
 || [GenerateDownloadURL](generateDownloadURL.md) | Generates a URL for downloading the original video file. ||
+|| [GetScreenshots](getScreenshots.md) | Retrieves screenshots taken during the video transcoding process. ||
+|| [BatchGetScreenshots](batchGetScreenshots.md) | Retrieves screenshots taken during the video transcoding process for a list of videos. ||
 |#

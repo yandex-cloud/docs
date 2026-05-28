@@ -45,4 +45,4 @@ To use the HSM, select the `AES-256 HSM` algorithm type when creating a symmetri
 
 * [{#T}](../tutorials/terraform-key.md)
 * [{#T}](../tutorials/vault-secret.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

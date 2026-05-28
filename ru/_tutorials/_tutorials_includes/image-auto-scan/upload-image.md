@@ -37,13 +37,15 @@
 
    - OAuth-токена {#oauth-token}
 
+     {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
      1. Если у вас еще нет [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке]({{ link-cloud-oauth }}).
      1. Выполните команду:
 
         ```bash
         echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
-
+ 
         Результат:
 
         ```text

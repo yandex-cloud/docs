@@ -3,7 +3,13 @@ title: How to add a controlled organization in {{ org-full-name }}
 description: In this tutorial, you will learn how to link a new region to an organization in {{ org-full-name }}.
 ---
 
-# Connecting a controlled organization
+# Creating a controlled organization
+
+{% note info %}
+
+{% include [kz-region-role](../../_includes/organization/kz-region-role.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

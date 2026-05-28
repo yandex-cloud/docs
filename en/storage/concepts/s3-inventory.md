@@ -52,6 +52,8 @@ To write reports to a target bucket with an [access policy](./policy.md) configu
 
 ## Export configuration and metadata types {#config}
 
+{% include [s3-inventory-cli-version.md](../../_includes/storage/s3-inventory-cli-version.md) %}
+
 You can [create an export configuration](../operations/buckets/manage-s3-inventory.md#create-inventory) using the {{ yandex-cloud }} CLI or {{ yandex-cloud }} API. The configuration includes the following parameters:
 
 * Configuration name.

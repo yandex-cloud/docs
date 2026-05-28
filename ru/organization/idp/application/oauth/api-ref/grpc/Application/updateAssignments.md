@@ -86,21 +86,10 @@ The maximum string length in characters is 100. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "application_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "assignment_deltas": [
-      {
-        "action": "AssignmentAction",
-        "assignment": {
-          "subject_id": "string"
-        }
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -128,7 +117,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateAssignmentsMetadata](#yandex.cloud.organizationmanager.v1.idp.application.oauth.UpdateAssignmentsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -143,7 +132,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UpdateAssignmentsResponse](#yandex.cloud.organizationmanager.v1.idp.application.oauth.UpdateAssignmentsResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -158,59 +147,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateAssignmentsMetadata {#yandex.cloud.organizationmanager.v1.idp.application.oauth.UpdateAssignmentsMetadata}
-
-Metadata for the [ApplicationService.UpdateAssignments](#UpdateAssignments) operation.
-
-#|
-||Field | Description ||
-|| application_id | **string**
-
-ID of the OAuth application that is being updated. ||
-|#
-
-## UpdateAssignmentsResponse {#yandex.cloud.organizationmanager.v1.idp.application.oauth.UpdateAssignmentsResponse}
-
-Response message of the operation for the [ApplicationService.UpdateAssignments](#UpdateAssignments).
-
-#|
-||Field | Description ||
-|| assignment_deltas[] | **[AssignmentDelta](#yandex.cloud.organizationmanager.v1.idp.application.oauth.AssignmentDelta2)**
-
-List of applied assignment deltas on the OAuth application ||
-|#
-
-## AssignmentDelta {#yandex.cloud.organizationmanager.v1.idp.application.oauth.AssignmentDelta2}
-
-A delta of the
-
-#|
-||Field | Description ||
-|| action | enum **AssignmentAction**
-
-Required field. The action that is being performed on an assignment.
-
-- `ADD`: Add action
-- `REMOVE`: Remove action ||
-|| assignment | **[Assignment](#yandex.cloud.organizationmanager.v1.idp.application.oauth.Assignment2)**
-
-Required field. An assignment for the OAuth application. ||
-|#
-
-## Assignment {#yandex.cloud.organizationmanager.v1.idp.application.oauth.Assignment2}
-
-An assignment for the OAuth application
-
-#|
-||Field | Description ||
-|| subject_id | **string**
-
-Required field. ID of the subject to be assigned to the OAuth application.
-Supported subject categories: UserAccount, ServiceAccount, Group, MetaGroup, PublicGroup.
-In case subject ID is ID of the group,
-then such group becomes visible to the users of OAuth application in case [GroupDistributionType](/docs/organization/idp/application/oauth/mapi-ref/grpc/Application/get#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupDistributionType) has value ASSIGNED_GROUPS.
-
-The maximum string length in characters is 100. ||
 |#

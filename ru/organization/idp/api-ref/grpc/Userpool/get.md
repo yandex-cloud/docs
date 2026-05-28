@@ -5,7 +5,6 @@ editable: false
 # Identity Provider API, gRPC: UserpoolService.Get
 
 Returns the specified userpool.
-
 To get the list of available userpools, make a [List](/docs/organization/idp/api-ref/grpc/Userpool/list#List) request.
 
 ## gRPC request

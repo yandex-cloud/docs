@@ -1,3 +1,8 @@
+---
+title: Терминирование TLS-соединений с помощью {{ alb-full-name }}
+description: В этом руководстве вы настроите балансировщик {{ alb-full-name }}, чтобы он терминировал TLS-соединения с помощью сертификата из {{ certificate-manager-full-name }} и перенаправлял HTTP-запросы на HTTPS.
+---
+
 {% include [tls-termination](../../../_tutorials/security/tls-termination.md) %}
 
 * [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления {{ yandex-cloud }}.

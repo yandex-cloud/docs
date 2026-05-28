@@ -1,21 +1,14 @@
 # Getting started with {{ monium-name }}
 
-{{ monium-name }} is a platform made to collect metrics, logs, and traces from {{ yandex-cloud }}, other clouds, or your local infrastructure.
+{{ monium-name }} is a platform for collecting [metrics](./metrics/overview.md), [logs](./logs/quickstart.md), and [traces](./traces/index.md) from {{ yandex-cloud }}, other clouds, or your local infrastructure.
 
 Follow this guide to send telemetry data from your app or demo app via [OTel Collector](https://opentelemetry.io/docs/) and view it in {{ monium-name }}.
-
-To get started with {{ yandex-cloud }} resource telemetry, check these sections:
-* [{{ yandex-cloud }} resource metrics](metrics/quickstart.md)
-* [{{ yandex-cloud }} resource logs](logs/quickstart-resources.md)
 
 To get started with app telemetry:
 
 1. [Get your cloud ready](#before-begin).
 1. [Create a service account and API key](#create-ca-key).
-1. Set up telemetry transmission from [your app](#otel-settings) or [demo app](#example-app).
-
-    If you have already set up OTLP telemetry, specify the [{{ monium-name }} connection settings](#monium-connect).
-
+1. [Set up your application ](#setup-app).
 1. [View the data in {{ monium-name }}](#view-telemetry).
 
 ## Get your cloud ready {#before-begin}
@@ -39,21 +32,40 @@ To get started with app telemetry:
 {% endlist %}
 
 
-## Set up telemetry transmission from your app {#otel-settings}
-
-If you do not have a ready-made application, use a [demo app](#example-app).
+## Set up your application {#setup-app}
 
 In {{ monium-name }}, telemetry has this hierarchy: project → cluster → service. Data for each service-cluster pair is distributed to individual shards.
 
+The method of configuring your application depends on whether telemetry is already configured or not. If you have already configured telemetry in the application, [specify the connection parameters for {{ monium-name }}](#monium-connect). If telemetry has not yet been configured, or if you do not have an application, [perform a complete setup](#otel-settings).
+
+### Specify the {{ monium-name }} connection settings if telemetry is already configured in your app {#monium-connect}
+
+If you have an application and telemetry delivery is already configured, specify the parameters required to connect to {{ monium-name }}:
+
+* Authentication: [API key](#create-ca-key).
+* Endpoint: `{{ api-host-monium }}:443`.
+* In the header: `x-monium-project=folder__<folder_ID>` parameter.
+* In `OTEL_RESOURCE_ATTRIBUTES`: `cluster` or `deployment.name` and `service` or `service.name`.
+
+{% cut "Attribute priority when writing data" %}
+
+{% include [shard-distribution](../_includes/monium/shard-distribution.md) %}
+
+{% endcut %}
+
+### Set up transfer of telemetry from an app {#otel-settings}
+
+If you have your own application but telemetry delivery has not yet been configured in it, perform the necessary configuration. If you do not have a ready-made application for testing, use the demo app.
+
 {% list tabs group=instructions %}
 
-- Your infrastructure {#user-infrastructure}
+- Custom app {#own-app}
 
   1. Set these environment variables:
      
      * `MONIUM_PROJECT`: {{ monium-name }} project name.
 
-       By default, by creating a cloud and a folder you create these two projects: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also [create other projects](collector/project.md#project-create).
+       By default, when you create a cloud and folder, two projects are created: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also [create other projects](collector/project.md#project-create).
      
        To test {{ monium-name }}, you can specify a project folder, e.g., `folder__{{ folder-id-example }}`.
        
@@ -116,22 +128,15 @@ In {{ monium-name }}, telemetry has this hierarchy: project → cluster → serv
   
   1. Run your app and start sending telemetry.
 
+- Demo app {#demo-app}
+
+  {% include [pet-clinic-intro](../_includes/monium/pet-clinic-intro.md) %}
+
+  {% include [pet-clinic](../_includes/monium/pet-clinic.md) %}
+
 {% endlist %}
 
-## Specify the {{ monium-name }} connection settings if telemetry is already configured {#monium-connect}
-
-If your application is already configured to send telemetry, specify these settings:
-
-* Authentication: [API key](#create-ca-key).
-* Endpoint: `{{ api-host-monium }}:443`.
-* In the header: `x-monium-project=folder__<folder_ID>` parameter.
-* In `OTEL_RESOURCE_ATTRIBUTES`: `cluster` or `deployment.name` and `service` or `service.name`.
-
-{% cut "Attribute priority when writing data" %}
-
-{% include [shard-distribution](../_includes/monium/shard-distribution.md) %}
-
-{% endcut %}
+After you finish your app setup, [view the telemetry in {{ monium-name }}](#view-telemetry).
 
 ## View the data in {{ monium-name }} {#view-telemetry}
 
@@ -140,12 +145,6 @@ If your application is already configured to send telemetry, specify these setti
 {% include [data-lag](../_includes/monium/data-lag.md) %}
 
 To use the data you collected, you can create [dashboards](operations/dashboard/create.md) and [alerts](operations/alert/create-alert.md).
-
-## Demo app setup example {#example-app}
-
-{% include [pet-clinic](../_includes/monium/pet-clinic.md) %}
-
-After you finish the setup, [view the telemetry in {{ monium-name }}](#view-telemetry).
 
 #### See also {#see-also}
 

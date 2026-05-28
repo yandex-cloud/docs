@@ -23,7 +23,6 @@ apiPlayground:
 # SAML Application API, REST: Application.Get
 
 Returns the specified SAML application.
-
 To get the list of available applications, make a [List](/docs/organization/idp/application/saml/mapi-ref/Application/list#List) request.
 
 ## HTTP request

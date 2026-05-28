@@ -25,7 +25,7 @@ apiPlayground:
             results is larger than `pageSize`, the service returns a [ListServiceAccountOperationsResponse.nextPageToken](#yandex.cloud.iam.v1.ListServiceAccountOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
-            The maximum value is 1000.
+            Acceptable values are 0 to 1000, inclusive.
           default: '100'
           type: string
           format: int64
@@ -74,7 +74,7 @@ results is larger than `pageSize`, the service returns a [ListServiceAccountOper
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken`
