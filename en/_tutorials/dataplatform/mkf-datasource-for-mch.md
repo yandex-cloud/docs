@@ -111,7 +111,7 @@ The support cost for this solution includes:
 
 1. Install the following tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
@@ -150,48 +150,30 @@ The support cost for this solution includes:
 
 ## Set up {{ KF }} integration for your {{ mch-name }} cluster {#configure-mch-for-kf}
 
-{% list tabs group=instructions %}
+Configuration depends on how many {{ mkf-name }} clusters you have:
 
-- Manually {#manual}
+* If you have a single {{ KF }} cluster:
 
-    Configuration depends on how many {{ mkf-name }} clusters you have:
+   {% list tabs group=instructions %}
 
-    * Single {{ KF }} cluster: Provide authentication data in the [{{ CH }} settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces), under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. The {{ mch-name }} cluster will use these credentials when accessing any topic.
+   - Manually {#manual}
 
-        Authentication data:
+       Provide authentication data under **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka** in [{{ CH }} settings](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces). The {{ mch-name }} cluster will use these credentials when accessing any topic.
 
-        * **Sasl mechanism**: `SCRAM-SHA-512`.
-        * **Sasl password**: [Consumer user password](#before-you-begin).
-        * **Sasl username**: [Consumer username](#before-you-begin).
-        * **Security protocol**: `SASL_SSL`.
+       Authentication data:
 
-    * Multiple {{ KF }} clusters: Create the required number of [named collections]({{ ch.docs }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
+       * **Sasl mechanism**: `SCRAM-SHA-512`.
+       * **Sasl password**: [Consumer user password](#before-you-begin).
+       * **Sasl username**: [Consumer username](#before-you-begin).
+       * **Security protocol**: `SASL_SSL`.
 
-        1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
+   - {{ TF }} {#tf}
 
-        1. Run the following query as many times as needed, providing the authentication data for each topic:
-
-            ```sql
-            CREATE NAMED COLLECTION <collection_name> AS
-                kafka_broker_list = '<broker_host_FQDN>:9091',
-                kafka_topic_list = '<topic_name>',
-                kafka_group_name = 'sample_group',
-                kafka_format = 'JSONEachRow'
-                kafka_security_protocol = 'SASL_SSL',
-                kafka_sasl_mechanism = 'SCRAM-SHA-512',
-                kafka_sasl_username = '<username_for_consumer>',
-                kafka_sasl_password = '<user_password_for_consumer>';
-            ```
-
-- {{ TF }} {#tf}
-
-    1. Configuration depends on how many {{ mkf-name }} clusters you have:
-
-        - Single {{ KF }} cluster: Uncomment the `clickhouse.config.kafka` section in the `data-from-kafka-to-clickhouse.tf` file:
+       1. In the `data-from-kafka-to-clickhouse.tf` file, uncomment the `clickhouse.config.kafka` section:
 
             ```hcl
-            config {
-                kafka {
+            config = {
+                kafka = {
                     security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                     sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
                     sasl_username     = "<username_for_consumer>"
@@ -200,33 +182,33 @@ The support cost for this solution includes:
             }
             ```
 
-        - Multiple {{ KF }} clusters: Uncomment the `clickhouse.config.kafka_topic` section and specify the credentials for each {{ mkf-name }} topic:
+       1. Make sure the settings are correct.
 
-            ```hcl
-            config {
-                kafka_topic {
-                    name = "<topic_name>"
-                    settings {
-                    security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
-                    sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                    sasl_username     = "<username_for_consumer>"
-                    sasl_password     = "<user_password_for_consumer>"
-                    }
-                }
-            }
-            ```
+           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-            If your clusters have more than one topic, duplicate the `kafka_topic` section for each one, specifying the relevant topic names.
+       1. Confirm resource changes.
 
-    1. Make sure the settings are correct.
+           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+   {% endlist %}
 
-    1. Confirm updating the resources.
+* Multiple {{ KF }} clusters: Create the required number of [named collections]({{ ch.docs }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-{% endlist %}
+   1. Run the following query as many times as needed, providing the authentication data for each topic:
+
+       ```sql
+       CREATE NAMED COLLECTION <collection_name> AS
+           kafka_broker_list = '<broker_host_FQDN>:9091',
+           kafka_topic_list = '<topic_name>',
+           kafka_group_name = 'sample_group',
+           kafka_format = 'JSONEachRow'
+           kafka_security_protocol = 'SASL_SSL',
+           kafka_sasl_mechanism = 'SCRAM-SHA-512',
+           kafka_sasl_username = '<username_for_consumer>',
+           kafka_sasl_password = '<user_password_for_consumer>';
+       ```
 
 ## Create Kafka-engine tables in your {{ mch-name }} cluster {#create-kf-table}
 
@@ -387,7 +369,7 @@ To create a materialized view:
 To get all data from the materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM db1.<view_name>;

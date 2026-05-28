@@ -43,21 +43,10 @@ The maximum string length in characters is 255. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "user_ssh_key_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "subject_id": "string",
-    "data": "string",
-    "name": "string",
-    "fingerprint": "string",
-    "organization_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "expires_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -85,7 +74,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateUserSshKeyMetadata](#yandex.cloud.organizationmanager.v1.UpdateUserSshKeyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -100,7 +89,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UserSshKey](#yandex.cloud.organizationmanager.v1.UserSshKey)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -115,27 +104,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateUserSshKeyMetadata {#yandex.cloud.organizationmanager.v1.UpdateUserSshKeyMetadata}
-
-#|
-||Field | Description ||
-|| user_ssh_key_id | **string** ||
-|#
-
-## UserSshKey {#yandex.cloud.organizationmanager.v1.UserSshKey}
-
-#|
-||Field | Description ||
-|| id | **string** ||
-|| subject_id | **string** ||
-|| data | **string** ||
-|| name | **string** ||
-|| fingerprint | **string** ||
-|| organization_id | **string** ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)** ||
-|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Used for temporary keys, if empty the key doesn't expire ||
 |#

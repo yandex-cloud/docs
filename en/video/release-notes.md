@@ -5,6 +5,14 @@ description: This section contains the {{ video-name }} release notes.
 
 # {{ video-full-name }} release notes
 
+## January-March 2026 {#jan-mar-2026}
+
+* [Broadcasts](concepts/streams.md) have entered the [General Availability](../overview/concepts/launch-stages.md) stage. Simplified the broadcast workflow in the interface: now you set up the video source when actually creating a broadcast, without separate line management.
+
+* Added an option called **Automatically process video file errors** for autocorrection of errors in uploaded video files.
+
+* Added an option called **Enable Ads** to manage ads for individual videos.
+
 ## October – December 2025 {#oct-dec-2025}
 
 * Added [support for presets](concepts/presets.md) that allow you to configure video player appearance and features:

@@ -121,6 +121,7 @@ The maximum string length in characters is 100. ||
       "status": "string",
       "name": "string",
       "labels": "object",
+      "description": "string",
       "storageSize": "string",
       "minDiskSize": "string"
     }
@@ -177,6 +178,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storageSize | **string** (int64)

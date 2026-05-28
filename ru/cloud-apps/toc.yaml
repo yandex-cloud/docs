@@ -21,6 +21,8 @@ items:
           Создание сайта на Ghost CMS High Availability с помощью {{
           cloud-apps-name }}
         href: tutorials/ghost-cms-cloudapp.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
 path: ru/cloud-apps/toc.yaml

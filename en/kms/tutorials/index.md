@@ -11,5 +11,5 @@ description: Various {{ kms-full-name }} use cases in {{ yandex-cloud }}. Encryp
 * [{#T}](terraform-key.md)
 * [{#T}](terraform-secret.md)
 * [{#T}](vault-secret.md)
-* [{#T}](secure-password-script.md)
+* [{#T}](secure-password-script/index.md)
 * [{#T}](server-side-encryption.md)

@@ -5,15 +5,13 @@ description: Follow this guide to create a new cloud in another region using a c
 
 # Create a cloud in another region
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
-To create clouds in another [region](../../../overview/concepts/region.md), [connect](../../../organization/operations/add-region.md) a controlled organization. After that, follow these steps:
+To create clouds in another [region](../../../overview/concepts/region.md), [create](../../../organization/operations/add-region.md) a controlled organization. After that, follow these steps:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Go to the [management console]({{ link-console-main }}).
+  1. Open the [management console]({{ link-console-main }}).
 
   1. In the upper left corner next to the **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** field, click ![plus](../../../_assets/console-icons/plus.svg). In the window that opens.
   
@@ -23,7 +21,7 @@ To create clouds in another [region](../../../overview/concepts/region.md), [con
 
   1. In the upper left corner next to the **{{ ui-key.yacloud.cloud-tree-list.value_search-placeholder }}** field, click ![plus](../../../_assets/console-icons/plus.svg). In the window that opens:
 
-     1. Enter a name for the cloud. The naming requirements are as follows:
+     1. Enter a name for the cloud. Follow these naming requirements:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
 

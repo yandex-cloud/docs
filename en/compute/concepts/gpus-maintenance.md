@@ -5,8 +5,6 @@ description: This article describes some aspects of GPU VM maintenance in {{ com
 
 # Maintenance of GPU VMs
 
-{% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
-
 {{ compute-name }} performs occasional maintenance of the hardware required for your VMs to operate. Sometimes the GPU VMs have to restart during maintenance, in which case maintenance activities are scheduled at least three calendar days in advance.
 
 Users will get maintenance notifications according to the [notification settings](../../console/operations/update.md#notifications).

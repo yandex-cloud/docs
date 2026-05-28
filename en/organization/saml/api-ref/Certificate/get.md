@@ -9,10 +9,12 @@ apiPlayground:
         certificateId:
           description: |-
             **string**
-            ID of the certificate to return.
+            Required field. ID of the certificate to return.
             To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/Certificate/list#List) request.
             The maximum string length in characters is 50.
           type: string
+      required:
+        - certificateId
       additionalProperties: false
     query: null
     body: null
@@ -22,7 +24,6 @@ apiPlayground:
 # SAML Federation API, REST: Certificate.Get
 
 Returns the specified certificate.
-
 To get the list of available certificates, make a [List](/docs/organization/saml/api-ref/Certificate/list#List) request.
 
 ## HTTP request

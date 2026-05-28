@@ -27,7 +27,6 @@ Returns a RDP file for the specified desktop.
 || desktop_id | **string**
 
 Required field. ID of the desktop resource to return.
-
 To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request.
 
 The maximum string length in characters is 50. ||

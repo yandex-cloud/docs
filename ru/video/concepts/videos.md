@@ -4,6 +4,8 @@
 
 {% include [video-characteristic](../../_includes/video/video-characteristic-multiple.md) %}
 
+По умолчанию воспроизведение видео начинается только после обработки, если браузер поддерживает исходный файл. Вы можете изменить это в настройках канала. Тогда исходный файл будет воспроизводиться сразу, без изменений, и содержать исходные метаданные.
+
 {% include [video-multi-soundtracks](../../_includes/video/video-multi-soundtracks.md) %}
 
 {% include [video-resolution-limits](../../_includes/video/video-resolution-limits.md) %}

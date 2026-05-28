@@ -30,6 +30,8 @@ Once the [scan](../../concepts/dspm.md#scanning) is complete, you can do the fol
      * `{{ ui-key.yacloud_org.dspm.scan.results_resource-name }}`: Name of the resource the data was found in.
      * `{{ ui-key.yacloud_org.dspm.scan.scan-issue_object-path }}`: Path to the file the data was found in.
 
+     You can also view information about detected sensitive data by selecting ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** in the left-hand panel.
+
 {% endlist %}
 
 ## Downloading scan results {#download}
@@ -96,6 +98,8 @@ When exporting, the file with scan results is saved to the bucket you select.
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}** tab.
   1. Select the scan and navigate to the **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}** tab.
+
+     You can also view information about scan errors by selecting ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** in the left-hand panel.
 
   For more information about scanning errors, see [{#T}](../../diagnostics/dspm-diagnostics.md).
 

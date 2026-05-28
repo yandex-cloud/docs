@@ -64,7 +64,6 @@ GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:g
 || desktopId | **string**
 
 Required field. ID of the desktop resource to return.
-
 To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/Desktop/list#List) request.
 
 The maximum string length in characters is 50. ||

@@ -3,7 +3,7 @@ title: Integrating {{ lockbox-full-name }} with {{ yandex-cloud }} services
 description: In this tutorial, you will learn which {{ yandex-cloud }} services support {{ lockbox-name }} secrets.
 ---
 
-# Integration with {{ yandex-cloud }} services
+# Integration with the {{ yandex-cloud }} services
 
 
 You can use {{ lockbox-name }} [secrets](./secret.md) in the following {{ yandex-cloud }} services:
@@ -53,5 +53,5 @@ For a {{ serverless-containers-name }} container to access the data stored in a 
 * [{#T}](../tutorials/websocket-app.md)
 * [{#T}](../tutorials/bucket-to-bucket-copying.md)
 * [{#T}](../tutorials/nodejs-cron-restart-vm.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)
 * [{#T}](../tutorials/data-transfer-direct-to-mch.md)

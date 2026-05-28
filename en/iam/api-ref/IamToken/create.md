@@ -13,6 +13,7 @@ apiPlayground:
             **string**
             OAuth token for a Yandex account.
             For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token).
+            The maximum string length in characters is 4000.
             Includes only one of the fields `yandexPassportOauthToken`, `jwt`.
           type: string
         jwt:
@@ -20,6 +21,7 @@ apiPlayground:
             **string**
             JSON Web Token (JWT) for a service account.
             For more information, see [Get IAM token for a service account](/docs/iam/operations/iam-token/create-for-sa).
+            The maximum string length in characters is 8000.
             Includes only one of the fields `yandexPassportOauthToken`, `jwt`.
           type: string
       additionalProperties: false
@@ -59,11 +61,15 @@ POST https://iam.{{ api-host }}/iam/v1/tokens
 OAuth token for a Yandex account.
 For more information, see [OAuth token](/docs/iam/concepts/authorization/oauth-token).
 
+The maximum string length in characters is 4000.
+
 Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 || jwt | **string**
 
 JSON Web Token (JWT) for a service account.
 For more information, see [Get IAM token for a service account](/docs/iam/operations/iam-token/create-for-sa).
+
+The maximum string length in characters is 8000.
 
 Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 |#
@@ -84,7 +90,6 @@ Includes only one of the fields `yandexPassportOauthToken`, `jwt`. ||
 || iamToken | **string**
 
 IAM token for the specified identity.
-
 You should pass the token in the `Authorization` header for any further API requests.
 For example, `Authorization: Bearer `iamToken``. ||
 || expiresAt | **string** (date-time)

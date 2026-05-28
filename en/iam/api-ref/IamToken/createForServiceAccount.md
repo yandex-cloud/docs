@@ -63,7 +63,6 @@ The maximum string length in characters is 50. ||
 || iamToken | **string**
 
 IAM token for the specified identity.
-
 You should pass the token in the `Authorization` header for any further API requests.
 For example, `Authorization: Bearer `iamToken``. ||
 || expiresAt | **string** (date-time)

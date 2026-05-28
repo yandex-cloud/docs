@@ -1,6 +1,6 @@
 # Шифрование секретов в {{ managed-k8s-full-name }}
 
-Используйте [ключ](../../kms/concepts/key.md) {{ kms-full-name }} для шифрования [секретов](../../lockbox/concepts/secret.md) — конфиденциальной информации, такой как пароли, OAuth-токены и [SSH-ключи](../../glossary/ssh-keygen.md), в [{{ managed-k8s-full-name }}](../../managed-kubernetes/). Для этого при создании [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) укажите ключ {{ kms-name }}, который будет использоваться при шифровании и расшифровании.
+Используйте [ключ](../../kms/concepts/key.md) {{ kms-full-name }} для шифрования [секретов](../../lockbox/concepts/secret.md) — конфиденциальной информации, такой как пароли и [SSH-ключи](../../glossary/ssh-keygen.md), в [{{ managed-k8s-full-name }}](../../managed-kubernetes/). Для этого при создании [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) укажите ключ {{ kms-name }}, который будет использоваться при шифровании и расшифровании.
 
 Ключ шифрования необходимо указать при создании кластера {{ managed-k8s-name }}, его нельзя добавить при изменении кластера.
 

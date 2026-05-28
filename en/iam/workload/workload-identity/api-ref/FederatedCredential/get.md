@@ -24,7 +24,6 @@ apiPlayground:
 # Workload Identity, REST: FederatedCredential.Get
 
 Returns the specified federated credential.
-
 To get the list of available federated credentials, make a [List](/docs/iam/workload/workload-identity/api-ref/FederatedCredential/list#List) request.
 
 ## HTTP request

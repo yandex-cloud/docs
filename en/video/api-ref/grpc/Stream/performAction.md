@@ -78,34 +78,10 @@ The action changes the stream's status to FINISHED.
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "stream_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "channel_id": "string",
-    "line_id": "string",
-    "title": "string",
-    "description": "string",
-    "thumbnail_id": "string",
-    "status": "StreamStatus",
-    "start_time": "google.protobuf.Timestamp",
-    "publish_time": "google.protobuf.Timestamp",
-    "finish_time": "google.protobuf.Timestamp",
-    "auto_publish": "google.protobuf.BoolValue",
-    // Includes only one of the fields `on_demand`, `schedule`
-    "on_demand": "OnDemand",
-    "schedule": {
-      "start_time": "google.protobuf.Timestamp",
-      "finish_time": "google.protobuf.Timestamp"
-    },
-    // end of the list of possible fields
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp",
-    "labels": "map<string, string>"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -133,7 +109,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[PerformStreamActionMetadata](#yandex.cloud.video.v1.PerformStreamActionMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -148,7 +124,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Stream](#yandex.cloud.video.v1.Stream)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -163,116 +139,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## PerformStreamActionMetadata {#yandex.cloud.video.v1.PerformStreamActionMetadata}
-
-#|
-||Field | Description ||
-|| stream_id | **string**
-
-ID of the stream on which the action is being performed.
-This identifier can be used to track the action operation
-and to verify that the action is being applied to the correct stream. ||
-|#
-
-## Stream {#yandex.cloud.video.v1.Stream}
-
-Entity representing a live video stream.
-A stream is a real-time video broadcast linked to a specific stream line.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the stream. ||
-|| channel_id | **string**
-
-Identifier of the channel where the stream is created and managed. ||
-|| line_id | **string**
-
-Identifier of the stream line to which this stream is linked. ||
-|| title | **string**
-
-Title of the stream displayed in interfaces and players. ||
-|| description | **string**
-
-Detailed description of the stream content and context. ||
-|| thumbnail_id | **string**
-
-Identifier of the thumbnail image used to represent the stream visually. ||
-|| status | enum **StreamStatus**
-
-Current status of the stream.
-
-- `OFFLINE`: The stream is offline and not broadcasting.
-- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
-- `READY`: The infrastructure is ready to launch the stream.
-- `ONAIR`: The stream is currently broadcasting live.
-- `FINISHED`: The stream has completed and is no longer broadcasting. ||
-|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the stream was initiated. ||
-|| publish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the stream was published (switched to ONAIR status). ||
-|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the stream was completed. ||
-|| auto_publish | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Controls automatic publishing of the stream when it's ready.
-When set to true, automatically switches status from READY to ONAIR. ||
-|| on_demand | **[OnDemand](#yandex.cloud.video.v1.OnDemand)**
-
-On-demand stream starts immediately when a video signal appears.
-
-Includes only one of the fields `on_demand`, `schedule`.
-
-Specifies the stream scheduling type. ||
-|| schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
-
-Scheduled stream starts and finishes at specified time.
-
-Includes only one of the fields `on_demand`, `schedule`.
-
-Specifies the stream scheduling type. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the stream was initially created in the system. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp of the last modification to the stream or its metadata. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom user-defined labels as `key:value` pairs.
-Maximum 64 labels per stream.
-Used for organization, filtering, and metadata purposes.
-Labels can be used for organization, filtering, and metadata purposes. ||
-|#
-
-## OnDemand {#yandex.cloud.video.v1.OnDemand}
-
-Represents an on-demand stream type.
-This type of stream must be started and finished explicitly by the user.
-It begins broadcasting immediately when a video signal is detected.
-
-#|
-||Field | Description ||
-|| Empty | > ||
-|#
-
-## Schedule {#yandex.cloud.video.v1.Schedule}
-
-Represents a scheduled stream type.
-This type of stream starts and finishes automatically at specified time.
-
-#|
-||Field | Description ||
-|| start_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Scheduled time when the stream should automatically start. ||
-|| finish_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Scheduled time when the stream should automatically finish. ||
 |#

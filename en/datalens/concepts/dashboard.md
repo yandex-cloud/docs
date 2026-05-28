@@ -5,7 +5,7 @@ description: A {{ datalens-full-name }} dashboard is a page or set of pages with
 
 # {{ datalens-full-name }} dashboard
 
-_Dashboards_ are pages or sets of pages that contain widgets. It allows you to group your charts in the same place and add captions and titles to them.
+A _dashboard_ is a page or multiple pages that contain widgets. It allows you to group your charts in the same place and add captions and titles to them.
 You can create new dashboard pages using the **tab** element.
 
 For more information about dashboards, see the following sections:
@@ -22,6 +22,7 @@ For more information about dashboards, see the following sections:
 
   * [{#T}](../operations/dashboard/create.md)
   * [{#T}](../operations/dashboard/add-description.md)
+  * [{#T}](../operations/dashboard/add-maillists.md)
   * [{#T}](../operations/dashboard/add-support-message.md)
   * [{#T}](../operations/dashboard/add-access-message.md)
   * [{#T}](../operations/dashboard/add-chart.md)
