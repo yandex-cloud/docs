@@ -14,27 +14,39 @@ Updates desktop properties.
 
 ```json
 {
-  "desktop_id": "string",
   "update_mask": "google.protobuf.FieldMask",
+  "desktop_id": "string",
   "name": "string",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "description": "string"
 }
 ```
 
 #|
 ||Field | Description ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Mask of fields that need to be update. ||
 || desktop_id | **string**
 
 Required field. To get the desktop ID use a [DesktopService.List](/docs/cloud-desktop/api-ref/grpc/Desktop/list#List) request.
 
 The maximum string length in characters is 50. ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || name | **string**
+
+New desktop name.
 
 Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+New desktop labels.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+New desktop description.
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -59,6 +71,8 @@ No more than 64 per resource. The maximum string length in characters for each v
     "created_at": "google.protobuf.Timestamp",
     "status": "Status",
     "name": "string",
+    "labels": "map<string, string>",
+    "description": "string",
     "resources": {
       "memory": "int64",
       "cores": "int64",
@@ -75,8 +89,7 @@ No more than 64 per resource. The maximum string length in characters for each v
         "subject_id": "string",
         "subject_type": "string"
       }
-    ],
-    "labels": "map<string, string>"
+    ]
   }
   // end of the list of possible fields
 }
@@ -141,7 +154,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| desktop_id | **string** ||
+|| desktop_id | **string**
+
+ID of the desktop. ||
 |#
 
 ## Desktop {#yandex.cloud.clouddesktop.v1.api.Desktop}
@@ -180,14 +195,21 @@ Status of the desktop.
 || name | **string**
 
 Name of the desktop. ||
-|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
-
-Resources of the desktop. ||
-|| network_interfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
-|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the desktop. ||
+|| description | **string**
+
+Description of the desktop. ||
+|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
+
+Resources of the desktop. ||
+|| network_interfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)**
+
+Network interfaces of the desktop. ||
+|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+
+Users of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
@@ -196,11 +218,19 @@ Labels of the desktop. ||
 ||Field | Description ||
 || memory | **int64**
 
+The amount of memory available to the desktop, specified in bytes.
+
 The minimum value is 1. ||
 || cores | **int64**
 
+The number of cores available to the desktop.
+
 The minimum value is 1. ||
 || core_fraction | **int64**
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core.
+For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
 
 Acceptable values are 0 to 100, inclusive. ||
 |#
@@ -211,12 +241,12 @@ Acceptable values are 0 to 100, inclusive. ||
 ||Field | Description ||
 || network_id | **string**
 
-Required field.
+Required field. ID of the network.
 
 The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
-Required field.
+Required field. ID of the subnet.
 
 The maximum string length in characters is 50. ||
 |#

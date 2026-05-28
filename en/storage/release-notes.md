@@ -5,6 +5,11 @@ description: This section contains the {{ objstorage-name }} release notes.
 
 # {{ objstorage-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* The [object metadata export (S3 Inventory)](./concepts/s3-inventory.md) feature entered the [General Availability](../overview/concepts/launch-stages.md) stage in the [Russia region](../overview/concepts/region.md) and is now charged as per the [pricing policy](./pricing.md). [To manage export configurations](./operations/buckets/manage-s3-inventory.md), you can use the [{{ yandex-cloud }} CLI](./cli-ref/bucket/create-inventory-configuration.md) and [API](./api-ref/Bucket/createInventoryConfiguration.md).
+* The [{{ yandex-cloud }} CLI](./cli-ref/s3/presign.md) now allows [getting pre-signed URLs for object uploads](./operations/objects/link-for-upload.md) to buckets with limited access.
+
 ## Q4 2025 {#q4-2025}
 
 * Supported [IAM tokens](../iam/concepts/authorization/iam-token.md) and [ephemeral access keys](./operations/buckets/manage-ephemeral-keys.md) for [authentication in {{ objstorage-name }}](./api-ref/authentication.md).
@@ -55,7 +60,7 @@ description: This section contains the {{ objstorage-name }} release notes.
 ## Q1 2025 {#q1-2025}
 
 * The [{{ yandex-cloud }} CLI](../cli/quickstart.md) now supports commands you need to use [object labels](./concepts/tags.md#object-tags) and [multipart uploads of objects](./concepts/multipart.md).
-* You can now get authenticated in {{ objstorage-name }} from {{ TF }} via an [IAM token](../iam/concepts/authorization/iam-token.md). For more information, see this [provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+* You can now get authenticated in {{ objstorage-name }} from {{ TF }} via an [IAM token](../iam/concepts/authorization/iam-token.md). For more information, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 * Up-to-date [AWS SDK](./tools/sdk/index.md) and [AWS CLI](./tools/aws-cli.md) versions are now supported.
 
 ## Q4 2024 {#q4-2024}

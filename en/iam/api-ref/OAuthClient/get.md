@@ -24,7 +24,6 @@ apiPlayground:
 # Identity and Access Management API, REST: OAuthClient.Get
 
 Returns the sepcified OAuthClient resource.
-
 To get the list of available OAuthClient resources, make a [List](/docs/iam/api-ref/OAuthClient/list#List) request.
 
 ## HTTP request

@@ -24,7 +24,6 @@ apiPlayground:
 # Identity Hub API, REST: Organization.Get
 
 Returns the specified Organization resource.
-
 To get the list of available Organization resources, make a [List](/docs/organization/api-ref/Organization/list#List) request.
 
 ## HTTP request

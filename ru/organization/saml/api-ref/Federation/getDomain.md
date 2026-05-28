@@ -32,7 +32,6 @@ apiPlayground:
 # SAML Federation API, REST: Federation.GetDomain
 
 Returns the specified domain in the federation.
-
 To get the list of available domains, make a [ListDomains](/docs/organization/saml/api-ref/Federation/listDomains#ListDomains) request.
 
 ## HTTP request

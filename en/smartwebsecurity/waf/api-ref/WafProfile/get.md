@@ -44,6 +44,18 @@ Required field. ID of the WafProfile resource to return. ||
 
 ```json
 {
+  // Includes only one of the fields `coreRuleSet`
+  "coreRuleSet": {
+    "inboundAnomalyScore": "string",
+    "paranoiaLevel": "string",
+    "ruleSet": {
+      "name": "string",
+      "version": "string",
+      "type": "string",
+      "id": "string"
+    }
+  },
+  // end of the list of possible fields
   "id": "string",
   "folderId": "string",
   "cloudId": "string",
@@ -66,53 +78,211 @@ Required field. ID of the WafProfile resource to return. ||
         "authority": {
           "authorities": [
             {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
               "exactMatch": "string",
               "exactNotMatch": "string",
               "prefixMatch": "string",
               "prefixNotMatch": "string",
               "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
               // end of the list of possible fields
             }
-          ]
-        },
-        "httpMethod": {
-          "httpMethods": [
-            {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
-              // end of the list of possible fields
-            }
-          ]
-        },
-        "requestUri": {
-          "path": {
-            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+          ],
+          "authorityMatcher": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
             "exactMatch": "string",
             "exactNotMatch": "string",
             "prefixMatch": "string",
             "prefixNotMatch": "string",
             "pireRegexMatch": "string",
-            "pireRegexNotMatch": "string"
+            "pireRegexNotMatch": "string",
+            "defined": "boolean",
+            "listsMatchers": {
+              "strListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "strListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              }
+            }
+            // end of the list of possible fields
+          }
+        },
+        "httpMethod": {
+          "httpMethods": [
+            {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          ],
+          "httpMethodMatcher": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+            "exactMatch": "string",
+            "exactNotMatch": "string",
+            "prefixMatch": "string",
+            "prefixNotMatch": "string",
+            "pireRegexMatch": "string",
+            "pireRegexNotMatch": "string",
+            "defined": "boolean",
+            "listsMatchers": {
+              "strListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "strListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              }
+            }
+            // end of the list of possible fields
+          }
+        },
+        "requestUri": {
+          "path": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+            "exactMatch": "string",
+            "exactNotMatch": "string",
+            "prefixMatch": "string",
+            "prefixNotMatch": "string",
+            "pireRegexMatch": "string",
+            "pireRegexNotMatch": "string",
+            "defined": "boolean",
+            "listsMatchers": {
+              "strListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "strListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              }
+            }
             // end of the list of possible fields
           },
           "queries": [
             {
               "key": "string",
               "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
                 "exactMatch": "string",
                 "exactNotMatch": "string",
                 "prefixMatch": "string",
                 "prefixNotMatch": "string",
                 "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
+                "pireRegexNotMatch": "string",
+                "defined": "boolean",
+                "listsMatchers": {
+                  "strListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "strListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  },
+                  "regExpListsNotMatch": {
+                    "listIds": [
+                      "string"
+                    ]
+                  }
+                }
                 // end of the list of possible fields
               }
             }
@@ -122,13 +292,36 @@ Required field. ID of the WafProfile resource to return. ||
           {
             "name": "string",
             "value": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
               "exactMatch": "string",
               "exactNotMatch": "string",
               "prefixMatch": "string",
               "prefixNotMatch": "string",
               "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
               // end of the list of possible fields
             }
           }
@@ -153,6 +346,261 @@ Required field. ID of the WafProfile resource to return. ||
             "locations": [
               "string"
             ]
+          },
+          "ipListsMatch": {
+            "listIds": [
+              "string"
+            ]
+          },
+          "ipListsNotMatch": {
+            "listIds": [
+              "string"
+            ]
+          },
+          "asnRangesMatch": {
+            "asnRanges": [
+              "string"
+            ]
+          },
+          "asnRangesNotMatch": {
+            "asnRanges": [
+              "string"
+            ]
+          },
+          "asnListsMatch": {
+            "listIds": [
+              "string"
+            ]
+          },
+          "asnListsNotMatch": {
+            "listIds": [
+              "string"
+            ]
+          }
+        },
+        "cookies": [
+          {
+            "name": "string",
+            "value": {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          }
+        ],
+        "botCategory": {
+          "botCategoryListsMatch": {
+            "listIds": [
+              "string"
+            ]
+          },
+          "botCategoryListsNotMatch": {
+            "listIds": [
+              "string"
+            ]
+          }
+        },
+        "botName": {
+          "botNameListsMatch": {
+            "listIds": [
+              "string"
+            ]
+          },
+          "botNameListsNotMatch": {
+            "listIds": [
+              "string"
+            ]
+          }
+        },
+        "botScore": {
+          "value": [
+            {
+              // Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`
+              "leMatch": {
+                "value": "string"
+              },
+              "geMatch": {
+                "value": "string"
+              },
+              "eqMatch": {
+                "value": "string"
+              },
+              "neMatch": {
+                "value": "string"
+              }
+              // end of the list of possible fields
+            }
+          ]
+        },
+        "verifiedBot": {
+          "verified": {
+            "match": "boolean"
+          }
+        },
+        "fingerPrint": {
+          "ja3Ranges": [
+            {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          ],
+          "ja4Ranges": [
+            {
+              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+              "exactMatch": "string",
+              "exactNotMatch": "string",
+              "prefixMatch": "string",
+              "prefixNotMatch": "string",
+              "pireRegexMatch": "string",
+              "pireRegexNotMatch": "string",
+              "defined": "boolean",
+              "listsMatchers": {
+                "strListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "strListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                },
+                "regExpListsNotMatch": {
+                  "listIds": [
+                    "string"
+                  ]
+                }
+              }
+              // end of the list of possible fields
+            }
+          ],
+          "ja3Matcher": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+            "exactMatch": "string",
+            "exactNotMatch": "string",
+            "prefixMatch": "string",
+            "prefixNotMatch": "string",
+            "pireRegexMatch": "string",
+            "pireRegexNotMatch": "string",
+            "defined": "boolean",
+            "listsMatchers": {
+              "strListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "strListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              }
+            }
+            // end of the list of possible fields
+          },
+          "ja4Matcher": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`
+            "exactMatch": "string",
+            "exactNotMatch": "string",
+            "prefixMatch": "string",
+            "prefixNotMatch": "string",
+            "pireRegexMatch": "string",
+            "pireRegexNotMatch": "string",
+            "defined": "boolean",
+            "listsMatchers": {
+              "strListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "strListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsMatch": {
+                "listIds": [
+                  "string"
+                ]
+              },
+              "regExpListsNotMatch": {
+                "listIds": [
+                  "string"
+                ]
+              }
+            }
+            // end of the list of possible fields
           }
         }
       },
@@ -162,21 +610,43 @@ Required field. ID of the WafProfile resource to return. ||
           "string"
         ]
       },
-      "logExcluded": "boolean"
+      "logExcluded": "boolean",
+      "requestCondition": {
+        "paramMatcher": {
+          "paramNames": [
+            {
+              "value": "string",
+              "caseSensitive": "boolean"
+            }
+          ]
+        },
+        "headerMatcher": {
+          "headerNames": [
+            {
+              "value": "string",
+              "caseSensitive": "boolean"
+            }
+          ]
+        },
+        "cookieMatcher": {
+          "cookieNames": [
+            {
+              "value": "string",
+              "caseSensitive": "boolean"
+            }
+          ]
+        },
+        "bodyMatcher": {
+          "bodyValues": [
+            {
+              "value": "string",
+              "caseSensitive": "boolean"
+            }
+          ]
+        }
+      }
     }
   ],
-  // Includes only one of the fields `coreRuleSet`
-  "coreRuleSet": {
-    "inboundAnomalyScore": "string",
-    "paranoiaLevel": "string",
-    "ruleSet": {
-      "name": "string",
-      "version": "string",
-      "type": "string",
-      "id": "string"
-    }
-  },
-  // end of the list of possible fields
   "analyzeRequestBody": {
     "isEnabled": "boolean",
     "sizeLimit": "string",
@@ -239,6 +709,11 @@ Required field. ID of the WafProfile resource to return. ||
 
 #|
 ||Field | Description ||
+|| coreRuleSet | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
+
+The parameter is deprecated. Core rule set settings.
+
+Includes only one of the fields `coreRuleSet`. ||
 || id | **string**
 
 Required field. ID of the WAF profile. ||
@@ -250,7 +725,7 @@ Required field. ID of the folder that the WAF profile belongs to. ||
 Required field. ID of the cloud that the WAF profile belongs to. ||
 || name | **string**
 
-Required field. Name of the WAF profile. The name is unique within the folder. 1-50 characters long.
+Name of the WAF profile. The name is unique within the folder. 1-50 characters long.
 
 The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
@@ -262,7 +737,7 @@ The maximum string length in characters is 512. ||
 
 Labels as `` key:value `` pairs. Maximum of 64 per resource.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -279,11 +754,6 @@ Settings for each rule in rule set. ||
 || exclusionRules[] | **[WafProfileExclusionRule](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule)**
 
 List of exclusion rules. See [Rules](/docs/smartwebsecurity/concepts/waf#exclusion-rules). ||
-|| coreRuleSet | **[CoreRuleSet](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet)**
-
-The parameter is deprecated. Core rule set settings.
-
-Includes only one of the fields `coreRuleSet`. ||
 || analyzeRequestBody | **[AnalyzeRequestBody](#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody)**
 
 The parameter is deprecated. Parameters for request body analyzer. ||
@@ -293,6 +763,56 @@ List of rule sets. ||
 || matchAllRuleSets | **boolean**
 
 Determines ||
+|#
+
+## CoreRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet}
+
+#|
+||Field | Description ||
+|| inboundAnomalyScore | **string** (int64)
+
+Anomaly score.
+Enter an integer within the range of 2 and 10000.
+The higher this value, the more likely it is that the request that satisfies the rule is an attack.
+See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details.
+
+Acceptable values are 2 to 10000, inclusive. ||
+|| paranoiaLevel | **string** (int64)
+
+Paranoia level.
+Enter an integer within the range of 1 and 4.
+Paranoia level classifies rules according to their aggression. The higher the paranoia level, the better your protection,
+but also the higher the probability of WAF false positives.
+See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
+NOTE: this option has no effect on enabling or disabling rules.
+it is used only as recommendation for user to enable all rules with paranoia_level <= this value. ||
+|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+
+Required field. Rule set. ||
+|#
+
+## RuleSet {#yandex.cloud.smartwebsecurity.v1.waf.RuleSet}
+
+A RuleSet object. Determines name and version of rule set.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of rule set. ||
+|| version | **string**
+
+Required field. Version of rule set. ||
+|| type | **enum** (RuleSetType)
+
+Type of rule set.
+
+- `CORE`: Core rule set.
+- `YA`: Yandex rule set.
+- `ML`: Yandex machine learning rule set. ||
+|| id | **string**
+
+ID of rule set. ||
 |#
 
 ## WafProfileRule {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileRule}
@@ -335,6 +855,9 @@ Required field. Exclude rules. ||
 || logExcluded | **boolean**
 
 Records the fact that an exception rule is triggered. ||
+|| requestCondition | **[RequestCondition](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition)**
+
+Additional condition applied to specific parts of the request to refine when the exclusion is triggered. ||
 |#
 
 ## Condition {#yandex.cloud.smartwebsecurity.v1.Condition}
@@ -361,6 +884,26 @@ The maximum number of elements is 20. ||
 || sourceIp | **[IpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpMatcher)**
 
 Match IP. ||
+|| cookies[] | **[CookieMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.CookieMatcher)**
+
+Match cookies.
+
+The maximum number of elements is 20. ||
+|| botCategory | **[BotCategoryMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotCategoryMatcher)**
+
+Match bot category. ||
+|| botName | **[BotNameMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotNameMatcher)**
+
+Match bot name. ||
+|| botScore | **[BotScoreMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BotScoreMatcher)**
+
+Match bot score. ||
+|| verifiedBot | **[VerifiedBotMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.VerifiedBotMatcher)**
+
+Match verified bot. ||
+|| fingerPrint | **[FingerPrintMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.FingerPrintMatcher)**
+
+Match fingerprint. ||
 |#
 
 ## AuthorityMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.AuthorityMatcher}
@@ -374,6 +917,9 @@ AuthorityMatcher object.
 List of authorities. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| authorityMatcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+Authority matcher. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher}
@@ -384,34 +930,89 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+Exact match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || exactNotMatch | **string**
 
+Exact not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || prefixMatch | **string**
 
+Prefix match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || prefixNotMatch | **string**
 
+Prefix not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || pireRegexMatch | **string**
 
+PIRE regex match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
 || pireRegexNotMatch | **string**
 
+PIRE regex not match condition.
+
 The string length in characters must be 0-255.
 
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|| defined | **boolean**
+
+Matches if the field is defined.
+
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|| listsMatchers | **[ListsMatchers](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatchers)**
+
+Matches against string and regular expression lists.
+
+Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`, `defined`, `listsMatchers`. ||
+|#
+
+## ListsMatchers {#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatchers}
+
+ListsMatchers object.
+
+#|
+||Field | Description ||
+|| strListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+String lists to match with. ||
+|| strListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+String lists to not match with. ||
+|| regExpListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Regular expression lists to match with. ||
+|| regExpListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Regular expression lists to not match with. ||
+|#
+
+## ListsMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher}
+
+ListsMatcher object.
+
+#|
+||Field | Description ||
+|| listIds[] | **string**
+
+List of list IDs to match against. OR semantics implied.
+
+The number of elements must be in the range 1-10. ||
 |#
 
 ## HttpMethodMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.HttpMethodMatcher}
@@ -425,6 +1026,9 @@ HttpMethodMatcher object.
 List of HTTP methods. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| httpMethodMatcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+HTTP method matcher. ||
 |#
 
 ## RequestUriMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.RequestUriMatcher}
@@ -481,10 +1085,36 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)** ||
+|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+
+IP ranges to match with. ||
+|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher)**
+
+IP ranges to not match with. ||
+|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+
+Geo locations to match with. ||
+|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher)**
+
+Geo locations to not match with. ||
+|| ipListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+IP lists to match with. ||
+|| ipListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+IP lists to not match with. ||
+|| asnRangesMatch | **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+
+ASN ranges to match with. ||
+|| asnRangesNotMatch | **[AsnRangesMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher)**
+
+ASN ranges to not match with. ||
+|| asnListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+ASN lists to match with. ||
+|| asnListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+ASN lists to not match with. ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IpRangesMatcher}
@@ -497,7 +1127,7 @@ IpRangesMatcher object.
 
 List of IP ranges. OR semantics implied.
 
-The maximum number of elements is 10000. ||
+The string length in characters for each value must be greater than 0. The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.GeoIpMatcher}
@@ -511,6 +1141,194 @@ GeoIpMatcher object.
 ISO 3166-1 alpha 2. OR semantics implied.
 
 The minimum number of elements is 1. ||
+|#
+
+## AsnRangesMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.AsnRangesMatcher}
+
+AsnRangesMatcher object.
+
+#|
+||Field | Description ||
+|| asnRanges[] | **string** (int64)
+
+List of ASN values to match against. OR semantics implied.
+
+The maximum number of elements is 10000. Acceptable values are 0 to 4294967295, inclusive. ||
+|#
+
+## CookieMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.CookieMatcher}
+
+CookieMatcher object.
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the cookie parametr.
+
+The string length in characters must be 1-255. ||
+|| value | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+Required field. Value of the cookie parametr. ||
+|#
+
+## BotCategoryMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotCategoryMatcher}
+
+BotCategoryMatcher object. AND semantics implied.
+
+#|
+||Field | Description ||
+|| botCategoryListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot category lists to match with. ||
+|| botCategoryListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot category lists to not match with. ||
+|#
+
+## BotNameMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotNameMatcher}
+
+BotNameMatcher object. AND semantics implied.
+
+#|
+||Field | Description ||
+|| botNameListsMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot name lists to match with. ||
+|| botNameListsNotMatch | **[ListsMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.ListsMatcher)**
+
+Bot name lists to not match with. ||
+|#
+
+## BotScoreMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BotScoreMatcher}
+
+BotScoreMatcher object.
+
+#|
+||Field | Description ||
+|| value[] | **[IntMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntMatcher)**
+
+List of integer matchers for bot score. OR semantics implied.
+
+The maximum number of elements is 4. ||
+|#
+
+## IntMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntMatcher}
+
+IntMatcher object.
+
+#|
+||Field | Description ||
+|| leMatch | **[IntLEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntLEMatcher)**
+
+Less than or equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| geMatch | **[IntGEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntGEMatcher)**
+
+Greater than or equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| eqMatch | **[IntEQMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntEQMatcher)**
+
+Equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|| neMatch | **[IntNEMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.IntNEMatcher)**
+
+Not equal condition.
+
+Includes only one of the fields `leMatch`, `geMatch`, `eqMatch`, `neMatch`. ||
+|#
+
+## IntLEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntLEMatcher}
+
+IntLEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Upper bound value (inclusive). ||
+|#
+
+## IntGEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntGEMatcher}
+
+IntGEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Lower bound value (inclusive). ||
+|#
+
+## IntEQMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntEQMatcher}
+
+IntEQMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Value to match against. ||
+|#
+
+## IntNEMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.IntNEMatcher}
+
+IntNEMatcher object.
+
+#|
+||Field | Description ||
+|| value | **string** (int64)
+
+Value to not match against. ||
+|#
+
+## VerifiedBotMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.VerifiedBotMatcher}
+
+VerifiedBotMatcher object.
+
+#|
+||Field | Description ||
+|| verified | **[BoolMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.BoolMatcher)**
+
+Matches if the bot is verified or not. ||
+|#
+
+## BoolMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.BoolMatcher}
+
+BoolMatcher object.
+
+#|
+||Field | Description ||
+|| match | **boolean**
+
+Boolean value to match against. ||
+|#
+
+## FingerPrintMatcher {#yandex.cloud.smartwebsecurity.v1.Condition.FingerPrintMatcher}
+
+FingerPrintMatcher object.
+
+#|
+||Field | Description ||
+|| ja3Ranges[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+List of JA3 fingerprint matchers. OR semantics implied.
+
+The maximum number of elements is 20. ||
+|| ja4Ranges[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+List of JA4 fingerprint matchers. OR semantics implied.
+
+The maximum number of elements is 20. ||
+|| ja3Matcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+JA3 fingerprint matcher. ||
+|| ja4Matcher | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.Condition.StringMatcher)**
+
+JA4 fingerprint matcher. ||
 |#
 
 ## ExcludeRules {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.ExcludeRules}
@@ -527,54 +1345,78 @@ Set this option true to exclude all rules. ||
 List of rules to exclude. ||
 |#
 
-## CoreRuleSet {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.CoreRuleSet}
+## RequestCondition {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition}
 
 #|
 ||Field | Description ||
-|| inboundAnomalyScore | **string** (int64)
+|| paramMatcher | **[RequestParamMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher)**
 
-Anomaly score.
-Enter an integer within the range of 2 and 10000.
-The higher this value, the more likely it is that the request that satisfies the rule is an attack.
-See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details.
+Matcher for request query parameters. ||
+|| headerMatcher | **[HeaderMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.HeaderMatcher)**
 
-Acceptable values are 2 to 10000, inclusive. ||
-|| paranoiaLevel | **string** (int64)
+Matcher for request headers. ||
+|| cookieMatcher | **[CookieMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.CookieMatcher)**
 
-Paranoia level.
-Enter an integer within the range of 1 and 4.
-Paranoia level classifies rules according to their aggression. The higher the paranoia level, the better your protection,
-but also the higher the probability of WAF false positives.
-See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
-NOTE: this option has no effect on enabling or disabling rules.
-it is used only as recommendation for user to enable all rules with paranoia_level <= this value. ||
-|| ruleSet | **[RuleSet](#yandex.cloud.smartwebsecurity.v1.waf.RuleSet)**
+Matcher for request cookies. ||
+|| bodyMatcher | **[BodyMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher)**
 
-Required field. Rule set. ||
+Matcher for request body. ||
 |#
 
-## RuleSet {#yandex.cloud.smartwebsecurity.v1.waf.RuleSet}
-
-A RuleSet object. Determines name and version of rule set.
+## RequestParamMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.RequestParamMatcher}
 
 #|
 ||Field | Description ||
-|| name | **string**
+|| paramNames[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
 
-Required field. Name of rule set. ||
-|| version | **string**
+List of request query parameter names to match. Up to 20 entries.
 
-Required field. Version of rule set. ||
-|| type | **enum** (RuleSetType)
+The maximum number of elements is 20. ||
+|#
 
-Type of rule set.
+## StringMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher}
 
-- `CORE`: Core rule set.
-- `YA`: Yandex rule set.
-- `ML`: Yandex machine learning rule set. ||
-|| id | **string**
+#|
+||Field | Description ||
+|| value | **string**
 
-ID of rule set. ||
+String value to match against. ||
+|| caseSensitive | **boolean**
+
+Whether the match is case sensitive. ||
+|#
+
+## HeaderMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.HeaderMatcher}
+
+#|
+||Field | Description ||
+|| headerNames[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
+
+List of request header names to match. Up to 20 entries.
+
+The maximum number of elements is 20. ||
+|#
+
+## CookieMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.CookieMatcher}
+
+#|
+||Field | Description ||
+|| cookieNames[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
+
+List of cookie names to match. Up to 20 entries.
+
+The maximum number of elements is 20. ||
+|#
+
+## BodyMatcher {#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.BodyMatcher}
+
+#|
+||Field | Description ||
+|| bodyValues[] | **[StringMatcher](#yandex.cloud.smartwebsecurity.v1.waf.WafProfileExclusionRule.RequestCondition.StringMatcher)**
+
+List of request body values to match. Up to 20 entries.
+
+The maximum number of elements is 20. ||
 |#
 
 ## AnalyzeRequestBody {#yandex.cloud.smartwebsecurity.v1.waf.WafProfile.AnalyzeRequestBody}

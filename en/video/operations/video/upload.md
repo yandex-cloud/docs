@@ -49,6 +49,7 @@ description: Follow this guide to upload a video to {{ video-full-name }}.
      If no template is selected, the video will use the [default template](../style-presets/set-default.md) assigned to the channel.
 
   1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
+  1. {% include [turn-auto-proc-video-file-errors-optional](../../../_includes/video/turn-auto-proc-video-file-errors-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
   1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.

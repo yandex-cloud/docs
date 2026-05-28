@@ -18,6 +18,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Id of the group from external system
+            The maximum string length in characters is 1024.
           type: string
       required:
         - subjectContainerId
@@ -51,7 +52,9 @@ or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](/docs/organiza
 The maximum string length in characters is 50. ||
 || externalId | **string**
 
-Required field. Id of the group from external system ||
+Required field. Id of the group from external system
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.Group}

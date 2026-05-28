@@ -70,6 +70,8 @@ items:
             href: operations/cspm/index.md
           - name: View control and violation rules
             href: operations/cspm/view-rules.md
+          - name: Running a workspace check
+            href: operations/cspm/check-environment.md
           - name: Performing security compliance checks
             href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules
@@ -114,6 +116,8 @@ items:
             href: concepts/standard-compliance/yc-personal-data-protection.md
           - name: PCI DSS standard in {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-pci-dss.md
+          - name: "Requirements of the GOST\_R\_57580 standard"
+            href: concepts/standard-compliance/yc-gost-57580.md
       - name: '{{ dspm-full-name }} ({{ dspm-name }})'
         href: concepts/dspm.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'

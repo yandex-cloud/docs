@@ -16,7 +16,7 @@ description: Follow this guide to add a broadcast to a playlist in {{ video-name
      If the list does not contain the playlist you need, [create](../playlists/create.md) it.
 
   1. Under **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**, click **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**.
-  1. In the window that opens, click the **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** tab and select the completed broadcasts you need. To create a new broadcast, click **{{ ui-key.yacloud_video.playlists.action_create-stream }}**.
+  1. In the window that opens, click the **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** tab and select the broadcast episodes you need. To create a new broadcast, click **{{ ui-key.yacloud_video.playlists.action_create-stream }}**.
   1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
 
 {% endlist %}

@@ -147,7 +147,7 @@ To create a cluster and a database:
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `alb-logging-cluster`.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** field, select `PRODUCTION`.
-  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `12`.
+  1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select `17`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
      * Specify the `Intel Cascade Lake` platform.

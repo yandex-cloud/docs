@@ -38,7 +38,7 @@ Property names specified in the rules are not validated. If a property name cont
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.ClusterForm.label_catalog-session-property_9XoJs }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -57,7 +57,7 @@ Property names specified in the rules are not validated. If a property name cont
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -99,13 +99,13 @@ Property names specified in the rules are not validated. If a property name cont
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If you do not specify `property`, the rule applies to all properties.
+     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
        * `names`: List of property names.
        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `catalog`: Cluster catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
@@ -211,7 +211,7 @@ Property names specified in the rules are not validated. If a property name cont
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -470,7 +470,7 @@ Property names specified in the rules are not validated. If a property name cont
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.ClusterForm.label_catalog-session-property_9XoJs }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -489,7 +489,7 @@ Property names specified in the rules are not validated. If a property name cont
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
      1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
@@ -538,13 +538,13 @@ Property names specified in the rules are not validated. If a property name cont
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If you do not specify `property`, the rule applies to all properties.
+     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
        * `names`: List of property names.
        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `catalog`: Catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These must be the existing catalogs.
        * `names`: List of catalog names. These must be the existing catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
@@ -661,7 +661,7 @@ Property names specified in the rules are not validated. If a property name cont
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -900,7 +900,7 @@ Property names specified in the rules are not validated. If a property name cont
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

@@ -8,7 +8,7 @@ You can enter a query in tokenized or text mode.
 
 This is the default mode. A query string in tokenized mode looks like this:
 
-![Query string in tokenized mode](../../../_assets/monitoring/query_string_tokens_2025.png "Query string in tokenized mode")
+![Query string in tokenized mode](../../../_assets/monium/query_string_tokens_2026.png "Query string in tokenized mode")
 
 In this mode, the query string consists of two parts:
 
@@ -36,7 +36,7 @@ To switch to text mode, click ![raw](../../../_assets/console-icons/code.svg). I
 
 A query string in text mode looks like this:
 
-![Query string in text mode](../../../_assets/monitoring/query_string_text_2025.png "Query string in text mode")
+![Query string in text mode](../../../_assets/monium/query_string_text_2026.png "Query string in text mode")
 
 In text mode, queries to monitoring are written as functions. Function arguments are tokens, outputs of other functions, and other queries. Syntax highlighting is supported: function names, key words, and label values are highlighted in different colors.
 

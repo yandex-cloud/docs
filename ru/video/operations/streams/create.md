@@ -60,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-  1. Включите или выключите рекламу. Для включения заранее [настройте](../../../../ru/video/operations/channels/settings.md#ad-settings) показ рекламы.
+  1. Включите или выключите рекламу. Для включения заранее [настройте](../channels/settings.md#ad-settings) показ рекламы.
   1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **{{ ui-key.yacloud_video.streams.label_player-template }}** выберите нужный из доступных в канале или создайте новый.
   1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
   

@@ -1,3 +1,8 @@
+---
+title: Как начать работать с AWS SDK для .NET в {{ cns-full-name }}
+description: Следуя данной инструкции, вы научитесь работать с AWS SDK для .NET в {{ cns-full-name }}.
+---
+
 # Как начать работать с AWS SDK для .NET в {{ cns-full-name }}
 
 {% include [preview-stage](../../_includes/notifications/preview-stage.md) %}

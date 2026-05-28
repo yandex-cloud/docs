@@ -49,8 +49,8 @@ This example uses an object of the following format as the parameter:
 
 The method returns a promise which:
 
-* Gets the `fulfilled` status if switching is successful.
-* Gets the `rejected` status if switching fails. For example, if the content with a specified `id` was not found.
+* Turns to `fulfilled` if switching was successful.
+* Turns to `rejected` if switching ended with an error. For example, if the content with a specified `id` was not found.
 
 #### preloadSource {#preloadsource}
 
@@ -106,8 +106,8 @@ You can provide an object with preloading settings as the second optional parame
 
 The method returns a promise which:
 
-* Gets the `fulfilled` status if the preloading was successful.
-* Gets the `rejected` status if the preloading failed with an error or was cancelled.
+* Turns to `fulfilled` if preloading was successful.
+* Turns to `rejected` if preloading ended with an error or was canceled.
 
 #### getState {#getstate}
 
@@ -125,8 +125,8 @@ Starts playback.
 
 The method returns a promise which:
 
-* Gets the `fulfilled` status if playback starts.
-* Gets the `rejected` status if playback [fails](https://developer.chrome.com/blog/autoplay).
+* Turns to `fulfilled` if playback starts.
+* Turns to `rejected` if playback [fails](https://developer.chrome.com/blog/autoplay).
 
 #### pause {#pause}
 
@@ -162,6 +162,39 @@ Example:
 
 ```javascript
 player.setVolume(0.7);
+```
+
+#### setTextTrack {#settexttrack}
+
+Switches the text track (subtitles).
+
+The `value` value from the track object obtained from [textTracks](./player-state.md#state-textTracks) is provided as the parameter. 
+
+To disable subtitle protection, provide `null`.
+
+Example of enabling subtitles:
+
+```javascript
+var tracks = player.getState().textTracks;
+if (tracks.length > 0) {
+    player.setTextTrack(tracks[0].value);
+}
+```
+
+Example of enabling subtitles from the start of playback:
+
+```javascript
+player.once('TextTracksChange', ({ textTracks }) => {
+    if (textTracks.length > 0) {
+        player.setTextTrack(textTracks[0].value);
+    }
+});
+```
+
+Example of disabling subtitles:
+
+```javascript
+player.setTextTrack(null);
 ```
 
 #### setPlaybackSpeed {#setplaybackspeed}
@@ -215,7 +248,7 @@ Allows you to unsubscribe from the player events you subscribed to using the `on
 
 The method has the `off(eventName, handler)` signature. The first parameter communicates the event name, the second communicates the handler you had used for subscription.
 
-Example of unsubscribing from a handler function named `handler` for the playback [StatusChange](./player-events.md#StatusChange) event:
+Example of unsubscribing from a handler function named `handler` for the playback [StatusChange](./player-events.md#statuschange) event:
 
 ```javascript
 player.off('StatusChange', handler);

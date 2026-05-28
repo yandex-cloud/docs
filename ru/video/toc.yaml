@@ -426,6 +426,10 @@ items:
                 href: api-ref/grpc/Video/getManifests.md
               - name: GenerateDownloadURL
                 href: api-ref/grpc/Video/generateDownloadURL.md
+              - name: GetScreenshots
+                href: api-ref/grpc/Video/getScreenshots.md
+              - name: BatchGetScreenshots
+                href: api-ref/grpc/Video/batchGetScreenshots.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -618,6 +622,10 @@ items:
                 href: api-ref/Video/getManifests.md
               - name: GenerateDownloadURL
                 href: api-ref/Video/generateDownloadURL.md
+              - name: GetScreenshots
+                href: api-ref/Video/getScreenshots.md
+              - name: BatchGetScreenshots
+                href: api-ref/Video/batchGetScreenshots.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

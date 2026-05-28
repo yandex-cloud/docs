@@ -563,7 +563,7 @@ items:
         href: tutorials/vipnet-to-yc.md
         hidden: true
       - name: >-
-          Creating an external table from an {{ objstorage-name }} bucket table
+          Creating an external table from a {{ objstorage-name }} bucket table
           using a configuration file
         href: tutorials/mgp-config-server-for-s3.md
       - name: >-
@@ -597,7 +597,13 @@ items:
       - name: Microsoft products in {{ yandex-cloud }}
         items:
           - name: Secure password transmission to an initialization script
-            href: tutorials/secure-password-script.md
+            items:
+              - name: Overview
+                href: tutorials/secure-password-script/index.md
+              - name: Management console, CLI, and API
+                href: tutorials/secure-password-script/console.md
+              - name: '{{ TF }}'
+                href: tutorials/secure-password-script/terraform.md
           - name: Deploying Active Directory
             href: tutorials/active-directory.md
           - name: Deploying Microsoft Exchange

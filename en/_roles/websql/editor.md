@@ -1,4 +1,5 @@
-The `websql.editor` role enables managing published and private queries within WebSQL.
+
+The `websql.editor` role enables managing published and private queries within {{ websql-name }}.
 
 Users with this role can:
 * View info on the published saved queries and [access permissions](../../iam/concepts/access-control/index.md) assigned to them, as well as modify and delete such queries.

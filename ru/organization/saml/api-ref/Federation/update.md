@@ -9,10 +9,12 @@ apiPlayground:
         federationId:
           description: |-
             **string**
-            ID of the federation to update.
+            Required field. ID of the federation to update.
             To get the federation ID, make a [FederationService.List](/docs/organization/saml/api-ref/Federation/list#List) request.
             The maximum string length in characters is 50.
           type: string
+      required:
+        - federationId
       additionalProperties: false
     query: null
     body:
@@ -65,7 +67,7 @@ apiPlayground:
         issuer:
           description: |-
             **string**
-            Required field. ID of the IdP server to be used for authentication.
+            ID of the IdP server to be used for authentication.
             The IdP server also responds to IAM with this ID after the user authenticates.
             The maximum string length in characters is 8000.
           type: string
@@ -87,7 +89,7 @@ apiPlayground:
         ssoUrl:
           description: |-
             **string**
-            Required field. Single sign-on endpoint URL.
+            Single sign-on endpoint URL.
             Specify the link to the IdP login page here.
             The maximum string length in characters is 8000.
           type: string
@@ -105,7 +107,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `` key:value `` pairs.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -117,9 +119,6 @@ apiPlayground:
             maxLength: 63
             minLength: 1
           maxProperties: 64
-      required:
-        - issuer
-        - ssoUrl
       additionalProperties: false
     definitions:
       FederationSecuritySettings:
@@ -214,19 +213,17 @@ The default value is `8h`. ||
 Add new users automatically on successful authentication.
 The user becomes member of the organization automatically,
 but you need to grant other roles to them.
-
 If the value is `false`, users who aren't added to the organization
 can't log in, even if they have authenticated on your server. ||
 || issuer | **string**
 
-Required field. ID of the IdP server to be used for authentication.
+ID of the IdP server to be used for authentication.
 The IdP server also responds to IAM with this ID after the user authenticates.
 
 The maximum string length in characters is 8000. ||
 || ssoBinding | **enum** (BindingType)
 
 Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
-
 SAML Binding is a mapping of a SAML protocol message onto standard messaging
 formats and/or communications protocols.
 
@@ -235,7 +232,7 @@ formats and/or communications protocols.
 - `ARTIFACT`: HTTP artifact binding. ||
 || ssoUrl | **string**
 
-Required field. Single sign-on endpoint URL.
+Single sign-on endpoint URL.
 Specify the link to the IdP login page here.
 
 The maximum string length in characters is 8000. ||
@@ -249,7 +246,7 @@ Use case insensitive name ids. ||
 
 Resource labels as `` key:value `` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## FederationSecuritySettings {#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings}
@@ -278,9 +275,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "federationId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -289,24 +284,7 @@ Value parameter ForceAuthn in SAMLRequest. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "organizationId": "string",
-    "name": "string",
-    "description": "string",
-    "createdAt": "string",
-    "cookieMaxAge": "string",
-    "autoCreateAccountOnLogin": "boolean",
-    "issuer": "string",
-    "ssoBinding": "string",
-    "ssoUrl": "string",
-    "securitySettings": {
-      "encryptedAssertions": "boolean",
-      "forceAuthn": "boolean"
-    },
-    "caseInsensitiveNameIds": "boolean",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -348,7 +326,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateFederationMetadata](#yandex.cloud.organizationmanager.v1.saml.UpdateFederationMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -363,7 +341,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Federation](#yandex.cloud.organizationmanager.v1.saml.Federation)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -378,15 +356,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateFederationMetadata {#yandex.cloud.organizationmanager.v1.saml.UpdateFederationMetadata}
-
-#|
-||Field | Description ||
-|| federationId | **string**
-
-ID of the federation that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -404,99 +373,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Federation {#yandex.cloud.organizationmanager.v1.saml.Federation}
-
-A federation.
-For more information, see [SAML-compatible identity federations](/docs/iam/concepts/federations).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the federation.
-
-The maximum string length in characters is 50. ||
-|| organizationId | **string**
-
-ID of the organization that the federation belongs to. ||
-|| name | **string**
-
-Required field. Name of the federation.
-
-Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
-|| description | **string**
-
-Description of the federation.
-
-The maximum string length in characters is 256. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| cookieMaxAge | **string** (duration)
-
-Browser cookie lifetime in seconds.
-If the cookie is still valid, the management console
-authenticates the user immediately and redirects them to the home page. ||
-|| autoCreateAccountOnLogin | **boolean**
-
-Add new users automatically on successful authentication.
-The user becomes member of the organization automatically,
-but you need to grant other roles to them.
-
-If the value is `false`, users who aren't added to the organization
-can't log in, even if they have authenticated on your server. ||
-|| issuer | **string**
-
-Required field. ID of the IdP server to be used for authentication.
-The IdP server also responds to IAM with this ID after the user authenticates.
-
-The maximum string length in characters is 8000. ||
-|| ssoBinding | **enum** (BindingType)
-
-Single sign-on endpoint binding type. Most Identity Providers support the `POST` binding type.
-
-SAML Binding is a mapping of a SAML protocol message onto standard messaging
-formats and/or communications protocols.
-
-- `POST`: HTTP POST binding.
-- `REDIRECT`: HTTP redirect binding.
-- `ARTIFACT`: HTTP artifact binding. ||
-|| ssoUrl | **string**
-
-Required field. Single sign-on endpoint URL.
-Specify the link to the IdP login page here.
-
-The maximum string length in characters is 8000. ||
-|| securitySettings | **[FederationSecuritySettings](#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings2)**
-
-Federation security settings. ||
-|| caseInsensitiveNameIds | **boolean**
-
-Use case insensitive Name IDs. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. Maximum of 64 per resource. ||
-|#
-
-## FederationSecuritySettings {#yandex.cloud.organizationmanager.v1.saml.FederationSecuritySettings2}
-
-Federation security settings.
-
-#|
-||Field | Description ||
-|| encryptedAssertions | **boolean**
-
-Enable encrypted assertions. ||
-|| forceAuthn | **boolean**
-
-Value parameter ForceAuthn in SAMLRequest. ||
 |#

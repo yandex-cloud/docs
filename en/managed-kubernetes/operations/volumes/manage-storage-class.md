@@ -109,7 +109,7 @@ reclaimPolicy: <reclaim_policy>
 The acceptable parameter values include:
 * `parameters`:
   * `type`: `network-hdd`, `network-ssd`, `network-ssd-nonreplicated`, or `network-ssd-io-m3`.
-  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, or `ext4`.
+  * `csi.storage.k8s.io/fstype`: `ext2`, `ext3`, `ext4`, or `btrfs`.
 * `reclaimPolicy`: `Retain` or `Delete`.
 * `allowVolumeExpansion`: `true` or `false`.
 

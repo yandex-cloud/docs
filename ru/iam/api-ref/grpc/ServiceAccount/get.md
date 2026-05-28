@@ -5,7 +5,6 @@ editable: false
 # Identity and Access Management API, gRPC: ServiceAccountService.Get
 
 Returns the specified ServiceAccount resource.
-
 To get the list of available ServiceAccount resources, make a [List](/docs/iam/api-ref/grpc/ServiceAccount/list#List) request.
 
 ## gRPC request

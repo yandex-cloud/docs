@@ -31,12 +31,6 @@ apiPlayground:
             The rest of the fields will be reset to the default.
           type: string
           format: field-mask
-        lineId:
-          description: |-
-            **string**
-            DEPRECATED.
-            The maximum string length in characters is 50.
-          type: string
         title:
           description: |-
             **string**
@@ -67,7 +61,7 @@ apiPlayground:
             New custom labels for the stream as `key:value` pairs.
             Maximum 64 labels per stream.
             If provided, replaces all existing labels.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -166,7 +160,6 @@ The maximum string length in characters is 50. ||
 ```json
 {
   "fieldMask": "string",
-  "lineId": "string",
   "title": "string",
   "description": "string",
   "thumbnailId": "string",
@@ -194,11 +187,6 @@ the field's value will be reset to the default. The default value for most field
 If `` updateMask `` is not sent in the request, all fields' values will be updated.
 Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
-|| lineId | **string**
-
-DEPRECATED.
-
-The maximum string length in characters is 50. ||
 || title | **string**
 
 Stream title.
@@ -224,7 +212,7 @@ New custom labels for the stream as `key:value` pairs.
 Maximum 64 labels per stream.
 If provided, replaces all existing labels.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. No more than 64 per resource. ||
 || onDemand | **object**
 
 On demand stream.
@@ -285,9 +273,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "streamId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -296,29 +282,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "channelId": "string",
-    "lineId": "string",
-    "title": "string",
-    "description": "string",
-    "thumbnailId": "string",
-    "status": "string",
-    "startTime": "string",
-    "publishTime": "string",
-    "finishTime": "string",
-    "autoPublish": "boolean",
-    // Includes only one of the fields `onDemand`, `schedule`
-    "onDemand": "object",
-    "schedule": {
-      "startTime": "string",
-      "finishTime": "string"
-    },
-    // end of the list of possible fields
-    "createdAt": "string",
-    "updatedAt": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -360,7 +324,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateStreamMetadata](#yandex.cloud.video.v1.UpdateStreamMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -375,7 +339,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Stream](#yandex.cloud.video.v1.Stream)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -390,15 +354,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateStreamMetadata {#yandex.cloud.video.v1.UpdateStreamMetadata}
-
-#|
-||Field | Description ||
-|| streamId | **string**
-
-ID of the stream. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -416,143 +371,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Stream {#yandex.cloud.video.v1.Stream}
-
-Entity representing a live video stream.
-A stream is a real-time video broadcast linked to a specific stream line.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the stream. ||
-|| channelId | **string**
-
-Identifier of the channel where the stream is created and managed. ||
-|| lineId | **string**
-
-Identifier of the stream line to which this stream is linked. ||
-|| title | **string**
-
-Title of the stream displayed in interfaces and players. ||
-|| description | **string**
-
-Detailed description of the stream content and context. ||
-|| thumbnailId | **string**
-
-Identifier of the thumbnail image used to represent the stream visually. ||
-|| status | **enum** (StreamStatus)
-
-Current status of the stream.
-
-- `OFFLINE`: The stream is offline and not broadcasting.
-- `PREPARING`: The system is preparing the infrastructure for receiving the video signal.
-- `READY`: The infrastructure is ready to launch the stream.
-- `ONAIR`: The stream is currently broadcasting live.
-- `FINISHED`: The stream has completed and is no longer broadcasting. ||
-|| startTime | **string** (date-time)
-
-Timestamp when the stream was initiated.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| publishTime | **string** (date-time)
-
-Timestamp when the stream was published (switched to ONAIR status).
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| finishTime | **string** (date-time)
-
-Timestamp when the stream was completed.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| autoPublish | **boolean**
-
-Controls automatic publishing of the stream when it's ready.
-When set to true, automatically switches status from READY to ONAIR. ||
-|| onDemand | **object**
-
-On-demand stream starts immediately when a video signal appears.
-
-Includes only one of the fields `onDemand`, `schedule`.
-
-Specifies the stream scheduling type. ||
-|| schedule | **[Schedule](#yandex.cloud.video.v1.Schedule)**
-
-Scheduled stream starts and finishes at specified time.
-
-Includes only one of the fields `onDemand`, `schedule`.
-
-Specifies the stream scheduling type. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the stream was initially created in the system.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Timestamp of the last modification to the stream or its metadata.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom user-defined labels as `key:value` pairs.
-Maximum 64 labels per stream.
-Used for organization, filtering, and metadata purposes.
-Labels can be used for organization, filtering, and metadata purposes. ||
-|#
-
-## Schedule {#yandex.cloud.video.v1.Schedule}
-
-Represents a scheduled stream type.
-This type of stream starts and finishes automatically at specified time.
-
-#|
-||Field | Description ||
-|| startTime | **string** (date-time)
-
-Scheduled time when the stream should automatically start.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| finishTime | **string** (date-time)
-
-Scheduled time when the stream should automatically finish.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

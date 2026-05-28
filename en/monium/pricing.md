@@ -22,7 +22,7 @@ When using {{ monium-name }} services, you pay for the following:
 * Exporting metrics in {{ prometheus-name }} format via the {{ monium-name }} API.
 * Writing data to {{ monium-logs-name }}.
 * Writing data to {{ traces-name }}.
-* Sending SMS and phone calls.
+* Outgoing SMS and phone calls.
 
 There is no charge for writing {{ yandex-cloud }} resource metrics, reading metrics via the {{ prometheus-name }} Remote API, or reading logs and traces.
 
@@ -71,5 +71,6 @@ The minimum billing unit is one metric value. Billing for logs and traces is bas
     currency="USD"
   />
 </MDX>
+
 
 

@@ -24,7 +24,6 @@ apiPlayground:
 # Identity and Access Management API, REST: ServiceAccount.Get
 
 Returns the specified ServiceAccount resource.
-
 To get the list of available ServiceAccount resources, make a [List](/docs/iam/api-ref/ServiceAccount/list#List) request.
 
 ## HTTP request

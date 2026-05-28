@@ -67,6 +67,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
     1. Optionally, under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**, set [rules for access to cluster objects](../concepts/access-control.md). For more information, see [{#T}](access-control.md).
+    1. Optionally, under **{{ ui-key.yacloud.trino.section_resource-management }}**, [configure the resource groups](../concepts/access-control.md). For more information, see [{#T}](manage-resource-groups.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. Optionally, enable cluster deletion protection.
@@ -302,7 +303,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -481,7 +482,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

@@ -35,7 +35,7 @@ items:
         href: concepts/index.md
       - name: Secret
         href: concepts/secret.md
-      - name: Integration with {{ yandex-cloud }} services
+      - name: Integration with the {{ yandex-cloud }} services
         href: concepts/services.md
   - name: Tutorials
     items:
@@ -45,7 +45,7 @@ items:
         href: tutorials/kubernetes-lockbox-secrets.md
       - name: Storing {{ AF }} connections and variables in {{ lockbox-full-name }}
         href: tutorials/lockbox-and-airflow.md
-      - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+      - name: Building a CI/CD pipeline in {{ GL }} using serverless products
         href: tutorials/ci-cd-serverless.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
@@ -64,14 +64,20 @@ items:
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Building an interactive serverless application using WebSocket
+      - name: Creating an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
           another
         href: tutorials/bucket-to-bucket-copying.md
       - name: Secure password transmission to an initialization script
-        href: tutorials/secure-password-script.md
+        items:
+          - name: Overview
+            href: tutorials/secure-password-script/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: tutorials/secure-password-script/terraform.md
       - name: Using a secret in a PySpark job to connect to {{ mpg-full-name }}
         href: tutorials/job-pyspark-secret-access.md
   - name: Quotas and limits

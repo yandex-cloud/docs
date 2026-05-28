@@ -24,7 +24,6 @@ apiPlayground:
 # Identity Provider API, REST: Userpool.Get
 
 Returns the specified userpool.
-
 To get the list of available userpools, make a [List](/docs/organization/idp/api-ref/Userpool/list#List) request.
 
 ## HTTP request

@@ -31,7 +31,9 @@ Updates the specified oauth client.
 || oauth_client_id | **string**
 
 Required field. ID of the OAuthClient resource to update.
-To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request. ||
+To get the oauth client ID, use a [OAuthClientService.List](/docs/iam/api-ref/grpc/OAuthClient/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the OAuthClient resource are going to be updated. ||
@@ -45,12 +47,12 @@ Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 
 List of redirect uries allowed for the oauth client.
 
-The maximum number of elements is 1000. The maximum string length in characters for each value is 1000. ||
+The maximum string length in characters for each value is 1000. The maximum number of elements is 1000. ||
 || scopes[] | **string**
 
 List of oauth scopes requested by the oauth client.
 
-The maximum number of elements is 1000. The maximum string length in characters for each value is 255. ||
+The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The maximum number of elements is 1000. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -63,23 +65,10 @@ The maximum number of elements is 1000. The maximum string length in characters 
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "oauth_client_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "name": "string",
-    "redirect_uris": [
-      "string"
-    ],
-    "scopes": [
-      "string"
-    ],
-    "folder_id": "string",
-    "status": "Status"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -107,7 +96,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateOAuthClientMetadata](#yandex.cloud.iam.v1.UpdateOAuthClientMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -122,7 +111,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OAuthClient](#yandex.cloud.iam.v1.OAuthClient)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -137,43 +126,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateOAuthClientMetadata {#yandex.cloud.iam.v1.UpdateOAuthClientMetadata}
-
-#|
-||Field | Description ||
-|| oauth_client_id | **string**
-
-ID of the oauth client that is being updated ||
-|#
-
-## OAuthClient {#yandex.cloud.iam.v1.OAuthClient}
-
-An OauthClient resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the oauth client. ||
-|| name | **string**
-
-Name for the oauth client. ||
-|| redirect_uris[] | **string**
-
-List of redirect uries allowed for the oauth client. ||
-|| scopes[] | **string**
-
-List of oauth scopes requested by the oauth client. ||
-|| folder_id | **string**
-
-ID of the folder oauth client belongs to. ||
-|| status | enum **Status**
-
-Current status of the oauth client.
-
-- `CREATING`: OAuth client is being created.
-- `ACTIVE`: OAuth client is active.
-- `DELETING`: OAuth client is being deleted. ||
 |#

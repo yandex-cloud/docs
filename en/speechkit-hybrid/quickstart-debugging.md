@@ -35,8 +35,8 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
 
    ```text
    REPOSITORY                                        TAG   DIGEST             IMAGE ID  CREATED  SIZE
-   {{ registry }}/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
-   {{ registry }}/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
+   {{ registry }}/crp33...7i/release/stt/a100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
+   {{ registry }}/crp33...7i/release/tts/a100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
    {{ registry }}/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
    {{ registry }}/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
    ```
@@ -53,8 +53,8 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
 
    ```text
    CONTAINER ID  IMAGE                                                  ...  STATUS            ...
-   659...a0      {{ registry }}/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
-   af3...1f      {{ registry }}/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
+   659...a0      {{ registry }}/crp33...7i/release/stt/a100/stt_server:0.21  ...  Up About an hour  ...
+   af3...1f      {{ registry }}/crp33...7i/release/tts/a100/tts_server:0.21  ...  Up About an hour  ...
    e42...36      {{ registry }}/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
    a4a...43      {{ registry }}/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
    ```
@@ -67,7 +67,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
       sudo apt install net-tools
       ```
 
-   1. Make sure {{ sk-hybrid-name }} services are ready to serve network connections on their dedicated ports. For a list of ports, see the `docker-compose.yaml` file. It is stored in the [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf) file, in the `COMPOSE_V100_STT_TTS` variable.
+   1. Make sure {{ sk-hybrid-name }} services are ready to serve network connections on their dedicated ports. For a list of ports, see the `docker-compose.yaml` file. It is stored in the [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf) file, in the `COMPOSE_A100_STT_TTS` variable.
 
       Run this command to get information about network connections of services:
 
@@ -122,7 +122,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
       | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
       | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
       |===============================+======================+======================|
-      |   0  Tesla V100-SXM2...  Off  | 00000000:8B:00.0 Off |                    0 |
+      |   0  Ampere A100-SXM2...  Off | 00000000:8B:00.0 Off |                    0 |
       | N/A   33C    P0    36W / 300W |      0MiB / 32510MiB |      2%      Default |
       +-------------------------------+----------------------+----------------------+
       ```
@@ -140,8 +140,8 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
       CUDA version:   11.4
       Device Index:   0
       Device Minor:   0
-      Model:          Tesla V100-SXM2-32GB
-      Brand:          Tesla
+      Model:          Ampere A100-SXM2-32GB
+      Brand:          Ampere
       GPU UUID:       GPU-1af...cb
       Bus Location:   00000000:8b:00.0
       Architecture:   7.0
@@ -158,6 +158,6 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
 
 1. Study the contents of the `docker-compose.yaml` file used to launch Docker containers.
 
-   `docker-compose.yaml` is described in the `node-deploy.tf` file, in the `COMPOSE_V100_STT_TTS` variable. The contents of the variable are automatically dumped into the `docker-compose.yaml` file. It is hosted and built on the VM that runs {{ sk-hybrid-name }}.
+   `docker-compose.yaml` is described in the `node-deploy.tf` file, in the `COMPOSE_A100_STT_TTS` variable. The contents of the variable are automatically dumped into the `docker-compose.yaml` file. It is hosted and built on the VM that runs {{ sk-hybrid-name }}.
 
    You may get errors during the build. To process them, make sure the contents of the `docker-compose.yaml` file are consistent with the environment configuration information. This information was collected using the steps described above.

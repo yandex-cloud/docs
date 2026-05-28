@@ -14,8 +14,8 @@ Updates desktop group properties
 
 ```json
 {
-  "desktop_group_id": "string",
   "update_mask": "google.protobuf.FieldMask",
+  "desktop_group_id": "string",
   "desktop_image_id": "string",
   "name": "string",
   "description": "string",
@@ -24,6 +24,14 @@ Updates desktop group properties
     "memory": "int64",
     "cores": "int64",
     "core_fraction": "int64"
+  },
+  "boot_disk_spec": {
+    "size": "int64",
+    "type": "Type"
+  },
+  "data_disk_spec": {
+    "size": "int64",
+    "type": "Type"
   },
   "group_config": {
     "min_ready_desktops": "int64",
@@ -36,14 +44,6 @@ Updates desktop group properties
       }
     ]
   },
-  "boot_disk_spec": {
-    "type": "Type",
-    "size": "int64"
-  },
-  "data_disk_spec": {
-    "type": "Type",
-    "size": "int64"
-  },
   // Includes only one of the fields `auto_update_policy`, `manual_update_policy`
   "auto_update_policy": "AutoUpdatePolicy",
   "manual_update_policy": "ManualUpdatePolicy"
@@ -53,40 +53,56 @@ Updates desktop group properties
 
 #|
 ||Field | Description ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which fields of the desktop group should be updated. ||
 || desktop_group_id | **string**
 
-Required field.
+Required field. ID of the desktop group to update.
 
 The maximum string length in characters is 50. ||
-|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)** ||
 || desktop_image_id | **string**
+
+New desktop image ID.
 
 The maximum string length in characters is 50. ||
 || name | **string**
 
+New desktop group name.
+
 Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
 || description | **string**
+
+New desktop group description.
 
 The maximum string length in characters is 1024. ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
-|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)** ||
-|| group_config | **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
+New desktop group labels.
 
-Configuration of the desktop group. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| resources_spec | **[ResourcesSpec](#yandex.cloud.clouddesktop.v1.api.ResourcesSpec)**
+
+Resources specification of the desktop group. ||
 || boot_disk_spec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
 
 Boot disk specification of the desktop group. ||
 || data_disk_spec | **[DiskSpec](#yandex.cloud.clouddesktop.v1.api.DiskSpec)**
 
 Data disk specification of the desktop group. ||
+|| group_config | **[DesktopGroupConfiguration](#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration)**
+
+Configuration of the desktop group. ||
 || auto_update_policy | **[AutoUpdatePolicy](#yandex.cloud.clouddesktop.v1.api.AutoUpdatePolicy)**
+
+Update automatically
 
 Includes only one of the fields `auto_update_policy`, `manual_update_policy`.
 
 Update policy of the desktop group. ||
 || manual_update_policy | **[ManualUpdatePolicy](#yandex.cloud.clouddesktop.v1.api.ManualUpdatePolicy)**
+
+Update manually
 
 Includes only one of the fields `auto_update_policy`, `manual_update_policy`.
 
@@ -113,6 +129,25 @@ Baseline level of CPU performance with the ability to burst performance above th
 This field sets baseline performance for each core.
 
 Acceptable values are 0 to 100, inclusive. ||
+|#
+
+## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
+
+Disk specificaton.
+
+#|
+||Field | Description ||
+|| size | **int64**
+
+Size of disk.
+
+Value must be greater than 0. ||
+|| type | enum **Type**
+
+Required field. Type of disk.
+
+- `HDD`: HDD disk type.
+- `SSD`: SSD disk type. ||
 |#
 
 ## DesktopGroupConfiguration {#yandex.cloud.clouddesktop.v1.api.DesktopGroupConfiguration}
@@ -149,8 +184,7 @@ The number of elements must be in the range 0-10. ||
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -167,35 +201,14 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/grpc/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||
-|#
-
-## DiskSpec {#yandex.cloud.clouddesktop.v1.api.DiskSpec}
-
-Disk specificaton.
-
-#|
-||Field | Description ||
-|| type | enum **Type**
-
-Required field. Type of disk.
-
-- `HDD`: HDD disk type.
-- `SSD`: SSD disk type. ||
-|| size | **int64**
-
-Size of disk.
-
-Value must be greater than 0. ||
 |#
 
 ## AutoUpdatePolicy {#yandex.cloud.clouddesktop.v1.api.AutoUpdatePolicy}

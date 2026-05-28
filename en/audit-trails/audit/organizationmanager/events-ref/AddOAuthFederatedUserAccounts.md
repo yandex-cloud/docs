@@ -90,11 +90,8 @@ editable: false
   "details": {
     "federationId": "string",
     "federationName": "string",
-    "users": [
-      {
-        "id": "string",
-        "externalId": "string"
-      }
+    "subjectIds": [
+      "string"
     ]
   },
   "requestParameters": "object",
@@ -268,13 +265,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || federationId | **string** ||
 || federationName | **string** ||
-|| users[] | **[User](#yandex.cloud.audit.organizationmanager.oauth.AddOAuthFederatedUserAccounts.EventDetails.User)** ||
-|#
-
-## User {#yandex.cloud.audit.organizationmanager.oauth.AddOAuthFederatedUserAccounts.EventDetails.User}
-
-#|
-||Field | Description ||
-|| id | **string** ||
-|| externalId | **string** ||
+|| subjectIds[] | **string** ||
 |#

@@ -5,7 +5,6 @@ editable: false
 # Access Key, gRPC: AccessKeyService.Get
 
 Returns the specified access key.
-
 To get the list of available access keys, make a [List](/docs/iam/awscompatibility/api-ref/grpc/AccessKey/list#List) request.
 
 ## gRPC request

@@ -3,12 +3,16 @@ title: Как предоставить доступ к OIDC-приложению
 description: Из этой статьи вы узнаете, как настроить доступ к OIDC-приложению в {{ org-full-name }}.
 ---
 
-# Настроить доступ пользователям OIDC-приложения в {{ org-full-name }}
+# Настроить доступ к OIDC-приложению в {{ org-full-name }}
 
 
 Чтобы предоставить доступ к [OIDC-приложению](../../concepts/applications.md#oidc), назначьте [роли](../../../iam/concepts/access-control/roles.md) субъектам. [Узнайте](../../security/index.md#roles-list), какие роли действуют в сервисе, чтобы назначить нужные.
 
 {% list tabs group=instructions %}
+
+- Интерфейс {{ cloud-center }} {#cloud-center}
+
+  {% include [app-set-access-bindings-ui](../../../_includes/organization/app-set-access-bindings-ui.md) %}
 
 - CLI {#cli}
 

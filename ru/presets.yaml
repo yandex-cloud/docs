@@ -980,6 +980,7 @@ default:
   pcs|api-gateway: dn25mc2lq81eqg1ohe4i
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -5276,13 +5277,11 @@ default:
         section_wigets-settings: Настройки виджетов
         title_presets: Шаблоны плеера
       stream-lines:
-        action_create-line: Создать линию
         label_input-stream-protocol: Протокол входного потока
         label_input-stream-type: Тип потока
         label_server-address: Адрес сервера
         label_stream-key: Ключ трансляции
         label_url: Адрес сервера
-        title_lines: Линии
       streams:
         action_add-stream-episode: Добавить эпизод
         action_copy-code: Скопировать
@@ -5303,9 +5302,6 @@ default:
         label_start-broadcast-auto: автоматически
         label_stream-episode-end: Конец эпизода
         label_stream-episode-start: Начало эпизода
-        label_stream-type: Тип потока
-        label_type-on-demand: По требованию
-        label_type-schedule: По расписанию
         option_segment-duration-low: Низкая
         option_segment-duration-standart: Стандартная
         status_finished: Finished
@@ -5313,7 +5309,6 @@ default:
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
-        title_past-code: Встроить на сайте
         title_stream-episodes: Эпизоды
         title_streams: Трансляции
       thumbnails:

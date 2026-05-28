@@ -9,9 +9,11 @@ apiPlayground:
         certificateId:
           description: |-
             **string**
-            ID of the certificate to list operations for.
+            Required field. ID of the certificate to list operations for.
             The maximum string length in characters is 50.
           type: string
+      required:
+        - certificateId
       additionalProperties: false
     query:
       type: object

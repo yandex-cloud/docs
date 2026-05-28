@@ -18,7 +18,7 @@ apiPlayground:
           description: |-
             **string**
             List of video IDs to retrieve.
-            The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50.
+            The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100.
           type: array
           items:
             type: string
@@ -61,7 +61,7 @@ The maximum string length in characters is 50. ||
 
 List of video IDs to retrieve.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.BatchGetVideosResponse}
@@ -89,6 +89,16 @@ The number of elements must be in the range 1-100. The maximum string length in 
       ],
       "features": {
         "summary": {
+          "result": "string",
+          "urls": [
+            {
+              "url": "string",
+              "trackIndex": "string",
+              "srcLang": "string"
+            }
+          ]
+        },
+        "speechToText": {
           "result": "string",
           "urls": [
             {
@@ -248,6 +258,9 @@ Contains additional processing features and their results for the video.
 || summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
 
 Results of the video content summarization process. ||
+|| speechToText | **[SpeechToText](#yandex.cloud.video.v1.VideoFeatures.SpeechToText)**
+
+Results of the speech recognition process. ||
 |#
 
 ## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
@@ -281,6 +294,42 @@ URL to the summarization result file. ||
 || trackIndex | **string** (int64)
 
 Input audio track index (one-based) that was summarized. ||
+|| srcLang | **string**
+
+Source track language represented as a three-letter code according to ISO 639-2/T. ||
+|#
+
+## SpeechToText {#yandex.cloud.video.v1.VideoFeatures.SpeechToText}
+
+Contains the results of speech-to-text processing.
+
+#|
+||Field | Description ||
+|| result | **enum** (FeatureResult)
+
+Current status of the speech-to-text process.
+
+- `NOT_REQUESTED`: The feature processing has not been requested.
+- `PROCESSING`: The feature is currently being processed.
+- `SUCCESS`: The feature processing has completed successfully.
+- `FAILED`: The feature processing has failed. ||
+|| urls[] | **[SpeechToTextURL](#yandex.cloud.video.v1.VideoFeatures.SpeechToText.SpeechToTextURL)**
+
+List of URLs to speech-to-text results for different audio tracks. ||
+|#
+
+## SpeechToTextURL {#yandex.cloud.video.v1.VideoFeatures.SpeechToText.SpeechToTextURL}
+
+Contains a URL to a speech-to-text result for a specific audio track.
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL to the speech-to-text result file. ||
+|| trackIndex | **string** (int64)
+
+Input audio track index (one-based) that was transcribed. ||
 || srcLang | **string**
 
 Source track language represented as a three-letter code according to ISO 639-2/T. ||

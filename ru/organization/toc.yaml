@@ -147,7 +147,7 @@ items:
                 href: operations/applications/saml-create.md
               - name: Изменить приложение
                 href: operations/applications/saml-update.md
-              - name: Настроить доступ пользователям приложения
+              - name: Настроить доступ к приложению
                 href: operations/applications/saml-set-access-bindings.md
               - name: Получить информацию о приложении
                 href: operations/applications/saml-get.md
@@ -159,7 +159,7 @@ items:
                 href: operations/applications/oidc-create.md
               - name: Изменить приложение
                 href: operations/applications/oidc-update.md
-              - name: Настроить доступ пользователям приложения
+              - name: Настроить доступ к приложению
                 href: operations/applications/oidc-set-access-bindings.md
               - name: Получить список приложений
                 href: operations/applications/oidc-list.md
@@ -1506,6 +1506,10 @@ items:
                     href: idp/api-ref/grpc/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/grpc/User/resolveExternalIds.md
+                  - name: GetPasswordChanges
+                    href: idp/api-ref/grpc/User/getPasswordChanges.md
+                  - name: CommitPassword
+                    href: idp/api-ref/grpc/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview
@@ -1964,6 +1968,8 @@ items:
                     href: idp/api-ref/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/User/resolveExternalIds.md
+                  - name: CommitPassword
+                    href: idp/api-ref/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview

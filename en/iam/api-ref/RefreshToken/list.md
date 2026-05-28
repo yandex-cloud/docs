@@ -84,7 +84,6 @@ The maximum string length in characters is 2000. ||
 || filter | **string**
 
 A filter expression that filters refresh tokens listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [RefreshToken.clientInstanceInfo](#yandex.cloud.iam.v1.RefreshToken), [RefreshToken.clientId](#yandex.cloud.iam.v1.RefreshToken) or [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken) fields.
 2. The operator. An `=` operator can be used for all fields. An 'IN' operator can be used for [RefreshToken.protectionLevel](#yandex.cloud.iam.v1.RefreshToken).

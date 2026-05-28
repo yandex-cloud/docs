@@ -33,7 +33,7 @@ To create a connection:
 
    1. In the window that opens, select `Specify manually` for the connection type and provide the following connection parameters:
 
-      * Host name: `rc1a-ckg8nrosr2lim5iz.{{ dns-zone }}`.
+      * Host name: `rc1a-ckg8nrosr2lim5iz.mdb.yandexcloud.net`
       * HTTP interface port: `8443` (default).
       * Username: `samples_ro`.
       * Password: `MsgfcjEhJk`.
@@ -184,7 +184,7 @@ To create a dashboard:
 
 
 
-1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/chart-column.svg) **Chart** and drag it to desired position.
 1. In the window that opens, click **Select**.
 1. Select the `Sales map` chart.
 
@@ -205,7 +205,7 @@ Add [filtering](./dashboard/chart-chart-filtration.md) by the `Sales map` chart 
 
    ![chart-settings](../_assets/datalens/quickstart/chart-dash-settings.png)
 
-1. Enable the **Filtering** option.
+1. Enable **Filtering**.
 
    ![chart-filtration-option](../_assets/datalens/quickstart/chart-filtration-option.png)
 
@@ -221,7 +221,7 @@ By default, the chart used for filtering filters data in all charts on the curre
 
 To add a selector to a dashboard:
 
-1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+1. In the panel at the bottom of the page, hold down ![image](../_assets/console-icons/sliders.svg) **Selector** and drag it to desired position.
 1. Add the calendar selector for the order date:
 
    1. Select `Sales Dataset`.

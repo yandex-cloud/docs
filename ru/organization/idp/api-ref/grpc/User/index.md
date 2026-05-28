@@ -24,4 +24,6 @@ A set of methods for managing users in the Identity Provider system.
 || [ConvertToExternal](convertToExternal.md) | Converts a user to use external authentication. ||
 || [SetPasswordHash](setPasswordHash.md) | Sets a password hash for the specified user. ||
 || [ResolveExternalIds](resolveExternalIds.md) | Resolves external IDs to internal user IDs. ||
+|| [GetPasswordChanges](getPasswordChanges.md) | Streams password changes for a IdentityHub sync agent to process. ||
+|| [CommitPassword](commitPassword.md) | Commits the result of a password writeback operation. ||
 |#

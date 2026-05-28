@@ -37,7 +37,7 @@ the service returns a [ListFoldersResponse.next_page_token](#yandex.cloud.resour
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token. Set `page_token`

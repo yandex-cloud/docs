@@ -15,7 +15,7 @@ description: You can delete all access rules applied within the cluster in one s
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
-  1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the row of the rule you want to delete.
+  1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) next to the rule you want to delete.
 
 - CLI {#cli}
 
@@ -42,7 +42,7 @@ description: You can delete all access rules applied within the cluster in one s
   
   1. Delete the rule from the `yandex_trino_access_control` resource description.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -99,7 +99,7 @@ description: You can delete all access rules applied within the cluster in one s
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -131,7 +131,7 @@ You can delete all access rules applied within the cluster in one step.
   
   1. Delete the `yandex_trino_access_control` resource from the configuration file.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -186,7 +186,7 @@ You can delete all access rules applied within the cluster in one step.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

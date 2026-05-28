@@ -10,7 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the resource for which access bindings are being updated.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 64.
           type: string
       required:
         - resourceId
@@ -36,7 +36,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the subject.
-              It can contain one of the following values:
+              It can contain one of the following values:oauth
               * `allAuthenticatedUsers`: A special public group that represents anyone
               who is authenticated. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
               * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -72,7 +72,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 64.
             type: string
           subject:
             description: |-
@@ -125,7 +125,7 @@ POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{resour
 
 Required field. ID of the resource for which access bindings are being updated.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.UpdateAccessBindingsRequest}
@@ -179,7 +179,7 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -193,8 +193,7 @@ It can represent an account with a unique ID or several accounts with a system i
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -211,13 +210,11 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||

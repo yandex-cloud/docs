@@ -5,7 +5,6 @@ editable: false
 # Identity and Access Management API, gRPC: ServiceControlService.Get
 
 Returns the Service information in the specified resource container.
-
 To get the list of available Services, make a [List](/docs/iam/api-ref/grpc/ServiceControl/list#List) request.
 
 ## gRPC request
@@ -34,7 +33,6 @@ The maximum string length in characters is 50. ||
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container to get a service information in.
-
 It is supported only resource-manager.cloud resource container now. ||
 |#
 
@@ -88,13 +86,13 @@ Time of the last status update of the service. ||
 Current status of the service.
 
 - `ENABLED`: The service is enabled.
-- `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
 - `ENABLING`: The service is being enabled.
-- `RESUMING`: The service is being resumed.
-- `PAUSING`: The service is being paused.
 - `DISABLING`: The service is being disabled.
 - `ERROR`: The service is in error state.
+- `PAUSED`: The service is paused.
+- `PAUSING`: The service is being paused.
+- `RESUMING`: The service is being resumed.
 - `DEFAULT`: The service could be auto enabled. ||
 |#
 

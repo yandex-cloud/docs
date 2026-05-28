@@ -5,7 +5,7 @@ items:
     href: quickstart/index.md
   - name: Step-by-step guides
     items:
-      - name: All tutorials
+      - name: All guides
         href: operations/index.md
       - name: Symmetric encryption
         items:
@@ -35,7 +35,7 @@ items:
             href: operations/signature-verification.md
           - name: Digital signature of files and artifacts using Cosign
             href: operations/signature-verification-cosign.md
-      - name: Viewing operations with resources
+      - name: Viewing operations on service resources
         href: operations/operation-logs.md
   - name: Concepts
     items:
@@ -96,7 +96,13 @@ items:
       - name: Auto Unseal in Hashicorp Vault
         href: tutorials/vault-secret.md
       - name: Secure password transmission to an initialization script
-        href: tutorials/secure-password-script.md
+        items:
+          - name: Overview
+            href: tutorials/secure-password-script/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: tutorials/secure-password-script/terraform.md
       - name: Server-side encryption for an {{ objstorage-name }} bucket
         href: tutorials/server-side-encryption.md
   - name: Access management
@@ -339,7 +345,7 @@ items:
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

@@ -2,7 +2,6 @@
 title: How to view service usage details in {{ billing-name }}
 description: Follow this guide to view service usage details.
 ---
-
 # Viewing service usage details
 
 You can view charts and tables with information about {{ yandex-cloud }} service usage. Follow these steps:
@@ -14,7 +13,7 @@ You can view charts and tables with information about {{ yandex-cloud }} service
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the account you want the details for.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Select the detail depth. 
+  1. Select the detail depth.
 
 {% endlist %}
 
@@ -86,6 +85,23 @@ You can configure the charts to display the following:
 {% include [currency](../_includes/currency.md) %}
 
 
+## Viewing discount details {#discount}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+  
+  1. Next to the total discount amount, click ![image](../../_assets/console-icons/circle-question.svg).
+  1. A pop-up window will display the details.
+  
+     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-monetaryGrantCredit }}`: [Grant](../concepts/bonus-account.md) discount, including the platform introduction grant.
+     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-volumeIncentiveCredit }}`: Direct discount on current resource consumption, excluding long-term commitments.
+     * `{{ ui-key.yacloud_billing_account.billing-account-detail.label_credit-cudCredit }}`: [Discount](../concepts/cvos.md) on service resource usage with a 6-month, 12-month, or longer commitment.
+     * `Other discounts`: Other types of discounts, including discounts for consumption after the platform introduction grant expires but before switching to the paid version.
+
+{% endlist %}
+
+
 ## Interpreting the chart {#graph}
 
 The chart shows how data changed over time.
@@ -111,7 +127,7 @@ In the table, all data is presented as the total amount for the specified period
 
 The number of columns in the table depends on the selected detail depth. See a description of columns below.
 
-Field | Description
+Name | Description
 ----- | -----
 {{ ui-key.yacloud_billing.billing.account.detail.column_cloud-name }} | Name of the cloud the resources were consumed in. <br/>Shown only if you select details by cloud.
 {{ ui-key.yacloud_billing.billing.account.detail.column_service }} | Name of the service the resources were consumed in. <br/>Shown only if you select details by service/product.
@@ -120,6 +136,7 @@ Field | Description
 {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Cost of consumed resources before discount.
 {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). The discount for a committed volume of services is applied and displayed as soon as you start consuming the resources.
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Total cost of consumed resources after discount.
+
 
 
 ## Displaying the committed volume of services {#cvos}

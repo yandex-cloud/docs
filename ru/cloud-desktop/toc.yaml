@@ -244,10 +244,10 @@ items:
                 href: api-ref/grpc/DesktopGroup/listOperations.md
               - name: Create
                 href: api-ref/grpc/DesktopGroup/create.md
-              - name: Update
-                href: api-ref/grpc/DesktopGroup/update.md
               - name: Delete
                 href: api-ref/grpc/DesktopGroup/delete.md
+              - name: Update
+                href: api-ref/grpc/DesktopGroup/update.md
               - name: ListAccessBindings
                 href: api-ref/grpc/DesktopGroup/listAccessBindings.md
               - name: SetAccessBindings
@@ -264,10 +264,10 @@ items:
                 href: api-ref/grpc/DesktopImage/get.md
               - name: Copy
                 href: api-ref/grpc/DesktopImage/copy.md
-              - name: Update
-                href: api-ref/grpc/DesktopImage/update.md
               - name: CopyFromDesktop
                 href: api-ref/grpc/DesktopImage/copyFromDesktop.md
+              - name: Update
+                href: api-ref/grpc/DesktopImage/update.md
               - name: Delete
                 href: api-ref/grpc/DesktopImage/delete.md
           - name: Desktop
@@ -284,20 +284,20 @@ items:
                 href: api-ref/grpc/Desktop/listOperations.md
               - name: Create
                 href: api-ref/grpc/Desktop/create.md
-              - name: UpdateProperties
-                href: api-ref/grpc/Desktop/updateProperties.md
-              - name: Delete
-                href: api-ref/grpc/Desktop/delete.md
               - name: ResetPassword
                 href: api-ref/grpc/Desktop/resetPassword.md
               - name: Restart
                 href: api-ref/grpc/Desktop/restart.md
-              - name: Update
-                href: api-ref/grpc/Desktop/update.md
               - name: Start
                 href: api-ref/grpc/Desktop/start.md
               - name: Stop
                 href: api-ref/grpc/Desktop/stop.md
+              - name: Update
+                href: api-ref/grpc/Desktop/update.md
+              - name: UpdateProperties
+                href: api-ref/grpc/Desktop/updateProperties.md
+              - name: Delete
+                href: api-ref/grpc/Desktop/delete.md
           - name: Operation
             items:
               - name: Overview
@@ -324,10 +324,10 @@ items:
                 href: api-ref/DesktopGroup/listOperations.md
               - name: Create
                 href: api-ref/DesktopGroup/create.md
-              - name: Update
-                href: api-ref/DesktopGroup/update.md
               - name: Delete
                 href: api-ref/DesktopGroup/delete.md
+              - name: Update
+                href: api-ref/DesktopGroup/update.md
               - name: ListAccessBindings
                 href: api-ref/DesktopGroup/listAccessBindings.md
               - name: SetAccessBindings
@@ -344,10 +344,10 @@ items:
                 href: api-ref/DesktopImage/get.md
               - name: Copy
                 href: api-ref/DesktopImage/copy.md
-              - name: Update
-                href: api-ref/DesktopImage/update.md
               - name: CopyFromDesktop
                 href: api-ref/DesktopImage/copyFromDesktop.md
+              - name: Update
+                href: api-ref/DesktopImage/update.md
               - name: Delete
                 href: api-ref/DesktopImage/delete.md
           - name: Desktop
@@ -364,20 +364,20 @@ items:
                 href: api-ref/Desktop/listOperations.md
               - name: Create
                 href: api-ref/Desktop/create.md
-              - name: UpdateProperties
-                href: api-ref/Desktop/updateProperties.md
-              - name: Delete
-                href: api-ref/Desktop/delete.md
               - name: ResetPassword
                 href: api-ref/Desktop/resetPassword.md
               - name: Restart
                 href: api-ref/Desktop/restart.md
-              - name: Update
-                href: api-ref/Desktop/update.md
               - name: Start
                 href: api-ref/Desktop/start.md
               - name: Stop
                 href: api-ref/Desktop/stop.md
+              - name: Update
+                href: api-ref/Desktop/update.md
+              - name: UpdateProperties
+                href: api-ref/Desktop/updateProperties.md
+              - name: Delete
+                href: api-ref/Desktop/delete.md
           - name: Operation
             items:
               - name: Overview

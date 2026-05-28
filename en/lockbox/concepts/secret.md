@@ -67,4 +67,4 @@ Using a {{ kms-full-name }} key each time you access the secret it is encrypted 
 * [{#T}](../tutorials/websocket-app.md)
 * [{#T}](../tutorials/bucket-to-bucket-copying.md)
 * [{#T}](../tutorials/nodejs-cron-restart-vm.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

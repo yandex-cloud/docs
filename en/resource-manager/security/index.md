@@ -1,24 +1,24 @@
 ---
 title: Access management in {{ resmgr-full-name }}
-description: Access management in {{ resmgr-full-name }}, a service for structuring {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management in {{ resmgr-full-name }}, a service for organizing {{ yandex-cloud }} resources into folders. This section describes the resources for which you can assign a role, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ resmgr-name }}
 
-In this section, you will learn:
-* [Which resources you can assign a role for](#resources).
-* [Which roles exist in the service](#roles-list).
-* [Which roles are required](#required-roles) for particular actions.
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Which resources you can assign a role for {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Which roles exist in the service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -57,33 +57,33 @@ In this section, you will learn:
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#required-roles}
+## Required roles {#required-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`.
 
-| Action | Methods | Required roles |
+Action | Methods | Required roles
 ----- | ----- | -----
-| **View data** | |
-| View information about any resource | `get`, `list` | `viewer` for this resource |
-| View information about a folder or cloud | `get`, `list` | `resource-manager.viewer` for the folder or cloud |
-| View metadata about a folder or cloud | `get`, `list` | `resource-manager.auditor` for the folder or cloud |
-| **Manage resources** | |
-| [Create a cloud](../operations/cloud/create.md) | | To create your first cloud, no roles are required. You only need to authenticate (a user is automatically assigned the `resource-manager.clouds.owner` role in the created organization). Afterwards, the `resource-manager.editor` or `editor` role for the organization is required. |
-| [Update a cloud](../operations/cloud/update.md) | `update` | `editor` or `resource-manager.editor` for the cloud |
-| [Deleting a cloud](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` for a cloud |
-| [Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` or `resource-manager.editor` for the cloud |
-| [Update a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder |
-| [Delete a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder |
-| **Manage resource access** | |
-| Invite a new user to an organization | | `{{ roles-organization-admin }}` |
-| [Make a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for the cloud |
-| View roles granted for a resource | `listAccessBindings` | `viewer` for this resource |
-| View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud |
-| [Assign a role](../../iam/operations/roles/grant.md) and [revoke a role](../../iam/operations/roles/revoke.md) for the folder or cloud | `setAccessBindings`, `updateAccessBindings` | `admin` or `resource-manager.admin` for the folder or cloud |
+**Viewing data** | |
+Viewing resource details | `get`, `list` | `viewer` for this resource
+Viewing information about a folder or cloud | `get`, `list` | `resource-manager.viewer` for the folder or cloud
+View metadata about a folder or cloud | `get`, `list` | `resource-manager.auditor` for the folder or cloud
+**Managing resources** | |
+[Creating a cloud](../operations/cloud/create.md) | | To create your first cloud, no roles are required. You only need to authenticate (a user is automatically assigned the `resource-manager.clouds.owner` role in the created organization). Later, you will need the `resource-manager.editor` or `editor` role for the organization.
+[Updating a cloud](../operations/cloud/update.md) | `update` | `editor` or `resource-manager.editor` for the cloud
+[Deleting a cloud](../operations/cloud/delete.md) | `delete` | `resource-manager.clouds.owner` for the cloud
+[Create a folder in the cloud](../operations/folder/create.md) | `create` | `editor` or `resource-manager.editor` for the cloud
+[Updating a folder](../operations/folder/update.md) | `update` | `editor` or `resource-manager.editor` for the folder
+[Deleting a folder](../operations/folder/delete.md) | `delete` | `editor` or `resource-manager.editor` for the folder
+**Managing resource access** | |
+Invite a new user to an organization | | `{{ roles-organization-admin }}` |
+[Making a new user the owner of the cloud](../operations/cloud/set-access-bindings.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for this cloud
+View roles granted for a resource | `listAccessBindings` | `viewer` for this resource
+View roles granted for the folder or cloud | `listAccessBindings` | `resource-manager.viewer` for the folder or cloud
+[Assign a role](../../iam/operations/roles/grant.md) and [revoke a role](../../iam/operations/roles/revoke.md) for the folder or cloud | `setAccessBindings`, `updateAccessBindings` | `admin` or `resource-manager.admin` for the folder or cloud
 
 #### What's next {#what-is-next}
 
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

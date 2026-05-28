@@ -22,6 +22,11 @@ description: Check out {{ datalens-full-name }} release notes for April 2026.
 
 
 * Moved dashboard settings to a right-side panel. To open settings, click ![image](../../_assets/console-icons/gear.svg) at the top while in edit mode. Visual changes apply immediately after saving new settings.
+* Added the ability to set up the dashboard to display all tabs or selected tabs. By default, you do not see the hidden tabs when you open the dashboard: you see them if you access the dashboard via a link to a hidden tab.
+
+  * To hide all tabs, click ![image](../../_assets/console-icons/eye.svg) to the right of the **Tabs** field in the [dashboard settings](../operations/dashboard/dash-settings.md). To show all tabs, click ![image](../../_assets/console-icons/eye-slash.svg).
+  * To hide a selected tab, click ![image](../../_assets/console-icons/sliders-vertical.svg) to the right of the **Tabs** field in the dashboard settings and then click ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/eye-slash.svg) **Hide** to the right of the tab name in the window that opens. To show a selected tab, click ![image](../../_assets/console-icons/eye-slash.svg) → ![image](../../_assets/console-icons/eye.svg) **Show**.
+  
 * Updated UI colors for consistent styling: removed purple tones in dark mode and deepened black shades.
 
 ## Fixes and improvements {#fixes}

@@ -295,9 +295,25 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
 
+
 ### {{ monium-name }} {#monium}
 
+#### Квоты {#monium-quotas}
+
+{% include [monium-quotas.md](../../_includes/monium/monium-quotas.md) %}
+
+#### Лимиты метрик и алертов {#limits-metrics-alerts}
+
 {% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
+
+#### Лимиты логов {#limits-logs}
+
+{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
+
+#### Лимиты трейсов {#limits-traces}
+
+{% include [traces-limits.md](../../_includes/monium/limits-traces.md) %}
+
 
 ### {{ network-load-balancer-full-name }} {#load-balancer}
 

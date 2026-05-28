@@ -864,9 +864,6 @@ items:
                       - name: Get
                         href: >-
                           workload/oidc/workload-identity/api-ref/grpc/Federation/get.md
-                      - name: List
-                        href: >-
-                          workload/oidc/workload-identity/api-ref/grpc/Federation/list.md
                       - name: Create
                         href: >-
                           workload/oidc/workload-identity/api-ref/grpc/Federation/create.md
@@ -876,6 +873,9 @@ items:
                       - name: Delete
                         href: >-
                           workload/oidc/workload-identity/api-ref/grpc/Federation/delete.md
+                      - name: List
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/grpc/Federation/list.md
                       - name: ListAccessBindings
                         href: >-
                           workload/oidc/workload-identity/api-ref/grpc/Federation/listAccessBindings.md
@@ -1130,9 +1130,6 @@ items:
                       - name: Get
                         href: >-
                           workload/oidc/workload-identity/api-ref/Federation/get.md
-                      - name: List
-                        href: >-
-                          workload/oidc/workload-identity/api-ref/Federation/list.md
                       - name: Create
                         href: >-
                           workload/oidc/workload-identity/api-ref/Federation/create.md
@@ -1142,6 +1139,9 @@ items:
                       - name: Delete
                         href: >-
                           workload/oidc/workload-identity/api-ref/Federation/delete.md
+                      - name: List
+                        href: >-
+                          workload/oidc/workload-identity/api-ref/Federation/list.md
                       - name: ListAccessBindings
                         href: >-
                           workload/oidc/workload-identity/api-ref/Federation/listAccessBindings.md

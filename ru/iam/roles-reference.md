@@ -346,33 +346,25 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../certificate-manager/security/index.md).
 
 
-## {{ interconnect-full-name }} {#interconnect-roles}
+## {{ cloud-apps-full-name }} {#cloud-apps-roles}
 
-#### cic.auditor {#cic-auditor}
+#### cloudapps.auditor {#cloudapps-auditor}
 
-{% include [cic.auditor](../_roles/cic/auditor.md) %}
+{% include [cloudapps.auditor](../_roles/cloudapps/auditor.md) %}
 
-#### cic.viewer {#cic-viewer}
+#### cloudapps.viewer {#cloudapps-viewer}
 
-{% include [cic.viewer](../_roles/cic/viewer.md) %}
+{% include [cloudapps.viewer](../_roles/cloudapps/viewer.md) %}
 
-#### cic.editor {#cic-editor}
+#### cloudapps.editor {#cloudapps-editor}
 
-{% include [cic.editor](../_roles/cic/editor.md) %}
+{% include [cloudapps.editor](../_roles/cloudapps/editor.md) %}
 
-#### cic.admin {#cic-admin}
+#### cloudapps.admin {#cloudapps-admin}
 
-{% include [cic.admin](../_roles/cic/admin.md) %}
+{% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
 
-#### cic.secretViewer {#cic-secretviewer}
-
-{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
-
-#### cic.secretEditor {#cic-secreteditor}
-
-{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
-
-Подробнее см. [{#T}](../interconnect/security/index.md).
+Подробнее см. [{#T}](../cloud-apps/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -554,6 +546,35 @@ description: В статье приведен полный справочник 
 {% include [serverless.functions.admin](../_roles/serverless/functions/admin.md) %}
 
 Подробнее см. [{#T}](../functions/security/index.md).
+
+
+## {{ interconnect-full-name }} {#interconnect-roles}
+
+#### cic.auditor {#cic-auditor}
+
+{% include [cic.auditor](../_roles/cic/auditor.md) %}
+
+#### cic.viewer {#cic-viewer}
+
+{% include [cic.viewer](../_roles/cic/viewer.md) %}
+
+#### cic.editor {#cic-editor}
+
+{% include [cic.editor](../_roles/cic/editor.md) %}
+
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
+
+#### cic.secretViewer {#cic-secretviewer}
+
+{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
+
+#### cic.secretEditor {#cic-secreteditor}
+
+{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
+
+Подробнее см. [{#T}](../interconnect/security/index.md).
 
 
 ## {{ cloud-logging-full-name }} {#logging-roles}

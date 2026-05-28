@@ -1,3 +1,8 @@
+---
+title: Варианты заданий
+description: Из статьи вы узнаете о правилах показа капчи, условиях на трафик и метаданных.
+---
+
 # Варианты заданий
 
 {% include [note-preview-captcha-variants](../../_includes/smartcaptcha/note-preview-captcha-variants.md) %}

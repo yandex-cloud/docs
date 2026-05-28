@@ -38,14 +38,18 @@ ID of the episode containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episode_id`, `video_id`. ||
+Includes only one of the fields `episode_id`, `video_id`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || video_id | **string**
 
 ID of the video containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episode_id`, `video_id`. ||
+Includes only one of the fields `episode_id`, `video_id`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || page_size | **int64**
 
 The maximum number of thumbnails to return per page.

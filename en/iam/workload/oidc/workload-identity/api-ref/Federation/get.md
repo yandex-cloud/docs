@@ -24,7 +24,6 @@ apiPlayground:
 # Federation, REST: Federation.Get
 
 Returns the specified OIDC workload identity federation.
-
 To get the list of available OIDC workload identity federation, make a [List](/docs/iam/workload/oidc/workload-identity/api-ref/Federation/list#List) request.
 
 ## HTTP request

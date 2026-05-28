@@ -12,7 +12,7 @@ apiPlayground:
             Required field. ID of the resource to list access policy bindings for.
             To get the resource ID, use a corresponding List request.
             For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 64.
           type: string
       required:
         - resourceId
@@ -65,7 +65,7 @@ Required field. ID of the resource to list access policy bindings for.
 To get the resource ID, use a corresponding List request.
 For example, use the [yandex.cloud.resourcemanager.v1.CloudService.List](/docs/resource-manager/api-ref/Cloud/list#List) request to get the Cloud resource ID.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Query parameters {#yandex.cloud.access.ListAccessPolicyBindingsRequest}

@@ -1,5 +1,1 @@
-Where:
-* `https://runtime.video.cloud.yandex.net/player/...`: Link to playable content, e.g., `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`. For more information, see these sections:
-  * [{#T}](../../video/operations/video/get-link.md)
-  * [{#T}](../../video/operations/streams/get-link.md)
-  * [{#T}](../../video/operations/playlists/get-link.md)
+Where `https://runtime.video.cloud.yandex.net/player/...` is a link to a [video](../../video/operations/video/get-link.md), [broadcast](../../video/operations/streams/get-link.md), or [playlist](../../video/operations/playlists/get-link.md).

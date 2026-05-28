@@ -28,7 +28,7 @@ Updates the access policy binding parameters for the folder.
 
 Required field. ID of the resource for which access policy bindings are being updated.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || access_policy_binding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding)**
 
 Required field. Identity for which access policy binding is being updated. ||
@@ -60,16 +60,10 @@ The maximum string length in characters for each value is 1024. The string lengt
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "resource_id": "string",
-    "access_policy_binding": {
-      "access_policy_template_id": "string",
-      "parameters": "map<string, string>"
-    }
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "UpdateAccessPolicyBindingParametersResponse"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -97,7 +91,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateAccessPolicyBindingParametersMetadata](#yandex.cloud.access.UpdateAccessPolicyBindingParametersMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -112,7 +106,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UpdateAccessPolicyBindingParametersResponse](#yandex.cloud.access.UpdateAccessPolicyBindingParametersResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -127,39 +121,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateAccessPolicyBindingParametersMetadata {#yandex.cloud.access.UpdateAccessPolicyBindingParametersMetadata}
-
-#|
-||Field | Description ||
-|| resource_id | **string**
-
-ID of the resource for which access policy bindings are being updated. ||
-|| access_policy_binding | **[AccessPolicyBinding](#yandex.cloud.access.AccessPolicyBinding2)**
-
-Identity for which access policy binding is being updated. ||
-|#
-
-## AccessPolicyBinding {#yandex.cloud.access.AccessPolicyBinding2}
-
-#|
-||Field | Description ||
-|| access_policy_template_id | **string**
-
-Required field. ID of the access policy template being applied.
-
-The maximum string length in characters is 64. ||
-|| parameters | **object** (map<**string**, **string**>)
-
-A list of access policy binding parameter KEY=VALUE pairs.
-
-The maximum string length in characters for each value is 1024. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. No more than 64 per resource. ||
-|#
-
-## UpdateAccessPolicyBindingParametersResponse {#yandex.cloud.access.UpdateAccessPolicyBindingParametersResponse}
-
-#|
-||Field | Description ||
-|| Empty | > ||
 |#

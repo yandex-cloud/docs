@@ -11,7 +11,7 @@ Region | Russia | Kazakhstan
 Availability zones | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d`<br/>`ru-central1-e` | `kz1-a`
 Management console | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
 Paying for resources | [Plans for the Russia region](https://yandex.cloud/ru/prices) | [Plans for the Kazakhstan region](https://yandex.cloud/ru-kz/prices)
-Service {{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)
+{{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)
 Endpoint {{ objstorage-full-name }} | https://storage.yandexcloud.net | https://storage.yandexcloud.kz
 
 The following items are region-specific:
@@ -36,3 +36,5 @@ You can log in to the management console of each region. To start working in a n
 A [controlled organization](../../organization/concepts/controlled-org.md) allows deploying your resources in a different region without registering a separate organization. Instead, you can [link](../../organization/operations/add-region.md) a region to the main organization to manage your resources in different regions from a single interface.
 
 Resources in different regions are isolated from each other. The data used by the resources is stored in the same regions the resources reside in.
+
+{% include [kz-region-role](../../_includes/organization/kz-region-role.md) %}

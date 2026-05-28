@@ -5,7 +5,6 @@ editable: false
 # SAML Federation API, gRPC: CertificateService.Get
 
 Returns the specified certificate.
-
 To get the list of available certificates, make a [List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request.
 
 ## gRPC request
@@ -24,7 +23,7 @@ To get the list of available certificates, make a [List](/docs/organization/saml
 ||Field | Description ||
 || certificate_id | **string**
 
-ID of the certificate to return.
+Required field. ID of the certificate to return.
 To get the certificate ID, make a [CertificateService.List](/docs/organization/saml/api-ref/grpc/Certificate/list#List) request.
 
 The maximum string length in characters is 50. ||

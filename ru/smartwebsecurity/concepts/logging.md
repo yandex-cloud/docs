@@ -1,3 +1,8 @@
+---
+title: Логирование в {{ sws-full-name }}
+description: В этой статье вы узнаете, как {{ sws-name }} записывает и анализирует данные о запросах и правилах, которые сработали для этих запросов.
+---
+
 # Логирование
 
 {% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}

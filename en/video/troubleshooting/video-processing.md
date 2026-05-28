@@ -9,15 +9,17 @@ This section describes possible issues with uploading and processing video files
 
 ## Video file processing error {#processing-error}
 
-{{ video-name }} cannot properly process a file due to corrupted data in the container, video stream, or audio stream. This can happen as a result of recording failures caused by camera or memory card issues, corruption during copying or transcoding, and so on.
+{{ video-name }} cannot properly process a file due to corrupted data in the container, video stream, or audio stream. This may be due to recording failures caused by camera or memory card issues, corruption during copying or transcoding, etc.
 
-Note that the file might still open and play on your PC, as media players can often mask errors, skip damaged packets, or reconstruct frames using keyframes. However, {{ video-name }} will reject such a file, so repair it before upload.
+Note that the file might still open and play on your PC, as media players can often mask errors, skip corrupted packets, or reconstruct frames using keyframes.
+
+If the file is corrupted, try enabling **{{ ui-key.yacloud_video.videos.field_enable-decode-errors-tolerance }}** when [uploading](../operations/video/upload.md) the video. The service will attempt to process the file while ignoring corrupted sections. If this does not help, follow the steps below.
 
 ### How to check the file {#check-file}
 
-[Re-upload](../operations/video/upload.md) the file. If the error persists, the file is likely corrupted.
+Re-upload the file. If the error persists, the file is likely corrupted.
 
-Verify this by opening it in a third-party media player (e.g., Windows Media Player, QuickTime, VLC, etc.). A corrupted file may exhibit freezing, artifacts, black screens, and other video or audio issues.
+You can check this by opening the file in a third-party media player (e.g., Windows Media Player, QuickTime, VLC, etc.). A corrupted file may exhibit freezing, artifacts, black screens, and other video or audio issues.
 
 Keep in mind that issues can occur anywhere in the file: even a few corrupted frames can render your entire file invalid for processing.
 

@@ -295,7 +295,13 @@ items:
       - name: Developing a custom integration in {{ api-gw-name }}
         href: tutorials/api-gw-integration.md
       - name: URL shortener
-        href: tutorials/serverless-url-shortener.md
+        items:
+          - name: Overview
+            href: tutorials/serverless-url-shortener/index.md
+          - name: Management console
+            href: tutorials/serverless-url-shortener/console.md
+          - name: '{{ TF }}'
+            href: tutorials/serverless-url-shortener/terraform.md
       - name: Storing application runtime logs
         href: tutorials/log-ingestion.md
       - name: Building a skill for Alice and a website with authorization

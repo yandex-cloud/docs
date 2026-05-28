@@ -38,7 +38,7 @@ Property names specified in the rules are not validated. If a property name cont
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -55,7 +55,7 @@ Property names specified in the rules are not validated. If a property name cont
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -95,7 +95,7 @@ Property names specified in the rules are not validated. If a property name cont
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If you do not specify `property`, the rule applies to all properties.
+     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
        * `names`: List of property names.
        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
 
@@ -175,7 +175,7 @@ Property names specified in the rules are not validated. If a property name cont
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -265,7 +265,7 @@ Property names specified in the rules are not validated. If a property name cont
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -368,7 +368,7 @@ Property names specified in the rules are not validated. If a property name cont
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -385,9 +385,9 @@ Property names specified in the rules are not validated. If a property name cont
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
-     1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+     1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
   1. To delete a rule you no longer need, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
@@ -428,7 +428,7 @@ Property names specified in the rules are not validated. If a property name cont
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If you do not specify `property`, the rule applies to all properties.
+     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
        * `names`: List of property names.
        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
 
@@ -515,7 +515,7 @@ Property names specified in the rules are not validated. If a property name cont
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -576,7 +576,7 @@ Property names specified in the rules are not validated. If a property name cont
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
           {% endnote %}
 
@@ -693,7 +693,7 @@ Property names specified in the rules are not validated. If a property name cont
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
           {% endnote %}
 
@@ -734,7 +734,7 @@ Property names specified in the rules are not validated. If a property name cont
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

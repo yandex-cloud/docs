@@ -24,7 +24,6 @@ apiPlayground:
 # Resource Manager API, REST: Folder.Get
 
 Returns the specified Folder resource.
-
 To get the list of available Folder resources, make a [List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
 ## HTTP request

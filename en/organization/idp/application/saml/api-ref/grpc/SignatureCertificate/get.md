@@ -5,7 +5,6 @@ editable: false
 # SAML Application API, gRPC: SignatureCertificateService.Get
 
 Returns the specified signature certificate.
-
 To get the list of available certificates, make a [List](/docs/organization/idp/application/saml/mapi-ref/grpc/SignatureCertificate/list#List) request.
 
 ## gRPC request

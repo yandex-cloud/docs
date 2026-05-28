@@ -38,7 +38,7 @@ Function and schema names specified in the rules are not validated. If a functio
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-function }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -67,7 +67,7 @@ Function and schema names specified in the rules are not validated. If a functio
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the functions whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all functions.
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -116,19 +116,19 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If you do not specify `function`, the rule applies to all functions.
+     * `function`: Functions the rule applies to. If `function` is not specified, the rule applies to all functions.
        * `names`: List of function names.
        * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
        Specify either `names` or `name_regexp`.
 
-     * `catalog`: Cluster catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
@@ -247,7 +247,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -389,7 +389,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
 - gRPC API {#grpc-api}
   
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -544,7 +544,7 @@ Function and schema names specified in the rules are not validated. If a functio
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-function }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -573,7 +573,7 @@ Function and schema names specified in the rules are not validated. If a functio
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the functions whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all functions.
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
      1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
@@ -629,19 +629,19 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If you do not specify `function`, the rule applies to all functions.
+     * `function`: Functions the rule applies to. If `function` is not specified, the rule applies to all functions.
        * `names`: List of function names.
        * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `catalog`: Catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These must be the existing catalogs.
        * `names`: List of catalog names. These must be the existing catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
@@ -771,7 +771,7 @@ Function and schema names specified in the rules are not validated. If a functio
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1074,7 +1074,7 @@ Function and schema names specified in the rules are not validated. If a functio
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

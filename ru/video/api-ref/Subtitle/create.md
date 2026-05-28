@@ -131,9 +131,7 @@ Required field. Original filename of the subtitle file being uploaded. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "subtitleId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -142,19 +140,7 @@ Required field. Original filename of the subtitle file being uploaded. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "language": "string",
-    "label": "string",
-    "status": "string",
-    "sourceType": "string",
-    "filename": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    // Includes only one of the fields `videoId`
-    "videoId": "string"
-    // end of the list of possible fields
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -196,7 +182,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateSubtitleMetadata](#yandex.cloud.video.v1.CreateSubtitleMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -211,7 +197,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Subtitle](#yandex.cloud.video.v1.Subtitle)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -226,15 +212,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateSubtitleMetadata {#yandex.cloud.video.v1.CreateSubtitleMetadata}
-
-#|
-||Field | Description ||
-|| subtitleId | **string**
-
-ID of the subtitle being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -252,65 +229,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Subtitle {#yandex.cloud.video.v1.Subtitle}
-
-Entity representing a subtitle track that can be associated with a video.
-Subtitles provide text versions of the audio content, enabling accessibility
-and multilingual support for video content.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the subtitle track. ||
-|| language | **string**
-
-Language of the subtitle content according to ISO 639-2/T. ||
-|| label | **string**
-
-Display label for the subtitle track shown in the video player's subtitle selection menu. ||
-|| status | **enum** (SubtitleStatus)
-
-Current processing status of the subtitle.
-
-- `WAIT_UPLOADING`: The subtitle file upload is in progress, waiting for all bytes to be received.
-- `UPLOADED`: The subtitle file has been fully uploaded and is ready for use. ||
-|| sourceType | **enum** (SubtitleSourceType)
-
-Indicates how the subtitle was created or obtained.
-
-- `MANUAL`: The subtitle was manually created and uploaded by a user.
-- `GENERATED`: The subtitle was automatically generated through speech recognition. ||
-|| filename | **string**
-
-Original filename of the subtitle file. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the subtitle was initially created in the system.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Timestamp of the last modification to the subtitle or its metadata.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| videoId | **string**
-
-Identifier of the video this subtitle belongs to.
-
-Includes only one of the fields `videoId`.
-
-Specifies the parent content this subtitle is associated with. ||
 |#

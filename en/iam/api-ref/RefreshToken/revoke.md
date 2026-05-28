@@ -151,12 +151,7 @@ The maximum string length in characters is 1000. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "subjectId": "string",
-    "refreshTokenIds": [
-      "string"
-    ]
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -165,11 +160,7 @@ The maximum string length in characters is 1000. ||
       "object"
     ]
   },
-  "response": {
-    "refreshTokenIds": [
-      "string"
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -211,7 +202,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[RevokeRefreshTokenMetadata](#yandex.cloud.iam.v1.RevokeRefreshTokenMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -226,7 +217,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RevokeRefreshTokenResponse](#yandex.cloud.iam.v1.RevokeRefreshTokenResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -241,16 +232,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## RevokeRefreshTokenMetadata {#yandex.cloud.iam.v1.RevokeRefreshTokenMetadata}
-
-#|
-||Field | Description ||
-|| subjectId | **string** ||
-|| refreshTokenIds[] | **string**
-
-Id of revoked Refresh Tokens. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -268,13 +249,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## RevokeRefreshTokenResponse {#yandex.cloud.iam.v1.RevokeRefreshTokenResponse}
-
-#|
-||Field | Description ||
-|| refreshTokenIds[] | **string**
-
-Id of revoked Refresh Tokens. ||
 |#
