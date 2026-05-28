@@ -30,7 +30,7 @@ The infrastructure support costs include:
 
 ## Set up your environment {#prepare}
 
-1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `{{ roles-compute-operator }}` [roles](../../iam/concepts/access-control/roles.md) to it.
+1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `compute.operator` [roles](../../iam/concepts/access-control/roles.md) to it.
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
 
 ## Prepare a ZIP archive with the function code {#zip-archive}
