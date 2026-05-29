@@ -15,7 +15,7 @@ An _ephemeral public subnet_ is a public subnet of the `/31` size that is random
 
 Ephemeral public subnets are assigned to servers with **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in their network parameters.
 
-When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. To do this, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to change the DHCP server settings in such subnet later.
+When leasing a {{ baremetal-name }} server, you can enable the [DHCP server](./dhcp.md#dhcp-ephemeral-public-subnet) in an ephemeral public subnet. To do this, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}**. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to reconfigure the DHCP server in such a subnet later.
 
 {% include [public-subnet-cidr-details](../../_includes/baremetal/public-subnet-cidr-details.md) %}
 
@@ -28,6 +28,8 @@ If the ephemeral public subnet has not been assigned to any server within one mo
 ## Dedicated public subnet {#public-subnet}
 
 A _dedicated public subnet_ is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](./servers.md#server-pools). The IP address range is assigned to the dedicated public subnet automatically.
+
+A dedicated public subnet may contain servers located in different server pools at the same time. Moreover, case such servers retain [OSI](https://en.wikipedia.org/wiki/OSI_model) L2 network connectivity between them in the public subnet.
 
 You can [order](../operations/reserve-public-subnet.md) a dedicated public subnet in the following sizes:
 

@@ -24,17 +24,23 @@ Lists operations for the specified PrivateConnection.
 ||Field | Description ||
 || private_connection_id | **string**
 
-Required field. ID of the PrivateConnection resource. ||
+Required field. ID of the PrivateConnection resource.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListPrivateConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListPrivateConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request. ||
+[ListPrivateConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListPrivateConnectionOperationsResponse {#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse}

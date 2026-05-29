@@ -1,3 +1,8 @@
+---
+title: Сервисные роли {{ connection-manager-full-name }}
+description: Сервисные роли {{ connection-manager-name }} позволяют управлять подключениями к базам данных в {{ metadata-hub-name }}.
+---
+
 # Сервисные роли для управления подключениями с помощью {{ connection-manager-full-name }}
 
 

@@ -143,11 +143,11 @@ To create a new [security group](../concepts/security-groups.md):
   1. Make sure the configuration files are correct.
      
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
         ```
         terraform plan
         ```
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
         
   1. Deploy the cloud resources.
 

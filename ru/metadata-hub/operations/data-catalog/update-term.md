@@ -1,6 +1,6 @@
 ---
-title: Изменение термина
-description: Следуя данной инструкции, вы сможете изменить термин в {{ data-catalog-full-name }}.
+title: Изменение термина в {{ data-catalog-full-name }}
+description: Следуя данной инструкции, вы измените термин в глоссарии {{ data-catalog-name }}.
 ---
 
 # Изменение термина

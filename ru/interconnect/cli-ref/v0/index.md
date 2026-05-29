@@ -31,6 +31,8 @@ Syntax:
 
   - [yc cic v0 private-connection add-labels](private-connection/add-labels.md) — Assign labels to a privateConnection.
 
+  - [yc cic v0 private-connection batch-get](private-connection/batch-get.md) — Get information about several privateConnections in one request.
+
   - [yc cic v0 private-connection create](private-connection/create.md) — Create a privateConnection.
 
   - [yc cic v0 private-connection delete](private-connection/delete.md) — Delete a privateConnection.

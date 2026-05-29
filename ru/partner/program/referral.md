@@ -1,3 +1,8 @@
+---
+title: Реферальная программа {{ yandex-cloud }}
+description: Реферальная программа позволяет партнерам {{ yandex-cloud }} привлекать новых клиентов и получать вознаграждение.
+---
+
 # Реферальная программа
 
 {% include [referral-program-closure](../../_includes/partner/referral-program-closure.md) %}

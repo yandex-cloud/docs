@@ -1,6 +1,6 @@
 ---
-title: Изменение домена
-description: Следуя данной инструкции, вы сможете изменить домен в {{ data-catalog-full-name }}.
+title: Как изменить домен в {{ data-catalog-full-name }}
+description: Следуя данной инструкции, вы сможете изменить домен в {{ data-catalog-name }}.
 ---
 
 # Изменение домена

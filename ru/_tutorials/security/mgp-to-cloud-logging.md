@@ -1,6 +1,6 @@
-# Передача логов кластера {{ GP }} в {{ cloud-logging-full-name }}
+# Передача логов кластера {{ mgp-full-name }} в {{ cloud-logging-full-name }}
 
-Вы можете настроить регулярный сбор логов о работе кластера {{ GP }}. Логи поставляются в [лог-группу](../../logging/concepts/log-group.md) в сервисе {{ cloud-logging-name }}. Можно выбрать лог-группу одного из двух типов:
+Вы можете настроить регулярный сбор логов о работе кластера {{ mgp-name }}. Логи поставляются в [лог-группу](../../logging/concepts/log-group.md) в сервисе {{ cloud-logging-name }}. Можно выбрать лог-группу одного из двух типов:
 
 * [лог-группа, которая используется по умолчанию в каталоге кластера](#default);
 * [пользовательская лог-группа](#custom).
@@ -11,7 +11,7 @@
 
 ## Передача данных в лог-группу по умолчанию {#default}
 
-1. Создайте кластер {{ GP }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
+1. Создайте кластер {{ mgp-name }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
 
    {% list tabs group=instructions %}
 
@@ -21,6 +21,8 @@
       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Введите имя кластера.
+      1. Выберите версию СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
          * Облачную сеть.
@@ -46,7 +48,7 @@
 
       ```bash
       yc managed-greenplum cluster create <имя_кластера> \
-         --greenplum-version=<версия {{ GP }}> \
+         --greenplum-version=<версия_СУБД> \
          --environment=PRODUCTION \
          --network-name=<имя_сети_кластера> \
          --user-name=<имя_пользователя_кластера> \
@@ -70,19 +72,21 @@
 
       Где:
 
+      * `--greenplum-version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
-      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например, `--log-greenplum-enabled`.
+      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например `--log-greenplum-enabled`.
 
-      * `--log-greenplum-enabled` — передача логов {{ GP }}.
+      * `--log-greenplum-enabled` — передача логов СУБД.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `--log-command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
           {% include [Command Center Logs Level](../../_includes/managed-greenplum/command-center-logs-level.md) %}
 
-      * `--log-folder-id` — идентификатор каталога, в котором создан кластер {{ GP }}.
+      * `--log-folder-id` — идентификатор каталога, в котором создан кластер {{ mgp-name }}.
 
    * {{ TF }} {#tf}
 
@@ -101,7 +105,7 @@
             zone               = "<идентификатор_зоны_доступности>"
             subnet_id          = "<идентификатор_подсети_кластера>"
             assign_public_ip   = true
-            version            = "<версия {{ GP }}>"
+            version            = "<версия_СУБД>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -138,13 +142,15 @@
 
           Где:
 
+          * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
           * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
-          * `greenplum_enabled` — передача логов {{ GP }}.
+          * `greenplum_enabled` — передача логов СУБД.
 
-              {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+              {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
           * `command_center_enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
@@ -171,9 +177,16 @@
       ```json
       {
         ...
+        "config": {
+          "version": "<версия_СУБД>",
+          ...
+          },
+          ...
+        },
+        ...
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "logging": {
-          "enabled": "true",          
+          "enabled": "true",
           "greenplumEnabled": "true",
           "commandCenterEnabled": "true",
           "folderId": "<идентификатор_каталога>"
@@ -184,13 +197,15 @@
 
       Где:
 
+      * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
       * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
-      * `greenplumEnabled` — передача логов {{ GP }}.
+      * `greenplumEnabled` — передача логов СУБД.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `commandCenterEnabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
@@ -258,8 +273,8 @@
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
-1. [Создайте лог-группу](../../logging/operations/create-group.md) `greenplum-log-group`.
-1. Создайте кластер {{ GP }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
+1. [Создайте лог-группу](../../logging/operations/create-group.md) `my-log-group`.
+1. Создайте кластер {{ mgp-name }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
 
    {% list tabs group=instructions %}
 
@@ -269,6 +284,8 @@
       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Введите имя кластера.
+      1. Выберите версию СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
 
          * Облачную сеть.
@@ -285,7 +302,7 @@
          * Выберите сервисный аккаунт с ролью `logging.writer`.
          * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
          * Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
-         * Выберите лог-группу `greenplum-log-group`.
+         * Выберите лог-группу `my-log-group`.
          * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
 
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -294,7 +311,7 @@
 
       ```bash
       yc managed-greenplum cluster create <имя_кластера> \
-         --greenplum-version=<версия {{ GP }}> \
+         --greenplum-version=<версия_СУБД> \
          --environment=PRODUCTION \
          --network-name=<имя_сети_кластера> \
          --user-name=<имя_пользователя_кластера> \
@@ -318,13 +335,15 @@
 
       Где:
 
+      * `--greenplum-version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
-      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например, `--log-greenplum-enabled`.
+      * `--log-enabled` — включает механизм передачи логов. Обязателен для работы других флагов, отвечающих за передачу конкретных логов, например `--log-greenplum-enabled`.
 
-      * `--log-greenplum-enabled` — передача логов {{ GP }}.
+      * `--log-greenplum-enabled` — передача логов СУБД.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `--log-command-center-enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
@@ -349,7 +368,7 @@
             zone               = "<идентификатор_зоны_доступности>"
             subnet_id          = "<идентификатор_подсети_кластера>"
             assign_public_ip   = true
-            version            = "<версия {{GP}}>"
+            version            = "<версия_СУБД>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -386,13 +405,15 @@
 
           Где:
 
+          * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
           * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
-          * `greenplum_enabled` — передача логов {{ GP }}.
+          * `greenplum_enabled` — передача логов СУБД.
 
-              {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+              {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
           * `command_center_enabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
@@ -419,11 +440,18 @@
       ```json
       {
         ...
+        "config": {
+          "version": "<версия_СУБД>",
+          ...
+          },
+          ...
+        },
+        ...
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "logging": {
-          "enabled": "true",          
+          "enabled": "true",
           "greenplumEnabled": "true",
-          "commandCenterEnabled": "true",          
+          "commandCenterEnabled": "true",
           "logGroupId": "<идентификатор_лог-группы>"
         }
         ...
@@ -432,13 +460,15 @@
 
       Где:
 
+      * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
       * `enabled` — управляет механизмом передачи логов. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
 
-      * `greenplumEnabled` — передача логов {{ GP }}.
+      * `greenplumEnabled` — передача логов СУБД.
 
-          {% include [Greenplum Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
+          {% include [Database Logs Level](../../_includes/managed-greenplum/greenplum-logs-level.md) %}
 
       * `commandCenterEnabled` — передача логов [командного центра](../../managed-greenplum/concepts/command-center.md).
 
@@ -456,7 +486,7 @@
 
       1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-      1. Нажмите на строку с лог-группой `greenplum-log-group`.
+      1. Нажмите на строку с лог-группой `my-log-group`.
 
       На открывшейся странице отобразятся записи.
 
@@ -465,7 +495,7 @@
       Чтобы посмотреть записи в формате JSON, выполните команду:
 
       ```bash
-      yc logging read --group-name=greenplum-log-group --format=json
+      yc logging read --group-name=my-log-group --format=json
       ```
 
       Результат:
@@ -503,3 +533,7 @@
    {% endlist %}
 
    Подробнее см. в разделе [Чтение записей](../../logging/operations/read-logs.md).
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

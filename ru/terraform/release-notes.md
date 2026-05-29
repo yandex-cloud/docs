@@ -6,6 +6,12 @@ editable: false
 
 
 
+## 0.206.0 (May 28, 2026)
+##### FEATURES:
+* opensearch: add `disk_size_gb` for `resources`
+* dns: add new resource and data-source `yandex_dns_inbound_endpoint` and new resource `yandex_dns_inbound_endpoint_iam_binding`
+* opensearch: add `disk_size_gb_limit` for `disk_size_autoscaling`
+
 ## 0.205.0 (May 25, 2026)
 ##### FEATURES:
 * opensearch: add `WARM` and `INGEST` nodegroups roles support

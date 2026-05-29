@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the PrivateConnection resource.
+            The maximum string length in characters is 50.
           type: string
       required:
         - privateConnectionId
@@ -24,6 +25,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -32,6 +34,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}/o
 ||Field | Description ||
 || privateConnectionId | **string**
 
-Required field. ID of the PrivateConnection resource. ||
+Required field. ID of the PrivateConnection resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPrivateConnectionOperationsRequest}
@@ -66,11 +71,15 @@ Required field. ID of the PrivateConnection resource. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request. ||
+[ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse}

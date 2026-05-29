@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the folder to list TrunkConnection resources.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListTrunkConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse)
             that can be used to get the next page of results in subsequent list requests. Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -28,6 +30,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListTrunkConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse) returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
         filter:
           description: |-
@@ -37,6 +40,7 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on [Subnet.name] field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
           type: string
       required:
         - folderId
@@ -62,24 +66,32 @@ GET https://cic.{{ api-host }}/cic/v1/trunkConnections
 || folderId | **string**
 
 Required field. ID of the folder to list TrunkConnection resources.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListTrunkConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListTrunkConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse) returned by a previous list request. ||
+[ListTrunkConnectionsResponse.nextPageToken](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Subnet.name] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListTrunkConnectionsResponse}
@@ -94,7 +106,6 @@ The expression must specify:
       "name": "string",
       "description": "string",
       "folderId": "string",
-      "regionId": "string",
       "createdAt": "string",
       // Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `partnerJointInfo`
       "singlePortDirectJoint": {
@@ -106,7 +117,6 @@ The expression must specify:
         "transceiverType": "string",
         "lagAllocationSettings": {
           "lagInfo": {
-            "lagId": "string",
             "portNames": [
               "string"
             ]
@@ -115,8 +125,8 @@ The expression must specify:
         "accessDeviceName": "string"
       },
       "partnerJointInfo": {
-        "serviceKey": "string",
-        "partnerId": "string"
+        "partnerId": "string",
+        "serviceKey": "string"
       },
       // end of the list of possible fields
       "pointOfPresenceId": "string",
@@ -165,9 +175,6 @@ Optional description of the trunkConnection. 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the trunkConnection belongs to. ||
-|| regionId | **string**
-
-ID of the region that the trunkConnection belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
@@ -195,14 +202,11 @@ Includes only one of the fields `singlePortDirectJoint`, `lagDirectJoint`, `part
 Special trunkConnection config ||
 || pointOfPresenceId | **string**
 
-ID of pointOfPresence that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
+ID of pointOfPresence that the trunkConnection is deployed on. ||
 || capacity | **enum** (Capacity)
 
 Capacity of the trunkConnection
 
-- `CAPACITY_UNSPECIFIED`
 - `CAPACITY_50_MBPS`
 - `CAPACITY_100_MBPS`
 - `CAPACITY_200_MBPS`
@@ -233,15 +237,13 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the trunkConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
 - `ACTIVE` ||
 || deletionProtection | **boolean**
 
-Optional deletion protection flag.
-If set prohibits deletion of the trunkConnection. ||
+Deletion protection flag. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}
@@ -254,7 +256,6 @@ Config of trunkConnection that is deployed on single port.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -278,7 +279,6 @@ Config of trunkConnection that is deployed on lag.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -307,11 +307,6 @@ LagInfo ||
 
 #|
 ||Field | Description ||
-|| lagId | **string** (int64)
-
-ID of LAG.
-Optional.
-If is not set scheduler selects it by himself. ||
 || portNames[] | **string**
 
 List of port names that the LAG is deployed on. ||
@@ -323,12 +318,10 @@ Config of trunkConnection that is deployed on partner joint.
 
 #|
 ||Field | Description ||
+|| partnerId | **string**
+
+ID of partner that the trunkConnection is deployed on. ||
 || serviceKey | **string**
 
 Reserved for future using; ||
-|| partnerId | **string**
-
-ID of partner that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
 |#
