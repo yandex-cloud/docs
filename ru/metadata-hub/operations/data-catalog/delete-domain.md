@@ -1,6 +1,6 @@
 ---
-title: Удаление домена
-description: Следуя данной инструкции, вы сможете удалить домен в {{ data-catalog-full-name }}.
+title: Удаление домена в {{ data-catalog-full-name }}
+description: Следуя данной инструкции, вы удалите домен в {{ data-catalog-name }}.
 ---
 
 # Удаление домена

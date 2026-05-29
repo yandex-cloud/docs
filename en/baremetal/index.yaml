@@ -83,8 +83,8 @@ links:
     description: Use ready-made scenarios for working with {{ baremetal-name }} servers
     href: tutorials/
   - title: Access management
-    description: Configure access permissions to use this service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Pricing and cost calculations
+    description: Service pricing and cost calculation
     href: pricing

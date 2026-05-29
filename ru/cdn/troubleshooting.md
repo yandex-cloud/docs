@@ -8,6 +8,7 @@
 * [Запросы с методами POST, PUT, PATCH, DELETE недоступны пользователям](#post-responses)
 * [Изменения настроек не применились к ресурсу](#changes-not-applied)
 * [У CDN-ресурса статус Not active, и контент недоступен пользователям](#resource-not-active)
+* [Что происходит с CDN-ресурсом при блокировке платежного аккаунта за неуплату](#billing-account-blocked)
 * [Не удается настроить TLS-сертификат](#tls-certificate)
 * [CDN отправляет сжатые файлы пользователям, которые не запрашивают сжатый контент](#compressed-files)
 * [Как включить поддержку протокола WebSocket](#websocket-support)
@@ -57,6 +58,16 @@
 ## У CDN-ресурса статус Not active, и контент недоступен пользователям {#resource-not-active}
 
 Ресурс может находиться в статусе `Not active` из-за того, что к нему нет пользовательских запросов в течение 90 дней, или потому что его деактивировали вручную. Чтобы ресурс снова стал активен, [включите](operations/resources/configure-basics.md) опцию **{{ ui-key.yacloud.cdn.field_access }}** в основных настройках ресурса. Активировать и деактивировать ресурсы могут пользователи с ролью `cdn.editor` или выше.
+
+## Что происходит с CDN-ресурсом при блокировке платежного аккаунта за неуплату {#billing-account-blocked}
+
+Если ваш [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account) был заблокирован за неуплату, доступ к контенту через CDN-ресурс [приостанавливается](operations/resources/disable-resource.md#disable-resource).
+
+{% note warning "**Важно**" %}
+
+Разблокировка платежного аккаунта не возвращает доступ к контенту. [Восстановите](operations/resources/disable-resource.md#enable-resource) его самостоятельно.
+
+{% endnote %}
 
 ## Не удается настроить TLS-сертификат {#tls-certificate}
 

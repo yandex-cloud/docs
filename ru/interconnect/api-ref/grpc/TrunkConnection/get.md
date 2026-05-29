@@ -5,7 +5,6 @@ editable: false
 # Cloud Interconnect API, gRPC: TrunkConnectionService.Get
 
 Returns the specified TrunkConnection resource.
-
 To get the list of available TrunkConnection resources, make a [List](/docs/interconnect/api-ref/grpc/TrunkConnection/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,9 @@ To get the list of available TrunkConnection resources, make a [List](/docs/inte
 || trunk_connection_id | **string**
 
 Required field. ID of the TrunkConnection resource to return.
-To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/interconnect/api-ref/grpc/TrunkConnection/list#List) request. ||
+To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/interconnect/api-ref/grpc/TrunkConnection/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## TrunkConnection {#yandex.cloud.cic.v1.TrunkConnection}
@@ -36,7 +37,6 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/intercon
   "name": "string",
   "description": "string",
   "folder_id": "string",
-  "region_id": "string",
   "created_at": "google.protobuf.Timestamp",
   // Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`
   "single_port_direct_joint": {
@@ -48,7 +48,6 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/intercon
     "transceiver_type": "TransceiverType",
     "lag_allocation_settings": {
       "lag_info": {
-        "lag_id": "google.protobuf.Int64Value",
         "port_names": [
           "string"
         ]
@@ -57,8 +56,8 @@ To get the trunkConnection ID use a [TrunkConnectionService.List](/docs/intercon
     "access_device_name": "string"
   },
   "partner_joint_info": {
-    "service_key": "string",
-    "partner_id": "google.protobuf.StringValue"
+    "partner_id": "google.protobuf.StringValue",
+    "service_key": "string"
   },
   // end of the list of possible fields
   "point_of_presence_id": "google.protobuf.StringValue",
@@ -87,9 +86,6 @@ Optional description of the trunkConnection. 0-256 characters long. ||
 || folder_id | **string**
 
 ID of the folder that the trunkConnection belongs to. ||
-|| region_id | **string**
-
-ID of the region that the trunkConnection belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
@@ -110,14 +106,11 @@ Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, 
 Special trunkConnection config ||
 || point_of_presence_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-ID of pointOfPresence that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
+ID of pointOfPresence that the trunkConnection is deployed on. ||
 || capacity | enum **Capacity**
 
 Capacity of the trunkConnection
 
-- `CAPACITY_UNSPECIFIED`
 - `CAPACITY_50_MBPS`
 - `CAPACITY_100_MBPS`
 - `CAPACITY_200_MBPS`
@@ -148,15 +141,13 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the trunkConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
 - `ACTIVE` ||
 || deletion_protection | **bool**
 
-Optional deletion protection flag.
-If set prohibits deletion of the trunkConnection. ||
+Deletion protection flag. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}
@@ -169,7 +160,6 @@ Config of trunkConnection that is deployed on single port.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -193,7 +183,6 @@ Config of trunkConnection that is deployed on lag.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -222,11 +211,6 @@ LagInfo ||
 
 #|
 ||Field | Description ||
-|| lag_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-ID of LAG.
-Optional.
-If is not set scheduler selects it by himself. ||
 || port_names[] | **string**
 
 List of port names that the LAG is deployed on. ||
@@ -238,12 +222,10 @@ Config of trunkConnection that is deployed on partner joint.
 
 #|
 ||Field | Description ||
+|| partner_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of partner that the trunkConnection is deployed on. ||
 || service_key | **string**
 
 Reserved for future using; ||
-|| partner_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-ID of partner that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
 |#

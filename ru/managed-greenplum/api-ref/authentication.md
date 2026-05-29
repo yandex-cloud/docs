@@ -6,5 +6,3 @@ description: Для выполнения операций через API в се
 # Аутентификация в API {{ mgp-name }}
 
 {% include notitle [auth](../../_includes/authentication.md) %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

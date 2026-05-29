@@ -1,6 +1,6 @@
 ---
-title: Дашборд сети магазинов из БД {{ CH }}
-description: В этом руководстве вы подготовите дашборд для анализа продаж в сети московских магазинов.
+title: Дашборд сети магазинов из БД {{ CH }} в {{ datalens-full-name }}
+description: Следуя данному руководству, вы создадите дашборд сети магазинов на основе данных из базы данных {{ CH }} в {{ datalens-name }}.
 ---
 
 {% include [data-from-ch-visualization](../../_tutorials/datalens/data-from-ch-visualization.md) %}

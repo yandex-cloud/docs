@@ -57,7 +57,7 @@ items:
             href: operations/resources/location-rules.md
           - name: Настроить имя сервера для SNI
             href: operations/resources/configure-server-name.md
-          - name: Отключить ресурс
+          - name: Приостановить и возобновить работу ресурса
             href: operations/resources/disable-resource.md
           - name: Управление метками ресурса
             href: operations/resources/labeling.md

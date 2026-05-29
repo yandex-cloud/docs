@@ -1,6 +1,6 @@
 ---
-title: Создание термина
-description: Следуя данной инструкции, вы сможете создать термин в {{ data-catalog-full-name }}.
+title: Создание термина в {{ data-catalog-full-name }}
+description: Следуя данной инструкции, вы создадите термин в глоссарии {{ data-catalog-name }}.
 ---
 
 # Создание термина

@@ -1,16 +1,3 @@
-title: Yandex Data Processing
-description:
-  - >-
-    Сервис помогает разворачивать кластеры Apache Hadoop<sup>®</sup> и Apache
-    Spark™ в инфраструктуре Yandex Cloud. Вы сами определяете размер кластера,
-    мощность узлов и набор сервисов Apache<sup>®</sup> (Spark™, HDFS, YARN,
-    Hive, HBase<sup>®</sup>, Oozie™, Sqoop™, Flume™, Tez<sup>®</sup>,
-    Zeppelin™).
-  - "Инфраструктура Yandex Cloud <a href=\"/docs/security/conform\">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI\_DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>"
-  - >-
-    <em>Apache<sup>®</sup>, Apache Hadoop<sup>®</sup> и Apache Spark™ являются
-    зарегистрированными товарными знаками или товарными знаками Apache Software
-    Foundation в США и/или других странах.</em>
 meta:
   title: Yandex Data Processing
   description: >-
@@ -28,25 +15,134 @@ meta:
     - keyword: Apache в {{ yandex-cloud }}
     - keyword: '{{ dataproc-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ dataproc-name }}
-links:
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Концепции и общее устройство сервиса
-    href: concepts/
-  - title: Справочник API (англ.)
-    description: Описание методов HTTP API
-    href: api-ref/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройка прав доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: Обучающие курсы
-    description: Информация о доступных программах обучения
-    href: training
+blocks:
+  - type: card-layout-block
+    title: Yandex Data Processing
+    description: >-
+      Сервис помогает разворачивать кластеры Apache Hadoop® и Apache Spark™ в
+      инфраструктуре Yandex Cloud. Вы сами определяете размер кластера, мощность
+      узлов и набор сервисов Apache® (Spark™, HDFS, YARN, Hive, HBase®, Oozie™,
+      Sqoop™, Flume™, Tez®, Zeppelin™).
+    size: l
+  - type: card-layout-block
+    title: ''
+    description: ''
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте свой первый кластер
+        icon: _assets/icons/rocket.svg
+        urlTitle: Как начать работать с Yandex Data Processing
+        url: quickstart
+        centered: true
+        size: s
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        urlTitle: Пошаговые инструкции для сервиса Yandex Data Processing
+        url: operations/index
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/list-ol.svg
+          dark: _assets/icons/list-ol.svg
+      - type: basic-card
+        title: Концепции
+        text: Изучите основные термины и понятия, используемые в сервисе
+        urlTitle: Все понятия
+        url: concepts/index
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/bookmark.svg
+          dark: _assets/icons/bookmark.svg
+      - type: basic-card
+        title: Справочник API (англ.)
+        text: Используйте методы HTTP API для управления кластерами
+        urlTitle: Аутентификация в API Yandex Data Processing
+        url: api-ref/authentication
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/code.svg
+          dark: _assets/icons/code.svg
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        urlTitle: Квоты и лимиты
+        url: concepts/limits
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/sliders.svg
+          dark: _assets/icons/sliders.svg
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        urlTitle: Управление доступом в Yandex Data Processing
+        url: security/index
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/persons-lock.svg
+          dark: _assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        urlTitle: Правила тарификации для Yandex Data Processing
+        url: pricing
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/calculator.svg
+          dark: _assets/icons/calculator.svg
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        urlTitle: Обучающие курсы по Yandex Data Processing
+        url: training
+        centered: true
+        size: s
+        icon:
+          light: _assets/icons/pencil.svg
+          dark: _assets/icons/pencil.svg
+  - type: card-layout-block
+    colSizes:
+      all: 12
+    title: Условия использования сервиса
+    description: ''
+    iconPosition: left
+    children:
+      - type: basic-card
+        title: ''
+        text: >-
+          Инфраструктура Yandex Cloud защищена в соответствии со следующими
+          стандартами:
+
+          * [Федеральный закон Российской Федерации «О персональных данных»
+          № 152-ФЗ](https://yandex.cloud/ru/docs/security/conform#law)
+
+
+          * [ГОСТ
+          57580.1-2017](https://yandex.cloud/ru/docs/security/conform#gost)
+
+          * [Стандарт PCI
+          DSS](https://yandex.cloud/ru/docs/security/conform#pci-dss)
+
+          * [Стандарты ISO](https://yandex.cloud/ru/docs/security/conform#iso)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        _Apache®, Apache Hadoop® и Apache Spark™ являются зарегистрированными
+        товарными знаками или товарными знаками Apache Software Foundation в США
+        и/или других странах._
+links: []

@@ -92,7 +92,7 @@ Learn more in [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
 #### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} versions 14, 15, 16, 17, and 18, and {{ PG }} versions 14, 15, 16, 17, and 18 for 1C.
+{{ mpg-short-name }} supports {{ PG }} versions 14, 15, 16, 17, and 18, and {{ PG }} versions 14, 15, 16, 17, and 18 for 1C. Version 17 is used by default in the management console.
 
 
 #### What happens when a new DBMS version is released? {#new-version}

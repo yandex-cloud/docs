@@ -87,6 +87,8 @@ items:
         href: concepts/resource-groups.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Коннектор {{ GP }}
+        href: concepts/greenplum-connector.md
   - name: Справочник CLI (англ.)
     items:
       - name: Overview

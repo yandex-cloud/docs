@@ -1,17 +1,16 @@
 ---
 title: Access management in {{ vpc-full-name }} ({{ vpc-short-name }})
-description: Access management within the cloud network (private cloud) service, communications of cloud resources between themselves and with the internet – {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in the service, and the roles required to perform a particular action.
+description: Access management within the cloud network (private cloud) service, communications of cloud resources between themselves and with the internet – {{ vpc-full-name }} ({{ vpc-short-name }}). This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
 ---
 
 # Access management in {{ vpc-name }}
 
 {{ vpc-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-
-In this section, you will learn:
-* [What resources you can assign a role for](#resources).
-* [What roles exist in the service](#roles-list).
-* [What roles are required](#choosing-roles) for particular actions.
+In this section, you will learn about:
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#choosing-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -21,7 +20,7 @@ In this section, you will learn:
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -99,14 +98,14 @@ In this section, you will learn:
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
-The table below lists the roles required to perform a particular action. You can always assign a role offering more permissions than the one specified. For example, you can assign the `editor` role instead of `viewer`, or `vpc.admin` instead of `vpc.publicAdmin`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`, or `vpc.admin` instead of `vpc.publicAdmin`.
 
 Action | Methods | Required roles
 ----- | ----- | -----
 **Viewing data** | |
-View information about any resource. | `get`, `list`, `listOperations` | `vpc.viewer` or `viewer` for the resource
+Viewing resource details | `get`, `list`, `listOperations` | `vpc.viewer` or `viewer` for the resource
 List subnets in the network. | `listSubnets` | `vpc.viewer` or `viewer` for the network
 **Use of resources** | |
 Assign {{ vpc-short-name }} resources to other {{ yandex-cloud }} resources, e.g., assigning an address to an interface or connecting a network interface to a subnet. | Various | `vpc.user` for the resource, and the permission to change the receiving object if the resource assignment operation is mutating.
@@ -126,7 +125,7 @@ Associate a gateway with a route table. | `create`, `update` |  `vpc.gateways.us
 Create security groups. | `create` | `vpc.securityGroups.admin` or `editor` for the folder and network
 Update and delete security groups. | `update`, `delete` | `vpc.securityGroups.admin` or `editor` for the network and security group
 **Resource access management** | |
-[Grant a role](../../iam/operations/roles/grant.md), [revoke a role](../../iam/operations/roles/revoke.md), and view roles granted for the resource. | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
+[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing roles for a resource | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 
 To create a [NAT gateway](../concepts/gateways.md) and associate it with a route table, you need the `vpc.gateways.editor` and `vpc.gateways.user` roles. Currently, you cannot use reserved public IP addresses for gateways, so the `vpc.admin` role will not be enough.
 
@@ -135,4 +134,4 @@ To create a [NAT gateway](../concepts/gateways.md) and associate it with a route
 * [How to assign a role](../../iam/operations/roles/grant.md).
 * [How to revoke a role](../../iam/operations/roles/revoke.md).
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
-* [Learn more about inheriting roles](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
+* [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
