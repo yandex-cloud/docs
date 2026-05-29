@@ -27,18 +27,24 @@ Retrieves the list of PointOfPresence resources in the specified folder.
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListPointOfPresencesResponse.next_page_token](#yandex.cloud.cic.v1.ListPointOfPresencesResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListPointOfPresencesResponse.next_page_token](#yandex.cloud.cic.v1.ListPointOfPresencesResponse) returned by a previous list request. ||
+[ListPointOfPresencesResponse.next_page_token](#yandex.cloud.cic.v1.ListPointOfPresencesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Subnet.name] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListPointOfPresencesResponse {#yandex.cloud.cic.v1.ListPointOfPresencesResponse}
@@ -48,7 +54,11 @@ The expression must specify:
   "point_of_presences": [
     {
       "id": "string",
-      "region_id": "string"
+      "name": "string",
+      "location_address": "string",
+      "connection_points": [
+        "string"
+      ]
     }
   ],
   "next_page_token": "string"
@@ -79,7 +89,13 @@ A PointOfPresence resource.
 || id | **string**
 
 ID of the pointOfPresence. ||
-|| region_id | **string**
+|| name | **string**
 
-ID of the region that the pointOfPresence belongs to. ||
+Name of the pointOfPresence. ||
+|| location_address | **string**
+
+Location address of the pointOfPresence. ||
+|| connection_points[] | **string**
+
+Links to info about the connection points. ||
 |#

@@ -11,9 +11,12 @@ A set of methods for managing TrunkConnection resources.
 #|
 ||Method | Description ||
 || [Get](get.md) | Returns the specified TrunkConnection resource. ||
+|| [BatchGet](batchGet.md) |  ||
 || [List](list.md) | Retrieves the list of TrunkConnection resources in the specified folder. ||
-|| [Create](create.md) | Creates a TrunkConnection resource in the specified folder using the data specified in the request. ||
 || [Update](update.md) | Updates a TrunkConnection resource using the data specified in the request. ||
 || [Delete](delete.md) | Deletes a TrunkConnection resource. ||
+|| [ListPrivateConnections](listPrivateConnections.md) | Retrieves the list of PrivateConnection resources associated with the specified TrunkConnection. ||
+|| [ListPublicConnections](listPublicConnections.md) | Retrieves the list of PublicConnection resources associated with the specified TrunkConnection. ||
+|| [Move](move.md) | Moves the specified TrunkConnection to another folder. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified TrunkConnection. ||
 |#

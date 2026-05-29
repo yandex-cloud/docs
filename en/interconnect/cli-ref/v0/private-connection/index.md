@@ -23,6 +23,8 @@ Aliases:
 
 - [yc cic v0 private-connection add-labels](add-labels.md) — Assign labels to a privateConnection.
 
+- [yc cic v0 private-connection batch-get](batch-get.md) — Get information about several privateConnections in one request.
+
 - [yc cic v0 private-connection create](create.md) — Create a privateConnection.
 
 - [yc cic v0 private-connection delete](delete.md) — Delete a privateConnection.

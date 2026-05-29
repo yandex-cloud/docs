@@ -28,6 +28,9 @@ ID of the network to which the private endpoint belongs. ||
 
 Name of the network to which the private endpoint belongs. ||
 || `--object-storage` | Object storage ||
+|| `--service-name` | `string`
+
+Name of the cloud service to access through the private endpoint (e.g. yandex.cloud.storage). ||
 || `--description` | `string`
 
 Description of the private endpoint. ||

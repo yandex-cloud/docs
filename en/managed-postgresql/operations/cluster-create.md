@@ -47,7 +47,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
      * `PRODUCTION`: For stable versions of your applications.
      * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
-  1. Select the DBMS version.
+  1. From the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** drop-down list, select the DBMS version or leave the default version: `17`.
   1. Select the host class, which will determine the technical specifications of the [VMs](../../compute/concepts/vm.md) for deploying your database hosts. All available options are listed under [Host classes](../concepts/instance-types.md). Changing the cluster’s host class updates the specifications for all of its existing hosts.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -242,8 +242,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
        * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
-       * `sessions-sampling-interval`: Session sampling interval in seconds. Allowed values range from `1` to `86400`.
-       * `statements-sampling-interval`: Statement sampling interval in seconds. Allowed values range from `60` to `86400`.
+       * `sessions-sampling-interval`: Session sampling interval in seconds. The valid values range from `1` to `86400`.
+       * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `60` to `86400`.
 
 
      
@@ -492,9 +492,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            "name": "<DB_name>",
            "owner": "<DB_owner_name>"
          },
-         { <similar_configuration_for_DB_2> },
+         { <similar_settings_for_DB_2> },
          { ... },
-         { <similar_configuration_for_DB_N> }
+         { <similar_settings_for_DB_N> }
        ],
        "userSpecs": [
          {
@@ -612,7 +612,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.  
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.  
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -629,7 +629,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -680,9 +680,9 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            "name": "<DB_name>",
            "owner": "<DB_owner_name>"
          },
-         { <similar_configuration_for_DB_2> },
+         { <similar_settings_for_DB_2> },
          { ... },
-         { <similar_configuration_for_DB_N> }
+         { <similar_settings_for_DB_N> }
        ],
        "user_specs": [
          {
@@ -800,7 +800,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

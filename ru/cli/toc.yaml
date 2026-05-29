@@ -1318,6 +1318,8 @@ items:
                 href: cli-ref/cic/cli-ref/private-connection/index.md
               - name: add-labels
                 href: cli-ref/cic/cli-ref/private-connection/add-labels.md
+              - name: batch-get
+                href: cli-ref/cic/cli-ref/private-connection/batch-get.md
               - name: create
                 href: cli-ref/cic/cli-ref/private-connection/create.md
               - name: delete
@@ -1404,6 +1406,8 @@ items:
                     href: cli-ref/cic/cli-ref/v0/private-connection/index.md
                   - name: add-labels
                     href: cli-ref/cic/cli-ref/v0/private-connection/add-labels.md
+                  - name: batch-get
+                    href: cli-ref/cic/cli-ref/v0/private-connection/batch-get.md
                   - name: create
                     href: cli-ref/cic/cli-ref/v0/private-connection/create.md
                   - name: delete
@@ -1492,6 +1496,8 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cic/cli-ref/v1/private-connection/index.md
+                  - name: batch-get
+                    href: cli-ref/cic/cli-ref/v1/private-connection/batch-get.md
                   - name: create
                     href: cli-ref/cic/cli-ref/v1/private-connection/create.md
                   - name: delete

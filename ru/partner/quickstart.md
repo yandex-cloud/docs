@@ -1,3 +1,8 @@
+---
+title: Как стать участником партнерской программы {{ yandex-cloud }}
+description: Следуя данной инструкции, вы сможете стать участником партнерской программы {{ yandex-cloud }}.
+---
+
 # Как стать участником партнерской программы
 
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}

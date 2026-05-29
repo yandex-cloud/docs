@@ -116,7 +116,7 @@ sudo apt update && sudo apt install --yes postgresql-client
               target_session_attrs=read-write"
         ```
 
-        Где `target_session_attrs` определяет тип запроса к хосту. Например, значение `read-write` дает возможность чтения и записи. Подробнее см. в [документации SPQR](https://pg-sharding.tech/routing/hints#spqr-target-session-attrs).
+        Где `target_session_attrs` определяет тип запроса к хосту. Например, значение `read-write` дает возможность чтения и записи. Подробнее см. в [документации SPQR](https://docs.pg-sharding.tech/routing/hints#__spqr__target_session_attrs).
 
         После выполнения команды введите пароль пользователя для завершения процедуры подключения.
 

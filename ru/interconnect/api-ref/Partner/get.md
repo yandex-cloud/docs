@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the Partner resource to return.
             To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Partner/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - partnerId
@@ -23,7 +24,6 @@ apiPlayground:
 # Cloud Interconnect API, REST: Partner.Get
 
 Returns the specified Partner resource.
-
 To get the list of available Partner resources, make a [List](/docs/interconnect/api-ref/Partner/list#List) request.
 
 ## HTTP request
@@ -39,7 +39,9 @@ GET https://cic.{{ api-host }}/cic/v1/partners/{partnerId}
 || partnerId | **string**
 
 Required field. ID of the Partner resource to return.
-To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Partner/list#List) request. ||
+To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Partner/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.Partner}
@@ -49,7 +51,11 @@ To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/Par
 ```json
 {
   "id": "string",
-  "regionId": "string",
+  "name": "string",
+  "url": "string",
+  "popIds": [
+    "string"
+  ],
   "status": "string"
 }
 ```
@@ -61,14 +67,19 @@ A Partner resource.
 || id | **string**
 
 ID of the partner. ||
-|| regionId | **string**
+|| name | **string**
 
-ID of the region that the partner belongs to. ||
+Name of the partner. ||
+|| url | **string**
+
+Link to info about the partner. ||
+|| popIds[] | **string**
+
+List of pointOfPresence IDs that the partner is connected to. ||
 || status | **enum** (Status)
 
 Status of the partner.
 
-- `STATUS_UNSPECIFIED`
-- `UP`
-- `DOWN` ||
+- `UP`: Partner is up and operational.
+- `DOWN`: Partner is down and not operational. ||
 |#

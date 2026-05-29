@@ -28,7 +28,7 @@ To order an on-request server configuration:
 1. Describe your server requirements: type and number of processors, memory size, storage drive configuration, need for GPU cards or RAID controllers.
 1. Get a tailored offer.
 
-The assembly timeline and terms of rent for an on-request configuration are determined on case-by-case basis.
+The assembly timeline and terms of rent for an on-request configuration are determined on a case-by-case basis.
 
 #### See also {#see-also}
 

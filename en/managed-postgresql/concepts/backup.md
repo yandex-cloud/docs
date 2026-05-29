@@ -40,7 +40,7 @@ All cluster data is automatically backed up once a day. You cannot disable autom
 
 Once created, a backup is compressed for storage. The exact backup size is not displayed.
 
-Backups are only created on running clusters. If you are not using your {{ mpg-short-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
+Backups are created only on running {{ mpg-name }} clusters. If you are not using your cluster 24/7, check the [backup start time settings](../operations/update.md#change-additional-settings). A cluster that has no backups cannot be [stopped](../operations/cluster-stop.md#stop-cluster).
 
 Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md).
 

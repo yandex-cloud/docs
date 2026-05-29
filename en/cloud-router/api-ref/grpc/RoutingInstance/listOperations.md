@@ -24,17 +24,23 @@ Lists operations for the specified RoutingInstance.
 ||Field | Description ||
 || routing_instance_id | **string**
 
-Required field. ID of the RoutingInstance resource. ||
+Required field. ID of the RoutingInstance resource.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListRoutingInstanceOperationsResponse.next_page_token](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRoutingInstanceOperationsResponse.next_page_token](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse) returned by a previous list request. ||
+[ListRoutingInstanceOperationsResponse.next_page_token](#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListRoutingInstanceOperationsResponse {#yandex.cloud.cloudrouter.v1.ListRoutingInstanceOperationsResponse}

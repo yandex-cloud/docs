@@ -20,7 +20,7 @@ items:
             href: operations/servers/custom-server-lease.md
           - name: Getting information about a server
             href: operations/servers/get-info.md
-          - name: Updating a server
+          - name: Reconfiguring a server
             href: operations/servers/server-update.md
           - name: Connecting to the KVM console
             href: operations/servers/server-kvm.md

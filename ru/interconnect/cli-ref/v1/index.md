@@ -29,6 +29,8 @@ Syntax:
 
 - [yc cic v1 private-connection](private-connection/index.md) — A set of methods for managing PrivateConnection resources.
 
+  - [yc cic v1 private-connection batch-get](private-connection/batch-get.md) — Get list of PrivateConnections by their IDs
+
   - [yc cic v1 private-connection create](private-connection/create.md) — Creates a PrivateConnection resource in the specified folder using the data specified in the request.
 
   - [yc cic v1 private-connection delete](private-connection/delete.md) — Deletes a PrivateConnection resource.

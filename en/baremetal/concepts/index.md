@@ -1,8 +1,8 @@
 # {{ baremetal-full-name }} overview
 
-In {{ baremetal-full-name }}, you can [rent](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
+In {{ baremetal-full-name }}, you can [lease](../operations/servers/server-lease.md) a physical server with all its hardware resources provisioned for your individual use. 
 
-To create and conveniently operate an infrastructure relying on rented physical servers, {{ baremetal-name }} provides users with all the tools they need to manage the servers and their network settings.
+To create and conveniently operate an infrastructure relying on leased physical servers, {{ baremetal-name }} provides users with all the required tools to manage the servers and their network’s settings.
 
 There is a system of flexible [quotas](limits.md) and resource limits which decides the amount of servers, networks, and disk space for custom OS images available to each user.
 
@@ -12,7 +12,7 @@ You can order servers of the following configurations:
 
 * Stock configuration: Get a ready-to-use server with or without an OS in minutes. Choose a server from dozens of configurations for typical tasks and workloads.
 
-   [Renting a stock configuration server](server-configurations.md)
+   [Leasing a stock configuration server](server-configurations.md)
 * Custom configuration: Use our builder to create a server optimized for your load profile from available server components and get your new server in 4 days' time. 
 
   [Building a custom server configuration](server-custom-configurations.md)
@@ -26,7 +26,7 @@ You can rent [servers](servers.md) for a period from one day to one year. When o
 
 All servers have multiple physical network interfaces connected to the [public internet](./public-network.md) and to a [private network](./private-network.md) through different, independent switches which make up a single IP fabric with the spine-leaf topology.
 
-In the public network, each server is allocated one public IPv4 address free of charge. You can also rent blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
+In the public network, each server is allocated one public IPv4 address free of charge. You can also lease blocks of [dedicated public subnets](./public-network.md#public-subnet) of varying sizes and use them to assign addresses to servers. For servers with 10 and 25 Gbps network cards, you can select a daily internet traffic package.
 
 In a private network, you can group servers at different levels through [private subnets](./private-network.md#private-subnet) (L2, VLAN 802.1Q) and use routing to join them into a [VRF](./private-network.md#vrf-segment) (L3). If you need to, you can assign several private subnets to a single server port (L2, trunk-port 802.1Q) or add [static routes](./private-network.md#static-routes) to a VRF.
 

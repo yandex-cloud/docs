@@ -15,6 +15,8 @@ Syntax:
 
 #### Command Tree
 
+- [yc cic v1 private-connection batch-get](batch-get.md) — Get list of PrivateConnections by their IDs
+
 - [yc cic v1 private-connection create](create.md) — Creates a PrivateConnection resource in the specified folder using the data specified in the request.
 
 - [yc cic v1 private-connection delete](delete.md) — Deletes a PrivateConnection resource.

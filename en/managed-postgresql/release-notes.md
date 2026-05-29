@@ -51,6 +51,13 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 # {{ mpg-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+* Added [MDB Advisor](./operations/performance-diagnostics.md) to analyze cluster performance and get optimization recommendations.
+* Expanded [maintenance](./concepts/maintenance.md) information to show estimated operation impact.
+* Added support for [backup policies](./concepts/backup.md) at the folder level.
+* Added the `idleSessionTimeout` parameter to the user settings to limit the lifetime of inactive sessions.
+
 ## March 2026 {#mar-2026}
 
 * Simplified adding and editing user access permissions for databases.
