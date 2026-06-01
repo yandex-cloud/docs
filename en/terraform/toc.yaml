@@ -189,6 +189,9 @@ items:
                   - name: dns_firewall
                     href: data-sources/dns_firewall.md
                     title: ''
+                  - name: dns_inbound_endpoint
+                    href: data-sources/dns_inbound_endpoint.md
+                    title: ''
                   - name: dns_zone
                     href: data-sources/dns_zone.md
                     title: ''
@@ -200,6 +203,12 @@ items:
                     title: ''
                   - name: dns_firewall_iam_binding
                     href: resources/dns_firewall_iam_binding.md
+                    title: ''
+                  - name: dns_inbound_endpoint
+                    href: resources/dns_inbound_endpoint.md
+                    title: ''
+                  - name: dns_inbound_endpoint_iam_binding
+                    href: resources/dns_inbound_endpoint_iam_binding.md
                     title: ''
                   - name: dns_recordset
                     href: resources/dns_recordset.md

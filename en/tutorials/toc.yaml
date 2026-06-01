@@ -1392,7 +1392,13 @@ items:
       - name: All tutorials
         href: windows/index.md
       - name: Secure password transmission to an initialization script
-        href: windows/secure-password-script.md
+        items:
+          - name: Overview
+            href: windows/secure-password-script/index.md
+          - name: Management console, CLI, and API
+            href: windows/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: windows/secure-password-script/terraform.md
       - name: Deploying Active Directory
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange

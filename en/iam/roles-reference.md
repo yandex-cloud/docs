@@ -337,61 +337,7 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-Learn more in [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
-
-
-## {{ interconnect-full-name }} {#interconnect-roles}
-
-#### cic.auditor {#cic-auditor}
-
-{% include [cic.auditor](../_roles/cic/auditor.md) %}
-
-#### cic.viewer {#cic-viewer}
-
-{% include [cic.viewer](../_roles/cic/viewer.md) %}
-
-#### cic.editor {#cic-editor}
-
-{% include [cic.editor](../_roles/cic/editor.md) %}
-
-#### cic.admin {#cic-admin}
-
-{% include [cic.admin](../_roles/cic/admin.md) %}
-
-#### cic.secretViewer {#cic-secretviewer}
-
-{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
-
-#### cic.secretEditor {#cic-secreteditor}
-
-{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
-
-For more information, see [{#T}](../interconnect/security/index.md).
-
-
-## {{ cr-full-name }} {#cloudrouter-roles}
-
-#### cloud-router.auditor {#cloudrouter-auditor}
-
-{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
-
-#### cloud-router.viewer {#cloudrouter-viewer}
-
-{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
-
-#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
-
-{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
-
-#### cloud-router.editor {#cloudrouter-editor}
-
-{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
-
-#### cloud-router.admin {#cloudrouter-admin}
-
-{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
-
-For more information, see [{#T}](../cloud-router/security/index.md).
+For more information, see [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -573,6 +519,35 @@ For more information, see [{#T}](../dns/security/index.md).
 {% include [serverless.functions.admin](../_roles/serverless/functions/admin.md) %}
 
 For more information, see [{#T}](../functions/security/index.md).
+
+
+## {{ interconnect-full-name }} {#interconnect-roles}
+
+#### cic.auditor {#cic-auditor}
+
+{% include [cic.auditor](../_roles/cic/auditor.md) %}
+
+#### cic.viewer {#cic-viewer}
+
+{% include [cic.viewer](../_roles/cic/viewer.md) %}
+
+#### cic.editor {#cic-editor}
+
+{% include [cic.editor](../_roles/cic/editor.md) %}
+
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
+
+#### cic.secretViewer {#cic-secretviewer}
+
+{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
+
+#### cic.secretEditor {#cic-secreteditor}
+
+{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
+
+For more information, see [{#T}](../interconnect/security/index.md).
 
 
 ## {{ cloud-logging-full-name }} {#logging-roles}
@@ -777,6 +752,31 @@ For more information, see [{#T}](../postbox/security/index.md).
 {% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
 
 For more information, see [{#T}](../cloud-registry/security/index.md).
+
+
+## {{ cr-full-name }} {#cloudrouter-roles}
+
+#### cloud-router.auditor {#cloudrouter-auditor}
+
+{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
+
+#### cloud-router.viewer {#cloudrouter-viewer}
+
+{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
+
+#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
+
+#### cloud-router.editor {#cloudrouter-editor}
+
+{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
+
+#### cloud-router.admin {#cloudrouter-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+For more information, see [{#T}](../cloud-router/security/index.md).
 
 
 ## {{ video-full-name }} {#video-roles}
@@ -2675,7 +2675,7 @@ Learn more in [Access management in {{ speechkit-name }}]({{ link-docs-ai }}spee
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-For more information, see [{#T}](../speechsense/security/index.md).
+For more information, see [Access management in {{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}

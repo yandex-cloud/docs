@@ -98,7 +98,7 @@ Get started with {{ yandex-cloud }}:
 
   Create and run a project, configure the workspace, upload your data, and start model training.
 
-* [{{ speechsense-full-name }}](../../speechsense/quickstart.md).
+* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/quickstart).
 
   Upload an audio recording or a chat transcript, run speech recognition, and analyze the results. 
 

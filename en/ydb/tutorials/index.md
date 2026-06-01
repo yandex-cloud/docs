@@ -1,6 +1,6 @@
 ---
 title: '{{ ydb-full-name }} use cases'
-description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ ydb-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ ydb-name }} tutorials
@@ -28,7 +28,7 @@ description: Various {{ ydb-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](mkf-ydb-stream.md)
 * [Interactive debugging of functions in {{ sf-name }}](serverless-live-debug.md)
 * [{#T}](terraform-state-lock.md)
-* [{#T}](serverless-url-shortener.md)
+* [{#T}](serverless-url-shortener/index.md)
 * [{#T}](api-gw-integration.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)

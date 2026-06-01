@@ -319,7 +319,7 @@ default:
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
-  link-docs-ai: https://aistudio.yandex.ru/docs/ru/
+  link-docs-ai: https://aistudio.yandex.ru/docs/en/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
@@ -622,11 +622,7 @@ default:
   roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
-  roles-speechsense-data-viewer: Data viewer
-  roles-speechsense-editor: Editor
-  roles-speechsense-viewer: Viewer
   roles-viewer: viewer
   roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
@@ -797,7 +793,6 @@ default:
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
@@ -976,6 +971,7 @@ default:
   yq-short-name: YQ
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
+  yt-name: YT
   ytsaurus-name: YTsaurus
   YZ: Yezzey
   ZK: ZooKeeper
@@ -985,6 +981,7 @@ default:
   pcs|api-gateway: dn25mc2lq81eqg1ohe4i
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -2272,37 +2269,6 @@ default:
         vcpu:
           v2|number: 7.85
           v2|string: ₸7.85
-  sku|KZT|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.7625
-        v1|string: ₸0.7625
-      audio|number: 0.0505
-      audio|pricingRate:
-        30000000|number: 0.0254
-        6000000|number: 0.0305
-      text:
-        v2|number: 7.015
-        v2|pricingRate:
-          100000|number: 5.185
-          100000|string: ₸5.185
-          1000000|string: ₸2.135
-          2500000|string: ₸1.525
-          500000|number: 3.05
-          500000|string: ₸3.05
-        v2|string: ₸7.015
-      v1|number: 0.1165
-      v1|pricingRate:
-        150000000|number: 0.0254
-        30000000|number: 0.0505
-        6000000|number: 0.086
-        60000000|number: 0.0355
-    reinit:
-      assistant:
-        v1|number: 0.7625
-        v1|string: ₸0.7625
-      tag:
-        v1|string: ₸0.06
   sku|KZT|storage:
     api:
       get:
@@ -2852,37 +2818,6 @@ default:
         vcpu:
           v2|number: 1.57
           v2|string: ₽1.57
-  sku|RUB|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.1525
-        v1|string: ₽0.1525
-      audio|number: 0.0101
-      audio|pricingRate:
-        30000000|number: 0.00508
-        6000000|number: 0.0061
-      text:
-        v2|number: 1.403
-        v2|pricingRate:
-          100000|number: 1.037
-          100000|string: ₽1.037
-          1000000|string: ₽0.427
-          2500000|string: ₽0.305
-          500000|number: 0.61
-          500000|string: ₽0.61
-        v2|string: ₽1.403
-      v1|number: 0.0233
-      v1|pricingRate:
-        150000000|number: 0.00508
-        30000000|number: 0.0101
-        6000000|number: 0.0172
-        60000000|number: 0.0071
-    reinit:
-      assistant:
-        v1|number: 0.1525
-        v1|string: ₽0.1525
-      tag:
-        v1|string: ₽0.012
   sku|RUB|storage:
     api:
       get:
@@ -3414,37 +3349,6 @@ default:
         vcpu:
           v2|number: 0.0128688504
           v2|string: $0.0128688504
-  sku|USD|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: $0.0012499998
-      audio|number: 0.0000827869
-      audio|pricingRate:
-        30000000|number: 0.0000416393
-        6000000|number: 0.00005
-      text:
-        v2|number: 0.0114999982
-        v2|pricingRate:
-          100000|number: 0.0084999986
-          100000|string: $0.0084999986
-          1000000|string: $0.0034999994
-          2500000|string: $0.0024999996
-          500000|number: 0.0049999992
-          500000|string: $0.0049999992
-        v2|string: $0.0114999982
-      v1|number: 0.0001909836
-      v1|pricingRate:
-        150000000|number: 0.0000416393
-        30000000|number: 0.0000827869
-        6000000|number: 0.0001409836
-        60000000|number: 0.0000581967
-    reinit:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: $0.0012499998
-      tag:
-        v1|string: $0.0000983606
   sku|USD|storage:
     api:
       get:
@@ -4010,6 +3914,7 @@ default:
         button_add-label: Add label
       marketplace:
         label_product-ids: Product IDs
+        label_subscriptions: Pricing options
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
@@ -5375,13 +5280,11 @@ default:
         section_wigets-settings: Widget settings
         title_presets: Player template
       stream-lines:
-        action_create-line: Create a line
         label_input-stream-protocol: Stream input protocol
         label_input-stream-type: Stream type
         label_server-address: Server address
         label_stream-key: Broadcast key
         label_url: Server address
-        title_lines: Lines
       streams:
         action_add-stream-episode: Add an episode
         action_copy-code: Copy
@@ -5402,9 +5305,6 @@ default:
         label_start-broadcast-auto: automatically
         label_stream-episode-end: Episode end
         label_stream-episode-start: Episode start
-        label_stream-type: Stream type
-        label_type-on-demand: On demand
-        label_type-schedule: By schedule
         option_segment-duration-low: Low
         option_segment-duration-standart: Standard
         status_finished: Finished
@@ -5412,7 +5312,6 @@ default:
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
-        title_past-code: Embed in site
         title_stream-episodes: Episodes
         title_streams: Broadcasts
       thumbnails:
@@ -6033,8 +5932,6 @@ default:
             action_add-clickhouse-hosts: Create ClickHouse hosts
             action_add-host-item: Create host
             action_submit: Create hosts
-            field_copy_schema: Copy data schema
-            title_additional-settings: Additional settings
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Query groups
@@ -7806,6 +7703,7 @@ default:
         action_move: Move
         action_purchase-license: Purchase a subscription
         action_specify-vm: Link virtual machine
+        action_to-pay-license: Pay
         button_continue: Continue
         button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
         button_k8s-product-use: Go to install
@@ -10969,57 +10867,22 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs-key-value: All dialogs
         applying: Enable assistant
         assistants: Assistants
-        create-assistant-key-value: Create assistant
-        filtered-dialogs-key-value: Selected dialogs
-        generate-prompt-key-value: Generate instructions
         prompt: Instructions
-        result-key-value: Result
-        templates: Templates
-        testing-key-value: Testing
       common:
         add: Add
-        add-filter: Add filter
-        apply: Apply
-        bind: Link
         create: Create
-        customize: Customize
-        delete-key-value: Delete
-        duplicate: Duplicate
-        edit: Edit
         more: More
-        'no': 'No'
-        period: Period
-        save: Save
-        search: Search
-        settings: Settings
-        show-more: Show more
-        update: Refresh
-        'yes': 'Yes'
       connections:
         add-key: Add key
-        additional:
-          separators:
-            finish-key-value: End of dialog
-            start-key-value: Start of dialog
-          slice-length: Slice length
-          split:
-            title: Split dialogs by slices
-          title: Additional
         column:
-          description: Description
           name: Name in the system
         connection: Connection
-        connection-name: Connection name
         connections: Connections
         create-connection-key-value: Create connection
-        edit-connection-key-value: Edit connection
         fields:
-          client: Client
           metadata: Shared metadata
-          operator: Agent
         template:
           amo-crm:
             name: AmoCRM
@@ -11029,140 +10892,20 @@ default:
             name: Blank form
         type:
           chat-key-value: Сhat
-          one-channel-key-value: Single-channel audio
           two-channel-key-value: Two-channel audio
       dialogs:
-        all-participants: All participants
         bot: Bot
-        classifier:
-          appreciation-key-value: Appreciation
-        classifiers: Tags
         client: Customer
-        client-tags: Customer tags
-        common-metadata: Shared metadata
-        dialog: Dialog
         dialogs: Dialogs
-        direction-key-value: Direction
-        direction:
-          incoming: Incoming
-          outgoing: Outgoing
-        exact-match-by-key-phrases: Exact match by keywords
-        open-dialog: Open dialog
         operator: Agent
-        search:
-          dictionary:
-            title: Dictionary
-          neuro:
-            title: Semantic
-          text:
-            title: Text
-        speech-statistics: Conversation statistics
-        system-meta:
-          talk:
-            statistics:
-              simultaneous_silence:
-                ratio-key-value: Share of silence in dialog
-      dictionaries:
-        add-dictionary: Add dictionary
-        create-dictionary-key-value: Create dictionary
-        dictionaries: Dictionaries
-      neuro-tags:
-        apply-inverted:
-          theme: Do not contain theme
-        apply:
-          theme: Contain the theme
-        confidence-key-value: Confidence
-        gpt-criteria: YandexGPT criteria
-        reasons-key-value: Reasons
-        refresh-suggestions: Refresh list
-        results-key-value: Results
-        test-tag: Test tag
-        testing-dataset: Tag testing
-        themes-key-value: Themes
       projects:
         add-connection: Add connection
         add-participant: Add participant
         create-project: Create project
-        dialogs: Dialogs
-        projects: Projects
-        sumarization: YandexGPT analysis
-      reinit:
-        action:
-          cancel:
-            title: Cancel recalculation
-        tab:
-          title: Recalculation tasks
-      reports:
-        add-parameter: Add parameter
-        barchart: Chart
-        comparison-key-value: Comparison
-        create-report: Create report
-        datalens-key-value: Dashboard in DataLens
-        details-key-value: Details
-        generate-report: Create report
-        grouping-field: Group by
-        parameter:
-          description: Parameter name in report
-          filter: Evaluation parameters
-          weight: Weight
-        rating-key-value: Evaluation form
-        reports: Reports
-        save-report-key-value: Save report
-        table-key-value: Table
       spaces:
         create-space: Create space
-        error:
-          billing:
-            title: Space is not linked to a billing account
-        gpt-learning:
-          title: Tuning YandexGPT
-      statements:
-        call_reasons: Call reasons
-        call_results: Results
-        client_keywords: Client keywords
-        common_question: Common question
-        operator_keywords: Agent keywords
-        problems: Problems
-        summary: Summarization
-        theme: Theme
-      tags:
-        binding-events-key-value: Limitations
-        binding-events:
-          classifier: The main tag was triggered
-          dialog-start-key-value: Start of dialog
-          silence-key-value: Long pause
-        change-channel: Change channel
-        channel:
-          client: Client
-          operator: Agent
-          operator-and-client: Agent and customer
-        conditions: Trigger conditions
-        create-dependent-tag: Create dependent tag
-        create-tag-key-value: Create tag
-        exact-match-key-value: Exact match
-        exceptions: Exceptions
-        exceptions-keywords: Exclusion words
-        important-tag-key-value: Important tag
-        key-phrases-key-value: Keywords
-        new-channel: New channel
-        reinit: Recalculate
-        restrict-search-area-key-value: Limit the search area
-        search-area-key-value: Search direction
-        search-area:
-          after-key-value: Forward
-        tag-using-key-value: Usage
-        tags: Tags
-        tags-type:
-          dictionary-key-value: Dictionary
-          neuro-key-value: Semantic tag
-          neuro-pro-key-value: Semantic Pro tag
-        words-between-key-value: Distance between words
       team:
         add-from-organization-key-value: Add from organization
-        invite-new-key-value: Invite a new user
-        team: Team
-      upload-audio:
-        upload-audio-key-value: Adding dialogs
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

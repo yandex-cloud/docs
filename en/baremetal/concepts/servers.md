@@ -2,7 +2,7 @@
 
 A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
 
-The server can be provided to the user in one of the [stock configurations](./server-configurations.md), a [custom configuration](./server-custom-configurations.md) built as per the user's [specification](../operations/servers/custom-server-lease.md), or an [on-request configuration](./server-individual-configurations.md) with individual hardware characteristics.
+The server can be provided to the user in one of the [stock configurations](./server-configurations.md), a [custom configuration](./server-custom-configurations.md) built as per the user's [specification](../operations/servers/custom-server-lease.md), or an [on-request configuration](./server-individual-configurations.md) with individual hardware properties.
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
@@ -14,7 +14,7 @@ You can rent a stock configuration server for one day, one month, three months, 
 
 You can rent a [custom-configured](./server-custom-configurations.md) server for one month, six months, or one year.
 
-The terms and conditions of renting an [on-request configuration](./server-individual-configurations.md) are determined on case-by-case basis.
+The terms and conditions of renting an [on-request configuration](./server-individual-configurations.md) are determined on a case-by-case basis.
 
 ## Server access {#server-access}
 

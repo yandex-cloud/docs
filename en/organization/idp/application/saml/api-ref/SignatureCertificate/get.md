@@ -23,7 +23,6 @@ apiPlayground:
 # SAML Application API, REST: SignatureCertificate.Get
 
 Returns the specified signature certificate.
-
 To get the list of available certificates, make a [List](/docs/organization/idp/application/saml/mapi-ref/SignatureCertificate/list#List) request.
 
 ## HTTP request

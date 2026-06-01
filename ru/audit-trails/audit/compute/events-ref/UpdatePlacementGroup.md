@@ -295,7 +295,5 @@ The rest of the fields will be reset to the default. ||
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64)
-
-Acceptable values are 2 to 5, inclusive. ||
+|| partitions | **string** (int64) ||
 |#

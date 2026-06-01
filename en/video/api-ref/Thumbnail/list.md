@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             [Deprecated] ID of the channel.
             The maximum string length in characters is 50.
+          deprecated: true
           type: string
         episodeId:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             ID of the episode containing the thumbnails to list.
             The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
+            Specifies the parent resource to list thumbnails from (exactly one must be chosen).
           type: string
         videoId:
           description: |-
@@ -26,6 +28,7 @@ apiPlayground:
             ID of the video containing the thumbnails to list.
             The maximum string length in characters is 50.
             Includes only one of the fields `episodeId`, `videoId`.
+            Specifies the parent resource to list thumbnails from (exactly one must be chosen).
           type: string
         pageSize:
           description: |-
@@ -77,14 +80,18 @@ ID of the episode containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || videoId | **string**
 
 ID of the video containing the thumbnails to list.
 
 The maximum string length in characters is 50.
 
-Includes only one of the fields `episodeId`, `videoId`. ||
+Includes only one of the fields `episodeId`, `videoId`.
+
+Specifies the parent resource to list thumbnails from (exactly one must be chosen). ||
 || pageSize | **string** (int64)
 
 The maximum number of thumbnails to return per page.

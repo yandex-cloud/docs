@@ -1,1 +1,3 @@
-The `speech-sense.spaces.creator` role allows you to create [spaces](../../../speechsense/concepts/resources-hierarchy.md#space) in SpeechSense.
+
+The `speech-sense.spaces.creator` role allows you to create [spaces]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) in {{ speechsense-name }}.
+

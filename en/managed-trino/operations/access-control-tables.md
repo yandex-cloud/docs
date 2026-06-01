@@ -32,7 +32,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-table }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -81,12 +81,12 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
            {% endnote %}
 
-        1. Add other rules in a similar way if required.
+        1. Add other rules in the same way as needed.
         1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
 
         If no rule is defined for the column, users will have unrestricted access.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -155,13 +155,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `catalog`: Cluster catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
      * `columns`: List of rules restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
@@ -298,7 +298,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
@@ -494,7 +494,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -678,7 +678,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-table }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -727,14 +727,14 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
            {% endnote %}
 
-        1. Add other rules in a similar way if required.
+        1. Add other rules in the same way as needed.
         1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
 
         If no rule is defined for the column, users will have unrestricted access.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
-     1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+     1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
   1. To delete a rule you no longer need, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
@@ -808,13 +808,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `catalog`: Catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
+     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These must be the existing catalogs.
        * `names`: List of catalog names. These must be the existing catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
@@ -956,7 +956,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        You can specify either `names` or `name_regexp` but not both.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
+     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
        * `names`: List of schema names.
        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
 
@@ -987,7 +987,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -1084,7 +1084,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
           {% endnote %}
 
@@ -1267,7 +1267,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
           {% endnote %}
 
@@ -1338,7 +1338,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

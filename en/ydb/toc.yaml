@@ -118,7 +118,13 @@ items:
       - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: URL shortener
-        href: tutorials/serverless-url-shortener.md
+        items:
+          - name: Overview
+            href: tutorials/serverless-url-shortener/index.md
+          - name: Management console
+            href: tutorials/serverless-url-shortener/console.md
+          - name: '{{ TF }}'
+            href: tutorials/serverless-url-shortener/terraform.md
       - name: Exporting audit logs to MaxPatrol SIEM
         items:
           - name: Overview

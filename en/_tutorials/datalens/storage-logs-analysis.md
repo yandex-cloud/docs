@@ -38,7 +38,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -197,7 +197,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify the {{ CH }} cluster settings:
 
@@ -268,42 +268,49 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
   1. Add descriptions of your cluster, database, and user to the configuration file:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
        network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
 
-       clickhouse {
-         resources {
+       clickhouse = {
+         resources = {
            resource_preset_id = "b2.medium"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }
        }
 
-       host {
-         type      = "CLICKHOUSE"
-         zone      = "<availability_zone>"
-         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+       hosts = {
+         "ch-host1" = {
+           type       = "CLICKHOUSE"
+           zone       = "<availability_zone>"
+           subnet_id  = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+           shard_name = "shard1"
+         }
        }
 
-       access {
-         datalens  = true
-         web_sql   = true
+       shards = {
+         "shard1" = {}
        }
 
-       lifecycle {
-         ignore_changes = [database, user]
+       access = {
+         data_lens  = true
+         web_sql    = true
+       }
+
+       maintenance_window {
+         type = "ANYTIME"
        }
      }
 
      resource "yandex_mdb_clickhouse_database" "s3-data" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "s3_data"
      }
 
      resource "yandex_mdb_clickhouse_user" "user1" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "user"
        password   = "<password>"
        permission {
@@ -314,7 +321,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

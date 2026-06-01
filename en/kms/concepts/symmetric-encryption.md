@@ -64,4 +64,4 @@ The problem is solved if during the encryption process you provide, for example,
 * [{#T}](../tutorials/encrypt/cli-api.md)
 * [{#T}](../tutorials/encrypt/sdk.md)
 * [{#T}](../tutorials/kms-k8s.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

@@ -1498,6 +1498,10 @@ items:
                     href: idp/api-ref/grpc/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/grpc/User/resolveExternalIds.md
+                  - name: GetPasswordChanges
+                    href: idp/api-ref/grpc/User/getPasswordChanges.md
+                  - name: CommitPassword
+                    href: idp/api-ref/grpc/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview
@@ -1956,6 +1960,8 @@ items:
                     href: idp/api-ref/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/User/resolveExternalIds.md
+                  - name: CommitPassword
+                    href: idp/api-ref/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview

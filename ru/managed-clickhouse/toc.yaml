@@ -231,10 +231,10 @@ items:
         href: concepts/dictionaries.md
       - name: Шардирование
         href: concepts/sharding.md
-      - name: Служебные пользователи
-        href: concepts/service-users.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
+      - name: Управление пользователями и правами доступа
+        href: concepts/user-access-rights.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
       - name: Управление памятью

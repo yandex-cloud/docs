@@ -15,7 +15,7 @@ items:
         href: quickstart-sms.md
       - name: Getting started with topics
         href: quickstart-topics.md
-  - name: Step-by-step operations
+  - name: Step-by-step guides
     items:
       - name: All guides
         href: operations/index.md

@@ -32,7 +32,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as key:value pairs.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -415,7 +415,7 @@ The maximum string length in characters is 256. ||
 
 Resource labels as key:value pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || defaultSubdomain | **string**
 
 Required field. Default subdomain for the userpool.
@@ -655,9 +655,7 @@ Whether check in common password database is enabled. Default value is true. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "userpoolId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -666,69 +664,7 @@ Whether check in common password database is enabled. Default value is true. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "organizationId": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "domains": [
-      "string"
-    ],
-    "status": "string",
-    "userSettings": {
-      "allowEditSelfPassword": "boolean",
-      "allowEditSelfInfo": "boolean",
-      "allowEditSelfContacts": "boolean",
-      "allowEditSelfLogin": "boolean"
-    },
-    "passwordQualityPolicy": {
-      "allowSimilar": "boolean",
-      "maxLength": "string",
-      "minLength": "string",
-      "matchLength": "string",
-      "requiredClasses": {
-        "lowers": "boolean",
-        "uppers": "boolean",
-        "digits": "boolean",
-        "specials": "boolean"
-      },
-      "minLengthByClassSettings": {
-        "one": "string",
-        "two": "string",
-        "three": "string"
-      },
-      // Includes only one of the fields `fixed`, `smart`
-      "fixed": {
-        "lowersRequired": "boolean",
-        "uppersRequired": "boolean",
-        "digitsRequired": "boolean",
-        "specialsRequired": "boolean",
-        "minLength": "string"
-      },
-      "smart": {
-        "oneClass": "string",
-        "twoClasses": "string",
-        "threeClasses": "string",
-        "fourClasses": "string"
-      }
-      // end of the list of possible fields
-    },
-    "passwordLifetimePolicy": {
-      "minDaysCount": "string",
-      "maxDaysCount": "string"
-    },
-    "bruteforceProtectionPolicy": {
-      "window": "string",
-      "block": "string",
-      "attempts": "string"
-    },
-    "passwordBlacklistPolicy": {
-      "checkCommon": "boolean"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -770,7 +706,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateUserpoolMetadata](#yandex.cloud.organizationmanager.v1.idp.CreateUserpoolMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -785,7 +721,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Userpool](#yandex.cloud.organizationmanager.v1.idp.Userpool)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -800,17 +736,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateUserpoolMetadata {#yandex.cloud.organizationmanager.v1.idp.CreateUserpoolMetadata}
-
-Metadata for the [UserpoolService.Create](#Create) operation.
-
-#|
-||Field | Description ||
-|| userpoolId | **string**
-
-ID of the userpool that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -828,277 +753,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Userpool {#yandex.cloud.organizationmanager.v1.idp.Userpool}
-
-A userpool is a container for users in the Identity Provider system.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the userpool. ||
-|| organizationId | **string**
-
-ID of the organization this userpool belongs to. ||
-|| name | **string**
-
-Name of the userpool. ||
-|| description | **string**
-
-Description of the userpool. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as key:value pairs. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the userpool was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Timestamp when the userpool was last updated.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| domains[] | **string**
-
-List of domains associated with this userpool. ||
-|| status | **enum** (Status)
-
-Current status of the userpool.
-
-- `CREATING`: The userpool is in the process of being created.
-- `ACTIVE`: The userpool is active and operational.
-- `DELETING`: The userpool is in the process of being deleted. ||
-|| userSettings | **[UserSettings](#yandex.cloud.organizationmanager.v1.idp.UserSettings2)**
-
-User settings for this userpool. ||
-|| passwordQualityPolicy | **[PasswordQualityPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy2)**
-
-Password quality policy for this userpool. ||
-|| passwordLifetimePolicy | **[PasswordLifetimePolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy2)**
-
-Password lifetime policy for this userpool. ||
-|| bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2)**
-
-Bruteforce protection policy for this userpool. ||
-|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2)**
-
-Password blacklist policy for this userpool. ||
-|#
-
-## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings2}
-
-Settings that control user capabilities within a userpool.
-
-#|
-||Field | Description ||
-|| allowEditSelfPassword | **boolean**
-
-Whether users can change their own passwords. ||
-|| allowEditSelfInfo | **boolean**
-
-Whether users can edit their own profile information. ||
-|| allowEditSelfContacts | **boolean**
-
-Whether users can edit their own contact information. ||
-|| allowEditSelfLogin | **boolean**
-
-Whether users can edit their own login information. ||
-|#
-
-## PasswordQualityPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy2}
-
-Policy that defines password quality requirements.
-
-#|
-||Field | Description ||
-|| allowSimilar | **boolean**
-
-Whether passwords similar to previous ones are allowed. ||
-|| maxLength | **string** (int64)
-
-Maximum password length. Zero means no maximum length is enforced.
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| minLength | **string** (int64)
-
-Deprecated. Use Fixed instead. ||
-|| matchLength | **string** (int64)
-
-Minimum length of substrings to check for similarity to vulnerable sequences.
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2)**
-
-Deprecated. Use Fixed instead. ||
-|| minLengthByClassSettings | **[MinLengthByClassSettings](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings2)**
-
-Deprecated. Use Smart instead. ||
-|| fixed | **[Fixed](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2)**
-
-Fixed complexity requirements. Exactly one of complexity requirements must be specified.
-
-Includes only one of the fields `fixed`, `smart`.
-
-Defines password complexity policy. ||
-|| smart | **[Smart](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2)**
-
-Smart complexity requirements. Exactly one of complexity requirements must be specified.
-
-Includes only one of the fields `fixed`, `smart`.
-
-Defines password complexity policy. ||
-|#
-
-## RequiredClasses {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2}
-
-Deprecated. Use Fixed instead.
-
-#|
-||Field | Description ||
-|| lowers | **boolean**
-
-Whether lowercase letters are required. ||
-|| uppers | **boolean**
-
-Whether uppercase letters are required. ||
-|| digits | **boolean**
-
-Whether digits are required. ||
-|| specials | **boolean**
-
-Whether special characters are required. ||
-|#
-
-## MinLengthByClassSettings {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.MinLengthByClassSettings2}
-
-Deprecated. Use Smart instead.
-
-#|
-||Field | Description ||
-|| one | **string** (int64)
-
-Minimum length for passwords with one character class. ||
-|| two | **string** (int64)
-
-Minimum length for passwords with two character classes. ||
-|| three | **string** (int64)
-
-Minimum length for passwords with three character classes. ||
-|#
-
-## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2}
-
-Fixed complexity policy enforces uniform password rules with required character classes and minimum length.
-
-#|
-||Field | Description ||
-|| lowersRequired | **boolean**
-
-Whether lowercase letters are required in the password. ||
-|| uppersRequired | **boolean**
-
-Whether uppercase letters are required in the password. ||
-|| digitsRequired | **boolean**
-
-Whether digits are required in the password. ||
-|| specialsRequired | **boolean**
-
-Whether special characters are required in the password. ||
-|| minLength | **string** (int64)
-
-Minimum length required for all passwords.
-
-Acceptable values are 0 to 1000, inclusive. ||
-|#
-
-## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2}
-
-Smart complexity policy applies adaptive requirements based on character class diversity.
-Zero value means passwords with this number of classes are forbidden.
-
-#|
-||Field | Description ||
-|| oneClass | **string** (int64)
-
-For passwords with one class of characters
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| twoClasses | **string** (int64)
-
-For passwords with two classes of characters
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| threeClasses | **string** (int64)
-
-For passwords with three classes of characters
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| fourClasses | **string** (int64)
-
-For passwords with all four classes of characters
-
-Acceptable values are 0 to 1000, inclusive. ||
-|#
-
-## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy2}
-
-Policy that defines password lifetime requirements.
-
-#|
-||Field | Description ||
-|| minDaysCount | **string** (int64)
-
-Minimum number of days before a password can be changed.
-
-Acceptable values are 0 to 730, inclusive. ||
-|| maxDaysCount | **string** (int64)
-
-Maximum number of days a password remains valid.
-Zero means passwords never expire.
-
-Acceptable values are 0 to 730, inclusive. ||
-|#
-
-## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2}
-
-Policy that defines protection against brute force attacks.
-Zero or empty values disable bruteforce protection.
-
-#|
-||Field | Description ||
-|| window | **string** (duration)
-
-Time window for counting failed authentication attempts. ||
-|| block | **string** (duration)
-
-Duration of the block after too many failed attempts. ||
-|| attempts | **string** (int64)
-
-Number of failed attempts allowed within the window before blocking.
-
-Acceptable values are 1 to 100, inclusive. ||
-|#
-
-## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2}
-
-Policy that defines password blacklist requirements.
-
-#|
-||Field | Description ||
-|| checkCommon | **boolean**
-
-Whether check in common password database is enabled. Default value is true. ||
 |#

@@ -5,7 +5,6 @@ editable: false
 # Identity Hub API, gRPC: OrganizationService.Get
 
 Returns the specified Organization resource.
-
 To get the list of available Organization resources, make a [List](/docs/organization/api-ref/grpc/Organization/list#List) request.
 
 ## gRPC request

@@ -233,9 +233,8 @@
 
 1. Сохраните конфигурационный файл с именем `example.tf` в директории `~/cloud-terraform`:
 
-   ```
+   ```hcl
    provider "yandex" {
-     token     = "<IAM-токен>"
      cloud_id  = "<идентификатор_облака>"
      folder_id = "<идентификатор_каталога>"
      zone      = "{{ region-id }}-a"
@@ -288,7 +287,6 @@
 
    Где:
 
-   * `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) для доступа к {{ yandex-cloud }}.
    * `name` — имя группы ВМ.
    * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id` — идентификатор [сети](../../vpc/concepts/network.md).

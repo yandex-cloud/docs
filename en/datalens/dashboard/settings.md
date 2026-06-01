@@ -70,6 +70,11 @@ When pinning widgets, consider the following:
 * Widget height can be edited unless **Auto height** is enabled in the settings.
 
 
+## Mailing lists {#maillists}
+
+You can [set up a mailing list](../operations/dashboard/add-maillists.md) for your dashboard. Recipients will be getting emails with links to the dashboard and chart states specified in the mailing list settings. You can set up the dashboard selector states, schedule, chart sizes, and other parameters. Mailing lists are available for the current dashboard [version](./versioning.md) only.
+
+
 ## Undoing and redoing changes to dashboards {#undo-redo}
 
 When editing a dashboard, you can undo/redo any change introduced within the current version:

@@ -7,6 +7,106 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.7.0 (12/05/26) {#v-1-7-0}
+
+#### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
+
+Added the `--network-interface-id` and `--configuration-network-interface-id` parameters to the following commands:
+* `yc baremetal server create`
+* `yc baremetal server update`
+
+#### {{ dns-name }} {#v-1-7-0-dns-name}
+
+Fixed the descriptions of the following commands:
+* `yc dns zone create`
+* `yc dns firewall create`
+
+#### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
+
+The `yc cloudrouter` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cloudrouter ...`; alternatively, set `default-syntax: 2` or `services.cloudrouter.syntax: 2` in the profile:
+  * `yc cloudrouter routing-instance add-private-connection`
+  * `yc cloudrouter routing-instance create`
+  * `yc cloudrouter routing-instance delete`
+  * `yc cloudrouter routing-instance get`
+  * `yc cloudrouter routing-instance get-by-cic-private-connection-id`
+  * `yc cloudrouter routing-instance get-by-vpc-network-id`
+  * `yc cloudrouter routing-instance list`
+  * `yc cloudrouter routing-instance list-operations`
+  * `yc cloudrouter routing-instance move`
+  * `yc cloudrouter routing-instance move-prefix`
+  * `yc cloudrouter routing-instance remove-prefixes`
+  * `yc cloudrouter routing-instance remove-private-connection`
+  * `yc cloudrouter routing-instance update`
+  * `yc cloudrouter routing-instance update-networks`
+  * `yc cloudrouter routing-instance update-prefix-mask`
+  * `yc cloudrouter routing-instance upsert-prefixes`
+
+#### {{ mgp-name }} {#v-1-7-0-mgp-name}
+
+Removed the {{ GP }} version dependency from the `yc managed-greenplum cluster create` command.
+
+#### {{ alb-name }} {#v-1-7-0-alb-name}
+
+Added the `--external-address` parameter to these commands:
+  * `yc application-load-balancer target-group create`
+  * `yc application-load-balancer target-group update`
+  * `yc application-load-balancer target-group add-targets`
+
+#### {{ mch-name }} {#v-1-7-0-mch-name}
+
+Added the `--performance-diagnostics-enabled` and `--performance-diagnostics-processes-refresh-interval` parameters to the following commands:
+  * `yc managed-clickhouse cluster create`
+  * `yc managed-clickhouse cluster update`
+  * `yc managed-clickhouse cluster restore`
+
+#### {{ interconnect-name }} {#v-1-7-0-cic-name}
+
+* Added the `--trunk-connection-id` parameter to these commands:
+  * `yc cic get`
+  * `yc cic listoperations`
+
+* Removed the `--private-connection-id` parameter from these commands:
+  * `yc cic get`
+  * `yc cic listoperations`
+
+* Removed the `cloud_bgp_asn` field of the `--ipv4-peering` parameter from these commands:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+
+* Added the `name`, `address`, and `connection points` fields with additional information about points of presence to the output of the `yc cic point-of-presence get` and `yc cic point-of-presence list` commands.
+
+* Modified the output of the following commands:
+  * `yc cic get`
+  * `yc cic list`
+
+* The `yc cic` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cic ...`; alternatively, set `default-syntax: 2` or `services.cic.syntax: 2` in the profile:
+  * `yc cic partner get`
+  * `yc cic partner list`
+  * `yc cic point-of-presence get`
+  * `yc cic point-of-presence list`
+  * `yc cic private-connection create`
+  * `yc cic private-connection delete`
+  * `yc cic private-connection get`
+  * `yc cic private-connection list`
+  * `yc cic private-connection list-operations`
+  * `yc cic private-connection move`
+  * `yc cic private-connection remove-static-route`
+  * `yc cic private-connection update`
+  * `yc cic private-connection upsert-static-route`
+  * `yc cic public-connection get`
+  * `yc cic public-connection list`
+  * `yc cic public-connection move`
+  * `yc cic trunk-connection delete`
+  * `yc cic trunk-connection get`
+  * `yc cic trunk-connection list`
+  * `yc cic trunk-connection list-operations`
+  * `yc cic trunk-connection list-private-connections`
+  * `yc cic trunk-connection list-public-connections`
+  * `yc cic trunk-connection move`
+  * `yc cic trunk-connection update`
+
+## Previous releases {#previous-release}
+
 ### Version 1.6.0 (27/04/26) {#v-1-6-0}
 
 #### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}

@@ -105,6 +105,7 @@ editable: false
     },
     "placementPolicy": {
       "placementGroupId": "string",
+      "placementGroupPartition": "string",
       "hostAffinityRules": [
         {
           "key": "string",
@@ -113,8 +114,7 @@ editable: false
             "string"
           ]
         }
-      ],
-      "placementGroupPartition": "string"
+      ]
     },
     "os": {
       "type": "string",
@@ -153,15 +153,15 @@ editable: false
         "description": "string",
         "typeId": "string",
         "size": "string",
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string",
-        // end of the list of possible fields
+        "blockSize": "string",
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "string"
         },
-        "blockSize": "string",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "kmsKeyId": "string"
       },
       "diskId": "string"
@@ -178,15 +178,15 @@ editable: false
           "description": "string",
           "typeId": "string",
           "size": "string",
-          // Includes only one of the fields `imageId`, `snapshotId`
-          "imageId": "string",
-          "snapshotId": "string",
-          // end of the list of possible fields
+          "blockSize": "string",
           "diskPlacementPolicy": {
             "placementGroupId": "string",
             "placementGroupPartition": "string"
           },
-          "blockSize": "string",
+          // Includes only one of the fields `imageId`, `snapshotId`
+          "imageId": "string",
+          "snapshotId": "string",
+          // end of the list of possible fields
           "kmsKeyId": "string"
         },
         "diskId": "string"
@@ -202,6 +202,7 @@ editable: false
     ],
     "networkInterfaceSpecs": [
       {
+        "index": "string",
         "subnetId": "string",
         "primaryV4AddressSpec": {
           "address": "string",
@@ -251,8 +252,7 @@ editable: false
         },
         "securityGroupIds": [
           "string"
-        ],
-        "index": "string"
+        ]
       }
     ],
     "hostname": "string",
@@ -557,8 +557,8 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || placementGroupId | **string** ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)** ||
 || placementGroupPartition | **string** (int64) ||
+|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)** ||
 |#
 
 ## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule}
@@ -635,9 +635,7 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64)
-
-The maximum value is 274877906944. ||
+|| memory | **string** (int64) ||
 || cores | **string** (int64) ||
 || coreFraction | **string** (int64) ||
 || gpus | **string** (int64) ||
@@ -651,16 +649,12 @@ The maximum value is 274877906944. ||
 
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| deviceName | **string**
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
+|| deviceName | **string** ||
 || autoDelete | **boolean** ||
 || diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
 
 Includes only one of the fields `diskSpec`, `diskId`. ||
 || diskId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `diskSpec`, `diskId`. ||
 |#
@@ -669,33 +663,19 @@ Includes only one of the fields `diskSpec`, `diskId`. ||
 
 #|
 ||Field | Description ||
-|| name | **string**
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
-|| description | **string**
-
-The maximum string length in characters is 256. ||
-|| typeId | **string**
-
-The maximum string length in characters is 50. ||
-|| size | **string** (int64)
-
-Acceptable values are 4194304 to 4398046511104, inclusive. ||
+|| name | **string** ||
+|| description | **string** ||
+|| typeId | **string** ||
+|| size | **string** (int64) ||
+|| blockSize | **string** (int64) ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)** ||
 || imageId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || snapshotId | **string**
 
-The maximum string length in characters is 50.
-
 Includes only one of the fields `imageId`, `snapshotId`. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)** ||
-|| blockSize | **string** (int64) ||
-|| kmsKeyId | **string**
-
-The maximum string length in characters is 50. ||
+|| kmsKeyId | **string** ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}
@@ -714,25 +694,19 @@ The maximum string length in characters is 50. ||
 
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| deviceName | **string**
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
-|| filesystemId | **string**
-
-The maximum string length in characters is 50. ||
+|| deviceName | **string** ||
+|| filesystemId | **string** ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.compute.v1.NetworkInterfaceSpec}
 
 #|
 ||Field | Description ||
-|| subnetId | **string**
-
-The maximum string length in characters is 50. ||
+|| index | **string** ||
+|| subnetId | **string** ||
 || primaryV4AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)** ||
 || primaryV6AddressSpec | **[PrimaryAddressSpec](#yandex.cloud.compute.v1.PrimaryAddressSpec)** ||
 || securityGroupIds[] | **string** ||
-|| index | **string** ||
 |#
 
 ## PrimaryAddressSpec {#yandex.cloud.compute.v1.PrimaryAddressSpec}
@@ -762,9 +736,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || fqdn | **string** ||
 || dnsZoneId | **string** ||
-|| ttl | **string** (int64)
-
-Acceptable values are 0 to 86400, inclusive. ||
+|| ttl | **string** (int64) ||
 || ptr | **boolean** ||
 |#
 

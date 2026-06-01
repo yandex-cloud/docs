@@ -50,6 +50,8 @@ items:
         href: concepts/instance-types.md
       - name: Storage in {{ SPQR }}
         href: concepts/storage.md
+      - name: Backups
+        href: concepts/backup.md
       - name: Quotas and limits
         href: concepts/limits.md
       - name: '{{ SPQR }} settings'

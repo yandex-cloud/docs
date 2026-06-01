@@ -1,1 +1,3 @@
-Роль `speech-sense.auditor` позволяет просматривать название, описание и список участников [проекта](../../speechsense/concepts/resources-hierarchy.md#project) или [пространства](../../speechsense/concepts/resources-hierarchy.md#space) и всех его проектов. Роль не дает доступа к данным проекта.
+
+Роль `speech-sense.auditor` позволяет просматривать название, описание и список участников [проекта]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) или [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) и всех его проектов. Роль не дает доступа к данным проекта.
+

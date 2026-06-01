@@ -149,7 +149,8 @@ The interval during which the zones will be disabled (1m-72h). If not set then u
             },
             "allowHttp10": "boolean",
             // end of the list of possible fields
-            "rewriteRequestId": "boolean"
+            "rewriteRequestId": "boolean",
+            "preserveHttp1HeaderCasing": "boolean"
           },
           "redirects": {
             "httpToHttps": "boolean"
@@ -166,7 +167,8 @@ The interval during which the zones will be disabled (1m-72h). If not set then u
               },
               "allowHttp10": "boolean",
               // end of the list of possible fields
-              "rewriteRequestId": "boolean"
+              "rewriteRequestId": "boolean",
+              "preserveHttp1HeaderCasing": "boolean"
             },
             "streamHandler": {
               "backendGroupId": "string",
@@ -199,7 +201,8 @@ The interval during which the zones will be disabled (1m-72h). If not set then u
                   },
                   "allowHttp10": "boolean",
                   // end of the list of possible fields
-                  "rewriteRequestId": "boolean"
+                  "rewriteRequestId": "boolean",
+                  "preserveHttp1HeaderCasing": "boolean"
                 },
                 "streamHandler": {
                   "backendGroupId": "string",
@@ -642,6 +645,10 @@ negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Prot
 || rewriteRequestId | **boolean**
 
 When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
+|| preserveHttp1HeaderCasing | **boolean**
+
+When enabled, preserves the original casing of HTTP/1.1 header names (e.g. "CONTENT-Type" -> "CONTENT-Type").
+Has no effect on HTTP/2 connections where headers are always lowercase per RFC 7540. ||
 |#
 
 ## Http2Options {#yandex.cloud.apploadbalancer.v1.Http2Options}

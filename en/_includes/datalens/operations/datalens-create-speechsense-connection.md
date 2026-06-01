@@ -10,7 +10,7 @@
 
      {% include [datalens-speechsense-connection-roles-note](./datalens-speechsense-connection-roles-note.md) %}
 
-     1. Copy the ID of the {{ speechsense-name }} [project](../../../speechsense/concepts/resources-hierarchy.md#project) you need and paste it in the **Project ID** field.
+     1. Copy the ID of the {{ speechsense-name }} [project]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) you need and paste it in the **Project ID** field.
      1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you want to get a ready-to-use dashboard, dataset, and standard charts.
 
         ![image](../../../_assets/datalens/operations/connection/connection-speechsense.png)
@@ -28,7 +28,7 @@
 
      {% include [datalens-speechsense-connection-roles-sa-note](./datalens-speechsense-connection-roles-sa-note.md) %}
  
-     1. Copy the ID of the {{ speechsense-name }} [project](../../../speechsense/concepts/resources-hierarchy.md#project) you need and paste it in the **Project ID** field.
+     1. Copy the ID of the {{ speechsense-name }} [project]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) you need and paste it in the **Project ID** field.
      1. Select a cloud and a folder within it.
      1. Select an existing service account or create a new one.      
      1. Leave the **Automatically create a dashboard, charts, and a dataset on the connection** option enabled if you want to get a ready-to-use dashboard, dataset, and standard charts.

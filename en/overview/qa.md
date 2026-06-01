@@ -104,7 +104,7 @@ If you did not find an answer to your question about using {{ yandex-cloud }} in
 * [{{ ml-platform-full-name }}](../datasphere/qa/index.md)
 * [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/qa/index)
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/qa/all)
-* [{{ speechsense-full-name }}](../speechsense/qa/index.md)
+* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/qa/)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/qa/index)
 * [{{ vision-full-name }}]({{ link-docs-ai }}vision/qa/index)
 

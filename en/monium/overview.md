@@ -134,3 +134,4 @@ Link different types of telemetry for comprehensive analysis:
 * [{#T}](concepts/glossary.md)
 * [{#T}](concepts/data-model.md)
 * [{#T}](concepts/querying.md)
+

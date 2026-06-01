@@ -112,7 +112,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -134,36 +134,42 @@ apiPlayground:
           exactMatch:
             description: |-
               **string**
+              Exact match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           exactNotMatch:
             description: |-
               **string**
+              Exact not match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           prefixMatch:
             description: |-
               **string**
+              Prefix match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           prefixNotMatch:
             description: |-
               **string**
+              Prefix not match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           pireRegexMatch:
             description: |-
               **string**
+              PIRE regex match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
           pireRegexNotMatch:
             description: |-
               **string**
+              PIRE regex not match condition.
               The string length in characters must be 0-255.
               Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`.
             type: string
@@ -188,9 +194,15 @@ apiPlayground:
               **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
               List of hosts. OR semantics implied.
               The maximum number of elements is 20.
+            deprecated: true
             type: array
             items:
               $ref: '#/definitions/StringMatcher'
+          hostMatcher:
+            description: |-
+              **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+              Host matcher.
+            $ref: '#/definitions/StringMatcher'
       QueryMatcher:
         type: object
         properties:
@@ -219,7 +231,7 @@ apiPlayground:
           queries:
             description: |-
               **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
-              List of query matchers. AND semantics implied.
+              AND* semantics implied
               The maximum number of elements is 20.
             type: array
             items:
@@ -247,8 +259,8 @@ apiPlayground:
           ipRanges:
             description: |-
               **string**
-              List of IP ranges. OR semantics implied.
-              The maximum number of elements is 10000.
+              OR* semantics implied.
+              The string length in characters for each value must be greater than 0. The maximum number of elements is 10000.
             type: array
             items:
               type: string
@@ -258,7 +270,7 @@ apiPlayground:
           locations:
             description: |-
               **string**
-              ISO 3166-1 alpha 2. OR semantics implied.
+              OR semantics implied. ISO 3166-1 alpha 2
               The minimum number of elements is 1.
             uniqueItems: true
             type: array
@@ -268,16 +280,24 @@ apiPlayground:
         type: object
         properties:
           ipRangesMatch:
-            description: '**[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            description: |-
+              **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+              IP ranges to match with.
             $ref: '#/definitions/IpRangesMatcher'
           ipRangesNotMatch:
-            description: '**[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**'
+            description: |-
+              **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+              IP ranges to not match with.
             $ref: '#/definitions/IpRangesMatcher'
           geoIpMatch:
-            description: '**[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            description: |-
+              **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+              Geo locations to match with.
             $ref: '#/definitions/GeoIpMatcher'
           geoIpNotMatch:
-            description: '**[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**'
+            description: |-
+              **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+              Geo locations to not match with.
             $ref: '#/definitions/GeoIpMatcher'
       Condition:
         type: object
@@ -285,7 +305,7 @@ apiPlayground:
           host:
             description: |-
               **[HostMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
-              Host where captcha placed.
+              AND* semantics implied.
             $ref: '#/definitions/HostMatcher'
           uri:
             description: |-
@@ -347,7 +367,7 @@ apiPlayground:
             description: |-
               **string**
               Unique identifier of the variant.
-              Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. The maximum string length in characters is 64.
+              The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `.
             pattern: '[a-zA-Z0-9][a-zA-Z0-9-_.]*'
             type: string
           description:
@@ -439,7 +459,17 @@ POST https://smartcaptcha.{{ api-host }}/smartcaptcha/v1/captchas
               "pireRegexNotMatch": "string"
               // end of the list of possible fields
             }
-          ]
+          ],
+          "hostMatcher": {
+            // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
+            "exactMatch": "string",
+            "exactNotMatch": "string",
+            "prefixMatch": "string",
+            "prefixNotMatch": "string",
+            "pireRegexMatch": "string",
+            "pireRegexNotMatch": "string"
+            // end of the list of possible fields
+          }
         },
         "uri": {
           "path": {
@@ -589,7 +619,7 @@ The maximum string length in characters is 512. ||
 
 Resource labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## SecurityRule {#yandex.cloud.smartcaptcha.v1.SecurityRule}
@@ -629,7 +659,7 @@ Condition object. AND semantics implied.
 ||Field | Description ||
 || host | **[HostMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher)**
 
-Host where captcha placed. ||
+AND* semantics implied. ||
 || uri | **[UriMatcher](#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher)**
 
 URI where captcha placed. ||
@@ -654,6 +684,9 @@ HostMatcher object.
 List of hosts. OR semantics implied.
 
 The maximum number of elements is 20. ||
+|| hostMatcher | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher)**
+
+Host matcher. ||
 |#
 
 ## StringMatcher {#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher}
@@ -664,30 +697,42 @@ StringMatcher object.
 ||Field | Description ||
 || exactMatch | **string**
 
+Exact match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || exactNotMatch | **string**
+
+Exact not match condition.
 
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixMatch | **string**
 
+Prefix match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || prefixNotMatch | **string**
+
+Prefix not match condition.
 
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexMatch | **string**
 
+PIRE regex match condition.
+
 The string length in characters must be 0-255.
 
 Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
 || pireRegexNotMatch | **string**
+
+PIRE regex not match condition.
 
 The string length in characters must be 0-255.
 
@@ -705,7 +750,7 @@ UriMatcher object. AND semantics implied.
 Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
 || queries[] | **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher)**
 
-List of query matchers. AND semantics implied.
+AND* semantics implied
 
 The maximum number of elements is 20. ||
 |#
@@ -748,10 +793,18 @@ IpMatcher object. AND semantics implied.
 
 #|
 ||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)** ||
+|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+
+IP ranges to match with. ||
+|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher)**
+
+IP ranges to not match with. ||
+|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+
+Geo locations to match with. ||
+|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher)**
+
+Geo locations to not match with. ||
 |#
 
 ## IpRangesMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher}
@@ -762,9 +815,9 @@ IpRangesMatcher object.
 ||Field | Description ||
 || ipRanges[] | **string**
 
-List of IP ranges. OR semantics implied.
+OR* semantics implied.
 
-The maximum number of elements is 10000. ||
+The string length in characters for each value must be greater than 0. The maximum number of elements is 10000. ||
 |#
 
 ## GeoIpMatcher {#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher}
@@ -775,7 +828,7 @@ GeoIpMatcher object.
 ||Field | Description ||
 || locations[] | **string**
 
-ISO 3166-1 alpha 2. OR semantics implied.
+OR semantics implied. ISO 3166-1 alpha 2
 
 The minimum number of elements is 1. ||
 |#
@@ -790,7 +843,7 @@ OverrideVariant object. Contains the settings to override.
 
 Unique identifier of the variant.
 
-Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. The maximum string length in characters is 64. ||
+The maximum string length in characters is 64. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
 || description | **string**
 
 Optional description of the rule. 0-512 characters long.
@@ -831,9 +884,7 @@ Additional task type of the captcha.
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "captchaId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -842,124 +893,7 @@ Additional task type of the captcha.
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "clientKey": "string",
-    "createdAt": "string",
-    "name": "string",
-    "allowedSites": [
-      "string"
-    ],
-    "complexity": "string",
-    "styleJson": "string",
-    "suspend": "boolean",
-    "turnOffHostnameCheck": "boolean",
-    "preCheckType": "string",
-    "challengeType": "string",
-    "securityRules": [
-      {
-        "name": "string",
-        "priority": "string",
-        "description": "string",
-        "condition": {
-          "host": {
-            "hosts": [
-              {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              }
-            ]
-          },
-          "uri": {
-            "path": {
-              // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-              "exactMatch": "string",
-              "exactNotMatch": "string",
-              "prefixMatch": "string",
-              "prefixNotMatch": "string",
-              "pireRegexMatch": "string",
-              "pireRegexNotMatch": "string"
-              // end of the list of possible fields
-            },
-            "queries": [
-              {
-                "key": "string",
-                "value": {
-                  // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                  "exactMatch": "string",
-                  "exactNotMatch": "string",
-                  "prefixMatch": "string",
-                  "prefixNotMatch": "string",
-                  "pireRegexMatch": "string",
-                  "pireRegexNotMatch": "string"
-                  // end of the list of possible fields
-                }
-              }
-            ]
-          },
-          "headers": [
-            {
-              "name": "string",
-              "value": {
-                // Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`
-                "exactMatch": "string",
-                "exactNotMatch": "string",
-                "prefixMatch": "string",
-                "prefixNotMatch": "string",
-                "pireRegexMatch": "string",
-                "pireRegexNotMatch": "string"
-                // end of the list of possible fields
-              }
-            }
-          ],
-          "sourceIp": {
-            "ipRangesMatch": {
-              "ipRanges": [
-                "string"
-              ]
-            },
-            "ipRangesNotMatch": {
-              "ipRanges": [
-                "string"
-              ]
-            },
-            "geoIpMatch": {
-              "locations": [
-                "string"
-              ]
-            },
-            "geoIpNotMatch": {
-              "locations": [
-                "string"
-              ]
-            }
-          }
-        },
-        "overrideVariantUuid": "string"
-      }
-    ],
-    "deletionProtection": "boolean",
-    "overrideVariants": [
-      {
-        "uuid": "string",
-        "description": "string",
-        "complexity": "string",
-        "preCheckType": "string",
-        "challengeType": "string"
-      }
-    ],
-    "disallowDataProcessing": "boolean",
-    "description": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -1001,7 +935,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateCaptchaMetadata](#yandex.cloud.smartcaptcha.v1.CreateCaptchaMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -1016,7 +950,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Captcha](#yandex.cloud.smartcaptcha.v1.Captcha)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -1031,15 +965,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateCaptchaMetadata {#yandex.cloud.smartcaptcha.v1.CreateCaptchaMetadata}
-
-#|
-||Field | Description ||
-|| captchaId | **string**
-
-ID of the captcha that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -1057,315 +982,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Captcha {#yandex.cloud.smartcaptcha.v1.Captcha}
-
-A Captcha resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the captcha. ||
-|| folderId | **string**
-
-ID of the folder that the captcha belongs to. ||
-|| cloudId | **string**
-
-ID of the cloud that the captcha belongs to. ||
-|| clientKey | **string**
-
-Client key of the captcha, see [CAPTCHA keys](/docs/smartcaptcha/concepts/keys). ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the captcha. The name is unique within the folder. 3-63 characters long. ||
-|| allowedSites[] | **string**
-
-List of allowed host names, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
-|| complexity | **enum** (CaptchaComplexity)
-
-Complexity of the captcha.
-
-- `EASY`: High chance to pass pre-check and easy advanced challenge.
-- `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
-- `HARD`: Little chance to pass pre-check and hard advanced challenge.
-- `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| styleJson | **string**
-
-JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
-|| suspend | **boolean**
-
-Determines that the captcha is currently in restricted mode, see [SmartCaptcha restricted mode](/docs/smartcaptcha/concepts/restricted-mode). ||
-|| turnOffHostnameCheck | **boolean**
-
-Turn off host name check, see [Domain validation](/docs/smartcaptcha/concepts/domain-validation). ||
-|| preCheckType | **enum** (CaptchaPreCheckType)
-
-Basic check type of the captcha.
-
-- `CHECKBOX`: User must click the "I am not a robot" button.
-- `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | **enum** (CaptchaChallengeType)
-
-Additional task type of the captcha.
-
-- `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
-- `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
-- `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
-|| securityRules[] | **[SecurityRule](#yandex.cloud.smartcaptcha.v1.SecurityRule2)**
-
-List of security rules. ||
-|| deletionProtection | **boolean**
-
-Determines whether captcha is protected from being deleted. ||
-|| overrideVariants[] | **[OverrideVariant](#yandex.cloud.smartcaptcha.v1.OverrideVariant2)**
-
-List of variants to use in security_rules
-
-The maximum number of elements is 32. ||
-|| disallowDataProcessing | **boolean** ||
-|| description | **string**
-
-The maximum string length in characters is 512. ||
-|| labels | **object** (map<**string**, **string**>)
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
-|#
-
-## SecurityRule {#yandex.cloud.smartcaptcha.v1.SecurityRule2}
-
-SecurityRule object. Defines the condition and action: when and which variant to show.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of the rule. The name is unique within the captcha. 1-50 characters long.
-
-The string length in characters must be 1-50. Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. ||
-|| priority | **string** (int64)
-
-Priority of the rule. Lower value means higher priority.
-
-Acceptable values are 1 to 999999, inclusive. ||
-|| description | **string**
-
-Optional description of the rule. 0-512 characters long.
-
-The maximum string length in characters is 512. ||
-|| condition | **[Condition](#yandex.cloud.smartcaptcha.v1.Condition2)**
-
-The condition for matching the rule. ||
-|| overrideVariantUuid | **string**
-
-Variant UUID to show in case of match the rule. Keep empty to use defaults. ||
-|#
-
-## Condition {#yandex.cloud.smartcaptcha.v1.Condition2}
-
-Condition object. AND semantics implied.
-
-#|
-||Field | Description ||
-|| host | **[HostMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher2)**
-
-Host where captcha placed. ||
-|| uri | **[UriMatcher](#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher2)**
-
-URI where captcha placed. ||
-|| headers[] | **[HeaderMatcher](#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher2)**
-
-Captcha request headers.
-
-The maximum number of elements is 20. ||
-|| sourceIp | **[IpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher2)**
-
-The IP address of the requester. ||
-|#
-
-## HostMatcher {#yandex.cloud.smartcaptcha.v1.Condition.HostMatcher2}
-
-HostMatcher object.
-
-#|
-||Field | Description ||
-|| hosts[] | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher2)**
-
-List of hosts. OR semantics implied.
-
-The maximum number of elements is 20. ||
-|#
-
-## StringMatcher {#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher2}
-
-StringMatcher object.
-
-#|
-||Field | Description ||
-|| exactMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| exactNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| prefixNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|| pireRegexNotMatch | **string**
-
-The string length in characters must be 0-255.
-
-Includes only one of the fields `exactMatch`, `exactNotMatch`, `prefixMatch`, `prefixNotMatch`, `pireRegexMatch`, `pireRegexNotMatch`. ||
-|#
-
-## UriMatcher {#yandex.cloud.smartcaptcha.v1.Condition.UriMatcher2}
-
-UriMatcher object. AND semantics implied.
-
-#|
-||Field | Description ||
-|| path | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher2)**
-
-Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3). ||
-|| queries[] | **[QueryMatcher](#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher2)**
-
-List of query matchers. AND semantics implied.
-
-The maximum number of elements is 20. ||
-|#
-
-## QueryMatcher {#yandex.cloud.smartcaptcha.v1.Condition.QueryMatcher2}
-
-QueryMatcher object.
-
-#|
-||Field | Description ||
-|| key | **string**
-
-Required field. Key of the query parameter.
-
-The string length in characters must be 1-255. ||
-|| value | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher2)**
-
-Required field. Value of the query parameter. ||
-|#
-
-## HeaderMatcher {#yandex.cloud.smartcaptcha.v1.Condition.HeaderMatcher2}
-
-HeaderMatcher object.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Required field. Name of header (case insensitive).
-
-The string length in characters must be 1-255. ||
-|| value | **[StringMatcher](#yandex.cloud.smartcaptcha.v1.Condition.StringMatcher2)**
-
-Required field. Value of the header. ||
-|#
-
-## IpMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpMatcher2}
-
-IpMatcher object. AND semantics implied.
-
-#|
-||Field | Description ||
-|| ipRangesMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
-|| ipRangesNotMatch | **[IpRangesMatcher](#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2)** ||
-|| geoIpMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
-|| geoIpNotMatch | **[GeoIpMatcher](#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2)** ||
-|#
-
-## IpRangesMatcher {#yandex.cloud.smartcaptcha.v1.Condition.IpRangesMatcher2}
-
-IpRangesMatcher object.
-
-#|
-||Field | Description ||
-|| ipRanges[] | **string**
-
-List of IP ranges. OR semantics implied.
-
-The maximum number of elements is 10000. ||
-|#
-
-## GeoIpMatcher {#yandex.cloud.smartcaptcha.v1.Condition.GeoIpMatcher2}
-
-GeoIpMatcher object.
-
-#|
-||Field | Description ||
-|| locations[] | **string**
-
-ISO 3166-1 alpha 2. OR semantics implied.
-
-The minimum number of elements is 1. ||
-|#
-
-## OverrideVariant {#yandex.cloud.smartcaptcha.v1.OverrideVariant2}
-
-OverrideVariant object. Contains the settings to override.
-
-#|
-||Field | Description ||
-|| uuid | **string**
-
-Unique identifier of the variant.
-
-Value must match the regular expression ` [a-zA-Z0-9][a-zA-Z0-9-_.]* `. The maximum string length in characters is 64. ||
-|| description | **string**
-
-Optional description of the rule. 0-512 characters long.
-
-The maximum string length in characters is 512. ||
-|| complexity | **enum** (CaptchaComplexity)
-
-Complexity of the captcha.
-
-- `EASY`: High chance to pass pre-check and easy advanced challenge.
-- `MEDIUM`: Medium chance to pass pre-check and normal advanced challenge.
-- `HARD`: Little chance to pass pre-check and hard advanced challenge.
-- `FORCE_HARD`: Impossible to pass pre-check and hard advanced challenge. ||
-|| preCheckType | **enum** (CaptchaPreCheckType)
-
-Basic check type of the captcha.
-
-- `CHECKBOX`: User must click the "I am not a robot" button.
-- `SLIDER`: User must move the slider from left to right. ||
-|| challengeType | **enum** (CaptchaChallengeType)
-
-Additional task type of the captcha.
-
-- `IMAGE_TEXT`: Text recognition: The user has to type a distorted text from the picture into a special field.
-- `SILHOUETTES`: Silhouettes: The user has to mark several icons from the picture in a particular order.
-- `KALEIDOSCOPE`: Kaleidoscope: The user has to build a picture from individual parts by shuffling them using a slider. ||
 |#

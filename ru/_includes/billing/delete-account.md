@@ -13,7 +13,7 @@
        * [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud),
        * [организации](../../organization/concepts/organization.md) {{ org-full-name }},
        * [сообщества](../../datasphere/concepts/community.md) {{ ml-platform-full-name }}, 
-       * [пространства](../../speechsense/concepts/resources-hierarchy.md#space) {{ speechsense-full-name }},
+       * [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) {{ speechsense-full-name }},
        * экземпляры [{{ datalens-full-name }}](../../datalens/),
        * пространства [{{ video-full-name }}](../../video/). 
      * Остались ресурсы, приобретенные по модели потребления [CVoS](../../billing/concepts/cvos.md).

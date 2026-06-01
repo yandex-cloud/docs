@@ -1,6 +1,6 @@
 ---
 title: '{{ compute-full-name }} use cases'
-description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ compute-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ compute-name }} tutorials
@@ -64,7 +64,7 @@ description: Various {{ compute-full-name }} use cases in {{ yandex-cloud }}.
 
 ## Microsoft products in {{ yandex-cloud }} {#microsoft}
 
-* [{#T}](secure-password-script.md)
+* [{#T}](secure-password-script/index.md)
 * [{#T}](active-directory.md)
 * [{#T}](exchange.md)
 * [{#T}](rds.md)

@@ -24,11 +24,7 @@ Packer создаст и запустит виртуальную машину с
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
 1. [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
-
-    * [OAuth-токен]({{ link-cloud-oauth }}) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
-    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation), [локального](../../iam/concepts/users/accounts.md#local) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунта.
-
+1. Получите [IAM-токен](../../iam/operations/iam-token/create.md).
 1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе {{ compute-name }}. У вас должна быть минимальная [роль](../../compute/security/index.md#compute-editor) `compute.editor` на каталог.
 
     Если вы работаете от имени сервисного аккаунта, [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `compute.editor` на каталог.
@@ -210,7 +206,7 @@ Packer создаст и запустит виртуальную машину с
       "builders": [
         {
           "type":      "yandex",
-          "token":     "<OAuth-токен_или_IAM-токен>",
+          "token":     "<IAM-токен>",
           "folder_id": "<идентификатор_каталога>",
           "zone":      "<зона_доступности>",
 
@@ -246,7 +242,7 @@ Packer создаст и запустит виртуальную машину с
 
     Где:
 
-    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного или сервисного аккаунтов.
+    * `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
     * `zone` — зона доступности, в которой будет создана ВМ. Например: `{{ region-id }}-d`.
     * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.

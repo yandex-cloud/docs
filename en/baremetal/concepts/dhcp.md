@@ -1,6 +1,6 @@
 # DHCP in a {{ baremetal-full-name }} network
 
-In public ([ephemeral](./public-network.md#ephemeral-public-subnet)) and [private](./private-network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. If the server OS is installed from {{ marketplace-short-name }} images, getting IP addresses via DHCP is enabled by default on all physical interfaces of the server.
+In public ([ephemeral](./public-network.md#ephemeral-public-subnet)) and [private](./private-network.md#private-subnet) subnets, you can use [DHCP](https://en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol) to automatically configure IP addressing parameters on server interfaces. When installing a server OS from {{ marketplace-short-name }} images, configure the DHCP settings on the server's physical interfaces in line with the DHCP settings of the connected subnets. In {{ baremetal-name }} subnets, DHCP is disabled by default. If you selected a dedicated subnet or an ephemeral subnet without DHCP when renting your server, DHCP will also be disabled in the OS image. After installing the OS, you can enable DHCP manually in the OS settings (or via the KVM console if there is no network access), or delete the server and order a new one.
 
 {% note warning %}
 
@@ -8,7 +8,7 @@ DHCP can only be used to assign an IP address directly to the physical interface
 
 {% endnote %}
 
-To assign multiple IP addresses to a single physical interface, e.g., in case of virtualization, you will need to use your own DHCP server. Changing the DHCP service settings on a subnet can globally affect network connectivity on the private network for servers that use DHCP.
+To assign multiple IP addresses to a single physical interface, e.g., in case of virtualization, you will need to use your own DHCP server. By reconfiguring DHCP in your subnet, you can globally affect network connectivity in the private network for servers that use DHCP.
 
 ## DHCP options {#dhcp-options}
 
@@ -31,7 +31,7 @@ Depending on the {{ baremetal-name }} server's selected network settings, the pu
 
 If the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field in the server network settings is set to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`, its public subnet is [ephemeral](./public-network.md#ephemeral-public-subnet), and its network interface connected to that subnet will get an IPv4 address from the range of {{ baremetal-full-name }} public IP addresses.
 
-To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to change the DHCP server settings in such subnet later.
+To activate DHCP in an ephemeral public subnet, enable **{{ ui-key.yacloud.baremetal.label_public-ip-via-dhcp }}** when leasing a {{ baremetal-name }} server. Otherwise, the DHCP server in this subnet will be disabled. You will not be able to reconfigure the DHCP server in such a subnet later.
 
 {% include [public-subnet-cidr-details](../../_includes/baremetal/public-subnet-cidr-details.md) %}
 

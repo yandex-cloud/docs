@@ -26,24 +26,32 @@ Retrieves the list of TrunkConnection resources in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list TrunkConnection resources.
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListTrunkConnectionsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrunkConnectionsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse) returned by a previous list request. ||
+[ListTrunkConnectionsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on [Subnet.name] field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 |#
 
 ## ListTrunkConnectionsResponse {#yandex.cloud.cic.v1.ListTrunkConnectionsResponse}
@@ -56,7 +64,6 @@ The expression must specify:
       "name": "string",
       "description": "string",
       "folder_id": "string",
-      "region_id": "string",
       "created_at": "google.protobuf.Timestamp",
       // Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, `partner_joint_info`
       "single_port_direct_joint": {
@@ -68,7 +75,6 @@ The expression must specify:
         "transceiver_type": "TransceiverType",
         "lag_allocation_settings": {
           "lag_info": {
-            "lag_id": "google.protobuf.Int64Value",
             "port_names": [
               "string"
             ]
@@ -77,8 +83,8 @@ The expression must specify:
         "access_device_name": "string"
       },
       "partner_joint_info": {
-        "service_key": "string",
-        "partner_id": "google.protobuf.StringValue"
+        "partner_id": "google.protobuf.StringValue",
+        "service_key": "string"
       },
       // end of the list of possible fields
       "point_of_presence_id": "google.protobuf.StringValue",
@@ -127,9 +133,6 @@ Optional description of the trunkConnection. 0-256 characters long. ||
 || folder_id | **string**
 
 ID of the folder that the trunkConnection belongs to. ||
-|| region_id | **string**
-
-ID of the region that the trunkConnection belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
@@ -150,14 +153,11 @@ Includes only one of the fields `single_port_direct_joint`, `lag_direct_joint`, 
 Special trunkConnection config ||
 || point_of_presence_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
-ID of pointOfPresence that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
+ID of pointOfPresence that the trunkConnection is deployed on. ||
 || capacity | enum **Capacity**
 
 Capacity of the trunkConnection
 
-- `CAPACITY_UNSPECIFIED`
 - `CAPACITY_50_MBPS`
 - `CAPACITY_100_MBPS`
 - `CAPACITY_200_MBPS`
@@ -188,15 +188,13 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the trunkConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
 - `ACTIVE` ||
 || deletion_protection | **bool**
 
-Optional deletion protection flag.
-If set prohibits deletion of the trunkConnection. ||
+Deletion protection flag. ||
 |#
 
 ## SinglePortDirectJoint {#yandex.cloud.cic.v1.TrunkConnection.SinglePortDirectJoint}
@@ -209,7 +207,6 @@ Config of trunkConnection that is deployed on single port.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -233,7 +230,6 @@ Config of trunkConnection that is deployed on lag.
 
 Type of transceiver that the trunkConnection is deployed on.
 
-- `TRANSCEIVER_TYPE_UNSPECIFIED`
 - `TRANSCEIVER_TYPE_1000BASE_LX`
 - `TRANSCEIVER_TYPE_10GBASE_LR`
 - `TRANSCEIVER_TYPE_10GBASE_ER`
@@ -262,11 +258,6 @@ LagInfo ||
 
 #|
 ||Field | Description ||
-|| lag_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-ID of LAG.
-Optional.
-If is not set scheduler selects it by himself. ||
 || port_names[] | **string**
 
 List of port names that the LAG is deployed on. ||
@@ -278,12 +269,10 @@ Config of trunkConnection that is deployed on partner joint.
 
 #|
 ||Field | Description ||
+|| partner_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of partner that the trunkConnection is deployed on. ||
 || service_key | **string**
 
 Reserved for future using; ||
-|| partner_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
-
-ID of partner that the trunkConnection is deployed on.
-Optional.
-If is not set scheduler selects it by himself. ||
 |#

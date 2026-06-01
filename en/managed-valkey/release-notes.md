@@ -5,9 +5,16 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+* You can now view {{ VLK }} [module](./concepts/modules.md) versions (`version`).
+* Added the `failover_type` field for the manual cluster switch method (`StartFailover`) to select the operation type.
+* Added stable [FQDNs](./concepts/network.md#hostname) for clusters: created three CNAME records in `c-{cid}-valkey{0,1,2}.db.yandex.net` format pointing to cluster hosts distributed across different availability zones and shards. The records are automatically updated when the topology changes, such as when adding or removing hosts or shards, and are available from any host.
+* Published the [{{ VLK }} versioning policy](./concepts/update-policy.md).
+
 ## March 2026 {#mar-2026}
 
-* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+* Added specific [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
 
 ## February 2026 {#feb-2026}
 

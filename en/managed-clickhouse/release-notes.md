@@ -24,6 +24,11 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+* Added the `performance_diagnostics` object to the cluster configuration for setting up diagnostic data collection.
+* Fixed a critical mismatch in [host class](concepts/instance-types.md) enumeration.
+
 ## March 2026 {#mar-2026}
 
 * Now you can use self-signed certificates. To enable the feature, contact support.

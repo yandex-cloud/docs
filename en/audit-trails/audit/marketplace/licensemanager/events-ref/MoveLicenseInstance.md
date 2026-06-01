@@ -94,6 +94,7 @@ editable: false
       "folderId": "string",
       "templateId": "string",
       "templateVersionId": "string",
+      "description": "string",
       "startTime": "string",
       "endTime": "string",
       "createdAt": "string",
@@ -141,7 +142,7 @@ editable: false
         "updatedAt": "string",
         "state": "string"
       },
-      "description": "string",
+      "prolongation": "boolean",
       "externalInstance": {
         "name": "string",
         "properties": "object",
@@ -156,8 +157,7 @@ editable: false
           "payload": "string"
         }
         // end of the list of possible fields
-      },
-      "prolongation": "boolean"
+      }
     },
     "sourceFolderId": "string"
   },
@@ -343,6 +343,7 @@ A list of messages that carry the error details. ||
 || folderId | **string** ||
 || templateId | **string** ||
 || templateVersionId | **string** ||
+|| description | **string** ||
 || startTime | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -385,9 +386,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 - `DELETED` ||
 || locks[] | **[Lock](#yandex.cloud.marketplace.licensemanager.v1.Lock)** ||
 || licenseTemplate | **[Template](#yandex.cloud.marketplace.licensemanager.v1.Template)** ||
-|| description | **string** ||
-|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)** ||
 || prolongation | **boolean** ||
+|| externalInstance | **[ExternalInstance](#yandex.cloud.marketplace.licensemanager.v1.ExternalInstance)** ||
 |#
 
 ## Lock {#yandex.cloud.marketplace.licensemanager.v1.Lock}

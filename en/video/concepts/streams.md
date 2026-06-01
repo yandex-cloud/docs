@@ -1,30 +1,43 @@
 # Broadcasts in {{ video-name }}
 
-With {{ video-name }}, you can stream [live broadcasts](#streams) in the integrated [video player](./player.md). Use [lines](#lines) and [episodes](#episodes) to customize your broadcast settings.
+With {{ video-name }}, you can stream [live broadcasts](#streams) in the integrated [video player](./player.md). Each broadcast is a separate [episode](#episodes).
 
 ## Broadcasts {#streams}
 
 A _broadcast_ is the main {{ video-name }} resource for live video streaming.
 
-A broadcast is a one-time event implemented via a preset [line](#lines). To repeat your broadcast with the same signal source, create another broadcast on the same line.
+In the broadcast settings, the video signal source is configured.
 
-Types of broadcast streams include:
-* On demand: A broadcast is started and finished manually from the {{ video-name }} interface.
-* On schedule: A broadcast is started and finished automatically at the specified time.
+The following stream input protocols are supported: [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) and [SRT](https://en.wikipedia.org/wiki/Secure_Reliable_Transport).
 
-You can upload custom covers for your broadcasts. The cover will appear in the {{ video-name }} interface and the player on the website hosting the broadcast.
+Types of input streams:
+
+{% include [push-pull](../../_includes/video/push-pull.md) %}
+
+## Episodes {#episodes}
+
+Each broadcast consists of _episodes_. There are two types of episodes:
+
+* `{{ ui-key.yacloud_video.streams.label_episode-type-live }}`: Real-time viewing with rewind support.
+* `{{ ui-key.yacloud_video.streams.label_episode-type-broadcast }}`: Event with defined start and end times and recording.
+
+You can upload custom thumbnails for your episodes. The thumbnail will appear in the {{ video-name }} interface and in the player on the website hosting the broadcast episode.
 
 {% include [image-characteristic](../../_includes/video/image-characteristic.md) %}
 
-You can [publish](../operations/streams/get-link.md) your broadcast using a direct link or by posting it to a website.
+You can [publish](../operations/streams/get-link.md) a broadcast episode using a direct link or by posting it to a website. To embed a specific part of a broadcast on a website, set a time interval when creating or editing the episode.
 
-You can group completed broadcasts into [playlists](./playlists.md) in desired order. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
+You can group broadcast episodes into [playlists](./playlists.md) in any order. For more information on publishing playlists, see [{#T}](../operations/playlists/get-link.md).
 
-Once a broadcast is over, you can keep its video available or remove it.
+Once a broadcast episode is over, you can keep its recording available or remove it.
 
 {% include [streams-limits-notice](../../_includes/video/streams-limits-notice.md) %}
 
 ### Statuses {#statuses}
+
+You can view statuses under **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** in the relevant column.
+
+Broadcast episodes can have the following statuses:
 
 * `{{ ui-key.yacloud_video.streams.status_offline }}`: The broadcast has been created but not started yet.
 * `{{ ui-key.yacloud_video.streams.status_preparing }}`: Preparation of a fault-tolerant {{ yandex-cloud }} infrastructure for video transcoding is ongoing. Awaiting video signal. The broadcast gets this status a few minutes before it starts.
@@ -32,35 +45,17 @@ Once a broadcast is over, you can keep its video available or remove it.
 * `{{ ui-key.yacloud_video.streams.status_on-air }}`: The broadcast is on. The broadcast gets this status as soon as you click **{{ ui-key.yacloud_video.streams.action_start-stream }}** or automatically at a specified time.
 * `{{ ui-key.yacloud_video.streams.status_finished }}`: The broadcast is over. The broadcast gets this status as soon as you click **{{ ui-key.yacloud_video.streams.action_stop-stream }}** or automatically at a specified time. You can add a completed broadcast to a playlist.
 
-### Broadcast publishing parameters {#stream-parameters}
+### Broadcast episode publishing settings {#stream-parameters}
 
-You can change the following basic broadcast playback settings when [generating](../operations/streams/get-link.md) a direct link or website embed code:
+You can change the following basic playback settings for broadcast episodes when [generating](../operations/streams/get-link.md) a direct link or website embed code:
 
-* Default sound setting for video playback.
+* Muted playback by default.
 * Automatic start of playback when opened.
 * Displaying broadcast controls in the player.
 
 {% include [iframe-settings](../../_includes/video/iframe-settings.md) %}
 
-## Lines {#lines}
-
-In {{ video-name }}, you use _lines_ to configure the source of your video signal for [broadcasts](#streams).
-
-You can set up multiple lines in advance and use them for different broadcasts.
-
-The following stream input protocols are supported: [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) and [SRT](https://en.wikipedia.org/wiki/Secure_Reliable_Transport).
-
-Types of line input streams include:
-
-{% include [push-pull](../../_includes/video/push-pull.md) %}
-
-You can upload custom covers for your lines. A cover will be displayed in the {{ video-name }} interface. For cover parameters, see the [Broadcasts](#streams) section.
-
-## Episodes {#episodes}
-
-To split a broadcast into multiple parts, use _episodes_, i.e., time segments of the broadcast. For example, to embed only a portion of the broadcast on a site, make this portion into an episode. The default episode is the whole broadcast.
-
 ## See also {#see-also}
 
-* [Getting started with video streaming](../streaming.md)
+* [Getting started with a video broadcast](../streaming.md)
 * [Getting started with API](../api-ref/quickstart.md)

@@ -26,7 +26,8 @@ apiPlayground:
           description: |-
             **string**
             Scopes of the API key.
-            The maximum number of elements is 100. The maximum string length in characters for each value is 256.
+            The maximum string length in characters for each value is 256. The maximum number of elements is 100.
+          uniqueItems: true
           type: array
           items:
             type: string
@@ -87,7 +88,7 @@ The maximum string length in characters is 256. ||
 
 Scopes of the API key.
 
-The maximum number of elements is 100. The maximum string length in characters for each value is 256. ||
+The maximum string length in characters for each value is 256. The maximum number of elements is 100. ||
 || expiresAt | **string** (date-time)
 
 API key expiration timestamp, if not specified, then the API key doesn't expire

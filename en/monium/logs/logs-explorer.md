@@ -50,7 +50,7 @@ To view logs, configure their delivery:
      { <key>="<value>", <key>="<value>", ... }
      ```
       
-     For more on how to make queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
+     For more information about making queries, see [{#T}](../concepts/data-model.md) and [{#T}](../concepts/querying.md).
 
      Example of an application log search query:
 
@@ -108,9 +108,9 @@ Features available when using the graph:
 * **Legend**: Shows the values of the labels for each data series on the graph.
 
 * **Graph type**: Selects the type of the graph with the number of logs:
-  * **Line**: Lines
-  * **Area**: Shaded areas
-  * **Column** (default): Columns
+  * **Line**: Lines.
+  * **Area**: Shaded areas.
+  * **Column** (default): Columns.
 
 * **Log grouping**: Select a grouping parameter from the **Group by** list. For example, grouping by `level` will show log distribution by level of importance.
 

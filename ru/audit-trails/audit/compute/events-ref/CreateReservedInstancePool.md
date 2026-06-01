@@ -297,9 +297,7 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64)
-
-The maximum value is 274877906944. ||
+|| memory | **string** (int64) ||
 || cores | **string** (int64) ||
 || coreFraction | **string** (int64) ||
 || gpus | **string** (int64) ||

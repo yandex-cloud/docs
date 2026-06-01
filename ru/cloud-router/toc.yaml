@@ -252,20 +252,22 @@ items:
                 href: api-ref/grpc/RoutingInstance/upsertPrefixes.md
               - name: RemovePrefixes
                 href: api-ref/grpc/RoutingInstance/removePrefixes.md
-              - name: UpdateNetworks
-                href: api-ref/grpc/RoutingInstance/updateNetworks.md
-              - name: MovePrefix
-                href: api-ref/grpc/RoutingInstance/movePrefix.md
-              - name: UpdatePrefixMask
-                href: api-ref/grpc/RoutingInstance/updatePrefixMask.md
               - name: AddPrivateConnection
                 href: api-ref/grpc/RoutingInstance/addPrivateConnection.md
               - name: RemovePrivateConnection
                 href: api-ref/grpc/RoutingInstance/removePrivateConnection.md
+              - name: UpdateNetworks
+                href: api-ref/grpc/RoutingInstance/updateNetworks.md
               - name: Delete
                 href: api-ref/grpc/RoutingInstance/delete.md
+              - name: Move
+                href: api-ref/grpc/RoutingInstance/move.md
               - name: ListOperations
                 href: api-ref/grpc/RoutingInstance/listOperations.md
+              - name: MovePrefix
+                href: api-ref/grpc/RoutingInstance/movePrefix.md
+              - name: UpdatePrefixMask
+                href: api-ref/grpc/RoutingInstance/updatePrefixMask.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -284,6 +286,10 @@ items:
                 href: api-ref/RoutingInstance/index.md
               - name: Get
                 href: api-ref/RoutingInstance/get.md
+              - name: GetByVpcNetworkId
+                href: api-ref/RoutingInstance/getByVpcNetworkId.md
+              - name: GetByCicPrivateConnectionId
+                href: api-ref/RoutingInstance/getByCicPrivateConnectionId.md
               - name: List
                 href: api-ref/RoutingInstance/list.md
               - name: Create
@@ -298,8 +304,12 @@ items:
                 href: api-ref/RoutingInstance/addPrivateConnection.md
               - name: RemovePrivateConnection
                 href: api-ref/RoutingInstance/removePrivateConnection.md
+              - name: UpdateNetworks
+                href: api-ref/RoutingInstance/updateNetworks.md
               - name: Delete
                 href: api-ref/RoutingInstance/delete.md
+              - name: Move
+                href: api-ref/RoutingInstance/move.md
               - name: ListOperations
                 href: api-ref/RoutingInstance/listOperations.md
   - name: История изменений

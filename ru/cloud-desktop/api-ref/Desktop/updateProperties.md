@@ -34,13 +34,15 @@ apiPlayground:
         name:
           description: |-
             **string**
+            New desktop name.
             Value must match the regular expression ` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) `.
           pattern: '|[a-z]([-a-z0-9]{0,61}[a-z0-9])'
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `.
+            New desktop labels.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -52,6 +54,12 @@ apiPlayground:
             maxLength: 63
             minLength: 1
           maxProperties: 64
+        description:
+          description: |-
+            **string**
+            New desktop description.
+            The maximum string length in characters is 1024.
+          type: string
       additionalProperties: false
     definitions: null
 ---
@@ -83,7 +91,8 @@ The maximum string length in characters is 50. ||
 {
   "updateMask": "string",
   "name": "string",
-  "labels": "object"
+  "labels": "object",
+  "description": "string"
 }
 ```
 
@@ -101,10 +110,19 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
+New desktop name.
+
 Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
 || labels | **object** (map<**string**, **string**>)
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+New desktop labels.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+New desktop description.
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -137,6 +155,8 @@ No more than 64 per resource. The maximum string length in characters for each v
     "createdAt": "string",
     "status": "string",
     "name": "string",
+    "labels": "object",
+    "description": "string",
     "resources": {
       "memory": "string",
       "cores": "string",
@@ -153,8 +173,7 @@ No more than 64 per resource. The maximum string length in characters for each v
         "subjectId": "string",
         "subjectType": "string"
       }
-    ],
-    "labels": "object"
+    ]
   }
   // end of the list of possible fields
 }
@@ -233,7 +252,9 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 
 #|
 ||Field | Description ||
-|| desktopId | **string** ||
+|| desktopId | **string**
+
+ID of the desktop. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -296,14 +317,21 @@ Status of the desktop.
 || name | **string**
 
 Name of the desktop. ||
-|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
-
-Resources of the desktop. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
-|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)** ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the desktop. ||
+|| description | **string**
+
+Description of the desktop. ||
+|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
+
+Resources of the desktop. ||
+|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)**
+
+Network interfaces of the desktop. ||
+|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
+
+Users of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
@@ -312,11 +340,19 @@ Labels of the desktop. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
+The amount of memory available to the desktop, specified in bytes.
+
 The minimum value is 1. ||
 || cores | **string** (int64)
 
+The number of cores available to the desktop.
+
 The minimum value is 1. ||
 || coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core.
+For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
 
 Acceptable values are 0 to 100, inclusive. ||
 |#
@@ -327,12 +363,12 @@ Acceptable values are 0 to 100, inclusive. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.
+Required field. ID of the network.
 
 The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.
+Required field. ID of the subnet.
 
 The maximum string length in characters is 50. ||
 |#

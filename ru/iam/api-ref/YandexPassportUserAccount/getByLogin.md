@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Login of the YandexPassportUserAccount resource to return.
+            The maximum string length in characters is 100.
           type: string
       required:
         - login
@@ -35,7 +36,9 @@ GET https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin
 ||Field | Description ||
 || login | **string**
 
-Required field. Login of the YandexPassportUserAccount resource to return. ||
+Required field. Login of the YandexPassportUserAccount resource to return.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.UserAccount}

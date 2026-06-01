@@ -52,11 +52,9 @@ The expression supports the following operations:
 - `IN` for multiple values: `status IN ('NEED_TO_VALIDATE', 'VALID')`
 - `contains` for domain substring search: `domain contains '3'`
 - `AND` for combining conditions: `status = 'INVALID' AND domain contains '3'`
-
 Available fields for filtering:
 - `domain` - domain name
 - `status` - domain validation status
-
 Must be 1-1000 characters long.
 
 The maximum string length in characters is 1000. ||

@@ -635,7 +635,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить управление пользователями и базами данных через SQL {#SQL-management}
 
-Сервис {{ mch-name }} позволяет включить управление [пользователями](./cluster-users.md#sql-user-management) и [базами данных](./databases.md#sql-database-management) кластера через SQL.
+Сервис {{ mch-name }} позволяет управлять [пользователями](../concepts/user-access-rights.md#sql-user-management) и [базами данных](databases.md#sql-database-management) кластера через SQL.
 
 {% note alert %}
 
@@ -653,8 +653,8 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
-  1. Для [управления базами данных через SQL](./databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
+  1. Для [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
+  1. Для [управления базами данных через SQL](databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -663,7 +663,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
+    1. Чтобы включить [управление пользователями через SQL](../concepts/user-access-rights.md#sql-user-management):
 
         * задайте значение `true` для параметра `--enable-sql-user-management`;
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
@@ -675,7 +675,7 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
         ```
 
-    1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
+    1. Чтобы включить [управление базами данных через SQL](databases.md#sql-database-management):
 
         * задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`;
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.

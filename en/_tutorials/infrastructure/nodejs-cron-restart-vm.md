@@ -206,20 +206,20 @@ The infrastructure support costs include:
      * `service_account_id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
      * `folder_id`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you are creating the function.
      * `environment`: Environment variables:
-       * `FOLDER_ID`: ID of the folder where you want to start the stopped VMs.
+       * `FOLDER_ID`: ID of the folder where you want to start the stopped VM.
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
      1. If the configuration is correct, run this command:
 
@@ -334,13 +334,13 @@ The infrastructure support costs include:
      For more information about resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
      1. If the configuration is correct, run this command:
 

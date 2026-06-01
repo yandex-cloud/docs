@@ -89,7 +89,9 @@ editable: false
   },
   "details": {
     "desktopGroupId": "string",
+    // Includes only one of the fields `desktopGroupName`
     "desktopGroupName": "string",
+    // end of the list of possible fields
     "accessBindingDeltas": [
       {
         "action": "string",
@@ -272,7 +274,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || desktopGroupId | **string** ||
-|| desktopGroupName | **string** ||
+|| desktopGroupName | **string**
+
+Includes only one of the fields `desktopGroupName`. ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
 |#
 

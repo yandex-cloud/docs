@@ -170,14 +170,6 @@ yc compute host-group update-host <host_group_ID> \
 
 Where `--replacement-deadline` is the date and time in UTC format (`YYYY-MM-DDTHH:MM:SSZ`).
 
-{% note info %}
-
-To start releasing a host from a VM immediately, do not specify `--replacement-deadline`.
-
-{% endnote %}
-
-VMs are automatically moved based on the VM host affinity rules. A VM will be moved to any host in a host group that has sufficient resources, including the replacement host. If there are no resources, the VMs will be stopped.
-
 You can move your VMs from the old host yourself before the specified date:
 
 * Using [live migration](live-migration.md): To migrate your VMs, contact [support]({{ link-console-support }}).
@@ -191,38 +183,6 @@ You can move your VMs from the old host yourself before the specified date:
     yc compute instance start <VM_name>
     ```
 * By [deleting](../operations/vm-control/vm-delete.md) and [recreating](../operations/vm-create/create-linux-vm.md) your VMs (for VMs with local disks).
-
-{% note info %}
-
-You can move a VM with secondary disks to a new host. Data on network disks will be saved, whereas data on local disks will be lost due to being associated with a physical server. To avoid losing information stored on local disks, [configure](../../backup/operations/backup-vm/create.md) backups in {{ backup-name }}.
-
-{% cut "Example of commands to move a VM from one host to another" %}
-
-   1. [To stop the VM](../operations/vm-control/vm-stop-and-start.md):
-
-      ```bash
-      yc compute instance stop \
-        --id <VM_ID>
-      ```
-
-   1. To link the VM to a different host:
-
-      ```bash
-      yc compute instance update \
-        --id <VM_ID> \
-        --host-id <new_host_ID>
-      ```
-
-   1. To run the VM:
-
-      ```bash
-      yc compute instance start \
-        --id <VM_ID>
-      ```
-
-{% endcut %}
-
-{% endnote %}
 
 Use the command below to learn which dedicated host the VM is actually running on:
 

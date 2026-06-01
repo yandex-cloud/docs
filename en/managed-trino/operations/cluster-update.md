@@ -1,6 +1,6 @@
 ---
 title: Updating a {{ TR }} cluster
-description: After creating an {{ TR }} cluster, you can edit its basic and advanced settings.
+description: After creating a {{ TR }} cluster, you can edit its basic and advanced settings.
 keywords:
   - Updating an {{ TR }} cluster
   - '{{ TR }} cluster'
@@ -20,7 +20,11 @@ After you create a cluster, you can update its settings:
 * [Coordinator and worker configuration](#change-configuration)
 * [Additional cluster settings](#change-additional-settings)
 
-You can also change the [rules for access to cluster objects](../concepts/access-control.md); for more details, see [{#T}](access-control.md).
+Learn more about other cluster updates:
+
+* [Setting up maintenance](cluster-maintenance.md)
+* [Setting up cluster object access rules](access-control.md)
+* [Configuring resource groups](manage-resource-groups.md)
 
 ## Changing the cluster name and description {#change-basic-settings}
 
@@ -91,7 +95,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -113,11 +117,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -140,7 +144,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -186,7 +190,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -276,7 +280,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -297,11 +301,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -323,7 +327,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -368,7 +372,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -452,7 +456,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -475,11 +479,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -501,7 +505,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -548,7 +552,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -632,7 +636,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -657,11 +661,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -685,7 +689,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -732,7 +736,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -834,7 +838,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -866,11 +870,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -901,7 +905,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -957,7 +961,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -987,7 +991,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
           < body.json
         ```
 
-    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1044,7 +1048,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1084,7 +1088,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
           {% endnote %}
 
-          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+          Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
 
     1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -1102,7 +1106,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1147,7 +1151,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
           {% endnote %}
 
-          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+          Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
 
     1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -1276,7 +1280,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1317,11 +1321,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -1360,7 +1364,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1425,7 +1429,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -1596,7 +1600,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1632,11 +1636,11 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings to update.
+        * `updateMask`: Comma-separated list of parameters to update.
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
             {% endnote %}
 
@@ -1656,7 +1660,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of these two parameters:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two values:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1689,7 +1693,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1749,7 +1753,7 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% note warning %}
 
-            When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+            When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
             {% endnote %}
 
@@ -1769,9 +1773,9 @@ You can also change the [rules for access to cluster objects](../concepts/access
 
             {% include [logging-roles](../../_includes/managed-trino/logging-roles.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of these two parameters:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of the two values:
 
-            * `anytime`: Maintenance can occur at any time.
+            * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
             
               * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
