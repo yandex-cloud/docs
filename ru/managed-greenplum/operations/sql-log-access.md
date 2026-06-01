@@ -1,6 +1,6 @@
-title: "Чтение логов кластера {{ mgp-full-name }} через SQL"
-description: "Как получить доступ к логам СУБД в кластере {{ mgp-full-name }} через SQL с помощью представления mdb_toolkit.gp_log"
-
+---
+title: Чтение логов кластера {{ mgp-full-name }} через SQL
+description: Как получить доступ к логам СУБД в кластере {{ mgp-full-name }} через SQL с помощью представления mdb_toolkit.gp_log
 keywords:
   - greenplum logs sql
   - Greenplum external table logs

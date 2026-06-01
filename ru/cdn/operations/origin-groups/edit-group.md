@@ -14,7 +14,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}**.
   1. Выберите группу, которую хотите отредактировать.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -120,7 +120,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** и нажмите на имя группы, из которой хотите удалить источник.
   1. Выберите нужный источник и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели внизу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
@@ -146,7 +146,7 @@ description: Из статьи вы узнаете, как изменить гр
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать группу ресурсов.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.cdn.label_origins-groups-list }}** и нажмите на имя группы, из которой хотите удалить источники.
   1. Выберите нужные источники и нажмите кнопку **{{ ui-key.yacloud.common.delete }}** на панели внизу.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

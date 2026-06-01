@@ -33,7 +33,6 @@ apiPlayground:
 # Managed Service for SPQR API, REST: Database.Get
 
 Returns the specified SPQR Database resource.
-
 To get the list of available SPQR Database resources, make a [List](/docs/managed-spqr/api-ref/Database/list#List) request.
 
 ## HTTP request

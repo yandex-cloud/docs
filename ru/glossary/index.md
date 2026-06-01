@@ -73,6 +73,7 @@
 * [{#T}](dns.md)
 * [{#T}](fqdn.md)
 * [{#T}](tcp-ip.md)
+* [{#T}](vlan.md)
 * [{#T}](vpn.md)
 
 ### Веб‑протоколы и API {#web-protocols-api}

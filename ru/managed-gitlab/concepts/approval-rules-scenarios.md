@@ -253,7 +253,7 @@ BranchGroups:
 * [{#T}](../operations/approval-rules.md)
 * [{#T}](../operations/instance/instance-create.md)
 
-### Документация GitLab {#gl-docs}
+### Документация {{ GL }} {#gl-docs}
 
 * [Merge request approval rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html)
 * [Syntax of CODEOWNERS file](https://docs.gitlab.com/user/project/codeowners/reference/)

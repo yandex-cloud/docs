@@ -3,9 +3,9 @@ title: Как создать инстанс {{ mgl-full-name }}
 description: Из статьи вы узнаете, как создать инстанс {{ mgl-name }}.
 ---
 
-# Создание и активация инстанса {{ mgl-name }}
+# Создание и активация инстанса {{ mgl-full-name }}
 
-## Создать инстанс {{ GL }} {#create}
+## Создать инстанс {{ mgl-name }} {#create}
 
 Для создания инстанса {{ mgl-name }} нужна роль [{{ roles-vpc-user }}](../../../vpc/security/index.md#vpc-user) и роль [{{ roles.gitlab.editor }} или выше](../../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../../iam/operations/roles/grant.md).
 
@@ -94,7 +94,7 @@ description: Из статьи вы узнаете, как создать инс
 
 {% include [HTTPS info](../../../_includes/managed-gitlab/note-https.md) %}
 
-## Активировать инстанс {{ GL }} {#activate}
+## Активировать инстанс {{ mgl-name }} {#activate}
 
 После того как статус инстанса принял значение **Running**, активируйте инстанс:
 

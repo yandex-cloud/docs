@@ -5,7 +5,6 @@ editable: false
 # Managed Service for MongoDB API, gRPC: DatabaseService.Get
 
 Returns the specified MongoDB Database resource.
-
 To get the list of available MongoDB Database resources, make a [List](/docs/managed-mongodb/api-ref/grpc/Database/list#List) request.
 
 ## gRPC request

@@ -5,4 +5,23 @@ description: Для выполнения операций через API в {{ s
 
 # Аутентификация в API {{ sw-name }}
 
-{% include notitle [auth](../../../_includes/authentication.md) %}
+Для выполнения операций через [API](../../../glossary/rest-api.md) можно использовать [IAM-токен](../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../iam/concepts/authorization/api-key.md).
+
+{% note info %}
+
+API-ключ можно использовать только для методов ресурса `Execution`.
+
+{% endnote %}
+
+## IAM-токен {#iam-token}
+
+{% include [authentication-iam-token](../../../_includes/authentication-iam-token.md) %}
+
+## API-ключ {#api-key}
+
+{% include [authentication-api-key](../../../_includes/authentication-api-key.md) %}
+
+
+#### См. также {#see-also}
+
+[{#T}](../../../iam/concepts/users/accounts.md)

@@ -230,6 +230,8 @@ description: Следуя данной инструкции, вы сможете
 
 * **OAuth-токены**
 
+   {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+
    ```regexp
    y[0-6]_[-_A-Za-z0-9]{55,199}
    ```
@@ -264,6 +266,8 @@ description: Следуя данной инструкции, вы сможете
 При обнаружении некоторых типов секретов вероятно появление большого количества ложноположительных результатов. Чтобы удостовериться, что обнаружены актуальные секреты, рекомендуется проводить дополнительную валидацию.
 
 * **OAuth-токены**
+
+    {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
 
     {% list tabs group=programming_language %}
 

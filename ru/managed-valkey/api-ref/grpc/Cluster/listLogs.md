@@ -40,6 +40,8 @@ Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
 || service_type | enum **ServiceType**
 
+Type of the service to request logs about.
+
 - `REDIS`: Logs of Redis activity. ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

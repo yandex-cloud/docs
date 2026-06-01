@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится образ диска.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+      1. Перейдите в сервис **{{ compute-name }}**.
       1. На панели слева выберите ![image](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
       1. Скопируйте значение из столбца **{{ ui-key.yacloud.common.id }}** нужного образа.
 

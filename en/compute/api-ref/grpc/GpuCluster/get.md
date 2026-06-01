@@ -5,7 +5,6 @@ editable: false
 # Compute Cloud API, gRPC: GpuClusterService.Get
 
 Returns the specified GPU cluster.
-
 To get the list of available GPU clusters, make a [List](/docs/compute/api-ref/grpc/GpuCluster/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available GPU clusters, make a [List](/docs/compute/api-ref/g
 || gpu_cluster_id | **string**
 
 ID of the GPU cluster to return.
-
 To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/grpc/GpuCluster/list#List) request. ||
 |#
 
@@ -61,7 +59,6 @@ Creation timestamp. ||
 || name | **string**
 
 Name of the GPU cluster.
-
 The name is unique within the folder. ||
 || description | **string**
 

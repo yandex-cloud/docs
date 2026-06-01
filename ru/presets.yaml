@@ -7814,6 +7814,7 @@ default:
             popup-confirm_button: Подтвердить
             switch_monitoring: Мониторинги
             switch_overview: Обзор
+          label_mdb: Кластер
           logs:
             label_hosts: Хосты
             label_severity: Уровень логирования

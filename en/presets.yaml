@@ -7810,6 +7810,7 @@ default:
             popup-confirm_button: Confirm
             switch_monitoring: Monitoring
             switch_overview: Overview
+          label_mdb: Cluster
           logs:
             label_hosts: Hosts
             label_severity: "\_Severity"

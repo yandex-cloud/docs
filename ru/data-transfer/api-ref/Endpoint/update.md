@@ -668,6 +668,11 @@ apiPlayground:
               will be created (__consumer_keeper, __data_transfer_mole_finder).
               Empty `service_schema` implies schema `public`
             type: string
+          collapseInheritTable:
+            description: |-
+              **boolean**
+              Will collapse pg_inherit table into one big table in replication process
+            type: boolean
           objectTransferSettings:
             description: |-
               **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
@@ -2317,6 +2322,7 @@ Required field. Identifier of the endpoint to be updated. ||
       ],
       "slotByteLagLimit": "string",
       "serviceSchema": "string",
+      "collapseInheritTable": "boolean",
       "objectTransferSettings": {
         "sequence": "string",
         "sequenceOwnedBy": "string",
@@ -3254,6 +3260,9 @@ Default is 50 gigabytes ||
 Name of the database schema in which auxiliary tables needed for the transfer
 will be created (__consumer_keeper, __data_transfer_mole_finder).
 Empty `service_schema` implies schema `public` ||
+|| collapseInheritTable | **boolean**
+
+Will collapse pg_inherit table into one big table in replication process ||
 || objectTransferSettings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
 
 Defines which database schema objects should be transferred, e.g. views,

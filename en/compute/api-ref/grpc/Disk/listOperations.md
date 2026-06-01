@@ -24,22 +24,20 @@ Lists operations for the specified disk.
 ||Field | Description ||
 || disk_id | **string**
 
-Required field. ID of the Disk resource to list operations for.
-
-The maximum string length in characters is 50. ||
+ID of the Disk resource to list operations for.
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDiskOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListDiskOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## ListDiskOperationsResponse {#yandex.cloud.compute.v1.ListDiskOperationsResponse}

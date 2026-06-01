@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы добавить ключ {{ kms-short-name }}:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите настроить шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы убрать шифрование, удалите ключ {{ kms-short-name }}:
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, для которого хотите убрать шифрование.
   1. На панели слева выберите ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.

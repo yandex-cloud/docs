@@ -37,12 +37,14 @@ apiPlayground:
             Anti-affinity placement strategy (`spread`). Instances are distributed over distinct failure domains.
             Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
             Placement strategy.
+            Only one field must by specified.
           $ref: '#/definitions/SpreadPlacementStrategy'
         partitionPlacementStrategy:
           description: |-
             **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
             Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
             Placement strategy.
+            Only one field must by specified.
           $ref: '#/definitions/PartitionPlacementStrategy'
       additionalProperties: false
       oneOf:
@@ -60,7 +62,7 @@ apiPlayground:
           partitions:
             description: |-
               **string** (int64)
-              Acceptable values are 2 to 5, inclusive.
+              The value must be between 2 and 5.
             type: string
             format: int64
 ---
@@ -97,7 +99,6 @@ POST https://compute.{{ api-host }}/compute/v1/placementGroups
 || folderId | **string**
 
 ID of the folder to create a placement group in.
-
 To get a folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || name | **string**
 
@@ -114,12 +115,14 @@ Anti-affinity placement strategy (`spread`). Instances are distributed over dist
 
 Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
 
-Placement strategy. ||
+Placement strategy.
+Only one field must by specified. ||
 || partitionPlacementStrategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
 Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
 
-Placement strategy. ||
+Placement strategy.
+Only one field must by specified. ||
 |#
 
 ## PartitionPlacementStrategy {#yandex.cloud.compute.v1.PartitionPlacementStrategy}
@@ -128,7 +131,7 @@ Placement strategy. ||
 ||Field | Description ||
 || partitions | **string** (int64)
 
-Acceptable values are 2 to 5, inclusive. ||
+The value must be between 2 and 5. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -143,9 +146,7 @@ Acceptable values are 2 to 5, inclusive. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "placementGroupId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -154,20 +155,7 @@ Acceptable values are 2 to 5, inclusive. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    // Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`
-    "spreadPlacementStrategy": "object",
-    "partitionPlacementStrategy": {
-      "partitions": "string"
-    }
-    // end of the list of possible fields
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -209,7 +197,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreatePlacementGroupMetadata](#yandex.cloud.compute.v1.CreatePlacementGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -224,7 +212,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PlacementGroup](#yandex.cloud.compute.v1.PlacementGroup)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -239,15 +227,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreatePlacementGroupMetadata {#yandex.cloud.compute.v1.CreatePlacementGroupMetadata}
-
-#|
-||Field | Description ||
-|| placementGroupId | **string**
-
-ID of the placement group that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -265,60 +244,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## PlacementGroup {#yandex.cloud.compute.v1.PlacementGroup}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the placement group. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the placement group belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the placement group.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the placement group. 0-256 characters long. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Placement group labels as `key:value` pairs. ||
-|| spreadPlacementStrategy | **object**
-
-Anti-affinity placement strategy (`spread`). Instances are distributed
-over distinct failure domains.
-
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
-
-Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
-|| partitionPlacementStrategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy2)**
-
-Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
-
-Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
-|#
-
-## PartitionPlacementStrategy {#yandex.cloud.compute.v1.PartitionPlacementStrategy2}
-
-#|
-||Field | Description ||
-|| partitions | **string** (int64)
-
-Acceptable values are 2 to 5, inclusive. ||
 |#

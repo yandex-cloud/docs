@@ -5,7 +5,6 @@ editable: false
 # Managed Service for SPQR API, gRPC: UserService.Get
 
 Returns the specified SPQR User resource.
-
 To get the list of available SPQR User resources, make a [List](/docs/managed-spqr/api-ref/grpc/User/list#List) request.
 
 ## gRPC request

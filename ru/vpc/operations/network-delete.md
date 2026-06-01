@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить [облачную сеть](../concepts/network.md#network):
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить облачную сеть.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной сети и выберите **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
 

@@ -20,7 +20,7 @@ In this section, you will learn about the following:
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/cdn/security/service-roles-hierarchy.svg)
+{% include [roles-cdn](../../_mermaid/roles/cdn.md) %}
 
 ### Service roles {#service-roles}
 

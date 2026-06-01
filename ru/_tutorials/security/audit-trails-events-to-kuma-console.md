@@ -1,5 +1,6 @@
 # Загрузка аудитных логов {{ at-full-name }} в SIEM KUMA с помощью консоли управления, CLI или API
 
+
 Чтобы настроить доставку файлов [аудитных логов](../../audit-trails/concepts/format.md) в [KUMA](https://www.kaspersky.ru/enterprise-security/unified-monitoring-and-analysis-platform):
 
 1. [Подготовьте облако к работе](#before-you-begin).

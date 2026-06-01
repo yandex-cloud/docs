@@ -26,45 +26,37 @@ Retrieves the list of GPU clusters in the specified folder.
 ||Field | Description ||
 || folder_id | **string**
 
-Required field. ID of the folder to list GPU clusters in.
-
+ID of the folder to list GPU clusters in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListGpuClustersResponse.next_page_token](#yandex.cloud.compute.v1.ListGpuClustersResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListGpuClustersResponse.next_page_token](#yandex.cloud.compute.v1.ListGpuClustersResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters GPU clusters listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [GpuCluster.name](#yandex.cloud.compute.v1.GpuCluster) field.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
 3. The value. Must be 3-63 characters long and match the regular expression `^[a-z][-a-z0-9]{1,61}[a-z0-9]`.
 Example of a filter: `name=my-schedule`.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || order_by | **string**
 
 A sorting expression that sorts GPU clusters listed in the response.
-
 The expression must specify the field name from [GpuCluster](#yandex.cloud.compute.v1.GpuCluster) and `asc`ending or `desc`ending order,
 e.g. `createdAt desc`.
-
 Default value: `id asc`.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## ListGpuClustersResponse {#yandex.cloud.compute.v1.ListGpuClustersResponse}
@@ -98,7 +90,6 @@ List of GPU clusters in the specified folder. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListGpuClustersRequest.page_size](#yandex.cloud.compute.v1.ListGpuClustersRequest), use `next_page_token` as the value
 for the [ListGpuClustersRequest.page_token](#yandex.cloud.compute.v1.ListGpuClustersRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -120,7 +111,6 @@ Creation timestamp. ||
 || name | **string**
 
 Name of the GPU cluster.
-
 The name is unique within the folder. ||
 || description | **string**
 
