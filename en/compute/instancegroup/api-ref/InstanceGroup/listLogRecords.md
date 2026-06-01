@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the InstanceGroup resource to list logs for.
             To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+            This field is required.
           type: string
       required:
         - instanceGroupId
@@ -25,7 +26,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
             that can be used to get the next page of results in subsequent list requests.
-            Acceptable values are 0 to 1000, inclusive.
+            The value must be between 0 and 1000.
           type: string
           format: int64
         pageToken:
@@ -34,14 +35,14 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
             returned by a previous list request.
-            The maximum string length in characters is 1000.
+            The length must be less than or equal to 1000.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
-            The maximum string length in characters is 1000.
+            The length must be less than or equal to 1000.
           type: string
       additionalProperties: false
     body: null
@@ -65,7 +66,8 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:l
 || instanceGroupId | **string**
 
 Required field. ID of the InstanceGroup resource to list logs for.
-To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request. ||
+To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsRequest}
@@ -78,21 +80,18 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-Acceptable values are 0 to 1000, inclusive. ||
+The value must be between 0 and 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListInstanceGroupLogRecordsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupLogRecordsResponse}

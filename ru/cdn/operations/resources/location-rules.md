@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите на имя нужного CDN-ресурса.
   1. Выберите вкладку ![image](../../../_assets/console-icons/map-pin-plus.svg) **{{ ui-key.yacloud.cdn.label_locations }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.cdn.button_resource-locations-empty-action }}**.
@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Нажмите на имя нужного CDN-ресурса.
   1. Выберите вкладку ![image](../../../_assets/console-icons/map-pin-plus.svg) **{{ ui-key.yacloud.cdn.label_locations }}**.
   1. Нажмите на имя нужного локационного правила.

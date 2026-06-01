@@ -18,8 +18,8 @@ apiPlayground:
             **string**
             Required field. Name of the user to update.
             To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
-            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-          pattern: '[a-zA-Z0-9_-]*'
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `.
+          pattern: '[a-zA-Z0-9_@.-]*'
           type: string
       required:
         - clusterId
@@ -45,7 +45,7 @@ apiPlayground:
           description: |-
             **string**
             New password for the user.
-            The string length in characters must be 8-128.
+            The string length in characters must be 0-128.
           type: string
         permissions:
           description: |-
@@ -62,7 +62,7 @@ apiPlayground:
             - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
             using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
             - `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
-              The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
+            The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
             You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
             - `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
             - `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
@@ -156,8 +156,8 @@ apiPlayground:
               - `INSERT`: Inserting rows into the database.
               - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
               - `SELECT`: Selecting rows from tables.
-                Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
-                See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+              Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+              See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
               - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
               - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
               - `UPDATE`: Updating rows in the database.
@@ -236,17 +236,15 @@ PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/users/{us
 || clusterId | **string**
 
 Required field. ID of the cluster to update the user in.
-
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the user to update.
-
 To get this name, make a [UserService.List](/docs/managed-mysql/api-ref/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_@.-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.mysql.v1.UpdateUserRequest}
@@ -294,7 +292,7 @@ The rest of the fields will be reset to the default. ||
 
 New password for the user.
 
-The string length in characters must be 8-128. ||
+The string length in characters must be 0-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.mysql.v1.Permission)**
 
 A new set of permissions that should be granted to the user. ||
@@ -306,8 +304,7 @@ New set of global permissions to grant to the user.
 - `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
 using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
 - `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
-
-  The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
+The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
 You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
 - `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
 - `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
@@ -335,7 +332,6 @@ Generate password using Connection Manager. ||
 || deletionProtectionMode | **enum** (DeletionProtectionMode)
 
 Deletion Protection inhibits deletion of the user
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
@@ -353,7 +349,6 @@ Name of the database that the permission grants access to. ||
 || roles[] | **enum** (Privilege)
 
 Roles granted to the user within the database.
-
 See [the documentation](/docs/managed-mysql/operations/grant) for details.
 
 The minimum number of elements is 1.
@@ -373,10 +368,8 @@ The minimum number of elements is 1.
 - `INSERT`: Inserting rows into the database.
 - `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
 - `SELECT`: Selecting rows from tables.
-
-  Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
-
-  See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
+Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
+See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
 - `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
 - `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
 - `UPDATE`: Updating rows in the database.
@@ -421,10 +414,7 @@ The minimum value is 0. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "userName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -433,32 +423,7 @@ The minimum value is 0. ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "permissions": [
-      {
-        "databaseName": "string",
-        "roles": [
-          "string"
-        ]
-      }
-    ],
-    "globalPermissions": [
-      "string"
-    ],
-    "connectionLimits": {
-      "maxQuestionsPerHour": "string",
-      "maxUpdatesPerHour": "string",
-      "maxConnectionsPerHour": "string",
-      "maxUserConnections": "string"
-    },
-    "authenticationPlugin": "string",
-    "connectionManager": {
-      "connectionId": "string"
-    },
-    "deletionProtectionMode": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -500,7 +465,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateUserMetadata](#yandex.cloud.mdb.mysql.v1.UpdateUserMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -515,7 +480,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[User](#yandex.cloud.mdb.mysql.v1.User)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -530,18 +495,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateUserMetadata {#yandex.cloud.mdb.mysql.v1.UpdateUserMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster the user is being updated in. ||
-|| userName | **string**
-
-Name of the user that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -559,141 +512,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## User {#yandex.cloud.mdb.mysql.v1.User}
-
-An object that represents MySQL user.
-
-See [the documentation](/docs/managed-mysql/operations/cluster-users) for details.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the user. ||
-|| clusterId | **string**
-
-ID of the cluster the user belongs to. ||
-|| permissions[] | **[Permission](#yandex.cloud.mdb.mysql.v1.Permission2)**
-
-Set of permissions granted to the user. ||
-|| globalPermissions[] | **enum** (GlobalPermission)
-
-Set of global permissions to grant to the user.
-
-- `REPLICATION_CLIENT`: Enables use of the `SHOW MASTER STATUS`, `SHOW SLAVE STATUS`, and `SHOW BINARY LOGS` statements.
-- `REPLICATION_SLAVE`: Enables the account to request updates that have been made to databases on the master server,
-using the `SHOW SLAVE HOSTS`, `SHOW RELAYLOG EVENTS` and `SHOW BINLOG EVENTS` statements.
-- `PROCESS`: Enables display of information about the the statements currently being performed by sessions (the set of threads executing within the server).
-
-  The privilege enables use of `SHOW PROCESSLIST` or `mysqladmin` processlist to see threads belonging to other users.
-You can always see your own threads. The `PROCESS` privilege also enables use of `SHOW ENGINE`.
-- `FLUSH_OPTIMIZER_COSTS`: Enables use of the `FLUSH OPTIMIZER_COSTS` statement.
-- `SHOW_ROUTINE`: Enables a user to access definitions and properties of all stored routines (stored procedures and functions), even those for which the user is not named as the routine DEFINER.
-This access includes:
-The contents of the Information Schema `ROUTINES` table.
-The `SHOW CREATE FUNCTION` and `SHOW CREATE PROCEDURE` statements.
-The `SHOW FUNCTION CODE` and `SHOW PROCEDURE CODE` statements.
-The SHOW `FUNCTION STATUS` and `SHOW PROCEDURE STATUS` statements.
-- `MDB_ADMIN`: Enables use of the KILL command, creating and dropping databases and users, granting privileges to tables and databases. ||
-|| connectionLimits | **[ConnectionLimits](#yandex.cloud.mdb.mysql.v1.ConnectionLimits2)**
-
-Set of user connection limits. ||
-|| authenticationPlugin | **enum** (AuthPlugin)
-
-User authentication plugin.
-
-- `MYSQL_NATIVE_PASSWORD`: Use [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
-- `CACHING_SHA2_PASSWORD`: Use [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html).
-- `SHA256_PASSWORD`: Use [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/sha256-pluggable-authentication.html).
-- `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/no-login-pluggable-authentication.html).
-- `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
-|| connectionManager | **[ConnectionManager](#yandex.cloud.mdb.mysql.v1.ConnectionManager)**
-
-Connection Manager Connection and settings associated with user. Read only field. ||
-|| deletionProtectionMode | **enum** (DeletionProtectionMode)
-
-Deletion Protection inhibits deletion of the user
-
-Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
-
-- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
-- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
-- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
-|#
-
-## Permission {#yandex.cloud.mdb.mysql.v1.Permission2}
-
-#|
-||Field | Description ||
-|| databaseName | **string**
-
-Name of the database that the permission grants access to. ||
-|| roles[] | **enum** (Privilege)
-
-Roles granted to the user within the database.
-
-See [the documentation](/docs/managed-mysql/operations/grant) for details.
-
-The minimum number of elements is 1.
-
-- `ALL_PRIVILEGES`: All privileges that can be made available to the user.
-- `ALTER`: Altering tables.
-- `ALTER_ROUTINE`: Altering stored routines and functions.
-- `CREATE`: Creating tables or indexes.
-- `CREATE_ROUTINE`: Creating stored routines.
-- `CREATE_TEMPORARY_TABLES`: Creating temporary tables.
-- `CREATE_VIEW`: Creating views.
-- `DELETE`: Deleting tables.
-- `DROP`: Removing tables or views.
-- `EVENT`: Creating, altering, dropping, or displaying events for the Event Scheduler.
-- `EXECUTE`: Executing stored routines.
-- `INDEX`: Creating and removing indexes.
-- `INSERT`: Inserting rows into the database.
-- `LOCK_TABLES`: Using `LOCK TABLES` statement for tables available with `SELECT` privilege.
-- `SELECT`: Selecting rows from tables.
-
-  Some `SELECT` statements can be allowed without the `SELECT` privilege. All statements that read column values require the `SELECT` privilege.
-
-  See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/privileges-provided.html#priv_select) for details.
-- `SHOW_VIEW`: Using the `SHOW CREATE VIEW` statement. Also needed for views used with `EXPLAIN`.
-- `TRIGGER`: Creating, removing, executing, or displaying triggers for a table.
-- `UPDATE`: Updating rows in the database.
-- `REFERENCES`: Creation of a foreign key constraint for the parent table. ||
-|#
-
-## ConnectionLimits {#yandex.cloud.mdb.mysql.v1.ConnectionLimits2}
-
-#|
-||Field | Description ||
-|| maxQuestionsPerHour | **string** (int64)
-
-The maximum permitted number of user questions per hour.
-
-The minimum value is 0. ||
-|| maxUpdatesPerHour | **string** (int64)
-
-The maximum permitted number of user updates per hour.
-
-The minimum value is 0. ||
-|| maxConnectionsPerHour | **string** (int64)
-
-The maximum permitted number of simultaneous client connections per hour.
-
-The minimum value is 0. ||
-|| maxUserConnections | **string** (int64)
-
-The maximum number of simultaneous connections permitted to any given MySQL user account.
-
-The minimum value is 0. ||
-|#
-
-## ConnectionManager {#yandex.cloud.mdb.mysql.v1.ConnectionManager}
-
-#|
-||Field | Description ||
-|| connectionId | **string**
-
-ID of Connection Manager Connection ||
 |#

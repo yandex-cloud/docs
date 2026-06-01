@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы создади
 # Создание адреса
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [адрес](../concepts/glossary.md#adress).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Домен может быть любого уровня.
 1. (Опционально) [Привяжите конфигурацию к адресу](bind-configuration.md).

@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: Backup.Get
 
 Returns the specified ClickHouse Backup resource.
-
 To get the list of available ClickHouse Backup resources, make a [List](/docs/managed-clickhouse/api-ref/Backup/list#List) request.
 
 ## HTTP request
@@ -68,7 +67,7 @@ for more information.
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folderId | **string**
 
 ID of the folder that the backup belongs to. ||

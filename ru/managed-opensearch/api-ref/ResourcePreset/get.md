@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for OpenSearch API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
-
 To get the list of available resource presets, make a [List](/docs/managed-opensearch/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,6 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/resourcePresets/{resourcePr
 || resourcePresetId | **string**
 
 Required field. ID of the resource preset to return.
-
 To get the resource preset ID, use a [ResourcePresetService.List](/docs/managed-opensearch/api-ref/ResourcePreset/list#List) request. ||
 |#
 

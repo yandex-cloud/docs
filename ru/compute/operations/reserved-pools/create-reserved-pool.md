@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как создать пул
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать пул резервов ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/folder-lock.svg) **{{ ui-key.yacloud.compute.reserved-instance-pool.reserved-instance-pools_m8sWW }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.reserved-instance-pool.button_create-reserved-instance-pool_pZ1gY }}**.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой нужно зарезервировать [вычислительные ресурсы](../../concepts/vm.md#types).

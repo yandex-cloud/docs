@@ -1,4 +1,5 @@
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
     load-balancer.auditor --> load-balancer.viewer
     load-balancer.viewer --> load-balancer.privateAdmin

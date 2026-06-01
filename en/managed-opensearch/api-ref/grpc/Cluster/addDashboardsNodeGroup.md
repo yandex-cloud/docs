@@ -4,8 +4,6 @@ editable: false
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddDashboardsNodeGroup
 
-(-- api-linter: yc::1705::custom-method-colon=disabled
-Required for backward compatibility with old clients. --)
 Creates a Dashboards type host group.
 
 ## gRPC request
@@ -46,7 +44,6 @@ Creates a Dashboards type host group.
 || cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to create the Dashboards type host group in.
-
 To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -79,7 +76,7 @@ IDs of the availability zones the hosts belong to. ||
 
 IDs of the subnets that the hosts belong to.
 
-The maximum number of elements is 10. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The maximum number of elements is 10. ||
 || assign_public_ip | **bool**
 
 Determines whether a public IP is assigned to the hosts in the group. ||
@@ -96,16 +93,20 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resource_preset_id | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || disk_size | **int64**
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || disk_type_id | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+Disk size autoscaling settings.
 
 #|
 ||Field | Description ||
@@ -134,13 +135,10 @@ Limit on how large the storage for database instances can automatically grow, in
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -168,7 +166,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddNodeGroupMetadata](#yandex.cloud.mdb.opensearch.v1.AddNodeGroupMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -183,7 +181,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -198,16 +196,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddNodeGroupMetadata {#yandex.cloud.mdb.opensearch.v1.AddNodeGroupMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the OpenSearch cluster where the host group is being created. ||
-|| name | **string**
-
-Name of the host group being created. ||
 |#

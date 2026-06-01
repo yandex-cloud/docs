@@ -5,7 +5,6 @@ editable: false
 # Compute Cloud API, gRPC: ReservedInstancePoolService.Get
 
 Returns the specified reserved instance pool resource.
-
 To get the list of available reserved instance pool resources, make a [List](/docs/compute/api-ref/grpc/ReservedInstancePool/list#List) request.
 
 ## gRPC request
@@ -24,10 +23,10 @@ To get the list of available reserved instance pool resources, make a [List](/do
 ||Field | Description ||
 || reserved_instance_pool_id | **string**
 
-Required field. ID of the reserved instance pool resource to return.
+ID of the reserved instance pool resource to return.
 To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/grpc/ReservedInstancePool/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## ReservedInstancePool {#yandex.cloud.compute.v1.ReservedInstancePool}
@@ -141,22 +140,25 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **int64**
 
-Required field. The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 274877906944. ||
+The amount of memory available to the instance, specified in bytes.
+The value must be less than or equal to 274877906944.
+This field is required. ||
 || cores | **int64**
 
-Required field. The number of cores available to the instance. ||
+The number of cores available to the instance.
+The value must satisfy: 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+This field is required. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
-
 For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
-For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels). ||
+For more information, see [Levels of core performance](/docs/compute/concepts/performance-levels).
+The value must satisfy: 0,5,20,50,100. ||
 || gpus | **int64**
 
-The number of GPUs available to the instance. ||
+The number of GPUs available to the instance.
+The value must satisfy: 0,1,2,4. ||
 |#
 
 ## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}

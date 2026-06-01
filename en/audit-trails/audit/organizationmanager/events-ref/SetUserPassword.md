@@ -94,7 +94,8 @@ editable: false
     "needChange": "boolean",
     "generated": "boolean",
     "expiresAt": "string",
-    "commonPasswordHash": "boolean"
+    "commonPasswordHash": "boolean",
+    "passwordRecentlyUsed": "boolean"
   },
   "requestParameters": "object",
   "response": "object"
@@ -279,4 +280,5 @@ To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || commonPasswordHash | **boolean** ||
+|| passwordRecentlyUsed | **boolean** ||
 |#

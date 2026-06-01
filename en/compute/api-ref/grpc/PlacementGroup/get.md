@@ -5,7 +5,6 @@ editable: false
 # Compute Cloud API, gRPC: PlacementGroupService.Get
 
 Returns the specified placement group.
-
 To get the list of all available placement groups, make a [List](/docs/compute/api-ref/grpc/PlacementGroup/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of all available placement groups, make a [List](/docs/compute/a
 || placement_group_id | **string**
 
 ID of the placement group to return.
-
 To get a placement group ID make a [PlacementGroupService.List](/docs/compute/api-ref/grpc/PlacementGroup/list#List) request. ||
 |#
 
@@ -58,7 +56,7 @@ ID of the placement group. Generated at creation time. ||
 ID of the folder that the placement group belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Creation timestamp. ||
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 || name | **string**
 
 Name of the placement group.
@@ -77,13 +75,15 @@ over distinct failure domains.
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 || partition_placement_strategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
 Includes only one of the fields `spread_placement_strategy`, `partition_placement_strategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 |#
 
 ## SpreadPlacementStrategy {#yandex.cloud.compute.v1.SpreadPlacementStrategy}
@@ -102,5 +102,5 @@ specify the required placement strategy.
 ||Field | Description ||
 || partitions | **int64**
 
-Acceptable values are 2 to 5, inclusive. ||
+The value must be between 2 and 5. ||
 |#

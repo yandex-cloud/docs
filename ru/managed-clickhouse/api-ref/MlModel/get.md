@@ -32,7 +32,6 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: MlModel.Get
 
 Returns the specified machine learning model.
-
 To get the list of all available models, make a [List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request.
 
 ## HTTP request
@@ -53,7 +52,6 @@ The maximum string length in characters is 50. ||
 || mlModelName | **string**
 
 Required field. Name of the model to return.
-
 To get a model name make a [MlModelService.List](/docs/managed-clickhouse/api-ref/MlModel/list#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||

@@ -4,6 +4,8 @@
 
 * [Как заново подключить ВМ или сервер {{ baremetal-name }} к {{ backup-name }} после восстановления резервной копии в другую ВМ или другой сервер?](#how-to-renew-connection)
 
+* [Почему не удаляются старые резервные копии после переподключения ВМ к {{ backup-name }}?](#old-backups-not-deleted)
+
 * [Ошибка при попытке восстановить ВМ или сервер {{ baremetal-name }} из резервной копии](#recovery-error)
 
 * [Ошибка при подключении ВМ на Windows](#windows-connection-issue)

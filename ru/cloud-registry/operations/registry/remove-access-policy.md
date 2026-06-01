@@ -10,7 +10,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Выберите реестр.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cloud-registry.title_ip-permissions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.cloud-registry.registries.button_update-ip-permissions-full }}**.

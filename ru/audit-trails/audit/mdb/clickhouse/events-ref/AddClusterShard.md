@@ -433,6 +433,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             },
             "userConfig": {
@@ -772,6 +777,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             },
             "defaultConfig": {
@@ -1111,6 +1121,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             }
           },
@@ -1344,31 +1359,15 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| backgroundPoolSize | **string** (int64)
-
-The minimum value is 1. ||
+|| backgroundPoolSize | **string** (int64) ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64) ||
-|| backgroundSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundFetchesPoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundMovePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundDistributedSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundBufferFlushSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundMessageBrokerSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundCommonPoolSize | **string** (int64)
-
-The minimum value is 1. ||
+|| backgroundSchedulePoolSize | **string** (int64) ||
+|| backgroundFetchesPoolSize | **string** (int64) ||
+|| backgroundMovePoolSize | **string** (int64) ||
+|| backgroundDistributedSchedulePoolSize | **string** (int64) ||
+|| backgroundBufferFlushSchedulePoolSize | **string** (int64) ||
+|| backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
+|| backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
 || logLevel | **enum** (LogLevel)
 
@@ -1428,12 +1427,8 @@ The minimum value is 1. ||
 || queryMetricLogRetentionSize | **string** (int64) ||
 || queryMetricLogRetentionTime | **string** (int64) ||
 || accessControlImprovements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)** ||
-|| maxConnections | **string** (int64)
-
-Acceptable values are 128 to 8192, inclusive. ||
-|| maxConcurrentQueries | **string** (int64)
-
-The minimum value is 100. ||
+|| maxConnections | **string** (int64) ||
+|| maxConcurrentQueries | **string** (int64) ||
 || maxTableSizeToDrop | **string** (int64) ||
 || maxPartitionSizeToDrop | **string** (int64) ||
 || keepAliveTimeout | **string** (int64) ||
@@ -1463,6 +1458,7 @@ The minimum value is 100. ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
+|| tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||
 |#
 
@@ -1671,9 +1667,7 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || db | **string** ||
 || table | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)** ||
@@ -1691,9 +1685,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 
 The maximum string length in characters is 253. ||
 || priority | **string** (int64) ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 |#
@@ -1707,9 +1699,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || where | **string** ||
@@ -1725,9 +1715,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || options | **string** ||
@@ -1740,9 +1728,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || db | **string** ||
 || table | **string** ||
 || hosts[] | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || invalidateQuery | **string** ||
@@ -1839,12 +1825,8 @@ The number of elements must be greater than 0. ||
 - `AUTO_OFFSET_RESET_LATEST`
 - `AUTO_OFFSET_RESET_END`
 - `AUTO_OFFSET_RESET_ERROR` ||
-|| messageMaxBytes | **string** (int64)
-
-Acceptable values are 1000 to 1000000000, inclusive. ||
-|| batchSize | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+|| messageMaxBytes | **string** (int64) ||
+|| batchSize | **string** (int64) ||
 |#
 
 ## KafkaTopic {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic}
@@ -1888,9 +1870,7 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 #|
 ||Field | Description ||
 || host | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 |#
 
 ## Macro {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro}
@@ -1899,10 +1879,17 @@ Acceptable values are 0 to 65535, inclusive. ||
 ||Field | Description ||
 || name | **string**
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 || value | **string**
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
+|#
+
+## Tls {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls}
+
+#|
+||Field | Description ||
+|| trustedCertificates[] | **string** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}

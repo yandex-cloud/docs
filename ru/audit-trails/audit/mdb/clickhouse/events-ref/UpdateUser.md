@@ -489,9 +489,7 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| readonly | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| readonly | **string** (int64) ||
 || allowDdl | **boolean** ||
 || allowIntrospectionFunctions | **boolean** ||
 || connectTimeout | **string** (int64) ||
@@ -504,9 +502,7 @@ Acceptable values are 0 to 2, inclusive. ||
 || insertQuorumTimeout | **string** (int64) ||
 || insertQuorumParallel | **boolean** ||
 || selectSequentialConsistency | **boolean** ||
-|| replicationAlterPartitionsSync | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| replicationAlterPartitionsSync | **string** (int64) ||
 || maxReplicaDelayForDistributedQueries | **string** (int64) ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean** ||
 || distributedProductMode | **enum** (DistributedProductMode)
@@ -539,29 +535,17 @@ Acceptable values are 0 to 2, inclusive. ||
 || preferLocalhostReplica | **boolean** ||
 || compileExpressions | **boolean** ||
 || minCountToCompileExpression | **string** (int64) ||
-|| maxBlockSize | **string** (int64)
-
-The minimum value is 1. ||
+|| maxBlockSize | **string** (int64) ||
 || minInsertBlockSizeRows | **string** (int64) ||
 || minInsertBlockSizeBytes | **string** (int64) ||
-|| maxInsertBlockSize | **string** (int64)
-
-The minimum value is 1. ||
+|| maxInsertBlockSize | **string** (int64) ||
 || maxPartitionsPerInsertBlock | **string** (int64) ||
 || minBytesToUseDirectIo | **string** (int64) ||
 || useUncompressedCache | **boolean** ||
-|| mergeTreeMaxRowsToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMaxBytesToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinRowsForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinBytesForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
+|| mergeTreeMaxRowsToUseCache | **string** (int64) ||
+|| mergeTreeMaxBytesToUseCache | **string** (int64) ||
+|| mergeTreeMinRowsForConcurrentRead | **string** (int64) ||
+|| mergeTreeMinBytesForConcurrentRead | **string** (int64) ||
 || maxBytesBeforeExternalGroupBy | **string** (int64) ||
 || maxBytesRatioBeforeExternalGroupBy | **number** (double) ||
 || maxBytesRatioBeforeExternalSort | **number** (double) ||
@@ -651,18 +635,10 @@ The minimum value is 1. ||
 || maxColumnsToRead | **string** (int64) ||
 || maxTemporaryColumns | **string** (int64) ||
 || maxTemporaryNonConstColumns | **string** (int64) ||
-|| maxQuerySize | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstDepth | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstElements | **string** (int64)
-
-The minimum value is 1. ||
-|| maxExpandedAstElements | **string** (int64)
-
-The minimum value is 1. ||
+|| maxQuerySize | **string** (int64) ||
+|| maxAstDepth | **string** (int64) ||
+|| maxAstElements | **string** (int64) ||
+|| maxExpandedAstElements | **string** (int64) ||
 || maxParserDepth | **string** (int64) ||
 || minExecutionSpeed | **string** (int64) ||
 || minExecutionSpeedBytes | **string** (int64) ||
@@ -768,13 +744,9 @@ The minimum value is 1. ||
 || allowSuspiciousLowCardinalityTypes | **boolean** ||
 || flattenNested | **boolean** ||
 || memoryProfilerStep | **string** (int64) ||
-|| memoryProfilerSampleProbability | **number** (double)
-
-Acceptable values are 0 to 1, inclusive. ||
+|| memoryProfilerSampleProbability | **number** (double) ||
 || maxFinalThreads | **string** (int64) ||
-|| maxReadBufferSize | **string** (int64)
-
-The minimum value is 1. ||
+|| maxReadBufferSize | **string** (int64) ||
 || insertKeeperMaxRetries | **string** (int64) ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
@@ -793,9 +765,7 @@ The minimum value is 1. ||
 
 #|
 ||Field | Description ||
-|| intervalDuration | **string** (int64)
-
-The minimum value is 1000. ||
+|| intervalDuration | **string** (int64) ||
 || queries | **string** (int64) ||
 || errors | **string** (int64) ||
 || resultRows | **string** (int64) ||

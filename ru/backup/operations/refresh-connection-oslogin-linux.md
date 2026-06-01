@@ -14,6 +14,12 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+{% note warning %}
+
+{% include [old-backup](../../_includes/backup/old-backups.md) %}
+
+{% endnote %}
+
 После [восстановления одной виртуальной машины из копии другой](./backup-vm/non-native-recovery.md), исходная ВМ, из которой была создана копия, становится неактуальной.
 
 Чтобы избежать конфликтов между двумя ВМ при резервном копировании, обновите подключение неактуальной ВМ к {{ backup-name }}:
@@ -67,7 +73,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
      1. На вкладке ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
 
         Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.

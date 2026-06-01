@@ -9,18 +9,17 @@ apiPlayground:
         hostGroupId:
           description: |-
             **string**
-            Required field. ID of the host group to update.
-            The maximum string length in characters is 50.
+            ID of the host group to update.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         hostId:
           description: |-
             **string**
-            Required field. ID of the host to update.
-            The maximum string length in characters is 50.
+            ID of the host to update.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - hostGroupId
-        - hostId
       additionalProperties: false
     query: null
     body:
@@ -71,13 +70,13 @@ PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/hosts/{
 || hostGroupId | **string**
 
 Required field. ID of the host group to update.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || hostId | **string**
 
 Required field. ID of the host to update.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Body parameters {#yandex.cloud.compute.v1.UpdateHostGroupHostRequest}
@@ -126,10 +125,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "hostGroupId": "string",
-    "hostId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -138,15 +134,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "status": "string",
-    "serverId": "string",
-    "replacement": {
-      "hostId": "string",
-      "deadlineAt": "string"
-    }
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -188,7 +176,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateHostGroupHostMetadata](#yandex.cloud.compute.v1.UpdateHostGroupHostMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -203,7 +191,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Host](#yandex.cloud.compute.v1.Host)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -218,18 +206,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateHostGroupHostMetadata {#yandex.cloud.compute.v1.UpdateHostGroupHostMetadata}
-
-#|
-||Field | Description ||
-|| hostGroupId | **string**
-
-ID of the host group that is being updated. ||
-|| hostId | **string**
-
-ID of the host that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -247,46 +223,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Host {#yandex.cloud.compute.v1.Host}
-
-Represents a dedicated host
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the host. ||
-|| status | **enum** (Status)
-
-Current status of the host. New instances are unable to start on host in DOWN status.
-
-- `UP`
-- `DOWN` ||
-|| serverId | **string**
-
-ID of the physical server that the host belongs to. ||
-|| replacement | **[Replacement](#yandex.cloud.compute.v1.Replacement)**
-
-Set temporarily if maintenance is planned for this host, and a new host was provided as a replacement. ||
-|#
-
-## Replacement {#yandex.cloud.compute.v1.Replacement}
-
-#|
-||Field | Description ||
-|| hostId | **string**
-
-ID of the host which replaces this one. ||
-|| deadlineAt | **string** (date-time)
-
-The date and time when this host will be automatically freed of instances.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

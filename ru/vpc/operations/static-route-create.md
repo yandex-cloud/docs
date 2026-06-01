@@ -18,7 +18,7 @@ description: Статический маршрут по умолчанию (0.0.
   Чтобы создать таблицу маршрутизации и добавить в нее [статические маршруты](../concepts/routing.md):
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать статический маршрут.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя таблицы маршрутизации. Требования к имени:

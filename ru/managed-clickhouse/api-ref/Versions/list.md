@@ -49,6 +49,7 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/versions
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `pageSize`, the service returns a [ListVersionsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListVersionsResponse) that can be used
 to get the next page of results in subsequent ListVersions requests.
+
 Default value: 100.
 
 Acceptable values are 0 to 1000, inclusive. ||

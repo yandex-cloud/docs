@@ -37,7 +37,7 @@
 
    - OAuth-токена {#oauth-token}
 
-     {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+     {% include [oauth-token-deprecated-migration](../../../_includes/oauth-token-deprecated-migration.md) %}
 
      1. Если у вас еще нет [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке]({{ link-cloud-oauth }}).
      1. Выполните команду:

@@ -5,7 +5,6 @@ editable: false
 # Compute Cloud API, gRPC: SnapshotScheduleService.Get
 
 Returns the specified snapshot schedule.
-
 To get the list of available snapshot schedules, make a [List](/docs/compute/api-ref/grpc/SnapshotSchedule/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available snapshot schedules, make a [List](/docs/compute/api
 || snapshot_schedule_id | **string**
 
 ID of the snapshot schedule to return.
-
 To get a schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/grpc/SnapshotSchedule/list#List) request. ||
 |#
 
@@ -71,7 +69,6 @@ Creation timestamp. ||
 || name | **string**
 
 Name of the snapshot schedule.
-
 The name is unique within the folder. ||
 || description | **string**
 
@@ -126,7 +123,6 @@ Timestamp for creating the first snapshot. ||
 || expression | **string**
 
 Cron expression for the snapshot schedule (UTC+0).
-
 The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
 nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
 see [documentation](/docs/compute/concepts/snapshot-schedule#cron) ||

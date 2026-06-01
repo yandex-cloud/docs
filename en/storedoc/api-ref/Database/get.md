@@ -33,7 +33,6 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: Database.Get
 
 Returns the specified MongoDB Database resource.
-
 To get the list of available MongoDB Database resources, make a [List](/docs/managed-mongodb/api-ref/Database/list#List) request.
 
 ## HTTP request

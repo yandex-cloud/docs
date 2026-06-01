@@ -8,9 +8,9 @@ Retrieves the specific Maintenance by ID.
 
 ## gRPC request
 
-**rpc Get ([yandex.cloud.maintenance.v2.GetMaintenanceRequest](#yandex.cloud.maintenance.v2.GetMaintenanceRequest)) returns ([yandex.cloud.maintenance.v2.Maintenance](#yandex.cloud.maintenance.v2.Maintenance))**
+**rpc Get ([maintenance.v2.GetMaintenanceRequest](#yandex.cloud.maintenance.v2.GetMaintenanceRequest)) returns ([maintenance.v2.Maintenance](#yandex.cloud.maintenance.v2.Maintenance))**
 
-## yandex.cloud.maintenance.v2.GetMaintenanceRequest {#yandex.cloud.maintenance.v2.GetMaintenanceRequest}
+## maintenance.v2.GetMaintenanceRequest {#yandex.cloud.maintenance.v2.GetMaintenanceRequest}
 
 ```json
 {
@@ -29,7 +29,7 @@ Required field.
 The maximum string length in characters is 50. ||
 |#
 
-## yandex.cloud.maintenance.v2.Maintenance {#yandex.cloud.maintenance.v2.Maintenance}
+## maintenance.v2.Maintenance {#yandex.cloud.maintenance.v2.Maintenance}
 
 ```json
 {

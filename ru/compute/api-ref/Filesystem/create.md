@@ -11,62 +11,60 @@ apiPlayground:
         folderId:
           description: |-
             **string**
-            Required field. ID of the folder to create a filesystem in.
+            ID of the folder to create a filesystem in.
             To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         name:
           description: |-
             **string**
             Name of the filesystem. The name must be unique within the folder.
-            Value must match the regular expression ` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? `.
-          pattern: '|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?'
+            The value must match the regular expression: `|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?`.
           type: string
         description:
           description: |-
             **string**
             Description of the filesystem.
-            The maximum string length in characters is 256.
+            The length must be less than or equal to 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Filesystem labels as `key:value` pairs.
             For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
-            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
+            Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+            Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+            The length of each map key must be between 1 and 63.
+            The length of each map value must be less than or equal to 63.
+            The number of elements must be less than or equal to 64.
           type: object
           additionalProperties:
             type: string
-            pattern: '[-_./\@0-9a-z]*'
-            maxLength: 63
-          propertyNames:
-            type: string
-            pattern: '[a-z][-_./\@0-9a-z]*'
-            maxLength: 63
-            minLength: 1
-          maxProperties: 64
         typeId:
           description: |-
             **string**
             ID of the filesystem type.
             To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
             The filesystem type cannot be updated after the filesystem creation.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
           type: string
         zoneId:
           description: |-
             **string**
-            Required field. ID of the availability zone where the filesystem resides.
+            ID of the availability zone where the filesystem resides.
             To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
             A filesystem can be attached only to virtual machines residing in the same availability zone.
             The filesystem availability zone cannot be updated after the filesystem creation.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         size:
           description: |-
             **string** (int64)
-            Required field. Size of the filesystem, specified in bytes.
+            Size of the filesystem, specified in bytes.
             The size of the filesystem cannot be updated after the filesystem creation.
+            This field is required.
           type: string
           format: int64
         blockSize:
@@ -78,10 +76,6 @@ apiPlayground:
           default: '4096'
           type: string
           format: int64
-      required:
-        - folderId
-        - zoneId
-        - size
       additionalProperties: false
     definitions: null
 ---
@@ -115,57 +109,50 @@ POST https://compute.{{ api-host }}/compute/v1/filesystems
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the folder to create a filesystem in.
-
+ID of the folder to create a filesystem in.
 To get the folder ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || name | **string**
 
 Name of the filesystem. The name must be unique within the folder.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
 Description of the filesystem.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Filesystem labels as `key:value` pairs.
 For details about the concept, see [documentation](/docs/overview/concepts/services#labels).
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || typeId | **string**
 
 ID of the filesystem type.
-
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
-
 The filesystem type cannot be updated after the filesystem creation.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50. ||
 || zoneId | **string**
 
-Required field. ID of the availability zone where the filesystem resides.
-
+ID of the availability zone where the filesystem resides.
 To get a list of available zones, make a [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
-
 A filesystem can be attached only to virtual machines residing in the same availability zone.
 The filesystem availability zone cannot be updated after the filesystem creation.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || size | **string** (int64)
 
-Required field. Size of the filesystem, specified in bytes.
-
-The size of the filesystem cannot be updated after the filesystem creation. ||
+Size of the filesystem, specified in bytes.
+The size of the filesystem cannot be updated after the filesystem creation.
+This field is required. ||
 || blockSize | **string** (int64)
 
 Block size used for the filesystem, specified in bytes.
-
 The block size cannot be updated after the filesystem creation.
-
 Default value: 4096. ||
 |#
 
@@ -181,9 +168,7 @@ Default value: 4096. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "filesystemId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -192,19 +177,7 @@ Default value: 4096. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "typeId": "string",
-    "zoneId": "string",
-    "size": "string",
-    "blockSize": "string",
-    "status": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -246,7 +219,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateFilesystemMetadata](#yandex.cloud.compute.v1.CreateFilesystemMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -261,7 +234,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Filesystem](#yandex.cloud.compute.v1.Filesystem)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -276,15 +249,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateFilesystemMetadata {#yandex.cloud.compute.v1.CreateFilesystemMetadata}
-
-#|
-||Field | Description ||
-|| filesystemId | **string**
-
-ID of the filesystem that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -302,63 +266,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Filesystem {#yandex.cloud.compute.v1.Filesystem}
-
-A filesystem resource.
-For details about the concept, see [documentation](/docs/compute/concepts/filesystem).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the filesystem. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the filesystem belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the filesystem. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the filesystem. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Filesystem labels as `key:value` pairs.
-For details about the concept, see [documentation](/docs/overview/concepts/services#labels). ||
-|| typeId | **string**
-
-ID of the filesystem type.
-
-To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request. ||
-|| zoneId | **string**
-
-ID of the availability zone where the filesystem resides.
-
-A filesystem can be attached only to instances residing in the same availability zone. ||
-|| size | **string** (int64)
-
-Size of the filesystem, specified in bytes. ||
-|| blockSize | **string** (int64)
-
-Block size used for the filesystem, specified in bytes. ||
-|| status | **enum** (Status)
-
-Current status of the filesystem.
-
-- `CREATING`: The filesystem is being created.
-- `READY`: The filesystem is ready to use.
-- `ERROR`: The filesystem encountered a problem and cannot operate.
-- `DELETING`: The filesystem is being deleted. ||
 |#

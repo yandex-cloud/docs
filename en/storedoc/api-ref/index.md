@@ -12,6 +12,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 #|
 ||Service | Description ||
+|| [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing MongoDB Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing MongoDB Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing MongoDB Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing MongoDB Database resources. ||

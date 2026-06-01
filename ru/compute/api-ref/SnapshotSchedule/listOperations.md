@@ -54,7 +54,6 @@ GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotSchedul
 || snapshotScheduleId | **string**
 
 Required field. ID of the snapshot schedule to list operations for.
-
 To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/SnapshotSchedule/list#List) request. ||
 |#
 
@@ -67,7 +66,6 @@ To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compu
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListSnapshotScheduleOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || pageToken | **string**
 
@@ -116,7 +114,6 @@ List of operations for the specified snapshot schedule. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSnapshotScheduleOperationsRequest.pageSize](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsRequest), use `next_page_token` as the value
 for the [ListSnapshotScheduleOperationsRequest.pageToken](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

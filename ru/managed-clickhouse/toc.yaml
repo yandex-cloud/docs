@@ -741,14 +741,14 @@ items:
                 href: api-ref/grpc/Cluster/update.md
               - name: Delete
                 href: api-ref/grpc/Cluster/delete.md
+              - name: AddZookeeper
+                href: api-ref/grpc/Cluster/addZookeeper.md
               - name: Start
                 href: api-ref/grpc/Cluster/start.md
               - name: Stop
                 href: api-ref/grpc/Cluster/stop.md
               - name: Move
                 href: api-ref/grpc/Cluster/move.md
-              - name: AddZookeeper
-                href: api-ref/grpc/Cluster/addZookeeper.md
               - name: Backup
                 href: api-ref/grpc/Cluster/backup.md
               - name: Restore
@@ -943,14 +943,14 @@ items:
                 href: api-ref/Cluster/update.md
               - name: Delete
                 href: api-ref/Cluster/delete.md
+              - name: AddZookeeper
+                href: api-ref/Cluster/addZookeeper.md
               - name: Start
                 href: api-ref/Cluster/start.md
               - name: Stop
                 href: api-ref/Cluster/stop.md
               - name: Move
                 href: api-ref/Cluster/move.md
-              - name: AddZookeeper
-                href: api-ref/Cluster/addZookeeper.md
               - name: Backup
                 href: api-ref/Cluster/backup.md
               - name: Restore

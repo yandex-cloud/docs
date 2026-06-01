@@ -880,46 +880,68 @@ items:
         items:
           - name: Создание дашборда
             href: operations/dashboard/create.md
-          - name: Добавление чарта на дашборд
-            href: operations/dashboard/add-chart.md
-          - name: Добавление селектора на дашборд
-            href: operations/dashboard/add-selector.md
-          - name: Добавление текста на дашборд
-            href: operations/dashboard/add-text.md
-          - name: Добавление заголовка на дашборд
-            href: operations/dashboard/add-title.md
-          - name: Копирование виджетов на дашборде
-            href: operations/dashboard/copying-widgets.md
+          - name: Виджеты на дашборде
+            items:
+              - name: Добавление чарта на дашборд
+                href: operations/dashboard/add-chart.md
+              - name: Добавление селектора на дашборд
+                href: operations/dashboard/add-selector.md
+              - name: Добавление текста на дашборд
+                href: operations/dashboard/add-text.md
+              - name: Добавление заголовка на дашборд
+                href: operations/dashboard/add-title.md
+              - name: Добавление селектора JS на дашборд
+                href: charts/editor/add-js-selector.md
+              - name: Добавление Нейроаналитика на дашборд
+                href: operations/dashboard/add-ai.md
+              - name: Копирование виджетов на дашборде
+                href: operations/dashboard/copying-widgets.md
           - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
-          - name: Добавление рассылки для дашборда
-            href: operations/dashboard/add-maillists.md
-          - name: Добавление сообщения при обращении в поддержку
-            href: operations/dashboard/add-support-message.md
-          - name: Добавление сообщения при ошибке доступа
-            href: operations/dashboard/add-access-message.md
-          - name: Настройка связей на дашборде
-            href: operations/dashboard/dashboard-links.md
-          - name: Создание алиаса
-            href: operations/dashboard/create-alias.md
-          - name: Удаление алиаса
-            href: operations/dashboard/edit-alias.md
-          - name: Управление доступом к дашборду
-            href: operations/dashboard/manage-access.md
-          - name: Добавление параметров на дашборд
-            href: operations/dashboard/add-parameters.md
+          - name: Настройки дашборда
+            items:
+              - name: Изменение настроек дашборда
+                href: operations/dashboard/dash-settings.md
+              - name: Добавление рассылки для дашборда
+                href: operations/dashboard/add-maillists.md
+              - name: Добавление сообщения при обращении в поддержку
+                href: operations/dashboard/add-support-message.md
+              - name: Добавление сообщения при ошибке доступа
+                href: operations/dashboard/add-access-message.md
+              - name: Добавление параметров на дашборд
+                href: operations/dashboard/add-parameters.md
+              - name: Автообновление дашборда
+                href: operations/dashboard/auto-update.md
+              - name: Запрет Нейроаналитика на дашборде
+                href: operations/dashboard/dashboard-neuroanalyst-off.md
+          - name: Настройки связей
+            items:
+              - name: Настройка связей на дашборде
+                href: operations/dashboard/dashboard-links.md
+              - name: Создание алиаса
+                href: operations/dashboard/create-alias.md
+              - name: Удаление алиаса
+                href: operations/dashboard/edit-alias.md
+          - name: Настройки внешнего вида
+            items:
+              - name: Добавление оглавления на дашборд
+                href: operations/dashboard/add-contents.md
+              - name: Настройка отступов на дашборде
+                href: operations/dashboard/add-margins.md
+              - name: Настройка заголовка дашборда
+                href: operations/dashboard/add-title-dashboard.md
+          - name: Управление вкладками дашборда
+            items:
+              - name: Настройка вкладок дашборда
+                href: operations/dashboard/dashboard-tabs.md
+              - name: Изменить отображение вкладок
+                href: operations/dashboard/dashboard-hide-tabs.md
+              - name: Порядок отображения виджетов на мобильном устройстве
+                href: operations/dashboard/display-modes.md
           - name: Настройка фильтрации чартами
             href: operations/dashboard/add-filtration.md
-          - name: Автообновление дашборда
-            href: operations/dashboard/auto-update.md
-          - name: Изменение настроек дашборда
-            href: operations/dashboard/dash-settings.md
-          - name: Запрет Нейроаналитика на дашборде
-            href: operations/dashboard/dashboard-neuroanalyst-off.md
-          - name: Порядок отображения виджетов на мобильном устройстве
-            href: operations/dashboard/display-modes.md
-          - name: Добавление селектора JS на дашборд
-            href: charts/editor/add-js-selector.md
+          - name: Управление доступом к дашборду
+            href: operations/dashboard/manage-access.md
   - name: Отчеты
     items:
       - name: Обзор

@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить реестр:
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится реестр.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis-vertical.svg) в строке реестра, который требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-confirm_button_delete }}**.

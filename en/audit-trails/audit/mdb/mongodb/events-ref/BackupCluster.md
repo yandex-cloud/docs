@@ -4069,12 +4069,8 @@ Acceptable values are 10 to 32768, inclusive. ||
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| emergencyUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
+|| plannedUsageThreshold | **string** (int64) ||
+|| emergencyUsageThreshold | **string** (int64) ||
 || diskSizeLimit | **string** (int64) ||
 |#
 

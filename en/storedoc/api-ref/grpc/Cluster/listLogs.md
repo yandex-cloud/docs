@@ -43,9 +43,9 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || from_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

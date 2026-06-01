@@ -10,7 +10,7 @@
 
 Подписанный URL — это URL, содержащий в своих параметрах данные для авторизации запроса. Составить подписанный URL может пользователь, обладающий статическими ключами доступа.
 
-Раздел содержит общие принципы построения подписанного URL с использованием [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+Раздел содержит общие принципы построения подписанного URL с использованием [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html). Чтобы получить ссылку на [скачивание](../../../storage/operations/objects/link-for-download.md) или [загрузку](../../../storage/operations/objects/link-for-upload.md) объекта, воспользуйтесь пошаговыми инструкциями.
 
 {% note info %}
 

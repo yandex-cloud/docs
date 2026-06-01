@@ -21,7 +21,6 @@ apiPlayground:
 # Compute Cloud API, REST: GpuCluster.Get
 
 Returns the specified GPU cluster.
-
 To get the list of available GPU clusters, make a [List](/docs/compute/api-ref/GpuCluster/list#List) request.
 
 ## HTTP request
@@ -37,7 +36,6 @@ GET https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
 || gpuClusterId | **string**
 
 Required field. ID of the GPU cluster to return.
-
 To get a GPU cluster ID, make a [GpuClusterService.List](/docs/compute/api-ref/GpuCluster/list#List) request. ||
 |#
 
@@ -82,7 +80,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string**
 
 Name of the GPU cluster.
-
 The name is unique within the folder. ||
 || description | **string**
 

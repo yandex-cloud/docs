@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
     {% endnote %}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
-    1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
 
@@ -42,11 +42,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если рабочий процесс:
 * [публичный](../workflow/make-public.md), его может запустить любой пользователь.
-* приватный, чтобы запустить его, пользователю необходимо аутентифицироваться, передав [{{ iam-short-name }}-токен](../../../../iam/concepts/authorization/iam-token.md) в заголовке `Authorization` в следующем формате:
-
-    ```bash
-    Authorization: Bearer <{{ iam-short-name }}-токен>
-    ```
+* приватный, чтобы запустить его, пользователю необходимо аутентифицироваться, передав [{{ iam-short-name }}-токен](../../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../../iam/concepts/authorization/api-key.md) в заголовке `Authorization`.
 
 Чтобы запустить рабочий процесс, сделайте POST-запрос:
 
@@ -56,12 +52,21 @@ description: Следуя данной инструкции, вы сможете
     curl -X POST "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start"
     ```
 
-*  Пример запуска приватного рабочего процесса без передачи входных данных:
+*  Пример запуска приватного рабочего процесса без передачи входных данных и с аутентификацией по {{ iam-short-name }}-токену:
 
     ```bash
     IAM_TOKEN="<{{ iam-short-name }}-токен>"
     curl -X POST \
     --header "Authorization: Bearer $IAM_TOKEN" \
+    "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq3l36kr2gh********/start"
+    ```
+
+*  Пример запуска приватного рабочего процесса без передачи входных данных и с аутентификацией по API-ключу:
+
+    ```bash
+    API_KEY="<API-ключ>"
+    curl -X POST \
+    --header "Authorization: Api-Key $API_KEY" \
     "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq3l36kr2gh********/start"
     ```
 

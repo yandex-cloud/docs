@@ -43,6 +43,10 @@ items:
         items:
           - name: Создать фильтр
             href: operations/filter-create.md
+      - name: DNS-подключения
+        items:
+          - name: Создать входящее DNS-подключение
+            href: operations/connection-inbound-create.md
   - name: Концепции
     items:
       - name: Обзор
@@ -55,6 +59,8 @@ items:
         href: concepts/dns-filter.md
       - name: DNS-резолвер
         href: concepts/dns-resolver.md
+      - name: DNS-подключения
+        href: concepts/dns-connection.md
       - name: Интеграция с {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Квоты и лимиты

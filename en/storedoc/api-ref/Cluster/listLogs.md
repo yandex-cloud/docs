@@ -31,9 +31,9 @@ apiPlayground:
           description: |-
             **enum** (ServiceType)
             Type of the service to request logs about.
-            - `MONGOD`: Logs of MongoDB activity.
-            - `MONGOS`
-            - `MONGOCFG`
+            - `MONGOD`: Logs of mongod activity.
+            - `MONGOS`: Logs of mongos activity.
+            - `MONGOCFG`: Logs of mongocfg activity.
             - `AUDIT`: MongoDB Enterprise audit logs
           type: string
           enum:
@@ -122,9 +122,9 @@ If no columns are specified, entire log records are returned. ||
 
 Type of the service to request logs about.
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || fromTime | **string** (date-time)
 

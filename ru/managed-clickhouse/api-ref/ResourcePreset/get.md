@@ -24,7 +24,6 @@ apiPlayground:
 # Managed Service for ClickHouse API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](/docs/managed-clickhouse/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request

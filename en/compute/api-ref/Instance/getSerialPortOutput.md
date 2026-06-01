@@ -9,11 +9,10 @@ apiPlayground:
         instanceId:
           description: |-
             **string**
-            Required field. ID of the instance to return the serial port output for.
-            The maximum string length in characters is 50.
+            ID of the instance to return the serial port output for.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - instanceId
       additionalProperties: false
     query:
       type: object
@@ -22,6 +21,7 @@ apiPlayground:
           description: |-
             **string** (int64)
             Serial port to retrieve data from. The default is 1.
+            The value must satisfy: 1,2,3,4.
           type: string
           format: int64
       additionalProperties: false
@@ -46,8 +46,8 @@ GET https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:serialPortO
 || instanceId | **string**
 
 Required field. ID of the instance to return the serial port output for.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.GetInstanceSerialPortOutputRequest}
@@ -56,7 +56,8 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || port | **string** (int64)
 
-Serial port to retrieve data from. The default is 1. ||
+Serial port to retrieve data from. The default is 1.
+The value must satisfy: 1,2,3,4. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.GetInstanceSerialPortOutputResponse}

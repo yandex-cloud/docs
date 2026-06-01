@@ -25,14 +25,12 @@ Lists operations for the specified snapshot schedule.
 || snapshot_schedule_id | **string**
 
 ID of the snapshot schedule to list operations for.
-
 To get a snapshot schedule ID, make a [SnapshotScheduleService.List](/docs/compute/api-ref/grpc/SnapshotSchedule/list#List) request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListSnapshotScheduleOperationsResponse.next_page_token](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || page_token | **string**
 
@@ -73,7 +71,6 @@ List of operations for the specified snapshot schedule. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListSnapshotScheduleOperationsRequest.page_size](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsRequest), use `next_page_token` as the value
 for the [ListSnapshotScheduleOperationsRequest.page_token](#yandex.cloud.compute.v1.ListSnapshotScheduleOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

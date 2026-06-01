@@ -24,7 +24,7 @@
 Чтобы получить данные:
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_profiling }}**.
 1. Задайте интересующий интервал времени, при необходимости настройте фильтры.
 1. Выберите:
@@ -52,7 +52,7 @@
 Для запросов доступна статистика обращений к коллекциям, а также рекомендации создать индексы определенных полей, чтобы ускорить обработку запросов.
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mongodb.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_indexes }}**.
 1. Задайте интересующий интервал времени, при необходимости настройте фильтры.
 

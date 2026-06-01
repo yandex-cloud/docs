@@ -95,7 +95,6 @@ apiPlayground:
 # Managed Service for MySQL API, REST: Cluster.ListLogs
 
 Retrieves logs for a cluster.
-
 Alternatively, logs can be streamed using [StreamLogs](/docs/managed-mysql/api-ref/Cluster/streamLogs#StreamLogs).
 
 ## HTTP request
@@ -111,7 +110,6 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:logs
 || clusterId | **string**
 
 Required field. ID of the cluster to request logs for.
-
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -158,14 +156,12 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the API returns a [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListLogs](#ListLogs) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `pageToken` to the [ListClusterLogsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsResponse) returned by the previous [ClusterService.ListLogs](#ListLogs) request.
 
 The maximum string length in characters is 100. ||
@@ -199,11 +195,8 @@ Requested log records. ||
 || nextPageToken | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterLogsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest), use the `nextPageToken` as the value for the [ListClusterLogsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterLogsRequest) in the subsequent [ClusterService.ListLogs](#ListLogs) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListLogs](#ListLogs) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results.
-
 This value is interchangeable with [StreamLogRecord.nextRecordToken](/docs/managed-mysql/api-ref/Cluster/streamLogs#yandex.cloud.mdb.mysql.v1.StreamLogRecord) from [ClusterService.StreamLogs](/docs/managed-mysql/api-ref/Cluster/streamLogs#StreamLogs) method. ||
 |#
 

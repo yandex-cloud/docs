@@ -532,7 +532,9 @@ Includes only one of the fields `opensearchConfigSet_2`. ||
 #|
 ||Field | Description ||
 || resourcePresetId | **string** ||
-|| diskSize | **string** (int64) ||
+|| diskSize | **string** (int64)
+
+Value must be greater than 0. ||
 || diskTypeId | **string** ||
 |#
 
@@ -562,13 +564,9 @@ Acceptable values are 0 to 100, inclusive. ||
 
 #|
 ||Field | Description ||
-|| maxClauseCount | **string** (int64)
-
-Acceptable values are 32 to 32768, inclusive. ||
+|| maxClauseCount | **string** (int64) ||
 || fielddataCacheSize | **string** ||
-|| searchMaxBuckets | **string** (int64)
-
-Acceptable values are 0 to 2147483647, inclusive. ||
+|| searchMaxBuckets | **string** (int64) ||
 || reindexRemoteWhitelist | **string** ||
 || httpMaxInitialLineLength | **string** ||
 |#

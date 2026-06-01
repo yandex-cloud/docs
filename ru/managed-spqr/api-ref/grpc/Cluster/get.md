@@ -5,7 +5,6 @@ editable: false
 # Managed Service for SPQR API, gRPC: ClusterService.Get
 
 Returns the specified SPQR Cluster resource.
-
 To get the list of available SPQR Cluster resources, make a [List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
 
 ## gRPC request
@@ -103,7 +102,6 @@ The maximum string length in characters is 50. ||
         },
         "coordinator": "CoordinatorSettings"
       },
-      "log_level": "LogLevel",
       "balancer": {
         "cpu_threshold": "google.protobuf.DoubleValue",
         "space_threshold": "google.protobuf.DoubleValue",
@@ -111,7 +109,8 @@ The maximum string length in characters is 50. ||
         "max_move_count": "google.protobuf.Int64Value",
         "keys_per_move": "google.protobuf.Int64Value",
         "timeout": "google.protobuf.Int64Value"
-      }
+      },
+      "log_level": "LogLevel"
     },
     "backup_window_start": "google.type.TimeOfDay",
     "backup_retain_period_days": "google.protobuf.Int64Value",
@@ -275,6 +274,9 @@ PostgreSQL settings. ||
 || infra | **[InfraConfig](#yandex.cloud.mdb.spqr.v1.InfraConfig)**
 
 SPQR Infra (router+coordinator) settings. ||
+|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
+
+SPQR Balancer settings. ||
 || log_level | enum **LogLevel**
 
 SPQR default log level
@@ -284,9 +286,6 @@ SPQR default log level
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
-|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
-
-SPQR Balancer settings. ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}

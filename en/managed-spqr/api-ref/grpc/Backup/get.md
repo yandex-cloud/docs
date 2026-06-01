@@ -5,7 +5,6 @@ editable: false
 # Managed Service for SPQR API, gRPC: BackupService.Get
 
 Returns the specified SPQR backup.
-
 To get the list of available SPQR backups, make a [List](/docs/managed-spqr/api-ref/grpc/Backup/list#List) request.
 
 ## gRPC request

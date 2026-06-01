@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for SPQR API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](/docs/managed-spqr/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request

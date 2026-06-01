@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан алерт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. На главной странице сервиса в блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}** укажите основные параметры алерта:
      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Задайте имя канала.
@@ -45,7 +45,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан алерт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. На главной странице сервиса в блоке **{{ ui-key.yacloud_monitoring.homepage.title_service-features }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
   1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.main-info }}** укажите основные параметры алерта:
      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}**. Задайте имя канала.

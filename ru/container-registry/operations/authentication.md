@@ -30,7 +30,7 @@ description: Перед началом работы с {{ container-registry-nam
 
 - С помощью OAuth-токена {#oauth-token}
 
-  {% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+  {% include [oauth-token-deprecated-migration](../../_includes/oauth-token-deprecated-migration.md) %}
 
   {% note info %}
 

@@ -75,7 +75,6 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 || clusterId | **string**
 
 Required field. ID of the cluster to create the database in.
-
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -111,7 +110,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 || deletionProtectionMode | **enum** (DeletionProtectionMode)
 
 Deletion Protection inhibits deletion of the database
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
@@ -131,10 +129,7 @@ Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "databaseName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -143,11 +138,7 @@ Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "deletionProtectionMode": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -189,7 +180,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDatabaseMetadata](#yandex.cloud.mdb.mysql.v1.CreateDatabaseMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -204,7 +195,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Database](#yandex.cloud.mdb.mysql.v1.Database)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -219,18 +210,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDatabaseMetadata {#yandex.cloud.mdb.mysql.v1.CreateDatabaseMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster the database is being created in. ||
-|| databaseName | **string**
-
-Name of the database that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -248,29 +227,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Database {#yandex.cloud.mdb.mysql.v1.Database}
-
-An object that represents MySQL database.
-
-See [the documentation](/docs/managed-mysql/operations/databases) for details.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the database. ||
-|| clusterId | **string**
-
-ID of the cluster that the database belongs to. ||
-|| deletionProtectionMode | **enum** (DeletionProtectionMode)
-
-Deletion Protection inhibits deletion of the database
-
-Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
-
-- `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled
-- `DELETION_PROTECTION_MODE_ENABLED`: Deletion protection is enabled
-- `DELETION_PROTECTION_MODE_INHERITED`: Deletion protection mode is inherited from the cluster ||
 |#

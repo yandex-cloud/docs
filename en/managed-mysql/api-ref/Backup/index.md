@@ -5,7 +5,6 @@ editable: false
 # Managed Service for MySQL API, REST: Backup
 
 A set of methods for managing MySQL backups.
-
 See [the documentation](/docs/managed-mysql/operations/cluster-backups) for details.
 
 ## Methods

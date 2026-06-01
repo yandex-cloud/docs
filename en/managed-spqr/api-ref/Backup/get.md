@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for SPQR API, REST: Backup.Get
 
 Returns the specified SPQR backup.
-
 To get the list of available SPQR backups, make a [List](/docs/managed-spqr/api-ref/Backup/list#List) request.
 
 ## HTTP request

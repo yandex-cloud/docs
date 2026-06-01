@@ -29,3 +29,7 @@ description: Пошаговые инструкции по работе с DNS-з
 ## Фильтры DNS {#dns-filter}
 
 - [{#T}](filter-create.md)
+
+## DNS-подключения {#dns-connection}
+
+- [{#T}](connection-inbound-create.md)

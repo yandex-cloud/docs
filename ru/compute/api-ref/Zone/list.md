@@ -14,7 +14,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
             that can be used to get the next page of results in subsequent list requests.
-            The maximum value is 1000.
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -22,7 +22,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request.
-            The maximum string length in characters is 100.
+            The length must be less than or equal to 100.
           type: string
       additionalProperties: false
     body: null
@@ -49,14 +49,12 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListZonesResponse.nextPageToken](#yandex.cloud.compute.v1.ListZonesResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListZonesResponse}

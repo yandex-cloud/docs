@@ -1,5 +1,6 @@
 # Загрузка аудитных логов {{ at-full-name }} в SIEM KUMA с помощью {{ TF }}
 
+
 Чтобы настроить доставку файлов аудитных логов в [KUMA](https://www.kaspersky.ru/enterprise-security/unified-monitoring-and-analysis-platform):
 
 1. [Подготовьте облако к работе](#before-begin).

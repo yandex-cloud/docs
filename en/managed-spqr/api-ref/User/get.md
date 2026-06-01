@@ -33,7 +33,6 @@ apiPlayground:
 # Managed Service for SPQR API, REST: User.Get
 
 Returns the specified SPQR User resource.
-
 To get the list of available SPQR User resources, make a [List](/docs/managed-spqr/api-ref/User/list#List) request.
 
 ## HTTP request

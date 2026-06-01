@@ -915,6 +915,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
 
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../_roles/datalens/collections/visitor.md) %}
+
 #### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
 {% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
@@ -923,6 +927,18 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
 
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedEntryBindingCreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entryBindingCreator}
+
+{% include [datalens.collections.entryBindingCreator](../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../_roles/datalens/collections/creator.md) %}
+
 #### datalens.collections.editor {#datalens-collections-editor}
 
 {% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
@@ -930,10 +946,6 @@ For more information, see [{#T}](../container-registry/security/index.md).
 #### datalens.collections.admin {#datalens-collections-admin}
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
-
-#### datalens.metaReader {#datalens-metaReader}
-
-{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 #### datalens.visitor {#datalens-visitor}
 
@@ -954,6 +966,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 #### datalens.instances.admin {#datalens-instances-admin}
 
 {% include [datalens-instances-admin](../_roles/datalens/instances/admin.md) %}
+
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 For more information, see [{#T}](../datalens/security/roles.md).
 

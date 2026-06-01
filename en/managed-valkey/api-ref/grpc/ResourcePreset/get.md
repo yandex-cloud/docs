@@ -5,7 +5,6 @@ editable: false
 # Managed Service for Redis API, gRPC: ResourcePresetService.Get
 
 Returns the specified resource preset.
-
 To get the list of available resource presets, make a [List](/docs/managed-redis/api-ref/grpc/ResourcePreset/list#List) request.
 
 ## gRPC request
@@ -47,7 +46,7 @@ A resource preset that describes hardware configuration for a host.
 ||Field | Description ||
 || id | **string**
 
-ID of the resource preset. ||
+Required field. ID of the resource preset. ||
 || zone_ids[] | **string**
 
 IDs of availability zones where the resource preset is available. ||

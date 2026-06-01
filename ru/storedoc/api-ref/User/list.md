@@ -25,7 +25,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse)
             that can be used to get the next page of results in subsequent list requests.
-            The maximum value is 1000.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -72,7 +72,7 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the

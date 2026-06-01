@@ -24,7 +24,7 @@ apiPlayground:
           description: |-
             **string**
             Names of hosts to delete.
-            The number of elements must be greater than 0. The maximum string length in characters for each value is 253.
+            The maximum string length in characters for each value is 253. The number of elements must be greater than 0.
           type: array
           items:
             type: string
@@ -35,6 +35,7 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: Cluster.DeleteHosts
 
 Deletes the specified hosts for a cluster.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 
@@ -70,7 +71,7 @@ The maximum string length in characters is 50. ||
 
 Names of hosts to delete.
 
-The number of elements must be greater than 0. The maximum string length in characters for each value is 253. ||
+The maximum string length in characters for each value is 253. The number of elements must be greater than 0. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -85,20 +86,16 @@ The number of elements must be greater than 0. The maximum string length in char
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "hostNames": [
-      "string"
-    ]
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -140,7 +137,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteClusterHostsMetadata](#yandex.cloud.mdb.mongodb.v1.DeleteClusterHostsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -149,24 +146,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## DeleteClusterHostsMetadata {#yandex.cloud.mdb.mongodb.v1.DeleteClusterHostsMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| clusterId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the MongoDB cluster to remove hosts from. ||
-|| hostNames[] | **string**
-
-Names of hosts that are being deleted. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

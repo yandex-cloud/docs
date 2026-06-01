@@ -5,7 +5,6 @@ editable: false
 # Managed Service for MongoDB API, gRPC: UserService.Get
 
 Returns the specified MongoDB User resource.
-
 To get the list of available MongoDB User resources, make a [List](/docs/managed-mongodb/api-ref/grpc/User/list#List) request.
 
 ## gRPC request
@@ -34,7 +33,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the MongoDB User resource to return.
 To get the name of the user, use a [UserService.List](/docs/managed-mongodb/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
 
 ## User {#yandex.cloud.mdb.mongodb.v1.User}

@@ -114,10 +114,7 @@ Deletion Protection inhibits deletion of the database ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "databaseName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -126,11 +123,7 @@ Deletion Protection inhibits deletion of the database ||
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "deletionProtection": "boolean"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -172,7 +165,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateDatabaseMetadata](#yandex.cloud.mdb.spqr.v1.CreateDatabaseMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -187,7 +180,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Database](#yandex.cloud.mdb.spqr.v1.Database)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -202,18 +195,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateDatabaseMetadata {#yandex.cloud.mdb.spqr.v1.CreateDatabaseMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the SPQR cluster where the database is being created. ||
-|| databaseName | **string**
-
-Name of the SPQR database that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -231,22 +212,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Database {#yandex.cloud.mdb.spqr.v1.Database}
-
-A SPQR Database resource. For more information, see the
-[Developer's Guide](/docs/managed-spqr/concepts).
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the database. ||
-|| clusterId | **string**
-
-ID of the SPQR cluster that the database belongs to. ||
-|| deletionProtection | **boolean**
-
-Deletion Protection inhibits deletion of the database ||
 |#

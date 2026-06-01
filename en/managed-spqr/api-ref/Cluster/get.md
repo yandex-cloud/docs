@@ -24,7 +24,6 @@ apiPlayground:
 # Managed Service for SPQR API, REST: Cluster.Get
 
 Returns the specified SPQR Cluster resource.
-
 To get the list of available SPQR Cluster resources, make a [List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
 
 ## HTTP request
@@ -120,7 +119,6 @@ The maximum string length in characters is 50. ||
         },
         "coordinator": "object"
       },
-      "logLevel": "string",
       "balancer": {
         "cpuThreshold": "number",
         "spaceThreshold": "number",
@@ -128,7 +126,8 @@ The maximum string length in characters is 50. ||
         "maxMoveCount": "string",
         "keysPerMove": "string",
         "timeout": "string"
-      }
+      },
+      "logLevel": "string"
     },
     "backupWindowStart": {
       "hours": "integer",
@@ -304,6 +303,9 @@ PostgreSQL settings. ||
 || infra | **[InfraConfig](#yandex.cloud.mdb.spqr.v1.InfraConfig)**
 
 SPQR Infra (router+coordinator) settings. ||
+|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
+
+SPQR Balancer settings. ||
 || logLevel | **enum** (LogLevel)
 
 SPQR default log level
@@ -313,9 +315,6 @@ SPQR default log level
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
-|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
-
-SPQR Balancer settings. ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}

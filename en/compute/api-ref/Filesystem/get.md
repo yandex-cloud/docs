@@ -9,12 +9,11 @@ apiPlayground:
         filesystemId:
           description: |-
             **string**
-            Required field. ID of the filesystem to return.
+            ID of the filesystem to return.
             To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - filesystemId
       additionalProperties: false
     query: null
     body: null
@@ -24,7 +23,6 @@ apiPlayground:
 # Compute Cloud API, REST: Filesystem.Get
 
 Returns the specified filesystem.
-
 To get the list of available filesystems, make a [List](/docs/compute/api-ref/Filesystem/list#List) request.
 
 ## HTTP request
@@ -40,10 +38,9 @@ GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}
 || filesystemId | **string**
 
 Required field. ID of the filesystem to return.
-
 To get the filesystem ID, make a [FilesystemService.List](/docs/compute/api-ref/Filesystem/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Filesystem}
@@ -100,12 +97,10 @@ For details about the concept, see [documentation](/docs/overview/concepts/servi
 || typeId | **string**
 
 ID of the filesystem type.
-
 To get a list of available filesystem types, make a [yandex.cloud.compute.v1.DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request. ||
 || zoneId | **string**
 
 ID of the availability zone where the filesystem resides.
-
 A filesystem can be attached only to instances residing in the same availability zone. ||
 || size | **string** (int64)
 

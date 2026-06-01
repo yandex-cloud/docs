@@ -26,28 +26,24 @@ Retrieves the list of clusters in a folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list clusters in.
-
 To get this ID, make a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the API returns a [ListClustersResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClustersResponse) that can be used to get the next page of results in the subsequent [ClusterService.List](#List) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `page_token` to the [ListClustersResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClustersResponse) returned by the previous [ClusterService.List](#List) request.
 
 The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that selects clusters listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can only use filtering with the [Cluster.name](#yandex.cloud.mdb.mysql.v1.Cluster) field.
 2. An `=` operator.
@@ -138,6 +134,11 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
+            "show_compatibility_56": "google.protobuf.BoolValue",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -148,11 +149,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
-            "show_compatibility_56": "google.protobuf.BoolValue",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -237,6 +233,11 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
+            "show_compatibility_56": "google.protobuf.BoolValue",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -247,11 +248,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
-            "show_compatibility_56": "google.protobuf.BoolValue",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -336,6 +332,11 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
+            "show_compatibility_56": "google.protobuf.BoolValue",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -346,11 +347,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
-            "show_compatibility_56": "google.protobuf.BoolValue",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -438,6 +434,10 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -448,10 +448,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -536,6 +532,10 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -546,10 +546,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -634,6 +630,10 @@ The maximum string length in characters is 1000. ||
             "mdb_offline_mode_enable_lag": "google.protobuf.Int64Value",
             "mdb_offline_mode_disable_lag": "google.protobuf.Int64Value",
             "range_optimizer_max_mem_size": "google.protobuf.Int64Value",
+            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
+            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
+            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
+            "lower_case_table_names": "google.protobuf.Int64Value",
             "slow_query_log": "google.protobuf.BoolValue",
             "slow_query_log_always_write_time": "google.protobuf.DoubleValue",
             "log_slow_rate_type": "LogSlowRateType",
@@ -644,10 +644,6 @@ The maximum string length in characters is 1000. ||
             ],
             "mdb_priority_choice_max_lag": "google.protobuf.Int64Value",
             "innodb_page_size": "google.protobuf.Int64Value",
-            "innodb_online_alter_log_max_size": "google.protobuf.Int64Value",
-            "innodb_ft_min_token_size": "google.protobuf.Int64Value",
-            "innodb_ft_max_token_size": "google.protobuf.Int64Value",
-            "lower_case_table_names": "google.protobuf.Int64Value",
             "max_sp_recursion_depth": "google.protobuf.Int64Value",
             "innodb_compression_level": "google.protobuf.Int64Value",
             "binlog_transaction_dependency_tracking": "BinlogTransactionDependencyTracking",
@@ -1031,16 +1027,13 @@ List of clusters. ||
 || next_page_token | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClustersRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClustersRequest), use the `next_page_token` as the value for the [ListClustersRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClustersRequest) in the subsequent [ClusterService.List](#List) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.List](#List) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.mysql.v1.Cluster}
 
 An object that represents MySQL cluster.
-
 See [the documentation](/docs/managed-mysql/concepts) for details.
 
 #|
@@ -1048,7 +1041,6 @@ See [the documentation](/docs/managed-mysql/concepts) for details.
 || id | **string**
 
 ID of the cluster.
-
 This ID is assigned by the platform at the time of creation. ||
 || folder_id | **string**
 
@@ -1218,38 +1210,32 @@ Options and structure of `MysqlConfig5_7` reflects MySQL 5.7 configuration file.
 || innodb_buffer_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size of the InnoDB buffer pool used for caching table and index data.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) for details.
 
-The minimum value is 5242880. ||
+The minimum value is 134217728. ||
 || max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of simultaneous client connections.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_connections) for details.
 
-Acceptable values are 10 to 16384, inclusive. ||
+Acceptable values are 10 to 100000, inclusive. ||
 || long_query_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Time that it takes to process a query before it is considered slow.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_long_query_time) for details.
 
 Acceptable values are 0 to 3600, inclusive. ||
 || general_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable writing of general query log of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_general_log) for details. ||
 || audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable writing of audit log of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/audit-log-reference.html#audit-log-options-variables) for details. ||
 || sql_mode[] | enum **SQLMode**
 
 Server SQL mode of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
 
 - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
@@ -1286,14 +1272,12 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#
 || max_allowed_packet | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size in bytes of one packet.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_allowed_packet) for details.
 
-Acceptable values are 1024 to 1073741824, inclusive. ||
+Acceptable values are 1048576 to 1073741824, inclusive. ||
 || default_authentication_plugin | enum **AuthPlugin**
 
 Authentication plugin used in the managed MySQL cluster.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
 
 - `MYSQL_NATIVE_PASSWORD`: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
@@ -1304,21 +1288,18 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-
 || innodb_flush_log_at_trx_commit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Transaction log flush behaviour.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) for details.
 
 Acceptable values are 1 to 2, inclusive. ||
 || innodb_lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max time in seconds for a transaction to wait for a row lock.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) for details.
 
 Acceptable values are 1 to 28800, inclusive. ||
 || transaction_isolation | enum **TransactionIsolation**
 
 Default transaction isolation level.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
 - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
@@ -1327,224 +1308,190 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-
 || innodb_print_all_deadlocks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Print information about deadlocks in error log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) for details. ||
 || net_read_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for more data from a connection before aborting the read.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_read_timeout) for details.
 
 Acceptable values are 1 to 1200, inclusive. ||
 || net_write_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for a block to be written to a connection before aborting the write.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_net_write_timeout) for details.
 
 Acceptable values are 1 to 1200, inclusive. ||
 || group_concat_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted result length in bytes for the GROUP_CONCAT() function.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_group_concat_max_len) for details.
 
 Acceptable values are 4 to 33554432, inclusive. ||
 || tmp_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of internal in-memory temporary tables.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_tmp_table_size) for details.
 
 Acceptable values are 1024 to 536870912, inclusive. ||
 || max_heap_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_heap_table_size) for details.
 
 Acceptable values are 16384 to 536870912, inclusive. ||
 || default_time_zone | **string**
 
 The servers default time zone.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_default-time-zone) for details. ||
 || character_set_server | **string**
 
 The servers default character set.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_character_set_server) for details. ||
 || collation_server | **string**
 
 The server default collation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_collation_server) for details. ||
 || innodb_adaptive_hash_index | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables InnoDB adaptive hash index.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) for details. ||
 || innodb_numa_interleave | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_numa_interleave) for details. ||
 || innodb_log_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_buffer_size) for details.
 
 Acceptable values are 1048576 to 268435456, inclusive. ||
 || innodb_log_file_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the single InnoDB Redo log file.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_log_file_size) for details.
 
-Acceptable values are 268435456 to 4294967296, inclusive. ||
+Acceptable values are 268435456 to 8589934592, inclusive. ||
 || innodb_io_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity) for details.
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_io_capacity_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_io_capacity_max) for details.
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_read_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for read operations in InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_read_io_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_write_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for write operations in InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_write_io_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_purge_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of background threads devoted to the InnoDB purge operation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_purge_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_thread_concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum number of threads permitted inside of InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_thread_concurrency) for details.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || innodb_temp_data_file_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits the max size of InnoDB temp tablespace.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path) for details.
 
-Acceptable values are 0 to 107374182400, inclusive. ||
+Acceptable values are 1073741824 to 107374182400, inclusive. ||
 || thread_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A number of threads the server should cache for reuse.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_cache_size) for details.
 
 Acceptable values are 10 to 10000, inclusive. ||
 || thread_stack | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The stack size for each thread. The default is large enough for normal operation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_thread_stack) for details.
 
 Acceptable values are 131072 to 16777216, inclusive. ||
 || join_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || sort_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Each session that must perform a sort allocates a buffer of this size.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_sort_buffer_size) for details.
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || table_definition_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of table definitions that can be stored in the definition cache.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_definition_cache) for details.
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables for all threads.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache) for details.
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache_instances | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables cache instances.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_table_open_cache_instances) for details.
 
 Acceptable values are 1 to 32, inclusive. ||
 || explicit_defaults_for_timestamp | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) for details. ||
 || auto_increment_increment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_auto_increment_increment) for details.
 
 Acceptable values are 1 to 65535, inclusive. ||
 || auto_increment_offset | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_auto_increment_offset) for details.
 
 Acceptable values are 1 to 65535, inclusive. ||
 || sync_binlog | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how often the MySQL server synchronizes the binary log to disk.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog) for details.
 
 Acceptable values are 0 to 4096, inclusive. ||
 || binlog_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size of the cache to hold changes to the binary log during a transaction.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_cache_size) for details.
 
 Acceptable values are 4096 to 67108864, inclusive. ||
 || binlog_group_commit_sync_delay | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
-
 See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay) for details.
 
 Acceptable values are 0 to 50000, inclusive. ||
 || binlog_row_image | enum **BinlogRowImage**
 
 For MySQL row-based replication, this variable determines how row images are written to the binary log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
 - `FULL`: Log all columns (full row image).
@@ -1553,19 +1500,16 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-op
 || binlog_rows_query_log_events | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events) for details. ||
 || rpl_semi_sync_master_wait_for_slave_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of replica acknowledgments the source must receive per transaction before proceeding.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count) for details.
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slave_parallel_type | enum **SlaveParallelType**
 
 When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
 - `DATABASE`: Transactions are parallelized per database (schema).
@@ -1573,7 +1517,6 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-op
 || slave_parallel_workers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the number of applier threads for executing replication transactions in parallel.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_workers) for details.
 
 Acceptable values are 0 to 64, inclusive. ||
@@ -1585,14 +1528,12 @@ Acceptable values are 1073741824 to 1099511627776, inclusive. ||
 || interactive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on an interactive connection before closing it.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_interactive_timeout) for details.
 
 Acceptable values are 600 to 86400, inclusive. ||
 || wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on a noninteractive connection before closing it.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_wait_timeout) for details.
 
 Acceptable values are 600 to 86400, inclusive. ||
@@ -1610,24 +1551,50 @@ Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size) for details.
 
-Acceptable values are 1048576 to 268435456, inclusive. ||
+Acceptable values are 60 to 268435456, inclusive. ||
+|| innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The limit in bytes on the size of the temporary log files used during online DDL operations
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
+
+Acceptable values are 65536 to 107374182400, inclusive. ||
+|| innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum length of words that are stored in an InnoDB FULLTEXT index
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
+
+Acceptable values are 0 to 16, inclusive. ||
+|| innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of words that are stored in an InnoDB FULLTEXT index
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
+
+Acceptable values are 10 to 84, inclusive. ||
+|| lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Table names storage and comparison strategy
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
+
+Acceptable values are 0 to 1, inclusive. ||
+|| show_compatibility_56 | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Manages MySQL 5.6 compatibility
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56). ||
 || slow_query_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages slow query log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log) for details. ||
 || slow_query_log_always_write_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Query execution time, after which query to be logged unconditionally, that is, `log_slow_rate_limit`` will not apply to it.
+See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details.
 
-See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details. ||
+Acceptable values are 0 to 3600, inclusive. ||
 || log_slow_rate_type | enum **LogSlowRateType**
 
 Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
 - `SESSION`: Logging is controlled per session.
@@ -1635,19 +1602,16 @@ See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagn
 || log_slow_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit) for details.
 
 Acceptable values are 1 to 1000, inclusive. ||
 || log_slow_sp_statements | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When TRUE, statements executed by stored procedures are logged to the slow log.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements) for details. ||
 || log_slow_filter[] | enum **LogSlowFilterType**
 
 Filters the slow log by the query's execution plan.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
 - `FULL_SCAN`: Queries that perform a full table scan.
@@ -1665,61 +1629,24 @@ Acceptable values are 0 to 86400, inclusive. ||
 || innodb_page_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies the page size for InnoDB tablespaces.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_page_size).
 
 Acceptable values are 4096 to 65536, inclusive. ||
-|| innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The limit in bytes on the size of the temporary log files used during online DDL operations
-
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
-
-Acceptable values are 65536 to 107374182400, inclusive. ||
-|| innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Minimum length of words that are stored in an InnoDB FULLTEXT index
-
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
-
-Acceptable values are 0 to 16, inclusive. ||
-|| innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum length of words that are stored in an InnoDB FULLTEXT index
-
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
-
-Acceptable values are 10 to 84, inclusive. ||
-|| lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Table names storage and comparison strategy
-
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lower_case_table_names).
-
-Acceptable values are 0 to 1, inclusive. ||
-|| show_compatibility_56 | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
-
-Manages MySQL 5.6 compatibility
-
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_show_compatibility_56). ||
 || max_sp_recursion_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of times that any given stored procedure may be called recursively.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
 
 Acceptable values are 0 to 255, inclusive. ||
 || innodb_compression_level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The level of zlib compression to use for InnoDB compressed tables and indexes.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_compression_level).
 
 Acceptable values are 0 to 9, inclusive. ||
 || binlog_transaction_dependency_tracking | enum **BinlogTransactionDependencyTracking**
 
 Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
 - `COMMIT_ORDER`: Transactions are made dependent based on commit order.
@@ -1728,102 +1655,87 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || autocommit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_autocommit). ||
 || innodb_status_output | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables periodic output for the standard InnoDB Monitor.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_status_output). ||
 || innodb_strict_mode | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_strict_mode). ||
 || innodb_print_lock_wait_timeout_info | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Makes InnoDB to write information about all lock wait timeout errors into the log file.
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info). ||
 || log_error_verbosity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 System variable specifies the verbosity for handling events intended for the error log
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_log_error_verbosity).
 
-Acceptable values are 1 to 3, inclusive. ||
+Acceptable values are 2 to 3, inclusive. ||
 || max_digest_length | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_digest_length).
 
-Acceptable values are 0 to 1048576, inclusive. ||
+Acceptable values are 1024 to 1048576, inclusive. ||
 || query_cache_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Do not cache results that are larger than this number of bytes.
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit).
 
-For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_limit). ||
+Acceptable values are 0 to 4294967295, inclusive. ||
 || query_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The amount of memory allocated for caching query results.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_size). ||
 || query_cache_type | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Set the query cache type.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_query_cache_type).
 
 Acceptable values are 0 to 2, inclusive. ||
 || lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable specifies the timeout in seconds for attempts to acquire metadata locks
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_lock_wait_timeout).
 
 Acceptable values are 1 to 31536000, inclusive. ||
 || max_prepared_stmt_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable limits the total number of prepared statements in the server.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
 
 Acceptable values are 0 to 1048576, inclusive. ||
 || optimizer_switch | **string**
 
 The system variable enables control over optimizer behavior.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_optimizer_switch)
 https://dev.mysql.com/doc/refman/5.7/en/switchable-optimizations.html ||
 || optimizer_search_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum depth of search performed by the query optimizer
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html)
 
 Acceptable values are 0 to 62, inclusive. ||
 || query_response_time_stats | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables and disables collection of query times
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/response_time_distribution.html#query_response_time_stats). ||
 || userstat | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables collection of statistics
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/5.7/diagnostics/user_stats.html#userstat). ||
 || max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_execution_time)
 
 Acceptable values are 0 to 4294967295, inclusive. ||
 || audit_log_policy | enum **AuditLogPolicy**
 
 The policy controlling how the audit log plugin writes events to its log file
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
 
 - `ALL`: Log all events.
@@ -1833,7 +1745,6 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth)
 
 Acceptable values are 100 to 4294967295, inclusive. ||
@@ -1843,7 +1754,6 @@ Force ssl on all hosts (require_secure_transport) ||
 || innodb_change_buffering | enum **InnodbChangeBuffering**
 
 An optimization for change buffering
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
 - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
@@ -1856,14 +1766,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 
 Permit some pending read lock requests interval
 P.S. Should be UInt64, but java fails to handle UInt64 limits
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
 || innodb_adaptive_hash_index_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Partitions the adaptive hash index search system.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
 
 Acceptable values are 1 to 512, inclusive. ||
@@ -1894,36 +1802,32 @@ Options and structure of `MysqlConfig8_0` reflects MySQL 8.0 configuration file.
 || innodb_buffer_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size of the InnoDB buffer pool used for caching table and index data.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size) for details.
 
-The minimum value is 5242880. ||
+The minimum value is 134217728. ||
 || max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of simultaneous client connections.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_connections) for details.
 
-Acceptable values are 10 to 16384, inclusive. ||
+Acceptable values are 10 to 100000, inclusive. ||
 || long_query_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Time that it takes to process a query before it is considered slow.
+See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time) for details.
 
-See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_long_query_time) for details. ||
+Acceptable values are 0 to 3600, inclusive. ||
 || general_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable writing of general query log of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_general_log) for details. ||
 || audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable writing of audit log of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#audit-log-options-variables) for details. ||
 || sql_mode[] | enum **SQLMode**
 
 Server SQL mode of MySQL.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
 
 - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
@@ -1950,14 +1854,12 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#
 || max_allowed_packet | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size in bytes of one packet.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_allowed_packet) for details.
 
-Acceptable values are 1024 to 1073741824, inclusive. ||
+Acceptable values are 1048576 to 1073741824, inclusive. ||
 || default_authentication_plugin | enum **AuthPlugin**
 
 Authentication plugin used in the managed MySQL cluster.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
 
 - `MYSQL_NATIVE_PASSWORD`: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html).
@@ -1968,21 +1870,18 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-
 || innodb_flush_log_at_trx_commit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Transaction log flush behaviour.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit) for details.
 
 Acceptable values are 1 to 2, inclusive. ||
 || innodb_lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max time in seconds for a transaction to wait for a row lock.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout) for details.
 
 Acceptable values are 1 to 28800, inclusive. ||
 || transaction_isolation | enum **TransactionIsolation**
 
 Default transaction isolation level.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
 - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
@@ -1991,224 +1890,190 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-
 || innodb_print_all_deadlocks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Print information about deadlocks in error log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) for details. ||
 || net_read_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for more data from a connection before aborting the read.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_read_timeout) for details.
 
 Acceptable values are 1 to 1200, inclusive. ||
 || net_write_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for a block to be written to a connection before aborting the write.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout) for details.
 
 Acceptable values are 1 to 1200, inclusive. ||
 || group_concat_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted result length in bytes for the GROUP_CONCAT() function.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_group_concat_max_len) for details.
 
 Acceptable values are 4 to 33554432, inclusive. ||
 || tmp_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of internal in-memory temporary tables.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size) for details.
 
 Acceptable values are 1024 to 536870912, inclusive. ||
 || max_heap_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size) for details.
 
 Acceptable values are 16384 to 536870912, inclusive. ||
 || default_time_zone | **string**
 
 The servers default time zone.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-options.html#option_mysqld_default-time-zone) for details. ||
 || character_set_server | **string**
 
 The servers default character set.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_character_set_server) for details. ||
 || collation_server | **string**
 
 The server default collation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_collation_server) for details. ||
 || innodb_adaptive_hash_index | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables InnoDB adaptive hash index.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) for details. ||
 || innodb_numa_interleave | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_numa_interleave) for details. ||
 || innodb_log_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_buffer_size) for details.
 
 Acceptable values are 1048576 to 268435456, inclusive. ||
 || innodb_log_file_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the single InnoDB Redo log file.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) for details.
 
-Acceptable values are 268435456 to 4294967296, inclusive. ||
+Acceptable values are 268435456 to 8589934592, inclusive. ||
 || innodb_io_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity) for details.
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_io_capacity_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_io_capacity_max) for details.
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_read_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for read operations in InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_read_io_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_write_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for write operations in InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_write_io_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_purge_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of background threads devoted to the InnoDB purge operation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_purge_threads) for details.
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_thread_concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum number of threads permitted inside of InnoDB.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_thread_concurrency) for details.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || innodb_temp_data_file_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits the max size of InnoDB temp tablespace.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path) for details.
 
-Acceptable values are 0 to 107374182400, inclusive. ||
+Acceptable values are 1073741824 to 107374182400, inclusive. ||
 || thread_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 How many threads the server should cache for reuse.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_cache_size) for details.
 
 Acceptable values are 10 to 10000, inclusive. ||
 || thread_stack | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The stack size for each thread. The default is large enough for normal operation.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_thread_stack) for details.
 
 Acceptable values are 131072 to 16777216, inclusive. ||
 || join_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || sort_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Each session that must perform a sort allocates a buffer of this size.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sort_buffer_size) for details.
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || table_definition_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of table definitions that can be stored in the definition cache.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_definition_cache) for details.
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables for all threads.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache) for details.
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache_instances | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables cache instances.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_table_open_cache_instances) for details.
 
 Acceptable values are 1 to 32, inclusive. ||
 || explicit_defaults_for_timestamp | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp) for details. ||
 || auto_increment_increment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_increment) for details.
 
 Acceptable values are 1 to 65535, inclusive. ||
 || auto_increment_offset | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_auto_increment_offset) for details.
 
 Acceptable values are 1 to 65535, inclusive. ||
 || sync_binlog | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how often the MySQL server synchronizes the binary log to disk.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_sync_binlog) for details.
 
 Acceptable values are 0 to 4096, inclusive. ||
 || binlog_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size of the cache to hold changes to the binary log during a transaction.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_cache_size) for details.
 
 Acceptable values are 4096 to 67108864, inclusive. ||
 || binlog_group_commit_sync_delay | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay) for details.
 
 Acceptable values are 0 to 50000, inclusive. ||
 || binlog_row_image | enum **BinlogRowImage**
 
 For MySQL row-based replication, this variable determines how row images are written to the binary log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
 - `FULL`: Log all columns (full row image).
@@ -2217,19 +2082,16 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-op
 || binlog_rows_query_log_events | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events) for details. ||
 || rpl_semi_sync_master_wait_for_slave_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of replica acknowledgments the source must receive per transaction before proceeding.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-source.html#sysvar_rpl_semi_sync_master_wait_for_slave_count) for details.
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slave_parallel_type | enum **SlaveParallelType**
 
 When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
 - `DATABASE`: Transactions are parallelized per database (schema).
@@ -2237,14 +2099,12 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-op
 || slave_parallel_workers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the number of applier threads for executing replication transactions in parallel.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_workers) for details.
 
 Acceptable values are 0 to 64, inclusive. ||
 || regexp_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_regexp_time_limit) for details.
 
 Acceptable values are 0 to 1048576, inclusive. ||
@@ -2256,14 +2116,12 @@ Acceptable values are 1073741824 to 1099511627776, inclusive. ||
 || interactive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on an interactive connection before closing it.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout) for details.
 
 Acceptable values are 600 to 86400, inclusive. ||
 || wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on a noninteractive connection before closing it.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout) for details.
 
 Acceptable values are 600 to 86400, inclusive. ||
@@ -2281,24 +2139,46 @@ Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size) for details.
 
-Acceptable values are 1048576 to 268435456, inclusive. ||
+Acceptable values are 60 to 268435456, inclusive. ||
+|| innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The limit in bytes on the size of the temporary log files used during online DDL operations
+See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
+
+Acceptable values are 65536 to 107374182400, inclusive. ||
+|| innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum length of words that are stored in an InnoDB FULLTEXT index
+See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
+
+Acceptable values are 0 to 16, inclusive. ||
+|| innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Maximum length of words that are stored in an InnoDB FULLTEXT index
+See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
+
+Acceptable values are 10 to 84, inclusive. ||
+|| lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Table names storage and comparison strategy
+See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
+
+Acceptable values are 0 to 1, inclusive. ||
 || slow_query_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages slow query log.
-
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_slow_query_log) for details. ||
 || slow_query_log_always_write_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Query execution time, after which query to be logged unconditionally, that is, `log_slow_rate_limit` will not apply to it.
+See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details.
 
-See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#slow_query_log_always_write_time) for details. ||
+Acceptable values are 0 to 3600, inclusive. ||
 || log_slow_rate_type | enum **LogSlowRateType**
 
 Specifies slow log granularity for `log_slow_rate_limit` QUERY or SESSION value.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
 - `SESSION`: Logging is controlled per session.
@@ -2306,19 +2186,16 @@ See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagn
 || log_slow_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_limit) for details.
 
 Acceptable values are 1 to 1000, inclusive. ||
 || log_slow_sp_statements | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When TRUE, statements executed by stored procedures are logged to the slow log.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_sp_statements) for details. ||
 || log_slow_filter[] | enum **LogSlowFilterType**
 
 Filters the slow log by the query's execution plan.
-
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
 - `FULL_SCAN`: Queries that perform a full table scan.
@@ -2336,56 +2213,24 @@ Acceptable values are 0 to 86400, inclusive. ||
 || innodb_page_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies the page size for InnoDB tablespaces.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_page_size).
 
 Acceptable values are 4096 to 65536, inclusive. ||
-|| innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-The limit in bytes on the size of the temporary log files used during online DDL operations
-
-See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size) for details.
-
-Acceptable values are 65536 to 107374182400, inclusive. ||
-|| innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Minimum length of words that are stored in an InnoDB FULLTEXT index
-
-See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size) for details.
-
-Acceptable values are 0 to 16, inclusive. ||
-|| innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Maximum length of words that are stored in an InnoDB FULLTEXT index
-
-See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size) for details.
-
-Acceptable values are 10 to 84, inclusive. ||
-|| lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
-
-Table names storage and comparison strategy
-
-See [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names) for details.
-
-Acceptable values are 0 to 1, inclusive. ||
 || max_sp_recursion_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of times that any given stored procedure may be called recursively.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
 
 Acceptable values are 0 to 255, inclusive. ||
 || innodb_compression_level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The level of zlib compression to use for InnoDB compressed tables and indexes.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_compression_level).
 
 Acceptable values are 0 to 9, inclusive. ||
 || binlog_transaction_dependency_tracking | enum **BinlogTransactionDependencyTracking**
 
 Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
 - `COMMIT_ORDER`: Transactions are made dependent based on commit order.
@@ -2394,80 +2239,67 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || autocommit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_autocommit). ||
 || innodb_status_output | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables periodic output for the standard InnoDB Monitor.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_status_output). ||
 || innodb_strict_mode | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_strict_mode). ||
 || innodb_print_lock_wait_timeout_info | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Makes InnoDB to write information about all lock wait timeout errors into the log file.
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info). ||
 || log_error_verbosity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 System variable specifies the verbosity for handling events intended for the error log
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_log_error_verbosity).
 
-Acceptable values are 1 to 3, inclusive. ||
+Acceptable values are 2 to 3, inclusive. ||
 || max_digest_length | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_digest_length).
 
-Acceptable values are 0 to 1048576, inclusive. ||
+Acceptable values are 1024 to 1048576, inclusive. ||
 || lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable specifies the timeout in seconds for attempts to acquire metadata locks
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lock_wait_timeout).
 
 Acceptable values are 1 to 31536000, inclusive. ||
 || max_prepared_stmt_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable limits the total number of prepared statements in the server.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
 
 Acceptable values are 0 to 4194304, inclusive. ||
 || optimizer_switch | **string**
 
 The system variable enables control over optimizer behavior.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_optimizer_switch)
 https://dev.mysql.com/doc/refman/8.0/en/switchable-optimizations.html ||
 || optimizer_search_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum depth of search performed by the query optimizer
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html)
 
 Acceptable values are 0 to 62, inclusive. ||
 || userstat | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables collection of statistics
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.0/diagnostics/user_stats.html#userstat). ||
 || max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_execution_time)
 
 Acceptable values are 0 to 4294967295, inclusive. ||
 || audit_log_policy | enum **AuditLogPolicy**
 
 The policy controlling how the audit log plugin writes events to its log file
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
 
 - `ALL`: Log all events.
@@ -2477,24 +2309,20 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || replication_sender_observe_commit_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Limit callbacks to improve performance for semisynchronous replication
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
 || replication_optimize_for_static_plugin_config | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
 || innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth)
 
 Acceptable values are 100 to 4294967295, inclusive. ||
 || sql_require_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
 || mdb_force_ssl | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
@@ -2502,7 +2330,6 @@ Force ssl on all hosts (require_secure_transport) ||
 || innodb_change_buffering | enum **InnodbChangeBuffering**
 
 An optimization for change buffering
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
 - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
@@ -2515,14 +2342,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 
 Permit some pending read lock requests interval
 P.S. Should be UInt64, but java fails to handle UInt64 limits
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
 || innodb_adaptive_hash_index_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Partitions the adaptive hash index search system.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
 
 Acceptable values are 1 to 512, inclusive. ||
@@ -2553,33 +2378,28 @@ Options and structure of `MysqlConfig8_4` reflects MySQL 8.4 configuration file
 || innodb_buffer_pool_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Size of the InnoDB buffer pool used for caching table and index data.
-
 For details, see [MySQL documentation for the parameter](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
 
 The minimum value is 134217728. ||
 || max_connections | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted number of simultaneous client connections.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_connections).
 
 Acceptable values are 10 to 100000, inclusive. ||
 || long_query_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Time that it takes to process a query before it is considered slow.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_long_query_time).
 
 Acceptable values are 0 to 3600, inclusive. ||
 || audit_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enable writing of audit log of MySQL.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#audit-log-options-variables). ||
 || sql_mode[] | enum **SQLMode**
 
 Server SQL mode of MySQL.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
 
 - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_allow_invalid_dates).
@@ -2606,28 +2426,24 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || max_allowed_packet | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size in bytes of one packet.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_allowed_packet).
 
 Acceptable values are 1048576 to 1073741824, inclusive. ||
 || innodb_flush_log_at_trx_commit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Transaction log flush behaviour.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit)
 
 Acceptable values are 1 to 2, inclusive. ||
 || innodb_lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Max time in seconds for a transaction to wait for a row lock
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_lock_wait_timeout)
 
 Acceptable values are 1 to 28800, inclusive. ||
 || transaction_isolation | enum **TransactionIsolation**
 
 Default transaction isolation level.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_transaction_isolation)
 
 - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
@@ -2636,224 +2452,190 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || innodb_print_all_deadlocks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Print information about deadlocks in error log
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_print_all_deadlocks) ||
 || net_read_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for more data from a connection before aborting the read.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_net_read_timeout)
 
 Acceptable values are 1 to 1200, inclusive. ||
 || net_write_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds to wait for a block to be written to a connection before aborting the write.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_net_write_timeout)
 
 Acceptable values are 1 to 1200, inclusive. ||
 || group_concat_max_len | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum permitted result length in bytes for the GROUP_CONCAT() function.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_group_concat_max_len)
 
 Acceptable values are 4 to 33554432, inclusive. ||
 || tmp_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum size of internal in-memory temporary tables.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_tmp_table_size)
 
 Acceptable values are 1024 to 536870912, inclusive. ||
 || max_heap_table_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_heap_table_size)
 
 Acceptable values are 16384 to 536870912, inclusive. ||
 || default_time_zone | **string**
 
 The servers default time zone.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-options.html#option_mysqld_default-time-zone) ||
 || character_set_server | **string**
 
 The servers default character set.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_character_set_server) ||
 || collation_server | **string**
 
 Set the default server collation.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_collation_server) ||
 || innodb_adaptive_hash_index | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables Innodb adaptive hash index
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index) ||
 || innodb_numa_interleave | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables the NUMA interleave memory policy for allocation of the InnoDB buffer pool.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_numa_interleave) ||
 || innodb_log_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the buffer that InnoDB uses to write to the log files on disk.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_log_buffer_size)
 
 Acceptable values are 1048576 to 268435456, inclusive. ||
 || innodb_log_file_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size in bytes of the single Innodb Redo log file.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_log_file_size)
 
 Acceptable values are 268435456 to 8589934592, inclusive. ||
 || innodb_io_capacity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_io_capacity)
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_io_capacity_max | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits IO available for InnoDB background tasks
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_io_capacity_max)
 
 Acceptable values are 100 to 100000, inclusive. ||
 || innodb_read_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for read operations in InnoDB.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_read_io_threads)
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_write_io_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of I/O threads for write operations in InnoDB.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_write_io_threads)
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_purge_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of background threads devoted to the InnoDB purge operation.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_purge_threads)
 
 Acceptable values are 1 to 16, inclusive. ||
 || innodb_thread_concurrency | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum number of threads permitted inside of InnoDB.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_thread_concurrency)
 
 Acceptable values are 0 to 1000, inclusive. ||
 || innodb_temp_data_file_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limits the max size of InnoDB temp tablespace
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_temp_data_file_path)
 
 Acceptable values are 1073741824 to 107374182400, inclusive. ||
 || thread_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 How many threads the server should cache for reuse.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_thread_cache_size).
 
 Acceptable values are 10 to 10000, inclusive. ||
 || thread_stack | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The stack size for each thread. The default is large enough for normal operation.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_thread_stack).
 
 Acceptable values are 131072 to 16777216, inclusive. ||
 || join_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_join_buffer_size).
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || sort_buffer_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Each session that must perform a sort allocates a buffer of this size.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_sort_buffer_size).
 
 Acceptable values are 1024 to 16777216, inclusive. ||
 || table_definition_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of table definitions that can be stored in the definition cache.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_definition_cache).
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables for all threads.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_open_cache).
 
 Acceptable values are 400 to 524288, inclusive. ||
 || table_open_cache_instances | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of open tables cache instances.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_table_open_cache_instances).
 
 Acceptable values are 1 to 32, inclusive. ||
 || explicit_defaults_for_timestamp | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 This system variable determines whether the server enables certain nonstandard behaviors for default values and NULL-value handling in TIMESTAMP columns.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_explicit_defaults_for_timestamp). ||
 || auto_increment_increment | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_auto_increment_increment).
 
 Acceptable values are 1 to 65535, inclusive. ||
 || auto_increment_offset | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Can be used to control the operation of AUTO_INCREMENT columns.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_auto_increment_offset).
 
 Acceptable values are 1 to 65535, inclusive. ||
 || sync_binlog | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how often the MySQL server synchronizes the binary log to disk.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_sync_binlog).
 
 Acceptable values are 0 to 4096, inclusive. ||
 || binlog_cache_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The size of the cache to hold changes to the binary log during a transaction.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_cache_size).
 
 Acceptable values are 4096 to 67108864, inclusive. ||
 || binlog_group_commit_sync_delay | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Controls how many microseconds the binary log commit waits before synchronizing the binary log file to disk.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_group_commit_sync_delay).
 
 Acceptable values are 0 to 50000, inclusive. ||
 || binlog_row_image | enum **BinlogRowImage**
 
 For MySQL row-based replication, this variable determines how row images are written to the binary log.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
 - `FULL`: Log all columns (full row image).
@@ -2862,19 +2644,16 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || binlog_rows_query_log_events | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_rows_query_log_events). ||
 || rpl_semi_sync_master_wait_for_slave_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of replica acknowledgments the source must receive per transaction before proceeding.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-master.html#sysvar_rpl_semi_sync_master_wait_for_slave_count).
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slave_parallel_type | enum **SlaveParallelType**
 
 When using a multithreaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_type).
 
 - `DATABASE`: Transactions are parallelized per database (schema).
@@ -2882,14 +2661,12 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || slave_parallel_workers | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Sets the number of applier threads for executing replication transactions in parallel.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_workers).
 
 Acceptable values are 0 to 64, inclusive. ||
 || regexp_time_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The time limit for regular expression matching operations performed by REGEXP_LIKE and similar functions
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_regexp_time_limit).
 
 Acceptable values are 0 to 1048576, inclusive. ||
@@ -2901,14 +2678,12 @@ Acceptable values are 1073741824 to 1099511627776, inclusive. ||
 || interactive_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on an interactive connection before closing it.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_interactive_timeout).
 
 Acceptable values are 600 to 86400, inclusive. ||
 || wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of seconds the server waits for activity on a noninteractive connection before closing it.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_wait_timeout).
 
 Acceptable values are 600 to 86400, inclusive. ||
@@ -2926,54 +2701,46 @@ Acceptable values are 10 to 86400, inclusive. ||
 || range_optimizer_max_mem_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit on memory consumption for the range optimizer.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_range_optimizer_max_mem_size).
 
 Acceptable values are 60 to 268435456, inclusive. ||
 || innodb_online_alter_log_max_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The limit in bytes on the size of the temporary log files used during online DDL operations
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_online_alter_log_max_size).
 
-Acceptable values are 60 to 107374182400, inclusive. ||
+Acceptable values are 65536 to 107374182400, inclusive. ||
 || innodb_ft_min_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Minimum length of words that are stored in an InnoDB FULLTEXT index
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_ft_min_token_size).
 
 Acceptable values are 0 to 16, inclusive. ||
 || innodb_ft_max_token_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Maximum length of words that are stored in an InnoDB FULLTEXT index
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_ft_max_token_size).
 
 Acceptable values are 10 to 84, inclusive. ||
 || lower_case_table_names | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Table names storage and comparison strategy
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_lower_case_table_names).
 
 Acceptable values are 0 to 1, inclusive. ||
 || slow_query_log | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Manages slow query log
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_slow_query_log). ||
 || slow_query_log_always_write_time | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
 
 Query execution time, after which query to be logged unconditionally, that is, log_slow_rate_limit will not apply to it
-
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#slow_query_log_always_write_time).
 
 Acceptable values are 0 to 3600, inclusive. ||
 || log_slow_rate_type | enum **LogSlowRateType**
 
 Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
-
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_type).
 
 - `SESSION`: Logging is controlled per session.
@@ -2981,19 +2748,16 @@ For details, see [Percona documentation for the variable](https://www.percona.co
 || log_slow_rate_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
-
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_limit).
 
 Acceptable values are 1 to 1000, inclusive. ||
 || log_slow_sp_statements | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When TRUE, statements executed by stored procedures are logged to the slow log
-
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_sp_statements). ||
 || log_slow_filter[] | enum **LogSlowFilterType**
 
 Filters the slow log by the query's execution plan
-
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_filter).
 
 - `FULL_SCAN`: Queries that perform a full table scan.
@@ -3011,102 +2775,86 @@ Acceptable values are 0 to 86400, inclusive. ||
 || innodb_page_size | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Specifies the page size for InnoDB tablespaces.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_page_size).
 
-Acceptable values are 1 to 65536, inclusive. ||
+Acceptable values are 4096 to 65536, inclusive. ||
 || max_sp_recursion_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The number of times that any given stored procedure may be called recursively.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
 
 Acceptable values are 0 to 255, inclusive. ||
 || innodb_compression_level | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The level of zlib compression to use for InnoDB compressed tables and indexes.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_compression_level).
 
 Acceptable values are 0 to 9, inclusive. ||
 || autocommit | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_autocommit). ||
 || innodb_status_output | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables periodic output for the standard InnoDB Monitor.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_status_output). ||
 || innodb_strict_mode | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 When innodb_strict_mode is enabled, InnoDB returns errors rather than warnings when checking for invalid or incompatible table options.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_strict_mode). ||
 || innodb_print_lock_wait_timeout_info | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Makes InnoDB to write information about all lock wait timeout errors into the log file.
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.4/diagnostics/innodb_show_status.html?highlight=innodb_print_lock_wait_timeout_info). ||
 || log_error_verbosity | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 System variable specifies the verbosity for handling events intended for the error log
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_log_error_verbosity).
 
 Acceptable values are 2 to 3, inclusive. ||
 || max_digest_length | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum number of bytes of memory reserved per session for computation of normalized statement digests.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_digest_length).
 
-Acceptable values are 1024 to 8192, inclusive. ||
+Acceptable values are 1024 to 1048576, inclusive. ||
 || lock_wait_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable specifies the timeout in seconds for attempts to acquire metadata locks
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_lock_wait_timeout).
 
 Acceptable values are 1 to 31536000, inclusive. ||
 || max_prepared_stmt_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 This variable limits the total number of prepared statements in the server.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_prepared_stmt_count).
 
 Acceptable values are 0 to 4194304, inclusive. ||
 || optimizer_switch | **string**
 
 The system variable enables control over optimizer behavior.
-
 For details, see [MySQL documentation for the variable]
 https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_optimizer_switch
 https://dev.mysql.com/doc/refman/8.4/en/switchable-optimizations.html ||
 || optimizer_search_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The maximum depth of search performed by the query optimizer
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html)
 
 Acceptable values are 0 to 62, inclusive. ||
 || userstat | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Enables or disables collection of statistics
-
 For details, see [Percona documentation for the variable](https://docs.percona.com/percona-server/8.4/diagnostics/user_stats.html#userstat). ||
 || max_execution_time | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 The execution timeout for SELECT statements, in milliseconds. If the value is 0, timeouts are not enabled.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_execution_time)
 
 Acceptable values are 0 to 4294967295, inclusive. ||
 || audit_log_policy | enum **AuditLogPolicy**
 
 The policy controlling how the audit log plugin writes events to its log file
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#sysvar_audit_log_policy)
 
 - `ALL`: Log all events.
@@ -3116,24 +2864,20 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 || replication_sender_observe_commit_only | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Limit callbacks to improve performance for semisynchronous replication
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_replication_sender_observe_commit_only). ||
 || replication_optimize_for_static_plugin_config | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Use shared locks, and avoid unnecessary lock acquisitions, to improve performance for semisynchronous replication
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_replication_optimize_for_static_plugin_config). ||
 || innodb_lru_scan_depth | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_lru_scan_depth)
 
 Acceptable values are 100 to 4294967295, inclusive. ||
 || sql_require_primary_key | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether statements that create new tables or alter the structure of existing tables enforce the requirement that tables have a primary key
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_sql_require_primary_key). ||
 || mdb_use_async_replication | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
@@ -3149,7 +2893,6 @@ Force ssl on all hosts (require_secure_transport) ||
 || innodb_change_buffering | enum **InnodbChangeBuffering**
 
 An optimization for change buffering
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
 - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
@@ -3162,14 +2905,12 @@ For details, see [Percona documentation for the variable](https://dev.mysql.com/
 
 Permit some pending read lock requests interval
 P.S. Should be UInt64, but java fails to handle UInt64 limits
-
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
 || innodb_adaptive_hash_index_parts | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Partitions the adaptive hash index search system.
-
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
 
 Acceptable values are 1 to 512, inclusive. ||
@@ -3184,7 +2925,6 @@ Cluster resource preset.
 || resource_preset_id | **string**
 
 ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host.
-
 All available presets are listed in [the documentation](/docs/managed-mysql/concepts/instance-types). ||
 || disk_size | **int64**
 
@@ -3192,13 +2932,11 @@ Volume of the storage (for each cluster host, in bytes). ||
 || disk_type_id | **string**
 
 Type of the storage.
-
 Possible values:
 * `network-hdd` - standard network storage
 * `network-ssd` - fast network storage
 * `network-ssd-nonreplicated` - fast network nonreplicated storage
 * `local-ssd` - fast local storage.
-
 See [the documentation](/docs/managed-mysql/concepts/storage) for details. ||
 |#
 
@@ -3209,12 +2947,10 @@ See [the documentation](/docs/managed-mysql/concepts/storage) for details. ||
 || data_lens | **bool**
 
 Allows access from DataLens.
-
 See [the documentation](/docs/managed-mysql/operations/datalens-connect) for details. ||
 || web_sql | **bool**
 
 Allows SQL queries to the cluster databases from management console.
-
 See [the documentation](/docs/managed-mysql/operations/web-sql-query) for details. ||
 || data_transfer | **bool**
 

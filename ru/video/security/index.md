@@ -29,7 +29,7 @@
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![service-roles-hierarchy](../../_assets/video/service-roles-hierarchy.svg)
+{% include [roles-video](../../_mermaid/roles/video.md) %}
 
 ### Сервисные роли {#service-roles}
 

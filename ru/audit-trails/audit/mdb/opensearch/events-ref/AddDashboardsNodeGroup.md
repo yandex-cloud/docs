@@ -306,7 +306,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || resourcePresetId | **string** ||
-|| diskSize | **string** (int64) ||
+|| diskSize | **string** (int64)
+
+Value must be greater than 0. ||
 || diskTypeId | **string** ||
 |#
 
