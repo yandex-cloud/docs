@@ -80,9 +80,9 @@ in the next list request. Each subsequent list request will have its own
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
+Required field. Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
 1-63 characters long. ||
 || cluster_id | **string**
 
-ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
+Required field. ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
 |#

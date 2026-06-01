@@ -5,7 +5,6 @@ editable: false
 # Managed Service for Redis API, gRPC: UserService.Get
 
 Returns the specified Redis User resource.
-
 To get the list of available Redis User resources, make a [List](/docs/managed-redis/api-ref/grpc/User/list#List) request.
 
 ## gRPC request
@@ -34,7 +33,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the Redis User resource to return.
 To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/grpc/User/list#List) request.
 
-The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
 
 ## User {#yandex.cloud.mdb.redis.v1.User}
@@ -48,7 +47,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "pub_sub_channels": "google.protobuf.StringValue",
     "categories": "google.protobuf.StringValue",
     "commands": "google.protobuf.StringValue",
-    "sanitize_payload": "google.protobuf.StringValue"
+    "sanitize_payload": "google.protobuf.StringValue",
+    "databases": "google.protobuf.StringValue"
   },
   "enabled": "bool",
   "acl_options": "string"
@@ -96,4 +96,7 @@ Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 SanitizePayload parameter. ||
+|| databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Databases parameter. ||
 |#

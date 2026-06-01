@@ -23,12 +23,13 @@ Returns the serial port output of the specified Instance resource.
 ||Field | Description ||
 || instance_id | **string**
 
-Required field. ID of the instance to return the serial port output for.
-
-The maximum string length in characters is 50. ||
+ID of the instance to return the serial port output for.
+The length must be less than or equal to 50.
+This field is required. ||
 || port | **int64**
 
-Serial port to retrieve data from. The default is 1. ||
+Serial port to retrieve data from. The default is 1.
+The value must satisfy: 1,2,3,4. ||
 |#
 
 ## GetInstanceSerialPortOutputResponse {#yandex.cloud.compute.v1.GetInstanceSerialPortOutputResponse}

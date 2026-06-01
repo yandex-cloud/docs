@@ -5,7 +5,6 @@ editable: false
 # Managed Service for ClickHouse API, gRPC: ResourcePresetService.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](/docs/managed-clickhouse/api-ref/grpc/ResourcePreset/list#List) request.
 
 ## gRPC request

@@ -5,7 +5,6 @@ editable: false
 # Managed Service for MySQL API, REST: ResourcePreset
 
 A set of methods for managing MySQL resource presets.
-
 See [the documentation](/docs/managed-mysql/concepts/instance-types) for details.
 
 ## Methods

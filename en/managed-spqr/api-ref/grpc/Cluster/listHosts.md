@@ -115,7 +115,6 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 
 Name of the SPQR host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || cluster_id | **string**
 

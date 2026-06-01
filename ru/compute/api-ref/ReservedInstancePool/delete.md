@@ -9,12 +9,11 @@ apiPlayground:
         reservedInstancePoolId:
           description: |-
             **string**
-            Required field. ID of the reserved instance pool to delete.
+            ID of the reserved instance pool to delete.
             To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - reservedInstancePoolId
       additionalProperties: false
     query: null
     body: null
@@ -39,8 +38,8 @@ DELETE https://compute.{{ api-host }}/compute/v1/reservedInstancePools/{reserved
 
 Required field. ID of the reserved instance pool to delete.
 To get the reserved instance pool ID, use a [ReservedInstancePoolService.List](/docs/compute/api-ref/ReservedInstancePool/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -55,9 +54,7 @@ The maximum string length in characters is 50. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "reservedInstancePoolId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -108,7 +105,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteReservedInstancePoolMetadata](#yandex.cloud.compute.v1.DeleteReservedInstancePoolMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -138,15 +135,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## DeleteReservedInstancePoolMetadata {#yandex.cloud.compute.v1.DeleteReservedInstancePoolMetadata}
-
-#|
-||Field | Description ||
-|| reservedInstancePoolId | **string**
-
-ID of the reserved instance pool that is being deleted. ||
 |#
 
 ## Status {#google.rpc.Status}

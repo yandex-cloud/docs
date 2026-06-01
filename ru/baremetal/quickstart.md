@@ -58,7 +58,7 @@ description: Следуя данной инструкции, вы сможете
 - KVM-консоль {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
-  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ baremetal-name }}**.
+  1. Перейдите в сервис **{{ baremetal-name }}**.
   1. В строке с нужным сервером нажмите значок ![image](../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
 
 - Linux/macOS {#linux-macos}

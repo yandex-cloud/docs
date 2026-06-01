@@ -9,11 +9,10 @@ apiPlayground:
         diskTypeId:
           description: |-
             **string**
-            Required field. ID of the disk type to return information about.
+            ID of the disk type to return information about.
             To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+            This field is required.
           type: string
-      required:
-        - diskTypeId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +22,6 @@ apiPlayground:
 # Compute Cloud API, REST: DiskType.Get
 
 Returns the information about specified disk type.
-
 To get the list of available disk types, make a [List](/docs/compute/api-ref/DiskType/list#List) request.
 
 ## HTTP request
@@ -39,7 +37,8 @@ GET https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
 || diskTypeId | **string**
 
 Required field. ID of the disk type to return information about.
-To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request. ||
+To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/DiskType/list#List) request.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.DiskType}

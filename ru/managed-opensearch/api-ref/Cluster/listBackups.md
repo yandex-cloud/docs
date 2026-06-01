@@ -57,7 +57,6 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backup
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster.
-
 To get the ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -118,10 +117,8 @@ List of the OpenSearch cluster backups. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClustersRequest.pageSize](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersRequest), use the `nextPageToken` as the value
 for the [ListClustersRequest.pageToken](/docs/managed-opensearch/api-ref/Cluster/list#yandex.cloud.mdb.opensearch.v1.ListClustersRequest) parameter in the next list request.
-
 Each subsequent list request has its own `nextPageToken` to continue paging through the results. ||
 |#
 

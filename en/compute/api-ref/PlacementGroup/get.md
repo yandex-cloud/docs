@@ -21,7 +21,6 @@ apiPlayground:
 # Compute Cloud API, REST: PlacementGroup.Get
 
 Returns the specified placement group.
-
 To get the list of all available placement groups, make a [List](/docs/compute/api-ref/PlacementGroup/list#List) request.
 
 ## HTTP request
@@ -37,7 +36,6 @@ GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
 || placementGroupId | **string**
 
 Required field. ID of the placement group to return.
-
 To get a placement group ID make a [PlacementGroupService.List](/docs/compute/api-ref/PlacementGroup/list#List) request. ||
 |#
 
@@ -72,7 +70,7 @@ ID of the placement group. Generated at creation time. ||
 ID of the folder that the placement group belongs to. ||
 || createdAt | **string** (date-time)
 
-Creation timestamp.
+Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -98,13 +96,15 @@ over distinct failure domains.
 Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 || partitionPlacementStrategy | **[PartitionPlacementStrategy](#yandex.cloud.compute.v1.PartitionPlacementStrategy)**
 
 Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementStrategy`.
 
 Placement strategy. To specify a placement strategy, send the corresponding
-field containing approriate structure. ||
+field containing approriate structure.
+Only one field must by specified. ||
 |#
 
 ## PartitionPlacementStrategy {#yandex.cloud.compute.v1.PartitionPlacementStrategy}
@@ -113,5 +113,5 @@ field containing approriate structure. ||
 ||Field | Description ||
 || partitions | **string** (int64)
 
-Acceptable values are 2 to 5, inclusive. ||
+The value must be between 2 and 5. ||
 |#

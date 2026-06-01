@@ -10,9 +10,10 @@ apiPlayground:
         folderId:
           description: |-
             **string**
-            Required field. ID of the Folder to list instances in.
+            ID of the Folder to list instances in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
         pageSize:
           description: |-
@@ -21,7 +22,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstancesResponse)
             that can be used to get the next page of results in subsequent list requests.
-            The maximum value is 1000.
+            The value must be less than or equal to 1000.
           type: string
           format: int64
         pageToken:
@@ -30,7 +31,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstancesResponse)
             returned by a previous list request.
-            The maximum string length in characters is 100.
+            The length must be less than or equal to 100.
           type: string
         filter:
           description: |-
@@ -49,7 +50,7 @@ apiPlayground:
             2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
             3. `<value>` represents a value.
             String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
-            The maximum string length in characters is 1000.
+            The length must be less than or equal to 1000.
           type: string
         orderBy:
           description: |-
@@ -57,10 +58,8 @@ apiPlayground:
             By which column the listing should be ordered and in which direction,
             format is "createdAt desc". "id asc" if omitted.
             The default sorting order is ascending
-            The maximum string length in characters is 100.
+            The length must be less than or equal to 100.
           type: string
-      required:
-        - folderId
       additionalProperties: false
     body: null
     definitions: null
@@ -82,30 +81,27 @@ GET https://compute.{{ api-host }}/compute/v1/instances
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the Folder to list instances in.
+ID of the Folder to list instances in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstancesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListInstancesResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstancesResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering on these fields only:
 - `id`: ID of the instance.
@@ -118,15 +114,13 @@ Each condition has the form `<field> <operator> <value>`, where:
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
 The default sorting order is ascending
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListInstancesResponse}
@@ -153,14 +147,6 @@ The maximum string length in characters is 100. ||
       },
       "status": "string",
       "metadata": "object",
-      "metadataOptions": {
-        "gceHttpEndpoint": "string",
-        "awsV1HttpEndpoint": "string",
-        "gceHttpToken": "string",
-        "awsV1HttpToken": "string",
-        "awsV2HttpEndpoint": "string",
-        "awsV2HttpToken": "string"
-      },
       "bootDisk": {
         "mode": "string",
         "deviceName": "string",
@@ -173,27 +159,6 @@ The maximum string length in characters is 100. ||
           "deviceName": "string",
           "autoDelete": "boolean",
           "diskId": "string"
-        }
-      ],
-      "localDisks": [
-        {
-          "size": "string",
-          "deviceName": "string",
-          // Includes only one of the fields `physicalLocalDisk`
-          "physicalLocalDisk": {
-            "kmsKey": {
-              "keyId": "string",
-              "versionId": "string"
-            }
-          }
-          // end of the list of possible fields
-        }
-      ],
-      "filesystems": [
-        {
-          "mode": "string",
-          "deviceName": "string",
-          "filesystemId": "string"
         }
       ],
       "networkInterfaces": [
@@ -252,12 +217,6 @@ The maximum string length in characters is 100. ||
           ]
         }
       ],
-      "serialPortSettings": {
-        "sshAuthorization": "string"
-      },
-      "gpuSettings": {
-        "gpuClusterId": "string"
-      },
       "fqdn": "string",
       "schedulingPolicy": {
         "preemptible": "boolean"
@@ -268,6 +227,7 @@ The maximum string length in characters is 100. ||
       },
       "placementPolicy": {
         "placementGroupId": "string",
+        "placementGroupPartition": "string",
         "hostAffinityRules": [
           {
             "key": "string",
@@ -276,13 +236,47 @@ The maximum string length in characters is 100. ||
               "string"
             ]
           }
-        ],
-        "placementGroupPartition": "string"
+        ]
       },
       "hostGroupId": "string",
       "hostId": "string",
+      "filesystems": [
+        {
+          "mode": "string",
+          "deviceName": "string",
+          "filesystemId": "string"
+        }
+      ],
+      "localDisks": [
+        {
+          "size": "string",
+          "deviceName": "string",
+          // Includes only one of the fields `physicalLocalDisk`
+          "physicalLocalDisk": {
+            "kmsKey": {
+              "keyId": "string",
+              "versionId": "string"
+            }
+          }
+          // end of the list of possible fields
+        }
+      ],
+      "gpuSettings": {
+        "gpuClusterId": "string"
+      },
       "maintenancePolicy": "string",
       "maintenanceGracePeriod": "string",
+      "metadataOptions": {
+        "gceHttpEndpoint": "string",
+        "awsV1HttpEndpoint": "string",
+        "gceHttpToken": "string",
+        "awsV1HttpToken": "string",
+        "awsV2HttpEndpoint": "string",
+        "awsV2HttpToken": "string"
+      },
+      "serialPortSettings": {
+        "sshAuthorization": "string"
+      },
       "hardwareGeneration": {
         // Includes only one of the fields `legacyFeatures`, `generation2Features`
         "legacyFeatures": {
@@ -291,7 +285,6 @@ The maximum string length in characters is 100. ||
         "generation2Features": "object"
         // end of the list of possible fields
       },
-      "reservedInstancePoolId": "string",
       "application": {
         // Includes only one of the fields `containerSolution`
         "containerSolution": {
@@ -309,7 +302,8 @@ The maximum string length in characters is 100. ||
           "backupId": "string",
           "instanceRegistrationId": "string"
         }
-      }
+      },
+      "reservedInstancePoolId": "string"
     }
   ],
   "nextPageToken": "string"
@@ -388,35 +382,18 @@ Status of the instance.
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance. This includes custom metadata and predefined keys.
-
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](/docs/compute/concepts/vm-metadata).
-
 **The `metadata` field is currently omitted from response for the [yandex.cloud.compute.v1.InstanceService.List](#List) request.** ||
-|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
-
-Options allow user to configure access to instance's metadata ||
 || bootDisk | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
 
 Boot disk that is attached to the instance. ||
 || secondaryDisks[] | **[AttachedDisk](#yandex.cloud.compute.v1.AttachedDisk)**
 
 Array of secondary disks that are attached to the instance. ||
-|| localDisks[] | **[AttachedLocalDisk](#yandex.cloud.compute.v1.AttachedLocalDisk)**
-
-Array of local disks that are attached to the instance. ||
-|| filesystems[] | **[AttachedFilesystem](#yandex.cloud.compute.v1.AttachedFilesystem)**
-
-Array of filesystems that are attached to the instance. ||
 || networkInterfaces[] | **[NetworkInterface](#yandex.cloud.compute.v1.NetworkInterface)**
 
 Array of network interfaces that are attached to the instance. ||
-|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
-
-Serial port settings ||
-|| gpuSettings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
-
-GPU settings ||
 || fqdn | **string**
 
 A domain name of the instance. FQDN is defined by the server
@@ -441,6 +418,15 @@ ID of the dedicated host group that the instance belongs to. ||
 || hostId | **string**
 
 ID of the dedicated host that the instance belongs to. ||
+|| filesystems[] | **[AttachedFilesystem](#yandex.cloud.compute.v1.AttachedFilesystem)**
+
+Array of filesystems that are attached to the instance. ||
+|| localDisks[] | **[AttachedLocalDisk](#yandex.cloud.compute.v1.AttachedLocalDisk)**
+
+Array of local disks that are attached to the instance. ||
+|| gpuSettings | **[GpuSettings](#yandex.cloud.compute.v1.GpuSettings)**
+
+GPU settings ||
 || maintenancePolicy | **enum** (MaintenancePolicy)
 
 Behaviour on maintenance events
@@ -450,15 +436,21 @@ Behaviour on maintenance events
 || maintenanceGracePeriod | **string** (duration)
 
 Time between notification via metadata service and maintenance ||
+|| metadataOptions | **[MetadataOptions](#yandex.cloud.compute.v1.MetadataOptions)**
+
+Options allow user to configure access to instance's metadata ||
+|| serialPortSettings | **[SerialPortSettings](#yandex.cloud.compute.v1.SerialPortSettings)**
+
+Serial port settings ||
 || hardwareGeneration | **[HardwareGeneration](#yandex.cloud.compute.v1.HardwareGeneration)**
 
 This feature set is inherited from the image/disk used as a boot one at the creation of the instance. ||
-|| reservedInstancePoolId | **string**
-
-ID of the reserved instance pool that the instance belongs to. ||
 || application | **[Application](#yandex.cloud.compute.v1.Application)**
 
 Instance application settings. ||
+|| reservedInstancePoolId | **string**
+
+ID of the reserved instance pool that the instance belongs to. ||
 |#
 
 ## Resources {#yandex.cloud.compute.v1.Resources}
@@ -480,48 +472,6 @@ This field sets baseline performance for each core. ||
 The number of GPUs available to the instance. ||
 |#
 
-## MetadataOptions {#yandex.cloud.compute.v1.MetadataOptions}
-
-#|
-||Field | Description ||
-|| gceHttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to GCE flavored metadata
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV1HttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to AWS flavored metadata (IMDSv1)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| gceHttpToken | **enum** (MetadataOption)
-
-Enabled access to IAM credentials with GCE flavored metadata
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV1HttpToken | **enum** (MetadataOption)
-
-Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV2HttpEndpoint | **enum** (MetadataOption)
-
-Enabled access to AWS flavored metadata with session token (IMDSv2)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|| awsV2HttpToken | **enum** (MetadataOption)
-
-Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
-
-- `ENABLED`: Option is enabled
-- `DISABLED`: Option is disabled ||
-|#
-
 ## AttachedDisk {#yandex.cloud.compute.v1.AttachedDisk}
 
 #|
@@ -536,7 +486,6 @@ Access mode to the Disk resource.
 
 Serial number that is reflected into the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
-
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
 || autoDelete | **boolean**
 
@@ -544,68 +493,6 @@ Specifies whether the disk will be auto-deleted when the instance is deleted. ||
 || diskId | **string**
 
 ID of the disk that is attached to the instance. ||
-|#
-
-## AttachedLocalDisk {#yandex.cloud.compute.v1.AttachedLocalDisk}
-
-#|
-||Field | Description ||
-|| size | **string** (int64)
-
-Size of the disk, specified in bytes. ||
-|| deviceName | **string**
-
-Serial number that is reflected into the /dev/disk/by-id/ tree
-of a Linux operating system running within the instance.
-
-This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
-|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
-
-Local disk configuration
-
-Includes only one of the fields `physicalLocalDisk`. ||
-|#
-
-## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
-
-#|
-||Field | Description ||
-|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
-
-Key encryption key info. ||
-|#
-
-## KMSKey {#yandex.cloud.compute.v1.KMSKey}
-
-#|
-||Field | Description ||
-|| keyId | **string**
-
-ID of KMS symmetric key ||
-|| versionId | **string**
-
-Version of KMS symmetric key ||
-|#
-
-## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}
-
-#|
-||Field | Description ||
-|| mode | **enum** (Mode)
-
-Access mode to the filesystem.
-
-- `READ_ONLY`: Read-only access.
-- `READ_WRITE`: Read/Write access. ||
-|| deviceName | **string**
-
-Name of the device representing the filesystem on the instance.
-
-The name should be used for referencing the filesystem from within the instance
-when it's being mounted, resized etc. ||
-|| filesystemId | **string**
-
-ID of the filesystem that is attached to the instance. ||
 |#
 
 ## NetworkInterface {#yandex.cloud.compute.v1.NetworkInterface}
@@ -684,27 +571,6 @@ DNS record ttl (optional, if not set, a reasonable default is used.) ||
 When true, indicates there is a corresponding auto-created PTR DNS record. ||
 |#
 
-## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
-
-#|
-||Field | Description ||
-|| sshAuthorization | **enum** (SSHAuthorization)
-
-Authentication and authorization in serial console when using SSH protocol
-
-- `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
-- `OS_LOGIN`: Authentication and authorization using Oslogin service ||
-|#
-
-## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}
-
-#|
-||Field | Description ||
-|| gpuClusterId | **string**
-
-Attach instance to specified GPU cluster. ||
-|#
-
 ## SchedulingPolicy {#yandex.cloud.compute.v1.SchedulingPolicy}
 
 #|
@@ -734,12 +600,12 @@ Network Type
 || placementGroupId | **string**
 
 Placement group ID. ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
-
-List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
 || placementGroupPartition | **string** (int64)
 
 Placement group partition ||
+|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)**
+
+List of affinity rules. Scheduler will attempt to allocate instances according to order of rules. ||
 |#
 
 ## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule}
@@ -760,6 +626,129 @@ Include or exclude action
 || values[] | **string**
 
 Affinity value or host ID or host group ID ||
+|#
+
+## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}
+
+#|
+||Field | Description ||
+|| mode | **enum** (Mode)
+
+Access mode to the filesystem.
+
+- `READ_ONLY`: Read-only access.
+- `READ_WRITE`: Read/Write access. ||
+|| deviceName | **string**
+
+Name of the device representing the filesystem on the instance.
+The name should be used for referencing the filesystem from within the instance
+when it's being mounted, resized etc. ||
+|| filesystemId | **string**
+
+ID of the filesystem that is attached to the instance. ||
+|#
+
+## AttachedLocalDisk {#yandex.cloud.compute.v1.AttachedLocalDisk}
+
+#|
+||Field | Description ||
+|| size | **string** (int64)
+
+Size of the disk, specified in bytes. ||
+|| deviceName | **string**
+
+Serial number that is reflected into the /dev/disk/by-id/ tree
+of a Linux operating system running within the instance.
+This value can be used to reference the device for mounting, resizing, and so on, from within the instance. ||
+|| physicalLocalDisk | **[PhysicalLocalDisk](#yandex.cloud.compute.v1.PhysicalLocalDisk)**
+
+Local disk configuration
+
+Includes only one of the fields `physicalLocalDisk`. ||
+|#
+
+## PhysicalLocalDisk {#yandex.cloud.compute.v1.PhysicalLocalDisk}
+
+#|
+||Field | Description ||
+|| kmsKey | **[KMSKey](#yandex.cloud.compute.v1.KMSKey)**
+
+Key encryption key info. ||
+|#
+
+## KMSKey {#yandex.cloud.compute.v1.KMSKey}
+
+#|
+||Field | Description ||
+|| keyId | **string**
+
+ID of KMS symmetric key ||
+|| versionId | **string**
+
+Version of KMS symmetric key ||
+|#
+
+## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}
+
+#|
+||Field | Description ||
+|| gpuClusterId | **string**
+
+Attach instance to specified GPU cluster. ||
+|#
+
+## MetadataOptions {#yandex.cloud.compute.v1.MetadataOptions}
+
+#|
+||Field | Description ||
+|| gceHttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to GCE flavored metadata
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| gceHttpToken | **enum** (MetadataOption)
+
+Enabled access to IAM credentials with GCE flavored metadata
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV1HttpToken | **enum** (MetadataOption)
+
+Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpToken | **enum** (MetadataOption)
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|#
+
+## SerialPortSettings {#yandex.cloud.compute.v1.SerialPortSettings}
+
+#|
+||Field | Description ||
+|| sshAuthorization | **enum** (SSHAuthorization)
+
+Authentication and authorization in serial console when using SSH protocol
+
+- `INSTANCE_METADATA`: Authentication and authorization using SSH keys in instance metadata
+- `OS_LOGIN`: Authentication and authorization using Oslogin service ||
 |#
 
 ## HardwareGeneration {#yandex.cloud.compute.v1.HardwareGeneration}
@@ -812,19 +801,20 @@ Backup settings. ||
 ||Field | Description ||
 || productId | **string**
 
-Required field. ID of the product.
-
-The maximum string length in characters is 50. ||
+ID of the product.
+The length must be less than or equal to 50.
+This field is required. ||
 || secrets | **object** (map<**string**, **[Secret](#yandex.cloud.compute.v1.Secret)**>)
 
 A list of the secrets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. ||
+The length of each map key must be less than or equal to 100.
+The number of elements must be less than or equal to 100. ||
 || environment | **object** (map<**string**, **string**>)
 
 A list of the environmets.
-
-No more than 100 per resource. The maximum string length in characters for each key is 100. The maximum string length in characters for each value is 10000. ||
+The length of each map key must be less than or equal to 100.
+The length of each map value must be less than or equal to 10000.
+The number of elements must be less than or equal to 100. ||
 |#
 
 ## Secret {#yandex.cloud.compute.v1.Secret}
@@ -833,19 +823,18 @@ No more than 100 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || id | **string**
 
-Required field. ID of the secret.
-
-The maximum string length in characters is 50. ||
+ID of the secret.
+The length must be less than or equal to 50.
+This field is required. ||
 || key | **string**
 
-Required field. Name of the key.
-
-The maximum string length in characters is 256. ||
+Name of the key.
+The length must be less than or equal to 256.
+This field is required. ||
 || versionId | **string**
 
 Version of the secret.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50. ||
 |#
 
 ## BackupSpec {#yandex.cloud.compute.v1.BackupSpec}
@@ -858,19 +847,17 @@ If true, backup is enabled. ||
 || initialPolicyIds[] | **string**
 
 A list of policy IDs to apply after resource registration.
-
-The maximum number of elements is 50. The string length in characters for each value must be 1-50. ||
+The length of each element must be between 1 and 50.
+The number of elements must be less than or equal to 50. ||
 || recoveryFromBackup | **boolean**
 
 If true, recovery from backup starts on instance. ||
 || backupId | **string**
 
 ID of the backup to recover from.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || instanceRegistrationId | **string**
 
 ID of the instance registration for cloud backup agent installation.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#

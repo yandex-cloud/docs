@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. В строке с нужным CDN-ресурсом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** найдите поле **{{ ui-key.yacloud_billing.component.label-set.label_labels }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
@@ -85,7 +85,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Перейдите в нужный CDN-ресурс.
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** найдите поле **{{ ui-key.yacloud_billing.component.label-set.label_labels }}**.
 
@@ -149,7 +149,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан ресурс.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. В строке с нужным CDN-ресурсом нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.cdn.label_section-content }}** найдите поле **{{ ui-key.yacloud_billing.component.label-set.label_labels }}**.
   1. Напротив нужной метки нажмите значок ![image](../../../_assets/console-icons/xmark.svg).

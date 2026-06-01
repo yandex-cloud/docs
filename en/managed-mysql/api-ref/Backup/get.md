@@ -60,7 +60,6 @@ To get this ID, make a [BackupService.List](/docs/managed-mysql/api-ref/Backup/l
 ```
 
 An object that represents MySQL backup.
-
 See [the documentation](/docs/managed-mysql/concepts/backup) for details.
 
 #|

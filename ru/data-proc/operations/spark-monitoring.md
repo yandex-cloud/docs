@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить список приложений {#list}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 
@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить логи приложения {#logs}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 1. Найдите нужное приложение и нажмите на его идентификатор в столбце **ID**.
@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить очередь выполнения приложений {#queue}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
 1. В левом меню перейдите в раздел **Scheduler**.
@@ -59,7 +59,7 @@ description: Следуя данной инструкции, вы сможете
 * YARN Resource Manager Web UI
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
     1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `YARN Resource Manager Web UI`.
     1. Найдите нужное приложение и перейдите по ссылке в столбце **Tracking UI**. Название ссылки зависит от статуса приложения:
@@ -70,7 +70,7 @@ description: Следуя данной инструкции, вы сможете
 * Spark History Server Web UI
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
     1. Нажмите на имя нужного кластера.
     1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 
@@ -96,7 +96,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить выделенные для приложения ресурсы {#resources}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Executors**.
@@ -123,7 +123,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить кешируемые таблицы {#tables}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **Storage**.
@@ -135,7 +135,7 @@ description: Следуя данной инструкции, вы сможете
 ## Проверить список и планы SQL-запросов {#sql}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Нажмите на имя нужного кластера.
 1. В блоке **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}** выберите интерфейс `Spark History Server Web UI`.
 1. В верхнем меню перейдите в раздел **SQL**.

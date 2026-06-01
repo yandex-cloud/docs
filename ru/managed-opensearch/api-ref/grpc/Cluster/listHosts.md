@@ -31,7 +31,6 @@ The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns
 a [ListClusterHostsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsResponse) that can be used to get the next page of results in subsequent list requests.
 
@@ -96,10 +95,8 @@ Requested list of hosts for the cluster. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterHostsRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest), use the `next_page_token`
 as the value for the [ListClusterHostsRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterHostsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -133,7 +130,7 @@ Type of the host. If the field has default value, it is not returned in the resp
 - `DASHBOARDS`: A Dashboards type host. ||
 || health | enum **Health**
 
-Aggregated health of the host. If the field has default value, it is not returned in the response.
+Aggregated host health.
 
 - `UNKNOWN`: Health of the host is unknown. Default value.
 - `ALIVE`: The host is performing all its functions normally.
@@ -147,17 +144,17 @@ ID of the subnet that the host belongs to. ||
 Determines whether a public IP is assigned to the host. ||
 || system | **[SystemMetrics](#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics)**
 
-Resources used by the host. ||
+System metrics. ||
 || node_group | **string**
 
-Name of the host group that the host belongs to. ||
+Which node group the host belongs to. ||
 || roles[] | enum **GroupRole**
 
-Roles of the host.
+Roles of the nodes in the group.
 
 - `DATA`: Data nodes store indices data.
 - `MANAGER`: Manager nodes perform cluster coordination.
-- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `WARM`: Warm nodes provide access to searchable snapshots and manage search cache for these snapshots.
 - `INGEST`: Ingest nodes provides indexed data processing.
 If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 |#
@@ -170,13 +167,15 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resource_preset_id | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || disk_size | **int64**
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || disk_type_id | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## SystemMetrics {#yandex.cloud.mdb.opensearch.v1.Host.SystemMetrics}

@@ -24,15 +24,15 @@ A set of methods for managing Instance resources.
 || [DetachDisk](detachDisk.md) | Detaches the disk from the instance. ||
 || [AttachFilesystem](attachFilesystem.md) | Attaches the filesystem to the instance. ||
 || [DetachFilesystem](detachFilesystem.md) | Detaches the filesystem from the instance. ||
-|| [AttachNetworkInterface](attachNetworkInterface.md) | Attaches the network-interface to the instance. ||
-|| [DetachNetworkInterface](detachNetworkInterface.md) | Detaches the network-interface to the instance. ||
 || [AddOneToOneNat](addOneToOneNat.md) | Enables One-to-one NAT on the network interface. ||
 || [RemoveOneToOneNat](removeOneToOneNat.md) | Removes One-to-one NAT from the network interface. ||
 || [UpdateNetworkInterface](updateNetworkInterface.md) | Updates the specified instance network interface. ||
+|| [AttachNetworkInterface](attachNetworkInterface.md) | Attaches the network-interface to the instance. ||
+|| [DetachNetworkInterface](detachNetworkInterface.md) | Detaches the network-interface to the instance. ||
 || [ListOperations](listOperations.md) | Lists operations for the specified instance. ||
+|| [SimulateMaintenanceEvent](simulateMaintenanceEvent.md) |  ||
 || [Move](move.md) | Moves the specified instance to another folder of the same cloud. ||
 || [Relocate](relocate.md) | Moves the specified instance to another availability zone ||
-|| [SimulateMaintenanceEvent](simulateMaintenanceEvent.md) |  ||
 || [ListAccessBindings](listAccessBindings.md) | Lists access bindings for the instance. ||
 || [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the instance. ||
 || [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the instance. ||

@@ -1,6 +1,8 @@
 # Устранение проблем при создании OAuth-токенов от имени учетных записей Яндекс ID
 
 
+{% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
 ## Описание проблемы {#issue-description}
 
 При попытке создать OAuth-токен от имени пользователя Яндекс ID отображается сообщение об ошибке: 

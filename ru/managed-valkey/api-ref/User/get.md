@@ -18,8 +18,8 @@ apiPlayground:
             **string**
             Required field. Name of the Redis User resource to return.
             To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request.
-            The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `.
-          pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$
+            The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `.
+          pattern: ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$
           type: string
       required:
         - clusterId
@@ -33,7 +33,6 @@ apiPlayground:
 # Managed Service for Redis API, REST: User.Get
 
 Returns the specified Redis User resource.
-
 To get the list of available Redis User resources, make a [List](/docs/managed-redis/api-ref/User/list#List) request.
 
 ## HTTP request
@@ -57,7 +56,7 @@ The maximum string length in characters is 50. ||
 Required field. Name of the Redis User resource to return.
 To get the name of the user, use a [UserService.List](/docs/managed-redis/api-ref/User/list#List) request.
 
-The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
+The maximum string length in characters is 32. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_@.-]*$ `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.User}
@@ -73,7 +72,8 @@ The maximum string length in characters is 32. Value must match the regular expr
     "pubSubChannels": "string",
     "categories": "string",
     "commands": "string",
-    "sanitizePayload": "string"
+    "sanitizePayload": "string",
+    "databases": "string"
   },
   "enabled": "boolean",
   "aclOptions": "string"
@@ -121,4 +121,7 @@ Commands user can execute. ||
 || sanitizePayload | **string**
 
 SanitizePayload parameter. ||
+|| databases | **string**
+
+Databases parameter. ||
 |#

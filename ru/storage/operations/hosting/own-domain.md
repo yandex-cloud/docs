@@ -33,7 +33,7 @@ description: Следуя данной инструкции, вы сможете
       {% endnote %}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите бакет, для которого хотите использовать собственный домен.
       1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
       1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.

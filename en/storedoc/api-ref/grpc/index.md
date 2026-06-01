@@ -12,6 +12,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 #|
 ||Service | Description ||
+|| [BackupRetentionPolicy](BackupRetentionPolicy/index.md) | A set of methods for managing MongoDB Cluster backup retention policies. ||
 || [Backup](Backup/index.md) | A set of methods for managing MongoDB Backup resources. ||
 || [Cluster](Cluster/index.md) | A set of methods for managing MongoDB Cluster resources. ||
 || [Database](Database/index.md) | A set of methods for managing MongoDB Database resources. ||

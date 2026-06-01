@@ -247,7 +247,7 @@ apiPlayground:
               **boolean**
               Determines whether the host should get a public IP address on creation.
               After a host has been created, this setting cannot be changed.
-              To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assignPublicIp](#yandex.cloud.mdb.greenplum.v1.GreenplumConfig) set as needed.
+              To remove an assigned public IP, or to assign a public IP to a host without one, recreate the host with [assignPublicIp](/docs/managed-greenplum/api-ref/Cluster/listMasterHosts#yandex.cloud.mdb.greenplum.v1.Host) set as needed.
               Possible values:
               * `false` - do not assign a public IP to the master host.
               * `true` - assign a public IP to the master host.

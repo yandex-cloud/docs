@@ -141,7 +141,7 @@
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-1. Создайте [статический ключ](../../iam/concepts/authorization/access-key.md) для сервисного аккаунта `account-for-container-registry`, [созданного ранее](#before-you-begin):
+1. Создайте [авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта `account-for-container-registry`, [созданного ранее](#before-you-begin):
 
    ```bash
    yc iam key create --service-account-name account-for-container-registry -o key.json
@@ -153,7 +153,7 @@
 
 1. На панели слева перейдите в раздел **Settings** и во всплывающем списке выберите пункт **CI/CD**.
 
-1. Нажмите кнопку **Expand** напротив пункта **Variables**.
+1. Разверните раздел **Variables**.
 
 1. Добавьте переменные окружения с выключенной опцией защиты:
 
@@ -165,6 +165,14 @@
    Для добавления переменной:
 
    1. Нажмите кнопку **Add variable**.
+   1. Для переменной `CI_REGISTRY_KEY` в поле **Visibility** выберите вариант **Visible**.
+
+      {% note warning %}
+
+      Файл `key.json` содержит пробелы и переносы строк, маскирование которых не поддерживается в {{ GL }}. При этом в приведенном [примере CI-пайплайна](#add-ci), переменная `CI_REGISTRY_KEY` в явном виде не выводится, поэтому ее маскирование не требуется.
+
+      {% endnote %}
+
    1. В появившемся окне в поле **Key** укажите имя переменной, в поле **Value** — значение переменной.
    1. Выключите опцию **Protect variable**.
    1. Нажмите кнопку **Add variable**.

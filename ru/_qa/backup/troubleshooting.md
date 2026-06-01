@@ -55,6 +55,10 @@
 
 {% endlist %}
 
+#### Почему не удаляются старые резервные копии после переподключения ВМ к {{ backup-name }}? {#old-backups-not-deleted}
+
+{% include [old-backup](../../_includes/backup/old-backups.md) %}
+
 
 #### Ошибка при попытке восстановить ВМ или сервер {{ baremetal-name }} из резервной копии {#recovery-error}
 

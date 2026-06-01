@@ -24,8 +24,8 @@ apiPlayground:
           description: |-
             **string**
             Required field. Name for the new shard group.
-            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
-          pattern: '[a-zA-Z0-9_-]*'
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `.
+          pattern: '[a-zA-Z_][a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
@@ -63,7 +63,6 @@ POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shard
 || clusterId | **string**
 
 Required field. ID of the ClickHouse cluster to add a shard group to.
-
 To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -87,14 +86,13 @@ The maximum string length in characters is 50. ||
 
 Required field. Name for the new shard group.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z_][a-zA-Z0-9_-]* `. ||
 || description | **string**
 
 Description of the new shard group. 0-256 characters long. ||
 || shardNames[] | **string**
 
 List of shard names that should be put into the new group.
-
 To get the list, make a [ClusterService.ListShardGroups](/docs/managed-clickhouse/api-ref/Cluster/listShardGroups#ListShardGroups) request. ||
 |#
 
@@ -110,10 +108,7 @@ To get the list, make a [ClusterService.ListShardGroups](/docs/managed-clickhous
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "shardGroupName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -122,14 +117,7 @@ To get the list, make a [ClusterService.ListShardGroups](/docs/managed-clickhous
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "description": "string",
-    "shardNames": [
-      "string"
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -171,7 +159,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateClusterShardGroupMetadata](#yandex.cloud.mdb.clickhouse.v1.CreateClusterShardGroupMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -186,7 +174,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ShardGroup](#yandex.cloud.mdb.clickhouse.v1.ShardGroup)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -201,18 +189,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateClusterShardGroupMetadata {#yandex.cloud.mdb.clickhouse.v1.CreateClusterShardGroupMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ID of the cluster to add a shard group to. ||
-|| shardGroupName | **string**
-
-Name of the shard group that is being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -230,22 +206,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## ShardGroup {#yandex.cloud.mdb.clickhouse.v1.ShardGroup}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the shard group. ||
-|| clusterId | **string**
-
-ID of the ClickHouse cluster that the shard group belongs to. ||
-|| description | **string**
-
-Description of the shard group. 0-256 characters long. ||
-|| shardNames[] | **string**
-
-List of shard names contained in the shard group. ||
 |#

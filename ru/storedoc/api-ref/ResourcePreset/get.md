@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](/docs/managed-mongodb/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request

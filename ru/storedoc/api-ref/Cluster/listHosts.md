@@ -145,7 +145,6 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 
@@ -240,8 +239,16 @@ Aggregated health of the service. If the field has default value, it is not retu
 
 #|
 ||Field | Description ||
-|| hidden | **boolean** ||
-|| secondaryDelaySecs | **string** (int64) ||
-|| priority | **string** ||
-|| tags | **object** (map<**string**, **string**>) ||
+|| hidden | **boolean**
+
+Whether the host is hidden in the replica set. ||
+|| secondaryDelaySecs | **string** (int64)
+
+Replica delay (in seconds) relative to the primary host. ||
+|| priority | **string**
+
+Replica priority used by the replica set when electing a new primary. ||
+|| tags | **object** (map<**string**, **string**>)
+
+Replica tags used to control read preference and write concern. ||
 |#

@@ -15,7 +15,7 @@ description: Из статьи вы узнаете, как создать рас
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [диск](../../concepts/disk.md).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** нажмите **{{ ui-key.yacloud.compute.snapshots-schedules.button_create-snapshot-schedule }}**.
   1. {% include [section-schedule](../../_includes_service/schedule/section-schedule.md) %}

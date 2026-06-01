@@ -132,8 +132,11 @@ editable: false
           "exchangeManager": {
             "additionalProperties": "object",
             "storage": {
-              // Includes only one of the fields `serviceS3`
-              "serviceS3": "object"
+              // Includes only one of the fields `serviceS3`, `s3`
+              "serviceS3": "object",
+              "s3": {
+                "bucket": "string"
+              }
               // end of the list of possible fields
             }
           },
@@ -1050,7 +1053,17 @@ The maximum string length in characters for each value is 128. The string length
 ||Field | Description ||
 || serviceS3 | **object**
 
-Includes only one of the fields `serviceS3`. ||
+Includes only one of the fields `serviceS3`, `s3`. ||
+|| s3 | **[S3](#yandex.cloud.trino.v1.ExchangeManagerStorage.S3)**
+
+Includes only one of the fields `serviceS3`, `s3`. ||
+|#
+
+## S3 {#yandex.cloud.trino.v1.ExchangeManagerStorage.S3}
+
+#|
+||Field | Description ||
+|| bucket | **string** ||
 |#
 
 ## AccessControlConfig {#yandex.cloud.trino.v1.AccessControlConfig}

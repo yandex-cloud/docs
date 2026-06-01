@@ -25,14 +25,14 @@ Update host
 ||Field | Description ||
 || host_group_id | **string**
 
-Required field. ID of the host group to update.
-
-The maximum string length in characters is 50. ||
+ID of the host group to update.
+The length must be less than or equal to 50.
+This field is required. ||
 || host_id | **string**
 
-Required field. ID of the host to update.
-
-The maximum string length in characters is 50. ||
+ID of the host to update.
+The length must be less than or equal to 50.
+This field is required. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Host are going to be updated. ||
@@ -52,21 +52,10 @@ Timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "host_group_id": "string",
-    "host_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "status": "Status",
-    "server_id": "string",
-    "replacement": {
-      "host_id": "string",
-      "deadline_at": "google.protobuf.Timestamp"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -94,7 +83,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateHostGroupHostMetadata](#yandex.cloud.compute.v1.UpdateHostGroupHostMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -109,7 +98,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Host](#yandex.cloud.compute.v1.Host)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -124,51 +113,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateHostGroupHostMetadata {#yandex.cloud.compute.v1.UpdateHostGroupHostMetadata}
-
-#|
-||Field | Description ||
-|| host_group_id | **string**
-
-ID of the host group that is being updated. ||
-|| host_id | **string**
-
-ID of the host that is being updated. ||
-|#
-
-## Host {#yandex.cloud.compute.v1.Host}
-
-Represents a dedicated host
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the host. ||
-|| status | enum **Status**
-
-Current status of the host. New instances are unable to start on host in DOWN status.
-
-- `UP`
-- `DOWN` ||
-|| server_id | **string**
-
-ID of the physical server that the host belongs to. ||
-|| replacement | **[Replacement](#yandex.cloud.compute.v1.Replacement)**
-
-Set temporarily if maintenance is planned for this host, and a new host was provided as a replacement. ||
-|#
-
-## Replacement {#yandex.cloud.compute.v1.Replacement}
-
-#|
-||Field | Description ||
-|| host_id | **string**
-
-ID of the host which replaces this one. ||
-|| deadline_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-The date and time when this host will be automatically freed of instances. ||
 |#

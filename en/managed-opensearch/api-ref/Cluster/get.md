@@ -24,7 +24,6 @@ apiPlayground:
 # Managed Service for OpenSearch API, REST: Cluster.Get
 
 Returns the specified OpenSearch cluster.
-
 To get the list of all available OpenSearch clusters, make a [List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the OpenSearch cluster to return.
-
 To get the cluster ID, use a [ClusterService.List](/docs/managed-opensearch/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -340,10 +338,10 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration. ||
+Snapshot management configuration ||
 || fullVersion | **string**
 
-Full version. ||
+Full version ||
 || auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
 
 Audit log settings. ||
@@ -362,8 +360,6 @@ Names of the cluster plugins. ||
 
 Host groups of the OpenSearch type. ||
 || opensearchConfigSet_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
-
-OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfigSet_2`. ||
 || keystoreSettings[] | **string**
@@ -401,7 +397,7 @@ Roles of the host group.
 
 - `DATA`: Data nodes store indices data.
 - `MANAGER`: Manager nodes perform cluster coordination.
-- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `WARM`: Warm nodes provide access to searchable snapshots and manage search cache for these snapshots.
 - `INGEST`: Ingest nodes provides indexed data processing.
 If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -417,16 +413,20 @@ A list of computational resources allocated to a host.
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources allocated to a host. ||
+Required field. ID of the preset for computational resources allocated to a host. ||
 || diskSize | **string** (int64)
 
-Volume of the storage used by the host, in bytes. ||
+Volume of the storage used by the host, in bytes.
+
+Value must be greater than 0. ||
 || diskTypeId | **string**
 
-Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
+Required field. Type of the storage used by the host: `network-hdd`, `network-ssd` or `local-ssd`. ||
 |#
 
 ## DiskSizeAutoscaling {#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling}
+
+Disk size autoscaling settings.
 
 #|
 ||Field | Description ||
@@ -474,9 +474,7 @@ Default value: **1024**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
-
-Acceptable values are 32 to 32768, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -495,9 +493,7 @@ Default value: **65535**.
 
 Change of the setting is applied with restart.
 
-For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
-
-Acceptable values are 0 to 2147483647, inclusive. ||
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings). ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts

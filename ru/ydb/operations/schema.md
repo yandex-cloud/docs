@@ -21,7 +21,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать таблицу.
   1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
@@ -71,7 +71,7 @@
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать таблицу.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
   1. Настройте параметры таблицы:
@@ -97,7 +97,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать таблицу.
   1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_table }}** в правой части страницы.
@@ -146,7 +146,7 @@
    В облачной консоли {{ ydb-short-name }} можно добавлять неключевые колонки в таблицу и изменять настройки автопартицирования таблиц.
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
    1. Добавьте новые колонки в таблицу и укажите их параметры:
@@ -182,7 +182,7 @@
    {% endnote %}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
    1. Найдите таблицу в списке и кликнете по ней.
    1. Нажмите кнопку **Добавить строку**.
@@ -203,7 +203,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно изменить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_edit }}**.
 
@@ -244,7 +244,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно удалить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Подтвердите удаление.
@@ -262,7 +262,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Перейдите базу данных, в которой нужно удалить документную таблицу.
    1. Выберите документную таблицу из списка таблиц, нажмите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Подтвердите удаление.
@@ -280,7 +280,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
    1. Выберите базу данных, в которой нужно удалить таблицу.
    1. Найдите таблицу в списке и выберите ![image](../../_assets/horizontal-ellipsis.svg) → **{{ ui-key.yacloud.ydb.constants.menu_delete }}**.
    1. Подтвердите удаление.
@@ -300,7 +300,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, в которой нужно создать директорию.
   1. Выберите **{{ ui-key.yacloud.ydb.browse.button_create }}** → **{{ ui-key.yacloud.ydb.browse.menu_directory }}** в правой части страницы.
   1. Введите имя директории и нажмите кнопку **{{ ui-key.yacloud.ydb.browse.dialogs.button_create-directory }}**.

@@ -52,7 +52,6 @@ GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}
 || placementGroupId | **string**
 
 Required field. ID of the placement group to list operations for.
-
 To get the placement group ID, use [PlacementGroupService.List](/docs/compute/api-ref/PlacementGroup/list#List) request. ||
 |#
 

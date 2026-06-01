@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным ресурсом.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в нужный сервис, например, **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** для виртуальной машины или **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** для кластера.
+  1. Перейдите в нужный сервис, например, **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** для виртуальной машины или **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** для кластера.
   1. Выберите ресурс в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Найдите график **Connections quota utilization**.

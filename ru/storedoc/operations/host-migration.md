@@ -15,7 +15,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Нажмите на имя нужного кластера {{ mmg-name }} и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
       1. Укажите параметры хоста:
@@ -198,7 +198,7 @@ description: Следуя данной инструкции, вы сможете
    - Консоль управления {#console}
 
       1. Перейдите на [страницу каталога]({{ link-console-main }}).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
       1. Нажмите на имя нужного кластера {{ mmg-name }} и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
       1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
@@ -282,7 +282,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором расположен кластер. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором расположен кластер. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
 
 {% include [zone-d-restrictions](../../_includes/mdb/ru-central1-d-restrictions.md) %}
 

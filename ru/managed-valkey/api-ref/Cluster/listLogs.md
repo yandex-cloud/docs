@@ -30,6 +30,7 @@ apiPlayground:
         serviceType:
           description: |-
             **enum** (ServiceType)
+            Type of the service to request logs about.
             - `REDIS`: Logs of Redis activity.
           type: string
           enum:
@@ -109,6 +110,8 @@ The maximum string length in characters is 50. ||
 Columns from the logs table to request.
 If no columns are specified, entire log records are returned. ||
 || serviceType | **enum** (ServiceType)
+
+Type of the service to request logs about.
 
 - `REDIS`: Logs of Redis activity. ||
 || fromTime | **string** (date-time)

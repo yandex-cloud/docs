@@ -1,6 +1,8 @@
 # Устранение ошибки `OAuth token is invalid or expired`
 
 
+{% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
 ## Описание проблемы {#issue-description}
 
 Истек срок действия OAuth-токена и появилась ошибка `OAuth token is invalid or expired`.

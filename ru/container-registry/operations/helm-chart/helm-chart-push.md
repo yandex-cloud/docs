@@ -36,7 +36,7 @@ description: Из статьи вы узнаете о загрузке Helm-ча
   1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
 
-       {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+       {% include [oauth-token-deprecated-migration](../../../_includes/oauth-token-deprecated-migration.md) %}
 
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
        1. Выполните команду:

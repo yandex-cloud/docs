@@ -56,7 +56,6 @@ GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/operations
 || clusterId | **string**
 
 Required field. ID of the cluster to list operations for.
-
 To get this ID, make a [ClusterService.List](/docs/managed-mysql/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -69,14 +68,12 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the API returns a [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListOperations](#ListOperations) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `pageToken` to the [ListClusterOperationsResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsResponse) returned by the previous [ClusterService.ListOperations](#ListOperations) request.
 
 The maximum string length in characters is 100. ||
@@ -121,9 +118,7 @@ List of operations in the cluster. ||
 || nextPageToken | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterOperationsRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsRequest), use the `nextPageToken` as the value for the [ListClusterOperationsRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListClusterOperationsRequest) in the subsequent [ClusterService.ListOperations](#ListOperations) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListOperations](#ListOperations) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
 |#
 

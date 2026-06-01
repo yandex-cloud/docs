@@ -22,7 +22,7 @@ noIndex: true
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором был размещен CDN-ресурс, относящийся к провайдеру EdgeCDN.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. В списке ресурсов найдите перенесенный CDN-ресурс. У него должен быть указан провайдер `{{ cdn-full-name }}`, и должно быть то же самое основное доменное имя, что и в провайдере EdgeCDN. 
   1. Если в столбце **Статус** перенесенного CDN-ресурса указано `Not active`, включите доступ к контенту:
       1. Напротив ресурса нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -104,7 +104,7 @@ noIndex: true
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан CDN-ресурс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Выберите CDN-ресурс, созданный ранее.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 

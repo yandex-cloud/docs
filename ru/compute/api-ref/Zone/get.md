@@ -9,11 +9,10 @@ apiPlayground:
         zoneId:
           description: |-
             **string**
-            Required field. ID of the availability zone to return information about.
-            The maximum string length in characters is 50.
+            ID of the availability zone to return information about.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - zoneId
       additionalProperties: false
     query: null
     body: null
@@ -23,7 +22,6 @@ apiPlayground:
 # Compute Cloud API, REST: Zone.Get
 
 Returns the information about the specified availability zone.
-
 To get the list of availability zones, make a [List](/docs/compute/api-ref/Zone/list#List) request.
 
 ## HTTP request
@@ -39,8 +37,8 @@ GET https://compute.{{ api-host }}/compute/v1/zones/{zoneId}
 || zoneId | **string**
 
 Required field. ID of the availability zone to return information about.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.Zone}

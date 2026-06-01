@@ -123,6 +123,8 @@ items:
         href: soap.md
       - name: TCP/IP
         href: tcp-ip.md
+      - name: Virtual Local Area Network (VLAN)
+        href: vlan.md
       - name: Вебхук
         href: webhook.md
       - name: OpenAPI

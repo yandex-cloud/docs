@@ -24,7 +24,6 @@ apiPlayground:
 # Managed Service for Redis API, REST: Cluster.Get
 
 Returns the specified Redis cluster.
-
 To get the list of available Redis clusters, make a [List](/docs/managed-redis/api-ref/Cluster/list#List) request.
 
 ## HTTP request
@@ -359,7 +358,8 @@ The maximum string length in characters is 50. ||
         "ioThreadsAllowed": "boolean",
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
-        "activedefrag": "boolean"
+        "activedefrag": "boolean",
+        "auditLog": "boolean"
       },
       "userConfig": {
         "maxmemoryPolicy": "string",
@@ -393,7 +393,8 @@ The maximum string length in characters is 50. ||
         "ioThreadsAllowed": "boolean",
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
-        "activedefrag": "boolean"
+        "activedefrag": "boolean",
+        "auditLog": "boolean"
       },
       "defaultConfig": {
         "maxmemoryPolicy": "string",
@@ -427,7 +428,8 @@ The maximum string length in characters is 50. ||
         "ioThreadsAllowed": "boolean",
         "zsetMaxListpackEntries": "string",
         "aofMaxSizePercent": "string",
-        "activedefrag": "boolean"
+        "activedefrag": "boolean",
+        "auditLog": "boolean"
       }
     },
     "diskSizeAutoscaling": {
@@ -490,14 +492,14 @@ the Managed Service for Redis [documentation](/docs/managed-redis/concepts/).
 ||Field | Description ||
 || id | **string**
 
-ID of the Redis cluster.
+Required field. ID of the Redis cluster.
 This ID is assigned by MDB at creation time. ||
 || folderId | **string**
 
-ID of the folder that the Redis cluster belongs to. ||
+Required field. ID of the folder that the Redis cluster belongs to. ||
 || createdAt | **string** (date-time)
 
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
+Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
 `0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
@@ -507,7 +509,7 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || name | **string**
 
-Name of the Redis cluster.
+Required field. Name of the Redis cluster.
 The name is unique within the folder. 3-63 characters long. ||
 || description | **string**
 
@@ -518,7 +520,7 @@ Custom labels for the Redis cluster as `key:value` pairs.
 Maximum 64 per cluster. ||
 || environment | **enum** (Environment)
 
-Deployment environment of the Redis cluster.
+Required field. Deployment environment of the Redis cluster.
 
 - `PRODUCTION`: Stable environment with a conservative update policy:
 only hotfixes are applied during regular maintenance.
@@ -529,11 +531,13 @@ are rolled out irrespective of backward compatibility. ||
 Description of monitoring systems relevant to the Redis cluster. ||
 || config | **[ClusterConfig](#yandex.cloud.mdb.redis.v1.ClusterConfig)**
 
-Configuration of the Redis cluster. ||
-|| networkId | **string** ||
+Required field. Configuration of the Redis cluster. ||
+|| networkId | **string**
+
+Required field. ID of the network that the cluster belongs to. ||
 || health | **enum** (Health)
 
-Aggregated cluster health.
+Required field. Aggregated cluster health.
 
 - `HEALTH_UNKNOWN`: Cluster is in unknown state (we have no data)
 - `ALIVE`: Cluster is alive and well (all hosts are alive)
@@ -541,7 +545,7 @@ Aggregated cluster health.
 - `DEGRADED`: Cluster is partially alive (it can perform some of its essential functions) ||
 || status | **enum** (Status)
 
-Cluster status.
+Required field. Cluster status.
 
 - `STATUS_UNKNOWN`: Cluster status is unknown
 - `CREATING`: Cluster is being created
@@ -556,7 +560,7 @@ Cluster status.
 Redis cluster mode on/off. ||
 || maintenanceWindow | **[MaintenanceWindow](#yandex.cloud.mdb.redis.v1.MaintenanceWindow)**
 
-Maintenance window for the cluster. ||
+Required field. Maintenance window for the cluster. ||
 || plannedOperation | **[MaintenanceOperation](#yandex.cloud.mdb.redis.v1.MaintenanceOperation)**
 
 Planned maintenance operation to be started for the cluster within the nearest `maintenanceWindow`. ||
@@ -573,9 +577,9 @@ Deletion Protection inhibits deletion of the cluster ||
 
 Persistence mode
 
-- `ON`: cluster persistence mode on
-- `OFF`: cluster persistence mode off
-- `ON_REPLICAS`: cluster persistence on replicas only ||
+- `ON`: Cluster persistence mode is on.
+- `OFF`: Cluster persistence mode is off.
+- `ON_REPLICAS`: Cluster persistence is on for replicas only. ||
 || announceHostnames | **boolean**
 
 Enable FQDN instead of ip ||
@@ -593,13 +597,13 @@ ID of the key to encrypt cluster disks. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the monitoring system. ||
+Required field. Name of the monitoring system. ||
 || description | **string**
 
 Description of the monitoring system. ||
 || link | **string**
 
-Link to the monitoring system charts for the Redis cluster. ||
+Required field. Link to the monitoring system charts for the Redis cluster. ||
 |#
 
 ## ClusterConfig {#yandex.cloud.mdb.redis.v1.ClusterConfig}
@@ -639,16 +643,16 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 Configuration for Redis servers in the cluster. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Resources allocated to Redis hosts. ||
+Required field. Resources allocated to Redis hosts. ||
 || backupWindowStart | **[TimeOfDay](#google.type.TimeOfDay)**
 
-Time to start the daily backup, in the UTC timezone. ||
+Required field. Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.redis.v1.Access)**
 
-Access policy to DB ||
+Required field. Access policy to DB ||
 || redis | **[RedisConfigSet](#yandex.cloud.mdb.redis.v1.config.RedisConfigSet)**
 
-Unified configuration of a Redis cluster. ||
+Required field. Unified configuration of a Redis cluster. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.redis.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -691,7 +695,6 @@ parameters.
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -707,12 +710,14 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+Value must be greater than 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
@@ -790,7 +795,6 @@ parameters.
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -806,12 +810,14 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+Value must be greater than 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
@@ -889,7 +895,6 @@ parameters.
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -905,12 +910,14 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
@@ -993,7 +1000,6 @@ parameters.
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1009,12 +1015,14 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
 Authentication password.
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
@@ -1075,7 +1083,7 @@ The minimum value is 0. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources available to a host (CPU, memory etc.).
+Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
 All available presets are listed in the [documentation](/docs/managed-redis/concepts/instance-types). ||
 || diskSize | **string** (int64)
 
@@ -1152,7 +1160,6 @@ parameters.
 Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
 All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `VOLATILE_LRU`: Try to remove less recently used (LRU) keys with `expire set`.
@@ -1168,22 +1175,22 @@ more memory to be used. ||
 || timeout | **string** (int64)
 
 Time that Redis keeps the connection open while the client is idle.
-If no new command is sent during that time, the connection is closed. ||
+If no new command is sent during that time, the connection is closed.
+
+The minimum value is 0. ||
 || password | **string**
 
-Authentication password.
-
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+Authentication password. ||
 || databases | **string** (int64)
 
 Number of database buckets on a single redis-server process.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 1024, inclusive. ||
 || slowlogLogSlowerThan | **string** (int64)
 
 Threshold for logging slow requests to server in microseconds (log only slower than it).
 
-The minimum value is 0. ||
+The minimum value is 10. ||
 || slowlogMaxLen | **string** (int64)
 
 Max slow requests number to log.
@@ -1191,9 +1198,7 @@ Max slow requests number to log.
 The minimum value is 0. ||
 || notifyKeyspaceEvents | **string**
 
-String setting for pub\sub functionality.
-
-Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
+String setting for pub\sub functionality. ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)**
 
 Redis connection output buffers limits for pubsub operations. ||
@@ -1209,12 +1214,12 @@ Acceptable values are 1 to 75, inclusive. ||
 
 Maximum time in milliseconds for Lua scripts, 0 - disabled mechanism
 
-The minimum value is 0. ||
+Acceptable values are 0 to 5000, inclusive. ||
 || replBacklogSizePercent | **string** (int64)
 
 Replication backlog size as a percentage of flavor maxmemory
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 75, inclusive. ||
 || clusterRequireFullCoverage | **boolean**
 
 Controls whether all hash slots must be covered by nodes ||
@@ -1228,12 +1233,12 @@ Permits Pub/Sub shard operations when cluster is down ||
 
 The time, in minutes, that must elapse in order for the key counter to be divided by two (or decremented if it has a value less <= 10)
 
-The minimum value is 0. ||
+Acceptable values are 0 to 100000, inclusive. ||
 || lfuLogFactor | **string** (int64)
 
 Determines how the frequency counter represents key hits.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || turnBeforeSwitchover | **boolean**
 
 Allows to turn before switchover in RDSync ||
@@ -1259,6 +1264,9 @@ Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean**
 
 Enable active (online) memory defragmentation ||
+|| auditLog | **boolean**
+
+Enable/disable audit logs for Valkey ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}
@@ -1394,13 +1402,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **string** (int64)
 
 Hour of the day in UTC (in `HH` format).

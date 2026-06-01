@@ -11,7 +11,8 @@ apiPlayground:
             **string**
             Required field. ID of the InstanceGroup resource to list operations for.
             To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
       required:
         - instanceGroupId
@@ -25,7 +26,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
-            Acceptable values are 0 to 1000, inclusive.
+            The value must be between 0 and 1000.
           type: string
           format: int64
         pageToken:
@@ -33,14 +34,14 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the
             [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
-            The maximum string length in characters is 1000.
+            The length must be less than or equal to 1000.
           type: string
         filter:
           description: |-
             **string**
             A filter expression that filters resources listed in the response.
             Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
-            The maximum string length in characters is 1000.
+            The length must be less than or equal to 1000.
           type: string
       additionalProperties: false
     body: null
@@ -65,8 +66,8 @@ GET https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}/o
 
 Required field. ID of the InstanceGroup resource to list operations for.
 To get the instance group ID, use a [InstanceGroupService.List](/docs/compute/instancegroup/api-ref/InstanceGroup/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsRequest}
@@ -78,20 +79,17 @@ The maximum string length in characters is 50. ||
 The maximum number of results per page to return. If the number of available
 results is more than `pageSize`, the service returns a [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-Acceptable values are 0 to 1000, inclusive. ||
+The value must be between 0 and 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListInstanceGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 Currently you can use filtering only on the [InstanceGroup.name](/docs/compute/instancegroup/api-ref/InstanceGroup/get#yandex.cloud.compute.v1.instancegroup.InstanceGroup) field.
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupOperationsResponse}

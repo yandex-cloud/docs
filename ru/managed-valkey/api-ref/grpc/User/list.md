@@ -56,7 +56,8 @@ The maximum string length in characters is 400. ||
         "pub_sub_channels": "google.protobuf.StringValue",
         "categories": "google.protobuf.StringValue",
         "commands": "google.protobuf.StringValue",
-        "sanitize_payload": "google.protobuf.StringValue"
+        "sanitize_payload": "google.protobuf.StringValue",
+        "databases": "google.protobuf.StringValue"
       },
       "enabled": "bool",
       "acl_options": "string"
@@ -122,4 +123,7 @@ Commands user can execute. ||
 || sanitize_payload | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
 
 SanitizePayload parameter. ||
+|| databases | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Databases parameter. ||
 |#
