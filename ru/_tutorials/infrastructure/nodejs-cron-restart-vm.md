@@ -24,120 +24,13 @@
 * Плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-instance-resources)).
 * Плата за [диски](../../compute/concepts/disk.md) ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
 * Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 * Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
 * Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/).
 
 ## Подготовьте окружение {#prepare}
 
-1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция, и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}` и `{{ roles-lockbox-payloadviewer }}`.
+1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция, и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}` и `compute.operator`.
 1. [Создайте](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) прерываемую ВМ.
-
-## Создайте секрет {#create-secret}
-
-Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения [OAuth-токена](../../iam/concepts/authorization/oauth-token.md).
-
-{% note info %}
-
-Используйте [OAuth-токен](../../iam/concepts/authorization/oauth-token.md), если у вас нет возможности автоматически запрашивать [IAM-токен](../../iam/concepts/authorization/iam-token.md). IAM-токен обновляется чаще, поэтому более безопасен.
-
-{% endnote %}
-
-{% list tabs group=instructions %}
-
-- Консоль управления {#console}
-
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать секрет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `oauth-token`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `key_token`.
-     * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для аутентификации функции.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  Чтобы создать секрет, выполните команду:
-
-  ```bash
-  yc lockbox secret create --name oauth-token \
-    --payload "[{'key': 'key_token', 'text_value': '<OAuth-токен>'}]"
-  ```
-
-  Где `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для авторизации функции.
-
-  Результат:
-
-  ```text
-  done (1s)
-  id: e6qu9ik259lb********
-  folder_id: b1g9d2k0itu4********
-  ...
-    status: ACTIVE
-    payload_entry_keys:
-      - key_token
-  ```
-
-- {{ TF }} {#tf}
-
-  1. Опишите в конфигурационном файле параметры секрета:
-
-     ```hcl
-     resource "yandex_lockbox_secret" "oauth-token" {
-       name = "oauth-token"
-     }
-
-     resource "yandex_lockbox_secret_version" "my_version" {
-       secret_id = yandex_lockbox_secret.my_secret.id
-       entries {
-         key        = "key_token"
-         text_value = "<OAuth-токен>"
-       }
-     }
-     ```
-
-     Где:
-
-     * `name` — имя секрета.
-     * `key` — ключ секрета.
-     * `text_value` — значение [OAuth-токена]({{ link-cloud-oauth }}), необходимого для аутентификации функции.
-
-     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
-
-     Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-
-     * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
-     * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
-
-  1. Проверьте корректность конфигурационных файлов.
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
-
-        ```bash
-        terraform plan
-        ```
-
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Разверните облачные ресурсы.
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Подтвердите создание секрета: введите в терминал слово `yes` и нажмите **Enter**.
-
-- API {#api}
-
-  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
-
-{% endlist %}
 
 ## Подготовьте ZIP-архив с кодом функции {#zip-archive}
 
@@ -145,45 +38,35 @@
 
    ```javascript
    import { Session } from '@yandex-cloud/nodejs-sdk';
-   import { instanceService } from '@yandex-cloud/nodejs-sdk/compute-v1';
-   
+   import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
+
    const FOLDER_ID = process.env.FOLDER_ID;
    const INSTANCE_ID = process.env.INSTANCE_ID;
-   const OAUTHTOKEN = process.env.OAUTHTOKEN;
-   
+
    export const handler = async function (event, context) {
-     try {
-       const session = new Session({ oauthToken: OAUTHTOKEN });
-       const instanceServiceClient = session.client(instanceService.InstanceServiceClient);
-       
-       const state = await instanceServiceClient.get({
+     const session = new Session({ iamToken: context.token.access_token });
+     const instanceClient = session.client(instanceService.InstanceServiceClient);
+
+     const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
+       folderId: FOLDER_ID,
+     }));
+
+     const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
+       instanceId: INSTANCE_ID,
+     }));
+
+     var status = state.status;
+
+     if (status == 4) {
+       await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
          instanceId: INSTANCE_ID,
-       });
-   
-       const status = state.status;
-   
-       if (status === 4) {
-         await instanceServiceClient.start({
-           instanceId: INSTANCE_ID,
-         });
-       }
-   
-       return {
-         statusCode: 200,
-         body: {
-           status
-         }
-       };
-     } catch (error) {
-       console.error('Error in function:', error);
-       return {
-         statusCode: 500,
-         body: {
-           error: error.message,
-           details: error.toString()
-         }
-       };
+       }));
      }
+
+     return {
+       statusCode: 200,
+       body: { status },
+     };
    };
    ```
 
@@ -226,11 +109,6 @@
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
           * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
           * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** укажите `OAUTHTOKEN`.
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** выберите созданный ранее секрет `oauth-token`.
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** выберите версию секрета.
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** выберите имя ключа `key_token`.
         * Если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}, в блоке **{{ ui-key.yacloud.logging.label_title }}**, в поле **{{ ui-key.yacloud.logging.label_destination }}**, выберите `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`, чтобы отключить логирование.
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -264,7 +142,6 @@
        --entrypoint=index.handler \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment FOLDER_ID=<идентификатор_каталога>,INSTANCE_ID=<идентификатор_ВМ> \
-       --secret name=oauth-token,version-id=<идентификатор_версии_секрета>,key=key_token,environment-variable=OAUTHTOKEN \
        --source-path=./function-js.zip \
        --no-logging
      ```
@@ -279,11 +156,6 @@
      * `--environment` — переменные окружения:
        * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
-     * `--secret` — данные секрета {{ lockbox-name }}:
-       * `name` — имя секрета.
-       * `version-id` — идентификатор [версии секрета](../../lockbox/concepts/secret.md#version).
-       * `key` — ключ секрета.
-       * `environment-variable` — переменная окружения, в которой будет храниться секрет.
      * `--source-path` — путь к созданному ранее ZIP-архиву `function-js.zip`.
      * (опционально) `--no-logging` — укажите этот флаг, если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}.
 
@@ -318,12 +190,6 @@
          FOLDER_ID = "<идентификатор_каталога>"
          INSTANCE_ID = "<идентификатор_ВМ>"
        }
-       secrets {
-         id = "<идентификатор_секрета>"
-         version_id = "<идентификатор_версии_секрета>"
-         key = "key_token"
-         environment_variable = "OAUTHTOKEN"
-       }
        content {
          zip_filename = "./function-js.zip"
        }
@@ -342,11 +208,6 @@
      * `environment` — переменные окружения:
        * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
-     * `secrets` — данные секрета {{ lockbox-name }}:
-       * `id` — идентификатор секрета.
-       * `version_id` — идентификатор [версии секрета](../../lockbox/concepts/secret.md#version).
-       * `key` — ключ секрета.
-       * `environment_variable` — переменная окружения, в которой будет храниться секрет.
      * `zip_filename` — путь к созданному ранее ZIP-архиву `function-js.zip`.
 
      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
@@ -533,6 +394,5 @@
 Чтобы перестать платить за созданные ресурсы:
 1. [Удалите триггер](../../functions/operations/trigger/trigger-delete.md).
 1. [Удалите функцию](../../functions/operations/function/function-delete.md).
-1. [Удалите секрет](../../lockbox/operations/secret-delete.md).
 1. [Удалите ВМ](../../compute/operations/vm-control/vm-delete.md).
 1. Если вы записывали логи в лог-группу, [удалите ее](../../logging/operations/delete-group.md).
