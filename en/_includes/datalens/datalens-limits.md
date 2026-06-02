@@ -12,7 +12,7 @@ There are no quotas for {{ datalens-short-name }}.
 
 {% note warning %}
 
-The maximum number of {{ datalens-short-name }} instances per [organization](../../organization/quickstart.md) or [cloud {{ yandex-cloud }}](../../resource-manager/concepts/resources-hierarchy.md#cloud) is one.
+The maximum number of {{ datalens-short-name }} instances per {{ yandex-cloud }} [organization](../../organization/quickstart.md) or [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) is one.
 
 {% endnote %}
 
@@ -28,9 +28,9 @@ The maximum number of {{ datalens-short-name }} instances per [organization](../
 Type of limit | Value
 ----- | -----
 Maximum number of {{ datalens-short-name }} instances per organization. | 1
-Maximum size of imported CSV file | 200 MB
-Maximum number of tables in a single dataset | 32
-Maximum number of fields in a single dataset | 1200
+Maximum size of an imported CSV file | 200 MB
+Maximum number of tables per dataset | 32
+Maximum number of fields per dataset | 1200
 Maximum data size for direct chart export | 50 MB
 Maximum data size for background chart export | 1 GB
 Maximum number of rows for background chart export | 1,000,000 rows
@@ -38,9 +38,9 @@ Maximum number of rows for background chart export | 1,000,000 rows
 
 #### Chart data limits {#datalens-chart-data-limits}
 
-Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the established limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using the [filters](../../datalens/dataset/settings.md#default-filters):
+Charts in {{ datalens-short-name }} can only display a limited amount of data. If the number of rows (columns and cells for pivot tables) in a dataset exceeds the set limit, the chart will not be built. Therefore, to build a chart from data in a large dataset, select a part of the data to display based on the limits below using [filters](../../datalens/dataset/settings.md#default-filters):
 
-Chart type | I/O
+Chart type | Limit
 ----- | -----
 **Charts** |
 Line chart | 75,000 rows

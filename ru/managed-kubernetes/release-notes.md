@@ -62,6 +62,38 @@ index: 1
 
 Изменения появляются в [релизных каналах](./concepts/release-channels-and-updates.md) сервиса последовательно. Сначала обновления, содержащие новую функциональность и улучшения, появляются на канале `rapid`, через некоторое время они попадают в `regular` и уже после этого добавляются в `stable`.
 
+## I квартал 2026 {#q1-2026}
+
+### Новые возможности {#q1-2026-new-features}
+
+* Добавлена поддержка [пулов резервов виртуальных машин](./concepts/node-group/reserved-pools.md). Зарезервированные ресурсы будут гарантированно доступны для создания групп узлов кластера фиксированного размера. Пулы резервов можно использовать с помощью [{{ yandex-cloud }} CLI](../cli/), [{{ TF }}](../terraform/) и [API](./managed-kubernetes/api-ref/NodeGroup/create.md), а также передавать с помощью [переменных в шаблоне виртуальной машины](./concepts/node-group/variables-in-the-template.md).
+* Усовершенствована [интеграция с федерацией сервисных аккаунтов](../iam/concepts/workload-identity.md) {{ iam-name }}:
+  * Добавлена интеграция с федерацией сервисных аккаунтов с использованием контроллера DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен.
+  * Управление интеграцией для мастеров и групп узлов доступно с помощью консоли управления, CLI, {{ TF }} и API.
+* Добавлена роль [`k8s.cluster-api.admin`](./security/index.md#k8s-cluster-api-admin). Пользователь с этой ролью получает группу `yc:k8s-core-admin` и роль `admin` в [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+* Добавлена поддержка [групп пользователей](../organization/concepts/groups.md) {{ org-full-name }} в качестве субъектов в [Kubernetes RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). Теперь в `RoleBinding` и `ClusterRoleBinding` можно указывать группу пользователей — все участники группы автоматически получат назначенные ей права в кластере.
+* Группы виртуальных машин и диски, создаваемые при работе в {{ managed-k8s-name }}, теперь маркируются [облачными метками](../resource-manager/concepts/labels.md) о принадлежности к кластеру и дополнительной информацией, позволяющей ассоциировать их с объектами {{ k8s }}.
+  * Для групп виртуальных машин, создаваемых вместе с группой узлов, указывается идентификатор группы узлов `managed-kubernetes-node-group-id`, идентификатор кластера `managed-kubernetes-cluster-id` и пользовательские метки `labels`, заданные при создании группы узлов.
+  * Для дисков, создаваемых для Persistent Volume, указывается идентификатор кластера `managed-kubernetes-cluster-id`, имя кластера `managed-kubernetes-cluster-name` и имя соответствующего Persistent Volume `managed-kubernetes-volume-name`.
+* Добавлена возможность создавать тома объемом больше 8 ТБ с помощью поля `blockSize` в [спецификации класса хранилища](./operations/volumes/manage-storage-class.md#sc-spec).
+
+### Улучшения {#q1-2026-improvements}
+
+* Поддержан {{ k8s }} версии [1.35](https://kubernetes.io/blog/2025/12/17/kubernetes-v1-35-release/). Подробнее на странице [{#T}](./concepts/release-channels-and-updates.md).
+* Операции изменения [вычислительных ресурсов мастера](./concepts/index.md#master-resources) теперь отображаются в списке операций кластера.
+* Для кластеров с {{ k8s }} версии 1.35 и выше используется механизм управления ресурсами [cgroup v2](https://www.kernel.org/doc/html/latest/admin-guide/cgroup-v2.html).
+* Среда запуска контейнеров [containerd](https://containerd.io/) обновлена до версии [2.2.1](https://github.com/containerd/containerd/releases/tag/v2.2.1) для кластеров с {{ k8s }} версии 1.31 и выше.
+* Утилита [runc](https://github.com/opencontainers/runc) обновлена до версии [1.3.4](https://github.com/opencontainers/runc/releases/tag/v1.3.4) для кластеров с {{ k8s }} версии 1.31 и выше.
+* Добавлен [toleration](./concepts/index.md#taints-tolerations) `CriticalAddonsOnly` для подов [`cilium-operator`](https://docs.cilium.io/en/stable/network/concepts/ipam/cluster-pool/#cilium-operator) и [`hubble-relay`](https://docs.cilium.io/en/stable/observability/hubble/setup/#hubble-relay), что позволяет размещать их на выделенных узлах для системных нагрузок.
+
+### Исправления {#q1-2026-problems-solved}
+
+* Исправлен формат [конфигурации containerd](https://containerd.io/docs/1.7/man/containerd-config.toml.5). Конфигурация приведена к формату, совместимому с версиями 1.7 и 2.0 и выше. Ранее формат мог приводить к ошибкам при подключении внешних узлов и обновлении GPU Operator выше версии 24.9.2.
+
+### Прочие изменения {#q1-2026-other-changes}
+
+* Компонент [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) удален с мастеров кластеров со всеми актуальными версиями {{ k8s }} во всех релизных каналах.
+
 ## IV квартал 2025 {#q4-2025}
 
 ### Улучшения {#q4-2025-improvements}

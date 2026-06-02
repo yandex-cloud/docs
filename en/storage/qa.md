@@ -10,7 +10,7 @@ description: This page covers questions and answers about {{ objstorage-name }}.
 * [How do I get started with {{ objstorage-full-name }}?](#qa-quickstart)
 * [What data formats can I store?](#qa-data-types)
 * [How can I leave feedback on {{ objstorage-full-name }}?](#qa-feedback)
-* [How do I contact support?](qa-support-channels)
+* [How do I contact support?](#qa-support-channels)
 * [How much data can I store?](#qa-storage-volume)
 * [How can I delete multiple objects at a time?](#qa-delete-multiple-objects)
 * [A service account cannot access a bucket, why is that?](#sa-bucket-access)

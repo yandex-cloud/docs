@@ -24,7 +24,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Выберите инстанс {{ mgl-name }}, в котором нужно изменить раннер.
   1. Выберите вкладку **{{ ui-key.yacloud.gitlab.title_runners }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного раннера и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
@@ -56,7 +56,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Выберите инстанс {{ mgl-name }}, из которого нужно удалить раннер.
   1. Выберите вкладку **{{ ui-key.yacloud.gitlab.title_runners }}**.
   1. В строке раннера, который вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.

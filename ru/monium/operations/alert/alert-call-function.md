@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с ресурсами, которые надо отслеживать в {{ monitoring-name }}.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `sa-alert-webhook`.
   1. Добавьте роли `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`.
@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя функции, например `alert-webhook`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
+  1. Перейдите в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений, например `channel-function`.
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![image](../../../_assets/console-icons/code.svg)  **{{ sf-name }}**.
@@ -158,7 +158,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `alert-webhook`.
   1. Выберите вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В качестве входных данных введите:

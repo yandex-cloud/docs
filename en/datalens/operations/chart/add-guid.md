@@ -5,7 +5,7 @@ description: Follow this guide to add an ID as a parameter in {{ datalens-full-n
 
 # Adding an ID as a parameter in {{ datalens-full-name }}
 
-To transmit a filter to a chart as a parameter:
+To provide a filter to a chart as a parameter:
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
@@ -15,21 +15,21 @@ To transmit a filter to a chart as a parameter:
 1. In the top-left corner, select the **Fields** tab.
 1. To the right of the field in the same row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **Copy ID**.
 1. Open the chart you want to add a parameter to, then click ![image](../../../_assets/console-icons/ellipsis.svg) → **Copy link** at the top. You can also copy the chart URL from the browser address bar.
-1. Add the field ID to the chart URL as a request parameter. Your link should look like this: `{{ link-datalens-wizard }}/yfn1k6yxud7yr-example-chart?17ecb9a1-c8a5-4811-b53e-c8229f88fcba=<value>`, where:
+1. Add the field ID to the chart URL as a request parameter. Your link should have this format: `{{ link-datalens-wizard }}/yfn1k6yxud7yr-example-chart?17ecb9a1-c8a5-4811-b53e-c8229f88fcba=<value>`, where:
 
    * `{{ link-datalens-main }}/wizard/yfn1k6yxud7yr-example-chart`: Chart URL.
    * `17ecb9a1-c8a5-4811-b53e-c8229f88fcba`: Field ID.
    * `<value>`: One of the field values used for filtering.
 
-   Clicking this link will open the chart filtered by the specified field.
+   Following this link will open the chart filtered by the specified field.
 
-{% cut "Chart without a parameter" %}
+{% cut "Chart without the parameter" %}
 
 ![image](../../../_assets/datalens/parameters/chart.svg)
 
 {% endcut %}
 
-{% cut "Chart with a parameter" %}
+{% cut "Chart with the parameter" %}
 
 To filter the chart data, this link was generated:
 

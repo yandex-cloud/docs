@@ -3,7 +3,7 @@ title: How to change the {{ datalens-full-name }} dashboard settings
 description: Follow this guide to change the {{ datalens-full-name }} dashboard settings.
 ---
 
-# Changing {{ datalens-full-name }} dashboard settings
+# Changing the {{ datalens-full-name }} dashboard settings
 
 To change the [settings](../../dashboard/settings.md):
 
@@ -14,7 +14,7 @@ To change the [settings](../../dashboard/settings.md):
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](../dashboard/create.md).
 1. In the top-right corner, click **Edit**.
 1. At the top of the screen, click ![image](../../../_assets/console-icons/gear.svg). The settings window will open on the right.
-1. Make the changes.
+1. Edit as appropriate.
 
 
 1. In the top-right corner of the dashboard edit window, click **Save**.

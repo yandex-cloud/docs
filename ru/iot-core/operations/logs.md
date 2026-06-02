@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений реестра.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **{{ ui-key.yacloud.common.logs }}**.
    
@@ -56,7 +56,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений устройства.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
     1. Выберите в списке нужное устройство.

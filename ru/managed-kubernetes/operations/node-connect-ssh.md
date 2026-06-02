@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
   1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -238,7 +238,7 @@ description: Следуя данной инструкции, вы сможете
   {% endnote %}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Выберите кластер {{ managed-k8s-name }}.
   1. На панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. На вкладке **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** выберите группу узлов, в которой вы хотите обновить реквизиты.

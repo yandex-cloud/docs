@@ -1,9 +1,9 @@
 ---
-title: How to add parameters in dashboard chart settings in {{ datalens-full-name }}
-description: Follow this guide to add parameters in dashboard chart settings in {{ datalens-full-name }}.
+title: How to add parameters in the dashboard chart settings in {{ datalens-full-name }}
+description: Follow this guide to add parameters in the dashboard chart settings in {{ datalens-full-name }}.
 ---
 
-# Adding parameters in dashboard chart settings in {{ datalens-full-name }}
+# Adding parameters in the dashboard chart settings in {{ datalens-full-name }}
 
 To set a [parameter](../../dashboard/dashboard_parameters.md):
 
@@ -56,11 +56,11 @@ To set the date and time interval from the beginning of the last week of 2018 un
 
 ![image](../../../_assets/datalens/parameters/iso-date.png)
 
-To build relative statistics from the beginning of the year, change `__relative_-0d` to `__relative_-0y_sy`.
+To build relative statistics for the beginning of the year, change `__relative_-0d` to `__relative_-0y_sy`.
 
 {% note info %}
 
-If castings are not specified, then for units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; for shorter units the current time is used.
+If castings are not specified, then for units of day and longer, the time is cast to the start of the day, i.e., `00:00:00.000`; for shorter units, the current time is used.
 
 {% endnote %}
 

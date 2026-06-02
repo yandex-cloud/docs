@@ -9,19 +9,19 @@ If you are a {{ datalens-short-name }} partner, you can create a connector (conn
 
 If you have more than 1,000 customers and want to replicate your designs for them to use, follow this guide. If you have fewer customers, use [workbook export](../../workbooks-collections/export-and-import.md#export-workbook) and [object embedding](../../security/embedded-objects.md). You can [contribute to the Gallery yourself](../../concepts/gallery.md#suggest).
 
-Advantages of working with a connector for {{ datalens-short-name }} partners:
+Advantages of using a connector for {{ datalens-short-name }} partners:
 
 * Easy user access to data.
-* Data access control (each user only sees the data that you make available).
+* Data access management: each user only sees the data they have access to.
 * Deployment of a ready-made configurable dashboard with your data.
 
 ## How to become a partner {#how-to-become-a-partner}
 
-On the [{{ marketplace-full-name }}](/marketplace) home page, click **Offer product** and fill an application.
+On the [{{ marketplace-full-name }}](/marketplace) home page, click **Offer product** and fill in your application.
 
-After you submit your application, you will be contacted by {{ datalens-short-name }} managers.
+After that, a {{ datalens-short-name }} manager will get in contact with you.
 
-Provide the {{ datalens-short-name }} manager with your product information:
+You need to provide this product information to the {{ datalens-short-name }} manager:
 
 * Name in Russian and English.
 * Description in Russian and English.
@@ -33,15 +33,15 @@ Provide the {{ datalens-short-name }} manager with your product information:
 
 ## How to create a connector {#how-to-create-connector}
 
-You need to create a connector based on the {{ CH }} cluster, which will store your users' data.
+You need to create a connector based on the {{ CH }} cluster that will store your users' data.
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
 
-   1. In the cluster, add a DB user called `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+   1. In the cluster, add a database user named `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
 
       {% note info %}
 
-      If the user management via SQL is enabled for the cluster, you can create a user with the following command:
+      If the user management via SQL is enabled for the cluster, you can create a user with this command:
 
       ```sql
       CREATE USER IF NOT EXISTS <username> ON CLUSTER <cluster_name>
@@ -53,11 +53,11 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
 
    1. In the settings, enable **Access from {{ datalens-short-name }}** and **Database management via SQL**.
 
-1. Provide the password and the cluster host list to {{ datalens-short-name }} managers. They will contact you after they receive your request in {{ marketplace-short-name }}.
-1. Generate a pair of RSA-2048 keys. Provide the public key and the key version to {{ datalens-short-name }} managers.
-   Key generation requirements: `public_exponent=65537`, `key_size=2048`. A key version is an integer that is required for future seamless key rotation.
+1. Provide the password and the cluster host list to {{ datalens-short-name }} managers. They will contact you upon receipt of your request in {{ marketplace-short-name }}.
+1. Generate an RSA-2048 key pair. Provide the public key and the key version to {{ datalens-short-name }} managers.
+   The key generation requirements are `public_exponent=65537`, `key_size=2048`. A key version is an integer. It is required for future seamless key rotation.
 
-   {% cut "Python code to generate a pair of keys" %}
+   {% cut "Python code to generate a key pair" %}
 
     ```python
     from cryptography.hazmat.primitives.asymmetric import rsa
@@ -84,11 +84,11 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
    {% endcut %}
 
 1. {{ datalens-short-name }} will also provide you with the public part of its key and the key version.
-   At this point, {{ datalens-short-name }} creates a connector to send queries to your {{ CH }} cluster.
+   At this point, {{ datalens-short-name }} will create a connector to send queries to your {{ CH }} cluster.
 
 ## Connecting a new user {#how-to-add-new-user}
 
-1. Add databases intended for your users to the {{ CH }} cluster. Create a dedicated database in the {{ CH }} cluster for each user. The database gets read access from the `datalens` user's DB.
+1. Add databases intended for your users to the {{ CH }} cluster. Create a dedicated database in the {{ CH }} cluster for each user. The database gets read access from the `datalens` user's database.
 1. Prepare an access token for the user:
 
    {% note warning %}
@@ -97,13 +97,13 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
 
    {% endnote %}
 
-    1. Generate a JSON with the client database name, e.g., `{"db_name":"client_1234383"}`.
-    1. Encrypt the JSON with the {{ datalens-short-name }} public key. Encryption parameters: `padding scheme PKCS1 v1.5`.
+    1. Generate a JSON file with the customer’s database name, e.g., `{"db_name":"client_1234383"}`.
+    1. Encrypt this file with the {{ datalens-short-name }} public key. Encryption parameters: `padding scheme PKCS1 v1.5`.
     1. Sign the encrypted string with your private key. Signature parameters: `padding scheme PKCS1 v1.5, signature hash algorithm: SHA1`.
     1. Generate an access token using the `<datalens_key_version>:<partner_key_version>:<encrypted_data>:<signature>` format, where:
-        * `datalens_key_version` and `partner_key_version` are key versions.
-        * `encrypted_data` is the Base64-encoded encrypted JSON (from Step 2.2).
-        * `signature` is the Base64-encoded encrypted message signature (from Step 2.3).
+        * `datalens_key_version` and `partner_key_version`: Key versions.
+        * `encrypted_data`: Base64-encoded encrypted JSON file (from Step 2.2).
+        * `signature`: Base64-encoded encrypted message signature (from Step 2.3).
 
     {% cut "Python code to generate the access token" %}
 
@@ -118,7 +118,7 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
      private_key_partner_pem = '''-----BEGIN RSA PRIVATE KEY-----...''' # Your private RSA key. 
      datalens_key_version, partner_key_version = '1', '1' # Key versions.
      
-     data = json.dumps({'db_name': 'db_name_123'}) # JSON with the user database in the {{ CH }} cluster.
+     data = json.dumps({'db_name': 'db_name_123'}) # JSON file with the user database in the {{ CH }} cluster.
      
      public_key_datalens = serialization.load_pem_public_key(public_key_datalens_pem.encode())
      private_key_partner = serialization.load_pem_private_key(
@@ -138,14 +138,14 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
 
     {% endcut %}
 
-1. Deliver the access token to the user through your website or some other way.
+1. Provide the access token to the user via your website or any other way.
 
-## User steps for a connector {#work-with-connector}
+## User guide for a connector {#work-with-connector}
 
 1. Gets an access token for {{ datalens-short-name }} on your website.
 1. Navigates to {{ marketplace-full-name }}, purchases a connector, or activates a free product.
-1. Goes to the [{{ datalens-short-name }} connections]({{ link-datalens-main }}/connections/new) page and selects an activated connector from the list.
-1. Enters the access token you provided on the page where you create new connections. This links the connection to the database whose name is encrypted in the access token.
+1. Goes to the [{{ datalens-short-name }} connections]({{ link-datalens-main }}/connections/new) page and selects the activated connector from the list.
+1. Enters the access token you provided on the connection creation page. This associates the connection with the database whose name is encrypted in the access token. 
 
    {% cut "Connection example" %}
 
@@ -153,6 +153,6 @@ You need to create a connector based on the {{ CH }} cluster, which will store y
 
    {% endcut %}
 
-1. Saves the connection. At this point, {{ datalens-short-name }} deploys a standard dashboard based on connector data.
+1. Saves the connection. At this point, {{ datalens-short-name }} will deploy a standard dashboard based on the connector data.
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}

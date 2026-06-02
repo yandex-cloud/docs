@@ -4,14 +4,6 @@
 
 ![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
 
-{% note warning %}
-
-Полная интеграция с федерацией сервисных аккаунтов с использованием контроллера DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен доступна для кластеров с [актуальной версией {{ k8s }}](../../managed-kubernetes/concepts/k8s-supported-versions.md) в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`.
-
-Частичная интеграция с [ручным обменом токенов](#manual-token-exchange) сервисного аккаунта {{ k8s }} на IAM-токен доступна для кластеров со всеми актуальными версиями {{ k8s }} во всех релизных каналах.
-
-{% endnote %}
-
 В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} со стороны кластера {{ managed-k8s-name }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) {{ iam-name }}. 
 
 Аналогичным образом можно выполнить любое действие через [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), [SDK](../../overview/sdk/overview.md) или [API](../../api-design-guide/).
@@ -476,12 +468,6 @@
 {% endlist %}
 
 ## Проверьте работу интеграции {#check-integration}
-
-{% note tip %}
-
-Ниже представлен сценарий c использованием контроллера DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен, доступный для кластеров в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`. Для кластеров в других релизных каналах см. подраздел [{#T}](#manual-token-exchange).
-
-{% endnote %}
 
 1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру {{ managed-k8s-name }} с помощью `kubectl`.
 1. Создайте манифест тестового пода `pod.yaml` со следующим содержимым:

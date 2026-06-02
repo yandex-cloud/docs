@@ -262,7 +262,7 @@ description: Из статьи вы узнаете, как установить 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который собираются метрики.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
   1. На панели слева выберите ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. В редакторе запроса в строке ![image](../../../../_assets/monitoring/chart.svg) с именем нужного облака и каталога выберите:
      * `service` = `custom`;

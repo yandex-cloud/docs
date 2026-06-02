@@ -15,6 +15,13 @@ items:
         href: tutorials/index.md
       - name: Установить Stackland на Yandex BareMetal
         href: tutorials/install-on-yc-bms.md
+      - name: Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE
+        href: tutorials/install-on-yc-bms-pxe.md
+        hidden: true
+      - name: >-
+          Установка {{ stackland-name }} на виртуальные машины в {{ yandex-cloud
+          }}
+        href: tutorials/install-on-yc-vm.md
       - name: Настройка внешнего доступа к поду в кластере
         href: tutorials/expose-app-domain.md
   - name: Пошаговые инструкции
@@ -142,10 +149,20 @@ items:
             href: operations/speechsense/configure.md
           - name: Отключить
             href: operations/speechsense/disable.md
+      - name: Secrets Store
+        items:
+          - name: Инъекция секретов в переменные окружения
+            href: operations/secrets-store/inject-secrets-env.md
+          - name: Инъекция секретов через ConfigMap
+            href: operations/secrets-store/inject-secrets-configmap.md
+          - name: Диагностика Secrets Store
+            href: operations/secrets-store/troubleshooting.md
       - name: Дисковая подсистема
         items:
           - name: Диагностика дисковой подсистемы
             href: operations/disk-storage/troubleshooting.md
+          - name: Переключить класс хранилища компонента
+            href: operations/disk-storage/change-storage-class.md
       - name: Управление кластером
         items:
           - name: Обновить кластер

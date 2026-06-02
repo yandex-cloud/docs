@@ -936,6 +936,8 @@ items:
                 href: operations/dashboard/dashboard-tabs.md
               - name: Изменить отображение вкладок
                 href: operations/dashboard/dashboard-hide-tabs.md
+              - name: Эталонная вкладка для AI
+                href: operations/dashboard/dashboard-ai-reference-tab.md
               - name: Порядок отображения виджетов на мобильном устройстве
                 href: operations/dashboard/display-modes.md
           - name: Настройка фильтрации чартами

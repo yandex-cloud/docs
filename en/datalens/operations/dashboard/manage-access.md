@@ -1,9 +1,9 @@
 ---
-title: How to configure dashboard access permissions in {{ datalens-full-name }}
-description: Follow this guide to configure permissions to a dashboard.
+title: How to configure access permissions for a dashboard in {{ datalens-full-name }}
+description: Follow this guide to configure access permissions for a dashboard.
 ---
 
-# Managing dashboard access
+# Managing access to a dashboard
 
 
 
@@ -16,15 +16,15 @@ To find out the dashboard location, click ![image](../../../_assets/console-icon
 1. ![image](../../../_assets/datalens/icons/square-house.svg): Dashboard stored in a workbook.
 1. ![image](../../../_assets/console-icons/folder.svg): Dashboard stored in a folder.
 
-Make sure the user is assigned the required [role](../../security/roles.md#service-roles) to access {{ datalens-name }}. If not, contact your administrator to have them add the user as described in [this guide](../../security/add-new-user.md).
+Make sure the user has the required [role](../../security/roles.md#service-roles) to access {{ datalens-name }}. If not, contact your administrator to have them add the user as described in [this guide](../../security/add-new-user.md).
 
-To configure dashboard permissions:
+To configure access permissions for a dashboard:
 
 {% list tabs %}
 
 - In a workbook
 
-  1. Assign the user the relevant role for the workbook storing the dashboard. To do this:
+  1. Assign the user the relevant role for the workbook storing the dashboard. Follow these steps:
 
      1. Go to the workbook page and click ![image](../../../_assets/console-icons/lock-open.svg) **Access** at the top right.
 

@@ -57,4 +57,6 @@ items:
     href: kql-reference.md
   - name: Управление доступом
     href: security/index.md
+  - name: Правила тарификации
+    href: pricing.md
 path: ru/yandex-siem/toc.yaml

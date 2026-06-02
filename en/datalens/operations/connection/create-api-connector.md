@@ -14,14 +14,14 @@ To create an API Connector connection, follow these steps:
 1. Under **Files and services**, select **API Connector**.
 1. Configure the connection as follows:
 
-   * **Hostname**. Specify the path to the host you will send a request to.
-   * **Port**. Specify the API connection port.
-   * **URL path**. Optionally, specify the path to the API (part of the [URL](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) without a protocol, host name, or port).
-   * **HTTPS**. Enable the secure connection option if your server supports HTTPS.
-   * **Allowed methods**. Select a method to send an HTTP request to the API. The available methods are `GET` and `POST`.
-   * Add public and private headers to your HTTP request as key-value pairs. To do this, click **Add**, select a header, and enter its value.
+   * **Host name**: Specify the path to the host you will send a request to.
+   * **Port**: Specify the API connection port.
+   * **URL path**: Optionally, specify the path to the API (part of the [URL](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL) without a protocol, host name, or port).
+   * **HTTPS**: Enable the secure connection option if your server supports HTTPS.
+   * **Allowed methods**: Select a method to send an HTTP request to the API. The available methods are `GET` and `POST`.
+   * Add public and private headers to your HTTP request as key-value pairs. To do this, click **Add**, select the header, and enter its value.
 
-     * **Public request headers** do not contain sensitive data. You can view public headers values at any time in the connection settings. The following public headers are available:
+     * **Public request headers** do not contain sensitive data. You can view values of public headers at any time in the connection settings. The following public headers are available:
      
        * `Accept-Charset`: List of supported response encodings.
        * `Accept-Encoding`: List of supported response contents encoding methods.
@@ -40,7 +40,7 @@ To create an API Connector connection, follow these steps:
    ![image](../../../_assets/datalens/operations/connection/connection-api.png)
 
 1. Click **Create connection**.
-1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 1. Enter a name for the connection and click **Create**.
 
 

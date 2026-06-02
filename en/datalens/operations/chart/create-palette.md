@@ -11,7 +11,7 @@ In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-pal
 
 {% include [create-palette](../../../_includes/datalens/settings/create-palette.md) %}
 
-## Changing a color palette {#edit-palette}
+## Editing a color palette {#edit-palette}
 
 {% include [edit-palette](../../../_includes/datalens/settings/edit-palette.md) %}
 
@@ -20,6 +20,6 @@ In {{ datalens-full-name }}, you can [create](#create-palette), [edit](#edit-pal
 {% include [delete-palette](../../../_includes/datalens/settings/delete-palette.md) %}
 
 
-## Setting the default color pallete {#default-palette}
+## Setting the default color palette {#default-palette}
 
 {% include [default-palette](../../../_includes/datalens/settings/default-palette.md) %}

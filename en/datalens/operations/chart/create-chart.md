@@ -22,23 +22,23 @@ To create a chart:
 
 
 
-1. On the top panel, select a [visualization type](../../visualization-ref/index.md).
+1. On the top panel, select the [visualization type](../../visualization-ref/index.md).
 1. Drag the data fields you want to visualize into the chart sections.
-1. Configure [chart settings](../../concepts/chart/settings.md).
+1. [Configure your chart](../../concepts/chart/settings.md).
 1. Save the chart:
 
    1. In the top-right corner, click **Save**.
    1. In the window that opens, enter a name for your chart and click **Save**.
 
-## Create a copy or draft of the chart {#create-chart-copy}
+## Creating a copy or draft of the chart {#create-chart-copy}
 
 To create a chart copy, use one of these methods:
 
 * In the top-right corner of your chart, click ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as copy**. In the window that opens, enter a name for the new chart and click **Save**.
 * At the top of the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Duplicate**. In the window that opens, enter a name for the new chart and click **Apply**.
-* Go to the workbook page with the chart. In the row with the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Duplicate**. In the window that opens, enter a name for the new chart and click **Apply**.
+* Go to the page of the workbook the chart is in. In the row with the chart, click ![image](../../../_assets/console-icons/ellipsis.svg) → ![image](../../../_assets/console-icons/copy.svg) **Duplicate**. In the window that opens, enter a name for the new chart and click **Apply**.
 
-You can also create a draft of the chart by clicking ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** in the upper right corner of the chart. For more information, see [{#T}](../../concepts/chart/versioning.md).
+You can also create a draft of the chart by clicking ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** in the top-right corner of the chart. For more information, see [{#T}](../../concepts/chart/versioning.md).
 
 ## Undoing and redoing changes in charts {#undo-redo}
 

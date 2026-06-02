@@ -64,7 +64,7 @@ description: Follow this guide to delete container scaling settings.
     metadata_options: {}
     ```
 
-    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
+    To learn more about the command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/container/revision/deploy.md).
 
 - API {#api}
 

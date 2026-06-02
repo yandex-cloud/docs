@@ -47,6 +47,8 @@ items:
             items:
               - name: Создание образа продукта на базе Linux
                 href: concepts/compute-product.md
+              - name: Создание продукта {{ baremetal-name }} на базе Linux
+                href: concepts/baremetal-product.md
               - name: Создание продукта для {{ managed-k8s-name }}
                 href: concepts/kubernetes-product.md
           - name: Тарификация продуктов на основе метрик издателя

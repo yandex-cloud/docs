@@ -239,7 +239,7 @@ kubectl describe targetinstallationstate main
 Чтобы просмотреть логи задания обновления, выполните команду:
 
 ```bash
-kubectl logs -n stackland-system job/<имя_задания>
+kubectl logs -n stackland-install job/<имя_задания>
 ```
 
 Имя задания можно получить из поля `status.jobName` ресурса `TargetInstallationState`.

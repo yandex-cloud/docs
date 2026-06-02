@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите отключить.
@@ -143,7 +143,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Выберите нужный сетевой балансировщик.
   1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
   1. Деактивируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите включить.

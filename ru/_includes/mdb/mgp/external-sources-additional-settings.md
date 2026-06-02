@@ -16,8 +16,6 @@
 
     Настройки сетевого протокола аутентификации Kerberos.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-kerberos.html).
-
     * **Enable**{#setting-enable}
 
         Определяет, будет ли использоваться сервер аутентификации Kerberos. По умолчанию не используется.
@@ -52,21 +50,15 @@
 
     По умолчанию аутентификация запрещена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
-
 * **Username**{#setting-username} {{ tag-con }} {{ tag-api }}
 
     Имя пользователя, с помощью которого выполняется подключение к внешнему файловому хранилищу или СУБД, если аутентификация от имени другого пользователя отключена.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Sasl Connection Retries**{#setting-sasl-connection-retries} {{ tag-con }} {{ tag-api }}
 
     Максимальное количество повторных попыток PXF выполнить запрос на подключение SASL, если возникла ошибка `GSS initiate failed`.
 
     Значение по умолчанию — `5`.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **ZK Hosts**{#setting-zk-hosts} {{ tag-con }} {{ tag-api }}
 
