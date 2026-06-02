@@ -43,6 +43,14 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Май {#may26}
+
+#### Новые возможности и улучшения {#new-features-may26}
+
+* Поддержан новый [эндпоинт приемник {{ IBRG }}](../operations/endpoint/target/iceberg.md).
+
+* В эндпоинтах ![greenplum](../../_assets/data-transfer/icons/greenplum-icon.svg) {{ GP }} поддержана работа с СУБД [{{ CB }}](https://cloudberry.apache.org/).
+
 ### Апрель {#apr26}
 
 #### Новые возможности и улучшения {#new-features-apr26}

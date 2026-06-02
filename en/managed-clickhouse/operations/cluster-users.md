@@ -18,7 +18,7 @@ In a {{ mch-name }} cluster, you can only employ one user management method at a
 
 {% note info %}
 
-Creating a {{ CH }} cluster automatically creates [service users](../concepts/service-users.md) to administer and monitor the service.
+Creating a {{ CH }} cluster automatically creates service users to administer and monitor the service.
 
 {% endnote %}
 

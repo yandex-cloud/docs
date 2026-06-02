@@ -60,7 +60,7 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
   1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
   1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
   1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-  1. [Link a billing account]({{ link-docs }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
+  1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) to the space to pay for {{ speechsense-name }}.
 
       {% include [manage-ba-note](../../../_includes/speechsense/manage-ba-note.md) %}
 

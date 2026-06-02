@@ -1,14 +1,6 @@
 1. Если у вас еще нет кластера {{ managed-k8s-name }}:
     1. [Создайте](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластер.
 
-        {% note tip %}
-
-        Чтобы использовать контроллер DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен, создайте кластер в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`.
-
-        Для остальных релизных каналов доступен [ручной обмен токенов](../../managed-kubernetes/tutorials/wlif-managed-k8s-integration.md#manual-token-exchange) сервисного аккаунта {{ k8s }} на IAM-токен.
-
-        {% endnote %}
-
     1. [Создайте](../../managed-kubernetes/operations/node-group/node-group-create.md) группу узлов.
     1. [Настройте](../../managed-kubernetes/operations/connect/security-groups.md) группы безопасности для кластера и группы узлов.
 1. Для доступа к API {{ yandex-cloud }} у узлов кластера должен быть доступ в интернет. Убедитесь, что узлам кластера назначены публичные IP-адреса, или в подсети, где размещаются узлы, настроен [NAT-шлюз](../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../../tutorials/routing/nat-instance/index.md). Также убедитесь, что правилами группы безопасности разрешен весь исходящий трафик для узлов кластера.

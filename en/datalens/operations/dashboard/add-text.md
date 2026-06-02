@@ -13,9 +13,9 @@ To add [text](../../dashboard/widget.md#text) to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/text-align-left.svg) **Text** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/text-align-left.svg) **Text** where you need.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
-1. Enter the text of your link, clarifying caption, etc. The widget supports the [Markdown](../../dashboard/markdown.md) markup language.
-1. Click **Add**. The widget will be displayed on the dashboard.
+1. Enter the text of your link, clarifying caption, etc. The widget supports [Markdown](../../dashboard/markdown.md).
+1. Click **Add**. The widget will appear on the dashboard.

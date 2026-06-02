@@ -55,3 +55,4 @@ OAuth-токен недоступен для федеративных польз
 #### См. также {#see-also}
 
 * [Подробнее о сервисе Яндекс OAuth](https://yandex.ru/dev/oauth/).
+* [Изменения в поддержке OAuth‑токенов Яндекс ID в {{ yandex-cloud }} с 1 июня](https://yandex.cloud/ru/blog/oauth-deprecation).

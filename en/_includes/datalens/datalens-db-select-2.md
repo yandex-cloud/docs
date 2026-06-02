@@ -1,1 +1,1 @@
-Select a managed DB in the current {{ yandex-cloud }} organization and specify connection parameters for it:
+Select a managed database in the current {{ yandex-cloud }} organization and specify the connection parameters for it:

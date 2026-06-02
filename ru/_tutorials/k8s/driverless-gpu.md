@@ -47,11 +47,6 @@
 
 * GPU Operator версии `24.9.2`.
 
-  {% note info %}
-
-  Работа GPU Operator версий выше `24.9.2` не проверялась в {{ yandex-cloud }}.
-
-  {% endnote %}
 
 * Драйвер NVIDIA версии `550.144.03` или выше.
 
@@ -132,11 +127,6 @@ Done, now waiting for signal
     ```bash
     helm list -n gpu-operator
     ```
-    {% note info %}
-
-    Работа GPU Operator версий выше `24.9.2` не проверялась в {{ yandex-cloud }}.
-
-    {% endnote %}
 
 1. Используйте предварительно скомпилированные драйверы:
 

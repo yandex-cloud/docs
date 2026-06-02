@@ -17,7 +17,7 @@ To replace a dataset in a chart:
 
    {% note info %}
 
-   Make sure the new dataset contains fields with the same names as the old one. If, after you replace the dataset, the chart comes with the `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST` error, follow the guide [{#T}](../../dataset/create-dataset.md#update-fields).
+   Make sure the new dataset contains fields with the same names as the old one. If, after you replace the dataset, the chart comes with the `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST` error, follow [this guide](../../dataset/create-dataset.md#update-fields).
 
    {% endnote %}
 

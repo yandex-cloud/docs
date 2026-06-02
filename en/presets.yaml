@@ -1965,17 +1965,6 @@ default:
         v2|pricingRate:
           1|number: 503.25
           1|string: ₸503.25
-      vimpelcom_marketing_1|number: 39.35
-      vimpelcom_marketing_1|string: ₸39.35
-      vimpelcom_marketing_2|number: 38.9
-      vimpelcom_marketing_2|string: ₸38.9
-    notifications_packet_events:
-      vimpelcom_marketing_1|number: 96.05
-      vimpelcom_marketing_1|string: ₸96.05
-      vimpelcom_marketing_2|number: 71.25
-      vimpelcom_marketing_2|string: ₸71.25
-      vimpelcom_marketing_3|number: 136
-      vimpelcom_marketing_3|string: ₸136
     notifications:
       sender_name_registration_event|number: 50833.3
       sender_name_registration_event|string: ₸50833.3
@@ -2482,17 +2471,6 @@ default:
         v2|pricingRate:
           1|number: 100.65
           1|string: ₽100.65
-      vimpelcom_marketing_1|number: 7.87
-      vimpelcom_marketing_1|string: ₽7.87
-      vimpelcom_marketing_2|number: 7.78
-      vimpelcom_marketing_2|string: ₽7.78
-    notifications_packet_events:
-      vimpelcom_marketing_1|number: 19.21
-      vimpelcom_marketing_1|string: ₽19.21
-      vimpelcom_marketing_2|number: 14.25
-      vimpelcom_marketing_2|string: ₽14.25
-      vimpelcom_marketing_3|number: 27.2
-      vimpelcom_marketing_3|string: ₽27.2
     notifications:
       sender_name_registration_event|number: 10166.66
       sender_name_registration_event|string: ₽10166.66
@@ -5517,6 +5495,7 @@ default:
         label_destination: Destination
         label_event-filter-section: Collecting data events
         label_eventRouter: EventRouter
+        label_log-group: Log group
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -6446,6 +6425,7 @@ default:
           overview:
             button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
+            button_add-network-interface: Add network interface
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
@@ -6535,6 +6515,7 @@ default:
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker Compose
             value_serial-port-enable: Enable
+          field_network-interface-index: Network interface index
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop

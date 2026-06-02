@@ -190,7 +190,7 @@ routes:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится виртуальная машина.
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ monitoring-short-name }}**.
+  1. Перейдите в сервис **{{ monitoring-short-name }}**.
   1. Перейдите в раздел **{{ prometheus-name }}**.
   1. Выберите воркспейс, в который записываются метрики виртуальной машины.
   1. Откройте вкладку **Метрики** и введите **{{ ui-key.yacloud_monitoring.prometheus.query.label }}** для просмотра:

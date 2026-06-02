@@ -1,6 +1,6 @@
 You can disable folder navigation after you switch to [workbooks and collections](../../../datalens/workbooks-collections/index.md) for organizing objects. Before you disable it, [migrate](../../../datalens/workbooks-collections/migrations.md) all objects in your folders to workbooks or delete them.
 
-Folders can be disabled by the {{ datalens-short-name }} instance [administrator](../../../datalens/security/roles.md#datalens-admin) (the `{{ roles-datalens-admin }}` role).
+Folders can be disabled by the {{ datalens-short-name }} instance [administrator](../../../datalens/security/roles.md#datalens-admin), i.e., a user with the `{{ roles-datalens-admin }}` role.
 
 {% note warning %}
 

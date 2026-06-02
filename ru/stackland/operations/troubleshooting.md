@@ -41,6 +41,10 @@ sladm diag \
 
 Архив с диагностикой будет собран даже в том случае, если сбор сведений завершился с ошибкой. В этом случае `sladm diag` напечатает соответствующее уведомление. Свяжитесь с разработчиком для уточнения дальнейших действий.
 
+## Секреты не подставляются в под {#secrets-not-injected}
+
+Если Secrets Injector не подставляет секреты в переменные окружения или файлы конфигурации, смотрите раздел [Диагностика Secrets Store](secrets-store/troubleshooting.md). Там описаны типичные причины: неправильное расположение аннотаций, отсутствие поля `command`, ошибки при настройке роли в Secrets Store и другие.
+
 ## Доступ к talosctl для продвинутой диагностики {#talosctl-access}
 
 {% note alert %}
@@ -110,3 +114,103 @@ _out/bin/talosctl --nodes <IP-адрес узла> <команда>
 * Доступ к `talosconfig` должен быть ограничен, так как он предоставляет полный административный доступ к узлам кластера.
 
 Для штатной эксплуатации кластера используйте `kubectl` и другие стандартные инструменты Kubernetes.
+
+## sladm остановился из-за временной недоступности узла {#rerun-sladm}
+
+Если в логе есть сообщение `Node is not running+ready in configured state`, а затем установка завершилась с ошибкой, проверьте текущее состояние узлов:
+
+```bash
+kubectl get nodes -o wide
+```
+
+Если все узлы находятся в состоянии `Ready`, повторите команду установки:
+
+```bash
+./sladm install --config config/ --installation-timeout 2h 2>&1 | tee install-rerun-$(date +%y%m%d-%H%M).log
+```
+
+Повторный запуск безопасен: `sladm` повторно сверит состояние узлов и компонентов и продолжит установку.
+
+## В storage остались задания в состоянии `Failed` от предыдущей попытки {#storage-failed-jobs}
+
+Если `sladm` завершился сообщением `Your Stackland cluster is ready`, а `platformconfig` перешел в состояние `Installed`, но в пространстве имен `stackland-storage` остались старые поды или задания в состоянии `Error` или `Failed`, проверьте актуальное состояние заданий и операторов:
+
+```bash
+kubectl get platformconfig main -o jsonpath='{.status.initialInstall.state}{"\n"}'
+kubectl get jobs -A | grep -E 'storage|s3|mds|nscfg|gosper' || true
+kubectl get pod -n stackland-storage -o wide
+kubectl get pod -n stackland-storage-goose -o wide
+kubectl get pod -n stackland-storage-mds2 -o wide
+```
+
+Если повторные задания завершились в состоянии `Complete`, а операторы storage находятся в состоянии `Running`, старые задания в состоянии `Failed` относятся к предыдущим попыткам установки. Они не блокируют доступ к консоли управления, но могут оставаться в выводе диагностических команд до очистки истории заданий.
+
+## Компонент monitoring остается в состоянии Updating {#monitoring-updating}
+
+Если `monitoring-main` долго остается в состоянии `Updating`, проверьте поды в пространстве имен `stackland-monitoring`:
+
+```bash
+kubectl get pod -n stackland-monitoring
+kubectl describe pod -n stackland-monitoring <имя_пода>
+kubectl logs -n stackland-monitoring <имя_пода> --previous --tail=100
+```
+
+Если под `kube-state-metrics` завершался с причиной `OOMKilled`, дождитесь следующей сверки компонента или повторите запуск `sladm install`. Если проблема повторяется, увеличьте ресурсы компонента мониторинга.
+
+### Установка прервалась из-за недоступности Kubernetes API {#kubernetes-api-unreachable}
+
+Во время установки узлы несколько раз перезагружаются. В этот момент в логах могут появляться временные ошибки доступа к Kubernetes API, например `Kubernetes cluster unreachable`. Дождитесь, пока Talos API всех узлов и Kubernetes API станут доступны:
+
+```bash
+nc -vz 192.168.22.2 50000
+nc -vz 192.168.22.3 50000
+nc -vz 192.168.22.4 50000
+nc -vz 192.168.22.127 6443
+```
+
+Замените адреса на значения из вашей конфигурации. После восстановления доступности перезапустите `sladm install` той же командой. Инсталлятор продолжит установку с уже выполненных этапов.
+
+### Установка прервалась во время настройки компонентов {#components-not-ready}
+
+Если `sladm` завершился с ошибкой на этапе настройки платформенных компонентов, сначала проверьте текущее состояние кластера. Ошибка в старом логе может уже не соответствовать текущему состоянию ресурсов:
+
+```bash
+kubectl get componentinstallations.stackland.yandex.cloud
+kubectl get pods -A --field-selector=status.phase!=Running,status.phase!=Succeeded
+kubectl get events -A --field-selector type=Warning --sort-by=.lastTimestamp
+```
+
+Если в выводе `ComponentInstallation` есть фазы `Installing`, `Updating` или `Error`, проверьте описание соответствующего ресурса:
+
+```bash
+kubectl describe componentinstallation <componentinstallation_name>
+```
+
+После устранения причины ошибки повторно запустите `sladm install` с тем же `--config`. Если узлы уже установлены и доступны по Talos API, отключите PXE/DHCP для повторного запуска:
+
+```bash
+sladm install \
+  --config config/ \
+  --dhcp-interface none \
+  --installation-timeout 3h
+```
+
+Дождитесь, пока `sladm` завершится успешно. После этого повторите проверки из раздела [Проверьте установку](#verification).
+
+### Истек таймаут установки {#installation-timeout}
+
+По умолчанию установка ограничена таймаутом. При установке через PXE увеличьте его, если требуется вручную выбирать загрузочное устройство или перезагружать серверы через KVM:
+
+```bash
+sladm install \
+  --config config/ \
+  --dhcp-interface eth1 \
+  --pxe-folder ./pxe \
+  --installation-timeout 3h
+```
+
+### sladm игнорирует DHCP-запросы узла {#unknown-mac}
+
+Если `sladm` игнорирует DHCP-запросы узла, проверьте MAC-адрес в конфигурации. Он должен совпадать с MAC-адресом сетевого интерфейса, через который сервер загружается по PXE.
+
+Указывайте MAC-адрес в нижнем регистре с двоеточиями, например `06:2a:b7:15:de:f1`.

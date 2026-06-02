@@ -1632,4 +1632,4 @@ We recommend to keep logging enabled when creating an API gateway. For more info
 
 {% endlist %}
 
- Use audit logs that go to [{{ at-full-name }}](../../../api-gateway/at-ref/) for the API gateway performance analysis.
+ Use audit logs that go to [{{ at-full-name }}](../../../api-gateway/at-ref.md) for the API gateway performance analysis.

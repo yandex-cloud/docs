@@ -44,7 +44,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите перезапустить тест.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Выберите необходимый тест. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.load-testing.restart }}**.
   1. В блоке **{{ ui-key.yacloud.load-testing.section_export }}** включите опцию **{{ ui-key.yacloud.load-testing.field_export-enable }}**.

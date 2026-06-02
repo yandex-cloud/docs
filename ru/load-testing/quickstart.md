@@ -23,7 +23,7 @@
 ## Создайте агент {#create-agent}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан агент.
-1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На вкладке **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите кнопку **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
 1. Укажите имя агента: `test-agent`.
 1. Укажите ту же зону доступности, в которой находится цель тестирования.

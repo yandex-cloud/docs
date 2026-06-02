@@ -1,5 +1,5 @@
 ---
-title: How to add aliases in {{ datalens-full-name }}
+title: How to add an alias in {{ datalens-full-name }}
 description: Follow this guide to add an alias for widgets in {{ datalens-full-name }}.
 ---
 
@@ -35,29 +35,29 @@ To add an [alias](../../dashboard/link.md#alias) for a pair of widgets:
 
 1. In the top-right corner of the dashboard, click **Save**.
 
-{% cut "Example of linking" %}
+{% cut "Example of creating a link" %}
 
 A chart named **tutorial — Line chart** is based on the **tutorial** dataset and a chart named **tutorial 2 — Table** is based on the **tutorial 2** dataset.
 
 ![image](../../../_assets/datalens/concepts/charts-1.png)
 
-1. Let's add a **tutorial — Date** selector of the **Based on datasets** type to the dashboard. In the selector parameters, select the `tutorial` dataset and the `Date` field. A link between the selector and the **tutorial — Line chart** chart is established automatically, since they are based on the same dataset.
+1. Let's add a **tutorial — Date** selector of the **Based on dataset** type to the dashboard. In the selector parameters, select the `tutorial` dataset and the `Date` field. A link between the selector and the **tutorial — Line chart** will be created automatically, since they are based on the same dataset.
 
 
 1. Let's add a **tutorial 2 — Manual input** selector of the **Manual input** type to the dashboard. In the selector parameters, select the **Calendar** element type and the `Date` field.
 
 
-1. Let's establish a link between the **tutorial 2 — Manual input** selector and the **tutorial 2 — Table** chart using an alias. When creating an alias, select the `Date` field in the selector and the `Date 2` field in the `tutorial 2` dataset.
+1. Let's create a link between the **tutorial 2 — Manual input** selector and the **tutorial 2 — Table** chart using an alias. When creating an alias, select the `Date` field in the selector and the `Date 2` field in the `tutorial 2` dataset.
 
 
-   As a result, the **tutorial — Date** selector filters the **tutorial — Line chart** chart, and the **tutorial 2 — Manual input** selector filters the **tutorial 2 — Table** chart.
+   As a result, the **tutorial — Date** selector will filter the **tutorial — Line chart**, and the **tutorial 2 — Manual input** selector will filter the **tutorial 2 — Table** chart.
 
    ![image](../../../_assets/datalens/concepts/charts-2.png)
 
-1. Let's establish a link between the **tutorial 2 — Manual input** selector and the **tutorial 2 — Line chart** chart using an alias. When creating an alias, select the `Date` field in the selector and the `Date` field in the `tutorial` dataset.
+1. Let's create a link between the **tutorial 2 — Manual input** selector and the **tutorial 2 — Line chart** using an alias. When creating an alias, select the `Date` field in the selector and the `Date` field in the `tutorial` dataset.
 
 
-Setting a link between the **tutorial 2 — Manual input** selector and the **tutorial — Line chart** chart links the **tutorial 2 — Manual input** and **tutorial — Date** selectors. This happens because the **tutorial — Line chart** chart and the **tutorial — Date** selector are based on the same dataset. As a result, any selector causes the appropriate values to be set automatically in the other selector and both charts' filters. To unlink the selectors, set their link type to **Not linked**.
+Creating a link between the **tutorial 2 — Manual input** selector and the **tutorial — Line chart** links the **tutorial 2 — Manual input** and **tutorial — Date** selectors. This happens because the **tutorial — Line chart** and the **tutorial — Date** selector are based on the same dataset. As a result, any selector causes the appropriate values to be set automatically in the other selector and both charts' filters. To unlink the selectors, set their link type to **Not linked**.
 
 {% endcut %}
 

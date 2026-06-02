@@ -17,7 +17,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/sliders.svg) **Selector** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/sliders.svg) **Selector** where you need.
 
    
    ![image](../../../_assets/datalens/operations/widget-select-js.png =650x95)
@@ -27,18 +27,18 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    {% list tabs %}
 
-   - Based on dataset
+   - Based on a dataset
 
      * **Dataset**: Dataset with data for the selector. You can choose a dataset from the list of objects or provide a link. This is a required field.
-     * **Field**: Dataset field with selector values. It can be either a dimension or a measure (for more information, see [{#T}](../../dataset/data-model.md#field)). This is a required field.
+     * **Field**: Dataset field with selector values. It can be either a dimension or a measure. For more information, see [{#T}](../../dataset/data-model.md#field). This is a required field.
 
      
-     * **Show in tabs**: Select how the selector will be displayed on the dashboards:
+     * **Show in tabs**: Select how to display the selector on the dashboard:
 
-       * `Current tab <tab_name>` (default for a single selector): The selector will be displayed on the specified tab.
-       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
-       * `All tabs`: The selector will be displayed on all tabs. Available for a single selector.
-       * `From group settings <group_value>` settings: The selector will be displayed based on advanced settings of the widget with a group of selectors. This option is available only for a selector within a group.
+       * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
+       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+       * `All tabs`: Display the selector on all tabs. This option is available for a single selector.
+       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
 
      * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
@@ -59,7 +59,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
        
        {% note info %}
        
@@ -70,18 +70,18 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
-     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
+     * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
+     * **Range**: Allows setting a time interval in the selector. It is only available for the **Calendar** selector type.
+     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
      * **Default value**: Displayed when you first open the dashboard. This is a required field if the **Required field** option is enabled.
 
-     * **Header**: Used to pick a selector when establishing a link with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../../dataset/index.md). This is a required field.
+     * **Header**: To choose the selector for linking with other widgets. By default, when you add a selector, the header text is substituted from the field title in the [dataset](../../dataset/index.md). This is a required field.
        
        Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
-     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
+     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
-     * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is taken from the field description in the dataset. You can edit the tooltip text using the visual editor or [Markdown](../../dashboard/markdown.md). When you change the dataset field description, the text is not automatically updated.
+     * **Tooltip**: This option allows adding a text comment to a selector. By default, with this option enabled, the tooltip text is taken from the field description in the dataset. You can edit the tooltip text using the visual editor or [Markdown](../../dashboard/markdown.md). Changing the field description in the dataset will not automatically update the text.
 
        When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 
@@ -94,12 +94,12 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
      
      * **Show in tabs**: Select how to display the selector on the dashboard:
 
-       * `Current tab <tab_name>` (default for a single selector): The selector will be displayed on the specified tab.
-       * `Selected tabs`: Select one or more tabs to display the selector on. By default, the current tab is selected.
-       * `All tabs`: The selector will be displayed on all tabs. Available for a single selector.
-       * `From group settings <group_value>` settings: The selector will be displayed based on advanced settings of the widget with a group of selectors. This option is available only for a selector within a group.
+       * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option for a single selector.
+       * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
+       * `All tabs`: Display the selector on all tabs. This option is available for a single selector.
+       * `Based on <group_value>` settings: Display the selector based on the advanced settings of the widget with a group of selectors. This option is only available for a selector in a group of selectors.
 
-     * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is speficied. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
+     * ![image](../../../_assets/console-icons/magnifier.svg) button: Displayed to the right of the **Show in tabs** setting if the **Field or parameter** is specified. It allows you to find and group selectors with the same field or parameter in other tabs. To group the current selector with the one you find, click **Group** next to the relevant selector in the list. After grouping, the current selector’s **Show in tabs** setting may get updated automatically, for example:
 
        * `Current tab`: Switches to `Selected tabs`, i.e., the tabs containing the grouped selectors.
        * `Selected tabs`: No changes, but the list of tabs will include the tab with the new selector, if not specified previously.
@@ -118,7 +118,7 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Operation**: Comparison operation by which the selector filters the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
+     * **Operation**: Comparison operation for the selector to filter the chart values (e.g., **Equal to**, **Greater than**, or **Less than**). If the field is left blank, the selector will filter by the **Equal to** operation by default. The list of available operations depends on the field type.
        
        {% note info %}
        
@@ -129,55 +129,55 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
        {% endnote %}
 
-     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is added to the end of the selector name. Not available for the **Checkbox** selector type.
-     * **Multiple choice**: Allows choosing several values in the selector. Only available for the **List** selector type.
-     * **Possible values**: List of values to select. Only available for the **List** selector type. To add multiple values at once, copy the list of values to the clipboard, paste it into the input field, and click **Add**. You can also remove a value by clicking ![image](../../../_assets/console-icons/xmark.svg), or swap the values around by dragging them.
-     * **Range**: Allows setting a time interval in the selector. Only available for the **Calendar** selector type.
-     * **Time**: Allows specifying time. Only available for the **Calendar** selector type.
+     * **Required field**: Sets the selector value as a required parameter. When enabled, `*` is appended to the selector name. It is not available for the **Checkbox** selector type.
+     * **Multiple choice**: Allows choosing several values in the selector. It is only available for the **List** selector type.
+     * **Possible values**: List of values to select. It is only available for the **List** selector type. To add multiple values at once, copy the list of values to the clipboard, paste it into the input field, and click **Add**. You can also remove a value by clicking ![image](../../../_assets/console-icons/xmark.svg), or swap the values around by dragging them.
+     * **Range**: Allows setting a time interval in the selector. It is only available for the **Calendar** selector type.
+     * **Time**: Allows specifying time. It is only available for the **Calendar** selector type.
      * **Default value**: Displayed when you first open the dashboard. This field must be set for the **List** type; otherwise, no value will be available in the selector. This is a required field if the **Required field** option is enabled.
 
-     * **Header**: Used to pick a selector when establishing a link with other widgets. This is a required field.
+     * **Header**: To choose the selector for linking with other widgets. This is a required field.
        
        Select the header location below: `Left` (default), `Top`, or `Hidden` to hide it from the dashboard. It is not available for the **Checkbox** selector type.
 
-     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. Not available for the **Checkbox** selector type.
+     * **Inner title**: Allows specifying text inside a selector. For example, you can use it to display an operation inside a selector. It is not available for the **Checkbox** selector type.
      * **Coloring**: Allows you to highlight important selectors. It is not available for the **Checkbox** selector type.
-     * **Tooltip**: This option allows adding a text comment to the selector. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../../dataset/index.md). You can change the tooltip text. When you change the dataset field description, the text is not automatically updated.
+     * **Tooltip**: This option allows adding a text comment to a selector. By default, with this option enabled, the tooltip text is taken from the field description in the [dataset](../../dataset/index.md). You can edit the tooltip text. Changing the field description in the dataset will not automatically update the text.
 
        When the option is enabled, the ![image](../../../_assets/console-icons/circle-question.svg) icon appears on the dashboard next to the selector. Hover over the icon to bring up the tooltip.
 
    {% endlist %}
 
-   In [QL charts](../../concepts/chart/ql-charts.md), you can control [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query itself in `not_var{{variable}}` format.
+   In [QL charts](../../concepts/chart/ql-charts.md), you can manage [selector parameters](../chart/create-sql-chart.md#selector-parameters) from the **Parameters** tab in the chart editing area and use the **Query** tab to specify a variable in the query in `not_var{{variable}}` format.
 
-1. Optionally, add another selector to the widget. To do this, click ![image](../../../_assets/console-icons/plus.svg) **Add** on the left side of the **Selectors** tab and repeat the actions from the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
+1. Optionally, add another selector to the widget. To do this, click ![image](../../../_assets/console-icons/plus.svg) **Add** on the left side of the **Selectors** tab and repeat the previous step. You can also duplicate the new selector or copy it to the clipboard. To do this, on the **Selectors** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) next to the selector and select:
 
    * **Duplicate**: This will add a new selector with the same parameters to the widget.
-   * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button on the **Selectors** tab or to a dashboard using the **Insert** button on the bottom panel of the dashboard page.
+   * **Copy to clipboard**: You can paste the selector you copied into a different widget using the **Paste** button on the **Selectors** tab or to a dashboard using the **Paste** button on the bottom panel of the dashboard page.
 
 1. Optionally, go to the **Group settings** tab and specify the widget settings:
 
    * **Apply button**: Adds a widget button which applies the values of all selectors in the widget. The selector values are not applied until you click the button.
    * **Reset button**: Adds a widget button which resets the values of all the widget selectors to their defaults.
-   * **Auto height**: Sets the automatic height for a widget on the dashboard. Available for widgets with multiple selectors.
+   * **Auto height**: Sets the automatic height for a widget on the dashboard. It is available for widgets with multiple selectors.
 
    
    * Optionally, for a widget with multiple selectors, use the **Show in tabs** field to configure how to display the selector on the dashboard:
 
-     * `Current tab <tab_name>` is default. The selector will be displayed on the specified tab.
+     * `Current tab <tab_name>`: Display the selector on the selected tab. This is the default option.
      * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-     * `All tabs`: The selector will be displayed on all tabs.
+     * `All tabs`: Display the selector on all tabs.
      
-     This setting becomes available when you add a second selector to a widget:
+     This setting becomes available when you add a second selector to your widget:
      
-     * Setting value used in the first selector automatically applies to the entire group. You can change it at any time.
+     * The setting value used in the first selector automatically applies to the entire group. You can change it at any time.
      * For each new selector in the group, the default value is `From group settings <group_value>`.
 
      When using this setting, consider the following:
 
      * You cannot save a selector if it has the setting value where the current tab displays no selectors. For example, if you specify `Selected tabs` for a single selector, you can deselect the current tab, but you cannot save the selector.
      * You cannot save a selector with the `Selected tabs` value if no tabs are selected.
-     * Group settings restrict how you set up each selector within a group. For example, if you select `Current tab` for a group, you must also specify `Current tab` for each selector in this group.
+     * Group settings restrict how you set up each selector in a group. For example, if you select `Current tab` for a group, you must also specify `Current tab` for each selector in this group.
 
        | **Configuring a group** | **Configuring a selector** |
        |----------------------|---------------------|
@@ -201,26 +201,26 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
    ![image](../../../_assets/datalens/selector-settings/selector-extending-settings.png =581x419)
 
-1. Click **Save**. The widget will be displayed on the dashboard.
+1. Click **Save**. The widget will appear on the dashboard.
 
 {% note warning %}
 
-When adding a selector by a certain field to your dashboard, filters added at the chart level are no longer applied to the dashboard's chart.
+When adding a selector by a certain field to your dashboard, filters added at the chart level will no longer apply to the dashboard chart.
 
 {% endnote %}
 
 ## Limitations {#restrictions}
 
 * For measure selectors, only one type is available: **Input field**.
-* We recommend that you always make your measure selectors independent from other selectors. To do this, set your dashboard's [link](../../dashboard/link.md) type to **Not linked** with other selectors in the **Links** section when editing.
+* We recommend that you always make your measure selectors independent from other selectors. To do this, set their [link](../../dashboard/link.md) type to **Not linked** with other selectors in the **Links** section when editing your dashboard.
 
 ## Copying and pasting selectors {#copy-paste}
 
-You can copy a created selector and paste it onto your dashboard.
+You can copy and paste an existing selector onto your dashboard.
 
 When you copy a selector from one tab and paste it into another tab of the current dashboard, you can link it to the original selector or create a new independent selector.
 
-Generally, copying and pasting a widget or a JS selector works the same way as copying and pasting a separate selector.
+Generally, copying and pasting a widget or a JS selector works the same way as copying and pasting a single selector.
 
 To copy a selector from a dashboard:
 
@@ -233,19 +233,19 @@ To paste a copied selector onto your dashboard:
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
 1. Select the dashboard tab you want to paste the widget onto.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget to the target area. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
+1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/copy-plus.svg) **Paste** and drag the widget where you need. To paste the widget at the bottom of your dashboard, simply click ![image](../../../_assets/console-icons/copy-plus.svg) **Paste**.
 
    If you are trying to paste a selector into another tab of the current dashboard, select:
    
    * **Update settings**: After pasting, the original selector's **Show in tabs** setting will automatically update:
    
      * `Current tab`: Switches to `Selected tabs`, i.e., the tabs containing the original and added selectors.
-     * `Selected tabs`: Remains unchanged, but the list of tabs will include the one with the new selector, if not specified previously.
+     * `Selected tabs`: No changes, but the list of tabs will include the tab with the new selector, if not specified previously.
    
    * **Copy** (or close the window): Creates an independent selector on the current tab.
 
-   If the selector has been copied from the current tab, an independent selector will be created.
-   If the current tab has already been checked in the **Show in tabs** setting, an independent selector will be created.
+   If you copied the selector from the current tab, an independent selector will be created.
+   If the current tab is already selected in the **Show in tabs** setting, an independent selector will be created.
    
-1. Resize the widget and move it to a convenient location on the page.
+1. Resize the widget and drag it where you need on the page.
 1. In the top-right corner of the dashboard, click **Save**.

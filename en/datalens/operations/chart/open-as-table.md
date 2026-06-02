@@ -5,7 +5,7 @@ description: Follow this guide to open a chart as a table in {{ datalens-full-na
 
 # Opening a chart as a table in {{ datalens-full-name }}
 
-You can display the data used to render a chart as a table.
+You can display data used to render a chart as a table.
 
 This feature is not available for the following chart types:
 

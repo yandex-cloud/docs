@@ -5,9 +5,9 @@ description: Follow this guide to add connection info in {{ datalens-full-name }
 
 # Adding connection info in {{ datalens-full-name }}
 
-To add connection info, do the following:
+To add connection details, do the following:
 
-1. Open the connection to add info for.
+1. Open the connection to add details for.
 1. Click ![image](../../../_assets/console-icons/circle-info.svg) at the top of the screen.
 1. Enter the information and click **Save**.
 

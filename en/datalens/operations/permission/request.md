@@ -1,9 +1,9 @@
 ---
-title: Request permissions
-description: You can request access permissions for a folder or object that you do not have access to. You can also request new access permissions for a folder or object you have view access to.
+title: Requesting access permissions
+description: You can request access permissions for a folder or object you do not have access to. You can also request new access permissions for a folder or object you have view access to.
 ---
 
-# Requesting permissions
+# Requesting access permissions
 
 {% note info %}
 
@@ -13,12 +13,12 @@ Users with the [{{ permission-read }}](../../security/manage-access.md#permissio
 
 {% endnote %}
 
-You can request permission to a folder or object that you do not have access to.
-You can also request editing permissions to a folder or object that you are allowed to view:
+You can request permission for a folder or object you do not have access to.
+You can also request new access permissions for a folder or object you have view access to:
 
 {% list tabs %}
 
-- Requesting permissions
+- Requesting access permissions
 
   1. On the [navigation page]({{ link-datalens-main }}/navigation), find the relevant folder or object and click it.
 
@@ -41,7 +41,7 @@ You can also request editing permissions to a folder or object that you are allo
 {% note info %}
 
 
-A request is stored for a year. The expiration of this period triggers an automatic denial, which is recorded in the change history.
+A request is stored for a year. The expiration of this period triggers an automatic denial, which is logged in the change history.
 
 
 {% endnote %}

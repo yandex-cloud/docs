@@ -19,7 +19,7 @@ To add dashboard info, do the following:
 
 1. In the top-right corner, click **Save**.
 
-As a result, all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the dashboard. Clicking it will open the **Dashboard info** window with the information.
+Now all users will see the ![image](../../../_assets/console-icons/circle-info.svg) icon in the top-right corner of the dashboard. Clicking it will open the **Dashboard info** window with the information.
 
 {% cut "Viewing dashboard info" %}
 

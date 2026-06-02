@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Создайте](../../storage/operations/buckets/create.md) бакет и [загрузите](../../storage/operations/objects/upload.md) в него файл с тестовыми данными.
 1. Выдайте сервисному аккаунту, привязанному к [агенту](../concepts/agent.md), права на чтение в бакете. Для этого отредактируйте [ACL](../../storage/concepts/acl.md) бакета:
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Напротив нужного бакета нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
     1. В открывшемся окне ведите имя сервисного аккаунта, выберите права на чтение в бакете — `READ` и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
@@ -47,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
   1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. [Выберите](../concepts/agent-select.md) или создайте агент тестирования.
   1. В блоке **Прикрепленные файлы**:

@@ -1,5 +1,5 @@
 {% note info %}
 
-{{ datalens-short-name }} limits the query time on the source to 80 seconds.
+{{ datalens-short-name }} limits the query execution time on the source to 80 seconds.
 
 {% endnote %}
