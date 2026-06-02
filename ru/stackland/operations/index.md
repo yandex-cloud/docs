@@ -73,6 +73,7 @@
 ## Дисковая подсистема {#disk-storage}
 
 * [Диагностика дисковой подсистемы](disk-storage/troubleshooting.md)
+* [Переключить класс хранилища компонента](disk-storage/change-storage-class.md)
 
 ## Управление кластером {#cluster-management}
 

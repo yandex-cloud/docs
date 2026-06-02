@@ -20,7 +20,7 @@ description: Следуя этой инструкции, вы создадите
 - Консоль управления {#console}
 
   1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
@@ -179,7 +179,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **База данных** — имя БД в кластере {{ CH }}.
@@ -209,7 +209,7 @@ description: Следуя этой инструкции, вы создадите
 
       Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.   
 
     * `--connection-manager-database` — имя БД в кластере {{ CH }}.
@@ -249,7 +249,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -300,7 +300,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -357,7 +357,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -1635,7 +1635,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **База данных** — имя БД в кластере {{ PG }}.
@@ -1661,7 +1661,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-database` — имя БД в кластере {{ PG }}.
@@ -1701,7 +1701,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1752,7 +1752,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1809,7 +1809,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1991,7 +1991,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **Свойства подключения** — параметры подключения {{ MY }} в формате `ключ: значение`.
@@ -2019,7 +2019,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-connection-properties` — список настроек подключения {{ MY }} в формате `ключ=значение`.
@@ -2057,7 +2057,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ" = "значение"`.
@@ -2106,7 +2106,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connectionProperties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
@@ -2161,7 +2161,7 @@ ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writ
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.

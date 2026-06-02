@@ -23,14 +23,14 @@ To add a dashboard [access error message](../../dashboard/settings.md#message-se
 
    {% note info %}
 
-   The [Markdown](../../dashboard/markdown.md) markup language is supported.
+   This field supports the [Markdown](../../dashboard/markdown.md) markup language.
 
    {% endnote %}
 
 
 1. In the top-right corner, click **Save**.
 
-Now, if the user has no dashboard view permission, they will see the saved message.
+Now, if the user has no dashboard view permission, they will see this saved message.
 
 
 {% include [datalens-access-message-note](../../../_includes/datalens/datalens-access-message-note.md) %}

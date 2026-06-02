@@ -28,7 +28,7 @@
   1. Add a field with user IDs to the dataset:
      
      * If you added a field to an existing table, go to the **Fields** tab in the dataset and click **Update fields** at the top of the screen. The user ID field will appear in the list.
-     * If you added a field to a new table, join it using the `JOIN` operator. To do this, go to the **Sources** tab in the dataset and drag the new table to the workspace. The table will automatically link with the existing table. If required, adjust the [link](../../../datalens/dataset/create-dataset.md#links) between tables and [remove](../../../datalens/dataset/create-dataset.md#field-operations) duplicate fields left over from joining tables.
+     * If you added a field to a new table, join it using the `JOIN` operator. To do this, go to the **Sources** tab in the dataset and drag the new table to the workspace. The table will be automatically linked with the existing table. If required, edit the [link](../../../datalens/dataset/create-dataset.md#links) between the tables and [remove](../../../datalens/dataset/create-dataset.md#field-operations) duplicate fields left after the join.
 
   1. Configure field access permissions:
      
@@ -48,7 +48,7 @@
      | REGION | MANAGER_NAME | MANAGER_ID        |
      |--------|--------------|-------------------|
      | West  | Arkady      | 19287318273912873 |
-     | East | Vasily      | 92877912837318927 |
+     | East | Vassily      | 92877912837318927 |
      | North  | Olga        | 02993284928374346 |
      | South     | Dmitry      | 10836293849237642 |
      | West  | Maxim       | 71726123712891283 |
@@ -67,7 +67,7 @@
 
   Each user will only see data for regions they have access to.
 
-  To change the access control settings, update the data in the source table.
+  To change the access permissions, update the data in the source table.
 
   {% endcut %}
 

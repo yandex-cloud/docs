@@ -9,7 +9,9 @@ description: Из статьи вы узнаете, что такое шарди
 
 ## Ключ дистрибуции {#distribution-key}
 
-Для оптимизации работы операций `JOIN` с большими таблицами вы можете задать [ключ дистрибуции]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) явным образом. В таком случае при соединении таблиц по указанным в ключе полям операция будет производиться локально на сегменте, и запрос отработает быстрее.
+Для оптимизации работы операций `JOIN` с большими таблицами вы можете задать ключ дистрибуции явным образом. В таком случае при соединении таблиц по указанным в ключе полям операция будет производиться локально на сегменте, и запрос отработает быстрее.
+
+Подробнее о ключе дистрибуции в [Greenplum 6]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-CREATE_TABLE.html) и [Cloudberry](https://cloudberry.apache.org/docs/sql-stmts/create-table/).
 
 Для создания таблицы с ключом дистрибуции передайте одно или несколько нужных полей в аргументе `DISTRIBUTED BY`:
 
@@ -34,3 +36,7 @@ CREATE TABLE tableName
 Если при создании таблицы не указать ключ дистрибуции, то данные распределятся по хостам-сегментам либо по первичному ключу (если он задан), либо по первому полю таблицы.
 
 {% endnote %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

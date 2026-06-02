@@ -16,9 +16,9 @@ You can create a QL chart using one of the following methods:
 
 QL charts have the same [general settings](../../concepts/chart/settings.md#common-settings) and [section settings](../../concepts/chart/settings.md#section-settings) as the dataset-based charts. Only certain [measure settings](../../concepts/chart/settings.md#indicator-settings) are supported for chart fields.
 
-At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change within the current version.
+At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
 
-## Creating a QL chart from the main page {#main-page}
+## Creating a QL chart from the home page {#main-page}
 
 
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
@@ -30,41 +30,41 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
 1. Click **Create chart** → **QL chart**.
-1. In the window that opens, select a **Chart type**:
+1. In the window that opens, select the **Chart type**:
 
    {% list tabs %}
 
    - SQL
 
      1. Click **Select connection**.
-     1. In the list, select a database connection that you have access to. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
+     1. In the list, select a database connection you have access to. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
      1. Click **Create**.
      1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
      1. In the bottom-left corner, click **Start**.
 
-     After the query runs, a visualization of your data will be displayed.
+     After the query runs, your data will be visualized.
 
      {% include [datalens-sql-ch-example](../../../_includes/datalens/datalens-sql-ch-example.md) %}
 
    - {{ prometheus-name }}
 
      1. Click **Select connection**.
-     1. In the list, select a {{ prometheus-name }} connection that you have access to.
+     1. In the list, select a {{ prometheus-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ prometheus-name }} language.
      1. In the bottom-left corner, click **Start**.
 
-     After the query runs, a visualization of your data will be displayed.
+     After the query runs, your data will be visualized.
 
      {% include [datalens-prometheus-ch-example](../../../_includes/datalens/datalens-prometheus-ch-example.md) %}
 
-     QL charts built on the {{ prometheus-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
+     QL charts built on the {{ prometheus-name }} data can be parameterized similarly to SQL charts. This type of charts also has required global parameters created automatically when building a QL chart. You can edit default values of these parameters.
 
      | Parameter | Data type | Description |
      |---|---|---|
      | from | datetime | Lower time limit |
-     | to | datetime | Upper time limit. |
-     | step | number | Step on the time scale (seconds) |
+     | to | datetime | Upper time limit |
+     | step | number | Step on the time scale in seconds |
 
      {% note info %}
 
@@ -76,22 +76,22 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
      
      1. Click **Select connection**.
-     1. In the list, select a {{ monitoring-short-name }} connection that you have access to.
+     1. In the list, select a {{ monitoring-short-name }} connection you have access to.
      1. Click **Create**.
      1. Click **Add query** and specify a query in the {{ monitoring-short-name }} language.
      1. In the bottom-left corner, click **Start**.
 
 
-     After the query runs, a visualization of your data will be displayed.
+     After the query runs, your data will be visualized.
 
      {% include [datalens-monitoring-ch-example](../../../_includes/datalens/datalens-monitoring-ch-example.md) %}
 
-     QL charts built on the {{ monitoring-short-name }} data can be parameterized similarly to SQL charts. This type of charts also has mandatory global parameters created automatically when building a QL chart. You can override default values of these parameters.
+     QL charts built on the {{ monitoring-short-name }} data can be parameterized similarly to SQL charts. This type of charts also has required global parameters created automatically when building a QL chart. You can edit default values of these parameters.
 
      | Parameter | Data type | Description |
      |---|---|---|
      | from | datetime | Lower time limit |
-     | to | datetime | Upper time limit. |
+     | to | datetime | Upper time limit |
 
      {% note info %}
 
@@ -101,7 +101,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
    {% endlist %}
 
-## Creating a QL chart using a connection {#connection}
+## Creating a QL chart from a connection {#connection}
 
 1. Go to an existing database connection.
 1. Make sure **Raw SQL level** → **Allow subqueries in datasets and queries from charts** is enabled.
@@ -109,7 +109,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 1. In the **Query** tab, enter your query using the SQL dialect of the database you are querying.
 1. In the bottom-left corner, click **Start**.
 
-After the query runs, a visualization of your data will be displayed.
+After the query runs, your data will be visualized.
 
 
 ## Adding selector parameters {#selector-parameters}
@@ -142,7 +142,7 @@ The `date-interval` and the `datetime-interval` type parameters can be used in q
 * `interval_from` to get the start of the interval (`2017-01-01`).
 * `interval_to` to get the end of the interval (`2019-12-31`).
 
-{% cut "Request example" %}
+{% cut "Query example" %}
 
 ```sql
 SELECT toDate(Date) as datedate, count ('Oreder ID')
@@ -156,7 +156,7 @@ ORDER BY datedate
 
 ### Substituting parameter values in a QL chart query {#params-in-select}
 
-Parameter values from a selector arrive to a QL chart as a:
+A QL chart gets parameter values from a selector as:
 
 * Single value if one element is selected.
 * [Tuple](https://docs.python.org/3/library/stdtypes.html#tuples) if multiple values are selected.
@@ -189,9 +189,9 @@ ORDER BY Category
 
 {% endcut %}
 
-### Null choice in selector and parameters {#empty-selector}
+### Null choice in a selector and parameters {#empty-selector}
 
-If a selector has no value selected and no default value is set for a parameter, a null value is provided to a query. In which case all values will be selected in [dataset-based charts](../../concepts/chart/dataset-based-charts.md), and the filter for the relevant column will disappear when generating a query.
+If a selector has no value selected and no default value is set for a parameter, a null value is provided to a query. In this case, all values will be selected in [dataset-based charts](../../concepts/chart/dataset-based-charts.md), and the filter for the relevant column will disappear when generating a query.
 
 To enable a similar behavior in QL charts, you can use a statement like this in your query:
 

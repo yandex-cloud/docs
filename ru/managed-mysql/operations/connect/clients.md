@@ -109,7 +109,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
   1. Включите публичный доступ для хостов кластера:
      1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
@@ -204,7 +204,7 @@ sudo apt update && sudo apt install --yes mysql-client
 
 1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
     1. Нажмите на имя нужного кластера.
     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. Введите электронную почту пользователя, к которой привязан аккаунт.

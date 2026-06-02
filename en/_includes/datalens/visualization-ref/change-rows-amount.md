@@ -1,4 +1,4 @@
-Use the **Pagination** and **Limit** [settings](../../../datalens/concepts/chart/settings.md#common-settings) to manage the number of rows displayed on the screen and exported from the chart. To edit the number of rows:
+Use the **Pagination** and **Limit** [settings](../../../datalens/concepts/chart/settings.md#common-settings) to manage the number of rows displayed on the screen and exported from the chart. To change the number of rows:
 
 1. At the top of the screen, click ![image](../../../_assets/console-icons/gear.svg) next to the chart type.
 1. Enable pagination and set the number of rows per page or disable pagination.

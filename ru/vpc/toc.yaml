@@ -78,6 +78,8 @@ items:
         items:
           - name: Создать сервисное подключение
             href: operations/private-endpoint-create.md
+          - name: Создать сервисное подключение через поддержку
+            href: operations/private-endpoint-create-support.md
           - name: Получить информацию о сервисном подключении
             href: operations/private-endpoint-get-info.md
           - name: >-
@@ -1012,6 +1014,8 @@ items:
                     href: privatelink/api-ref/grpc/PrivateEndpoint/delete.md
                   - name: ListOperations
                     href: privatelink/api-ref/grpc/PrivateEndpoint/listOperations.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений

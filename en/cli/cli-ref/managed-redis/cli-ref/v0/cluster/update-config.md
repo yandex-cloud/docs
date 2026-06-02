@@ -86,7 +86,9 @@ If no new command is sent during that time, the connection is closed.
 
 - `aof_max_size_percent`: AOF maximum size as a percentage of disk available
 
-- `activedefrag`: Enable active (online) memory defragmentation ||
+- `activedefrag`: Enable active (online) memory defragmentation
+
+- `audit_log`: Enable/disable audit logs for Valkey ||
 |#
 
 #### Global Flags

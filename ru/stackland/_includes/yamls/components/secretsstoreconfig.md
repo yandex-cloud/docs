@@ -22,7 +22,7 @@ spec:
     server: # Настройки пода OpenBao
       dataStorage:
         size: 2Gi
-        storageClass: stackland-default
+        storageClass: stackland-other
       enabled: true
       ingress:
         clusterIssuer: stackland-default

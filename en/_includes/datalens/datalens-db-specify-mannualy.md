@@ -1,1 +1,1 @@
-Manually specify the parameters of an external database to connect to via a public network:
+Manually specify your external database details to connect to via a public network:

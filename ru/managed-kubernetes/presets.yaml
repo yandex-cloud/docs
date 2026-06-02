@@ -1,8 +1,13 @@
 default:
   k8s-version:
+    - name: '1.35'
+      rapid: 01.06.2026
+      regular: —
+      stable: —
+      deprecated: —
     - name: '1.34'
       rapid: 12.12.2025
-      regular: —
+      regular: 01.06.2026
       stable: —
       deprecated: Q1 2027
     - name: '1.33'

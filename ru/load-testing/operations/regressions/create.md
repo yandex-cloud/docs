@@ -18,7 +18,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите создать дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.load-testing.button_create-regression-dashboard }}**.
   1. В открывшемся окне введите имя и описание дашборда и нажмите **{{ ui-key.yc-ui-datasphere.common.apply }}**.
@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите настроить дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. В списке дашбордов выберите нужный.
   1. Задайте интервал одним из способов:
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите настроить дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. В списке дашбордов выберите нужный.
   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.edit }}** и выберите ![image](../../../_assets/load-testing/plus.svg) **{{ ui-key.yacloud.load-testing.button_create-chart }}**.
@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите настроить дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. В списке дашбордов выберите нужный.
   1. Нажмите кнопку ![image](../../../_assets/load-testing/header.svg) **Title**.
@@ -125,7 +125,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите настроить дашборд.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. В списке дашбордов выберите нужный.
   1. Нажмите кнопку ![image](../../../_assets/load-testing/text.svg) **Text**.

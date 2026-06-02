@@ -232,8 +232,6 @@ items:
         href: concepts/dictionaries.md
       - name: Sharding
         href: concepts/sharding.md
-      - name: Service users
-        href: concepts/service-users.md
       - name: Maintenance
         href: concepts/maintenance.md
       - name: Supported clients

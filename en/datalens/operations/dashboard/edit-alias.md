@@ -13,7 +13,7 @@ To delete an [alias](../../dashboard/link.md#alias):
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. At the top of the page, click **Edit**.
-1. To the right of the widget to delete a link for, click ![image](../../../_assets/datalens/links.svg).
+1. Next to the widget to delete a link for, click ![image](../../../_assets/datalens/links.svg).
 
    1. In the list, hover over the widget you want to unlink and click ![image](../../../_assets/datalens/aliases.svg).
    1. In the window that opens, expand the **Added aliases** list and click ![image](../../../_assets/console-icons/trash-bin.svg) next to the alias.
@@ -26,7 +26,7 @@ To delete an [alias](../../dashboard/link.md#alias):
 
 To delete a field from an alias:
 
-1. In the dashboard editing window, click ![image](../../../_assets/datalens/links.svg) to the right of the widget you want to delete an alias field for.
+1. In the dashboard editing window, click ![image](../../../_assets/datalens/links.svg) next to the widget you want to delete an alias field for.
 
    1. In the list, hover over the widget you want to unlink and click ![image](../../../_assets/datalens/aliases.svg).
    1. In the window that opens, expand the **Added aliases** list and click the field you want to delete.

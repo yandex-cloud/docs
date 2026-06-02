@@ -1,9 +1,9 @@
 # Working with the Public API
 
 
-{{ datalens-name }} provides a public API ([https://api.datalens.tech](https://api.datalens.tech)) to automate operations with dashboards, charts, datasets, and connections.
+{{ datalens-name }} provides a public API, [https://api.datalens.tech](https://api.datalens.tech), to automate operations with dashboards, charts, datasets, and connections.
 
-{{ datalens-name }} Public API is a collection of methods similar to that used in the {{ datalens-name }} web interface. This API is described by the OpenAPI specification and authenticated via the Yandex Cloud IAM tokens.
+The {{ datalens-name }} Public API offers methods similar to those used in the {{ datalens-name }} web interface. This API is described using the OpenAPI specification and authenticated via the Yandex Cloud IAM tokens.
 
 When using the API, please be aware of the [limits](../concepts/limits.md#datalens-api-limits) in place.
 

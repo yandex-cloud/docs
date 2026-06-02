@@ -150,7 +150,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера.
   1. Включите публичный доступ для хостов кластера:
      1. Выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.

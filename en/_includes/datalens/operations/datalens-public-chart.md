@@ -17,9 +17,8 @@
       * The chart will only be accessible to authorized users via the link in the browser's address bar, factoring in their access permissions.
 
       {% endnote %}
-
-   1. (Optional) Under **Author or link to source**, specify the link to the chart source or author and its text. The link will be displayed at the bottom of the chart.
-   1. (Optional) Under **Linked objects**, select the objects to be public. By default, {{ datalens-short-name }} will automatically grant access to all linked objects.
+   1. Optionally, under **Author or link to source**, specify the link to the chart source or author and its text. The link will be displayed at the bottom of the chart.
+   1. Optionally, under **Linked objects**, select the objects to make public. By default, {{ datalens-short-name }} will automatically grant access to all linked objects.
    1. Click **Apply**.
    
    ![screen04](../../../_assets/datalens/concepts/datalens-public/screen04.png)

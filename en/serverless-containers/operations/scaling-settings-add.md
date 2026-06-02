@@ -81,7 +81,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
     metadata_options: {}
     ```
 
-    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
+    To learn more about the command, see the [CLI reference](../../cli/cli-ref/serverless/cli-ref/container/revision/deploy.md).
 
 - {{ TF }} {#tf}
   

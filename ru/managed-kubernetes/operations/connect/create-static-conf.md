@@ -33,7 +33,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
 
      В поле **{{ ui-key.yacloud.common.id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
