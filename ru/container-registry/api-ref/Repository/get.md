@@ -24,7 +24,6 @@ apiPlayground:
 # Container Registry API, REST: Repository.Get
 
 Returns the specified Repository resource.
-
 To get the list of available Repository resources, make a [List](/docs/container-registry/api-ref/Repository/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 || repositoryId | **string**
 
 Required field. ID of the Repository resource to return.
-
 To get the repository ID use a [RepositoryService.List](/docs/container-registry/api-ref/Repository/list#List) request.
 
 The maximum string length in characters is 50. ||

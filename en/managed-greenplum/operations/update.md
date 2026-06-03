@@ -1,9 +1,9 @@
 ---
-title: How to update {{ GP }} cluster settings in {{ mgp-full-name }}
-description: In this tutorial, you will learn how to update {{ GP }} cluster settings.
+title: How to update {{ mgp-full-name }} cluster settings
+description: Follow this guide to update {{ mgp-full-name }} cluster settings.
 ---
 
-# Updating {{ GP }} cluster settings
+# Updating {{ mgp-name }} cluster settings
 
 
 After creating a cluster, you can:
@@ -12,7 +12,7 @@ After creating a cluster, you can:
 * [Change the public access setting](#change-public-access).
 * [Change additional cluster settings](#change-additional-settings).
 * [Change the scheduled maintenance operation settings](#change-background-settings).
-* [Change {{ GP }}](#change-gp-settings) settings as per the {{ GP }} guide.
+* [Update the DBMS settings](#change-gp-settings).
 * [Change the PXF protocol settings to optimize external data operations](./pxf/settings.md).
 * [Change the authentication settings in the pg_hba.conf file](user-auth-rules.md).
 * [Change the service account settings](#change-service-account).
@@ -36,7 +36,7 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the name and description of a {{ GP }} cluster:
+  To change the name and description of a {{ mgp-name }} cluster:
 
   1. View the current `name` and `description` of the cluster:
 
@@ -70,11 +70,11 @@ After creating a cluster, you can:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, edit the `description` attribute value:
+    1. In the {{ mgp-name }} cluster description, edit the `description` attribute value:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -84,7 +84,7 @@ After creating a cluster, you can:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -181,7 +181,7 @@ After creating a cluster, you can:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the public access setting {{ GP }}:
+  To change the public access setting in a {{ mgp-name }} cluster:
 
   1. View the description of the CLI command for updating a cluster configuration:
 
@@ -392,11 +392,11 @@ If you enabled public access to the cluster but cannot access it from the inter
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, change the values of additional settings as required:
+    1. In the {{ mgp-name }} cluster description, change the values of additional settings as required:
 
         
         ```hcl
@@ -475,7 +475,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `pool_client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -537,7 +537,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
         * `config`: Cluster settings:
 
@@ -558,7 +558,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of the two values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -577,7 +577,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -689,7 +689,7 @@ If you enabled public access to the cluster but cannot access it from the inter
 
 
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of the two values:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -708,7 +708,7 @@ If you enabled public access to the cluster but cannot access it from the inter
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `pool_idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -863,7 +863,7 @@ You can change your cluster's [scheduled maintenance operations](../concepts/mai
 
 {% endlist %}
 
-## Updating {{ GP }} settings {#change-gp-settings}
+## Updating the DBMS settings {#change-gp-settings}
 
 You can change your cluster's [global DBMS settings](../concepts/settings-list.md). For a list of configurable settings, see [{#T}](../concepts/settings-list.md).
 
@@ -892,7 +892,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
   1. Open the [folder dashboard]({{ link-console-main }}).
   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Change the [{{ GP }}](../concepts/settings-list.md) settings by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+  1. Update the [DBMS settings](../concepts/settings-list.md) by clicking **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** under **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Click **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -902,7 +902,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the [{{ GP }} settings](../concepts/settings-list.md):
+  To update the [DBMS settings](../concepts/settings-list.md):
 
   1. View the full list of settings for the cluster:
 
@@ -918,7 +918,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
   1. Set the parameter values as needed:
 
-      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `greenplumConfig_<Greenplum_version>` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, convert the `maxConnections` parameter from an API request to `max_connections` for the CLI command:
+      All supported parameters are listed in the [request format for the update method](../api-ref/Cluster/update.md), in the `greenplumConfig_<DBMS_version>` field. To specify a parameter name in the CLI call, convert its name from <q>lowerCamelCase</q> to <q>snake_case</q>. For example, convert the `maxConnections` parameter from an API request to `max_connections` for the CLI command:
 
       ```bash
       {{ yc-mdb-gp }} cluster update-config <cluster_name_or_ID> \
@@ -931,11 +931,11 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the cluster description, edit the [{{ GP }} settings](../concepts/settings-list.md) under `greenplum_config`:
+    1. In the cluster description, edit the [DBMS settings](../concepts/settings-list.md) under `greenplum_config`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -948,7 +948,7 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -975,9 +975,9 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>' \
             --data '{
-                      "updateMask": "configSpec.greenplumConfig_<{{ GP }}_version>.<setting_1>,...,configSpec.greenplumConfig_<{{ GP }}_version>.<setting_N>",
+                      "updateMask": "configSpec.greenplumConfig_<DBMS_version>.<setting_1>,...,configSpec.greenplumConfig_<DBMS_version>.<setting_N>",
                       "configSpec": {
-                        "greenplumConfig_<{{ GP }}_version>": {
+                        "greenplumConfig_<DBMS_version>": {
                           "<setting_1>": "<value_1>",
                           "<setting_2>": "<value_2>",
                           ...
@@ -991,13 +991,13 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
         * `updateMask`: Comma-separated string of settings to update.
 
-            List all {{ GP }} settings you want to update.
+            In this case, specify all DBMS settings you want to update.
 
-        * `configSpec.greenplumConfig_<{{ GP }}_version>`: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
+        * `configSpec.greenplumConfig_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
 
-            See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for a description and possible values for each setting.
+            Available DBMS versions: {{ GP }} `6.28` and `6.29` and {{ CB }} `2.0-cb`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1024,14 +1024,14 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
                   "cluster_id": "<cluster_ID>",
                   "update_mask": {
                     "paths": [ 
-                      "config_spec.greenplum_config_<{{ GP }}_version>.<setting_1>",
-                      "config_spec.greenplum_config_<{{ GP }}_version>.<setting_2>",
+                      "config_spec.greenplum_config_<DBMS_version>.<setting_1>",
+                      "config_spec.greenplum_config_<DBMS_version>.<setting_2>",
                       ...
-                      "config_spec.greenplum_config_<{{ GP }}_version>.<setting_N>"
+                      "config_spec.greenplum_config_<DBMS_version>.<setting_N>"
                     ]
                   },
                   "config_spec": {
-                    "greenplum_config_<{{ GP }}_version>": {
+                    "greenplum_config_<DBMS_version>": {
                       "<setting_1>": "<value_1>",
                       "<setting_2>": "<value_2>",
                       ...
@@ -1047,13 +1047,13 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 
         * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            List all {{ GP }} settings you want to update.
+            In this case, specify all DBMS settings you want to update.
 
-        * `config_spec.greenplum_config_<{{ GP }}_version>`: {{ GP }} settings. Use a separate line for each setting; separate them by commas.
+        * `config_spec.greenplum_config_<DBMS_version>`: DBMS settings. Enter each setting on a new line, separated by commas. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
 
-            See the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.greenplum.v1.UpdateClusterRequest) for the list of {{ GP }} versions available for the parameter. See [{#T}](../concepts/settings-list.md) for a description and possible values for each setting.
+            Available DBMS versions: {{ GP }} `6.28` and `6.29` and {{ CB }} `2.0-cb`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1064,11 +1064,12 @@ For a full list of settings, see the [{{ GP }} guide](https://techdocs.broadcom.
 You can change the host class for both master hosts and segment hosts. When changing the host class:
 
 * The cluster's primary master host will change.
+* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
-Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ GP }} server process.
+Changing the segment host class [affects](../concepts/instance-types.md#select-class-segment-hosts) the maximum amount of memory allocated to each {{ mgp-name }} server process.
 
-We recommend changing the host class only when your cluster has no active workload.
+We recommend changing the host class only when the cluster is idle.
 
 {% list tabs group=instructions %}
 
@@ -1077,7 +1078,7 @@ We recommend changing the host class only when your cluster has no active worklo
   1. Open the [folder dashboard]({{ link-console-main }}).
   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select a class for {{ GP }} master hosts or segment hosts.
+  1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select a class for {{ mgp-name }} master hosts or segment hosts.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -1133,11 +1134,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      To learn how to create this file, see [Creating a cluster](cluster-create.md).
+      For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-      For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-  1. In the {{ GP }} cluster description, edit the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
+  1. In the {{ mgp-name }} cluster description, edit the `resource_preset_id` attribute value under `master_subcluster.resources` or `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1157,7 +1158,7 @@ We recommend changing the host class only when your cluster has no active worklo
       }
       ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1200,11 +1201,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
         * `masterConfig.resources.resourcePresetId` and `segmentConfig.resources.resourcePresetId`: New [host class](../concepts/instance-types.md) for master and segment hosts.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1309,11 +1310,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
+    1. In the {{ mgp-name }} cluster description, edit the values of the `disk_type_id` and `disk_size` attributes under `master_subcluster.resources` or `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1335,7 +1336,7 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1380,7 +1381,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
         * `masterConfig.resources`, `segmentConfig.resources`: Storage properties for master hosts and segment hosts:
 
@@ -1446,7 +1447,7 @@ We recommend changing the host class only when your cluster has no active worklo
             * `disk_type_id`: [Disk type](../concepts/storage.md).
             * `disk_size`: New storage size in bytes.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1491,11 +1492,11 @@ We recommend changing the host class only when your cluster has no active worklo
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, edit the `service_account_id` attribute value:
+    1. In the {{ mgp-name }} cluster description, edit the `service_account_id` attribute value:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1504,7 +1505,7 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1544,7 +1545,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `serviceAccountId`: Service account ID.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1586,7 +1587,7 @@ We recommend changing the host class only when your cluster has no active worklo
 
         * `service_account_id`: Service account ID.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1614,7 +1615,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
         * Select the logs you need:
 
           * **Command Center logs**: Enables [Command Center](../concepts/command-center.md) logs.
-          * **Greenplum logs**: Enables {{ GP }} logs.
+          * **Greenplum logs**: Enables DBMS logging.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -1646,7 +1647,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
-        * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
+        * `--log-greenplum-enabled`: Transferring DBMS logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
         * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
         * `--log-group-id`: ID of the log group to write logs to.
@@ -1657,11 +1658,11 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more information about creating this file, see [Creating clusters](cluster-create.md).
 
-        For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
-    1. In the {{ GP }} cluster description, update the attribute values in the `logging` section:
+    1. In the {{ mpg-name }} cluster description, edit the attribute values in the `logging` section:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<cluster_name>" {
@@ -1669,7 +1670,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
           logging {
             enabled                = <enable_transferring_logs>
             command_center_enabled = <transfer_Yandex_Command_Center_logs>
-            greenplum_enabled      = <transfer_{{ GP }}_logs>
+            greenplum_enabled      = <transfer_DBMS_logs>
             pooler_enabled         = <transfer_connection_pooler_logs>
             folder_id              = "<folder_ID>"
           }
@@ -1680,14 +1681,14 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
         * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
         * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-        * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+        * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
         * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
         * `folder_id`: Specify the ID of the folder whose log group you want to use.
         * `log_group_id`: ID of the log group to write logs to.
 
             Specify either `folder_id` or `log_group_id`.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1718,7 +1719,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
                       "logging": {
                         "enabled": "<enable_transferring_logs>",
                         "commandCenterEnabled": "<transfer_Yandex_Command_Center_logs>",
-                        "greenplumEnabled": "<transfer_{{ GP }}_logs>",
+                        "greenplumEnabled": "<transfer_DBMS_logs>",
                         "poolerEnabled": "<transfer_connection_pooler_logs>",
                         "folderId": "<folder_ID>"
                       }
@@ -1733,14 +1734,14 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folderId`: Specify the ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
 
                 Specify either `folderId` or `logGroupId`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1776,7 +1777,7 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
                   "logging": {
                     "enabled": "<enable_transferring_logs>",
                     "command_center_enabled": "<transfer_Yandex_Command_Center_logs>",
-                    "greenplum_enabled": "<transfer_{{ GP }}_logs>",
+                    "greenplum_enabled": "<transfer_DBMS_logs>",
                     "pooler_enabled": "<transfer_connection_pooler_logs>",
                     "folder_id": "<folder_ID>"
                   } 
@@ -1793,14 +1794,14 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folder_id`: Specify the ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
 
                 Specify either `folder_id` or `log_group_id`.
 
-        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1808,3 +1809,5 @@ You can change the settings for [transferring cluster logs to {{ cloud-logging-f
 
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -6,8 +6,8 @@ description: Follow this guide to configure access to {{ objstorage-full-name }}
 # Configuring access to {{ objstorage-name }} from a {{ CH }} cluster
 
 {{ mch-name }} supports using {{ objstorage-full-name }} to:
-* Add [ML models](ml-models.md), [data format schemas](format-schemas.md), and [custom geobases](geobase.md).
-* Process data in an object storage if this data is in any [format {{ CH }} supports]({{ ch.docs }}/interfaces/formats/).
+* Add [ML models](ml-models.md), [format schemas](format-schemas.md), and [custom geobases](geobase.md).
+* Process data in an object storage if this data is in any [format {{ CH }} supports]({{ ch.docs }}{{ lang }}/interfaces/formats).
 
 To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data from a cluster, set up password-free access to the bucket using a [service account](../../iam/concepts/users/service-accounts.md):
 
@@ -16,7 +16,7 @@ To access {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) data 
 
 {% note info %}
 
-The service account will send SQL queries to {{ objstorage-name }}. In this case, keys and secrets are ignored.
+This service account will send SQL queries to {{ objstorage-name }}. In this case, keys and secrets are ignored.
 
 If no service account is specified, SQL queries will be sent:
 
@@ -31,7 +31,7 @@ See also [Examples of working with objects](#examples).
 Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account. You will need this role in the following cases:
 
 
-* To create or update a cluster and attach it to a service account.
+* To create or update a cluster and attach a service account to it.
 * To restore a cluster attached to a service account from its backup.
 
 ## Attach the service account to the cluster {#connect-service-account}
@@ -42,7 +42,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the [iam.service
 
 {% note tip %}
 
-To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using dedicated service accounts. This allows you to work with any buckets, including those to which public access cannot or should not be granted.  
+To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using separate service accounts. This allows you to work with any buckets, including those to which public access cannot or should not be granted.  
 
 {% endnote %}
 
@@ -54,8 +54,8 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your bucket. If you have no bucket, [create](../../storage/operations/buckets/create.md) one and [upload](../../storage/operations/objects/upload.md) the data you need to it.
 
-  1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 
   1. Set up the [bucket ACL](../../storage/operations/buckets/edit-acl.md) or [object ACL](../../storage/operations/objects/edit-acl.md):
 
@@ -81,7 +81,7 @@ To connect {{ mch-name }} clusters to {{ objstorage-name }}, we recommend using 
 
 You can get a bucket object [URL](../../storage/concepts/object.md#object-url) in `https://{{ s3-storage-host }}/<bucket_name>/<object_name>` format to work with geotags and schemas or to use the `s3` table function and the `S3` table engine.
 
-The `S3` table engine is similar to [File]({{ ch.docs }}/engines/table-engines/special/file/) and [URL]({{ ch.docs }}/engines/table-engines/special/url/) engines, except that data is stored in an S3-compatible storage, such as {{ objstorage-full-name }}, rather than a file system or remote HTTP/HTTPS server. This engine allows data reads and writes to the storage using standard SQL queries, such as `SELECT` and `INSERT`.
+The `S3` table engine is similar to [File]({{ ch.docs }}{{ lang }}/engines/table-engines/special/file) and [URL]({{ ch.docs }}{{ lang }}/engines/table-engines/special/url) engines, except that data is stored in an S3-compatible storage, such as {{ objstorage-full-name }}, rather than a file system or remote HTTP/HTTPS server. This engine allows storage data reads and writes using standard SQL queries: `SELECT` and `INSERT`.
 
 The `s3` table function offers the same features as the `S3` table engine, without the need to create a table first.
 
@@ -98,7 +98,7 @@ For example, if your {{ objstorage-name }} bucket contains a file named `table.t
      CREATE TABLE test (n Int32) ENGINE = S3('https://{{ s3-storage-host }}/<bucket_name>/table.tsv', 'TSV');
      ```
 
-  1. Run test queries to the table:
+  1. Run these test queries against the table:
   
      ```sql
      INSERT INTO test VALUES (1);

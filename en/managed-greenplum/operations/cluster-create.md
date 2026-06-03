@@ -1,7 +1,7 @@
-# Creating a {{ GP }} cluster
+# Creating a {{ mgp-name }} cluster
 
 
-A {{ GP }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
+A {{ mgp-name }} cluster consists of master hosts that get client queries and segment hosts that process and store data.
 
 For more information, see [{#T}](../concepts/index.md).
 
@@ -9,27 +9,27 @@ For more information, see [{#T}](../concepts/index.md).
 ## Creating a cluster {#create-cluster}
 
 
-To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](../security/index.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    To create a {{ GP }} cluster:
+    To create a {{ mgp-name }} cluster:
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your applications.
         * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
-    1. Select the {{ GP }} version.
+    1. Select the DBMS version.
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ mgp-name }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -91,7 +91,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
           * Select the logs you need:
 
              * **Command Center logs**: Enables [Command Center](../concepts/command-center.md) logs.
-             * **Greenplum logs**: Enables {{ GP }} logging. Use [Log min messages](../concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
+             * **Greenplum logs**: Enables DBMS logging. Use [Log min messages](../concepts/settings-list.md#setting-log-min-messages) under **{{ ui-key.yacloud.mdb.forms.section_settings }}** to specify the logging level.
 
 
         
@@ -145,10 +145,10 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To create a {{ GP }} cluster:
+    To create a {{ mgp-name }} cluster:
 
     
-    1. Verify that your folder has subnets for cluster host placement:
+    1. Check whether the folder has any subnets for the cluster hosts:
 
         ```bash
         yc vpc subnet list
@@ -168,7 +168,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         
         ```bash
         {{ yc-mdb-gp }} cluster create <cluster_name> \
-           --greenplum-version=<Greenplum_version> \
+           --greenplum-version=<DBMS_version> \
            --environment=<environment> \
            --network-name=<network_name> \
            --user-name=<username> \
@@ -194,7 +194,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
         Where:
 
-        * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
+        * `--greenplum-version`: DBMS version, {{ versions-gp.cli.str }} or {{ versions-cb.cli.str }}.
         * `--environment`: Environment:
             * `PRODUCTION`: For stable versions of your applications.
             * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
@@ -239,7 +239,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
            --segment-host-group-ids=<IDs_of_dedicated_host_groups_for_segment_hosts>
         ```
 
-        You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+        You can assign groups to one of the two {{ mgp-name }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -298,7 +298,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `--service-account`: Service account ID.
         * `--log-enabled`: Enables log transfer. Required for other flags responsible for transferring specific logs, e.g., `--log-greenplum-enabled`.
         * `--log-command-center-enabled`: Transferring [Command Center](../concepts/command-center.md) logs.
-        * `--log-greenplum-enabled`: Transferring {{ GP }} logs.
+        * `--log-greenplum-enabled`: Transferring DBMS logs.
         * `--log-pooler-enabled`: Transferring [connection pooler](../concepts/pooling.md) logs.
         * `--log-folder-id`: Specify the ID of the folder whose log group you want to use.
         * `--log-group-id`: ID of the log group to write logs to.
@@ -312,7 +312,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
 
-  To create a {{ GP }} cluster:
+  To create a {{ mgp-name }} cluster:
 
   1. In the command line, navigate to the directory that will contain the {{ TF }} configuration files describing your infrastructure. If there is no such directory, create one.
 
@@ -352,7 +352,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         subnet_id           = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
         assign_public_ip    = <enable_public_access_to_cluster_hosts>
         deletion_protection = <protect_cluster_from_deletion>
-        version             = "<Greenplum_version>"
+        version             = "<DBMS_version>"
         master_host_count   = <number_of_master_hosts>
         segment_host_count  = <number_of_segment_hosts>
         segment_in_host     = <number_of_segments_per_host>
@@ -396,7 +396,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-      * `version`: {{ GP }} version.
+      * `version`: DBMS version.
       * `master_host_count`: Number of master hosts, 2.
       * `segment_host_count`: Number of segment hosts, between 2 and 32.
       * `segment_in_host`: [Number of segments per host](../concepts/index.md). The maximum value of this setting depends on the host class.
@@ -424,7 +424,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
       }
       ```
 
-      You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+      You can assign groups to one of the two {{ mgp-name }} host types or to both of them at once.
 
       You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -439,7 +439,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         logging {
           enabled                = <enable_transferring_logs>
           command_center_enabled = <transfer_Yandex_Command_Center_logs>
-          greenplum_enabled      = <transfer_{{ GP }}_logs>
+          greenplum_enabled      = <transfer_DBMS_logs>
           pooler_enabled         = <transfer_connection_pooler_logs>
           folder_id              = "<folder_ID>"
         }
@@ -453,7 +453,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
           * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
           * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-          * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+          * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
           * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
           * `folder_id`: Specify the ID of the folder whose log group you want to use.
           * `log_group_id`: ID of the log group to write logs to.
@@ -461,7 +461,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
               Specify either `folder_id` or `log_group_id`.
 
 
-  1. Validate your {{ TF }} configuration:
+  1. Make sure the {{ TF }} configuration files are correct:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -486,7 +486,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
           "name": "<cluster_name>",
           "environment": "<environment>",
           "config": {
-            "version": "<{{ GP }}_version>",
+            "version": "<DBMS_version>",
             "access": {
               "dataLens": <allow_access_from_{{ datalens-name }}>,
               "yandexQuery": <allow_access_from_Yandex_Query>
@@ -543,7 +543,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
           "logging": {
             "enabled": "<enable_transferring_logs>",
             "commandCenterEnabled": "<transfer_Yandex_Command_Center_logs>",
-            "greenplumEnabled": "<transfer_{{ GP }}_logs>",
+            "greenplumEnabled": "<transfer_DBMS_logs>",
             "poolerEnabled": "<transfer_connection_pooler_logs>",
             "folderId": "<folder_ID>"
           }
@@ -560,7 +560,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
 
-            * `version`: {{ GP }} version.
+            * `version`: DBMS version.
 
             
             * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
@@ -571,7 +571,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
             * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
-            * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
+            * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
             * `assignPublicIp`: Public access to cluster hosts, `true` or `false`.
 
         * `masterConfig.resources`, `segmentConfig.resources`: Master and segment host configuration in the cluster:
@@ -605,7 +605,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -625,7 +625,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folderId`: Specify the ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
@@ -663,7 +663,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
           "name": "<cluster_name>",
           "environment": "<environment>",
           "config": {
-            "version": "<{{ GP }}_version>",
+            "version": "<DBMS_version>",
             "access": {
               "data_lens": <allow_access_from_{{ datalens-name }}>,
               "yandex_query": <allow_access_from_Yandex_Query>
@@ -720,7 +720,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
           "logging": {
             "enabled": "<enable_transferring_logs>",
             "command_center_enabled": "<transfer_Yandex_Command_Center_logs>",
-            "greenplum_enabled": "<transfer_{{ GP }}_logs>",
+            "greenplum_enabled": "<transfer_DBMS_logs>",
             "pooler_enabled": "<transfer_connection_pooler_logs>",
             "folder_id": "<folder_ID>"
           }
@@ -737,7 +737,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `environment`: Cluster environment, `PRODUCTION` or `PRESTABLE`.
         * `config`: Cluster settings:
 
-            * `version`: {{ GP }} version.
+            * `version`: DBMS version.
 
             
             * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
@@ -785,7 +785,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -805,7 +805,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folder_id`: Specify the ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
@@ -834,9 +834,9 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 ## Creating a cluster copy {#duplicate}
 
-You can create a {{ GP }} cluster with the settings of another one created earlier. Do this by importing the original {{ GP }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ GP }} cluster has a lot of settings and you need to create a similar one.
+You can create a {{ mgp-name }} cluster with the settings of another one created earlier. Do this by importing the original {{ mgp-name }} cluster configuration into {{ TF }}. This way, you can either create an identical copy or use the imported configuration as the baseline and modify it as needed. The import feature is handy when the original {{ mgp-name }} cluster has a lot of settings and you need to create a similar one.
 
-To create a {{ GP }} cluster copy:
+To create a {{ mgp-name }} cluster copy:
 
 {% list tabs group=instructions %}
 
@@ -853,15 +853,15 @@ To create a {{ GP }} cluster copy:
         resource "yandex_mdb_greenplum_cluster" "old" { }
         ```
 
-    1. Save the ID of the original {{ GP }} cluster to an environment variable:
+    1. Save the ID of the original {{ mgp-name }} cluster to an environment variable:
 
         ```bash
         export GREENPLUM_CLUSTER_ID=<cluster_ID>
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
-    1. Import the original {{ GP }} cluster settings to the {{ TF }} configuration:
+    1. Import the original {{ mgp-name }} cluster settings to the {{ TF }} configuration:
 
         ```bash
         terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
@@ -913,11 +913,11 @@ To create a {{ GP }} cluster copy:
 
 - CLI {#cli}
 
-    Create a {{ GP }} cluster with the following test specifications:
+    Create a {{ mgp-name }} cluster with the following test specifications:
 
     
     * Name: `gp-cluster`
-    * Version: `{{ versions.cli.latest }}`
+    * Version: `{{ versions-gp.cli.latest }}`
     * Environment: `PRODUCTION`
     * Network: `{{ network-name }}`
     * User: `user1`
@@ -939,7 +939,7 @@ To create a {{ GP }} cluster copy:
     ```bash
     {{ yc-mdb-gp }} cluster create \
        --name=gp-cluster \
-       --greenplum-version={{ versions.cli.latest }} \
+       --greenplum-version={{ versions-gp.cli.latest }} \
        --environment=PRODUCTION \
        --network-name={{ network-name }} \
        --user-name=user1 \

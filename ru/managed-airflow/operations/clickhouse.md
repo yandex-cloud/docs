@@ -42,9 +42,9 @@ description: С помощью направленного ациклическо
 
 [Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
    * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/ch`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
 
       ```json
       {

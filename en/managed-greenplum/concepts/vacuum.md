@@ -15,7 +15,7 @@ When you run the `UPDATE` and `DELETE` operations, old versions of rows get mark
 
 To free up the space taken by dead tuples, the `VACUUM` and `VACUUM FULL` commands are used. These commands also freeze `XID` in rows created by completed transactions. This is done so the rows can remain visible even if `XID` overflows and the IDs of completed transactions are used for new ones.
 
-By default, {{ GP }} uses [heap tables](tables.md), the standard type of {{ PG }} tables. For them, the `VACUUM` and `VACUUM FULL` commands work as follows:
+By default, {{ mgp-name }} uses [heap tables](tables.md), which is the standard type of {{ PG }} tables. For them, the `VACUUM` and `VACUUM FULL` commands work as follows:
 
 * `VACUUM` marks deleted and obsolete rows in the table and its indexes as free space available for reuse. However, the table does not become smaller on the disk in terms of physical size.
 * `VACUUM FULL` creates a new table, copies all rows to it, except for deleted and obsolete ones, and creates new indexes for the table. The new table then replaces the original one. `VACUUM FULL` reduces the table’s physical size on the disk and cleans the indexes of obsolete rows. Throughout the operation, the `ACCESS EXCLUSIVE` lock must be on.
@@ -52,13 +52,13 @@ For AO and AOCO tables, the `VACUUM` and `VACUUM FULL` commands work as follows:
 
 ### {{ YZ }} table vacuuming {#yezzey}
 
-[{{ YZ }}](../operations/extensions/yezzey.md) is a {{ GP }} extension that allows storing AO and AOCO tables in a [hybrid storage](hybrid-storage.md).
+[{{ YZ }}](../operations/extensions/yezzey.md) is a {{ mgp-name }} cluster extension that allows you to store AO and AOCO tables in a [hybrid storage](hybrid-storage.md).
 
 For AO and AOCO tables in a hybrid storage, the `VACUUM` and `VACUUM FULL` operations are performed the same way as for similar tables in the cluster storage.
 
 ## System folder vacuuming {#catalog}
 
-In {{ GP }}, the system folder is a set of system tables in the `pg_catalog` schema. System tables store metadata about tables, columns, and other database objects. Over time, they bloat as a result of creating and deleting DDL objects, especially if there is a massive ingestion of data, e.g., using [{{ maf-name }}](../../managed-airflow/index.yaml). So you need `VACUUM` and `VACUUM FULL` for the system folder as well.
+{{ mgp-name }} system folder is a set of system tables in the `pg_catalog` schema. System tables store metadata about tables, columns, and other database objects. Over time, they bloat as a result of creating and deleting DDL objects, especially if there is a massive ingestion of data, e.g., using [{{ maf-name }}](../../managed-airflow/index.yaml). So you need `VACUUM` and `VACUUM FULL` for the system folder as well.
 
 When performing `VACUUM FULL` of the system folder, we recommend switching the database to the limited access mode, e.g., by denying connections based on [user authentication rules](../operations/user-auth-rules.md), to prevent users from interacting with the folder. After vacuuming is complete, you can switch the database back to normal mode.
 

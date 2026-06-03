@@ -56,11 +56,11 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
-   1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор, например `secret`.
-   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения.
+   1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите неконфиденциальный идентификатор, например `secret`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите конфиденциальные данные для хранения.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

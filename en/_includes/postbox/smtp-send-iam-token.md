@@ -2,10 +2,10 @@
 
     #|
     || | **Email client supports STARTTLS** | **Email client supports SMTPS instead of STARTTLS** ||
-    || **Server name** | `{{ postbox-host }}` {.cell-align-center} | > ||
+    || **Server name** | `{{ postbox-host }}` {align="center"} | > ||
     || **Port** | `587` | `465` ||
-    || **Username** | `IAM_TOKEN` {.cell-align-center} | > ||
-    || **Password** | Service account IAM token {.cell-align-center} | > ||
+    || **Username** | `IAM_TOKEN` {align="center"} | > ||
+    || **Password** | Service account IAM token {align="center"} | > ||
     |#
 
 1. Send an email using your email client and make sure the specified recipients receive it.

@@ -62,11 +62,11 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
-  1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `token`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите токен бота, полученный при его [создании](#create-bot).
+  1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `token`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите токен бота, полученный при его [создании](#create-bot).
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

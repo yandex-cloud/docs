@@ -5,3 +5,5 @@
 {% include [general](../../_qa/managed-greenplum/general.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

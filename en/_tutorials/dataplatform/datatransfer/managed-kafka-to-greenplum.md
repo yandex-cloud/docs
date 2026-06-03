@@ -1,7 +1,7 @@
 You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -9,9 +9,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* {{ mkf-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 

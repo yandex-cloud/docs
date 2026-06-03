@@ -61,10 +61,10 @@
 
     #|
     || | **Email client supports STARTTLS** | **Email client supports SMTPS instead of STARTTLS** ||
-    || **Server name** | `{{ postbox-host }}` {.cell-align-center} | > ||
+    || **Server name** | `{{ postbox-host }}` {align="center"} | > ||
     || **Port** | `587` | `465` ||
-    || **Username** | ID of the previously created static access key {.cell-align-center} | > ||
-    || **Password** | Password obtained in the previous step {.cell-align-center} | > ||
+    || **Username** | ID of the previously created static access key {align="center"} | > ||
+    || **Password** | Password obtained in the previous step {align="center"} | > ||
     |#
 
 1. Send an email using your email client and make sure the specified recipients receive it.

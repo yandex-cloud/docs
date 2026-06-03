@@ -16,7 +16,7 @@ If you enable the **{{ ui-key.yacloud.mdb.forms.additional-field-cloud-storage }
 
 {% note warning %}
 
-Hybrid storage is only available for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For other table engines, data is only placed in the cluster storage.
+Hybrid storage is only available for [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables. For other table engines, data is only placed in the cluster storage.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ To start using hybrid storage:
 
 See our example in [Using hybrid storage](../tutorials/hybrid-storage.md).
 
-To monitor the amount of space [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts occupy in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage.
+To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-full-name }}, use the `ch_s3_disk_parts_size` [metric](../tutorials/hybrid-storage.md#metrics) in {{ monitoring-full-name }}. It is only available for {{ mch-name }} clusters with hybrid storage.
 
 Storing cold data and its backups in hybrid storage counts towards the total [cluster usage cost](../pricing.md#prices-storage).
 
@@ -64,7 +64,7 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 * `default`: Cluster automatically manages data placement depending on the following:
 
     * [Hybrid storage settings](#hybrid-storage-settings).
-    * Table [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) (time-to-live) settings.
+    * Table [TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) (time-to-live) settings.
 
     If there is enough free space in the cluster storage, only the rows with the expired TTL are moved to the object storage. Thus you can move the data to the object storage in parts before your cluster storage is filled up.
 
@@ -74,7 +74,7 @@ A {{ mch-name }} cluster with enabled hybrid storage supports the following stor
 
 * `object_storage`: For a table with this policy, rows can only be placed in the object storage. No data is moved between the storages.
 
-Storage policies do not affect [merge operations]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) for data parts. With any storage policy, you can:
+Storage policies do not affect [merge operations]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) for data parts. With any storage policy, you can:
 
 * Enable and disable the `prefer_not_to_merge` setting that merges stored data parts. This setting is available in the [CLI and API](../operations/update.md#change-hybrid-storage).
 * Set any `max_data_part_size_bytes` value for the maximum size of the data part you can get upon merging smaller ones.
@@ -88,7 +88,7 @@ SELECT *
 FROM system.storage_policies;
 ```
 
-For more information about storage policies and their settings, see [this {{ CH }} guide]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+For more information about storage policies and their settings, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ### Hybrid storage settings {#hybrid-storage-settings}
 
@@ -104,13 +104,13 @@ A {{ mch-name }} cluster with enabled hybrid storage has the following settings:
 
     Data parts are queued up in descending order by size. The number of data parts that will be moved is determined by the `move_factor` condition.
 
-* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in cluster and object storages. Merges are enabled by default.
+* `prefer_not_to_merge`: Disables [merging of data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) in cluster and object storages. Merges are enabled by default.
 
-    Once inserted into the table, the data is saved as a data part and sorted by its primary key. Then, {{ CH }} runs a background merge of data parts belonging to the same partition into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
+    Once inserted into the table, the data is saved as a data part and sorted by its primary key. Then, {{ CH }} runs a background merge of data parts belonging to the same partition into a larger data part within 10 to 15 minutes after the insertion. You can use the [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts#system_tables-parts) system table to view the merged data parts and partitions.
 
 You can specify hybrid storage settings when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-hybrid-storage) a cluster.
 
-For more information about setting up hybrid storage, see [this {{ CH }} guide](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+For more information about setting up hybrid storage, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ## Selecting the disk type when creating a cluster {#storage-type-selection}
 

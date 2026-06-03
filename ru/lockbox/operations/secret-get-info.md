@@ -14,7 +14,7 @@ title: Как получить информацию о секрете в {{ lock
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит [секрет](../concepts/secret.md).
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
 
 - CLI {#cli}
@@ -121,9 +121,9 @@ title: Как получить информацию о секрете в {{ lock
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
-    1. В разделе **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}** нажмите на нужную версию секрета.
+    1. В разделе **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}** нажмите на нужную версию секрета.
 
 - CLI {#cli}
 
@@ -225,7 +225,7 @@ title: Как получить информацию о секрете в {{ lock
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Нажмите на имя нужного секрета.
     1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
 
@@ -247,7 +247,7 @@ title: Как получить информацию о секрете в {{ lock
       yc lockbox secret list-access-bindings <имя_или_идентификатор_секрета>
       ```
 
-     Результат:
+      Результат:
 
       ```text
       +---------+---------------+----------------------+

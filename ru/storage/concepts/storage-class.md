@@ -8,8 +8,8 @@ description: '{{ objstorage-name }} позволяет хранить объек
 {{ objstorage-name }} позволяет хранить объекты в хранилищах разных _классов_ в зависимости от ваших требований к длительности хранения и частоте операций с объектами. В сервисе доступны следующие варианты:
 
 #|
-|| **Класс хранилища** {.cell-align-center} | **Доступ к данным** {.cell-align-center} | **Стоимость** {.cell-align-center} | > ||
-|| ^ | ^ | **Запросы** {.cell-align-center} | **Хранение данных** {.cell-align-center} ||
+|| **Класс хранилища** {align="center"} | **Доступ к данным** {align="center"} | **Стоимость** {align="center"} | > ||
+|| ^ | ^ | **Запросы** {align="center"} | **Хранение данных** {align="center"} ||
 || Стандартное
 (`STANDARD`)^1^ | Часто | ![image](../../_assets/console-icons/sack.svg) | ![image](../../_assets/console-icons/sack.svg)![image](../../_assets/console-icons/sack.svg)![image](../../_assets/console-icons/sack.svg) ||
 || Холодное

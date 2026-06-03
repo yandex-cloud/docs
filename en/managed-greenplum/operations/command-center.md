@@ -1,11 +1,11 @@
 ---
-title: Using the {{ GP }} command center
+title: Using the {{ mgp-name }} command center
 description: With the command center, you can manage sessions and queries and view their info.
 ---
 
-# Using the {{ GP }} command center
+# Using the {{ mgp-name }} command center
 
-{{ GP }} Command Center offers the following features:
+{{ mgp-name }} Command Center offers the following features:
 
 * [Viewing information about sessions and queries](#list).
 * [Viewing the resource consumption history for completed queries](#consumption-history).
@@ -18,7 +18,7 @@ For more information about the statistics you can get using the Command Center, 
 
 {% note info %}
 
-The {{ GP }} command center only allows you to perform basic operational analysis of sessions and queries. If your task requires in-depth strategic research and advanced analysis tools, use [log export to {{ cloud-logging-full-name }}](./mgp-to-cloud-logging.md). {{ cloud-logging-full-name }} allows you to [visualize logs in {{ grafana-name }}](../../logging/tutorials/grafana-logs-plugin.md) and [process them using {{ yds-short-name }} and {{ yq-name }}](../../logging/tutorials/cloud-logging.md).
+The {{ mgp-name }} command center only allows you to perform basic operational analysis of sessions and queries. If your task requires in-depth strategic research and advanced analysis tools, use [log export to {{ cloud-logging-full-name }}](./mgp-to-cloud-logging.md). {{ cloud-logging-name }} allows you to [visualize logs in {{ grafana-name }}](../../logging/tutorials/grafana-logs-plugin.md) and [process them using {{ yds-short-name }} and {{ yq-name }}](../../logging/tutorials/cloud-logging.md).
 
 {% endnote %}
 
@@ -33,7 +33,7 @@ To view information about sessions and queries:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** tab.
     1. Select what you want to view and navigate to relevant tab:
 
@@ -47,13 +47,13 @@ To view information about sessions and queries:
         * Sessions: Click the session name.
         * Queries: Click the key of the query you are running.
 
-        For session and query parameters, see [{{ GP }} Command Center parameters](../concepts/command-center-parameters.md).
+        For session and query parameters, see [{{ mgp-name }} Command Center parameters](../concepts/command-center-parameters.md).
 
 {% endlist %}
 
 ## Viewing the resource consumption history for completed queries {#consumption-history}
 
-The resource consumption history includes a variety of system metrics. These show how a {{ GP }} cluster was consuming resources to process queries at different time points. You can also view a list of completed queries. Using this information, you can manage your cluster hosts' CPU and memory in such a way so as to process queries more effectively.
+The resource consumption history includes a variety of system metrics. These show how a {{ mgp-name }} cluster was consuming resources to process queries at different time points. You can also view a list of completed queries. Using this information, you can manage your cluster hosts' CPU and memory in such a way so as to process queries more effectively.
 
 To view the resource consumption history for completed queries:
 
@@ -62,7 +62,7 @@ To view the resource consumption history for completed queries:
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_consumption-history }}**.
     1. Select the consumption metric you need:
 
@@ -88,7 +88,7 @@ To free up resources for sessions, you can abort a session with the `{{ ui-key.y
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**tab.
     1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-session }}**.
 
@@ -100,14 +100,14 @@ To free up resources for sessions, you can abort a session with the `{{ ui-key.y
 
 ## Terminating the current query {#terminate-query}
 
-To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. To do this:
+To free up resources for queries, you can terminate a query with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status within an idle session. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to the ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}**tab.
     1. In **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}**, click ![image](../../_assets/console-icons/ellipsis.svg) in the relevant line and select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_action-terminate-query }}**.
     1. Confirm terminating the query.
@@ -116,7 +116,7 @@ To free up resources for queries, you can terminate a query with the `{{ ui-key.
 
 ## Current state analysis examples {#current-analysis}
 
-The {{ GP }} command center supports the following types of cluster current state analysis:
+The {{ mgp-name }} command center supports the following types of cluster current state analysis:
 
 * Metric analysis, e.g., [heavy session search](#heavy-session) or [query execution structure analysis](#nested-query).
 * Event analysis, e.g., [idle session search](#current-session) or [blocking session search](#blocker-session).
@@ -128,7 +128,7 @@ The {{ GP }} command center supports the following types of cluster current stat
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Sort sessions by one of the following columns: **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-cpu-time }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-peak-memory }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-spill-total-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-write-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-read-bytes }}**, **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-recv-total-bytes }}**, or **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-net-sent-total-bytes }}**. 
     1. Find the sessions that consume the selected resource the most.
@@ -155,7 +155,7 @@ You can identify queries that are inefficient due to their SQL statement logic o
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** tab.
     1. Enable displaying only active sessions by turning off all status buttons except **{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-active }}**.
@@ -199,7 +199,7 @@ Let's assume the user is done working with the database but has left the session
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Filter the sessions by **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-backend-start }}**.
     1. Find the longest-lasting session with the `{{ ui-key.yacloud.greenplum.perf-diag.label_session-status-idle }}` status. Click its number to open its info page.
@@ -217,7 +217,7 @@ In some cases, the session acquires table rows or metadata for a long time. This
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_current-state }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-session }}** tab.
     1. To display the blocking tree, click ![image](../../_assets/console-icons/branches-down.svg).
@@ -247,7 +247,7 @@ In some cases, the session acquires table rows or metadata for a long time. This
 
 ## Examples of state history and consumption history analysis {#historical-analysis}
 
-The {{ GP }} command center supports the following types of session and query history analysis:
+The {{ mgp-name }} command center supports the following types of session and query history analysis:
 
 * Metric analysis, e.g., [search for heavy queries](#past-statements) and [search for high network load queries](#net-load).
 * Event analysis, e.g., [search for canceled queries and execution errors](#cancelations).
@@ -263,7 +263,7 @@ Let's assume that during a certain period a higher than usual CPU consumption is
     1. Find out when the spike occurred:
 
         1. Open the [folder dashboard]({{ link-console-main }}).
-        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
         1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Set the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-cpu-usage }}** filter.
         1. Use the chart to find out when CPU consumption became abnormally high.
@@ -305,7 +305,7 @@ Let's assume that during a certain period a higher than usual CPU consumption is
     1. Establish the cause of the errors:
 
         1. Open the [folder dashboard]({{ link-console-main }}).
-        1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
         1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
         1. Set the time range during which errors were observed.
         1. In the drop-down list above the chart, select **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-connections }}** and then **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-monitoring-net-usage }}**. Compare the charts.
@@ -354,7 +354,7 @@ To find which queries were canceled or caused execution errors, proceed as follo
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and navigate to ![image](../../_assets/console-icons/pulse.svg) **{{ ui-key.yacloud.greenplum.cluster.perf-diag.section_command-center }}** → **{{ ui-key.yacloud.greenplum.cluster.perf-diag.title_states-history }}**.
     1. Navigate to the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-entity-query }}** tab.
     1. Select a time point when issues were reported by the monitoring data. Use the **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_filter-at-time }}** section and the **<** **>** arrows to set the exact time point.
@@ -374,5 +374,3 @@ To find which queries were canceled or caused execution errors, proceed as follo
        The optimal parameters depend on the number of segments and cluster resources.
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -1,6 +1,6 @@
 ---
 title: Authentication with the {{ mgp-full-name }} API
-description: To perform operations via the API in {{ mgp-full-name }}, a service for managing Greenplum databases, get an IAM token for your account.
+description: To perform operations via {{ mgp-full-name }} API, you need to obtain an IAM token for your account.
 ---
 
 # Authentication with the {{ mgp-name }} API

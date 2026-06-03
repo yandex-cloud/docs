@@ -9,7 +9,7 @@ description: How to use try_convert in {{ mgp-full-name }}.
 
 The extension only supports the standard {{ GP }} data types. To use other data types, add them using the `add_type_for_try_convert` function.
 
-> Here is an example:
+> For example:
 > 
 > ```sql
 > SELECT add_type_for_try_convert('hstore'::regtype);
@@ -17,7 +17,7 @@ The extension only supports the standard {{ GP }} data types. To use other data 
 
 For more information about the extension, see [this try_convert guide](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
-## Installing try_convert in a {{ GP }} cluster {#extension-install}
+## Installing try_convert in a {{ mgp-name }} cluster {#extension-install}
 
 1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
@@ -50,3 +50,5 @@ For more information about the extension, see [this try_convert guide](https://g
     ```
 
     The returned result is `1234`.
+
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

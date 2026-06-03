@@ -1,12 +1,12 @@
 # Migrating data from {{ ES }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
 
-You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. To do this:
+You can set up data transfer from {{ ES }} to {{ mos-name }} indexes using {{ data-transfer-name }}. Follow these steps:
 
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Set up and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
@@ -50,7 +50,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * `mos_version`: {{ OS }} version.
             * `mos_admin_password`: {{ mos-name }} admin password.
-            * `transfer_enabled`: Set to `0` to ensure no transfer is created until you [create endpoints manually](#prepare-transfer).
+            * `transfer_enabled`: Set to `0` to prevent transfer creation until you [create endpoints manually](#prepare-transfer).
 
         1. Run the `terraform init` command in the directory with the configuration file. This command initializes the provider specified in the configuration files and enables you to use its resources and data sources.
         1. Validate your {{ TF }} configuration files using this command:
@@ -125,7 +125,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
                "age" : "30"
          }
          ' && \
-    curl --user <username_in_source_cluster>:<user_password_in_source_cluster> \
+    curl --user <user_name_in_source_cluster>:<user_password_in_source_cluster> \
          --header 'Content-Type: application/json' \
          --request POST 'https://<address_of_{{ ES }}_host_with_Data_role>:{{ port-mes }}/people/_doc/?pretty' \
          --data'
@@ -156,7 +156,7 @@ You can deliver data from the {{ ES }} cluster as `admin` with the `superuser` r
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [{{ ES }} source](../../../data-transfer/operations/endpoint/source/elasticsearch.md).
 
@@ -224,11 +224,11 @@ Check that the {{ mos-name }} cluster's `people` index contains the data you sen
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

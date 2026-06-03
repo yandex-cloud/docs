@@ -15,7 +15,7 @@ description: В этом разделе приведен список прави
 
 #|
 || Идентификатор требования | Требование [стандарта безопасности](../../../security/standard/all.md) | Идентификаторы проверки в [модуле {{ cspm-name }}](../cspm.md) ||
-|| **Аутентификация и управление доступом** {.cell-align-center} | > | > ||
+|| **Аутентификация и управление доступом** {align="center"} | > | > ||
 || `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
 || `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
 || `IAM5` | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
@@ -32,7 +32,7 @@ description: В этом разделе приведен список прави
 || `IAM22` | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || `IAM24` | [На ресурсах используются метки](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || `IAM27` | [Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} {{ ciem-name }}](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
-|| **Сетевая безопасность** {.cell-align-center} | > | > ||
+|| **Сетевая безопасность** {align="center"} | > | > ||
 || `NET1` | [Для объектов облака используется межсетевой экран или группы безопасности](../../../security/standard/all.md#firewall) | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
 || `NET2` | [В {{ vpc-full-name }} существует как минимум одна группа безопасности](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||
 || `NET3` | [В группах безопасности отсутствует слишком широкое правило доступа](../../../security/standard/all.md#access-rule) |
@@ -47,7 +47,7 @@ description: В этом разделе приведен список прави
 [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
 ||
-|| **Безопасная конфигурация виртуальной среды** {.cell-align-center} | > | > ||
+|| **Безопасная конфигурация виртуальной среды** {align="center"} | > | > ||
 || `ENV1` | [Использование серийной консоли контролируется либо отсутствует](../../../security/standard/all.md#serial-console) | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || `ENV7` | [Отсутствует публичный доступ к бакету {{ objstorage-name }}](../../../security/standard/all.md#bucket-access) | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || `ENV8` | [В {{ objstorage-name }} используются политики доступа (Bucket Policy)](../../../security/standard/all.md#bucket-policy) | [cspm.access.bucket-access-policy](../../rules-reference/cspm.md#bucket-access-policy) ||
@@ -66,7 +66,7 @@ description: В этом разделе приведен список прави
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
-|| **Шифрование данных и управление ключами** {.cell-align-center} | > | > ||
+|| **Шифрование данных и управление ключами** {align="center"} | > | > ||
 || `CRYPT1` | [В {{ objstorage-full-name }} включено шифрование данных at rest с ключом {{ kms-short-name }}](../../../security/standard/all.md#storage-kms) | [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption) ||
 || `CRYPT2` | [В {{ objstorage-full-name }} включено HTTPS для хостинга статического сайта](../../../security/standard/all.md#storage-https) | [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https) ||
 || `CRYPT3` | [В {{ alb-full-name }} используется HTTPS](../../../security/standard/all.md#alb-https) | [cspm.appsec.alb-https](../../rules-reference/cspm.md#alb-https) ||
@@ -79,13 +79,13 @@ description: В этом разделе приведен список прави
 || `CRYPT12` | [Для ключей {{ kms-short-name }} включена защита от удаления](../../../security/standard/all.md#keys-deletion-protection) | [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection) ||
 || `CRYPT13` | [В организации используется {{ lockbox-full-name }} для безопасного хранения секретов](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || `CRYPT14` | [Для {{ serverless-containers-name }} и {{ sf-name }} используются секреты {{ lockbox-short-name }}](../../../security/standard/all.md#secrets-serverless-functions) | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
-|| **Сбор, мониторинг и анализ аудитных логов** {.cell-align-center} | > | > ||
+|| **Сбор, мониторинг и анализ аудитных логов** {align="center"} | > | > ||
 || `AUDIT1` | [Включен сервис {{ at-full-name }} на уровне организации](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
 ||
 || `AUDIT8` | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
-|| **Защита приложений** {.cell-align-center} | > | > ||
+|| **Защита приложений** {align="center"} | > | > ||
 || `APPSEC1` | [Используется {{ captcha-full-name }}](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || `APPSEC2` | [Docker-образы сканируются при загрузке в {{ container-registry-full-name }}](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || `APPSEC3` | [Выполняется периодическое сканирование Docker-образов, хранящихся в {{ container-registry-name }}](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
@@ -93,7 +93,7 @@ description: В этом разделе приведен список прави
 || `APPSEC9` | [Используется профиль безопасности {{ sws-name }}](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
 || `APPSEC10` | [Используется Web Application Firewall](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || `APPSEC11` | [Используется Advanced Rate Limiter](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
-|| **Безопасность {{ k8s }}** {.cell-align-center} | > | > ||
+|| **Безопасность {{ k8s }}** {align="center"} | > | > ||
 || `K8S3` | [Нет доступа к API {{ k8s }}](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
 || `K8S4` | [В {{ managed-k8s-name }} настроены аутентификация и управление доступом](../../../security/standard/all.md#kubernetes-auth) | [cspm.k8s.access](../../rules-reference/cspm.md#access) ||
 || `K8S5` | [В {{ managed-k8s-full-name }} используется безопасная конфигурация](../../../security/standard/all.md#kubernetes-safe-config) | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||

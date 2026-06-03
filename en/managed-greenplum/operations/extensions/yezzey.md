@@ -11,7 +11,7 @@ You can [export](#offload-relation) rarely used tables of this type to cold stor
 
 For more information about {{ YZ }} and storage types, see [Hybrid storage](../../concepts/hybrid-storage.md).
 
-## Installing {{ YZ }} in a {{ GP }} cluster {#install-extension}
+## Installing {{ YZ }} in a {{ mgp-name }} cluster {#install-extension}
 
 1. [Enable the hybrid storage option](../update.md#change-additional-settings) if you did not when [creating the cluster](../cluster-create.md).
 
@@ -53,7 +53,7 @@ To learn where a table or its segment files are placed (in cluster storage or co
         SELECT * FROM yezzey_offload_relation_status('<schema_name>', '<table_name>');
         ```
 
-    You will get information about each segment of the {{ GP }} cluster the table's data resides in.
+    You will get information about each segment of the {{ mgp-name }} cluster the table's data resides in.
 
     The query result contains the following fields:
 
@@ -112,7 +112,7 @@ To get info on how the table's segment files are placed in the bucket:
     * `segfileindex`: Segment file number.
     * `external_storage_filepath`: Path to the segment file in the {{ objstorage-name }} bucket.
 
-        The path to the segment file is generated automatically. It depends on the table structure and the number of segments in the {{ GP }} cluster.
+        The path to the segment file is generated automatically. It depends on the table structure and the number of segments in the {{ mgp-name }} cluster.
 
     * `local_bytes` and `local_commited_bytes`: Number of segment file bytes in the cluster storage. The values must be null.
     * `external_bytes`: Segment file size.

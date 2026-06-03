@@ -3,7 +3,7 @@ title: Monitoring the state of a {{ CH }} cluster and its hosts
 description: In this guide, you will learn how to monitor the state of {{ CH }} clusters and their hosts.
 ---
 
-# Monitoring the state of a {{ CH }} cluster and its hosts
+# Monitoring the health status of a {{ CH }} cluster and its hosts
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -15,14 +15,14 @@ description: In this guide, you will learn how to monitor the state of {{ CH }} 
 
 ## Monitoring the cluster state {#monitoring-cluster}
 
-To view detailed information on the state of a {{ mch-name }} cluster:
+To view detailed information on the health state of a {{ mch-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab. 
 
@@ -66,7 +66,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
     * **Select queries per host**: Number of select queries per second for each cluster host.
     * **Insert queries per host**: Number of insert queries per second for each cluster host.
-    * **Total queries per host**: Total number of queries per second for each host.
+    * **Queries per host**: Total number of queries per second for each host.
     * **Failed select queries per host**: Percentage of failed select queries per {{ CH }} subcluster host.
     * **Failed insert queries per host**: Percentage of failed insert queries per {{ CH }} subcluster host.
     * **Failed queries per host**: Percentage of failed queries per {{ CH }} subcluster host.
@@ -96,7 +96,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
     * **Inode usage, %**: Percentage of inodes used per {{ CH }} subcluster host.
     * **Databases**: Number of databases per cluster host.
     * **Tables**: Number of tables per cluster host.
-    * **Rows of MergeTree tables**: Number of rows in [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables per cluster host.
+    * **Rows of MergeTree tables**: Number of rows in [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables per cluster host.
     * **Data parts**: Number of data parts per cluster host.
     * **Detached data parts**: Number of separate data parts per cluster host.
 
@@ -188,7 +188,7 @@ Regardless of the cluster configuration, the **{{ ui-key.yacloud.clickhouse.clus
 
 {% endlist %}
 
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mch-name }} hosts:
 
@@ -197,7 +197,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** tab.
 
@@ -301,8 +301,8 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
-  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
       * **{{ mch-name }} — Cluster Overview** to set up cluster alerts.
       * **{{ mch-name }} — ZooKeeper** to set up ZooKeeper host alerts.
@@ -316,7 +316,7 @@ To view detailed information on the state of individual {{ mch-name }} hosts:
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Below are the recommended thresholds for some metrics:
+Recommended threshold values for selected metrics:
 
 | Metric                                      | Internal metric name                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
@@ -339,19 +339,19 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster’s state and status:
+To check the cluster state and status:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}
 
-### Cluster states {#cluster-health}
+### Cluster health states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

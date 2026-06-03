@@ -5,7 +5,6 @@ editable: false
 # Container Registry API, gRPC: RegistryService.Get
 
 Returns the specified Registry resource.
-
 To get the list of available Registry resources, make a [List](/docs/container-registry/api-ref/grpc/Registry/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available Registry resources, make a [List](/docs/container-r
 || registry_id | **string**
 
 Required field. ID of the Registry resource to return.
-
 To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/grpc/Registry/list#List) request.
 
 The maximum string length in characters is 50. ||

@@ -58,25 +58,25 @@ GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **�
 В таблице ниже представлена информация о поддержке платформ {{ compute-name }} в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` и `{{ region-id }}-e`.
 
 #|
-|| Платформа {.cell-align-center} | Зона доступности {.cell-align-center} | > ||
+|| Платформа {align="center"} | Зона доступности {align="center"} | > ||
 || ^ | `{{ region-id }}-d` | `{{ region-id }}-e` ||
-|| **Стандартные платформы** {.cell-align-center} | > | > ||
-|| Intel Broadwell | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| Intel Cascade Lake | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
-|| Intel Ice Lake | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
-|| AMD Zen 3 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
-|| AMD Zen 4 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
-|| **Высокопроизводительные платформы** {.cell-align-center} | > | > ||
-|| {{ highfreq-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| AMD Zen 4 Compute-Optimized | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
-|| **Платформы с GPU** {.cell-align-center} | > | > ||
-|| {{ v100-broadwell }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| {{ v100-cascade-lake }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| {{ a100-epyc }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| Gen2 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| {{ t4-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| {{ t4i-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
-|| GPU PLATFORM V4 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| **Стандартные платформы** {align="center"} | > | > ||
+|| Intel Broadwell | ![image](../../_assets/common/no.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| Intel Cascade Lake | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
+|| Intel Ice Lake | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
+|| AMD Zen 3 | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
+|| AMD Zen 4 | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
+|| **Высокопроизводительные платформы** {align="center"} | > | > ||
+|| {{ highfreq-ice-lake }} | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| AMD Zen 4 Compute-Optimized | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
+|| **Платформы с GPU** {align="center"} | > | > ||
+|| {{ v100-broadwell }} | ![image](../../_assets/common/no.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| {{ v100-cascade-lake }} | ![image](../../_assets/common/no.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| {{ a100-epyc }} | ![image](../../_assets/common/no.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| Gen2 | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| {{ t4-ice-lake }} | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| {{ t4i-ice-lake }} | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/no.svg) {align="center"} ||
+|| GPU PLATFORM V4 | ![image](../../_assets/common/yes.svg) {align="center"} | ![image](../../_assets/common/yes.svg) {align="center"} ||
 |#
 
 {% note tip %}

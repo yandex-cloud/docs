@@ -386,7 +386,7 @@ description: Из статьи вы узнаете, как добавлять и
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
       
-      Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+      Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
       Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -410,7 +410,7 @@ description: Из статьи вы узнаете, как добавлять и
     
     Новый пароль также можно сгенерировать с помощью сервиса [{{ connection-manager-name }}](cluster-create.md#conn-man). Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
-    Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+    Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
     Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -442,7 +442,7 @@ description: Из статьи вы узнаете, как добавлять и
       
       Новый пароль также можно сгенерировать с помощью сервиса [Connection Manager](cluster-create.md#conn-man). Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
-      Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+      Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
       {% note info %}
 
@@ -499,7 +499,7 @@ description: Из статьи вы узнаете, как добавлять и
           }
           ```
 
-       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
        Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -571,7 +571,7 @@ description: Из статьи вы узнаете, как добавлять и
           }
           ```
 
-       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+       Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
        Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 

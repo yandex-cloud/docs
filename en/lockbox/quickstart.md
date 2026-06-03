@@ -32,9 +32,9 @@ Versions cannot be changed. Whenever you need to change the number of key-value 
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click the secret version you need.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click the secret version you need.
 
 - CLI {#cli}
 

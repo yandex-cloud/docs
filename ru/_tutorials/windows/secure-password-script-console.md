@@ -135,13 +135,12 @@
 - Консоль управления {#console}
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `win-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** укажите ключ `win-secret-key`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите логин администратора `Administrator`.
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите пароль для администратора.
-  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и введите логин и пароль для следующего пользователя.
+  1. В поле **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** укажите ключ `win-secret-key`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите логин администратора `Administrator`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите пароль для администратора.
+  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и введите логин и пароль для следующего пользователя.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

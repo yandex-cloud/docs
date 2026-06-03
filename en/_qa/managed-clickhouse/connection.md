@@ -2,11 +2,11 @@
 
 Yes. You can connect to {{ CH }} cluster hosts:
 
-* Using the [HTTPS interface]({{ ch.docs }}/interfaces/http/):
+* Using the [HTTPS interface]({{ ch.docs }}{{ lang }}/interfaces/http):
     * Via an encrypted SSL connection on port 8443.
     * Without encryption on port 8123.
 
-* Using the [command-line client]({{ ch.docs }}/interfaces/cli/):
+* Using the [command-line client]({{ ch.docs }}{{ lang }}/interfaces/cli):
     * Via an encrypted SSL connection on port 9440.
     * Without encryption on port 9000.
 

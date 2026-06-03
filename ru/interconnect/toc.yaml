@@ -18,6 +18,8 @@ items:
         href: operations/trunk-update.md
       - name: Получить список операций транкового подключения
         href: operations/trunk-operations.md
+      - name: Переместить транковое подключение в другой каталог
+        href: operations/trunk-move.md
       - name: Удалить транковое подключение
         href: operations/trunk-delete.md
       - name: Получить информацию о приватных соединениях
@@ -28,10 +30,8 @@ items:
         href: operations/priv-con-update.md
       - name: Получить список операций приватного соединения
         href: operations/priv-con-operations.md
-      - name: Изменить список статических маршрутов для приватного соединения
-        href: operations/priv-con-static-upsert.md
-      - name: Удалить статические маршруты для приватного соединения
-        href: operations/priv-con-static-remove.md
+      - name: Переместить приватное соединение в другой каталог
+        href: operations/priv-con-move.md
       - name: Удалить приватное соединение
         href: operations/priv-con-delete.md
       - name: Получить информацию о публичных соединениях

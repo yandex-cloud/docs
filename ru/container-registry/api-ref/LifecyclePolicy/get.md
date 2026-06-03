@@ -23,7 +23,6 @@ apiPlayground:
 # Container Registry API, REST: LifecyclePolicy.Get
 
 Returns the specified lifecycle policy.
-
 To get the list of all available lifecycle policies, make a [List](/docs/container-registry/api-ref/LifecyclePolicy/list#List) request.
 
 ## HTTP request

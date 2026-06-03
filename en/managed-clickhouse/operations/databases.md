@@ -208,7 +208,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -307,7 +307,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  To learn more about creating databases, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/create/database/).
+  To learn more about creating databases, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
 
 {% endlist %}
 
@@ -346,7 +346,7 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
 
     1. Remove the `yandex_mdb_clickhouse_database` resource with the name of the database you want to delete.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -413,13 +413,13 @@ To learn more about limits, see [Quotas and limits](../concepts/limits.md).
       DROP DATABASE <DB_name>;
       ```
 
-  Learn more about deleting objects in [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/drop/).
+  Learn more about deleting objects in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 
 {% note warning %}
 
-Before creating a new database with the same name, wait for the delete operation to complete. Otherwise, the original database will be restored. You can check the operation status in the [list of cluster operations](cluster-list.md#list-operations).
+If you plan to create a new database with the same name, wait for the deletion to complete. Otherwise, the system will restore the original database. You can check the operation status in the [list of cluster operations](cluster-list.md#list-operations).
 
 {% endnote %}
 

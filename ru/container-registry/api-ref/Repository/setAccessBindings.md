@@ -11,7 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the resource for which access bindings are being set.
             To get the resource ID, use a corresponding List request.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 64.
           type: string
       required:
         - resourceId
@@ -37,7 +37,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the subject.
-              It can contain one of the following values:
+              It can contain one of the following values:oauth
               * `allAuthenticatedUsers`: A special public group that represents anyone
               who is authenticated. It can be used only if the [type](#yandex.cloud.access.Subject) is `system`.
               * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -73,7 +73,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 64.
             type: string
           subject:
             description: |-
@@ -103,10 +103,9 @@ POST https://container-registry.{{ api-host }}/container-registry/v1/repositorie
 || resourceId | **string**
 
 Required field. ID of the resource for which access bindings are being set.
-
 To get the resource ID, use a corresponding List request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.SetAccessBindingsRequest}
@@ -142,7 +141,7 @@ The maximum number of elements is 1000. ||
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -156,8 +155,7 @@ It can represent an account with a unique ID or several accounts with a system i
 || id | **string**
 
 Required field. ID of the subject.
-
-It can contain one of the following values:
+It can contain one of the following values:oauth
 * `allAuthenticatedUsers`: A special public group that represents anyone
 who is authenticated. It can be used only if the `type` is `system`.
 * `allUsers`: A special public group that represents anyone. No authentication is required.
@@ -174,13 +172,11 @@ The maximum string length in characters is 100. ||
 || type | **string**
 
 Required field. Type of the subject.
-
 It can contain one of the following values:
 * `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
 * `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](/docs/iam/api-ref/ServiceAccount/get#yandex.cloud.iam.v1.ServiceAccount) resource.
 * `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
 * `system`: System group. This type represents several accounts with a common system identifier.
-
 For more information, see [Subject to which the role is assigned](/docs/iam/concepts/access-control/#subject).
 
 The maximum string length in characters is 100. ||
@@ -198,17 +194,16 @@ The maximum string length in characters is 100. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "resourceId": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -250,7 +245,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetAccessBindingsMetadata](#yandex.cloud.access.SetAccessBindingsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -259,21 +254,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## SetAccessBindingsMetadata {#yandex.cloud.access.SetAccessBindingsMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| resourceId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the resource for which access bindings are being set. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

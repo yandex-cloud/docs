@@ -1,8 +1,8 @@
-# Managing {{ GP }} connections
+# Managing connections in {{ mgp-name }}
 
-{{ GP }} allocates a separate process for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. This may cause a lack of computing resources affecting the DBMS performance.
+{{ mgp-name }} allocates a separate process for each established connection. With numerous client connections, it creates multiple processes and manages distributed data structures. This may cause a lack of computing resources affecting the DBMS performance.
 
-To address the lack of resources issue, a connection pooler is added before the {{ GP }} cluster. That pooler manages connections to allow a large number of clients to connect to the DBMS without affecting performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
+To address the lack of resources issue, a connection pooler is added before the {{ mgp-name }} cluster. The pooler manages connections to allow large numbers of clients to connect to the DBMS without degrading performance. A relatively small number of re-usable connections are maintained between the connection pooler and the DBMS. After the client is disconnected, the connection is returned to the pool and can be reused by the same or a new client.
 
 This deployment method complicates the administration because the servers hosting the connection pooler are added to the DBMS infrastructure.
 
@@ -18,9 +18,9 @@ Odyssey supports two modes of connection management:
 
 * Transaction mode (default):
 
-    In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach allows maintaining few server connections between the connection pooler and {{ GP }} hosts when there are many client connections.
+    In this mode, the client connection is established at the first query to the database and maintained until the transaction ends. This connection can then be used by that or any other client. This approach allows maintaining few server connections between the connection pooler and {{ mgp-name }} hosts when there are many client connections.
 
-    The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by certain {{ GP }} clients and does not allow using:
+    The transaction mode provides high performance and allows you to load the DBMS as efficiently as possible. However, this mode is not supported by all {{ GP }} and {{ CB }} clients and does not allow the following:
 
     * [Temporary tables]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_TABLE_AS.html), [cursors]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-DECLARE.html), and [advisory locks]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-system_catalogs-pg_locks.html) that exist beyond a single transaction.
     * [Prepared statements]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-PREPARE.html).
@@ -39,11 +39,11 @@ Integrating {{ mgp-name }} with the Odyssey connection pooler has several advant
 
 | Comparison criterion | Odyssey | PgBouncer |
 |------------------------|---------|-----------|
-| Resource usage | {{ GP }} clusters are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS. | PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load. |
+| Resource usage | {{ mgp-name }} clusters are less prone to running out of computing resources with multiple client connections. This is because of asynchronous multithreading built into the Odyssey architecture. This is especially important if most client connections to the DBMS use SSL/TLS. | PgBouncer uses a single-threaded architecture. This may lead to problems with resource consumption and scalability under high load. |
 | Supporting client connections | Odyssey strives to keep the client connection alive as long as possible after the transaction ends in order to re-use it if this client returns with a new transaction. | PgBouncer seeks to return such kind of connection to the pool as quickly as possible. |
-| Handling errors | {{ GP }} clusters provide improved error handling capabilities, thus ensuring that errors on the {{ GP }} side are sent to the client application without any changes. | PgBouncer hides {{ GP }} error messages. As a result, all errors look like a PgBouncer connection error to the client. |
+| Error handling | A {{ mgp-name }} cluster provides improved error handling capabilities. This ensures that DBMS side errors can reach the client application unchanged. | PgBouncer hides DBMS error messages. As a result, all errors look like a PgBouncer connection error to the client. |
 
-In addition, thanks to its integration with Odyssey, a {{ GP }} cluster:
+In addition, thanks to its integration with Odyssey, a {{ mgp-name }} cluster:
 
 * Supports numerous client connections without affecting the DBMS performance.
 * Requires no extra connection pooler configuration effort or additional infrastructure for it to operate.
@@ -58,3 +58,5 @@ In addition, thanks to its integration with Odyssey, a {{ GP }} cluster:
     {% endnote %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -9,8 +9,8 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
   1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
      You will see the list of operations with the cluster.
@@ -21,7 +21,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get a list of operations for a {{ GP }} cluster, run this command:
+  To get a list of operations for a {{ mgp-name }} cluster, run this command:
 
   ```bash
   yc managed-greenplum cluster list-operations <cluster_name_or_ID>
@@ -39,7 +39,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
   You can get the cluster ID and name with the [list of clusters in the folder](#list-clusters).
 
-  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
+  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc managed-greenplum cluster list-operations c9qk2926qqu9******** --format yaml
@@ -77,7 +77,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/operations'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -105,7 +105,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
           yandex.cloud.mdb.greenplum.v1.ClusterService.ListOperations
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.greenplum.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
@@ -115,7 +115,7 @@ All actions with {{ mgp-name }} clusters are logged as a list of operations. Eac
 
 1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

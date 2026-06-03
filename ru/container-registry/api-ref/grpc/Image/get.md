@@ -5,7 +5,6 @@ editable: false
 # Container Registry API, gRPC: ImageService.Get
 
 Returns the specified Image resource.
-
 To get the list of available Image resources, make a [List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available Image resources, make a [List](/docs/container-regi
 || image_id | **string**
 
 Required field. ID of the Docker image resource to return.
-
 To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -90,7 +88,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

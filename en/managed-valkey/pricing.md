@@ -69,8 +69,6 @@ The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes 
 
 ### Cluster cost calculation example {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 * **{{ VLK }} hosts**: Three `hm3-c2-m8` hosts: Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.

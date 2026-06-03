@@ -1,11 +1,11 @@
 ---
-title: '{{ GP }} Command Center'
-description: In this article, you will learn about the {{ GP }} Command Center, the concepts of current state, state history, consumption history, query keys, and query IDs.
+title: '{{ mgp-name }} Command Center'
+description: In this article, you will learn about the {{ mgp-name }} Command Center, the concepts of current state, state history, consumption history, query keys, and query IDs.
 ---
 
-# {{ GP }} Command Center
+# {{ mgp-name }} Command Center
 
-_{{ GP }} Command Center_ is a tool that allows you to:
+_Command Center_ in {{ mgp-name }} is a tool that allows you to:
 
 * Monitor query metrics and execution plans.
 * Terminate individual sessions or queries.
@@ -15,7 +15,10 @@ _{{ GP }} Command Center_ is a tool that allows you to:
 
 {% note info %}
 
-The Command Center is available in clusters with {{ GP }} version 6.25 or higher.
+The Command Center is available in clusters with the following database versions:
+
+* {{ GP }} versions 6.25 and higher.
+* {{ CB }} versions 2.0 and higher.
 
 {% endnote %}
 
@@ -25,7 +28,7 @@ The Command Center allows you to analyze the following session and query data:
 * [State history](#states-history)
 * [Resource consumption history](#consumption-history)
 
-For session and query parameters, see [{{ GP }} Command Center parameters](command-center-parameters.md).
+For session and query parameters, see [{{ mgp-name }} Command Center parameters](command-center-parameters.md).
 
 The Command Center also assigns query [keys](#statement-key) and [IDs](#statement-id) to identify and group queries.
 
@@ -55,7 +58,7 @@ The consumption history may contain a large number of completed queries. These q
 
 A group of queries is essentially a list which displays information about each query. The information displayed about a query depends on its duration:
 
-* More than one hour: Full query information is saved. This includes details, such as the start time of the query, the user who ran the query, and the amount of resources consumed at each {{ GP }} segment.
+* More than one hour: Full query information is saved. This includes details such as the query timestamp, initiating user, and resource consumption at each database segment.
 * Less than one hour: The information is aggregated the same way as in the [pg_stat_statements]({{ pg.docs.org }}/current/pgstatstatements.html) {{ PG }} view. You can learn only total consumption at a selected time point.
 
 You can group queries by one or multiple parameters:
@@ -80,7 +83,7 @@ Key template:
 Where:
 
 * `session_ID`: Session when the query was executed.
-* `timestamp`: {{ GP }} segment start time.
+* `timestamp`: Database segment start time.
 * `query_number`: Query sequence number within the session.
 
 > Key example: `7247590/1701763297/5`.
@@ -107,3 +110,5 @@ As a result, queries that ran for less than one hour and can form a single group
 > ID example: `1f9c40bf`.
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

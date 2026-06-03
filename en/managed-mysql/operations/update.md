@@ -22,7 +22,7 @@ After creating a cluster, you can:
 * [Move the cluster](#move-cluster) to another folder.
 * [Edit security groups](#change-sg-set).
 
-When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. If the cluster has several hosts with maximum priority, the one with the least lag behind the master will be selected.
+When configuration changes in clusters with two or more hosts require a host restart, during the master upgrade, one of the replicas takes over its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes a new master. In a cluster with multiple hosts of maximum priority, the one with the least lag behind the master will be selected.
 
 {% note tip %}
 
@@ -45,6 +45,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes. During the master upgrade, one of the replicas is temporarily promoted to master. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) will become the new master.
+* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#fqdn-master) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -820,7 +821,7 @@ For more information on updating {{ MY }} settings, see [FAQ](../qa/configuring.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

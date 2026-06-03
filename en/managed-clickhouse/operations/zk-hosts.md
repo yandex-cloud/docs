@@ -45,7 +45,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
   1. Specify the [host class](../concepts/instance-types.md).
   1. Configure the storage.
   1. Change the {{ ZK }} host settings, if required. To do this, hover over the relevant host row and click ![image](../../_assets/console-icons/pencil.svg).
-  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+  1. To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
 
      {% note warning %}
 
@@ -79,7 +79,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      If the cluster network contains exactly three subnets, one per availability zone, you do not have to explicitly specify subnets for the hosts: {{ mch-name }} will automatically distribute hosts across these subnets.
 
-     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+     To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables), add the `--convert-tables-to-replicated` parameter to the command. This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
 
      {% note warning %}
 
@@ -178,7 +178,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      Where `resource_preset_id` is the host class, `b1.medium` or higher.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -298,7 +298,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
      }
      ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -459,9 +459,9 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
 ## Converting non-replicated tables to replicated ones {#replicated-tables}
 
-To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, add {{ ZK }} hosts with table conversion enabled.
+To automatically convert non-replicated [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) tables, add {{ ZK }} hosts with table conversion enabled.
 
-For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} guide]({{ ch.docs }}/development/architecture#replication).
+For more information, see [Adding {{ ZK }} hosts](#add-zk) and [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/development/architecture#replication).
 
 ## Deleting a {{ ZK }} host {#delete-zk-host}
 
@@ -508,7 +508,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Delete the `{{ ZK }}` host from the `hosts` section.
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

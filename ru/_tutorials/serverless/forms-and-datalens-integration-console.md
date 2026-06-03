@@ -101,20 +101,20 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. Введите **{{ ui-key.yacloud.common.name }}** секрета — `static-key`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
-      1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
+      1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
       1. Создайте следующие пары ключ-значение:
           * Идентификатор статического ключа:
 
-              * **{{ ui-key.yacloud.lockbox.label_password-key }}** — `static-key-id`.
-              * **{{ ui-key.yacloud.lockbox.forms.title_version-payload-entries-value-placeholder }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и введите идентификатор статического ключа, созданного ранее.
+              * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `static-key-id`.
+              * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и введите идентификатор статического ключа, созданного ранее.
 
           * Значение статического ключа:
 
-              * **{{ ui-key.yacloud.lockbox.label_password-key }}** — `static-key-value`.
-              * **{{ ui-key.yacloud.lockbox.forms.title_version-payload-entries-value-placeholder }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и введите значение статического ключа, созданного ранее.
+              * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `static-key-value`.
+              * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и введите значение статического ключа, созданного ранее.
 
 {% endlist %}
 

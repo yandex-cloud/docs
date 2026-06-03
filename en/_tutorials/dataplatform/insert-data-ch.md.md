@@ -1,57 +1,57 @@
 # Adding data to {{ CH }}
 
-For regular data inserts into tables, use an `INSERT INTO` statement:
+To insert data into a table, use an `INSERT INTO` statement:
 
 ```sql
 INSERT INTO db_name.table_name VALUES (v11, v12, v13), (v21, v22, v23), ...
 ```
 
-Insert queries should be run no more than once per second. To group multiple small queries into a large one, use [buffering](#buffer-insert).
+We recommend sending insert queries no more than once per second. You can use [buffering](#buffer-insert) to combine multiple small queries into a single large one.
 
-You can learn more about `INSERT INTO` in the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/statements/insert-into#insert).
+Learn more about `INSERT INTO` from this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into#insert).
 
 ## Inserting data from a file {#file-insert}
 
-To insert local file data into a table, use an `INSERT INTO` statement, such as:
+To insert data into a table from a local file, use the `INSERT INTO` statement in the following format:
 
 ```sql
 INSERT INTO db_name.table_name FROM INFILE '<full_path_to_file>'
 [COMPRESSION '<compression_format>'] FORMAT <data_format>;
 ```
 
-With the `COMPRESSION` option, you can transfer compressed files. Use it to upload large amounts of data. The option is supported when using [clickhouse-client]({{ ch.docs }}/interfaces/cli) or the [HTTP interface]({{ ch.docs }}/interfaces/http). If no compression format is specified, it is identified by the file extension. Possible values of the compression format: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, and `bz2`.
+The `COMPRESSION` allows you to transfer compressed files, which is perfect for uploading large amounts of data. This option is supported when working through the [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) or the [HTTP interface]({{ ch.docs }}{{ lang }}/interfaces/http). If the compression format is not specified, the system determines it based on the file extension. Supported compression formats: `none`, `gzip`, `deflate`, `br`, `xz`, `zstd`, `lz4`, and `bz2`.
 
-For a list of supported data formats, see the [{{ CH }} documentation]({{ ch.docs }}/interfaces/formats). To learn how to set up Cap'n Proto and Protobuf data format schemas, see [Managing data format schemas](../../managed-clickhouse/operations/format-schemas.md).
+For a list of supported data formats, refer to this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/interfaces/formats). To learn how to set up Cap'n Proto and Protobuf data format schemas, see [Managing data format schemas](../../managed-clickhouse/operations/format-schemas.md).
 
-## Inserting data through buffering {#buffer-insert}
+## Inserting data using buffering {#buffer-insert}
 
-When you insert data into {{ CH }}, a part of computing resources is used for performing housekeeping operations. Each time you run an `INSERT` query, {{ CH }} creates a separate data part in the storage. In addition to table rows, parts like this contain auxiliary files with metadata. Next, {{ CH }} joins data parts in the background. The more join queries are required, the more resources will be used.
+When inserting data into {{ CH }}, a portion of the computational resources is consumed by overhead operations. Each `INSERT` query creates a new data part in {{ CH }} storage. In addition to the data rows, each part contains auxiliary metadata files. To reduce the number of data parts, {{ CH }} merges them in the background. The more merge operations required, the more resources are consumed.
 
-As a result, the load on the cluster from one thousand queries to insert a single row will exceed that from a single query to insert one thousand rows. Therefore, we recommend inserting data into tables in large chunks from 1,000 to 100,000 rows.
+As a result, a thousand individual insert queries will impose more load on the cluster than a single query inserting one thousand rows. Therefore, we recommend inserting data in batches of 1,000 to 100,000 rows.
 
-If small chunks of data are delivered from various sources, use one of the following buffering options:
+If data arrives in small batches from different sources, use one of the following buffering mechanisms:
 
 * [Asynchronous inserts](#async-insert) (recommended)
 * [Buffer tables](#buffer-table)
 
-### Asynchronous data inserts {#async-insert}
+### Asynchronous inserts {#async-insert}
 
-If the [Async insert](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert) setting is configured for the user, all insert queries from this user first get to the RAM buffer. Data from the buffer is flushed to a table if one of the following conditions is met:
+If the [Async insert](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert) setting is enabled for a user, then all insert queries from that user are first buffered in RAM. Data is flushed from the buffer to the destination table when one of the following conditions is met:
 
-* The buffer size has reached the [Async insert max data size](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert-max-data-size) setting value.
-* The time set in the [Async busy timeout](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert-busy-timeout) setting has passed since the first `INSERT` query run after flushing the data.
+* The buffer size reaches the [Async insert max data size](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert-max-data-size) setting.
+* The time since the first `INSERT` after the last buffer flush exceeds the value of the [Async busy timeout](../../managed-clickhouse/concepts/settings-list.md#setting-async-insert-busy-timeout) setting.
 
-To enable asynchronous data inserts, [set](../../managed-clickhouse/operations/change-query-level-settings.md#yandex-cloud-interfaces) the **Async insert** setting to `1`.
+To enable asynchronous data inserts, [set](../../managed-clickhouse/operations/change-query-level-settings.md#yandex-cloud-interfaces) **Async insert** to `1`.
 
-Note that [row deduplication](https://clickhouse.com/docs/en/guides/developer/deduplication) is not available when using asynchronous inserts.
+Note that asynchronous inserts do not support [row deduplication]({{ ch.docs }}{{ lang }}/guides/developer/deduplication).
 
-For more information about asynchronous data inserts, see the [{{ CH }} documentation](https://clickhouse.com/docs/en/cloud/bestpractices/asynchronous-inserts).
+For more details about asynchronous data inserts, see this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/best-practices/use-materialized-views).
 
-### Inserting data via a buffer table {#buffer-table}
+### Using a buffer table for inserts {#buffer-table}
 
-A buffer table is created in RAM. It accumulates data it receives and then flushes the data to the main table if the preset conditions are met.
+A buffer table, created in RAM, accumulates incoming data and flushes it to the target table once preset conditions are met.
 
-To create a buffer table, the `Buffer` table engine is used. It accepts the following basic parameters as an input:
+To create a buffer table,  use the `Buffer` table engine. It requires the following parameters:
 
 ```text
 Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_bytes, max_bytes)
@@ -59,14 +59,14 @@ Buffer(database, table, num_layers, min_time, max_time, min_rows, max_rows, min_
 
 Where:
 
-* `database`: DB name.
-* `table`: Name of the table to flush the data to.
-* `num_layers`: Number of bufers. A table is physically stored in memory as multiple independent buffers.
-* `min_time`, `max_time`, `min_rows`, `max_rows`, `min_bytes`, and `max_bytes`: Parameters that set conditions for flushing the data to the main table. The time is measured in seconds.
+* `database`: Database name.
+* `table`: Target table name.
+* `num_layers`: Number of buffers. A table is physically stored in memory as multiple independent buffers.
+* `min_time`, `max_time`, `min_rows`, `max_rows`, `min_bytes`, and `max_bytes`: Conditions for flushing data from the buffer to the target table. The time is specified in seconds.
 
-The data is flushed to the main table upon reaching all minimum values or one of the maximum values. If the size of a received chunk exceeds the `max_rows` or `max_bytes` value, the data is written to the main table directly rather than buffered.
+Flushing occurs when all minimum conditions are satisfied, or when any one of the maximum limits is reached. If the size of incoming data batch exceeds the `max_rows` or `max_bytes` settings, the system writes it directly to the target table, bypassing the buffer.
 
-To learn more about additional engine parameters and limits for tables based on the `Buffer` engine, see the [{{ CH }}]({{ ch.docs }}/engines/table-engines/special/buffer).
+For details on additional `Buffer` engine parameters and table limitations, see this [{{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/buffer).
 
 #### Example {#buffer-table-example}
 
@@ -77,19 +77,19 @@ To learn more about additional engine parameters and limits for tables based on 
     ENGINE = MergeTree() ORDER BY id;
     ```
 
-1. Create a buffer table named `users_buffer` and link it to the `users` main table:
+1. Create a buffer table named `users_buffer` linked to the target table `users`:
 
     ```sql
     CREATE TABLE db1.users_buffer AS db1.users ENGINE = Buffer(db1, users, 1, 10, 100, 10000, 1000000, 10000000, 100000000);
     ```
 
-1. Send data to the buffer table:
+1. Insert data into the buffer table:
 
     ```sql
     INSERT INTO db1.users_buffer VALUES (1, 'Vlad'), (2, 'John'), (3, 'Zara');
     ```
 
-1. Check data in the main table, it will appear there in 100 seconds (`max_time`):
+1. Verify the data appears in the target table within the `max_time` interval of 100 seconds:
 
     ```sql
     SELECT * FROM db1.users;
@@ -105,42 +105,42 @@ Result:
 └────┴──────┘
 ```
 
-## Inserting data and specifying the format schema {#insert-with-format-schema}
+## Data insertion with schema specification {#insert-with-format-schema}
 
 {% include [Format schemas intro](../../_includes/mdb/mch/format-schemas-intro.md) %}
 
-## Example of using a format schema when inserting data {#example}
+## Example of using a schema for data insertion {#example}
 
-**The example was tested in the following environment**:
-- Virtual machine in Yandex Cloud running Ubuntu 20.04 LTS.
+**This example was tested in the following environment**:
+- Yandex Cloud VM running Ubuntu 20.04 LTS.
 - Bash: `5.0.16`.
 - clickhouse-client: `20.10.2.20`.
 - capnproto: `0.7.0`.
 - protobuf-compiler: `3.6.1`.
 - Python: `3.8.5`; pip3: `20.0.2`.
 
-Let's assume you have created a single-host {{ mch-name }} cluster named `chcluster` with the `db1` database, and you need to insert user data into the `db1.users` table. Let's further assume that each user record contains the following information:
+Suppose you have created a single-host {{ mch-name }} cluster named `chcluster` with a database named `db1`. You need to insert user data into the `db1.users` table, where each record contains the following information:
 - `id`: User ID.
 - `name`: Username.
 
-To insert user data in the Cap'n Proto and Protobuf formats into the `db1.users` table:
+To insert Cap'n Proto and Protobuf user data into the `db1.users` table:
 1. [Install the dependencies](#satisfy-dependencies).
-1. [Prepare data format schemas](#prepare-format-schemas).
+1. [Prepare the schemas](#prepare-format-schemas).
 1. [Prepare scripts](#prepare-scripts).
 1. [Insert data](#insert-data).
 
 
 ### Getting started {#before-you-begin}
 
-1. Examine the data format that will be used for insertion so that the correct format schemas are [prepared](#prepare-format-schemas).
+1. Examine the input data format in order to  [prepare](#prepare-format-schemas) the appropriate schema definitions.
 
-   In this scenario, for demonstration, it is assumed that:
-   - The user `id` is represented as an unsigned 64-bit integer (`Uint64` in Cap'n Proto and {{ CH }} or `uint64` in Protobuf).
-   - The username `name` is presented in the form of a string (`Text` in Cap'n Proto, `string` in Protobuf or `String` in {{ CH }}).
+   In our demonstration example, we assume the following:
+   - The user ID (`id`) is an unsigned 64-bit integer (`Uint64` in Cap'n Proto and {{ CH }}, and `uint64` in Protobuf).
+   - The username (`name`) is a string (`Text` in Cap'n Proto, `string` in Protobuf, `String` in {{ CH }}).
 
-   To learn more about supported data types, see the documentation for [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }}]({{ ch.docs }}/sql-reference/data-types/).
+   For more information on supported data types, see the relevant [Cap'n Proto](https://capnproto.org/language.html), [Protobuf](https://developers.google.com/protocol-buffers/docs/proto3), and [{{ CH }} guides]({{ ch.docs }}{{ lang }}/sql-reference/data-types).
 
-1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md) and create the `db1.users` table of the preferred format if it is not there yet:
+1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md) and create the `db1.users` table if it does not exist, using the required schema:
 
    ```sql
    CREATE TABLE IF NOT EXISTS db1.users (id UInt64, name String)
@@ -156,9 +156,9 @@ pip3 install protobuf varint pycapnp
 ```
 
 
-### Preparing format schemas {#prepare-format-schemas}
+### Defining the schemas {#prepare-format-schemas}
 
-1. Create a file with a schema description:
+1. Create a schema definition file:
 
    {% list tabs group=data_format %}
 
@@ -174,7 +174,7 @@ pip3 install protobuf varint pycapnp
      }
      ```
 
-     To learn more about the file format, see the [documentation for Cap'n Proto](https://capnproto.org/language.html).
+     For file format details, see this [Cap'n Proto guide](https://capnproto.org/language.html).
 
    - Protobuf {#protobuf}
 
@@ -188,39 +188,39 @@ pip3 install protobuf varint pycapnp
      };
      ```
 
-     To learn more information about the file format, see the [documentation for Protobuf](https://developers.google.com/protocol-buffers/docs/overview).
+     For file format detials, see this [Protobuf guide](https://developers.google.com/protocol-buffers/docs/overview).
 
    {% endlist %}
 
 
-1. [Upload the file](../../storage/operations/objects/upload.md) to {{ objstorage-name }} and [get a link](../../storage/operations/objects/link-for-download.md) to it.
+1. [Upload the file](../../storage/operations/objects/upload.md) to {{ objstorage-name }} and [retrieve its public URL](../../storage/operations/objects/link-for-download.md).
 
 
-1. [Connect the format schema](../../managed-clickhouse/operations/format-schemas.md#add-format-schema) to the `chcluster` cluster:
-   - For the Cap'n Proto format schema (the `user.capnp` file), set `schema-capnproto` as the name.
-   - For the Protobuf format schema, (the `user.protobuf` file), set `schema-protobuf` as the name.
+1. [Add your schema](../../managed-clickhouse/operations/format-schemas.md#add-format-schema) to the `chcluster` cluster:
+   - For the Cap'n Proto schema (`user.capnp`), use the name `schema-capnproto`.
+   - For the Protobuf schema (`user.protobuf`), use the name `schema-protobuf`.
 
 
 ### Preparing scripts {#prepare-scripts}
 
-These Python scripts prepare test data about users in the appropriate formats and insert them into a cluster table.
+The following Python scripts generate test user data in required formats and insert it into your cluster table.
 
 {% note info %}
 
-Python scripts are provided for demonstration. You can prepare and insert binary data in the required format by creating a similar script in a different programming language.
+Python is used here solely for demonstration. The core logic of generating binary data in required format and inserting it into the table can be implemented in any programming language.
 
 {% endnote %}
 
-To prepare scripts:
-1. Compile the `user.proto` file of the Protobuf schema for Python:
+To prepare the scripts:
+1. Generate the Python code from the `user.proto` Protobuf schema file:
 
    ```bash
    protoc user.proto --python_out .
    ```
 
-   The `user_pb2.py` file will be generated.
+   This command will generate the `user_pb2.py` file.
 
-1. Create files with Python code:
+1. Create files with the following Python code:
 
    {% list tabs group=data_format %}
 
@@ -284,11 +284,11 @@ To prepare scripts:
                     cls=SCHEMA_CLASS), data=message.getvalue())
      ```
 
-     This script:
-     1. Gets the `User` class from the linked `user.capnp` file (`from user_capnp import User`).
-     1. Executes requests to the cluster over HTTPS using SSL.
-     1. Writes the test dataset to the User class object (`def add_user ...`) and adds this object to the `message` I/O bitstream.
-     1. Inserts data from the `message` bitstream to the `db1.users` table based on the `User` class data from the `schema-capnproto` format schema in the cluster.
+     The script above does the following:
+     1. Imports the `User` class generated from the `user.capnp` schema (`from user_capnp import User`).
+     1. Queries the cluster via HTTPS with SSL encryption.
+     1. Creates a User class object, populates it with the test dataset, (`def add_user ...`) and serializes it into a `message` bitstream for I/O.
+     1. Deserializes the `message` bitstream into the `User` object using the `schema-capnproto` schema and inserts the resulting data into the `db1.users` cluster table.
 
    - Protobuf {#protobuf}
 
@@ -349,18 +349,18 @@ To prepare scripts:
                     cls=SCHEMA_CLASS), data=message.getvalue())
      ```
 
-     This script:
-     1. Gets the `User` class from the linked `user_pb2.py` file obtained after compiling the proto file (`from user_pb2 import User`).
-     1. Writes the test dataset to the User class object (`def add_user ...`) and adds this object to the `message` I/O bitstream.
-     1. Inserts data from the `message` bitstream to the `db1.users` table based on the `User` class data from the `schema-protobuf` format schema in the cluster.
+     The script above does the following:
+     1. Imports the `User` class from the `user_pb2.py` module generated by compiling the relevant proto file (`from user_pb2 import User`).
+     1. Creates a User class object, populates it with the test dataset, (`def add_user ...`) and serializes it into a `message` bitstream for I/O.
+     1. Deserializes the `message` bitstream into the `User` object using the `schema-protobuf` schema and inserts the resulting data into the `db1.users` cluster table.
 
    {% endlist %}
 
-   To learn how to get host FQDN, see [this guide](../../managed-clickhouse/operations/connect/fqdn.md).
+   To learn how to get a host’s FQDN, see [this guide](../../managed-clickhouse/operations/connect/fqdn.md).
 
 ### Inserting data {#insert-data}
 
-1. Run the scripts you prepared [previously](#prepare-scripts):
+1. Run the scripts you prepared [at the previous step](#prepare-scripts):
 
    {% list tabs group=data_format %}
 
@@ -378,7 +378,7 @@ To prepare scripts:
 
    {% endlist %}
 
-1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md) and make sure that the data was successfully inserted by running the `SELECT` query:
+1. [Connect to the cluster](../../managed-clickhouse/operations/connect/clients.md) and verify the data was inserted by running the `SELECT` query:
 
    {% list tabs group=data_format %}
 

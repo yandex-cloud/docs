@@ -45,10 +45,10 @@ Before you enable this option, make sure the recipient's servers are TLS complia
 #|
 || **Recipient's server issue** | **Mandatory TLS encryption off** | **Mandatory TLS encryption on** | > ||
 || ^ | ^ | **Minimum TLS version 1.0** | **Minimum TLS version 1.2** ||
-|| The server does not support TLS | Email delivered without TLS encryption | Email not delivered {.cell-align-center} | > ||
-|| The server supports only TLS 1.0/1.1 | Email delivered with TLS 1.0/1.1 {.cell-align-center} | > | Email not delivered ||
-|| The server supports TLS 1.2 and higher with a valid certificate | Email delivered with the highest TLS version the client and server could agree on {.cell-align-center} | > | > ||
-|| Expired TLS certificate | Email delivered with TLS encryption {.cell-align-center} | Email not delivered {.cell-align-center} | > ||
+|| The server does not support TLS | Email delivered without TLS encryption | Email not delivered {align="center"} | > ||
+|| The server supports only TLS 1.0/1.1 | Email delivered with TLS 1.0/1.1 {align="center"} | > | Email not delivered ||
+|| The server supports TLS 1.2 and higher with a valid certificate | Email delivered with the highest TLS version the client and server could agree on {align="center"} | > | > ||
+|| Expired TLS certificate | Email delivered with TLS encryption {align="center"} | Email not delivered {align="center"} | > ||
 || Self-signed certificate | ^ | ^ | > ||
 |#
 

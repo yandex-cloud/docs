@@ -52,8 +52,8 @@
 
   1. [Создайте секрет](../../lockbox/operations/secret-create.md) {{ lockbox-name }} со следующими параметрами:
      * **{{ ui-key.yacloud.common.name }}** — `lockbox-secret`.
-     * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — введите неконфиденциальный идентификатор `password`.
-     * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — введите конфиденциальные данные для хранения `p@$$w0rd`.
+     * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — введите неконфиденциальный идентификатор `password`.
+     * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — введите конфиденциальные данные для хранения `p@$$w0rd`.
 
      Сохраните идентификатор секрета, он понадобится в дальнейшем.
 

@@ -127,7 +127,7 @@ Description of time based rescan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || disabled | **boolean**
 
 Turns off scan rule. ||
@@ -141,7 +141,7 @@ Turns off scan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || rescanPeriod | **string** (duration)
 
 Required field. Period of time since last scan to trigger automatic rescan. ||

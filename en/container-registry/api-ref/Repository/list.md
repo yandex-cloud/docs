@@ -78,16 +78,13 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/repositories
 || registryId | **string**
 
 ID of the registry to list repositories in.
-
 To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/Registry/list#List) request.
 
 The maximum string length in characters is 50. ||
 || folderId | **string**
 
 ID of the folder to list registries in.
-
 `folderId` is ignored if a [ListImagesRequest.registryId](/docs/container-registry/api-ref/Image/list#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||

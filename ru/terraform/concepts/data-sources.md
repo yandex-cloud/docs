@@ -13,9 +13,9 @@
 Блок `data` только читает существующий объект — он не создает, не изменяет и не удаляет его. Блок `resource` полностью управляет жизненным циклом объекта: создает при `apply` и удаляет при `destroy`.
 
 #|
-|| **Действие** {.cell-align-center} | **Блок {{ TF }}** {.cell-align-center} | > ||
-|| ^ | `resource` {.cell-align-center} | `data` {.cell-align-center} ||
-|| Создание объекта | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} ||
-|| Удаление объекта | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} ||
-|| Чтение атрибутов | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| **Действие** {align="center"} | **Блок {{ TF }}** {align="center"} | > ||
+|| ^ | `resource` {align="center"} | `data` {align="center"} ||
+|| Создание объекта | ![yes](../../_assets/common/yes.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} ||
+|| Удаление объекта | ![yes](../../_assets/common/yes.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} ||
+|| Чтение атрибутов | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} ||
 |#

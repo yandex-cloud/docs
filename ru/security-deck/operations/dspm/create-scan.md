@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы узнаете
 
 # Создать сканирование {{ dspm-name }}
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 [Модуль контроля данных](../../concepts/dspm.md) ({{ dspm-full-name }}) находит чувствительную информацию в хранилищах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source) — [бакетов](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}.
 
 ## Перед началом работы {#before-begin}
@@ -49,8 +51,6 @@ description: Следуя данной инструкции, вы узнаете
 
 
 ## Создать сканирование для {{ yandex-360 }} {#yandex-360}
-
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% list tabs group=instructions %}
 

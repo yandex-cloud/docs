@@ -135,13 +135,12 @@ Create a {{ lockbox-name }} secret to save usernames and passwords of Windows us
 - Management console {#console}
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `win-secret`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** field, specify the `win-secret-key` key.
-  1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter the admin login: `Administrator`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}**, specify the administrator password.
-  1. You can add more users if needed by clicking **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and specifying their usernames and passwords.
+  1. In the **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** field, specify the `win-secret-key` key.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter the admin login: `Administrator`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**, specify the administrator password.
+  1. You can add more users if needed by clicking **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and specifying their usernames and passwords.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

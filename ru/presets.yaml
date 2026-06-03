@@ -6033,6 +6033,7 @@ default:
         create: Создать
         created-at: Дата создания
         delete: Удалить
+        deletion-protection: Защита от удаления
         description: Описание
         disable: Выключить
         disabled: Выключено
@@ -7224,6 +7225,35 @@ default:
           action_disable-access: Отключить  доступ
           action_enable-access: Включить доступ
           label_filter-by-service-placeholder: Фильтр по сервису
+      interconnect:
+        bgp-asn_3dSL7: BGP ASN
+        bgp-key_cn2dU: BGP Key
+        cloud-ip_6ESSe: Cloud IP
+        peer-ip_pMdxo: Peer IP
+        peering-subnet_eYRTR: Стыковая подсеть
+        private-connection:
+          create-private-connection_6K9tP: Создать приватное соединение
+          private-connections_daeaR: Приватные соединения
+          StaticRoutePrefixRow:
+            add-prefix-button_n11CU: Добавить префикс
+          TrunkConnectionSuggestOrCreate:
+            title_oPBF7: Идентификатор транкового подключения
+        public-connection:
+          public-connections_7xYcV: Публичные соединения
+        trunk-connection:
+          connection-capacity_tkrnE: Ёмкость подключения
+          connection-type_23Twp: Тип подключения
+          connection-type-lag_nkLCb: LAG
+          connection-type-partner_tsPPf: Через партнёра
+          connection-type-single-port-direct_1QHVe: Прямое
+          DirectConnectionFields:
+            ports-count_d9Zds: Количество портов
+          point-of-presence_265QN: Точка присутствия
+          transceiver-type_2WtM8: Тип трансивера
+          trunk-connections_kBGNL: Транковые подключения
+          TrunkConnectionListScreen:
+            create-trunk-connection_oUuYo: Создать транковое подключение
+        vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -7618,37 +7648,46 @@ default:
         value_imbalance_rps-chart-type: 'Точка разладки: RPS'
         value_instances-chart-type: 'Тестирующие потоки: количество'
       lockbox:
-        button_action-make-version-current: Сделать текущей версией
-        button_action-open-version-add-dialog: Создать версию на основе этой
-        button_action-schedule-for-destruction: Запланировать удаление
-        button_activate-secret: Активировать секрет
-        button_add-version: Добавить версию
-        button_create-secret: Создать секрет
-        button_deactivate-secret: Деактивировать
-        field_make-version-current: Сделать текущей версией
-        forms:
-          alert_generated-version-edit_button: Редактировать секрет
-          button_add-pair: Добавить ключ/значение
-          button_schedule-destruction: Запланировать
+        BaseInfoSection:
           field_deletion-protection: Запретить удаление секрета
-          label_key: Ключ
-          label_value: Значение
-          title_auto-generation_params_section: Параметры автоматической генерации
+        EncryptionInfoSection:
           title_kms-key: Ключ KMS
-          title_secret-data-section: Данные секрета
-          title_secret-type: Тип секрета
+        FormFields:
           title_secret-type-custom: Пользовательский
           title_secret-type-generated: Генерируемый
-          title_version-payload-entries-value-placeholder: Значение
+        routes:
+          label_section-secrets: Секреты
+        ScheduleDestructionFormDialog:
+          button_schedule-destruction: Запланировать
+        SecretActions:
+          button_activate-secret: Активировать секрет
+          button_deactivate-secret: Деактивировать
+        SecretGeneratedVersion:
+          label_key: Ключ
+        SecretInfoSection:
+          title_auto-generation_params_section: Параметры автоматической генерации
+          title_secret-data-section: Данные секрета
+          title_secret-type: Тип секрета
+        SecretOverviewPage:
+          button_add-version: Добавить версию
+          label_secret-general-section: Информация о секрете
+          label_secret-id: Идентификатор
+          label_secret-versions-section: Версии
+        SecretsPage:
+          button_create-secret: Создать секрет
+        SecretVersionsInputs:
           value_payload-entry-value-type-text: Текст
-        label_password-key: Ключ
-        label_secret-general-section: Информация о секрете
-        label_secret-id: Идентификатор
-        label_secret-versions-section: Версии
-        label_section-overview: Обзор
-        label_section-secrets: Секреты
-        label_version-current: Текущая
-        label_version-dialog-title: Версия
+        SecretVersionsList:
+          button_add-pair: Добавить ключ/значение
+          label_key: Ключ
+          label_value: Значение
+        VersionAddDialog:
+          button_add-version: Добавить версию
+        VersionsTable:
+          button_action-make-version-current: Сделать текущей версией
+          button_action-open-version-add-dialog: Создать версию на основе этой
+          button_action-schedule-for-destruction: Запланировать удаление
+          label_version-current: Текущая
       logging:
         button_create-group: Создать группу
         button_create-sink: Создать приёмник логов
@@ -8881,6 +8920,8 @@ default:
         section_resource-management: Управление ресурсами
         title_catalogs: Каталоги
       ui:
+        constants:
+          label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:
             constants:

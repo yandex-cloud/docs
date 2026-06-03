@@ -58,7 +58,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters lifecycle policy resources listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
@@ -110,7 +109,6 @@ List of lifecycle policies. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListLifecyclePoliciesRequest.page_size](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesRequest), use `next_page_token` as the value
 for the [ListLifecyclePoliciesRequest.page_token](#yandex.cloud.containerregistry.v1.ListLifecyclePoliciesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

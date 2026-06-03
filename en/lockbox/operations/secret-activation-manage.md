@@ -15,7 +15,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.lockbox.button_deactivate-secret }}**.
+    1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/toggle-off.svg) **{{ ui-key.yacloud.lockbox.SecretActions.button_deactivate-secret }}**.
     1. Confirm its deactivation.
 
 - CLI {#cli}
@@ -65,7 +65,7 @@ A secret can be either active or deactivated. When a secret is active, it enable
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.lockbox.button_activate-secret }}**.
+    1. Next to the secret you need, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/toggle-on.svg) **{{ ui-key.yacloud.lockbox.SecretActions.button_activate-secret }}**.
 
 - CLI {#cli}
 

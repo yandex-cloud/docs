@@ -10,12 +10,12 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     To get a list of cluster backups:
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
     To get a list of all backups in your folder:
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -24,7 +24,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of {{ GP }} cluster backups, run this command:
+    To get a list of {{ mgp-name }} cluster backups, run this command:
 
     ```bash
     {{ yc-mdb-gp }} cluster list-backups <cluster_name_or_ID>
@@ -45,7 +45,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -60,7 +60,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/<cluster_ID>/backups'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -84,7 +84,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -108,7 +108,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
                 yandex.cloud.mdb.greenplum.v1.ClusterService.ListBackups
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         1. Check the [server response](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.greenplum.v1.ListClusterBackupsResponse) to make sure your request was successful.
 
@@ -146,17 +146,17 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
     To get backup details for an existing cluster:
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
 
     To get backup details for a previously deleted cluster:
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -175,7 +175,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -210,7 +210,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the name of your cluster and select the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
     1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -218,7 +218,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -237,7 +237,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -259,7 +259,7 @@ You can view your existing [backups](../concepts/backup.md) and restore clusters
             yandex.cloud.mdb.greenplum.v1.ClusterService.Backup
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -280,9 +280,9 @@ The point-in-time recovery (PITR) technology enables you to revert a cluster's s
 
 When you restore a cluster from a backup, you create a new cluster with the backup data. If your folder lacks [resources](../concepts/limits.md) to create such a cluster, you will not be able to restore from the backup.
 
-When creating a cluster, specify all the required settings.
+When creating a cluster, configure all the required settings.
 
-To migrate the hosts of a {{ GP }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
+To migrate the hosts of a {{ mgp-name }} cluster to a different availability zone, restore your cluster from a backup. When restoring a cluster from a backup, specify a new availability zone. If your cluster operates as a [{{ data-transfer-full-name }} endpoint](../../data-transfer/concepts/index.md#endpoint), create the [endpoint](../../data-transfer/operations/endpoint/index.md#create) and [transfer](../../data-transfer/operations/transfer.md#create) again after restoring the cluster from a backup.
 
 {% note warning %}
 
@@ -305,9 +305,9 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
     To restore an existing cluster from a backup:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-    1. Click the name of your cluster and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
-    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the cluster name and open the ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}** tab.
+    1. Click ![image](../../_assets/console-icons/ellipsis.svg) for your backup and click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
     1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
 
@@ -324,7 +324,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ mgp-name }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -339,9 +339,9 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
     To restore a previously deleted cluster from a backup:
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
-    1. Find the backup you need using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
+    1. Find your backup using the backup creation time and cluster ID. The **{{ ui-key.yacloud.common.id }}** column contains IDs in `<cluster_ID>:<backup_ID>` format.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the backup you need and then click **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Configure the new cluster. You can select a folder for the new cluster from the **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** list.
     1. In the **{{ ui-key.yacloud.mdb.forms.field_date }}** setting, specify the time point to which you want to revert the cluster's state. You can enter a value manually or select one from the drop-down calendar. The system will select the restore point closest to that time.
@@ -359,7 +359,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ GP }} host types or to both of them at once.
+    1. Optionally, select groups of [dedicated hosts](../../compute/concepts/dedicated-host.md) to place master hosts or segment hosts on dedicated hosts. You can assign groups to one of the two {{ mgp-name }} host types or to both of them at once.
 
         You must first [create](../../compute/operations/dedicated-host/create-host-group.md) a group of dedicated hosts in {{ compute-full-name }}.
 
@@ -382,7 +382,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
     To restore a cluster from a backup:
 
-    1. View the description of the CLI command for restoring a {{ GP }} cluster:
+    1. View the description of the CLI command for restoring a {{ mgp-name }} cluster:
 
         ```bash
         {{ yc-mdb-gp }} cluster restore --help
@@ -419,11 +419,11 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
         Where:
 
         * `--backup-id`: [Backup](../concepts/backup.md) ID.
-        * `--time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
+        * `--time`: Time point to restore the {{ mgp-name }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `--name`: Cluster name.
         * `--environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your applications.
 
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
@@ -455,7 +455,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -503,7 +503,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
           "logging": {
             "enabled": "<enable_transferring_logs>",
             "commandCenterEnabled": "<transfer_Yandex_Command_Center_logs>",
-            "greenplumEnabled": "<transfer_{{ GP }}_logs>",
+            "greenplumEnabled": "<transfer_DBMS_logs>",
             "poolerEnabled": "<transfer_connection_pooler_logs>",
             "folderId": "<folder_ID>"
           }
@@ -513,13 +513,13 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
         Where:
 
-        * `backupId`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
-        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
+        * `backupId`: [Backup](../concepts/backup.md) ID. You can get it with the [list of backups](#list-backups).
+        * `time`: Time point to restore the {{ mgp-name }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `folderId`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your applications.
 
         * `networkId`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -554,7 +554,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `commandCenterEnabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplumEnabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplumEnabled`: Transferring DBMS logs, `true` or `false`.
             * `poolerEnabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folderId`: Specify the ID of the folder whose log group you want to use.
             * `logGroupId`: ID of the log group to write logs to.
@@ -577,7 +577,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -630,13 +630,13 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
         Where:
 
-        * `backup_id`: [Backup](../concepts/backup.md) ID. You can request it with the [list of backups](#list-backups).
-        * `time`: Time point to restore the {{ GP }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
+        * `backup_id`: [Backup](../concepts/backup.md) ID. You can get it with the [list of backups](#list-backups).
+        * `time`: Time point to restore the {{ mgp-name }} cluster to, in `yyyy-mm-ddThh:mm:ssZ` format. By default, the cluster will be restored to the backup state.
         * `folder_id`: ID of the folder you want to restore the cluster to. You can request the ID with the [list of folders in the cloud](../../resource-manager/operations/folder/get-id.md). By default, the cluster is restored to the same folder the backup is in.
         * `name`: Name of the new cluster.
         * `environment`: Environment:
 
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
             * `PRODUCTION`: For stable versions of your applications.
 
         * `network_id`: [Network](../../vpc/concepts/network.md#network) ID.
@@ -672,7 +672,7 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
 
             * `enabled`: Manages log transfer, `true` or `false`. To enable parameters responsible for transferring specific logs, provide the `true` value.
             * `command_center_enabled`: Transferring [Command Center](../concepts/command-center.md) logs, `true` or `false`.
-            * `greenplum_enabled`: Transferring {{ GP }} logs, `true` or `false`.
+            * `greenplum_enabled`: Transferring DBMS logs, `true` or `false`.
             * `pooler_enabled`: Transferring [connection pooler](../concepts/pooling.md) logs, `true` or `false`.
             * `folder_id`: Specify the ID of the folder whose log group you want to use.
             * `log_group_id`: ID of the log group to write logs to.
@@ -698,5 +698,3 @@ Before you begin, assign to your {{ yandex-cloud }} account the [managed-greenpl
     1. Check the [server response](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

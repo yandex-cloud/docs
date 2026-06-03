@@ -1,11 +1,11 @@
 ---
-title: 'Getting FQDNs for {{ GP }} hosts '
-description: Follow this guide to get host FQDNs for connecting to a database in a {{ GP }} cluster.
+title: 'Getting FQDNs for {{ mgp-name }} hosts '
+description: Follow this guide to get host FQDNs for connecting to a database in a {{ mgp-name }} cluster.
 ---
 
-# FQDNs of {{ GP }} hosts
+# FQDNs of {{ mgp-name }} hosts
 
-To connect to a master host, you need its [FQDN](../../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host. When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at the same time.
+To connect to a master host, you need its [FQDN](../../concepts/network.md#hostname). You can use the FQDN of a particular host in the cluster or a [special FQDN](#fqdn-master) always pointing to the primary master host. When connecting via _psql_ or using a JDBC connector, you can specify two master hosts at once.
 
 Host FQDN example:
 
@@ -15,7 +15,7 @@ Host FQDN example:
 
 ## Getting a host FQDN {#get-fqdn}
 
-There are several ways to get a {{ GP }} host's FQDN:
+There are several ways to get a {{ mgp-name }} host's FQDN:
 
 * Look up the FQDN in the management console:
 
@@ -44,5 +44,3 @@ psql "host=c-{{ cluster-id }}.rw.{{ dns-zone }} \
 ```
 
 {% include [special-fqdns-warning](../../../_includes/mdb/special-fqdns-warning.md) %}
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

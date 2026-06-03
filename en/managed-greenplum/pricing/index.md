@@ -60,7 +60,7 @@ There are different ways to calculate the cost depending on the [host type](../c
 
 Supported resource configurations are listed in the [Host classes](../concepts/instance-types.md) section. For vCPU and RAM prices, see [Pricing](#prices).
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You will not be charged for the time when the {{ GP }} host is unavailable for basic operations.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You will not be charged for the time when the {{ mgp-name }} host is unavailable for basic operations.
 
 ### Disk space usage {#rules-storage}
 
@@ -78,7 +78,7 @@ You pay for the following:
 
   * You can only order non-replicated SSD (`network-ssd-nonreplicated`) storage for clusters with two master hosts, in increments of 93 GB.
 
-  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
+  To pay less for storage, export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ mgp-name }} cluster to a cold storage in {{ objstorage-full-name }}. The data will be stored in a service bucket in compressed and encrypted form, which is more cost-efficient. The cost of such storage is calculated based on the [{{ objstorage-name }} pricing policy](../../storage/pricing.md).
 
 * Space occupied by DB backups beyond the storage size specified for the cluster.
 
@@ -91,8 +91,6 @@ You pay for the following:
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
-
-{% include [prices-difference](../../_includes/prices-difference.md) %}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -141,7 +139,7 @@ The price of local SSD storage (`local-ssd`) also depends on the host type.
 
 The cost calculation for standard hosts will vary depending on the [host configuration](../concepts/instance-types.md):
 
-* For i2 and i3 hosts (`io-optimized`), you should add the cost of the computing resources of {{ GP }} hosts and [the cost of using a software-accelerated network](../../compute/pricing.md).
+* For i2 and i3 hosts (`io-optimized`), you should add the cost of the computing resources of {{ mgp-name }} hosts and [the cost of using a software-accelerated network](../../compute/pricing.md).
 * For hosts with other configurations, you only pay for their computing resources.
 
 For dedicated hosts, there are two cost components: the [{{ compute-full-name }} computing resources](../../compute/pricing.md) and the {{ mgp-name }} markup on these resources.
@@ -162,5 +160,3 @@ For dedicated hosts, there are two cost components: the [{{ compute-full-name }}
 
 
 {% include [egress-traffic-pricing](../../_includes/egress-traffic-pricing.md) %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

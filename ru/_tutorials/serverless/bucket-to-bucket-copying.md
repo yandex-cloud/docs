@@ -299,22 +299,22 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
   1.  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `s3-static-key`.
 
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-      1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
+      1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
       1. Добавьте значение идентификатора ключа:
 
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `key_id`.
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите значение идентификатора ключа, которое [получили ранее](#create-key).
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `key_id`.
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение идентификатора ключа, которое [получили ранее](#create-key).
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}**.
       1. Добавьте значение секретного ключа:
 
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `secret`.
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите значение секретного ключа, которое [получили ранее](#create-key).
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `secret`.
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение секретного ключа, которое [получили ранее](#create-key).
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

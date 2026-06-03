@@ -10,7 +10,7 @@ You can connect to {{ mch-short-name }} cluster hosts:
 {% include [cluster-connect-note](../../../_includes/mdb/mch/cluster-connect-note.md) %}
 
 
-You can connect to a cluster either with encryption (on ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}/interfaces/cli/) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}/interfaces/http/)) or without it (on ports `9000` and `8123`, respectively).
+You can connect to a cluster either with encryption (on ports `{{ port-mch-cli }}` for [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) and `{{ port-mch-http }}` for the [HTTP interface]({{ ch.docs }}{{ lang }}/interfaces/http)) or without it (on ports `9000` and `8123`, respectively).
 
 
 

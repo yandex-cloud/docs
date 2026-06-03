@@ -1,11 +1,11 @@
 ---
-title: '{{ GP }} Command Center parameters'
-description: In this article, you will learn what session and query details {{ GP }} Command Center provides.
+title: '{{ mgp-name }} Command Center parameters'
+description: In this article, you will learn what session and query details {{ mgp-name }} Command Center provides.
 ---
 
-# {{ GP }} Command Center parameters
+# {{ mgp-name }} Command Center parameters
 
-This section describes the session and query parameters available in [{{ GP }} Command Center](command-center.md).
+This section describes the session and query parameters available in [{{ mgp-name }} Command Center](command-center.md).
 
 ## Session {#cc-session}
 
@@ -29,7 +29,7 @@ This section describes the session and query parameters available in [{{ GP }} C
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-user }}**: Username.
 
-* **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-database }}**: DB name.
+* **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-database }}**: Database name.
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_field-state-changed }}**: Date and time of the most recent status change.
 
@@ -165,7 +165,7 @@ This section describes the session and query parameters available in [{{ GP }} C
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-username }}**: Username.
 
-* **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-database }}**: DB name.
+* **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-database }}**: Database name.
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_query-field-query-id }}**: [Non-unique hash](../../managed-greenplum/concepts/command-center.md#statement-id) generated from the query text.
 
@@ -244,7 +244,7 @@ This section describes the session and query parameters available in [{{ GP }} C
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-crc-errors }}**: Monotonically increasing counter of packets that failed [checksum validation](https://en.wikipedia.org/wiki/Cyclic_redundancy_check). It applies if `gp_interconnect_full_crc` is enabled.
 
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-disordered-pkt-num }}**: Monotonically increasing counter of out-of-order packets. It increases if at least one of these conditions is met:
-
+  
   * The sequence number of the inbound packet does not match the expected value.
   * The inbound packet queue overflowed and the packet was dropped.
 
@@ -273,5 +273,3 @@ This section describes the session and query parameters available in [{{ GP }} C
 * **{{ ui-key.yacloud.greenplum.cluster.perf-diag.label_interconnect-total-recv-queue-size }}**: Maximum size of the inbound queue, in packets.
 
 Learn more about `interconnect` [here](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/6/greenplum-database/admin_guide-intro-arch_overview.html#arch_interconnect).
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

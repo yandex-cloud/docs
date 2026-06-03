@@ -13,7 +13,7 @@ description: Инструкция по активации и настройке 
 
 Перед началом работы с модулем {{ kspm-name }} убедитесь, что кластеры, которые вы планируете включить в область действия модуля, соответствуют техническим требованиям:
 
-* {{ k8s }} версии 1.28 или выше.
+* {{ k8s }} версии 1.30 и выше.
 * В кластере {{ k8s }} отсутствует [Admission Control](https://kubernetes.io/docs/reference/access-authn-authz/admission-controllers/) на базе [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno). Если Kyverno был развернут ранее, его необходимо удалить вместе со всеми созданными им ресурсами [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 * Между узлами кластера {{ k8s }} и [сервисом {{ container-registry-full-name }}](../../../managed-kubernetes/tutorials/container-registry.md) настроено сетевое взаимодействие.
 * Открыт сетевой доступ от пода, в котором запущен сенсор контроля безопасности среды выполнения, до подов кластера через порт `54321`.

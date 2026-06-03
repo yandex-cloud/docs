@@ -1,7 +1,7 @@
 # Using hybrid storage in {{ mch-name }}
 
 
-Hybrid storage enables you to store frequently used data on the {{ mch-name }} cluster’s network drives while keeping rarely used data in {{ objstorage-full-name }}. Your hybrid storage will automatically create a bucket and connect it to {{ CH }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
+Hybrid storage enables you to store frequently used data on the {{ mch-name }} cluster’s network drives while keeping rarely used data in {{ objstorage-full-name }}. Your hybrid storage will automatically create a bucket and connect it to {{ CH }}. Automatically moving data between these storage tiers is only supported for [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables. For more information, see [{#T}](../../managed-clickhouse/concepts/storage.md).
 
 To use hybrid storage:
 
@@ -17,8 +17,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 The support cost for this solution includes:
 
-* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -88,13 +88,13 @@ The support cost for this solution includes:
 
 ### Optionally, explore the test dataset {#explore-dataset}
 
-To demonstrate how the hybrid storage works, we will use anonymized hit data (`hits_v1`) from Yandex Metrica. This [dataset]({{ ch.docs }}/getting-started/example-datasets/metrica/) contains nearly 9 million hits recorded between March 17, 2014, to March 23, 2014.
+To demonstrate how the hybrid storage works, we will use anonymized hit data (`hits_v1`) from Yandex Metrica. This [dataset]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) contains nearly 9 million hits recorded between March 17, 2014, to March 23, 2014.
 
 When creating the `tutorial.hits_v1` table, we will [configure it](#create-table) to place all recent data (starting from March 21, 2014) in the network storage, while moving older data (from March 17, 2014 to March 20, 2014) to the object storage.
 
 ## Create a table {#create-table}
 
-Create the `tutorial.hits_v1` table configured for hybrid storage by running the following SQL query. Replace the `<schema>` placeholder with a table schema from [this {{ CH }} guide]({{ ch.docs }}/getting-started/tutorial/#create-tables):
+Create the `tutorial.hits_v1` table configured for hybrid storage by running the following SQL query. Replace the `<schema>` placeholder with a table schema from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables):
 
 ```sql
 CREATE TABLE tutorial.hits_v1
@@ -133,9 +133,9 @@ The TTL expression in our example is complex because the test dataset we use req
 
 {% endnote %}
 
-Data is moved between the network disk storage and object storage in [parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes), rather than per row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to the object storage. At a minimum, the TTL expression should use the same columns as the partitioning key, e.g., `EventDate` in the example above.
+Data is moved between the network disk storage and object storage in [parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes), rather than per row. For optimal performance, align your TTL expression with your [partitioning key]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) to ensure that all rows within a part share the same expiration time. This prevents situations where a data part contains a mix of rows destined for different storage tiers, which can block expired data from moving to the object storage. At a minimum, the TTL expression should use the same columns as the partitioning key, e.g., `EventDate` in the example above.
 
-For more details on configuring TTL, see [this {{ CH }} guide]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-ttl).
+For more details on configuring TTL, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl).
 
 ## Populate the table with data {#fill-table-with-data}
 
@@ -168,7 +168,7 @@ For more details on configuring TTL, see [this {{ CH }} guide]({{ ch.docs }}/eng
 
 1. Wait for the operation to complete, as importing the data may take some time.
 
-For more information, see [this {{ CH }} guide]({{ ch.docs }}/getting-started/tutorial/#import-data).
+For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#import-data).
 
 ## Check data placement within a cluster {#check-table-tiering}
 
@@ -261,10 +261,10 @@ As the SQL result shows, the user interacts with a single logical table. {{ CH }
 
 ## Monitor the volume of data in {{ objstorage-name }} (optional step) {#metrics}
 
-To monitor the amount of space [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
+To monitor the amount of space [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts occupy in {{ objstorage-name }}, use the `ch_s3_disk_parts_size` metric in {{ monitoring-full-name }}.
 
 1. Open the [management console]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Navigate to the **Metric Explorer** section.
 1. Run this query:
 

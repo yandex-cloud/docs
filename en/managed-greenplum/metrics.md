@@ -11,12 +11,10 @@ This section describes {{ mgp-name }} metrics exported to [{{ monitoring-name }}
 
 # {{ monitoring-full-name }} component metrics
 
-This section describes the Greenplum, Odyssey, and Yezzey metrics exported to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+This section describes the Odyssey and Yezzey DBMS component metrics exported to [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 {% include [managed-greenplum-components](../_includes/monitoring/metrics-ref/managed-greenplum-components.md) %}
 
 #### See also {#see-also}
 
 [{#T}](./operations/monitoring.md)
-
-{% include [greenplum-trademark](../_includes/mdb/mgp/trademark.md) %}

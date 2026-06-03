@@ -55,14 +55,14 @@ The cost of support for the new infrastructure includes:
   To create a secret that will store the {{ mmy-full-name }} database password:
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `db_password`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the {{ mmy-full-name }} database password.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the {{ mmy-full-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
-  Similarly, create a secret named `wp-admin-password-secret` that will store the WordPress admin password. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `wp_admin_password`.
+  Similarly, create a secret named `wp-admin-password-secret` that will store the WordPress admin password. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `wp_admin_password`.
 
 - {{ yandex-cloud }} CLI {#cli}
 

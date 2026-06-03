@@ -14,6 +14,6 @@
 
     If no value is set, the maximum cache size defaults to half the size of the cluster storage.
 
-* `prefer_not_to_merge`: Disable [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in the cluster and object storage, `true` or `false`.
+* `prefer_not_to_merge`: Disable [merging of data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) in the cluster and object storage, `true` or `false`.
 
     To disable merging, set to `true`. To leave merging enabled, set to `false`.

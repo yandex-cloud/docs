@@ -95,7 +95,7 @@ Learn more about other cluster updates:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -238,7 +238,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         Where `announce_hostnames` is the setting that defines whether to use FQDNs instead of IP addresses: `true` or `false`.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -389,7 +389,7 @@ For more information about data persistence and its settings, see [Persistence](
 
         {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -496,8 +496,9 @@ When changing the host class:
    * Each shard with more than one host will switch its master.
    * Each shard will run a rolling update, stopping and updating hosts sequentially. The shard's master host will be unavailable for a few minutes while it updates.
    * The master host name may not resolve. If public access to the host is enabled, you can only connect using the host IP address.
+* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 
-We recommend changing the host class only when your cluster has no active workload.
+We recommend changing the host class only when the cluster is idle.
 
 {% list tabs group=instructions %}
 
@@ -583,7 +584,7 @@ We recommend changing the host class only when your cluster has no active worklo
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -681,8 +682,6 @@ We recommend changing the host class only when your cluster has no active worklo
 
 {% endlist %}
 
-The {{ mrd-name }} cluster is unavailable for about five to seven minutes after changing the host class.
-
 ## Changing the disk type and increasing the storage size {#change-disk-size}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
@@ -750,7 +749,7 @@ The {{ mrd-name }} cluster is unavailable for about five to seven minutes after 
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -932,7 +931,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
       {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1077,7 +1076,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
         {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1304,7 +1303,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1365,7 +1364,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: From `0` to `999999999` nanoseconds.
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of the two values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
@@ -1442,7 +1441,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
             * `seconds`: Between `0` and `59` seconds.
             * `nanos`: Between `0` and `999999999` nanoseconds.
 
-        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of the two values:
+        * `maintenance_window`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. Provide one of these two parameters:
 
             * `anytime`: Maintenance takes place at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
@@ -1524,7 +1523,7 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1643,7 +1642,7 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1762,7 +1761,7 @@ You cannot disable sharding in a cluster where it is already enabled.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

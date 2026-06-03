@@ -24,14 +24,14 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. Add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name  you will use to identify a value.
-        * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Explicitly represented secret data.
+        * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: Non-secret name  you will use to identify a value.
+        * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Explicitly represented secret data.
         You can create multiple key-value pairs per version.
         
-    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+    1. Click **{{ ui-key.yacloud.lockbox.VersionAddDialog.button_add-version }}**.
 
 - {{ TF }} {#tf}
 
@@ -89,15 +89,15 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, click **{{ ui-key.yacloud.lockbox.SecretOverviewPage.button_add-version }}**.
     1. (Optional) Add **{{ ui-key.yacloud.common.description }}** of the version.
-    1. (Optional) To change other parameters, click **{{ ui-key.yacloud.lockbox.forms.alert_generated-version-edit_button }}** and specify:
-       * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: You can either leave the generated type or select the user type.
-       * **{{ ui-key.yacloud.lockbox.forms.label_key }}** and **{{ ui-key.yacloud.lockbox.forms.title_auto-generation_params_section }}**, for the generated secret type.
-       * **{{ ui-key.yacloud.lockbox.forms.label_key }}** and **{{ ui-key.yacloud.lockbox.forms.label_value }}**, for the user secret type.
+    1. (Optional) To change other parameters, click **{{ ui-key.yacloud.common.edit }}** and specify:
+       * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: You can either leave the generated type or select the user type.
+       * **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** and **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}**, for the generated secret type.
+       * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** and **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**, for the user secret type.
 
           You can create multiple key-value pairs per version.
-    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}** or **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.lockbox.VersionAddDialog.button_add-version }}** or **{{ ui-key.yacloud.common.save }}**.
 
 
 - {{ TF }} {#tf}
@@ -220,7 +220,7 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, you will see a list of all secret versions with information about them.
     1. Click a version to see the details about its key-value pairs.
 
 - CLI {#cli}
@@ -257,15 +257,15 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
-    1. Select **{{ ui-key.yacloud.lockbox.button_action-open-version-add-dialog }}**.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
+    1. Select **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-open-version-add-dialog }}**.
     1. Edit or add the following parameters:
         * (Optional) **{{ ui-key.yacloud.common.description }}**: Version description.
-        * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Non-secret name  you will use to identify a value.
-        * For a user secret, **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Secret data in an explicit form.
+        * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: Non-secret name  you will use to identify a value.
+        * For a user secret, **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Secret data in an explicit form.
         You can create multiple key-value pairs per version.
         * For a generated secret, you can change the key and the value parameters. To do this, click **Edit secret** and [specify new parameters](secret-update.md).
-    1. Click **{{ ui-key.yacloud.lockbox.button_add-version }}**.
+    1. Click **{{ ui-key.yacloud.lockbox.VersionAddDialog.button_add-version }}**.
 
 - CLI {#cli}
 
@@ -320,9 +320,8 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
-    1. Select **{{ ui-key.yacloud.lockbox.field_make-version-current }}**.
-    1. Click **{{ ui-key.yacloud.lockbox.button_action-make-version-current }}**.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
+    1. ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-make-version-current }}**.
 
 - API {#api}
 
@@ -339,10 +338,10 @@ With secret version management, you can:
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
     1. Click the name of the secret you need.
-    1. Under **{{ ui-key.yacloud.lockbox.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
-    1. Select **{{ ui-key.yacloud.lockbox.button_action-schedule-for-destruction }}**.
+    1. Under **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-versions-section }}**, next to the appropriate version, click ![image](../../_assets/console-icons/ellipsis.svg).
+    1. Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.lockbox.VersionsTable.button_action-schedule-for-destruction }}**.
     1. Enter the deletion pending period.
-    1. Click **{{ ui-key.yacloud.lockbox.forms.button_schedule-destruction }}**.
+    1. Click **{{ ui-key.yacloud.lockbox.ScheduleDestructionFormDialog.button_schedule-destruction }}**.
 
 - CLI {#cli}
 

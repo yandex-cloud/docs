@@ -2,7 +2,7 @@
 
 To connect to {{ mch-short-name }}, consider using the following clients:
 
-* [clickhouse-client](https://clickhouse.com/docs/interfaces/cli), the native command-line tool.
+* [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli), the native command-line tool.
 * Clients that use the {{ CH }} HTTP API and support SSL.
 
 {{ mch-short-name }} does not restrict the use of other clients. However, if using clients other than those listed above, check the known limitations and problems to avoid connectivity issues and cluster failures.

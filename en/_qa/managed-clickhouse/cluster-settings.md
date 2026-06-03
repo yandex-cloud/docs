@@ -4,7 +4,7 @@ Follow [this guide](../../managed-clickhouse/operations/cluster-users.md#example
 
 #### How do I grant a user permissions to create and delete tables or databases? {#create-delete-role}
 
-Go to the cluster settings, enable [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), and grant the user the appropriate permissions [using the `GRANT` statement]({{ ch.docs }}/sql-reference/statements/grant/).
+Go to the cluster settings, enable [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), and grant the user the appropriate permissions [using the `GRANT` statement]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant).
 
 #### How do I find out the internal_replication setting value? {#internal-replication}
 
@@ -30,7 +30,7 @@ If [user management via SQL](../../managed-clickhouse/operations/cluster-users.m
     SET max_memory_usage = <value_in_bytes>;
     ```
 
-* For all default users by creating a [settings profile]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
+* For all default users by creating a [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management).
 
 #### Why must a highly available {{ mch-name }} cluster have three or five {{ ZK }} hosts? {#zookeeper-hosts-number}
 

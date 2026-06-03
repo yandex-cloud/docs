@@ -1,6 +1,6 @@
 ---
 title: Disk types in {{ mgp-full-name }}
-description: In this article, you will learn about disk types in {{ mgp-name }} and discover some features of local SSD storage.
+description: In this article, you will learn about disk types in {{ mgp-name }} and some aspects of local SSD-based storage.
 ---
 
 # Disk types in {{ mgp-name }}
@@ -11,7 +11,7 @@ description: In this article, you will learn about disk types in {{ mgp-name }} 
 
 {% include [storage-type](../../_includes/mdb/mgp/storage-type.md) %}
 
-In a {{ GP }} cluster, the type of disks for master hosts and segment hosts may differ.
+Your master hosts and segment hosts may use different disk types.
 
 {% note info %}
 
@@ -45,7 +45,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
         * Cloud
         * Folder
         * **{{ mgp-name }}** service
-        * {{ GP }} cluster ID
+        * {{ mgp-name }} cluster ID
 
             You can get the cluster ID from the [folder’s cluster list](../operations/cluster-list.md#list-clusters).
 
@@ -74,7 +74,7 @@ If the cluster switched to read-only mode:
 
     {% note alert %}
 
-    When doing so, make sure the amount of free disk space never reaches zero. Otherwise, with the fail-safe mechanism disabled, {{ GP }} will crash, rendering the cluster inoperable.
+    When doing so, make sure the amount of free disk space never reaches zero. The fail-safe mechanism being disabled, this will cause {{ mgp-name }} to crash and render the cluster inoperable.
 
     {% endnote %}
 

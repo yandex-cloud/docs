@@ -425,11 +425,11 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `api-key`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the secret key you obtained in the previous step.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `api-key`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the secret key you obtained in the previous step.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
