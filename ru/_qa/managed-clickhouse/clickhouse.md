@@ -66,7 +66,7 @@ SET allow_experimental_object_type=1;
 
 {% note info %}
 
-Запросы `SET` [не поддерживаются](../../managed-clickhouse/operations/web-sql-query#query-restrictions-in-the-management-console) при подключении к кластеру через консоль управления. Для выполнения этого запроса используйте другой способ подключения к кластеру, например, [через clickhouse-client](../../managed-clickhouse/operations/connect#clickhouse-client).
+Запросы `SET` [не поддерживаются](../../managed-clickhouse/operations/web-sql-query#query-restrictions-in-the-management-console) при подключении к кластеру через консоль управления. Для выполнения этого запроса используйте другой способ подключения к кластеру, например, [через clickhouse-client](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client).
 
 Убедитесь, что у вас установлена актуальная версия клиента.
 

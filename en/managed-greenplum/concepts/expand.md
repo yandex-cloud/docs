@@ -1,9 +1,9 @@
 ---
-title: Expanding a {{ GP }} cluster
-description: How does a cluster expand procedure work in {{ GP }}.
+title: Expanding a {{ mgp-name }} cluster
+description: How does a cluster expand procedure work in {{ mgp-name }}.
 ---
 
-# Expanding a {{ GP }} cluster
+# Expanding a {{ mgp-name }} cluster
 
 You can [expand](../operations/cluster-expand.md) a cluster to add additional segment hosts to it.
 
@@ -55,11 +55,11 @@ The approximate durations of the stages:
 
 The actual duration of each stage depends not only on the size of the cluster databases and the total number of tables but also on the level and nature of the cluster load.
 
-This is because the [gpexpand]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpexpand.html) utility, which operates at every stage of cluster expansion, captures exclusive [locks]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html) at the individual table level. User requests may also capture locks when they are executed. This may considerably slow down both `gpexpand` and user request processing: it depends on which process captures the lock first and which one has to wait for the lock to be released. Both of these processes can generate increased load on the cluster.
+This is because the [gpexpand]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpexpand.html) utility, which operates at every stage of cluster expansion, captures exclusive [locks]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-LOCK.html) at the individual table level. User requests may also capture locks when they are executed. This may considerably slow down both `gpexpand` and user request processing: it depends on which process captures the lock first and which one has to wait for the lock to be released. Both of these processes can generate increased load on the cluster.
 
 You cannot shorten the preparation stage, but you can influence the duration of the data redistribution stage. To do this, before you run the procedure, [configure](../operations/cluster-expand.md) the [settings](#settings) that control the cluster's behavior at this stage. By combining settings, you can find the right balance between the speed of data redistribution and the speed of processing user requests.
 
-As the data redistribution stage can potentially take a long time, there are tools for {{ GP }} clusters to [monitor](../operations/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
+As the data redistribution stage can potentially take a long time, there are tools for {{ mgp-name }} clusters to [monitor](../operations/cluster-expand.md#redistribute-monitoring) the data redistribution process. Use these tools while cluster expansion is ongoing to get more accurate information about its progress and be able to estimate its completion time.
 
 ## Settings affecting data redistribution process {#redistribution}
 
@@ -111,5 +111,3 @@ The following settings are available:
     Number of threads that will be started during the data redistribution process.
 
     {% include [setting-expand-parallel](../../_includes/mdb/mgp/expand/setting-expand-parallel.md) %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

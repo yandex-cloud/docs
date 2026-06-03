@@ -132,16 +132,16 @@
   Чтобы создать секрет, в котором будет храниться пароль базы данных {{ mmy-name }}:
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `db_password`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** вставьте пароль базы данных {{ mmy-name }}.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте пароль базы данных {{ mmy-name }}.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
   Аналогичным образом создайте еще два секрета:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Описание
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Описание
   --- | --- | ---
   `db-root-password-secret`  | `db_root_password`  | Root-пароль базы данных {{ mmy-name }}.
   `wp-admin-password-secret` | `wp_admin_password` | Пароль администратора WordPress.
@@ -178,7 +178,7 @@
 
   Аналогичным образом создайте еще два секрета:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Описание
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Описание
   --- | --- | ---
   `db-root-password-secret`  | `db_root_password`  | Root-пароль базы данных {{ mmy-name }}.
   `wp-admin-password-secret` | `wp_admin_password` | Пароль администратора WordPress.
@@ -189,7 +189,7 @@
 
   Используйте следующие имена и ключи:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Описание
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Описание
   --- | --- | ---
   `db-password-secret`       | `db_password`       | Пароль базы данных {{ mmy-name }}.
   `db-root-password-secret`  | `db_root_password`  | Root-пароль базы данных {{ mmy-name }}.

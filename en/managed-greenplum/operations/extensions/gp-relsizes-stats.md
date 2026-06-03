@@ -5,7 +5,7 @@ description: Follow this guide to use the gp_relsizes_stats extension in {{ mgp-
 
 # Using gp_relsizes_stats in {{ mgp-name }}
 
-The `gp_relsizes_stats` extension is designed to collect statistics on the physical sizes of files and tables across all {{ GP }} cluster segments.
+The `gp_relsizes_stats` extension is designed to collect statistics on the physical sizes of files and tables across all {{ mgp-name }} cluster segments.
 
 Key features:
 
@@ -53,7 +53,7 @@ Views for analysis:
 
 To update these settings, contact [support]({{ link-console-support }}).
 
-## Installing gp_relsizes_stats in a {{ GP }} cluster {#extension-install}
+## Installing gp_relsizes_stats in a {{ mgp-name }} cluster {#extension-install}
 
 1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
@@ -165,5 +165,3 @@ FROM relsizes_stats_schema.table_sizes_history
 WHERE nspname='call_center' AND relname='operators'
 ORDER BY insert_date;
 ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

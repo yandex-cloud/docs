@@ -21,7 +21,7 @@ Learn more about other cluster updates:
 
 * [Setting up maintenance](cluster-maintenance.md).
 * [Migrating a cluster to a different availability zone](host-migration.md).
-* [Configuring {{ CH }} servers](change-server-level-settings.md) as described in [this {{ CH }} article]({{ ch.docs }}/operations/server-configuration-parameters/settings).
+* [Configuring {{ CH }} servers](change-server-level-settings.md) as per [{{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Changing {{ CH }} settings at the query level](change-query-level-settings.md).
 
 
@@ -149,7 +149,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -405,7 +405,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -582,7 +582,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
 
           * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
           
-            This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+            This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
             
             Once this option is enabled, you cannot disable it.
 
@@ -601,7 +601,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
 
           * To convert non-replicated tables to [replicated](../concepts/replication.md#replicated-tables) ones, enable **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
           
-            This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+            This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
             
             Once this option is enabled, you cannot disable it.
 
@@ -672,7 +672,7 @@ You cannot disable settings for user or database management via SQL once they ar
         {{ yc-mdb-ch }} cluster update <cluster_name_or_ID> \
            ...
            --enable-sql-user-management true \
-           --admin-password "<admin_password>"
+           --admin-password "<admin_user_password>"
         ```
 
     1. To enable [database management via SQL](./databases.md#sql-database-management):
@@ -685,7 +685,7 @@ You cannot disable settings for user or database management via SQL once they ar
            ...
            --enable-sql-user-management true \
            --enable-sql-database-management true \
-           --admin-password "<admin_password>"
+           --admin-password "<admin_user_password>"
         ```
 
 
@@ -699,7 +699,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. {% include [Enable SQL database management with Terraform](../../_includes/mdb/mch/terraform/sql-management-databases.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -731,7 +731,7 @@ You cannot disable settings for user or database management via SQL once they ar
             --data '{
                       "updateMask": "configSpec.adminPassword,configSpec.sqlUserManagement,configSpec.sqlDatabaseManagement",
                       "configSpec": {
-                        "adminPassword": "<admin_password>",
+                        "adminPassword": "<admin_user_password>",
                         "sqlUserManagement": <user_management_via_SQL>,
                         "sqlDatabaseManagement": <database_management_via_SQL>
                       }
@@ -787,7 +787,7 @@ You cannot disable settings for user or database management via SQL once they ar
                     ]
                   },
                   "config_spec": {
-                    "admin_password": "<admin_password>",
+                    "admin_password": "<admin_user_password>",
                     "sql_user_management": <user_management_via_SQL>,
                     "sql_database_management": <database_management_via_SQL>
                   }
@@ -970,7 +970,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1274,7 +1274,7 @@ The following resources will be created for each database user:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1393,7 +1393,7 @@ The following resources will be created for each database user:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

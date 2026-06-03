@@ -5,15 +5,15 @@ description: This guide describes how to use auxiliary utilities.
 
 # Auxiliary utilities
 
-Greenplum Database 6 features [some useful utilities]({{ gp.docs.broadcom }}/6/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. In particular:
+Greenplum Database 7 features [some useful utilities]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-tools-ref.html) for working with {{ GP }} databases. This includes:
 
-* [gpfdist]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
-* [gpload]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpload.html): Utility to run jobs described in a YAML control file.
-* [psql]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with {{ GP }}.
+* [gpfdist]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpfdist.html): Utility to read data from and write data to files located on remote servers. For more information, see [{#T}](gpfdist/connect.md).
+* [gpload]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpload.html): Utility to run jobs described in a YAML control file.
+* [psql]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-psql.html): Command line interface for working with the database.
 
-To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 20.04:
+To install Greenplum Database 7 on your PC or VM running Ubuntu 22.04 or 20.04:
 
-1. Download deb packages required to install Greenplum Database 6 from a {{ objstorage-full-name }} bucket using the script below:
+1. Download the Greenplum Database 7 installation deb packages from a {{ objstorage-full-name }} bucket using the script below:
 
     {% list tabs group=operating_system %}
 
@@ -51,14 +51,14 @@ To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 
 1. Add these environment variables to `~/.bashrc`:
 
     ```bash
-    echo "export GPHOME=/opt/greenplum-db-6" >> ~/.bashrc && \
+    echo "export GPHOME=/opt/greenplum-db-7" >> ~/.bashrc && \
     echo "source \$GPHOME/greenplum_path.sh" >> ~/.bashrc && \
     echo "export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu\${LD_LIBRARY_PATH:+:\$LD_LIBRARY_PATH}" >> ~/.bashrc && \
     source ~/.bashrc && \
     echo $GPHOME
     ```
 
-    The list of packages in the `install.sh` file includes dependencies for the Python 2 interpreter required to work with Greenplum Database 6. Since Ubuntu 20.04 or higher uses Python 3 by default, set up switching between Python versions in the system.
+    The packages in `install.sh` include dependencies for the Python 2 interpreter, which is required by Greenplum Database 7. Since Ubuntu 20.04 or higher uses Python 3 by default, set up switching between Python versions in the system.
 
 1. Add `python2` and `python3` to the list of Python alternatives:
 
@@ -97,12 +97,14 @@ To install Greenplum Database 6 on your PC or VM running Ubuntu 22.04 or Ubuntu 
     psql --version
     ```
 
-You can find installation guides for other utilities on the [VMware website]({{ gp.docs.broadcom }}/6/greenplum-database/utility_guide-ref-gpfdist.html).
+You can find installation guides for other utilities on the [VMware website]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpfdist.html).
 
 
 {% note info %}
 
-Downloading and using software from the VMware website is not part of the [{{ mgp-full-name }} Terms of Use]({{ link-cloud-terms-of-use }}) and is governed by a separate arrangement between the client and VMware. Yandex is not responsible for the relationship between VMware and the client arising in connection with the client's use of VMware products or services.
+Downloading and using software from the VMware website is not part of the [{{ mgp-full-name }}]({{ link-cloud-terms-of-use }}). Terms of Use and is arranged between the client and VMware separately. Yandex is not responsible for any dealings between VMware and the client arising due to the client's use of VMware products or services.
 
 {% endnote %}
 
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

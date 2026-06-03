@@ -407,17 +407,15 @@ The [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store enc
 
   1. Open the [management console]({{ link-console-main }}).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `mongodb-creds`.
-  1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter `login`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter `mongo_db_user` as your DB user login.
 
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `login`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter `mongo_db_user` as your DB user login.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and specify the second secret:
 
-  1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and specify the second secret:
-
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `password`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the password to access the database: the `MONGO_INITDB_ROOT_PASSWORD` value from the [Docker container specification](#create-vm).
+      * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `password`.
+      * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter the password to access the database: the `MONGO_INITDB_ROOT_PASSWORD` value from the [Docker container specification](#create-vm).
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

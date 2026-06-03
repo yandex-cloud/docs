@@ -1,9 +1,9 @@
 ---
-title: How to use gp_url_tools in {{ mgp-full-name }}
-description: Follow this guide to use the gp_url_tools extension in {{ mgp-name }}.
+title: How to use `gp_url_tools` in {{ mgp-full-name }}
+description: Follow this guide to use the `gp_url_tools` extension in {{ mgp-name }}.
 ---
 
-# Using gp_url_tools in {{ mgp-name }}
+# Using `gp_url_tools` in {{ mgp-name }}
 
 The `gp_url_tools` extension enables you to encode URLs/URIs into a format supported by web browsers and to decode them back to the original format:
 
@@ -12,7 +12,7 @@ The `gp_url_tools` extension enables you to encode URLs/URIs into a format suppo
 * `encode_uri(text)`: Encoding a URI.
 * `decode_uri(text)`: Decoding a URI.
 
-## Installing the gp_url_tools extension in a {{ GP }} cluster {#gp-url-tools-install}
+## Installing the `gp_url_tools` extension in a {{ mgp-name }} cluster {#gp-url-tools-install}
 
 1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
@@ -77,5 +77,3 @@ The `gp_url_tools` extension enables you to encode URLs/URIs into a format suppo
     ```sql
     SELECT name, site, contact FROM companies;
     ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

@@ -5,7 +5,7 @@ description: 'Follow this guide to manage client processes and user sessions: ge
 
 # Managing client processes and user sessions
 
-{{ GP }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin) can do the following:
+{{ mgp-name }} launches a new internal process for each client connection. An administrator or any other user with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin) can do the following:
 
 * [Get a list of processes](#list).
 * [Cancel a user session](#cancel-sessions).
@@ -15,7 +15,7 @@ description: 'Follow this guide to manage client processes and user sessions: ge
 
 ## Getting a list of processes {#list}
 
-Run a query to the `mdb_toolkit.pg_stat_activity()` function. The resulting list of processes will include user queries:
+Run a query to the `mdb_toolkit.pg_stat_activity()` function. The list of processes you will get will include user queries:
 
 ```sql
 SELECT usename, pid, waiting, state, query, datname
@@ -53,7 +53,7 @@ Where:
 1. [Terminate the session process](#cancel-backend).
 1. [Terminate the DB connection](#terminate-backend).
 
-## Terminating a specific process {#cancel-backend}
+## Terminating a process {#cancel-backend}
 
 Run a query to the `mdb_toolkit.gp_cancel_backend()` function:
 
@@ -90,5 +90,3 @@ You can get the process ID with the [list of cluster processes](#list).
     ALTER RESOURCE GROUP <resource_group_name>
     SET concurrency <number_of_concurrent_transactions>;
     ```
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

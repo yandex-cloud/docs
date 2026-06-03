@@ -104,7 +104,7 @@ Description of time based rescan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || disabled | **bool**
 
 Turns off scan rule. ||
@@ -118,7 +118,7 @@ Turns off scan rule. ||
 
 List of repositories that are scanned with rule. Child repositories are included into parent node. "*" - means all repositories in registry
 
-The number of elements must be greater than 0. Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
+Each value must match the regular expression ``` \*|[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. The number of elements must be greater than 0. ||
 || rescan_period | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Required field. Period of time since last scan to trigger automatic rescan. ||

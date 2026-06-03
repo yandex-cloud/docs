@@ -23,10 +23,6 @@ blocks:
       инфраструктуре Yandex Cloud. Вы сами определяете размер кластера, мощность
       узлов и набор сервисов Apache® (Spark™, HDFS, YARN, Hive, HBase®, Oozie™,
       Sqoop™, Flume™, Tez®, Zeppelin™).
-    size: l
-  - type: card-layout-block
-    title: ''
-    description: ''
     colSizes:
       all: 12
       sm: 6
@@ -40,6 +36,7 @@ blocks:
         urlTitle: Как начать работать с Yandex Data Processing
         url: quickstart
         centered: true
+        animated: false
         size: s
       - type: basic-card
         title: Пошаговые инструкции
@@ -48,6 +45,7 @@ blocks:
         url: operations/index
         centered: true
         size: s
+        animated: false
         icon:
           light: _assets/icons/list-ol.svg
           dark: _assets/icons/list-ol.svg
@@ -58,19 +56,32 @@ blocks:
         url: concepts/index
         centered: true
         size: s
+        animated: false
         icon:
           light: _assets/icons/bookmark.svg
           dark: _assets/icons/bookmark.svg
       - type: basic-card
         title: Справочник API (англ.)
-        text: Используйте методы HTTP API для управления кластерами
+        text: "Используйте методы HTTP\_API для управления кластерами"
         urlTitle: Аутентификация в API Yandex Data Processing
         url: api-ref/authentication
         centered: true
         size: s
+        animated: false
         icon:
           light: _assets/icons/code.svg
           dark: _assets/icons/code.svg
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        urlTitle: Правила тарификации для Yandex Data Processing
+        url: pricing
+        centered: true
+        animated: false
+        size: s
+        icon:
+          light: _assets/icons/calculator.svg
+          dark: _assets/icons/calculator.svg
       - type: basic-card
         title: Квоты и лимиты
         text: Технические и организационные ограничения сервиса
@@ -78,6 +89,7 @@ blocks:
         url: concepts/limits
         centered: true
         size: s
+        animated: false
         icon:
           light: _assets/icons/sliders.svg
           dark: _assets/icons/sliders.svg
@@ -87,30 +99,22 @@ blocks:
         urlTitle: Управление доступом в Yandex Data Processing
         url: security/index
         centered: true
+        animated: false
         size: s
         icon:
           light: _assets/icons/persons-lock.svg
           dark: _assets/icons/persons-lock.svg
-      - type: basic-card
-        title: Правила тарификации
-        text: Цены и правила расчета стоимости услуг сервиса
-        urlTitle: Правила тарификации для Yandex Data Processing
-        url: pricing
-        centered: true
-        size: s
-        icon:
-          light: _assets/icons/calculator.svg
-          dark: _assets/icons/calculator.svg
       - type: basic-card
         title: Обучающие курсы
         text: Информация о доступных программах обучения
         urlTitle: Обучающие курсы по Yandex Data Processing
         url: training
         centered: true
+        animated: false
         size: s
         icon:
-          light: _assets/icons/pencil.svg
-          dark: _assets/icons/pencil.svg
+          light: _assets/icons/graduation-cap.svg
+          dark: _assets/icons/graduation-cap.svg
   - type: card-layout-block
     colSizes:
       all: 12

@@ -29,25 +29,20 @@ Retrieves the list of Image resources in the specified registry or repository.
 || registry_id | **string**
 
 ID of the registry to list Docker images in.
-
 `registry_id` is ignored if a `ListImagesRequest.repository_name` is specified in the request.
-
 To get the registry ID use a [RegistryService.List](/docs/container-registry/api-ref/grpc/Registry/list#List) request.
 
 The maximum string length in characters is 50. ||
 || repository_name | **string**
 
 Name of the repository to list Docker images in.
-
 To get the repository name use a [RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request.
 
 Value must match the regular expression ``` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || folder_id | **string**
 
 ID of the folder to list Docker images in.
-
 `folder_id` is ignored if a `ListImagesRequest.repository_name` or a `ListImagesRequest.registry_id` are specified in the request.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -164,7 +159,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

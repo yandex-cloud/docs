@@ -55,14 +55,14 @@
   Чтобы создать секрет, в котором будет храниться пароль базы данных {{ mmy-full-name }}:
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `db_password`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** вставьте пароль базы данных {{ mmy-full-name }}.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте пароль базы данных {{ mmy-full-name }}.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
-  Аналогичным образом создайте секрет `wp-admin-password-secret`, в котором будет храниться пароль администратора WordPress. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите `wp_admin_password`.
+  Аналогичным образом создайте секрет `wp-admin-password-secret`, в котором будет храниться пароль администратора WordPress. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите `wp_admin_password`.
 
 - {{ yandex-cloud }} CLI {#cli}
 

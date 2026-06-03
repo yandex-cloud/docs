@@ -10,7 +10,7 @@
         
         If you do not have a {{ lockbox-name }} secret, click **{{ ui-key.yacloud.common.create }}** to create it.
 
-        Choose the `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` secret type to specify a custom password or `{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}` to generate password automatically.
+        Choose the `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}` secret type to specify a custom password or `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}` to generate password automatically.
 
 1. In the **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** field, select the SSH key saved in your [organization user](../../organization/concepts/membership.md) profile.
 

@@ -24,7 +24,6 @@ apiPlayground:
 # Container Registry API, REST: Image.Get
 
 Returns the specified Image resource.
-
 To get the list of available Image resources, make a [List](/docs/container-registry/api-ref/Image/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imag
 || imageId | **string**
 
 Required field. ID of the Docker image resource to return.
-
 To get the Docker image ID use a [ImageService.List](/docs/container-registry/api-ref/Image/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -107,7 +105,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || createdAt | **string** (date-time)
 

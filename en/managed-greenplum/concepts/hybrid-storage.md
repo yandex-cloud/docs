@@ -1,6 +1,6 @@
 ---
 title: Hybrid storage in {{ mgp-name }}
-description: How hybrid storage works in a {{ GP }} cluster.
+description: How hybrid storage works in a {{ mgp-name }} cluster.
 ---
 
 # Hybrid storage in {{ mgp-name }}
@@ -15,7 +15,7 @@ This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage
 
 {{ mgp-name }} clusters support _hybrid storage_: some data can be stored in cluster storage and some in cold storage. By default, data is stored in cluster storage [on disks of the selected type](./storage.md). Data used rarely but meant to be stored for a long time can be moved from the cluster storage to a cold storage – to a {{ objstorage-full-name }} service bucket. This will make data storage [less costly](../pricing/index.md#rules-storage).
 
-You can enable hybrid storage in {{ GP }} clusters when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster.
+You can enable hybrid storage in {{ mgp-name }} clusters when [creating](../operations/cluster-create.md) or [updating](../operations/update.md#change-additional-settings) a cluster.
 
 {% note warning %}
 

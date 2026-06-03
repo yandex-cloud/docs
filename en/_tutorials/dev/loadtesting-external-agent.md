@@ -53,12 +53,11 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect the external agent.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
 
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `secret-loadtest`.
-  1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, e.g., `key-loadtest`.
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, upload the file with the public and private authorized keys.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter a non-secret ID, e.g., `key-loadtest`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, upload the file with the public and private authorized keys.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
       Save the name and key of the secret.

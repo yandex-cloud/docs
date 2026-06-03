@@ -57,7 +57,7 @@ For more information about {{ CK }} hosts, see [{#T}](../concepts/coordination-s
 
 ## Converting non-replicated tables to replicated ones {#replicated-tables}
 
-To automatically convert non-replicated [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) tables, enable the **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}** setting when [activating the coordination service](update.md#enable-coordination).
+To automatically convert non-replicated [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [replicated](../concepts/replication.md#replicated-tables) [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) tables, enable the **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}** setting when [activating the coordination service](update.md#enable-coordination).
 
 ## Deleting a {{ CK }} host {#delete-host}
 

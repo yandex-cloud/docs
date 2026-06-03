@@ -8,8 +8,8 @@ description: '{{ objstorage-name }} allows you to store objects in storages of v
 {{ objstorage-name }} allows you to store objects in storages of various _classes_ depending on how long you want to store your objects and how often you access them. The following options are available:
 
 #|
-|| **Storage class** {.cell-align-center} | **Access to data** {.cell-align-center} | **Cost** {.cell-align-center} | > ||
-|| ^ | ^ | **Requests** {.cell-align-center} | **Data storage** {.cell-align-center} ||
+|| **Storage class** {align="center"} | **Access to data** {align="center"} | **Cost** {align="center"} | > ||
+|| ^ | ^ | **Requests** {align="center"} | **Data storage** {align="center"} ||
 || Standard
 (`STANDARD`)^1^ | Frequent | ![image](../../_assets/console-icons/sack.svg) | ![image](../../_assets/console-icons/sack.svg)![image](../../_assets/console-icons/sack.svg)![image](../../_assets/console-icons/sack.svg) ||
 || Cold

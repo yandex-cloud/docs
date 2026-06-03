@@ -17,15 +17,12 @@ meta:
     - keyword: '{{ mkf-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ mkf-name }}
 blocks:
-  - type: content-layout-block
-    textContent:
-      title: Yandex Managed Service for Apache Kafka®
-      text: >-
-        Сервис Managed Service for Apache Kafka® помогает разворачивать и
-        поддерживать кластеры серверов Apache Kafka® версий 3.6, 3.7, 3.8, 3.9
-        или 4.0 в инфраструктуре Yandex Cloud.
-    size: l
   - type: card-layout-block
+    title: Yandex Managed Service for Apache Kafka®
+    description: >-
+      Сервис Managed Service for Apache Kafka® помогает разворачивать и
+      поддерживать кластеры серверов Apache Kafka® версий 3.6, 3.7, 3.8, 3.9 или
+      4.0 в инфраструктуре Yandex Cloud.
     colSizes:
       all: 12
       sm: 6

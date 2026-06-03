@@ -16,7 +16,7 @@
 
     Settings of the Kerberos network authentication protocol.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-kerberos.html).
+    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-kerberos.html).
 
     * **Enable**{#setting-enable}
 
@@ -28,7 +28,7 @@
 
     * **Realm**{#setting-realm}
 
-        Kerberos realm for a {{ GP }} database.
+        Kerberos realm for a database.
 
     * **Kdc Servers**{#setting-kdc-servers}
 
@@ -48,17 +48,17 @@
 
 * **User Impersonation**{#setting-user-impersonation} {{ tag-con }} {{ tag-api }}
 
-    It decides whether you can authenticate in an external file storage or DBMS on behalf of a {{ GP }} user.
+    It decides whether you can authenticate in an external file storage or DBMS on behalf of a {{ mgp-name }} user.
 
     By default, such authentication is prohibited.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
+    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Username**{#setting-username} {{ tag-con }} {{ tag-api }}
 
     Username that is used to connect to an external file storage or DBMS if user impersonation is disabled.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
+    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Sasl Connection Retries**{#setting-sasl-connection-retries} {{ tag-con }} {{ tag-api }}
 
@@ -66,7 +66,7 @@
 
     The default value is `5`.
 
-    For more information, see the relevant [{{ GP }} documentation]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
+    For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **ZK Hosts**{#setting-zk-hosts} {{ tag-con }} {{ tag-api }}
 

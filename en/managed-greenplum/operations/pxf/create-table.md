@@ -3,14 +3,27 @@ title: Creating an external table using PXF
 description: Follow this guide to create an external PXF table using an SQL query.
 ---
 
+
 # Creating an external table using PXF
+
+{{ mgp-name }} allows [creating external tables](#sql-statement) to access data in external databases. In clusters with the [Apache Cloudberry™](https://cloudberry.apache.org) DBMS, in addition to external tables, you can also [create foreign tables](#sql-statement-fdw) using the FDW mechanism. Such tables provide access to the same external DBMSs as external ones. However, foreign tables support both read and write operations within a single table, unlike external tables which are strictly read-only or write-only.
+
+The FDW mechanism supports the following external data types:
+
+* `s3_pxf_fdw`
+* `jdbc_pxf_fdw`
+* `hdfs_pxf_fdw`
+* `hive_pxf_fdw`
+
+External tables are created using the `CREATE EXTERNAL TABLE` SQL query, whereas foreign tables using `CREATE FOREIGN TABLE`.
+
 
 ## Getting started {#before-you-begin}
 
 
-1. In the {{ GP }} cluster's subnet, [set up a NAT gateway and link a routing table](../../../vpc/operations/create-nat-gateway.md).
-1. In the same subnet, [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
-1. Create an external data source. The steps for creating a source depend on the source connection type:
+1. In the {{ mgp-name }} cluster's subnet, [set up a NAT gateway and link a routing table](../../../vpc/operations/create-nat-gateway.md).
+1. In the {{ mgp-name }} cluster network, [create a security group](../../../vpc/operations/security-group-create.md) that allows all incoming and outgoing traffic from all addresses.
+1. Create an external data source. The steps you need to follow depend on the source connection type:
 
     * [S3](create-s3-source.md)
     * [JDBC](create-jdbc-source.md)
@@ -18,9 +31,390 @@ description: Follow this guide to create an external PXF table using an SQL quer
     * [Hive](create-hive-source.md)
 
 
-## Creating an external table using an SQL query {#sql-statement}
 
-The syntax of the SQL query for creating an external table is as follows:
+## Creating a foreign table {#sql-statement-fdw}
+
+Syntax of an SQL query to create a foreign table:
+
+```sql
+CREATE FOREIGN TABLE <table_name>
+  (<column_name> <data_type> [, ...])
+  SERVER "<local_source_name>"
+  OPTIONS (
+    resource '<data_path_or_table_name>'
+  );
+```
+
+Where:
+
+* `<table_name>`: Name of the external table in the {{ mgp-name }} cluster.
+* `<column_name>`: Column name.
+* `<data_type>`: Column data type. It must match the type of the corresponding column in the external DBMS.
+* `<local_source_name>`: Local data source name.
+* `<path_to_data_or_table_name>`: Path to data or table name on the external source.
+
+
+### Examples of creating foreign tables {#fdw-examples}
+
+{% list tabs group=data_sources %}
+
+- {{ CH }} {#clickhouse}
+
+  1. [Create a {{ mch-full-name }} cluster](../../../managed-clickhouse/operations/cluster-create.md) with the `chuser` username.
+
+  
+  1. [Add rules](../../../vpc/operations/security-group-add-rule.md) allowing all incoming and outgoing traffic to the security group of the {{ mch-name }} cluster.
+    
+    
+  1. Create a table in {{ CH }} and populate it with data:
+      
+      1. [Connect to the {{ CH }}](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) DB using `clickhouse-client`.
+  
+      1. Create a table named `test`:
+
+          ```sql
+          CREATE TABLE test (
+            a INT,
+            b INT
+          ) ENGINE = Memory;
+          ```
+
+      1. Add data:
+
+          ```sql
+          INSERT INTO test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Get access to external data in {{ mgp-name }}:
+  
+      1. [Connect to the database](../connect/index.md) in {{ mgp-name }}.
+
+      1. Create an external data source:
+          
+          
+          ```sql
+          CREATE SERVER "chserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'com.clickhouse.jdbc.ClickHouseDriver',
+              db_url 'jdbc:clickhouse:http://c-<cluster_ID>.rw.{{ dns-zone }}:8123/<DB_name>',
+              user 'chuser',
+              pass '<password>'
+            );
+          ```
+
+          Where `db_url` is a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) always pointing to an available {{ mch-name }} cluster host.
+
+          You can get the cluster ID with the [list of clusters](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) in the folder.
+
+          If public access is enabled for {{ CH }} hosts, use an encrypted connection when creating an external table. Do it by specifying SSL parameters; use the `https` protocol and port `{{ port-mch-http }}`.
+
+          ```sql
+          CREATE SERVER "chserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              ssl 'true',
+              sslmode 'strict',
+              sslrootcert '/etc/greenplum/ssl/allCAs.pem',
+              jdbc_driver 'com.clickhouse.jdbc.ClickHouseDriver',
+              db_url 'jdbc:clickhouse:https://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mch-http }}/<DB_name>',
+              user 'chuser',
+              pass '<password>'
+            );
+          ```
+
+      1. Create a mapping between a local user and a user in the external data source:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "chserver";
+          ```
+
+      1. Create an external table named `fdw_ch` to reference the `test` table in the {{ CH }} cluster:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_ch (
+            a INT,
+            b INT
+          )
+          SERVER "chserver"
+          OPTIONS (
+            resource 'test'
+          );
+         ```
+
+      1. Query the external table for data:
+
+          ```sql
+          SELECT * FROM fdw_ch;
+          ```
+      
+      1. Populate the external table with data:
+          
+          ```sql
+          INSERT INTO fdw_ch (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ MY }} {#mysql}
+
+  
+  1. [Create a {{ mmy-full-name }} cluster](../../../managed-mysql/operations/cluster-create.md) with public access to its hosts and `mysqluser` for username.
+
+  1. [Add rules](../../../vpc/operations/security-group-add-rule.md) allowing all incoming and outgoing traffic to the security group of the {{ mmy-name }} cluster.
+
+    
+  1. Create a table in {{ MY }} and populate it with data:
+      
+      1. [Connect to the {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) DB using `mysql`.
+  
+      1. Create a table named `test`:
+
+          ```sql
+          CREATE TABLE test (
+            a INT,
+            b INT
+          );
+          ```
+
+      1. Add data:
+
+          ```sql
+          INSERT INTO test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Get access to external data in {{ mgp-name }}:
+  
+      1. [Connect to the database](../connect/index.md) in {{ mgp-name }}.
+
+      1. Create an external data source:
+          
+          ```sql
+          CREATE SERVER "myserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'com.mysql.jdbc.Driver',
+              db_url 'jdbc:mysql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mmy }}/<DB_name>',
+              user 'mysqluser',
+              pass '<password>'
+            );
+          ```
+
+          `db_url` is a [special FQDN](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) always pointing to the current master host in the {{ mmy-name }} cluster.
+
+          You can get the cluster ID with the [list of clusters](../../../managed-mysql/operations/cluster-list.md#list-clusters) in the folder.
+
+      1. Create a mapping between a local user and a user in the external data source:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "myserver";
+          ```
+
+      1. Create an external table named `fdw_mysql` to reference the `test` table in the {{ MY }} cluster:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_mysql (
+            a INT,
+            b INT
+          )
+          SERVER "myserver"
+          OPTIONS (
+            resource 'test'
+          );
+         ```
+
+      1. Query the external table for data:
+
+          ```sql
+          SELECT * FROM fdw_mysql;
+          ```
+      
+      1. Populate the external table with data:
+          
+          ```sql
+          INSERT INTO fdw_mysql (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ PG }} {#postgresql}
+
+  
+  1. [Create a {{ mpg-full-name }} cluster](../../../managed-postgresql/operations/cluster-create.md) with public access to its hosts and `pguser` for username.
+  1. [Add rules](../../../vpc/operations/security-group-add-rule.md) allowing all incoming and outgoing traffic to the security group of the {{ mpg-name }} cluster.
+
+    
+  1. Create a table in {{ PG }} and populate it with data:
+      
+      1. [Connect to the {{ PG }}](../../../managed-postgresql/operations/connect/clients.md) DB using `psql`.
+  
+      1. Create a table named `test`:
+
+          ```sql
+          CREATE TABLE public.test (
+            a INT,
+            b INT
+          );
+          ```
+
+      1. Add data:
+
+          ```sql
+          INSERT INTO public.test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Get access to external data in {{ mgp-name }}:
+  
+      1. [Connect to the database](../connect/index.md) in {{ mgp-name }}.
+
+      1. Create an external data source:
+          
+          ```sql
+          CREATE SERVER "pgserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'org.postgresql.Driver',
+              db_url 'jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>',
+              user 'pguser',
+              pass '<password>'
+            );
+          ```
+
+          `db_url` is a [special FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
+
+          You can get the cluster ID with the [list of clusters](../../../managed-postgresql/operations/cluster-list.md#list-clusters) in the folder.
+
+      1. Create a mapping between a local user and a user in the external data source:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "pgserver";
+          ```
+
+      1. Create an external table named `fdw_pg` to reference the `public.test` table in the {{ PG }} cluster:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_pg (
+            a INT,
+            b INT
+          )
+          SERVER "pgserver"
+          OPTIONS (
+            resource 'public.test'
+          );
+         ```
+
+      1. Query the external table for data:
+
+          ```sql
+          SELECT * FROM fdw_pg;
+          ```
+
+      1. Populate the external table with data:
+          
+          ```sql
+          INSERT INTO fdw_pg (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ objstorage-name }} {#storage}
+
+  1. [Create a service account](../../../iam/operations/sa/create.md#create-sa) named `fdw-agent` and assign it the `storage.editor` role to access the {{ objstorage-name }} bucket.
+  1. [Create an {{ objstorage-name }} bucket](../../../storage/operations/buckets/create.md) with restricted access.
+  1. [Grant](../../../storage/operations/buckets/edit-acl.md) `fdw-agent` the `READ and WRITE` permissions for the new bucket.
+  1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+  1. Prepare a test file and upload it to the bucket.
+      
+      1. Create a test file named `test.csv` on your local machine:
+
+          ```csv
+          1,11
+          2,22
+          ```
+
+      1. [Upload](../../../storage/operations/objects/upload.md) the `test.csv` file to the bucket.
+  
+  1. Get access to external data in {{ mgp-name }}:
+  
+      1. [Connect to the database](../connect/index.md) in {{ mgp-name }}.
+
+      1. Create an external data source:
+          
+          ```sql
+          CREATE SERVER "objserver"
+            FOREIGN DATA WRAPPER s3_pxf_fdw
+            OPTIONS (
+              accesskey '<static_access_key_ID>',
+              secretkey '<secret_access_key>',
+              endpoint '{{ s3-storage-host }}'
+            );
+          ```
+
+      1. Create a mapping between a local user and a user in the external data source:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "objserver";
+          ```
+
+      1. Create an external table named `fdw_s3` to reference the `test.csv` table in the bucket:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_s3 (
+            a INT,
+            b INT
+          )
+          SERVER "objserver"
+          OPTIONS (
+            resource '<bucket_name>/test.csv',
+            format 'csv'
+          );
+         ```
+
+      1. Query the external table for data:
+
+          ```sql
+          SELECT * FROM fdw_s3;
+          ```
+
+{% endlist %}
+
+{% note tip %}
+
+You can provide connection parameters either when creating the data source and when creating the external table.
+
+{% cut "Providing connection parameters when creating the external table" %}
+
+```sql
+CREATE SERVER "<local_source_name>"
+  FOREIGN DATA WRAPPER jdbc_pxf_fdw;
+
+CREATE USER MAPPING FOR CURRENT_USER
+  SERVER "<local_source_name>";
+
+CREATE FOREIGN TABLE <table_name>
+  (<column_name> <data_type> [, ...])
+  SERVER "<local_source_name>"
+  OPTIONS (
+    resource '<data_path_or_table_name>',
+    jdbc_driver '<JDBC_driver_class_name>',
+    db_url 'jdbc:<DBMS_type>://<cluster_FQDN>:<port>/<database_name>',
+    user '<username>',
+    pass '<password>'
+  );
+```
+
+{% endcut %}
+
+{% endnote %}
+
+
+## Creating an external table {#sql-statement}
+
+Syntax of an SQL query to create an external table:
 
 ```sql
 CREATE [WRITABLE] EXTERNAL TABLE <table_name>
@@ -31,7 +425,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <table_name>
 
 Where:
 
-* `<table_name>`: Name of the external table you are creating in the {{ GP }} cluster.
+* `<table_name>`: Name of the external table you are creating in the {{ mgp-name }} cluster.
 * `<column_name>`: Column name.
 * `<data_type>`: Column data type. It must match the column data type in the external DBMS table.
 * `<data_path_or_table_name>`: External object name, see [examples of external tables](#pxf-examples).
@@ -86,7 +480,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO test VALUES (1);
         ```
 
-    1. [Connect to the {{ GP }}](../connect/index.md) DB.
+    1. [Connect to the database](../connect/index.md).
     1. Create an external table named `pxf_ch` to reference the `test` table in the {{ CH }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -174,10 +568,10 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         ```
 
         ```sql
-        INSERT INTO test VALUES (1, '11'), (2, '22');
+        INSERT INTO test VALUES (1, 11), (2, 22);
         ```
 
-    1. [Connect to the {{ GP }}](../connect/index.md) DB.
+    1. [Connect to the database](../connect/index.md).
     1. Create an external table named `pxf_mysql` to reference the `test` table in the {{ MY }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -248,10 +642,10 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         ```
 
         ```sql
-        INSERT INTO public.test VALUES (1, '11'), (2, '22');
+        INSERT INTO public.test VALUES (1, 11), (2, 22);
         ```
 
-    1. [Connect to the {{ GP }}](../connect/index.md) DB.
+    1. [Connect to the database](../connect/index.md).
     1. Create an external table named `pxf_pg` to reference the `public.test` table in the {{ PG }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -298,8 +692,8 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
     1. Optionally, [create an external S3 data source](create-s3-source.md) with the following properties:
 
         * **Name**: `objserver`.
-        * **Access Key**: ID of the static access key you previously created.
-        * **Secret Key**: Secret key you previously created along with the static access key.
+        * **Access Key**: ID of the static access key created earlier.
+        * **Secret Key**: Secret key created earlier together with the static access key.
         * **Endpoint**: `{{ s3-storage-host }}`.
 
         With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
@@ -315,7 +709,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         Files you are uploading to the bucket must not start with `.` or `_`. Such files are considered hidden, and PXF does not read data from them.
 
-    1. [Connect to the {{ GP }}](../connect/index.md) DB.
+    1. [Connect to the database](../connect/index.md).
     1. To read data from an {{ objstorage-name }} bucket:
 
         1. Create an external table named `pxf_s3_read` to reference the bucket. The SQL query depends on whether you previously created an external data source:

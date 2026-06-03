@@ -62,11 +62,11 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
-  1. Select the `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` secret type.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `token`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the bot’s token you got when [creating](#create-bot) it.
+  1. Select the `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}` secret type.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `token`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the bot’s token you got when [creating](#create-bot) it.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - {{ yandex-cloud }} CLI {#cli}

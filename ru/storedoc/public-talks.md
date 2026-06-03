@@ -8,6 +8,12 @@ description: Видеозаписи конференций и вебинаров
 ## Конференции и вебинары {#conf-and-webinars}
 
 
+### 2026: {{ yandex-cloud }} {#yc-2026}
+
+* Руководство по {{ mmg-short-name }}: {{ MG }}-совместимой базе данных в {{ yandex-cloud }}.
+
+  * Запись трансляции на [YouTube](https://www.youtube.com/live/uTt52jcvJ98) и [{{ video-name }}](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
+
 ### 2025: Статьи {#article-2025}
 
 * Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 

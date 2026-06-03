@@ -14,7 +14,7 @@ By using resource groups, users with the `mdb_admin` [role](cluster-users.md#mdb
 A resource group may include several [roles](cluster-users.md) that will share their quotas.
 
 
-{{ GP }} gets a transaction query from the user and matches its resource requirements with the unused quotas in the resource group. If the quotas are sufficient, the query execution begins immediately. If not, the query waits for other queries to be completed and to free up the resources. Queries are queued based on the _first in, first out_ (FIFO) principle.
+{{ mgp-name }} gets a transaction query from the user and matches its resource requirements with the unused quotas in the resource group. If the quotas are sufficient, the query execution begins immediately. If not, the query waits for other queries to be completed and to free up the resources. Queries are queued based on the _first in, first out_ (FIFO) principle.
 
 For information on how to manage resource groups, see [this guide](../operations/resource-groups.md).
 
@@ -34,7 +34,7 @@ Every resource group has the following parameters:
 
 ## Default resource groups {#default}
 
-Once you create a {{ GP }} cluster, it includes three resource groups:
+Once you create a {{ mgp-name }} cluster, it includes three resource groups:
 
 * `admin_group`: Service group assigned to the `monitor` and `gpadmin` service roles.
 * `mdb_admin_group`: Group for administrators. By default, it is assigned to the administrator user whose username and password you specified when creating the cluster.
@@ -45,7 +45,7 @@ Once you create a {{ GP }} cluster, it includes three resource groups:
 
 Default values of the resource group parameters:
 
-| Parameter              | `admin_group` | `mdb_admin_group` | `default_group` |
+| Argument              | `admin_group` | `mdb_admin_group` | `default_group` |
 | --------------------- | -----------   | ----------- | ----------- |
 | `MEMORY_AUDITOR`      | `vmtracker`   | `vmtracker` | `vmtracker` |
 | `CONCURRENCY`         | `10`          | `20`        | `20`        |
@@ -63,12 +63,12 @@ For more information about managing roles, see [Users and roles](./cluster-users
 
 * You can allocate a segment's RAM share for each resource group using the `MEMORY_LIMIT` parameter. This percentage is split into the _shared quota_ and _guaranteed quota_:
 
-    * The shared quota is set in the `MEMORY_SHARED_QUOTA` parameter and can be used by all the resource group transactions. {{ GP }} distributes the shared quota to transactions based on the _first in, first out_ principle.
+    * The shared quota is set in the `MEMORY_SHARED_QUOTA` parameter and can be used by all the resource group transactions. {{ mgp-name }} distributes the shared quota to transactions based on the _first in, first out_ principle.
     * The guaranteed quota is allocated to each transaction and calculated by the following formula:
 
         `(MEMORY_LIMIT − MEMORY_SHARED_QUOTA)/CONCURRENCY`
 
-* If the total of `MEMORY_LIMIT` values of all resource groups is below `100`, {{ GP }} distributes unallocated RAM to any transactions from any resource groups based on the _first in, first out_ principle.
+* If the total of `MEMORY_LIMIT` values of all resource groups is below `100`, {{ mgp-name }} distributes unallocated RAM to any transactions from any resource groups based on the _first in, first out_ principle.
 
     The transaction uses non-allocated memory when both conditions are met:
 

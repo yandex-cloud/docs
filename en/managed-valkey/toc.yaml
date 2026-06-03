@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: '{{ VLK }} version upgrade'
+          - name: '{{ VLK }} version update'
             href: operations/cluster-version-update.md
           - name: Working with {{ VLK }} models
             href: operations/modules.md
@@ -117,7 +117,7 @@ items:
         href: concepts/maintenance.md
       - name: '{{ VLK }} settings'
         href: concepts/settings-list.md
-      - name: Versioning policy {{ VLK }}
+      - name: '{{ VLK }} versioning policy'
         href: concepts/update-policy.md
   - name: Access management
     href: security/index.md

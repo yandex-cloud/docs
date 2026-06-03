@@ -1,6 +1,6 @@
 # Editing PXF settings
 
-The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the {{ GP }} [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops) configuration file. It describes the PXF protocol features. In {{ GP }} clusters, the PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
+The [PXF](../external-tables.md) settings you can configure using the {{ yandex-cloud }} tools match those in the [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops) configuration file. It describes the PXF protocol features. In {{ mgp-name }} clusters, the PXF settings have the default values. To optimize working with [external tables](../../concepts/external-tables.md), you can update the PXF settings using the {{ yandex-cloud }} interfaces rather than edit the file.
 
 {% list tabs group=instructions %}
 
@@ -9,7 +9,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
     To edit PXF settings:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}** in the left-hand panel.
     1. Click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** at the top of the page.
     1. Edit the settings:
@@ -37,7 +37,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     To edit PXF settings:
 
-    1. See the description of the CLI command for updating a cluster configuration:
+    1. View the description of the CLI command for updating a cluster configuration:
 
         ```bash
         {{ yc-mdb-gp }} cluster update --help
@@ -79,11 +79,11 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
     To edit PXF settings:
 
-    1. Open the current {{ TF }} configuration file that defines your infrastructure.
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For more information about creating this file, see [{#T}](../cluster-create.md).
+        For more on how to create such a file, see [{#T}](../cluster-create.md).
 
-        For a complete list of adjustable configuration fields for {{ GP }} clusters, see the [{{ TF }} provider guide]({{ tf-provider-mgp }}).
+        For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
     1. In the cluster description, under `pxf_config`, configure the PXF settings:
 
@@ -129,11 +129,11 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../../_includes/note-api-updatemask.md) %}
 
@@ -163,7 +163,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
         * `connectionTimeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
         * `uploadTimeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `maxThreads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
@@ -177,19 +177,19 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -235,7 +235,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
 
         Where:
 
-        * `update_mask`: Comma-separated list of settings you want to update.
+        * `update_mask`: Comma-separated string of settings to update.
         * `connection_timeout`: Timeout for connection to the Apache Tomcat® server when making read queries, in seconds. The value range is from `5` to `600`.
         * `upload_timeout`: Timeout for connection to the Apache Tomcat® server when making write queries, in seconds. The value range is from `5` to `600`.
         * `max_threads`: Maximum number of the Apache Tomcat® threads. The value range is from `1` to `1024`.
@@ -249,7 +249,7 @@ The [PXF](../external-tables.md) settings you can configure using the {{ yandex-
         * `xmx`: Maximum size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
         * `xms`: Initial size of the JVM heap for the PXF daemon, in megabytes. The value range is from `64` to `16384`.
 
-        You can get the cluster ID from the [list of clusters in your folder](../cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
     1. View the [server response](../../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

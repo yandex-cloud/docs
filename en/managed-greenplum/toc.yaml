@@ -77,7 +77,7 @@ items:
             href: operations/pxf/settings.md
       - name: Connecting to an external file server (gpfdist)
         href: operations/gpfdist/connect.md
-      - name: '{{ GP }} extensions'
+      - name: Extensions
         items:
           - name: Managing extensions
             href: operations/extensions/cluster-extensions.md
@@ -107,9 +107,7 @@ items:
             href: operations/cluster-logs.md
           - name: Viewing cluster operations
             href: operations/cluster-operations.md
-          - name: Performance diagnostics
-            href: operations/performance-diagnostics.md
-          - name: Cluster and host state monitoring
+          - name: Cluster and host health monitoring
             href: operations/monitoring.md
           - name: Transferring cluster logs to {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
@@ -151,7 +149,7 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Concepts
     items:
-      - name: '{{ GP }} and {{ mgp-full-name }} overview'
+      - name: Overview of {{ GP }} and {{ CB }} DBMSs in {{ mgp-full-name }}
         href: concepts/overview.md
       - name: Resource relationships
         href: concepts/index.md
@@ -197,7 +195,7 @@ items:
         href: concepts/maintenance.md
       - name: Table and system folder vacuuming
         href: concepts/vacuum.md
-      - name: '{{ GP }} settings'
+      - name: DBMS settings
         href: concepts/settings-list.md
   - name: Access management
     href: security/index.md
@@ -815,7 +813,7 @@ items:
         href: qa/backup.md
       - name: Updating a cluster
         href: qa/update.md
-      - name: '{{ GP }} cluster and hosts'
+      - name: Cluster and hosts
         href: qa/cluster-hosts.md
       - name: Working with external tables
         href: qa/pxf.md

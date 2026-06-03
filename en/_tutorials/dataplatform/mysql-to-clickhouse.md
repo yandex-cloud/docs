@@ -7,7 +7,7 @@ To transfer data:
 
 1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the source cluster](#prepare-source).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 1. [Query data in {{ CH }}](#working-with-data-ch).
 
@@ -233,7 +233,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Query data in {{ CH }} {#working-with-data-ch}
 
-For table recovery, {{ CH }} targets with [replication](../../managed-clickhouse/concepts/replication.md) use the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are automatically added to each table:
+For table recovery, {{ CH }} targets with [replication](../../managed-clickhouse/concepts/replication.md) use the [ReplicatedReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) and [ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree) engines. The following columns are automatically added to each table:
 
 * `__data_transfer_commit_time`: Time the row was updated to this value, in `TIMESTAMP` format.
 * `__data_transfer_delete_time`: Time the row was deleted from the source, in `TIMESTAMP` format. A value of `0` indicates that the row is still active.

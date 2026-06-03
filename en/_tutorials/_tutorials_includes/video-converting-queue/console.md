@@ -39,13 +39,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 1. [Create a static key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account. Save the **Key ID** and **Your secret key**.
 1. [Create a secret](../../../lockbox/operations/secret-create.md) named `ffmpeg-sa-secret` in {{ lockbox-name }}:
 
-      1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
-      1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**, specify:
+      1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+      1. Set two key-value pairs:
 
          * `ACCESS_KEY_ID` as the key and **Key ID** from the previous step as the value.
          * `SECRET_ACCESS_KEY` as the key and **Your secret key** from the previous step as the value.
 
-         Save the secret **{{ ui-key.yacloud.lockbox.label_secret-id }}** from the **{{ ui-key.yacloud.lockbox.label_secret-general-section }}** section.
+         Save the secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** from the **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-general-section }}** section.
 
 1. [Create a message queue](../../../message-queue/operations/message-queue-new-queue.md) named `converter-queue` in {{ message-queue-full-name }}. Save the queue **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** from the **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** section.
 1. [Create a {{ ydb-short-name }} database](../../../ydb/quickstart.md#serverless) in `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}` mode. Save the **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** section.
@@ -90,7 +90,7 @@ The function implements an API which you can use to perform the following action
      1. Add these environment variables:
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
-        * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**.
+        * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**.
         * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
 
 {% endlist %}
@@ -137,7 +137,7 @@ Video conversion is based on the FFmpeg utility. The FFmpeg executable is larger
      1. Add these environment variables:
 
         * `DOCAPI_ENDPOINT`: **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** from the database configuration.
-        * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.label_secret-id }}**.
+        * `SECRET_ID`: {{ lockbox-name }} secret **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**.
         * `YMQ_QUEUE_URL`: **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** of the {{ message-queue-name }}-enabled queue.
         * `S3_BUCKET`: Name of the bucket you created earlier.
 

@@ -1,18 +1,18 @@
 ---
-title: Managing roles and {{ GP }} cluster users in {{ mgp-full-name }}
+title: Managing {{ mgp-full-name }} cluster roles and users
 description: In this tutorial, you will learn how to manage database access rights, as well as view, create, set up, and delete roles.
 ---
 
 # Role and user management
 
-{{ GP }} manages database access rights using two types of roles:
+{{ mgp-name }} manages database access rights using two types of roles:
 
 * User: Role that can log in to the database.
 * Group: Role that includes other roles.
 ​
 ​For more information, see [Users and roles](../concepts/cluster-users.md).
 
-The admin user is created together with the {{ GP }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect/index.md) on its behalf to:
+The admin user is created together with the {{ mgp-name }} cluster and automatically gets the `mdb_admin` role. [Connect to the database](connect/index.md) on its behalf to:
 
 * [View a list of roles](#list).
 * [Create a role](#create).
@@ -21,7 +21,7 @@ The admin user is created together with the {{ GP }} cluster and automatically g
 * [Configure role privileges](#privileges).
 * [Delete a role](#remove).
 
-For more information about role interaction commands, see the [{{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-sql_ref.html).
+For more information about role interaction commands, see the [{{ GP }} guide]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-sql_ref.html).
 
 ## View a list of roles {#list}
 

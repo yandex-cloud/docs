@@ -389,27 +389,27 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `speechsense-secret`.
 
-  1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-        1. Select the **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}** secret type.
+        1. Select the **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}** secret type.
         
         1. Add the service account's API key:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_api_key`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the value of the `speechsense-sa` service account's API key you [created earlier](#create-key).
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_api_key`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the value of the `speechsense-sa` service account's API key you [created earlier](#create-key).
 
-        1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the {{ speechsense-name }} connection ID:
+        1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and add the {{ speechsense-name }} connection ID:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_connection_id`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the ID of the connection you [created earlier](#create-connection).
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_connection_id`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the ID of the connection you [created earlier](#create-connection).
 
-        1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the format for the dialog files that will be uploaded to {{ speechsense-name }}:
+        1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and add the format for the dialog files that will be uploaded to {{ speechsense-name }}:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_file_format`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the file format. Acceptable values: `mp3`, `wav`, `ogg`, and `text`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_file_format`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the file format. Acceptable values: `mp3`, `wav`, `ogg`, and `text`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

@@ -76,4 +76,5 @@ description: Следуя данной инструкции, вы сможете
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
+* Посмотрите запись вебинара «Руководство по {{ mmg-short-name }}» на [YouTube](https://www.youtube.com/live/uTt52jcvJ98) или [{{ video-name }}](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).

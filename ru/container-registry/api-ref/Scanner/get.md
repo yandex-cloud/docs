@@ -23,7 +23,6 @@ apiPlayground:
 # Container Registry API, REST: Scanner.Get
 
 Returns the specified ScanResult resource.
-
 To get the list of ScanResults for specified Image, make a [List](/docs/container-registry/api-ref/Scanner/list#List) request.
 
 ## HTTP request

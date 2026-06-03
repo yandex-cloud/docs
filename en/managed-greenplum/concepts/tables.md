@@ -1,17 +1,17 @@
 ---
-title: Types of data storage in a {{ GP }} cluster in {{ mgp-full-name }}
-description: '{{ GP }} offers two types of table data storage: heap storage and append-optimized storage.'
+title: Types of data storage in a {{ mgp-full-name }} cluster
+description: '{{ mgp-name }} offers two types of table data storage: heap storage and append-optimized storage.'
 ---
 
-# Types of data storage in {{ GP }}
+# Types of data storage in {{ mgp-name }}
 
-{{ GP }} offers two [types of table data storage]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
+{{ mgp-name }} offers two [types of table data storage]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-ddl-ddl-storage.html):
 
 * _Heap storage_.
 
     This type of table supports _row-oriented_ data storage only. Such tables work best for online transaction processing (OLTP), when table data is often updated with `INSERT`, `UPDATE`, or `DELETE` operations.
 
-    All tables created in {{ GP }} use this data storage type by default.
+    All tables created in {{ mgp-name }} use this data storage type by default.
 
 * _Append-optimized storage_.
 
@@ -19,9 +19,9 @@ description: '{{ GP }} offers two types of table data storage: heap storage and 
 
     AO and AOCO tables are good for online analytical processing (OLAP) of large data arrays, when data is loaded in large batches and mainly accessed by read queries.
 
-    Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also get compressed better. When working with {{ GP }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
+    Column-oriented data storage reduces read and write overhead significantly when a query only accesses a small number of columns from the entire table field set. Column-oriented tables also get compressed better. When working with {{ mgp-name }}, we recommend using column-oriented tables with standard compression of level 1 as an analytical DBMS.
 
-    For AO and AOCO tables in {{ GP }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from the cluster storage to a cold storage, and vice versa. Cold storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
+    For AO and AOCO tables in {{ mgp-name }} clusters, [hybrid storage](./hybrid-storage.md) is available: with the [{{ YZ }} extension](../operations/extensions/yezzey.md), you can move some of your tables from the cluster storage to a cold storage, and vice versa. Cold storage is a convenient option if you need to store your table data for a long time without using it much. This will make data storage [less costly](../pricing/index.md#rules-storage).
 
 ## Creating column-oriented tables {#create-columnar-table}
 
@@ -40,5 +40,3 @@ WITH (
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/mmy-to-mgp.md)
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

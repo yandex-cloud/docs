@@ -2,11 +2,11 @@
 
 You can use {{ mch-full-name }} to store [Graphite](https://graphite.readthedocs.io/en/latest/index.html) data.
 
-The [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table engine is designed for thinning and aggregating/averaging Graphite data. The engine reduces storage volume and improves the efficiency of queries from Graphite.
+The [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree) table engine is designed for thinning and aggregating/averaging Graphite data. The engine reduces storage volume and improves the efficiency of queries from Graphite.
 
 {% note info %}
 
-If thinning, aggregation, or averaging, are not required, you can use any {{ CH }} [table engine]({{ ch.docs }}/engines/table-engines/) for storing Graphite data.
+If thinning, aggregation, or averaging, are not required, you can use any {{ CH }} [table engine]({{ ch.docs }}{{ lang }}/engines/table-engines) for storing Graphite data.
 
 {% endnote %}
 
@@ -37,7 +37,7 @@ The cost of maintaining your {{ CH }} database for Graphite includes:
 
 1. [Create a **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** cluster](../../managed-clickhouse/operations/cluster-create.md) with your preferred configuration with the `db1` database and public access to all of its hosts. Save the database name, username, and password.
 1. Open the [management console]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) the {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }} service.
+1. [Navigate to](../../console/operations/select-service.md#select-service) {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
 1. Select the new cluster and save the cluster ID on the **{{ ui-key.yacloud.common.overview }}** tab.
 1. In the top-right corner, click **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**. In the **Shell** tab, save the `--host` value from the **Sample connection string** field, e.g., `rc1a-2sqal8f0********.{{ dns-zone }}`. This is the cluster host’s FQDN you will need later on.
 
@@ -108,7 +108,7 @@ Register the `rollup` configuration in your cluster for thinning, then aggregati
 
 1. [Create](../../compute/operations/vm-create/create-linux-vm.md) a Linux VM in your cluster’s [cloud network](../../vpc/concepts/network.md).
 1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH. 
-1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -159,7 +159,7 @@ Register the `rollup` configuration in your cluster for thinning, then aggregati
 
 - {{ CH }} CLI {#cli}
 
-  To create a [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) table, run the following query in the {{ CH }} CLI interface, providing the name of the previously described `rollup` section as a parameter:
+  To create a [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree) table, run the following query in the {{ CH }} CLI interface, providing the name of the previously described `rollup` section as a parameter:
 
     ```sql
     CREATE TABLE GraphiteTable

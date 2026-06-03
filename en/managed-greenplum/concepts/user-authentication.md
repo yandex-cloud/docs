@@ -50,5 +50,3 @@ The following authentication methods are supported:
 * `reject`: User connection is not allowed.
 
 You can learn more about these settings in [this {{ PG }} guide]({{ pg-docs }}/auth-pg-hba-conf.html).
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -4,7 +4,7 @@ No, you cannot connect over SSH, nor can you get superuser permissions. This is 
 
 #### How can I access a running database host? {#db-access}
 
-You can connect to {{ GP }} databases using native DBMS connection methods.
+You can connect to databases in a {{ mgp-name }} cluster using native DBMS methods.
 
 To learn more about connecting to clusters see [this guide](../../managed-greenplum/operations/connect/index.md).
 
@@ -16,7 +16,7 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

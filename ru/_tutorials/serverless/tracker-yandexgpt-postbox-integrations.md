@@ -141,17 +141,16 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}** и в открывшемся окне:
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `tracker-oauth-token`.
-      1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-      1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите ключ секрета: `oauth`.
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите OAuth-токен приложения, полученный на предыдущем шаге.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите ключ секрета: `oauth`.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите OAuth-токен приложения, полученный на предыдущем шаге.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Нажмите на строку с созданным секретом `tracker-oauth-token` и в открывшемся окне:
 
-      1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
+      1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
       1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. В поисковой строке введите имя созданного ранее сервисного аккаунта `workflow-sa` и выберите найденный сервисный аккаунт.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.

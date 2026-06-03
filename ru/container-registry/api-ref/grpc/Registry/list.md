@@ -26,7 +26,6 @@ Retrieves the list of Registry resources in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to list registries in.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||

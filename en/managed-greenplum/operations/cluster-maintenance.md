@@ -312,7 +312,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-      For a complete list of configurable {{ GP }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
+      For a complete list of configurable {{ mgp-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mgp }}).
 
   1. To set up a [maintenance window](../concepts/maintenance.md#maintenance-window), add the `maintenance_window` section to the cluster description:
   
@@ -334,7 +334,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
         * `hour`: Hour of day (UTC), from `1` to `24`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -378,7 +378,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
         {% endnote %}
 
@@ -388,7 +388,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
           
           This parameter is provided as an empty object: `"anytime": {}`.
         
-        * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+        * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
           * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
           * `hour`: Time of day (UTC), from `1` to `24`.
@@ -455,7 +455,7 @@ You can manage [maintenance](../concepts/maintenance.md) of a {{ mgp-full-name }
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
         {% endnote %}
 

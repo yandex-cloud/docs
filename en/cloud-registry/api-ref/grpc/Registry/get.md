@@ -5,7 +5,6 @@ editable: false
 # Yandex Cloud Registry API, gRPC: RegistryService.Get
 
 Returns the specified Registry resource.
-
 To get the list of available Registry resources, make a [RegistryService.List](/docs/cloud-registry/api-ref/grpc/Registry/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available Registry resources, make a [RegistryService.List](/
 || registry_id | **string**
 
 Required field. ID of the Registry resource to return.
-
 To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/grpc/Registry/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -38,10 +36,10 @@ The maximum string length in characters is 50. ||
   "id": "string",
   "folder_id": "string",
   "name": "string",
+  "description": "string",
   "kind": "Kind",
   "type": "Type",
   "status": "Status",
-  "description": "string",
   "labels": "map<string, string>",
   "properties": "map<string, string>",
   "created_at": "google.protobuf.Timestamp",
@@ -62,6 +60,9 @@ ID of the folder that the registry belongs to. ||
 || name | **string**
 
 Name of the registry. ||
+|| description | **string**
+
+Description of the registry. ||
 || kind | enum **Kind**
 
 Kind of the registry.
@@ -69,8 +70,8 @@ Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
+- `NUGET`: Registry kind is nuget.
 - `PYPI`: Registry kind is pypi.
 - `BINARY`: Regisrty kind is binary. ||
 || type | enum **Type**
@@ -78,8 +79,9 @@ Kind of the registry.
 Type of the registry.
 
 - `LOCAL`: Registry type is local.
-- `REMOTE`
-- `VIRTUAL` ||
+- `REMOTE`: Registry type is remote.
+- `VIRTUAL`: Registry type is virtual.
+- `TRANSITIONAL`: Registry type is transitional. ||
 || status | enum **Status**
 
 Output only. Status of the registry.
@@ -87,9 +89,6 @@ Output only. Status of the registry.
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||
-|| description | **string**
-
-Description of the registry. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. Maximum of 64 per resource. ||

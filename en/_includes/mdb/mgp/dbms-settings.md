@@ -2,15 +2,15 @@
 
 Parameter context is what determines the level and interface the parameter can be specified in.
 
-For {{ GP }}, the following parameter contexts are used:
+For {{ mgp-name }}, the following parameter contexts are used:
 
 | Context | Allows the parameter to be set via `SET` | Requires restart | Description | Interface |
 | --- | --- | --- | --- | --- |
-| `user` | Yes | No | You can set these parameters for the cluster or a session using the `SET` command. Any user can edit this parameter for their session. Cluster-level changes will affect the existing sessions only if no local value was set for the session using the `SET` command. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `backend` | Yes ^*^ | No | These parameters can be set for the cluster or a particular session via the connection request packet, e.g., using the `PGOPTIONS` environment variable in `libpq`. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `sighup` | No | No | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `superuser` | No | No | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
-| `postmaster` | No | Yes | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `user` | Yes | None | You can set these parameters for the cluster or a session using the `SET` command. Any user can edit this parameter for their session. Cluster-level changes will affect the existing sessions only if no local value was set for the session using the `SET` command. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `backend` | Yes ^*^ | None | These parameters can be set for the cluster or a particular session via the connection request packet, e.g., using the `PGOPTIONS` environment variable in `libpq`. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `sighup` | None | None | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `superuser` | None | None | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
+| `postmaster` | None | Yes | These parameters can be set only for the cluster. | {{ tag-con }} {{ tag-cli }} {{ tag-tf }} {{ tag-api }} |
 
 ^*^ Any user can change these settings for their session; however, after the session starts, they can no longer be changed. New values, set at cluster level will only be valid for sessions started after they were applied.
 
@@ -81,7 +81,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 1 to 10 | 5 | `user` |
 
-When a uses starts a database session and sends a query, the system creates groups of workflows (`gangs`) on each segment to complete the work. After the work is complete, the `worker` processes on the segments are terminated, except for a certain number that are preserved in cache. This number is set by this parameter.
+When a uses starts a database session and sends a query, the system creates groups of worker processes (`gangs`) on each segment to complete the work. Once completed, these `worker` processes on the segments are terminated except for a specific number held in the cache, as defined by this parameter.
 
 A lower value allows saving system resources on the segment hosts, yet a higher value can improve performance in scenarios where many complex queries are sent consecutively.
 
@@ -177,7 +177,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 | 6.25 and higher       | Real | from 0 to 4096        | 500                   | `postmaster` |
 
 
-If the query execution process consumes more than the specified amount of memory, the process will not be cached for use in subsequent queries after it is over. In systems with a large number of connections or idle processes, you can reduce this value to free up more memory on the segments. Measured in megabytes.
+If a query execution process consumes more memory than the specified amount, this process will not be cached for use in subsequent queries after completion. In systems with a large number of connections or idle processes, you can reduce this value to free up more memory on the segments. Measured in megabytes.
 
 For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit).
 
@@ -379,7 +379,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 | 6.25 and higher | Integer | from 50 to 1,000 | 200 | `postmaster` |
 
 
-Maximum number of concurrent connections to the database cluster. You can connect up to `max_connections − 20` users, as `20` connections are reserved for superusers. The `superuser_reserved_connections` setting defines the number of connections for superusers, and you cannot change its value. For more information about `superuser_reserved_connections`, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#superuser_reserved_connections).
+Maximum number of concurrent connections to a cluster. You can connect up to `max_connections − 20` users, as `20` connections are reserved for superusers. The `superuser_reserved_connections` setting defines the number of connections for superusers, and you cannot change its value. For more information about `superuser_reserved_connections`, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#superuser_reserved_connections).
 
 When increasing `max_connections`, you should also increase [max_prepared_transactions](#setting-max-prepared-transactions). Increasing `max_connections` may cause the database to request more shared memory (see [master_shared_buffers](#setting-master-shared-buffers) and [segment_shared_buffers](#setting-segment-shared-buffers)).
 

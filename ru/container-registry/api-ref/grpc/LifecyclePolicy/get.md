@@ -5,7 +5,6 @@ editable: false
 # Container Registry API, gRPC: LifecyclePolicyService.Get
 
 Returns the specified lifecycle policy.
-
 To get the list of all available lifecycle policies, make a [List](/docs/container-registry/api-ref/grpc/LifecyclePolicy/list#List) request.
 
 ## gRPC request

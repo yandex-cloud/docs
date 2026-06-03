@@ -73,7 +73,7 @@ To migrate a table from a third-party {{ CH }} cluster to a {{ mch-name }} clust
    SELECT * FROM <DB_name>.<table_name>;
    ```
 
-For more details on using the `remote` function, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/table-functions/remote).
+For more details on using the `remote` function, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/remote).
 
 ## Migrating data using the BACKUP/RESTORE commands and an {{ objstorage-name }} bucket {#backup-objstorage}
 
@@ -163,4 +163,4 @@ You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket 
         SHOW DATABASES;
         ```
 
-For more details on using the `BACKUP`/`RESTORE` commands with an S3 storage, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/backup#backuprestore-using-an-s3-disk).
+For more details on using the `BACKUP`/`RESTORE` commands with an S3 storage, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/backup/overview#backuprestore-using-an-s3-disk).

@@ -37,22 +37,22 @@ End of life (`EOL`) | Discontinued version. **Technical support is not provided.
 
 #|
 ||
-**Action** | **Full support (`Supported`)** {.cell-align-top-center} | **`Deprecated`** {.cell-align-top-center} | **`Legacy`** {.cell-align-top-center} | **End of life (`EOL`)** {.cell-align-top-center}
+**Action** | **Full support (`Supported`)** {align="center"} | **`Deprecated`** {align="center"} | **`Legacy`** {align="center"} | **End of life (`EOL`)** {align="center"}
 ||
 ||
-Creating new clusters | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center}
+Creating new clusters | ![yes](../../_assets/common/yes.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"}
 ||
 ||
-Recovery from a backup | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center}
+Recovery from a backup | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} | ![no](../../_assets/common/no.svg) {align="center"}
 ||
 ||
-Use of existing clusters | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center}
+Use of existing clusters | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"}
 ||
 ||
-Support | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | limited {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center}
+Support | ![yes](../../_assets/common/yes.svg) {align="center"} | ![yes](../../_assets/common/yes.svg) {align="center"} | limited {align="center"} | ![no](../../_assets/common/no.svg) {align="center"}
 ||
 ||
-Pricing | standard {.cell-align-center} | standard {.cell-align-center} | increased^1^ {.cell-align-center} | increased^1^ {.cell-align-center}
+Pricing | standard {align="center"} | standard {align="center"} | increased^1^ {align="center"} | increased^1^ {align="center"}
 ||
 |#
 

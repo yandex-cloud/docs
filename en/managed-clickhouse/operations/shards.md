@@ -124,7 +124,7 @@ You can create multiple shards in a cluster in one go.
 
      {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -194,7 +194,7 @@ You can create multiple shards in a cluster in one go.
 
           To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-          For more information, see [this {{ CH }} guide]({{ ch.docs }}/engines/table-engines/special/distributed).
+          For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `hostSpecs`: Settings of hosts to add to the shard. The settings appear as an array of elements, one per host. Each element has the following structure:
 
@@ -283,7 +283,7 @@ You can create multiple shards in a cluster in one go.
 
             To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-            For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
+            For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `host_specs`: Settings of hosts to add to the shard as an array of elements, one per host. Each element has the following structure:
 
@@ -497,9 +497,9 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-         For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
+         For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the shard name from the [list of cluster shards](#list-shards).
 
   1. Check the [server response](../api-ref/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -568,9 +568,9 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
          To calculate the shard priority for data distribution, the system adds up the weights of all shards and then divides each shard's weight by the total. For example, if one shard has a weight of `1` and another has a weight of `3`, then the first shard's priority is `1/4` and the second shard's priority is `3/4`. The higher the priority, the more data the shard will get.
 
-         For more information, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/special/distributed).
+         For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the shard name, with the [list of shards in the cluster](#list-shards).
+     You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters), and the shard name from the [list of cluster shards](#list-shards).
 
   1. View the [server response](../api-ref/grpc/Cluster/updateShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -622,7 +622,7 @@ Deleting a shard will delete all tables and data stored on that shard.
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ mch-name }} cluster description, delete the shard from the `shards` section, and all {{ CH }} hosts on that shard, from the `hosts` section.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

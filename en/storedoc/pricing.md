@@ -47,7 +47,7 @@ The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is bille
 
 ### Disk usage {#rules-storage}
 
-You are charged for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
@@ -70,8 +70,6 @@ You are charged for the following:
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 

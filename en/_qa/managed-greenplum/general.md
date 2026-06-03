@@ -1,14 +1,14 @@
 #### What is {{ mgp-short-name }}? {#what-is}
 
-{{ mgp-short-name }} is a solution that helps you create, operate, and scale {{ GP }} databases in the cloud.
+{{ mgp-short-name }} is a service that helps you create, operate, and scale {{ GP }} and {{ CB }} databases in the cloud.
 
 With {{ mgp-short-name }}, you can:
 
 * Create a database with the performance specs tailored to your needs.
 * Scale computing power and dedicated storage capacity for your databases as needed.
-* Get database logs.
+* Retrieve database logs.
 
-{{ mgp-short-name }} handles the heavy lifting of {{ GP }} infrastructure management:
+{{ mgp-short-name }} takes on the heavy lifting of DBMS infrastructure management:
 
 * Monitors resource usage.
 * Performs automated database backups.

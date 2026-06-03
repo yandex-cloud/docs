@@ -5,7 +5,7 @@ description: Follow this guide to change {{ CH }} settings at the query level.
 
 # Changing {{ CH }} settings at the query level
 
-You can specify [{{ CH }} settings at the query level](https://clickhouse.com/docs/en/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings using several methods:
+You can specify [{{ CH }} settings at the query level]({{ ch.docs }}{{ lang }}/operations/settings/query-level) to flexibly configure databases in a {{ mch-name }} cluster. You can specify settings using several methods:
 
 * Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can only specify the [{{ CH }} settings available in {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
 * Using SQL queries. This way you can specify any {{ CH }} settings at the query level. The way you set up {{ CH }} depends on the type of settings:
@@ -14,7 +14,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
       To use this method, enable **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster. Once you enable this option, you will not be able to manage users via the {{ yandex-cloud }} interfaces, as user management via SQL cannot be disabled.
 
-   * [Profile-level settings](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}/operations/access-rights#settings-profiles-management) contains the values and limits of these settings, along with the list of roles and users the profile applies to. To provide {{ CH }} settings, use the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
+   * [Profile-level settings](#settings-profile). In {{ CH }}, the [settings profile]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management) contains the values and limits of these settings, along with the list of roles and users the profile applies to. To provide {{ CH }} settings, use the `CREATE SETTINGS PROFILE` and `ALTER SETTINGS PROFILE` SQL queries.
 
       To use this method, enable **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** when [creating](cluster-create.md) or [updating](update.md#SQL-management) the cluster.
 
@@ -24,7 +24,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    * [Connection settings](#connection). When connecting to a database via [clickhouse-client](connect/clients.md#clickhouse-client), you can provide {{ CH }} settings using flags. This way you can specify settings in a cluster with any configuration, but they will only apply to the current connection.
 
-      You can also specify connection settings in different drivers for {{ CH }} or provide them as URL parameters when sending {{ CH }} HTTP API requests. For more information about these methods, see [this {{ CH }} overview article](https://clickhouse.com/docs/en/interfaces/overview).
+      You can also specify connection settings in different drivers for {{ CH }} or provide them as URL parameters when sending {{ CH }} HTTP API requests. For more information about these methods, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/interfaces/overview).
 
 ## Getting a list of {{ CH }} settings at the query level {#get-list}
 
@@ -108,7 +108,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
       }
       ```
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -217,7 +217,7 @@ You can provide {{ CH }} settings when [adding a new user](#add-user) or [changi
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-      Under `SETTINGS`, you can specify the setting value along with its minimum and maximum. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
+      Under `SETTINGS`, you can specify the setting value along with its minimum and maximum. Here is an example for the [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout) setting:
 
       ```sql
       CREATE USER <username>
@@ -225,7 +225,7 @@ You can provide {{ CH }} settings when [adding a new user](#add-user) or [changi
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
 
-      For more information about creating users, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/create/user/).
+      For more information about creating users, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -242,7 +242,7 @@ You can provide {{ CH }} settings when [adding a new user](#add-user) or [changi
       ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
-      For more information on editing accounts, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/alter/user).
+      For more information on editing accounts, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user).
 
 {% endlist %}
 
@@ -264,7 +264,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
-      Under `SETTINGS`, you can specify the setting value along with its minimum and maximum. Here is an example for the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
+      Under `SETTINGS`, you can specify the setting value along with its minimum and maximum. Here is an example for the [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout) setting:
 
       ```sql
       CREATE SETTINGS PROFILE <settings_profile_name>
@@ -279,7 +279,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          TO <username>;
       ```
 
-      For more information about creating settings profiles, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/create/settings-profile).
+      For more information about creating settings profiles, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/settings-profile).
 
 {% endlist %}
 
@@ -297,7 +297,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          SETTINGS <list_of_{{ CH }}_settings>;
       ```
 
-      In this query, you can define the setting minimum and maximum values and assign the profile to a user. For more information about changing settings profiles, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/alter/settings-profile).
+      In this query, you can define the setting minimum and maximum values and assign the profile to a user. For more information about changing settings profiles, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/settings-profile).
 
 {% endlist %}
 
@@ -345,7 +345,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
       Most flags in the command output are advanced {{ CH }} settings.
 
-   1. Select the flags with the required settings by matching the flag names with the [names of {{ CH }} settings]({{ ch.docs }}/operations/settings/settings).
+   1. Select the flags with the required settings by matching the flag names with the [names of {{ CH }} settings]({{ ch.docs }}{{ lang }}/operations/settings/settings).
    1. Provide the selected flags in the database connection command:
 
       * Connecting without SSL:
@@ -373,7 +373,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
          ```
 
 
-      * Here is an example of connecting without SSL with the [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout) setting:
+      * Here is an example of connecting without SSL with the [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout) setting:
 
          ```bash
          clickhouse-client --host {{ host-name }}.{{ dns-zone }} \

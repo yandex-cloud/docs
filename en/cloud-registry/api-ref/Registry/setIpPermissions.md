@@ -34,6 +34,7 @@ apiPlayground:
           action:
             description: |-
               **enum** (Action)
+              Required field.
               - `PULL`
               - `PUSH`
             type: string
@@ -42,8 +43,13 @@ apiPlayground:
               - PULL
               - PUSH
           ip:
-            description: '**string**'
+            description: |-
+              **string**
+              Required field.
             type: string
+        required:
+          - action
+          - ip
 ---
 
 # Yandex Cloud Registry API, REST: Registry.SetIpPermissions
@@ -93,9 +99,13 @@ IP permission to be set. ||
 ||Field | Description ||
 || action | **enum** (Action)
 
+Required field.
+
 - `PULL`
 - `PUSH` ||
-|| ip | **string** ||
+|| ip | **string**
+
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -110,17 +120,16 @@ IP permission to be set. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "registryId": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -162,7 +171,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetIpPermissionsMetadata](#yandex.cloud.cloudregistry.v1.SetIpPermissionsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -171,21 +180,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## SetIpPermissionsMetadata {#yandex.cloud.cloudregistry.v1.SetIpPermissionsMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| registryId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the registry that ip permission is being set. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

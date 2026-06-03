@@ -5,14 +5,17 @@ keywords:
   - access
   - configuring access
   - '{{ GP }} access'
+  - '{{ CB }} access'
   - green plum
+  - cloudberry
   - '{{ GP }}'
+  - '{{ CB }}'
 ---
 
 # Access management in {{ mgp-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -24,7 +27,7 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-greenpl
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -100,7 +103,7 @@ The diagram below shows available service roles and their permission inheritance
 
 {% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
-When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
+When you create a {{ mgp-name }} cluster, an admin user with the `mdb_admin` role is created automatically. This role replaces the superuser when working with the database and is not analogous to the `{{ roles-mdb-admin }}` role in {{ yandex-cloud }}. For more information, see [{#T}](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -115,9 +118,9 @@ When you create a {{ GP }} cluster, an admin user with the `mdb_admin` role is c
 
 ## Required roles {#required-roles}
 
-As a user, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the cluster list.
+As a user, you need the [{{ roles.mgp.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mgp.viewer }}` role only allows you to view the list of clusters.
 
-To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
+To create a {{ mgp-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mgp.editor }}` role or higher.
 
 You can always assign a role with more permissions, e.g., `{{ roles.mgp.admin }}` instead of `{{ roles.mgp.editor }}`.
 
@@ -128,5 +131,3 @@ You can always assign a role with more permissions, e.g., `{{ roles.mgp.admin }}
 * [Learn more about access management in {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Learn more about role inheritance](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).
 
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -6031,6 +6031,7 @@ default:
         create: Create
         created-at: Date created
         delete: Delete
+        deletion-protection: Deletion protection
         description: Description
         disable: Disable
         disabled: Disabled
@@ -7220,6 +7221,35 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
+      interconnect:
+        bgp-asn_3dSL7: BGP ASN
+        bgp-key_cn2dU: BGP Key
+        cloud-ip_6ESSe: Cloud IP
+        peer-ip_pMdxo: Peer IP
+        peering-subnet_eYRTR: Peering subnet
+        private-connection:
+          create-private-connection_6K9tP: Create private connection
+          private-connections_daeaR: Private connections
+          StaticRoutePrefixRow:
+            add-prefix-button_n11CU: Add prefix
+          TrunkConnectionSuggestOrCreate:
+            title_oPBF7: Trunk connection ID
+        public-connection:
+          public-connections_7xYcV: Public connections
+        trunk-connection:
+          connection-capacity_tkrnE: Connection capacity
+          connection-type_23Twp: Connection type
+          connection-type-lag_nkLCb: LAG
+          connection-type-partner_tsPPf: Via partner
+          connection-type-single-port-direct_1QHVe: Direct
+          DirectConnectionFields:
+            ports-count_d9Zds: Number of ports
+          point-of-presence_265QN: Point of presence
+          transceiver-type_2WtM8: Transceiver type
+          trunk-connections_kBGNL: Trunk connections
+          TrunkConnectionListScreen:
+            create-trunk-connection_oUuYo: Create trunk connection
+        vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7614,37 +7644,46 @@ default:
         value_imbalance_rps-chart-type: 'Fault point: RPS'
         value_instances-chart-type: 'Testing threads: quantity'
       lockbox:
-        button_action-make-version-current: Set as current version
-        button_action-open-version-add-dialog: Create a version from this one
-        button_action-schedule-for-destruction: Schedule destruction
-        button_activate-secret: Activate secret
-        button_add-version: Add version
-        button_create-secret: Create secret
-        button_deactivate-secret: Deactivate
-        field_make-version-current: Set as current version
-        forms:
-          alert_generated-version-edit_button: Edit secret
-          button_add-pair: Add key/value
-          button_schedule-destruction: Schedule
+        BaseInfoSection:
           field_deletion-protection: Block secret deletion
-          label_key: Key
-          label_value: Value
-          title_auto-generation_params_section: Automatic generation options
+        EncryptionInfoSection:
           title_kms-key: KMS key
-          title_secret-data-section: Secret data
-          title_secret-type: Secret type
+        FormFields:
           title_secret-type-custom: Custom
           title_secret-type-generated: Generated
-          title_version-payload-entries-value-placeholder: Value
+        routes:
+          label_section-secrets: Secrets
+        ScheduleDestructionFormDialog:
+          button_schedule-destruction: Schedule
+        SecretActions:
+          button_activate-secret: Activate secret
+          button_deactivate-secret: Deactivate
+        SecretGeneratedVersion:
+          label_key: Key
+        SecretInfoSection:
+          title_auto-generation_params_section: Automatic generation options
+          title_secret-data-section: Secret data
+          title_secret-type: Secret type
+        SecretOverviewPage:
+          button_add-version: Add version
+          label_secret-general-section: Information about secret
+          label_secret-id: ID
+          label_secret-versions-section: Versions
+        SecretsPage:
+          button_create-secret: Create secret
+        SecretVersionsInputs:
           value_payload-entry-value-type-text: Text
-        label_password-key: Key
-        label_secret-general-section: Information about secret
-        label_secret-id: ID
-        label_secret-versions-section: Versions
-        label_section-overview: Overview
-        label_section-secrets: Secrets
-        label_version-current: Current
-        label_version-dialog-title: Version
+        SecretVersionsList:
+          button_add-pair: Add key/value
+          label_key: Key
+          label_value: Value
+        VersionAddDialog:
+          button_add-version: Add version
+        VersionsTable:
+          button_action-make-version-current: Set as current version
+          button_action-open-version-add-dialog: Create a version from this one
+          button_action-schedule-for-destruction: Schedule destruction
+          label_version-current: Current
       logging:
         button_create-group: Create group
         button_create-sink: Create sink
@@ -8875,6 +8914,8 @@ default:
         section_resource-management: Resource management
         title_catalogs: Catalogs
       ui:
+        constants:
+          label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:
             constants:

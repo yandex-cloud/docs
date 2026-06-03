@@ -29,14 +29,12 @@ Creates a registry in the specified folder.
 || folder_id | **string**
 
 Required field. ID of the folder to create a registry in.
-
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||
 || name | **string**
 
 Name of the registry.
-
 There may be only one registry per folder.
 
 Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
@@ -44,7 +42,7 @@ Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. |
 
 Resource labels as `key:value` pairs.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || kind | enum **Kind**
 
 Required field. Kind of the registry.
@@ -52,8 +50,8 @@ Required field. Kind of the registry.
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget.
 - `DEBIAN`: Registry kind is debian.
+- `NUGET`: Registry kind is nuget.
 - `PYPI`: Registry kind is pypi.
 - `BINARY`: Regisrty kind is binary. ||
 || type | enum **Type**
@@ -61,8 +59,9 @@ Required field. Kind of the registry.
 Required field. Type of the registry.
 
 - `LOCAL`: Registry type is local.
-- `REMOTE`
-- `VIRTUAL` ||
+- `REMOTE`: Registry type is remote.
+- `VIRTUAL`: Registry type is virtual.
+- `TRANSITIONAL`: Registry type is transitional. ||
 || description | **string**
 
 Description of the registry. 0-1024 characters long.
@@ -72,7 +71,7 @@ The maximum string length in characters is 1024. ||
 
 Property names and values.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. ||
+The maximum string length in characters for each value is 255. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-zA-Z]+ `. Each value must match the regular expression ` [-_.~!*'();/?:@&=+$,%#0-9a-zA-Z]+ `. No more than 64 per resource. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -85,24 +84,10 @@ No more than 64 per resource. The maximum string length in characters for each v
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "registry_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "kind": "Kind",
-    "type": "Type",
-    "status": "Status",
-    "description": "string",
-    "labels": "map<string, string>",
-    "properties": "map<string, string>",
-    "created_at": "google.protobuf.Timestamp",
-    "modified_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -130,7 +115,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateRegistryMetadata](#yandex.cloud.cloudregistry.v1.CreateRegistryMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -145,7 +130,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Registry](#yandex.cloud.cloudregistry.v1.Registry)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -160,70 +145,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateRegistryMetadata {#yandex.cloud.cloudregistry.v1.CreateRegistryMetadata}
-
-#|
-||Field | Description ||
-|| registry_id | **string**
-
-ID of the registry that is being created. ||
-|#
-
-## Registry {#yandex.cloud.cloudregistry.v1.Registry}
-
-A Registry resource. For more information, see the [Registry](/docs/cloud-registry/concepts/registry) section of the documentation.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Output only. ID of the registry. ||
-|| folder_id | **string**
-
-ID of the folder that the registry belongs to. ||
-|| name | **string**
-
-Name of the registry. ||
-|| kind | enum **Kind**
-
-Kind of the registry.
-
-- `MAVEN`: Registry kind is maven.
-- `NPM`: Registry kind is npm.
-- `DOCKER`: Registry kind is docker.
-- `NUGET`: Registry kind is nuget.
-- `DEBIAN`: Registry kind is debian.
-- `PYPI`: Registry kind is pypi.
-- `BINARY`: Regisrty kind is binary. ||
-|| type | enum **Type**
-
-Type of the registry.
-
-- `LOCAL`: Registry type is local.
-- `REMOTE`
-- `VIRTUAL` ||
-|| status | enum **Status**
-
-Output only. Status of the registry.
-
-- `CREATING`: Registry is being created.
-- `ACTIVE`: Registry is ready to use.
-- `DELETING`: Registry is being deleted. ||
-|| description | **string**
-
-Description of the registry. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
-|| properties | **object** (map<**string**, **string**>)
-
-Resource properties as `key:value` pairs. Maximum of 64 per resource. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Output only. Modification timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
 |#

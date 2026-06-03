@@ -15,7 +15,7 @@ These controls help ensure compliance with security policies and protect against
 
 #|
 || Requirement ID | [Security standard](../../../security/standard/all.md) requirement | [{{ cspm-name }}](../cspm.md) rule check IDs ||
-|| **Authentication and Access Management** {.cell-align-center} | > | > ||
+|| **Authentication and Access Management** {align="center"} | > | > ||
 || `IAM1` | [Identity Federation (Single Sign-On, SSO) is configured](../../../security/standard/all.md#saml-federation) | [cspm.access.uses-federation](../../rules-reference/cspm.md#uses-federation) ||
 || `IAM2` | [User group mapping is set up in an identity federation](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
 || `IAM4` | [The cookie lifetime in a federation is less than 6 hours](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
@@ -34,7 +34,7 @@ These controls help ensure compliance with security policies and protect against
 || `IAM23` | [Organization contact information is up to date](../../../security/standard/all.md#org-contacts) | [cspm.procedure.organization-contacts](../../rules-reference/cspm.md#organization-contacts) ||
 || `IAM24` | [Resource labels are used](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || `IAM27` | [Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }}](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
-|| **Network Security** {.cell-align-center} | > | > ||
+|| **Network Security** {align="center"} | > | > ||
 || `NET1` | [A firewall or security groups are used for cloud resources](../../../security/standard/all.md#firewall) | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
 || `NET2` | [At least one security group exists in the {{ vpc-full-name }}](../../../security/standard/all.md#vpc-sg) | [cspm.network.network-firewall](../../rules-reference/cspm.md#network-firewall) ||
 || `NET3` | [Security groups do not contain overly broad access rules](../../../security/standard/all.md#access-rule) |
@@ -49,7 +49,7 @@ These controls help ensure compliance with security policies and protect against
 [cspm.appsec.ddos-protection.l3](../../rules-reference/cspm.md#appsec-ddos-protection-l3)
 [cspm.appsec.ddos-protection.l7](../../rules-reference/cspm.md#l7)
 ||
-|| **Secure Virtual Environment Configuration** {.cell-align-center} | > | > ||
+|| **Secure Virtual Environment Configuration** {align="center"} | > | > ||
 || `ENV1` | [Use of the serial console is controlled or disabled](../../../security/standard/all.md#serial-console) | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || `ENV7` | [No public access to the {{ objstorage-name }} bucket](../../../security/standard/all.md#bucket-access) | [cspm.access.bucket-public-access](../../rules-reference/cspm.md#bucket-public-access) ||
 || `ENV8` | [{{ objstorage-name }} uses bucket policies](../../../security/standard/all.md#bucket-policy) | [cspm.access.bucket-access-policy](../../rules-reference/cspm.md#bucket-access-policy) ||
@@ -69,7 +69,7 @@ These controls help ensure compliance with security policies and protect against
 [cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
-|| **Data Encryption and Key Management** {.cell-align-center} | > | > ||
+|| **Data Encryption and Key Management** {align="center"} | > | > ||
 || `CRYPT1` | [{{ objstorage-name }} data-at-rest encryption with a {{ kms-short-name }} key is enabled](../../../security/standard/all.md#storage-kms) | [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption) ||
 || `CRYPT2` | [HTTPS is enabled for {{ objstorage-full-name }} static website hosting](../../../security/standard/all.md#storage-https) | [cspm.data.storage-https](../../rules-reference/cspm.md#storage-https) ||
 || `CRYPT3` | [HTTPS is used in {{ alb-full-name }}](../../../security/standard/all.md#alb-https) | [cspm.appsec.alb-https](../../rules-reference/cspm.md#alb-https) ||
@@ -83,14 +83,14 @@ These controls help ensure compliance with security policies and protect against
 || `CRYPT12` | [{{ kms-short-name }} key deletion protection is enabled](../../../security/standard/all.md#keys-deletion-protection) | [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection) ||
 || `CRYPT13` | [{{ lockbox-full-name }} is used in the organization for secure secret storage](../../../security/standard/all.md#secrets-lockbox) | [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox) ||
 || `CRYPT14` | [{{ lockbox-short-name }} secrets are used for {{ serverless-containers-name }} and {{ sf-name }}](../../../security/standard/all.md#secrets-serverless-functions) | [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless) ||
-|| **Collection, Monitoring, and Analysis of Audit Logs** {.cell-align-center} | > | > ||
+|| **Collection, Monitoring, and Analysis of Audit Logs** {align="center"} | > | > ||
 || `AUDIT1` | [{{ at-full-name }} is enabled at the organization level](../../../security/standard/all.md#audit-trails) |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
 ||
 || `AUDIT5` | [OS-level audit logs are collected](../../../security/standard/all.md#os-level) | [cspm.o11y.os-logs-audited](../../rules-reference/cspm.md#os-logs-audited) ||
 || `AUDIT8` | [Data-plane events are monitored](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
-|| **Application Protection** {.cell-align-center} | > | > ||
+|| **Application Protection** {align="center"} | > | > ||
 || `APPSEC1` | [{{ captcha-full-name }} is used](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || `APPSEC2` | [Docker images are scanned upon upload to {{ container-registry-full-name }}](../../../security/standard/all.md#upload-policy) | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || `APPSEC3` | [Periodic scanning of Docker images stored in {{ container-registry-name }} is performed](../../../security/standard/all.md#periodic-scan) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
@@ -98,7 +98,7 @@ These controls help ensure compliance with security policies and protect against
 || `APPSEC9` | [A {{ sws-name }} security profile is used](../../../security/standard/all.md#use-sws) | [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws) ||
 || `APPSEC10` | [Web Application Firewall is used](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || `APPSEC11` | [Advanced Rate Limiter is used](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
-|| **{{ k8s }} Security** {.cell-align-center} | > | > ||
+|| **{{ k8s }} Security** {align="center"} | > | > ||
 || `K8S3` | [There is no access to the {{ k8s }} API](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
 || `K8S4` | [Authentication and access management are configured in {{ managed-k8s-name }}](../../../security/standard/all.md#kubernetes-auth) | [cspm.k8s.access](../../rules-reference/cspm.md#access) ||
 || `K8S5` | [A secure configuration is used in {{ managed-k8s-full-name }}](../../../security/standard/all.md#kubernetes-safe-config) | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||

@@ -305,11 +305,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** и нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета `api-key-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите ключ секрета `api-key`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** вставьте полученный на предыдущем шаге секретный ключ.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите ключ секрета `api-key`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте полученный на предыдущем шаге секретный ключ.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}

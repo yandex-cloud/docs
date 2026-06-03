@@ -1,7 +1,9 @@
 # Migrating a {{ mpg-name }} cluster to another version using {{ data-transfer-full-name }}
 
 
-You can migrate a loaded production database deployed in a {{ mpg-name }} cluster to a higher version cluster. This tutorial covers migration from version 13 directly to version 17, without going stepwise through multiple versions (13 → 14 → 15 → 16 → 17).
+You can migrate a loaded production database deployed in a {{ mpg-name }} cluster to a higher version cluster. This tutorial discusses migration from version 14 directly to version 17, without going through several successive versions (14 → 15 → 16 → 17).
+
+{% include [auto-update-of-deprecated-cluster](../../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}
 
 To transfer data:
 
@@ -174,7 +176,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * **Username**: `user1`.
         * **Password**: `<password>`.
 
-    1. [Create transfers](../../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_** type that will use the created endpoints.
+    1. [Create](../../../data-transfer/operations/transfer.md#create) **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**-type transfers configured to use the previously created endpoints.
 
         To speed up the copying of large tables (over 100 GB), configure [parallel copying](../../../data-transfer/concepts/sharded.md) for the transfer by specifying the required numbers of workers and streams.
 

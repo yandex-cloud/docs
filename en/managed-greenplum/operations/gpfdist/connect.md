@@ -1,14 +1,14 @@
 # Connecting to an external file server
 
-[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}/5/greenplum-database/utility_guide-admin_utilities-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. It is installed on each segment host of a {{ GP }} cluster and ensures parallel data loading by distributing it across segments either evenly or according to the set [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
+[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) is a utility used to read and write data from files located on remote servers. It is installed on each segment host of a {{ mgp-name }} cluster and ensures parallel data loading by distributing it across segments either evenly or according to the set [distribution key](../../concepts/sharding.md#distribution-key). This improves performance when handling large amounts of external data.
 
 `gpfdist` works with any delimited text files as well as compressed gzip and bzip2 files.
 
 To read or write files on an external server:
 1. [Install and run](#run-gpfdist) `gpfdist` as part of the {{ GP }} Loader or {{ GP }} Database package on the remote server hosting your target files.
-1. [Create an external table](#create-gpfdist-table) in the {{ GP }} database to reference these files.
+1. In the {{ mgp-name }} cluster, [create an external table](#create-gpfdist-table) to reference these files.
 
-## Running gpfdist {#run-gpfdist}
+## Running `gpfdist` {#run-gpfdist}
 
 
 {% note info %}
@@ -18,7 +18,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
 {% endnote %}
 
 
-1. Download and install the {{ GP }} Loader package from the [VMware website]({{ gp.docs.broadcom }}/5/greenplum-database/client_tool_guides-load-windows-win_load_install.html) or the {{ GP }} Database package from the {{ objstorage-full-name }} bucket by following [this guide](../greenplum-db.md).
+1. Download and install the {{ GP }} Loader package from the [VMware website]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-installing.html) or the {{ GP }} Database package from the {{ objstorage-full-name }} bucket by following [this guide](../greenplum-db.md).
 
 1. Run `gpfdist`:
 
@@ -45,7 +45,7 @@ Downloading and using software from the VMware website is not part of the [{{ mg
     wget http://hostname:port/filename
     ```
 
-## Creating an external table using gpfdist {#create-gpfdist-table}
+## Creating an external table using `gpfdist` {#create-gpfdist-table}
 
 SQL query syntax for creating an external table:
 
@@ -58,7 +58,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <table_name>
 
 Where:
 
-* `<table_name>`: Name of the external table that will be created in the {{ GP }} database.
+* `<table_name>`: Name of the external table you are creating in the {{ mgp-name }} cluster.
 * `<column_name>`: Table column name.
 * `<data_type>`: Table column data type.
 * `<path_to_file_on_remote_server>`: Address of the server `gpfdist` runs on, connection port, and file path. You can specify a particular file or a mask using the asterisk symbol (\*).

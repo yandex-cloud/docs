@@ -55,11 +55,11 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
    1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `github/pat-for-workflows`.
-   1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите `token`.
-   1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите полученный ранее на GitHub токен доступа `personal access token (classic)`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `token`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите полученный ранее на GitHub токен доступа `personal access token (classic)`.
    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   В результате откроется окно с таблицей, содержащей информацию о созданном секрете. Сохраните его идентификатор — он понадобится позднее при создании рабочего процесса.

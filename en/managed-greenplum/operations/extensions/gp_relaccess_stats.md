@@ -17,7 +17,7 @@ description: How to use gp_relaccess_stats in {{ mgp-full-name }}.
 
 For more information about the extension, see [this gp_relaccess_stats guide](https://github.com/open-gpdb/gp_relaccess_stats).
 
-## Installing gp_relaccess_stats in a {{ GP }} cluster {#extension-install}
+## Installing gp_relaccess_stats in a {{ mgp-name }} cluster {#extension-install}
 
 1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
@@ -64,5 +64,3 @@ For more information about the extension, see [this gp_relaccess_stats guide](ht
     ```sql
     SELECT * FROM relaccess_stats;
     ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

@@ -1,11 +1,11 @@
 # External tables
 
-{{ GP }} allows you to work with data from sources that are external to a {{ GP }} cluster. This functionality uses _external tables_, which are special objects in a {{ GP }} database that reference external source tables, buckets, or files. External DBMS data is accessed via the [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF) protocol; files on external file servers are accessed via the [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`) utility.
+{{ mgp-name }} allows you to work with data from sources that are external to a {{ mgp-name }} cluster. This functionality uses _external tables_, i.e., special objects in a database that reference tables, buckets, or files from external sources. External DBMS data is accessed via the [{{ GP }} Platform Extension Framework](../operations/external-tables.md) (PXF) protocol; files on external file servers are accessed via the [{{ GP }} Parallel File Server](../operations/gpfdist/connect.md) (`gpfdist`) utility.
 
 With external tables, you can:
 
 * Query external data sources.
-* Load datasets from external sources into a {{ GP }} database.
+* Load datasets from external sources into a {{ mgp-name }} cluster database.
 * Join local and external tables in queries.
 * Write data to external tables or files.
 

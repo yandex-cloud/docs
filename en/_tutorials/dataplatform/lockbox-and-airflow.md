@@ -67,9 +67,9 @@ For the {{ AF }} cluster to work correctly, your {{ lockbox-name }} secret's nam
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
 
    * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/pg`
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: `Custom`
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: `airflow/connections/pg`
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Select **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** and specify the following contents:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `airflow/connections/pg`
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
       ```json
       {

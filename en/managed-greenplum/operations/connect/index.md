@@ -1,13 +1,13 @@
 ---
-title: Pre-configuring a {{ GP }} cluster connection in {{ mgp-full-name }}
-description: In this tutorial, you will learn how to pre-configure a database connection in a {{ GP }} cluster.
+title: Pre-configuring a {{ mgp-full-name }} cluster connection
+description: In this tutorial, you will learn how to pre-configure a database connection in a {{ mgp-name }} cluster.
 ---
 
-# Pre-configuring a {{ GP }} cluster connection
+# Pre-configuring a {{ mgp-name }} cluster connection
 
-Since {{ GP }} is based on {{ PG }}, the same tools are used for connecting to both.
+A {{ mgp-name }} cluster can be used to deploy a {{ GP }} or {{ CB }} DBMS. Both DBMSs are based on {{ PG }}, so you need the same tools as for {{ PG }} to connect to them.
 
-You can only connect to a {{ GP }} cluster through the [primary master host](../../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](../cluster-list.md#get-hosts).
+You can only connect to a {{ mgp-name }} cluster through the [primary master host](../../concepts/index.md). To identify host roles, get a [list of hosts in the cluster](../cluster-list.md#get-hosts).
 
 You can connect to a cluster:
 
@@ -16,7 +16,7 @@ You can connect to a cluster:
 
 ## Configuring security groups {#configuring-security-groups}
 
-You can assign one or more security groups to a {{ GP }} cluster. To connect to a cluster, security groups must include rules allowing traffic on port {{ port-mgp }} from certain IP addresses or other security groups.
+You can assign one or more security groups to a {{ mgp-name }} cluster. To connect to a cluster, security groups must include rules allowing traffic on port {{ port-mgp }} from certain IP addresses or other security groups.
 
 {% note info %}
 
@@ -76,22 +76,22 @@ Rule settings depends on the connection method you select:
 
 ### Security groups for {{ mtr-full-name }} {#sg-for-trino}
 
-To connect to {{ mtr-name }}, the {{ GP }} connector uses the GPFDIST protocol:
+The connector uses the GPFDIST protocol for connection to {{ mtr-name }}:
 
-* {{ mtr-name }} coordinators and workers send queries to the {{ GP }} master over TCP port {{ port-mgp }}.
-* {{ GP }} segments forward data to {{ mtr-name }} workers over the GPFDIST TCP port, e.g., 31111.
+* {{ mtr-name }} coordinators and workers send queries to the {{ mgp-name }} master over TCP port {{ port-mgp }}.
+* {{ mgp-name }} segments forward data to {{ mtr-name }} workers over the GPFDIST TCP port, e.g., 31111.
 
-To ensure a secure connection to {{ mtr-name }}, we recommend that you configure security groups in [{{ GP }}](#configuring-sg-greenplum) and, optionally, in [{{ mtr-name }}](#configuring-sg-trino).
+To ensure a secure connection to {{ mtr-name }}, we recommend that you configure security groups in [{{ mgp-name }}](#configuring-sg-greenplum) and, optionally, in [{{ mtr-name }}](#configuring-sg-trino).
 
-If {{ GP }} interacts with other clusters or entities inside the user network, you need to separately configure security group rules for any such clusters or entities.
+If {{ mgp-name }} interacts with other clusters or entities inside the user network, you need to separately configure security group rules for any such clusters or entities.
 
-#### {{ GP }} side setup {#configuring-sg-greenplum}
+#### {{ mgp-name }} side setup {#configuring-sg-greenplum}
 
 {% list tabs group=traffic %}
 
 - Incoming traffic {#incoming}
 
-    * Rule for internal {{ GP }} cluster traffic:
+    * Rule for internal {{ mgp-name }} cluster traffic:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
@@ -107,7 +107,7 @@ If {{ GP }} interacts with other clusters or entities inside the user network, y
 
 - Outgoing traffic {#outgoing}
 
-    * Rule for internal {{ GP }} cluster traffic:
+    * Rule for internal {{ mgp-name }} cluster traffic:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
@@ -125,27 +125,27 @@ If {{ GP }} interacts with other clusters or entities inside the user network, y
 
 #### {{ mtr-name }} side setup {#configuring-sg-trino}
 
-To configure security group rules in {{ mtr-name }}, invert the {{ GP }} rule settings. Setting up rules for a {{ mtr-name }} cluster is optional, but this provides added security for your cluster.
+To configure security group rules in {{ mtr-name }}, invert the {{ mgp-name }} rule settings. Setting up rules for a {{ mtr-name }} cluster is optional, but this provides added security for your cluster.
 
 {% list tabs group=traffic %}
 
 - Incoming traffic {#incoming}
 
-    Rule for receiving data from {{ GP }} segments:
+    Rule for receiving data from {{ mgp-name }} segments:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
 
 - Outgoing traffic {#outgoing}
 
-    Rule for connections to a {{ GP }} master:
+    Rule for connections to a {{ mgp-name }} master:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
 
 {% endlist %}
 
@@ -164,3 +164,5 @@ To use an SSL connection, get a certificate:
 * [Integrate](code-examples.md) the cluster connection into your application code.
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../../_includes/mdb/mgp/trademark-cloudberry.md) %}

@@ -2,7 +2,7 @@
 
 You can estimate the number of unique elements in a table column (set _cardinality_) using the built-in {{ mgp-name }} functions that implement the [HyperLogLog algorithm](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).
 
-This algorithm converts the original set into a special object called _HLL_. The cardinality of the HLL object corresponds to the cardinality of the original set and can be estimated in constant time. This algorithm can quickly estimate the number of unique elements in a column, with the relative estimation error decreasing as the set size increases.
+This algorithm converts the original set into a special object called _HLL_. An HLL object's cardinality matches that of the original set and can be estimated in constant time. This algorithm can quickly estimate the number of unique elements in a column, with the relative estimation error decreasing as the set size increases.
 
 In {{ mgp-name }}, the HyperLogLog algorithm is implemented by these two functions:
 
@@ -15,11 +15,11 @@ In addition, you can use auxiliary functions:
 * `gp_hyperloglog_add_item_agg_default(<HLL>, <value>)`: Checks if the value belongs to the set whose HLL was provided in the parameters:
 
     * If the value belongs to the set or is a `null` value, the function returns the HLL of the original set.
-    * If the value does not belong to the set, the function returns the updated HLL with the specified value added to the set.
+    * If the value does not belong to the set, the function returns the HLL of the set including this value.
 
 ## Getting the HLL of a column {#get-hll}
 
-Run this request:
+Run this query:
 
 ```sql
 SELECT gp_hyperloglog_accum(<column_name>) FROM <table_name>;
@@ -29,7 +29,7 @@ The output will contain a string.
 
 ## Getting an estimate of the number of unique elements in a column {#get-estimation}
 
-Run this request:
+Run this query:
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(gp_hyperloglog_accum(<column_name>)) FROM <table_name>;
@@ -39,7 +39,7 @@ The output will contain a real number.
 
 ## Getting an estimate of the number of unique elements in a conjunction of two columns {#merge}
 
-Run this request:
+Run this query:
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
@@ -51,7 +51,7 @@ The output will contain a real number.
 
 ## Including a new element in an existing estimate {#add}
 
-Run this request:
+Run this query:
 
 ```sql
 SELECT gp_hyperloglog_get_estimate(
@@ -59,7 +59,7 @@ SELECT gp_hyperloglog_get_estimate(
 FROM <table_name>;
 ```
 
-If the new element is not unique for this column or has a `null` value, the returned estimate will be the same as if you [requested the number of unique elements in the column](#get-estimation). Otherwise, the estimate will be incremented by approximately `1`.
+If the new element is not unique for this column or has a `null` value, the returned estimate will be the same as if you had [requested the number of unique elements in the column](#get-estimation). Otherwise, the estimate will be incremented by approximately `1`.
 
 ## Creating and using a pre-aggregation table {#aggregation}
 
@@ -81,12 +81,12 @@ To use this method:
     Where:
 
     * `agg_table`: Name of the pre-aggregation table.
-    * `column1, column2, ...,`: Names of columns in the original table, other than the column you do the estimate for.
+    * `column1, column2, ...,`: Names of columns in the original table, other than the column you are conducting the estimate for.
     * `estimate`: Name of the column with the estimate in the pre-aggregation table.
-    * `estimated_col`: Name of the estimated column in the original table.
+    * `estimated_col`: Name of the column being estimated in the original table.
     * `original_table`: Name of the original table.
 
-1. Create a new [aggregate function]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) based on `gp_hyperloglog_merge`:
+1. Create a new [aggregate function]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) based on `gp_hyperloglog_merge`:
 
     ```sql
     CREATE AGGREGATE gp_hyperloglog_merge(gp_hyperloglog_estimator) (
@@ -111,7 +111,7 @@ The following examples use tables populated with integers using the [generate_se
 
 ### Estimating the number of unique elements {#common-estimate}
 
-Let's assume we have a table with a list of customers in different cities:
+Let's say we have a table with a list of customers in different cities:
 
 ```sql
 CREATE TABLE clients(city_id int, client_id int);
@@ -183,7 +183,7 @@ To estimate how many customers have bought the product after visiting the websit
 
 ### Creating a pre-aggregation table {#aggregation-example}
 
-Let's assume we have a table with a list of customers in different cities and stores:
+Let's say we have a table with a list of customers in different cities and stores:
 
 ```sql
 CREATE TABLE clients(city_id int, shop_id int, client_id int);

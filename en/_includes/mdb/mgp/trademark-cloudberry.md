@@ -1,0 +1,1 @@
+_Apache® and Apache Cloudberry™ are registered trademarks or trademarks of the Apache Software Foundation in the United States and/or other countries._

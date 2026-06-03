@@ -1,5 +1,3 @@
-# Connecting to {{ GP }}
+# Connecting to {{ mgp-name }}
 
 {% include [connection](../../_qa/managed-greenplum/connection.md) %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

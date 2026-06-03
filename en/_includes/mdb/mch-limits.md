@@ -40,7 +40,7 @@
 
 The limits on the maximum number of objects per cluster have two threshold values:
 
-* _Soft limit_: When reached, the `system.warnings` [system table](https://clickhouse.com/docs/en/operations/system-tables/system_warnings) will display a warning.
+* _Soft limit_: When reached, the `system.warnings` [system table]({{ ch.docs }}{{ lang }}/operations/system-tables/system_warnings) will display a warning.
 
 * _Hard limit_: When reached, creating new objects of this type will end with an error message.
 
@@ -58,5 +58,5 @@ The limits on the maximum number of objects per cluster have two threshold value
 || Number of external dictionaries | 500 | 1,000 ||
 |#
 
-All limits are implemented based on the [{{ CH }} server settings](https://clickhouse.com/docs/operations/server-configuration-parameters/settings). You cannot change them.
+All limits are implemented based on the [{{ CH }} server settings]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings). You cannot change them.
 

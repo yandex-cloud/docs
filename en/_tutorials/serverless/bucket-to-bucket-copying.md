@@ -299,22 +299,22 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
   1.  [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `s3-static-key`.
 
-  1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-      1. Select the **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}** secret type.
+      1. Select the **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}** secret type.
       1. Add the key ID value:
 
-          * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `key_id`.
-          * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the key ID [you got earlier](#create-key).
+          * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `key_id`.
+          * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the key ID [you got earlier](#create-key).
 
-      1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}**.
+      1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}**.
       1. Add the secret key value:
 
-          * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `secret`.
-          * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the secret key value [you got earlier](#create-key).
+          * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `secret`.
+          * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the secret key value [you got earlier](#create-key).
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

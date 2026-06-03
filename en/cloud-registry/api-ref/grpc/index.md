@@ -16,4 +16,6 @@ Actions are performed by making RPC calls.
 || [LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing LifecyclePolicy resources. ||
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [Registry](Registry/index.md) | A set of methods for managing Registry resources. ||
+|| [Scanner](Scanner/index.md) | A set of methods for scanning artifacts. ||
+|| [ScanPolicy](ScanPolicy/index.md) | A set of methods for managing scan policy resources. ||
 |#

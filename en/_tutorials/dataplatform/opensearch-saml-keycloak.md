@@ -1,4 +1,4 @@
-You can use [{{ keycloak }}](https://www.keycloak.org/) to [authenticate users](../../managed-opensearch/operations/saml-authentication.md) working with {{ OS }} Dashboards in a {{ mos-name }} cluster.
+You can use [{{ keycloak }}](https://www.keycloak.org/) to [authenticate users](../../managed-opensearch/operations/saml-authentication.md) working with {{ OS }} Dashboards in a {{ mos-full-name }} cluster.
 
 To set up authentication:
 
@@ -12,6 +12,13 @@ To set up authentication:
 This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
 
 {% endnote %}
+
+
+## Required paid resources {#paid-resources}
+
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+
 
 ## Getting started {#before-you-begin}
 
@@ -150,7 +157,7 @@ This tutorial was tested for {{ OS }} 2.8 and {{ keycloak }} 24.0 clusters.
     To set up a {{ keycloak }} authentication source:
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:

@@ -15,11 +15,11 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
 ## Unable to check for existing Kyverno installation {#kyverno-check-error}
 
-Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки]({{ link-console-support }}).
+Произошла непредвиденная ошибка во время проверки на наличие Kyverno в кластере. Обратитесь в [службу поддержки]({{ link-console-support }})
 
 ## Cluster version too old {#outdated-cluster}
 
-Версия указанного кластера не поддерживается. Обновите кластер до [поддерживаемой версии](../concepts/kspm.md).
+Версия указанного кластера не поддерживается. Обновите кластер до [поддерживаемой версии](../operations/kspm/enable-kspm.md).
 
 ## Insufficient permissions in the cluster {#insufficient-permissions}
 
@@ -31,8 +31,8 @@ kubectl delete crd $(kubectl get crd -o name | grep kyverno.io)
 
  ## Component is unhealthy {#unhealthy-component}
  
- Ошибка в работе компонента. Обратитесь в [службу поддержки]({{ link-console-support }}).
+ Ошибка в работе компонента. Обратитесь в [службу поддержки]({{ link-console-support }})
 
  ## Component sync failed {#failed-sync}
  
- Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки]({{ link-console-support }}).
+ Произошла непредвиденная ошибка во время изменения компонента. Обратитесь в [службу поддержки]({{ link-console-support }})

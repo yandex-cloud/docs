@@ -1,12 +1,12 @@
 ---
-title: '{{ GP }} host classes'
-description: In this article, you will learn about {{ GP }} host classes.
+title: '{{ mgp-name }} host classes'
+description: In this article, you will learn about host classes in {{ mgp-name }}.
 ---
 
-# {{ GP }} host classes
+# {{ mgp-name }} host classes
 
 
-The host class determines the computing power allocated for each host in a cluster. In a {{ GP }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../concepts/calculate-specs.md).
+The host class determines the computing power allocated for each host in a cluster. In a {{ mgp-name }} cluster, the classes of master hosts and segment hosts may differ. For information on how to select host classes, see [Calculating the cluster configuration](../concepts/calculate-specs.md).
 
 
 For master hosts, the host class determines the available [disk types](./storage.md):
@@ -27,7 +27,7 @@ The available storage size does not depend on the host class. For storage limita
 ## Available host classes {#available-flavors}
 
 
-{{ GP }} cluster hosts are deployed on {{ compute-full-name }} virtual machines on Intel Cascade Lake and Intel Ice Lake [platforms](../../compute/concepts/vm-platforms.md) with a guaranteed vCPU share of 100%. The full list of possible host configurations is provided below.
+{{ mgp-name }} cluster hosts are deployed on {{ compute-full-name }} virtual machines on Intel Cascade Lake and Intel Ice Lake [platforms](../../compute/concepts/vm-platforms.md) with a guaranteed vCPU share of 100%. The full list of possible host configurations is provided below.
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
@@ -97,5 +97,3 @@ A cluster on dedicated hosts will have the following available to it:
 
 Network drives are also available on dedicated hosts.
 
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

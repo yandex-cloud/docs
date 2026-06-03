@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ mgp-full-name }}
-description: This page provides a list of step-by-step guides for {{ mgp-name }}.
+description: This page features step-by-step guides for {{ mgp-name }}.
 ---
 
 # Step-by-step guides for {{ mgp-name }}
@@ -52,7 +52,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 
 * [{#T}](gpfdist/connect.md)
 
-## {{ GP }} extensions {#extensions}
+## Extensions {#extensions}
 
 * [Managing extensions](./extensions/cluster-extensions.md)
 * [Using `gp_relsizes_stats`](./extensions/gp-relsizes-stats.md)
@@ -64,7 +64,6 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 
 * [Viewing cluster logs](cluster-logs.md)
 * [Viewing cluster operations](cluster-operations.md)
-* [{#T}](performance-diagnostics.md)
 * [Cluster and host state monitoring](monitoring.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
 * [Reading {{ mgp-full-name }} cluster logs via SQL](sql-log-access.md)
@@ -72,5 +71,3 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 ## Auxiliary utilities {#tools}
 
 * [{#T}](greenplum-db.md)
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -106,15 +106,15 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя [секрета](../../lockbox/concepts/secret.md) `gitlab-runner-token`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-      1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
+      1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
       1. Добавьте значение токена {{ GLR }}:
 
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите `gitlab_runner_token`.
-          * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите аутентификационный токен раннера, который вы [получили ранее](#create-gitlab-runner).
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите `gitlab_runner_token`.
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите аутентификационный токен раннера, который вы [получили ранее](#create-gitlab-runner).
 
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 

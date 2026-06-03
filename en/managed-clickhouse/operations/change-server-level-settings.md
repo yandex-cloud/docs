@@ -1,6 +1,6 @@
 # Changing {{ CH }} settings at the server level
 
-You can specify [{{ CH }} settings at the server level](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings) to configure the way databases or individual tables work in a {{ mch-name }} cluster. You can specify settings using several methods:
+You can specify [{{ CH }} settings at the server level]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings) to configure the way databases or individual tables work in a {{ mch-name }} cluster. You can specify settings using several methods:
 
   * Using the [{{ yandex-cloud }} interfaces](#yandex-cloud-interfaces). This way you can only specify the {{ CH }} settings available in {{ yandex-cloud }}.
   * Using [SQL queries](#sql-queries). This way you can specify settings for MergeTree tables. You can:
@@ -15,7 +15,7 @@ Changing some [server settings](../concepts/settings-list.md#server-level-settin
 
 {% note info %}
 
-You cannot directly change the [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change this setting, you need to [change the {{ CH }} host class](#change-resource-preset) first. For more information, see [Memory management](../concepts/memory-management.md).
+You cannot directly change the [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) value. {{ mch-name }} sets this value automatically depending on the amount of RAM available to {{ CH }} hosts. To change this setting, you need to [change the {{ CH }} host class](#change-resource-preset) first. For more information, see [Memory management](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -124,7 +124,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
       * `min_part_size`: Minimum size of a table data part, in bytes.
       * `min_part_size_ratio`: Ratio of the smallest data part size to the full table size.
 
-   1. Validate your configuration.
+   1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -275,7 +275,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
             <setting_name> = <setting_value>;
          ```
 
-         Here is an example of the query for the [merge_with_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_ttl_timeout) and [merge_with_recompression_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout) settings:
+         Here is an example of the query for the [merge_with_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_ttl_timeout) and [merge_with_recompression_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout) settings:
 
          ```sql
          CREATE TABLE <table_name>
@@ -289,7 +289,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      For more information about creating MergeTree tables, see [this {{ CH }} guide](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      For more information about creating MergeTree tables, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 
