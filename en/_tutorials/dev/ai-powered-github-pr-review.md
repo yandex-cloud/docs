@@ -55,11 +55,11 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) to s
 
    1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `github/pat-for-workflows`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `token`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the `personal access token (classic)` access token previously obtained on GitHub.
+   1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `token`.
+   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter the `personal access token (classic)` access token previously obtained on GitHub.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
   The action will open a window containing a table with information about the new secret. Save its ID as you will need it later to create the workflow.

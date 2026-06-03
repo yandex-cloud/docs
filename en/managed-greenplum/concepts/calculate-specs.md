@@ -24,7 +24,7 @@ When calculating cluster storage size, consider the following factors:
 Based on these factors, the total storage size for all segment hosts may be approximately equal to the amount of uncompressed data:
 
 ```text
-Storage size = <amount_of_uncompressed_data> × 2 ÷ 3 ÷ 0.7 = <amount_of_uncompressed_data> × 0.95
+Storage size = <amount_of_uncompressed_data> × 2 ÷ 3 ÷ 0.7 = <amount_of_uncompressed_data> × 0.95
 ```
 
 When calculating the {{ mgp-name }} storage size, you do not need to take into account the amount of data you plan to store in a cold storage using the [{{ YZ }}](../operations/extensions/yezzey.md) module.
@@ -33,7 +33,7 @@ For more information about disk types used for storage, see [Disk types](./stora
 
 ### Calculating the number of segment hosts and the number of segments per host {#number-segments}
 
-{{ GP }} architecture implements parallelization of data processing. The parallelization unit is a segment. The more segments in a cluster, the more resources are allocated per query.
+{{ mgp-name }} has an architecture that parallelizes data processing. Its parallelization unit is a segment. The more segments in a cluster, the more resources are allocated per query.
 
 One segment host can contain one or more segments. You can set the number of segments in the cluster when creating one, and then increase it by [expanding the cluster](./expand.md). Cluster expansion is time-consuming as all the data has to be redistributed across segments. You cannot reduce the number of segments.
 
@@ -101,5 +101,3 @@ Master hosts are designed to handle connections and keep coordinate the work of 
 In most cases, you can use `standard` hosts with `network-ssd` [disks](./storage.md) and 100 GB capacity as master hosts.
 
 For high-load clusters with a large number of segment hosts, we recommend selecting `io-optimized` hosts as your masters.
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

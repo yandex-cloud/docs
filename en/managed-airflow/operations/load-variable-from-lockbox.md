@@ -25,9 +25,9 @@ There is no need to assign the `lockbox.payloadViewer` role for the whole folder
 
 [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following parameters:
 * **{{ ui-key.yacloud.common.name }}**: `airflow/variables/var_query`
-* **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: `Custom`
-* **{{ ui-key.yacloud.lockbox.forms.label_key }}**: `value`
-* **{{ ui-key.yacloud.lockbox.forms.label_value }}**: `SELECT 2`
+* **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `value`
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: `SELECT 2`
 
 The `airflow/variables/var_query` secret will store the `value` variable with `SELECT 2` as its value.
 

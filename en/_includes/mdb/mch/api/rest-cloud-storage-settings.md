@@ -11,9 +11,9 @@
     The default value is `true` (enabled).
 
 * `dataCacheMaxSize`: Maximum cache size, in bytes, allocated in the cluster storage.
-
+    
     If no value is set, the maximum cache size defaults to half the size of the cluster storage.
 
-* `preferNotToMerge`: Disable [merging of data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) in the cluster and object storage, `true` or `false`.
+* `preferNotToMerge`: Disable [merging of data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) in the cluster and object storage, `true` or `false`.
 
     To disable merging, set to `true`. To leave merging enabled, set to `false`.

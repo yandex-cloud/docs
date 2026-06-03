@@ -75,7 +75,7 @@ To learn about updates within the same version and host maintenance, see [Mainte
 
 Make sure the upgrade will not disrupt your applications:
 
-1. Check the {{ CH }} [release notes](https://clickhouse.com/docs/category/changelog) to learn how upgrades may affect your applications.
+1. Check the {{ CH }} [release notes]({{ ch.docs }}{{ lang }}/category/changelog) to learn how upgrades may affect your applications.
 1. Try upgrading a test cluster. You can deploy it from a backup of the main cluster. In this case, you will only restore MergeTree tables.
 1. [Create a backup](cluster-backups.md) of the main cluster immediately before upgrading.
 
@@ -140,7 +140,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Specify the {{ CH }} version: {{ versions.tf.str }}.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

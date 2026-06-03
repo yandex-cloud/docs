@@ -4,7 +4,7 @@
 
 To apply a model, add it to your cluster and call it in an SQL query using the built-in `catboostEvaluate()` function. This query will return model predictions for each row of the input data.
 
-Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
+Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/functions/other-functions#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Before adding a model {#prereq}
 
@@ -229,7 +229,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -392,7 +392,7 @@ To update the contents of a model that is already added to the cluster:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -527,7 +527,7 @@ After removing a model, the related object remains in the {{ objstorage-full-nam
 
     1. Delete the section describing `ml_model` in question from the {{ mch-name }} cluster description.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

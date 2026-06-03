@@ -388,27 +388,27 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `speechsense-secret`.
 
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-        1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
+        1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
         
         1. Добавьте API-ключ сервисного аккаунта:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_api_key`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_api_key`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и добавьте идентификатор подключения {{ speechsense-name }}:
+        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте идентификатор подключения {{ speechsense-name }}:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_connection_id`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите идентификатор подключения, [созданного ранее](#create-connection).
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_connection_id`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите идентификатор подключения, [созданного ранее](#create-connection).
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и добавьте формат файлов с диалогами, которые будут загружены в {{ speechsense-name }}:
+        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте формат файлов с диалогами, которые будут загружены в {{ speechsense-name }}:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_file_format`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_file_format`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 

@@ -32,7 +32,7 @@ The choice between the [{{ CK }}](#ck) services depends on the use case:
 
 {{ CK }} is a {{ CH }} solution that ensures the consistency of data reads and writes. {{ CK }} implements a {{ ZK }}-compatible client-server protocol, so you can use any standard {{ ZK }} client to work with it. However, snapshots, logs, and the {{ CK }} inter-server protocol are not compatible with {{ ZK }}, so {{ CK }} and {{ ZK }} hosts cannot be used in the same cluster.
 
-For more information about {{ CK }}, see [this {{ CH }} guide]({{ ch.docs }}/guides/sre/keeper/clickhouse-keeper).
+For more information about {{ CK }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/guides/sre/keeper/clickhouse-keeper).
 
 In {{ mch-name }}, the {{ CK }} coordination service is now available in the following modes:
 
@@ -52,7 +52,7 @@ Once {{ CK }} is is turned on, you cannot turn it off.
 
 {{ ZK }} is one of the first open-source coordination services. Unlike {{ CK }}, it provides consistency of data writes only, but not that of reads.
 
-For more information about {{ ZK }}, see [this article](https://zookeeper.apache.org/).
+For more information about {{ ZK }}, see [this {{ ZK }} guide](https://zookeeper.apache.org/).
 
 {{ ZK }} runs on separate hosts. For successful replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number).
 

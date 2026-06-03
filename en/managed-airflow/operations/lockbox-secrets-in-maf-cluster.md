@@ -47,9 +47,9 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
 
 [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following parameters:
    * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/pg1`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: `Custom`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Select **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** and specify the following contents:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
       ```json
       {

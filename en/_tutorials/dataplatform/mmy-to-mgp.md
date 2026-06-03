@@ -12,9 +12,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* {{ mmy-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mgp-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 

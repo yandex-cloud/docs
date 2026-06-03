@@ -50,11 +50,11 @@ The infrastructure support cost includes a fee for storing a [secret](../../lock
 
    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
-   1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID, e.g., `secret`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
+   1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter a non-secret ID, e.g., `secret`.
+   1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter the confidential data you want to store.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}

@@ -6,7 +6,7 @@ With {{ data-transfer-name }}, you can transfer data from a third-party {{ OS }}
 1. [Configure the source cluster](#configure-source).
 1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Set up and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,8 +14,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -160,7 +160,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
     1. [Create a user](../../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create an endpoint](../../../data-transfer/operations/endpoint/index.md#create) for the [{{ OS }} source cluster](../../../data-transfer/operations/endpoint/source/opensearch.md#on-premise).
 
@@ -195,7 +195,7 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
             {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will be activated automatically upon creation.
+            The transfer will be activated automatically as soon as it is created.
 
     {% endlist %}
 
@@ -229,11 +229,11 @@ You can deliver data from the {{ OS }} cluster as `admin` with the `superuser` r
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

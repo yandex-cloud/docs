@@ -386,7 +386,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
       
-      To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+      To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
       To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -410,7 +410,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
     
     You can also generate a new password using [{{ connection-manager-name }}](cluster-create.md#conn-man). Do it by specifying `--generate-password` instead of `--password=<new_password>`.
 
-    To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+    To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
     To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -442,7 +442,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
       
       You can also generate a new password using [Connection Manager](cluster-create.md#conn-man). Do it by specifying `generate_password = true` instead of `password = "<new_password>"`.
 
-      To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+      To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
       {% note info %}
 
@@ -499,7 +499,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
           }
           ```
 
-       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
        To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -571,7 +571,7 @@ Newly created users only get the `CONNECT` privilege for selected databases and 
           }
           ```
 
-       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+       To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
        To view passwords, you need the `lockbox.payloadViewer` role.
 

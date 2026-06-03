@@ -5,7 +5,6 @@ You can use [policies](../../managed-opensearch/concepts/index-policy.md) to aut
 
 To configure such a policy:
 
-1. [Get your cloud ready](#before-you-begin).
 1. [Set up your infrastructure](#infrastructure-prepare).
 1. [Create a policy](#create-policy).
 1. [Attach the policy to an index](#attach-policy).
@@ -20,8 +19,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
-* Public IP addresses (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Set up your infrastructure {#infrastructure-prepare}

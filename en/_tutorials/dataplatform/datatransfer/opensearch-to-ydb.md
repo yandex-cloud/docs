@@ -5,26 +5,29 @@ With {{ data-transfer-name }}, you can transfer data from a {{ mos-name }} clust
 
 To transfer data:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
 
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
     * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 
-## Getting started {#before-you-begin}
-
-Set up your infrastructure:
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -34,7 +37,7 @@ Set up your infrastructure:
 
         {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. If using security groups, make sure they are configured correctly and allow connections to your [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
+    1. If there are security groups in your cluster, make sure they are configured correctly and allow connections to the [{{ mos-name }} cluster](../../../managed-opensearch/operations/connect#configuring-security-groups).
 
     1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
@@ -144,7 +147,7 @@ Set up your infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/opensearch.md#endpoint-settings) of the `{{ OS }}` type with the following settings:
 
@@ -178,7 +181,7 @@ Set up your infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a target endpoint and transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -219,7 +222,7 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

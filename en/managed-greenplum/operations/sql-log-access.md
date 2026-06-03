@@ -1,11 +1,14 @@
----
-title: Reading {{ mgp-full-name }} cluster logs via SQL
-description: How to access Greenplum logs via SQL using the mdb_toolkit.gp_log view.
+title: "Reading {{ mgp-full-name }} cluster logs via SQL"
+description: "How to access DBMS logs in a {{ mgp-full-name }} cluster via SQL using the mdb_toolkit.gp_log view."
+
 keywords:
   - greenplum logs sql
   - Greenplum external table logs
+  - cloudberry logs sql
+  - Cloudberry external table logs
   - mdb_toolkit gp_log
   - Viewing Greenplum SQL logs
+  - Viewing Cloudberry SQL logs
 ---
 
 # Reading cluster logs via SQL
@@ -14,7 +17,7 @@ keywords:
 
 {% note info %}
 
-This feature is available for clusters based on {{ GP }} version 6.29 or higher, as well as Apache Cloudberry™.
+This feature is available for clusters based on {{ GP }} version 6.29 or higher, as well as {{ CB }}.
 
 {% endnote %}
 
@@ -173,3 +176,6 @@ LIMIT 10;
 - [{#T}](cluster-logs.md)
 - [{#T}](mgp-to-cloud-logging.md)
 
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

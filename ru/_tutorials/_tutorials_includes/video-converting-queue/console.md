@@ -39,13 +39,13 @@
 1. [Создайте статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните **Идентификатор ключа** и **Ваш секретный ключ**.
 1. [Создайте секрет](../../../lockbox/operations/secret-create.md) с именем `ffmpeg-sa-secret` в {{ lockbox-name }}:
 
-      1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
-      1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}** задайте:
+      1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+      1. Задайте две пары ключ-значение:
 
          * Ключ — `ACCESS_KEY_ID`, значение — **Идентификатор ключа** из предыдущего шага.
          * Ключ — `SECRET_ACCESS_KEY`, значение — **Ваш секретный ключ** из предыдущего шага.
 
-         Сохраните **{{ ui-key.yacloud.lockbox.label_secret-id }}** секрета из блока **{{ ui-key.yacloud.lockbox.label_secret-general-section }}**.
+         Сохраните **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета из блока **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-general-section }}**.
 
 1. [Создайте очередь сообщений](../../../message-queue/operations/message-queue-new-queue.md) с именем `converter-queue` в {{ message-queue-full-name }}. Сохраните **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди из блока **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**.
 1. [Создайте базу данных](../../../ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`. Сохраните **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из блока **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
@@ -90,7 +90,7 @@
      1. Добавьте переменные окружения:
 
         * `DOCAPI_ENDPOINT` — **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из конфигурации базы данных.
-        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.label_secret-id }}** секрета {{ lockbox-name }}.
+        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета {{ lockbox-name }}.
         * `YMQ_QUEUE_URL` — **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди {{ message-queue-name }}.
 
 {% endlist %}
@@ -137,7 +137,7 @@
      1. Добавьте переменные окружения:
 
         * `DOCAPI_ENDPOINT` — **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из конфигурации базы данных.
-        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.label_secret-id }}** секрета {{ lockbox-name }}.
+        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета {{ lockbox-name }}.
         * `YMQ_QUEUE_URL` — **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди {{ message-queue-name }}.
         * `S3_BUCKET` — имя бакета, созданного ранее.
 

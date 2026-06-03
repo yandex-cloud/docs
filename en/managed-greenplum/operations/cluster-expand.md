@@ -1,6 +1,6 @@
 # Expanding a cluster
 
-You can expand a {{ GP }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).
+You can expand a {{ mgp-name }} cluster by adding segment hosts to it. You need to add at least two hosts. You can also increase the [number of segments per host](../concepts/index.md).
 
 When a cluster is being expanded, its data is automatically redistributed evenly across all hosts in the cluster (including added hosts). For more information, see [{#T}](../concepts/expand.md).
 
@@ -11,7 +11,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Select a cluster and open the ![hosts-edit](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click **{{ ui-key.yacloud.greenplum.action_expand-open }}** in the top-right corner.
     1. Specify the cluster expansion settings:
@@ -138,7 +138,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
                     }'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -200,7 +200,7 @@ When a cluster is being expanded, its data is automatically redistributed evenly
             yandex.cloud.mdb.greenplum.v1.ClusterService.Expand
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         Request body parameters:
 
@@ -263,7 +263,7 @@ There are several ways to monitor the [data redistribution process](../concepts/
     * `COMPLETED`: Table data redistribution is completed.
     * `NO LONGER EXISTS`: The table no longer exists.
 
-## Additional actions {#additional-actions}
+## Additional actions `resgroup`
 
 ### Changing the table redistribution priority {#table-priority}
 
@@ -342,7 +342,7 @@ This will leave some of the data distributed unevenly. As a result, the `Unknown
         SET WITH (REORGANIZE=true) <distribution_policy>;
         ```
 
-        To learn the {{ GP }} distribution policy value for an individual table partition, run the following query:
+        To learn the distribution policy value for an individual table partition, run the following query:
 
         ```sql
         SELECT pg_get_table_distributedby(<partition_OID>) AS distribution_policy;

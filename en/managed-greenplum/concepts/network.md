@@ -1,6 +1,6 @@
 ---
 title: Network and database clusters in {{ mgp-full-name }}
-description: In this tutorial, you will learn about the basic network interface settings for a {{ GP }} cluster.
+description: In this tutorial, you will learn about the basic network interface settings for a {{ mgp-name }} cluster.
 ---
 
 # Network and database clusters in {{ mgp-name }}
@@ -12,7 +12,7 @@ When creating a cluster, you can:
 * Enable public access to connect to the cluster from outside {{ yandex-cloud }}.
 
 
-You can only connect to {{ GP }} clusters via master hosts. You cannot connect to segment hosts directly.
+You can only connect to {{ mgp-name }} clusters via master hosts. You cannot connect to segment hosts directly.
 
 Segment hosts are combined into a virtual network, where each of them is a cloud resource. Data is replicated and rebalanced across the segments within this network.
 
@@ -24,7 +24,7 @@ By default, master hosts are available for connection from the VMs located in th
 
 When you create a cluster, {{ mgp-short-name }} automatically assigns its hosts both short and full (FQDN) names. These cannot be changed.
 
-To learn how to get a host's FQDN, see [this guide](../operations/connect/fqdn.md#get-fqdn).
+To learn how to get a host’s FQDN, see [this guide](../operations/connect/fqdn.md#get-fqdn).
 
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.
@@ -53,5 +53,3 @@ For more information, see [this {{ vpc-name }} article](../../vpc/concepts/secur
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/config-server-for-s3.md)
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

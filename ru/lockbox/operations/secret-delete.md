@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. В меню слева выберите **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+  1. В меню слева выберите **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
   1. Напротив нужного секрета нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
   1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

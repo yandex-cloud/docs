@@ -10,8 +10,8 @@ The table below lists the supported {{ k8s }} versions for various {{ managed-k8
 #|
 || **{{ k8s }} version**
 
-([Release dates](https://kubernetes.io/releases/)) {.cell-align-center} | **Release channel** {.cell-align-center} | > | > | **End of support** {.cell-align-center} ||
-|| ^ | `RAPID` {.cell-align-center} | `REGULAR` {.cell-align-center} | `STABLE` {.cell-align-center} | ^ ||
+([Release dates](https://kubernetes.io/releases/)) {align="center"} | **Release channel** {align="center"} | > | > | **End of support** {align="center"} ||
+|| ^ | `RAPID` {align="center"} | `REGULAR` {align="center"} | `STABLE` {align="center"} | ^ ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||

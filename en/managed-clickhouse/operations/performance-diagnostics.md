@@ -5,7 +5,13 @@ description: You can get performance metrics for queries and query groups in {{ 
 
 # Performance diagnostics in {{ mch-name }}
 
-{{ mch-name }} allows you to collect performance metrics of queries in a cluster.
+{% note info %}
+
+This feature is at the [Preview](../../overview/concepts/launch-stages.md) stage. To get access, contact [support]({{ link-console-support }}) or your account manager.
+
+{% endnote %}
+
+{{ mch-name }} allows you to collect performance metrics of queries in a cluster. The feature is available in {{ CH }} version 25.3 and higher.
 
 ## Enabling statistics collection {#activate-stats-collector}
 

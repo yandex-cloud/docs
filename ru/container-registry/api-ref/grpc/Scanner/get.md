@@ -5,7 +5,6 @@ editable: false
 # Container Registry API, gRPC: ScannerService.Get
 
 Returns the specified ScanResult resource.
-
 To get the list of ScanResults for specified Image, make a [List](/docs/container-registry/api-ref/grpc/Scanner/list#List) request.
 
 ## gRPC request

@@ -6,23 +6,23 @@ To create a [secret](../../lockbox/concepts/secret.md):
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your secret.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Optionally, to break down resources into logical groups, add a [label](../../resource-manager/concepts/labels.md).
-  1. Optionally, enable **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the contents of the secret against modification.
-  1. Select **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**:
-      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-generated }}**: To generate the value automatically:
+  1. Optionally, enable **{{ ui-key.yacloud.lockbox.BaseInfoSection.field_deletion-protection }}**. You cannot delete a secret with this option enabled. This does not protect the contents of the secret against modification.
+  1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**:
+      * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}**: To generate the value automatically:
   
-        * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
-        * (Optional) Expand the **{{ ui-key.yacloud.lockbox.forms.title_auto-generation_params_section }}** section and set the confidential value parameters (e.g., password).
+        * In the **{{ ui-key.yacloud.lockbox.SecretGeneratedVersion.label_key }}** field, enter a non-secret ID.
+        * (Optional) Expand the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_auto-generation_params_section }}** section and set the confidential value parameters (e.g., password).
   
-      * **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**: To set the value manually:
+      * **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**: To set the value manually:
 
-        * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter a non-secret ID.
-        * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the confidential data you want to store.
+        * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, enter a non-secret ID.
+        * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, enter the confidential data you want to store.
 
-          To add more data, click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and repeat the steps.
-  1. (Optional) Under **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
+          To add more data, click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and repeat the steps.
+  1. (Optional) Under **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}**, specify an existing [key](../../kms/concepts/key.md) or [create a new one](../../kms/operations/key.md#create).
 
      The specified [{{ kms-full-name }}](../../kms/) key is used to encrypt your secret. If you do not specify a key, the secret will be encrypted with a special system key.
 

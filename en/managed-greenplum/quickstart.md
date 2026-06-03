@@ -1,9 +1,9 @@
 ---
 title: Getting started with {{ mgp-full-name }}
-description: Follow this guide to create and start working with a {{ GP }} cluster.
+description: Follow this guide to create and start working with a {{ mgp-name }} cluster.
 ---
 
-# Getting started with {{ mgp-short-name }}
+# Getting started with {{ mgp-name }}
 
 To get started:
 
@@ -18,7 +18,7 @@ To connect to the cluster and work with databases, you will need the following t
 * [DBeaver](https://dbeaver.io/) graphical IDE.
 * `psql` console client.
 
-For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connect/index.md).
+For more tools you can use to work with {{ mgp-name }}, see [{#T}](./operations/connect/index.md).
 
 
 ## Getting started {#before-you-begin}
@@ -28,19 +28,19 @@ For more tools you can use to work with {{ GP }}, see [{#T}](./operations/connec
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mgp.editor }} role (or higher)](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
 
 ## Create a cluster {#create-cluster}
 
-Create a {{ GP }} cluster with public access. You can [connect](./operations/connect/index.md) to such a cluster with a {{ compute-full-name }} VM or over the internet.
+Create a {{ mgp-name }} cluster with public access. You can [connect](./operations/connect/index.md) to such a cluster with a {{ compute-full-name }} VM or over the internet.
 
 To create a cluster:
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 
 
@@ -71,7 +71,7 @@ To create a cluster:
 
         The admin is a special user required for managing the cluster. This user cannot be deleted. For more information, see [{#T}](./concepts/cluster-users.md).
 
-    * **{{ ui-key.yacloud.greenplum.section_resource-master }}** and **{{ ui-key.yacloud.greenplum.section_resource-segment }}**: [Master and segment host](./concepts/index.md) configuration in the {{ GP }} cluster.
+    * **{{ ui-key.yacloud.greenplum.section_resource-master }}** and **{{ ui-key.yacloud.greenplum.section_resource-segment }}**: [Master and segment host](./concepts/index.md) configuration in the {{ mgp-name }} cluster.
 
         You can edit the settings on these tabs if the default configuration does not suit your needs. For more information, see [{#T}](./concepts/calculate-specs.md).
 
@@ -87,7 +87,7 @@ For more information about creating a cluster, see [{#T}](./operations/cluster-c
 Get the cluster ID required to [connect](#connect) to the cluster:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 1. Click the name of your cluster and select the ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab.
 1. Copy the cluster ID specified under **{{ ui-key.yacloud.common.section-base }}**.
 
@@ -132,11 +132,11 @@ Connect to the cluster you [created](#create-cluster):
 
     1. Click **Test connection**.
 
-        Click **Download** if DBeaver prompts you to download the driver files. You may not have these files if this is your first time using DBeaver to connect to the {{ GP }}.
+        Click **Download** if DBeaver prompts you to download the driver files. You may not have these files if this is your first time using DBeaver to connect to the {{ mgp-name }}.
 
         {% include [dbeaver-connect](../_includes/mdb/mgp/quickstart/dbeaver-connect.md) %}
 
-        If the connection is successful, you will get general information about the {{ GP }} server and the driver used for the connection. Click **OK**.
+        If the connection is successful, you will get general information about the {{ mgp-name }} server and the driver used for the connection. Click **OK**.
 
         {% note warning %}
 
@@ -188,7 +188,7 @@ Connect to the cluster you [created](#create-cluster):
             sudo apt update && sudo apt install postgresql-client --yes
             ```
 
-    1. Connect to the `postgres` database in the {{ GP }} cluster. Use the [special primary master FQDN](operations/connect/fqdn.md#fqdn-master):
+    1. Connect to the `postgres` database in the {{ mgp-name }} cluster. Use the [special primary master FQDN](operations/connect/fqdn.md#fqdn-master):
 
         ```bash
         psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
@@ -217,13 +217,13 @@ Connect to the cluster you [created](#create-cluster):
 
 {% endlist %}
 
-If your cluster connection and test query are successful, you will see the {{ GP }} version.
+If your cluster connection and test query are successful, you will see the DBMS version.
 
 ## Create a database {#create-db}
 
-The [previously created](#create-cluster) {{ GP }} cluster has only one database, a service database named `postgres`. This database is not meant to store user data. For example, you cannot create data schemas in it.
+The [previously created](#create-cluster) {{ mgp-name }} cluster has only one database, a service database named `postgres`. This database is not meant to store user data. For example, you cannot create data schemas in it.
 
-After you [connect to the {{ GP }} cluster](#connect), create a database named `sample_db` for storing user data:
+After you [connect to the {{ mgp-name }} cluster](#connect), create a database named `sample_db` for storing user data:
 
 {% list tabs group=mgp-quickstart %}
 
@@ -265,7 +265,7 @@ After you [connect to the {{ GP }} cluster](#connect), create a database named `
         CREATE DATABASE sample_db;
         ```
 
-    1. Output the list of databases in the {{ GP }} cluster and make sure it includes `sample_db`:
+    1. Display the list of databases in the {{ mgp-name }} cluster and make sure it includes `sample_db`:
 
         ```sql
         \list
@@ -315,7 +315,7 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 
         {% include [sum-query](../_includes/mdb/mgp/quickstart/sum-query.md) %}
 
-    1. Get information on how the 10,000 table rows are distributed across {{ GP }} segments. To do this, clear the console, then enter and run the following query:
+    1. Get information on how the 10,000 table rows are distributed across {{ mgp-name }} segments. To do this, clear the console, then enter and run the following query:
 
         {% include [segment-query](../_includes/mdb/mgp/quickstart/segment-query.md) %}
 
@@ -347,7 +347,7 @@ To make sure the database [was created](#create-db) correctly, run a few queries
 
         {% include [sum-query](../_includes/mdb/mgp/quickstart/sum-query.md) %}
 
-    1. Get information on how the 10,000 table rows are distributed across {{ GP }} segments:
+    1. Get information on how the 10,000 table rows are distributed across {{ mgp-name }} segments:
 
         {% include [segment-query](../_includes/mdb/mgp/quickstart/segment-query.md) %}
 

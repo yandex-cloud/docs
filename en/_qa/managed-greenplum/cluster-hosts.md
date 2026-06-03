@@ -2,11 +2,11 @@
 
 A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ is one or more database hosts that allow configuring replication between them.
+A _database cluster_ consists of one or more database hosts with configurable replication across them.
 
-#### How many database hosts can be in a cluster? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
-A {{ GP }} cluster includes a minimum of four hosts:
+A {{ mgp-name }} cluster includes a minimum of four hosts:
 
 * two master hosts
 * two segment hosts
@@ -21,7 +21,7 @@ To learn more about MDB technical and organizational limitations, see [Quotas an
 
 #### How are database clusters maintained? {#service-window}
 
-In {{ mgp-short-name }}, maintenance implies:
+Maintenance in {{ mgp-short-name }} includes:
 
 * Automatic installation of DBMS updates and fixes for your database hosts.
 * Changes in the host class and storage size.
@@ -44,11 +44,11 @@ In {{ mgp-short-name }}, the usage cost is calculated based on the following var
 
 {% include [throttling](../throttling.md) %}
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, increase the storage size when [updating your cluster](../../managed-greenplum/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth and reduce the risk of throttling, expand the storage size when [updating your cluster](../../managed-greenplum/operations/update.md#change-disk-size).
 
-If you are using the `network-hdd` storage type, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-greenplum/operations/cluster-backups.md#restore) from a backup.
+For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-greenplum/operations/cluster-backups.md#restore) from backup.
 
-#### Why do I get a minimum memory error for {{ GP }} processes? {#memory-limit}
+#### Why do I get a minimum memory error for {{ mgp-name }} processes? {#memory-limit}
 
 When creating, modifying, or restoring a cluster, you may get this error:
 
@@ -56,7 +56,7 @@ When creating, modifying, or restoring a cluster, you may get this error:
 Per process memory must be more then '20971520' bytes on segment host, got '<calculated_memory_size>'
 ```
 
-This error occurs if the memory size for each {{ GP }} process is less than 20 MB and the number of connections equals the [max_connections](../../managed-greenplum/concepts/settings-list.md#setting-max-connections) value. The minimum memory per cluster process is calculated using the following formula:
+This error occurs if the memory size for each {{ mgp-name }} process is less than 20 MB and the number of connections equals the [max_connections](../../managed-greenplum/concepts/settings-list.md#setting-max-connections) value. The minimum memory per cluster process is calculated using the following formula:
 
 ```text
 <host_segment_RAM> ÷ (<max_connections> x <number_of_segments_per_host>)

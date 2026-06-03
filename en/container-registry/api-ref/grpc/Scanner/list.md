@@ -34,7 +34,6 @@ The maximum string length in characters is 50.
 Includes only one of the fields `image_id`, `repository_id`.
 
 ID of the Image or Repository to list ScanResults for.
-
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
 || repository_id | **string**
@@ -44,7 +43,6 @@ The maximum string length in characters is 50.
 Includes only one of the fields `image_id`, `repository_id`.
 
 ID of the Image or Repository to list ScanResults for.
-
 To get the image ID use a [yandex.cloud.containerregistry.v1.ImageService.List](/docs/container-registry/api-ref/grpc/Image/list#List) request.
 To get the repository ID use a [yandex.cloud.containerregistry.v1.RepositoryService.List](/docs/container-registry/api-ref/grpc/Repository/list#List) request. ||
 || page_size | **int64**

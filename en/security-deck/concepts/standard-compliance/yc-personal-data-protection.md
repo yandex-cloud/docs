@@ -13,7 +13,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 
 #|
 || Requirement ID | Security standard requirement | Check IDs in the [{{ cspm-name }} module](../cspm.md) ||
-|| **Identification and authentication of access subjects and access objects** (IA) {.cell-align-center} | > | > ||
+|| **Identification and authentication of access subjects and access objects** (IA) {align="center"} | > | > ||
 || IA.1 | Identification and authentication of users who are the operator's employees | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings}) ||
 || IA.4 | Management of authentication means including the storage, issue, initialization and blocking of authentication means and taking relevant measures in case of loss and/or compromising a means of authentication |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
@@ -21,7 +21,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
-|| **Management of access by access subjects to access objects** (MA) {.cell-align-center} | > | > ||
+|| **Management of access by access subjects to access objects** (MA) {align="center"} | > | > ||
 || MA.2 | Implementation of necessary access control methods (discretionary, mandate, role-based or other method), types (reading, recording, execution or other type) and rules |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
 [cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
@@ -57,7 +57,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || MA.11 | Authorization (ban) of user's acts permitted before identification and authentication | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || MA.13 | Implementation of protected remote access by access subjects to access objects through external information telecommunication network | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || MA.17 | Providing trusted loading of computer equipment | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
-|| **Software environment restrictions** (SER) {.cell-align-center} | > | > ||
+|| **Software environment restrictions** (SER) {align="center"} | > | > ||
 || SER.1 | Managing execution of software components, including defining components to be executed, configuring the execution parameters of components, and monitoring execution of software components |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
@@ -70,7 +70,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry)
 ||
-|| **Security event logging** (SEL) {.cell-align-center} | > | > ||
+|| **Security event logging** (SEL) {align="center"} | > | > ||
 || SEL.1 | Determining security events to be logged and their storage time |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
@@ -87,19 +87,19 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock)
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 ||
-|| **Virus protection** (VP) {.cell-align-center} | > | > ||
+|| **Virus protection** (VP) {align="center"} | > | > ||
 || VP.1 | Implementation of virus protection |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || VP.2 | Updating the database of malware (virus) signatures | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
-|| **Intrusion detection system** (IDS) {.cell-align-center} | > | > ||
+|| **Intrusion detection system** (IDS) {align="center"} | > | > ||
 || IDS.1 | Intrusion detection |
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
 ||
 || IDS.2 | Decision rule base update | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
-|| **Control (analysis) of personal data security** (AS) {.cell-align-center} | > | > ||
+|| **Control (analysis) of personal data security** (AS) {align="center"} | > | > ||
 || AS.1 | Detection and analysis of the information system's vulnerabilities and prompt elimination of newly detected vulnerabilities |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
@@ -110,7 +110,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || AS.4 | Control of composition of hardware, software, and information protection means | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || AS.5 | Password policy | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
-|| **Integrity of the information system and information** (INT) {.cell-align-center} | > | > ||
+|| **Integrity of the information system and information** (INT) {align="center"} | > | > ||
 || INT.2 | Control of integrity of information stored in the information system databases |
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
@@ -130,14 +130,14 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
 [cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
 ||
-|| **Availability of personal data** (AVL) {.cell-align-center} | > | > ||
+|| **Availability of personal data** (AVL) {align="center"} | > | > ||
 || AVL.4 | Periodic information backup on machine media reserved for information backups |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || AVL.5 | Ensuring the possibility of restoring information from machine media reserved for information backups (backup copies) within a specified time interval |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
-|| **Protection of hardware** (PH) / **Virtualization environment protection** (VEP) {.cell-align-center} | > | > ||
+|| **Protection of hardware** (PH) / **Virtualization environment protection** (VEP) {align="center"} | > | > ||
 || VEP.1 | Identification and authentication of access subjects and access objects in the virtual infrastructure, including administrators of virtualization means |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
@@ -158,7 +158,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| **Protection of the information system, its equipment, communication and data transmission systems** (PIS) {.cell-align-center} | > | > ||
+|| **Protection of the information system, its equipment, communication and data transmission systems** (PIS) {align="center"} | > | > ||
 || PIS.1 | Segregation of duties for the management (administration) of the information system, management (administration) of the information protection system, information processing functions and other information system functions | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || PIS.3 | Protection of information against disclosure, modification and forcing (input of false information) during transferring (preparation for transferring) thereof through communication channels which go beyond the controlled zone |
 [cspm.crypto.certificate-validity](../../rules-reference/cspm.md#certificate-validity)
@@ -179,13 +179,13 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security)
 ||
-|| **Identifying and responding to incidents** (IM) {.cell-align-center} | > | > ||
+|| **Identifying and responding to incidents** (IM) {align="center"} | > | > ||
 || IM.2 | Incident detection, identification and registration |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 ||
 || IM.6 | Planning and taking measures to prevent the recurrence of incidents |
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| **Management of configuration of the information system and the personal data protection** (MC) {.cell-align-center} | > | > ||
+|| **Management of configuration of the information system and the personal data protection** (MC) {align="center"} | > | > ||
 || MC.1–MC.4 | Management of configuration of the information system and the personal data protection | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 |#

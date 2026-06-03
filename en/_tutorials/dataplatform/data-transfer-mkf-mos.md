@@ -1,14 +1,14 @@
 # Delivering data from an {{ KF }} queue to {{ OS }} using {{ data-transfer-full-name }}
 
 
-A {{ mos-name }} cluster can ingest data from {{ KF }} topics in real time.
+A {{ mos-full-name }} cluster can ingest data from {{ KF }} topics in real time.
 
 To start data delivery:
 
 1. [Prepare your test data](#prepare-data).
 1. [Configure the target cluster](#configure-target).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -17,7 +17,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster of any suitable configuration. To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+        1. [Create a {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) source cluster with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
         1. [In the source cluster, create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) named `sensors`.
 
@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 
         
-        1. To connect to the cluster from the user's local machine, configure security groups:
+        1. To connect to the cluster from your local machine, configure the security groups as follows:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#security-groups).
@@ -61,7 +61,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             * [Network](../../vpc/concepts/network.md#network).
             * [Subnet](../../vpc/concepts/network.md#subnet).
-            * [Security group](../../vpc/concepts/security-groups.md) and rules allowing connections to the {{ mkf-name }} and {{ mos-name }} clusters.
+            * [Security group](../../vpc/concepts/security-groups.md) and the rules allowing connections to the {{ mkf-name }} and {{ mos-name }} clusters.
             * {{ mkf-name }} source cluster.
             * {{ KF }} topic named `sensors`.
             * {{ KF }} user named `mkf-user` with the `ACCESS_ROLE_PRODUCER` and `ACCESS_ROLE_CONSUMER` access permissions to the `sensors` topic.
@@ -92,15 +92,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install these tools:
+1. Install the following tools:
 
-    - [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    - [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -110,9 +110,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
+Suppose the {{ KF }} `sensors` topic in the source cluster receives JSON-formatted data from car sensors.
 
-Create a local `sample.json` file with the following test data:
+On your local machine, create a `sample.json` file with the following test data:
 
 {% cut "sample.json" %}
 
@@ -166,7 +166,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
 1. [Create a user](../../managed-opensearch/operations/cluster-users.md) and assign this role to them.
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -190,7 +190,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceAdvancedSettings.converter.title }}**: `json`.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}**: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
-                Insert the data schema in JSON format:
+                Paste the data schema in JSON format:
 
                 {% cut "json" %}
 
@@ -261,7 +261,7 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mos.tf` file, specify the following variables:
+        1. In the `data-transfer-mkf-mos.tf` file, specify these variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.
@@ -283,9 +283,9 @@ You can deliver data to the {{ mos-name }} cluster as `admin` with the `superuse
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
-Make sure data from the {{ mkf-name }} source cluster topic can be transferred to the {{ mos-name }} cluster:
+Check that data from the {{ mkf-name }} source cluster’s topic is transferred to the {{ mos-name }} cluster:
 
 1. Send data from `sample.json` to the {{ mkf-name }} `sensors` topic using `jq` and `kafkacat`:
 
@@ -333,15 +333,15 @@ Make sure data from the {{ mkf-name }} source cluster topic can be transferred t
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
    {% list tabs group=instructions %}
 

@@ -1,10 +1,10 @@
-# Managing {{ GP }} extensions
+# Managing extensions in {{ mgp-name}}
 
-{{ mgp-short-name }} supports the following {{ GP }} and {{ PG }} extensions:
+{{ mgp-name }} supports the following {{ GP }} and {{ PG }} extensions:
 
 #|
 || **Extension** | **Version** ||
-|| [btree_gin]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-btree_gin.html)
+|| [btree_gin]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-btree_gin.html)
 Adds the ability to create GIN indexes for columns suitable for B-tree indexing.
 | 1.0 ||
 || [citext]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-citext.html)
@@ -26,13 +26,10 @@ Allows limiting the of disk space for schemas and roles in a database.
 Contains functions used to establish the degree of similarity and distance between any two strings.
 | 1.0 ||
 || [gp_array_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_array_agg.html)
-Adds a parallel implementation of the `array_agg` aggregate function for {{ GP }}.
+Adds a parallel implementation of the `array_agg` aggregate function.
 | 1.0.0 ||
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
-Contains various internal utilities for {{ GP }}.
-| 1.0.0 ||
-|| [gp_legacy_string_agg]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-gp_legacy_string_agg.html)
-Adds the single-argument `string_agg` function that was present in {{ GP }} version `5`.
+Contains various internal utilities.
 | 1.0.0 ||
 || [gp_percentile_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_percentile_agg.html)
 Adds an aggregate function for calculation of percentiles.
@@ -77,13 +74,13 @@ Adds data encryption features. For more information, see [Using `pgcrypto`](./pg
 || [pg_trgm]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-pg_trgm.html)
 Adds functions and operators for text similarity detection and indexing operators to search for similar strings.
 | 1.1 ||
-|| [plperl]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_perl.html)
+|| [plperl]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_perl.html)
 Enables support for the PL/Perl procedural language.
 | 1.0 ||
-|| [plpgsql]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_sql.html)
+|| [plpgsql]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_sql.html)
 Enables support for the PL/pgSQL procedural language.
 | 1.0 ||
-|| [postgis]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-postGIS.html)
+|| [postgis]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-postGIS.html)
 Enables storing and processing GIS (geographic information system) objects in {{ PG }} databases.
 | 2.1.5 ||
 || [postgres_fdw]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-postgres_fdw.html)
@@ -114,7 +111,7 @@ Enables the generation and validation of unique IDs in compliance with the Russi
 | 1.0 ||
 || [{{ YZ }}](./yezzey.md). {{ yandex-cloud }} extension.
 
-Enables moving [AO and AOCO tables](../../concepts/tables.md) from cluster storage to cold storage and vice versa. To use this extension, enable [hybrid storage](../../concepts/hybrid-storage.md) in your {{ GP }} cluster.
+Enables moving [AO and AOCO tables](../../concepts/tables.md) from cluster storage to cold storage and vice versa. To use this extension, enable [hybrid storage](../../concepts/hybrid-storage.md) in your {{ mgp-name }} cluster.
 | 1.8 ||
 || [xml2]({{ pg.docs.org }}/current/xml2.html)
 Adds functions for XPath queries and XSLT transformations.

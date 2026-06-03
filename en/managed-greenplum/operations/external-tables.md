@@ -5,20 +5,22 @@ The [{{ GP }} Platform Extension Framework]({{ gp.docs.broadcom }}-platform-exte
 Let's say there is a table with sales data over several years. It contains three data types:
 
 * Hot data over the last few months stored in {{ MY }}.
-* Warm data over the last few years stored in {{ GP }}.
+* Warm data over the last few years stored in {{ mgp-name }}.
 * Cold data over an earlier period stored in S3.
 
 The colder the data, the less often it is accessed.
 
-To distribute data across multiple DBMSs and enable access to it, PXF is used to [create external tables](../concepts/external-tables.md), i.e., special objects in {{ GP }} that reference tables, buckets, or files from external sources. This section provides [guidelines](#work-with-pxf) on how to create external tables that reference external DBMSs.
+To distribute data across multiple DBMSs and enable access to them, PXF is used to create [external tables](../concepts/external-tables.md), i.e., special DBMS objects that reference tables, buckets, or files from external sources. This section provides [guidelines](#work-with-pxf) on how to create external tables that reference external DBMSs.
 
 For such tables, you can specify external data source settings in the SQL query. Alternatively, you can [create a source](#work-with-pxf) in {{ mgp-name }} with the settings you need and provide that source in the SQL query.
+
+In {{ mgp-name }} clusters with [Apache Cloudberry™](https://cloudberry.apache.org), in addition to external tables, you can also [create foreign tables](pxf/create-table.md#sql-statement-fdw) via FDW. Such tables provide access to the same external DBMSs as external ones. However, foreign tables support both read and write operations within a single table, unlike external tables which are strictly read-only or write-only.
 
 
 ## Getting started {#before-you-begin}
 
-1. In the {{ GP }} cluster's subnet, [set up a NAT gateway and link a routing table](../../vpc/operations/create-nat-gateway.md).
-1. In the same subnet, [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
+1. In the {{ mgp-name }} cluster's subnet, [set up a NAT gateway and link a routing table](../../vpc/operations/create-nat-gateway.md).
+1. In the {{ mgp-name }} cluster network, [create a security group](../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
 
 ## Get started with external tables using PXF {#work-with-pxf}

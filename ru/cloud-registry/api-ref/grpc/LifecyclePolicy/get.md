@@ -36,7 +36,6 @@ The maximum string length in characters is 50. ||
   "description": "string",
   "rules": [
     {
-      "path_prefix": "string",
       // Includes only one of the fields `keep_by_age`, `keep_by_version`, `delete`
       "keep_by_age": {
         "younger_than_days": "int64"
@@ -45,15 +44,15 @@ The maximum string length in characters is 50. ||
         "keep_versions_count": "int64"
       },
       "delete": {
-        "type": "DeleteLifecycleRuleKind",
-        "cooldown_period_days": "int64",
         // Includes only one of the fields `older_than_days`, `version_condition`, `always`
         "older_than_days": "int64",
         "version_condition": {
           "versions_count_greater_than": "int64"
         },
-        "always": "bool"
+        "always": "bool",
         // end of the list of possible fields
+        "type": "DeleteLifecycleRuleKind",
+        "cooldown_period_days": "int64"
       },
       // end of the list of possible fields
       // Includes only one of the fields `docker_filters`, `maven_filters`
@@ -64,7 +63,9 @@ The maximum string length in characters is 50. ||
         "version_type": "VersionType"
       },
       // end of the list of possible fields
-      "version_regexp": "string"
+      "path_prefix": "string",
+      "version_regexp": "string",
+      "description": "string"
     }
   ],
   "state": "LifecyclePolicyState",
@@ -121,9 +122,6 @@ A rule that defines lifecycle policy behavior.
 
 #|
 ||Field | Description ||
-|| path_prefix | **string**
-
-Path prefix to which the rule applies. ||
 || keep_by_age | **[KeepByAgeLifecycleRule](#yandex.cloud.cloudregistry.v1.KeepByAgeLifecycleRule)**
 
 Rule that keeps artifacts by age.
@@ -159,9 +157,15 @@ Maven-specific filters.
 Includes only one of the fields `docker_filters`, `maven_filters`.
 
 Filters to determine which artifacts the rule applies to. ||
+|| path_prefix | **string**
+
+Path prefix to which the rule applies. ||
 || version_regexp | **string**
 
 Regular expression pattern to match package version or docker tag. ||
+|| description | **string**
+
+Description of the lifecycle policy rule ||
 |#
 
 ## KeepByAgeLifecycleRule {#yandex.cloud.cloudregistry.v1.KeepByAgeLifecycleRule}
@@ -192,15 +196,6 @@ Rule that deletes artifacts based on specified conditions.
 
 #|
 ||Field | Description ||
-|| type | enum **DeleteLifecycleRuleKind**
-
-Type of deletion.
-
-- `HARD_DELETE`: Hard delete - artifacts are permanently removed.
-- `SOFT_DELETE`: Soft delete - artifacts are marked for deletion but can be recovered. ||
-|| cooldown_period_days | **int64**
-
-Cooldown period in days before deletion. ||
 || older_than_days | **int64**
 
 Delete artifacts older than specified days.
@@ -222,6 +217,15 @@ Always delete (use with caution).
 Includes only one of the fields `older_than_days`, `version_condition`, `always`.
 
 Condition that triggers deletion. ||
+|| type | enum **DeleteLifecycleRuleKind**
+
+Type of deletion.
+
+- `HARD_DELETE`: Hard delete - artifacts are permanently removed.
+- `SOFT_DELETE`: Soft delete - artifacts are marked for deletion but can be recovered. ||
+|| cooldown_period_days | **int64**
+
+Cooldown period in days before deletion. ||
 |#
 
 ## DeleteByVersionCondition {#yandex.cloud.cloudregistry.v1.DeleteByVersionCondition}

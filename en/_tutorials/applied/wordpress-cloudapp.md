@@ -132,16 +132,16 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
   To create a secret that will store the {{ mmy-name }} database password:
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `db_password`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the {{ mmy-name }} database password.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, paste the {{ mmy-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
   Repeat the steps to create two more secrets:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Description
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Description
   --- | --- | ---
   `db-root-password-secret`  | `db_root_password`  | {{ mmy-name }} database root password
   `wp-admin-password-secret` | `wp_admin_password` | WordPress administrator password
@@ -178,7 +178,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
   Repeat the steps to create two more secrets:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Description
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Description
   --- | --- | ---
   `db-root-password-secret`  | `db_root_password`  | {{ mmy-name }} database root password
   `wp-admin-password-secret` | `wp_admin_password` | WordPress administrator password
@@ -189,7 +189,7 @@ Create a [cloud network](../../vpc/concepts/network.md) with a [subnet](../../vp
 
   Use the following names and keys:
 
-  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.forms.label_key }} | Description
+  {{ ui-key.yacloud.common.name }} | {{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }} | Description
   --- | --- | ---
   `db-password-secret`       | `db_password`       | {{ mmy-name }} database password
   `db-root-password-secret`  | `db_root_password`  | {{ mmy-name }} database root password

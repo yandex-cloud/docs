@@ -4,7 +4,7 @@ You can migrate data from {{ objstorage-full-name }} to the {{ GP }} table in {{
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -14,7 +14,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 * {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -124,7 +123,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     CREATE DATABASE db1;
     ```
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
 

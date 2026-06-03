@@ -1,1 +1,1 @@
-You can [set](../../managed-greenplum/operations/update.md#change-gp-settings) the {{ GP }} logging level in the `Log min messages` parameter. Learn more about {{ GP }} [advanced settings](../../managed-greenplum/concepts/settings-list.md#dbms-cluster-settings).
+You can [set](../../managed-greenplum/operations/update.md#change-gp-settings) the DBMS logging level in the `Log min messages` parameter. Learn more about the {{ mgp-name }} [advanced settings](../../managed-greenplum/concepts/settings-list.md#dbms-cluster-settings).
