@@ -5,12 +5,6 @@ description: Follow this tutorial to assign roles for a registry.
 
 # Assigning a role for a registry
 
-{% note info %}
-
-We recommend assigning roles to the public group `All users` only for Docker registries: correct operation is not guaranteed for other formats.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Management console {#console}

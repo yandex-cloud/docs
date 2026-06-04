@@ -44,7 +44,7 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
       1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
       1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, enter `nextcloud-sg` for name.
@@ -80,7 +80,7 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select ![arrows-opposite-to-dots](../../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}** and click **{{ ui-key.yacloud.vpc.gateways.button_create-gateway }}**.
       1. In the **{{ ui-key.yacloud.vpc.gateways.field_name }}** field, specify `nextcloud-gateway` as the gateway name. 
       1. In the **{{ ui-key.yacloud.vpc.gateways.field_type }}** field, select `{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}` and click **{{ ui-key.yacloud.common.save }}**.
@@ -94,7 +94,7 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select ![route](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}** and click **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**.
       1. In the **{{ ui-key.yacloud.vpc.route-table-form.field_name }}** field, specify `nextcloud-rt-table`.
       1. In the **{{ ui-key.yacloud.vpc.route-table-form.field_network-id }}** field, select `nextcloud-network`.
@@ -114,7 +114,7 @@ You will deploy the basic Nextcloud configuration on a single VM with the Nextcl
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
       1. In the subnet row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** in the context menu.
       1. In the window that opens, select the route table you created in the previous step and click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -140,7 +140,7 @@ Create the VM to deploy Nextcloud on:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 24.04 LTS` and select a public [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../../overview/concepts/geo-scope.md).
@@ -152,7 +152,7 @@ Create the VM to deploy Nextcloud on:
       * In the **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** field, select `nextcloud-sg`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `nextcloud-vm`.
   1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -176,12 +176,12 @@ To create a {{ mmy-name }} cluster:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** and click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter `nextcloud-db-cluster`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
 
-      * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, enter `nextcloud`.
-      * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, enter `user`.
+      * In the **{{ ui-key.yacloud.mdb.forms.database_field_name }}** field, specify `nextcloud`.
+      * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** field, specify `user`.
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, select `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` and enter a password you will use to access the database.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select `nextcloud-network` and the `nextcloud-sg` security group.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, make sure the cluster is going to have one [host](../../../managed-mysql/concepts/instance-types.md) within the same [availability zone](../../../overview/concepts/geo-scope.md) you created the VM in.
@@ -286,6 +286,7 @@ The deployment of the Nextcloud basic configuration is now complete. If you used
 
 ### Scale the {{ mmy-name }} cluster {#expand-mysql-cluster}
 
+
 To add more hosts to a {{ mmy-name }} cluster:
 
 {% list tabs group=instructions %}
@@ -321,7 +322,7 @@ Before you create a VM snapshot to proceed with the instance group deployment, a
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. In the left-hand panel, select ![hard-drive](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
       1. In the line with the disk, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, specify `nextcloud-vm-snapshot` as the snapshot name.
@@ -344,7 +345,7 @@ To enable access to Nextcloud over HTTPS, issue a TLS certificate for your domai
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, specify `mymanagedcert` in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, enter a name for your domain, e.g., `example.com`.
@@ -360,14 +361,14 @@ To enable access to Nextcloud over HTTPS, issue a TLS certificate for your domai
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. From the list of certificates, select `mymanagedcert`.
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, select `CNAME record`.
       1. Add a [CNAME record](../../../dns/concepts/resource-record.md#cname) required for the domain ownership check to your domain’s public DNS zone. This step's further actions will depend on whether your domain is managed by {{ dns-full-name }} or a third-party DNS provider:
 
           {% include [creating-cname](../../../_includes/certificate-manager/creating-cname.md) %}
 
-          The domain ownership check may take from a few minutes to a few days. Wait until it is complete. As a result, the certificate will be issued and get the `Issued` status.
+          Verifying domain ownership may take from a few minutes to a few days. Wait until the check is complete. As a result, the certificate will be issued and get the `Issued` status.
 
     {% endlist %}
 
@@ -380,7 +381,7 @@ For a fault-tolerant Nextcloud solution, scale it across an [instance group](../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.compute.groups.create.field_name }}** field, specify `nextcloud-instance-group` as the group name.
@@ -399,7 +400,7 @@ For a fault-tolerant Nextcloud solution, scale it across an [instance group](../
           1. In the **{{ ui-key.yacloud.compute.instances.create.field_security-groups }}** field, select `nextcloud-sg`.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
       
-          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+          * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `yc-user`. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
           * {% include [access-ssh-key](../../../_includes/compute/create/access-ssh-key.md) %}
       1. Click **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_scale }}**, specify `3` in the **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** field.
@@ -423,7 +424,7 @@ Create an [application-level load balancer](../../../application-load-balancer/c
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** and click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the group: `nextcloud-bg`.
       1. Enable **{{ ui-key.yacloud.alb.label_session-affinity }}** and select `{{ ui-key.yacloud.alb.label_affinity-connection }}` in the **{{ ui-key.yacloud.alb.label_session-affinity-mode }}** field that appears.
@@ -444,7 +445,7 @@ Create an [application-level load balancer](../../../application-load-balancer/c
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the HTTP router: `nextcloud-router`.
       1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}** and do the following in the **{{ ui-key.yacloud.alb.label_new-virtual-host }}** form that opens:
@@ -463,7 +464,7 @@ Create an [application-level load balancer](../../../application-load-balancer/c
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
       1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer: `nextcloud-alb`.
       1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `nextcloud-network`.
@@ -493,7 +494,7 @@ To route your domain's incoming requests to an L7 load balancer, in your DNS zon
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the DNS zone you need, click **{{ ui-key.yacloud.dns.button_record-set-create }}**, and do the following in the window that opens:
 
       1. In the **{{ ui-key.yacloud.common.name }}** field, select `{{ ui-key.yacloud.dns.label_fqdn-equal-to-zone }}`.
@@ -525,7 +526,7 @@ Add an A resource record with the following properties to your DNS provider or y
 1. If you had created an instance group, [delete](../../../compute/operations/instance-groups/delete.md) it.
 1. If you had created resource records, delete them in [{{ dns-full-name }}](../../../dns/operations/resource-record-delete.md) or in your domain registrar’s account.
 1. If you created a DNS zone, delete it in [{{ dns-full-name }}](../../../dns/operations/zone-delete.md) or in your domain registrar's account.
-1. If you had left the L7 load balancer logging feature on, [delete](../../../logging/operations/delete-group.md) the log group.
+1. If the L7 load balancer logging feature was left on, [delete](../../../logging/operations/delete-group.md) the log group.
 1. [Delete](../../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../../managed-mysql/operations/cluster-delete.md) the {{ MY }} cluster database.
 1. [Delete](../../../storage/operations/objects/delete.md) the objects you created in the bucket, then [delete](../../../storage/operations/buckets/delete.md) the bucket itself.

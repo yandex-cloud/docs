@@ -230,6 +230,14 @@ items:
             href: security/wlif-managed-k8s-integration.md
       - name: Setting up single sign-on (SSO) for apps
         items:
+          - name: 1C:Enterprise
+            href: security/single-sign-on/oidc-1c-enterprise.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Grafana Cloud
             items:
               - name: SAML
@@ -238,48 +246,42 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: security/single-sign-on/oidc-grafana-oss.md
-          - name: 1C:Enterprise
-            href: security/single-sign-on/oidc-1c-enterprise.md
-          - name: Zabbix
-            href: security/single-sign-on/saml-zabbix.md
-          - name: '{{ yandex-360 }}'
-            href: security/single-sign-on/saml-yandex-360.md
-          - name: Yandex Browser for organizations
-            href: security/single-sign-on/saml-ya-browser-corporate.md
-          - name: '{{ mos-name }}'
-            href: security/single-sign-on/saml-opensearch.md
-          - name: '{{ OS }}'
-            href: security/single-sign-on/saml-opensearch-self-managed.md
-          - name: '{{ mgl-name }}'
-            href: security/single-sign-on/saml-managed-gitlab.md
-          - name: Selectel
-            href: security/single-sign-on/saml-selectel.md
-          - name: SonarQube
-            href: security/single-sign-on/saml-sonarqube.md
-          - name: OpenVPN Access Server
-            href: security/single-sign-on/saml-ovpn.md
-          - name: MWS
-            href: security/single-sign-on/oidc-mws.md
           - name: Harbor
             href: security/single-sign-on/oidc-harbor.md
-          - name: Cloud.ru
-            items:
-              - name: SAML
-                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
-              - name: OpenID Connect
-                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
-          - name: VK Cloud
-            items:
-              - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
-          - name: Sentry
-            href: security/single-sign-on/saml-sentry.md
           - name: Jenkins
             items:
               - name: SAML
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
+          - name: Selectel
+            href: security/single-sign-on/saml-selectel.md
+          - name: Sentry
+            href: security/single-sign-on/saml-sentry.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
+          - name: Passwork
+            href: security/single-sign-on/saml-passwork.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: Yandex Browser for organizations
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Uploading audit logs to {{ mos-name }}
@@ -1649,7 +1651,7 @@ items:
             href: serverless/container-pg-connect.md
           - name: >-
               Deploying a web app with JWT authorization in {{ api-gw-name }}
-              and authentication in Firebase
+              and Firebase authentication
             href: serverless/jwt-authorizer-firebase.md
           - name: >-
               Developing functions in Functions Framework and deploying them to

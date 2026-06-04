@@ -233,7 +233,7 @@ items:
             href: logs/concepts/ttl.md
       - name: Log metrics
         href: logs/logs-metrics.md
-      - name: Limits
+      - name: Limitations
         href: logs/limits.md
   - name: Traces
     items:
@@ -287,7 +287,7 @@ items:
             href: traces/llm/manual_instrumentation.md
           - name: Viewing and analyzing LLM traces
             href: traces/llm/traces.md
-      - name: Limits
+      - name: Limitations
         href: traces/limits.md
   - name: Visualizing data
     items:
@@ -345,6 +345,9 @@ items:
             href: concepts/alerting/escalations.md
       - name: Mutes
         href: alerts/mutes.md
+      - name: Alert expressions
+        href: alerts/alert-expression.md
+        hidden: true
   - name: SLO
     items:
       - name: Overview

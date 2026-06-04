@@ -17,7 +17,7 @@ HTTP charts show traffic intensity, [backend](./backend-group.md) response stabi
 RPS (Requests Per Second): Number of HTTP requests to the load balancer per second. The chart reflects the intensity of incoming traffic. Review the chart at regular intervals to understand the load balancer's average workload at different days and times. The average value will help you detect anomalies early.
 
   * A spike in RPS may indicate increased user activity or a DDoS attack. Compare this with the 4xx or 5xx error charts: if there are no errors, the traffic is more likely legitimate than not. However, if there are errors, your backends may be overwhelmed or under a DDoS attack.
-  * A sharp drop in RPS during normally active periods could mean your load balancer has become unreachable. Check its condition, availability zones, and DNS records.
+  * A sharp drop in RPS during normally active periods could mean your load balancer has become unreachable. Check its condition, [availability zones](../../overview/concepts/geo-scope.md), and DNS records.
 
 ### 5xx {#5xx}
 
@@ -30,7 +30,7 @@ RPS (Requests Per Second): Number of HTTP requests to the load balancer per seco
 
 4xx (Client Errors): Number of 4xx responses. 
 
-  * 4xx errors typically rise due to user errors, invalid API calls, or authentication issues. Look up request logs, check whether your access tokens are current.
+  * 4xx errors typically rise due to user errors, invalid API calls, or authorization issues. Look up request logs, check whether your access tokens are current.
 
 ### Latency {#latency}
 
@@ -48,7 +48,7 @@ Request size: Total volume of load balancer requests per second. Use it to asses
 
 Response size: Total volume of load balancer responses per second.
 
-  * Growing response size impacts latency and increases network load. Review your compression and caching settings or change response format.
+  * Growing response size impacts latency and increases network load. Check your compression and caching settings or change the response format.
 
 ## Scaling statistics {#scaling-stats}
 
