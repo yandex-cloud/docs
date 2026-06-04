@@ -58,7 +58,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you want to access via the {{ yandex-cloud }} API.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Click **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.federations.field_issuer }}** field, enter the **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** value you got earlier, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
@@ -120,7 +120,7 @@ The infrastructure support cost includes:
       * `issuer` and `audiences`: Issuer URL value you got earlier, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
       * `jwks_url`: JWKS URL value you got earlier, e.g., `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -147,7 +147,7 @@ The infrastructure support cost includes:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder with the {{ lockbox-name }} secret.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Specify the service account name, e.g., `sa-lockbox`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -175,7 +175,7 @@ The infrastructure support cost includes:
 
     - {{ TF }} {#tf}
 
-      1. In the configuration file, describe the resources you want to create:
+      1. In the configuration file, specify the properties of the resources you want to create:
     
           ```hcl
           resource "yandex_iam_service_account" "sa" {
@@ -188,7 +188,7 @@ The infrastructure support cost includes:
           * `name`: Service account name, e.g., `sa-lockbox`.
           * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     
-      1. Validate your configuration files.
+      1. Make sure the configuration files are correct.
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -230,7 +230,7 @@ The infrastructure support cost includes:
 
     - {{ TF }} {#tf}
 
-      1. In the configuration file, describe the resources you want to create:
+      1. In the configuration file, specify the properties of the resources you want to create:
 
           ```hcl
           resource "yandex_resourcemanager_folder_iam_member" "lockbox" {
@@ -245,7 +245,7 @@ The infrastructure support cost includes:
           * `role`: Role being assigned, e.g., `{{ roles-lockbox-payloadviewer }}`.
           * `member`: [ID of the service account](../../iam/operations/sa/get-id.md) you are assigning the role to. Use this format: `serviceAccount:<service_account_ID>`.
 
-      1. Validate your configuration files.
+      1. Make sure the configuration files are correct.
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -302,7 +302,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list of service accounts, select `sa-lockbox`.
   1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
@@ -359,7 +359,7 @@ The infrastructure support cost includes:
         * `namespace`: {{ k8s }} service account's `Namespace` field value, e.g., `default`.
         * `external_subject_id_service_account_name`: {{ k8s }} service account's `Name` field value, e.g., `wlif`.
 
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -380,7 +380,7 @@ The infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your secret.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `MY_SECRET`.
   1. Select **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -423,7 +423,7 @@ The infrastructure support cost includes:
 
 - {{ TF }} {#tf}
 
-  1. In the configuration file, describe the secret parameters:
+  1. In the configuration file, specify the secret properties:
 
      ```hcl
      resource "yandex_lockbox_secret" "my_secret" {
@@ -667,7 +667,7 @@ Below is a scenario that uses the `yc-metadata-server` DaemonSet controller on n
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 * [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 * [Delete](../../managed-kubernetes/operations/node-group/node-group-delete.md) the {{ managed-k8s-name }} node group.
 * [Delete](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) the {{ managed-k8s-name }} cluster.

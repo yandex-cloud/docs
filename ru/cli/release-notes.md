@@ -7,11 +7,70 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
-### Версия 1.12.0 (01.06.26) {#v-1-12-0}
+### Версия 1.12.0 (04.06.26) {#v-1-12-0}
 
 #### Изменения в системных командах CLI {#v-1-12-0-yc}
 
-OAuth-токены больше не принимаются в `yc init` без параметров.
+* Добавлено удаление кешированных учетных данных при повторной инициализации профиля в `yc init`.
+* OAuth-токены больше не принимаются в команде `yc init` без параметров.
+
+#### {{ interconnect-name }} {#v-1-12-0-interconnect-name}
+
+* Версия v1 для сервиса `cic` используется по умолчанию. 
+* Изменены параметры команд `yc cic`:
+  * В команды `list` добавлены параметры `--filter`, `--page-token` и `--folder-id`:
+    * `yc cic partner list`;
+    * `yc cic point-of-presence list`;
+    * `yc cic private-connection list`;
+    * `yc cic private-connection list-operations`;
+    * `yc cic public-connection list`;
+    * `yc cic public-connection list-operations`;
+    * `yc cic trunk-connection list`;
+    * `yc cic trunk-connection list-operations`;
+    * `yc cic trunk-connection list-private-connections`;
+    * `yc cic trunk-connection list-public-connections`.
+
+  * В команды `get` добавлен параметр `--id`:
+    * `yc cic partner get`;
+    * `yc cic point-of-presence get`.
+
+  * В командах `batch-get` вместо параметров `--id` и `--name` используются `--private-connection-ids` и `--trunk-connection-ids`:
+    * `yc cic private-connection batch-get`;
+    * `yc cic trunk-connection batch-get`.
+
+  * В командах `move` удален параметр `--destination-folder-name`:
+    * `yc cic private-connection move`;
+    * `yc cic public-connection move`;
+    * `yc cic trunk-connection move`.
+
+  * В команды `update` добавлен параметр `--update-mask`:
+    * `yc cic private-connection update`;
+    * `yc cic trunk-connection update`.
+
+#### {{ cr-name }} {#v-1-12-0-cr-name}
+
+* Версия v1 для сервиса `cloud-router` используется по умолчанию.
+
+* Изменены параметры команд:  
+  * `yc cloud-router routing-instance list` — добавлены `--filter`, `--page-token` и `--folder-id`;;
+  * `yc cloud-router routing-instance list-operations` — добавлен `--page-token`;
+  * `yc cloud-router routing-instance move` — удален `--destination-folder-name`;
+  * `yc cloud-router routing-instance update` — добавлен `--update-mask`;
+  * `yc cloud-router routing-instance update-prefix-mask` — изменен тип `--new-mask` с `int32` на `int64`.
+
+#### {{ mmy-name }} {#v-1-12-0-managed-mysql}
+
+Поддержаны ресурсные группы для {{ CB }}. Добавлены новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost` и `--io-limit` для команд:
+
+Добавлена параметр `--deletion-protection` для защиты от удаления пользователей {{ MY }} для следующих команд:
+  * `yc managed-mysql user create`;
+  * `yc managed-mysql user update`.
+
+#### {{ mgp-name }} {#v-1-12-0-mgp-name}
+
+Добавлена поддержка ресурс-групп Apache Cloudberry: новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, `--io-limit` для команд:
+  * `yc managed-greenplum resource-groups create`;
+  * `yc managed-greenplum resource-groups update`.
 
 ## Предыдущие релизы {#previous-release}
 

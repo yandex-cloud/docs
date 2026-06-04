@@ -5,6 +5,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 
 # Enabling and disabling a zonal shift
 
+
 {% include [about-zonal-shift](../../../_includes/application-load-balancer/about-zonal-shift.md) %}
 
 ## Enabling a zonal shift {#disable-zones}
@@ -16,7 +17,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../../concepts/application-load-balancer.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. On the **{{ ui-key.yacloud.common.overview }}** page, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, click **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Enable a zonal shift for one or more zones.
@@ -110,7 +111,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing your [L7 load balancer](../../concepts/application-load-balancer.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select your L7 load balancer.
   1. On the **{{ ui-key.yacloud.common.overview }}** page, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, click **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Disable the zonal shift.
@@ -174,4 +175,4 @@ Previously, the `start-zonal-shift` and `cancel-zonal-shift` CLI commands and th
 ### See also {#see-also}
 
 * [Disabling and enabling zonal shifts for a {{ compute-full-name }} instance group](../../../compute/operations/instance-groups/disable-enable-zone.md)
-* [Disabling and enabling zonal shifts in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)
+* [Disabling and enabling availability zones in {{ network-load-balancer-full-name }}](../../../network-load-balancer/operations/manage-zone/disable-enable-zone.md)

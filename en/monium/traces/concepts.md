@@ -66,7 +66,7 @@ There are two approaches to instrumentation: auto and manual. They address diffe
 
 Auto-instrumentation creates spans without changing the business logic of the the application. OpenTelemetry libraries and agents intercept calls of standard frameworks and protocols (HTTP, gRPC, database clients) and generate spans with required attributes all by themselves.
 
-Features:
+Properties:
 
 * Easy to implement: simply hook up an agent or library.
 * Automatic tracking of HTTP requests, database calls, gRPC, and external APIs.
@@ -76,7 +76,7 @@ Features:
 
 With manual instrumentation, the developer creates spans directly in the application code via the OpenTelemetry SDK. This approach allows tracing operations not covered by auto-instrumentation: internal business logic, custom handlers, use of non-standard components.
 
-Features:
+Properties:
 
 * Full control over spans, attributes, and events.
 * Tracing of business logic and nuanced operations.

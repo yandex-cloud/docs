@@ -7,6 +7,29 @@ description: This page presents sync agent releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 0.46.0 (18/05/26) {#version0.46.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.46.0}
+
+* Added support for sending logs to {{ cloud-logging-full-name }}: `logger.cloud_logger` section with `log_group_id` specified. To enable filtering, each message additionally gets `agent_id`.
+* Added logging to Windows Event Log in the `logger.event_log` section. This feature is Windows-exclusive. On other platforms, this configuration is ignored with a warning issued.
+* Added the `--install-eventlog` and `--uninstall-eventlog` parameters to register a Windows Event Log source from the `logger.event_log.source` configuration. Activation requires administrator permissions.
+* Added Kerberos authentication over `keytab` for connections to LDAP and DRSR.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `ab1edf86501289a2e6662b378a52b9d6f90257bbe3789d6e6728b2e1c5c62726` ||
+|| `linux/arm64` | `e839705daf85ac599bd735d6dfe5746ba37f375d9b3cc21ce2a6e858e211abea` ||
+|| `darwin/amd64` | `2834bb73fae3e2ae01099a711a4e0255b67c8aaab7e0e5a62b230cc64fe0cb23` ||
+|| `darwin/arm64` | `d27360a21277bb2562a12fe9666dee5d37d7de31a4462f3bd6999545f099441c` ||
+|| `windows/amd64` | `975781d116b2b68624b4b2d3f91cdcace9acd0a25ed549dd47f646a3a592b1c8` ||
+|| `windows/arm64` | `d89a1744a4b18066dd86b9f5018d068ba532f19d9de63ccde65e26e33758cf39` ||
+|#
+
+{% endcut %}
+
 ### Version 0.45.0 (27/04/26) {#version0.45.0}
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.45.0}

@@ -99,8 +99,8 @@ items:
         href: operations/configure-logging.md
       - name: Настроить логи через {{ alb-name }}
         href: operations/configure-logging-alb.md
-      - name: Миграция на WAF с поддержкой правил Яндекс
-        href: operations/waf-migration.md
+      - name: Миграция на новый формат условий в API, CLI и Terraform
+        href: operations/api-migration.md
   - name: Практические руководства
     items:
       - name: Все практические руководства

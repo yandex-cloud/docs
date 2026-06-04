@@ -22,7 +22,7 @@ To assign a role for a resource, you need the `iam.admin` role or one of the fol
 
 {% endnote %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -74,6 +74,10 @@ You can also assign roles for individual resources within the service:
 {% include [iam.serviceAccounts.admin](../../_roles/iam/serviceAccounts/admin.md) %}
 
 For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/index.md) or [{{ managed-k8s-name }}]({{ link-cloud-services }}/managed-kubernetes), you need a service account to perform operations. If you specified a service account in the request, {{ iam-short-name }} will check whether you have permissions to use this account.
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -154,9 +158,9 @@ For some services, e.g., [{{ ig-name }}](../../compute/concepts/instance-groups/
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`.
 
 Action | Methods | Required roles
 ----- | ----- | -----
@@ -171,8 +175,8 @@ Viewing information about any resource | `get`, `list` | `viewer` for the resour
 [Updating](../operations/sa/update.md) and [deleting](../operations/sa/delete.md) service accounts | `update`, `delete` | `editor` for the service account
 Creating and deleting keys for a service account | `create`, `delete` | `iam.serviceAccounts.accessKeyAdmin`, `iam.serviceAccounts.apiKeyAdmin`, `iam.serviceAccounts.authorizedKeyAdmin`, `iam.serviceAccounts.keyAdmin`<br/> for the service account
 **Managing resource access** | |
-[Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` for this cloud
-[Granting](../operations/roles/grant.md), [revoking](../operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for this resource
+[Making a new user the owner of the cloud](../operations/roles/grant.md) | `setAccessBindings`, `updateAccessBindings` | `resource-manager.clouds.owner` role for the cloud
+[Granting](../operations/roles/grant.md), [revoking](../operations/roles/revoke.md), and viewing assigned resource roles | `setAccessBindings`, `updateAccessBindings`, `listAccessBindings` | `admin` for the resource
 Getting an IAM token for a service account | `create` | `iam.serviceAccounts.tokenCreator` for the service account
 
 #### What's next {#what-is-next}

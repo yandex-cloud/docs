@@ -13,6 +13,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerting-metrics-limit: 1 000
   alerts-name: Alerts
   all-mdb:
     max-databases: 1000
@@ -1965,6 +1966,13 @@ default:
         v2|pricingRate:
           1|number: 503.25
           1|string: ₸503.25
+      vimpelcom_marketing_1|number: 39.4
+      vimpelcom_marketing_1|string: ₸39.4
+      vimpelcom_marketing_from_5|number: 39.9
+      vimpelcom_marketing_from_5|string: ₸39.9
+    notifications_packet_events:
+      vimpelcom_marketing_3_to_4|number: 97.85
+      vimpelcom_marketing_3_to_4|string: ₸97.85
     notifications:
       sender_name_registration_event|number: 50833.3
       sender_name_registration_event|string: ₸50833.3
@@ -2471,6 +2479,13 @@ default:
         v2|pricingRate:
           1|number: 100.65
           1|string: ₽100.65
+      vimpelcom_marketing_1|number: 7.88
+      vimpelcom_marketing_1|string: ₽7.88
+      vimpelcom_marketing_from_5|number: 7.98
+      vimpelcom_marketing_from_5|string: ₽7.98
+    notifications_packet_events:
+      vimpelcom_marketing_3_to_4|number: 19.57
+      vimpelcom_marketing_3_to_4|string: ₽19.57
     notifications:
       sender_name_registration_event|number: 10166.66
       sender_name_registration_event|string: ₽10166.66
@@ -3009,17 +3024,13 @@ default:
         v2|pricingRate:
           1|number: 0.824999868
           1|string: $0.824999868
-      vimpelcom_marketing_1|number: 0.0645081864
-      vimpelcom_marketing_1|string: $0.0645081864
-      vimpelcom_marketing_2|number: 0.0637704816
-      vimpelcom_marketing_2|string: $0.0637704816
+      vimpelcom_marketing_1|number: 0.0645901536
+      vimpelcom_marketing_1|string: $0.0645901536
+      vimpelcom_marketing_from_5|number: 0.0654098256
+      vimpelcom_marketing_from_5|string: $0.0654098256
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 0.1574589912
-      vimpelcom_marketing_1|string: $0.1574589912
-      vimpelcom_marketing_2|number: 0.11680326
-      vimpelcom_marketing_2|string: $0.11680326
-      vimpelcom_marketing_3|number: 0.222950784
-      vimpelcom_marketing_3|string: $0.222950784
+      vimpelcom_marketing_3_to_4|number: 0.1604098104
+      vimpelcom_marketing_3_to_4|string: $0.1604098104
     notifications:
       sender_name_registration_event|number: 83.3332653552
       sender_name_registration_event|string: $83.3332653552
@@ -5871,6 +5882,8 @@ default:
           add_shard-btn: Add shard
           databases:
             popup-add_button_add: Create
+          field_cluster-sharding: Cluster sharding
+          field_shard-resources-type: Configuration
           format-schemas:
             button-action_add-format-schema: Create schema
             dialog:
@@ -5899,9 +5912,12 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+          title_cluster-shards-settings: Sharding settings
           value_coordination-service-embedded-clickhouse-keeper: Embedded ClickHouse Keeper
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (on separate hosts)
           value_coordination-service-zookeeper: ZooKeeper (on separate hosts)
+          value_shard-resources-type-default: Default
+          value_shard-resources-type-override: Redefined
         Cluster:
           Shards:
             action_add-shards_iULX7: Create shards
@@ -7946,6 +7962,7 @@ default:
           base_field_roles: Roles
           base_field_service-account: Service account
           base_field_shard-name: Shard name
+          base_field_shard-weight: Weight
           base_field_version: Version
           button_add-host: Add host
           button_add-initialization-action: Add

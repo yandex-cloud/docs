@@ -375,4 +375,6 @@ items:
                     href: api-ref/Sku/list.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
+  - name: История изменений
+    href: release-notes.md
 path: ru/billing/toc.yaml

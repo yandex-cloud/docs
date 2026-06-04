@@ -6,6 +6,7 @@ canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/terrafo
 
 # Creating an L7 load balancer in {{ alb-name }} with a {{ sws-name }} profile through {{ TF }}
 
+
 To create an [L7 load balancer with a {{ sws-name }}](index.md) profile through {{ TF }}:
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/balancer-with-sws-profile/terraform.md) %}

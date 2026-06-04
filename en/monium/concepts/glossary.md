@@ -17,6 +17,22 @@ _Timeseries_ is a time-ordered set of values of a variable with a timestamp for 
 1. Visual representation of a set of [metrics](#metric).
 1. [Dashboard](#dashboard) element.
 
+### Alert {#alert}
+
+An _alert_ is a {{ monium-name }} configuration object that calculates a query or expression at regular intervals and changes its status, e.g., to `OK`, `Warning`, `Alarm`, or `No data`. You can use alerts to monitor metric state and get notifications about issues. For more information, see [{#T}](alerting/alert.md).
+
+### Multialert {#multi-alert}
+
+A _multialert_ is an alert that automatically splits into multiple subalerts based on the values of one or several [labels](#label). Each subalert is calculated independently. For more information, see [{#T}](alerting/alert.md#multi-alerts).
+
+### Subalert {#subalert}
+
+A _subalert_ is an automatically created alert within a multialert. Subalerts are generated when a multialert is split by selected labels, e.g., `host` or a combination of `host` and `disk`. Subalerts inherit their settings from the parent multialert. For more information, see [{#T}](alerting/alert.md#multi-alerts).
+
+### Mute {#mute}
+
+A _mute_ is a rule that temporarily stops notifications for alerts, multialerts, or subalerts based on the selectors you set. A mute suppresses notifications but does not interrupt alert evaluation. For more information, see [{#T}](../alerts/mutes.md).
+
 ### Dashboard {#dashboard}
 
 _Dasboard_ is a {{ monium-name }} configuration object that includes sets of [charts](#graph) and their display settings.

@@ -81,8 +81,24 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
+  1. (Опционально) В блоке **{{ ui-key.yacloud.clickhouse.cluster.title_cluster-shards-settings }}**:
+
+      * Включите **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}**, чтобы создать кластер сразу с несколькими [шардами](../concepts/sharding.md). Добавить шарды можно как при создании, так и при изменении кластера.
+
+      * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+
+          * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+          * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
+
+              * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}** — конфигурация хостов будет унаследована от конфигурации кластера.
+
+              * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-override }}** — задайте класс хоста, настройки хранилища и настройки СУБД для всех хостов шарда.
+
+      Чтобы добавить шарды в кластер, нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-      
+
       * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
@@ -93,7 +109,7 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 
 
-        * Если для кластера включено [шардирование](../concepts/sharding.md) и хостов больше, чем шардов, выберите шард.
+        * Если для кластера включено [шардирование](../concepts/sharding.md), выберите шард.
 
         Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
@@ -102,19 +118,19 @@ description: Следуя данной инструкции, вы сможете
         {% include [ClickHouse Keeper can't turn off](../../_includes/mdb/mch/note-ck-no-turn-off.md) %}
 
   1. Если был выбран сервис координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**, задайте следующие настройки:
-      
+
       * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
       * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
       * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ CK }}.
-        
+
         Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
-          
+
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
 
         
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * Если вы хотите управлять пользователями кластера через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}** и укажите пароль пользователя `admin`. Управление пользователями через другие интерфейсы при этом станет недоступно.
@@ -144,8 +160,8 @@ description: Следуя данной инструкции, вы сможете
 
       * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
 
-      * Выберите движок базы данных: 
-      
+      * Выберите движок базы данных:
+
         * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
         * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
 
@@ -203,10 +219,12 @@ description: Следуя данной инструкции, вы сможете
         --name <имя_кластера> \
         --environment <окружение> \
         --network-name <имя_сети> \
-        --host type=<тип_хоста>,`
-             `zone-id=<зона_доступности>,`
-             `subnet-id=<идентификатор_подсети>,`
-             `assign-public-ip=<публичный_доступ_к_хосту> \
+        --shard name=<имя_шарда>,weight=<вес_шарда> \
+        --host type=clickhouse,`
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<публичный_доступ_к_хосту>,`
+              `shard-name=<имя_шарда> \
         --clickhouse-resource-preset <класс_хоста> \
         --clickhouse-disk-type <тип_диска> \
         --clickhouse-disk-size <размер_хранилища_ГБ> \
@@ -218,27 +236,32 @@ description: Следуя данной инструкции, вы сможете
         --deletion-protection
       ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано две и более подсетей.
-
 
       Где:
 
       * `--environment` — окружение кластера: `prestable` или `production`.
+      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
+
+        Чтобы создать кластер сразу с несколькими шардами, передайте этот флаг нужное количество раз. Если не указать флаг `--shard`, будет создан кластер с одним шардом `shard1`.
+
       * `--host` — параметры хоста:
         * `type` — тип хоста: `clickhouse`.
         * `zone-id` — зона доступности.
 
         
+        * `subnet-id` — идентификатор подсети. Его необходимо указывать, если в выбранной зоне доступности создано две и более подсетей.
         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
 
           {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
 
-        Для каждого хоста необходимо указать отдельный флаг `--host`.
+        * `shard-name` — имя шарда, в котором будет размещен хост.
 
         
         {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
+
+        Для каждого хоста необходимо указать отдельный флаг `--host`.
 
       * `--clickhouse-resource-preset` — [класс хоста](../concepts/instance-types.md) {{ CH }}.
       * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md) {{ CH }}.
@@ -269,9 +292,9 @@ description: Следуя данной инструкции, вы сможете
 
       
       * `--security-group-ids` — идентификаторы групп безопасности через запятую.
-        
+
           {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
-      
+
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
@@ -346,7 +369,7 @@ description: Следуя данной инструкции, вы сможете
          * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
       1. Чтобы задать настройки автоматического увеличения размера хранилища {{ CH }}, используйте флаг `--disk-size-autoscaling`:
-        
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -357,37 +380,38 @@ description: Следуя данной инструкции, вы сможете
          ```
 
          Где:
-         
+
          * `clickhouse-disk-size-limit` — максимальный размер хранилища {{ CH }}, в гигабайтах.
          * `clickhouse-planned-usage-threshold` — порог заполнения хранилища {{ CH }} в процентах, при достижении которого оно будет увеличено в следующее окно обслуживания. По умолчанию — `0` (автоматическое увеличение отключено).
-           
+
            Допустимые значения: от `0` до `100`.
-         
+
          * `clickhouse-emergency-usage-threshold` — порог заполнения хранилища {{ CH }} в процентах, при достижении которого оно будет увеличено незамедлительно. По умолчанию — `0` (автоматическое увеличение отключено).
-           
+
            Допустимые значения: от `0` до `100`.
-         
+
          {% note warning %}
-                  
+
          * Если заданы оба порога для {{ CH }}, значение `clickhouse-emergency-usage-threshold` должно быть не меньше `clickhouse-planned-usage-threshold`.
-         
+
          * При использовании `clickhouse-planned-usage-threshold` необходимо настроить [окно технического обслуживания](../concepts/maintenance.md).
-         
+
          {% endnote %}
-         
-         Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем существующим шардам. При добавлении нового шарда значения настройки берутся с самого старого шарда. Эти значения не сохраняются в конфигурации {{ CH }} и не отображаются при выводе команды `{{ yc-mdb-ch }} cluster get`. 
-                  
-         Чтобы посмотреть информацию о конкретном шарде, включая настройки автоматического увеличения размера хранилища, используйте команду: 
-                  
+
+         Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем шардам. Чтобы задать индивидуальные настройки для отдельного шарда, передайте аналогичные параметры во флаге `--shard`:
+
          ```bash
-         {{ yc-mdb-ch }} shards get <имя_шарда> --cluster-id <идентификатор_кластера>
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --shard name=<имя_шарда>,`
+                  `disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                  `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                  `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>
+           ...
          ```
-         Идентификатор кластера можно получить [со списком кластеров](cluster-list.md#list-clusters) в каталоге.
-         
-         Имя шарда можно получить [со списком шардов](shards.md#list-shards) в кластере.
-      
+
       1. Чтобы настроить [окно технического обслуживания](../concepts/maintenance.md), используйте флаг `--maintenance-window`:
-         
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -396,20 +420,20 @@ description: Следуя данной инструкции, вы сможете
                                `day=<день_недели>
            ...
          ```
-         
+
          Где `--maintenance-window` — настройки окна технического обслуживания:
 
          * `type` — тип окна технического обслуживания. Допустимые значения:
-           
+
            * `anytime` (по умолчанию) — в любое время.
            * `weekly` — по расписанию. Для этого значения необходимо передать параметры `hour` и `day`.
-        
+
          * `hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
          * `day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
 
 - {{ TF }} {#tf}
-  
+
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
   Чтобы создать кластер {{ mch-name }} со встроенным сервисом координации {{ CK }}:
@@ -530,7 +554,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда. 
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
 
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
@@ -540,9 +564,9 @@ description: Следуя данной инструкции, вы сможете
           * `assign_public_ip` — публичный доступ к хосту {{ CH }}: `true` или `false`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-          
+
           * `shard_name` — имя шарда.
-          
+
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        Для пользователя указываются:
@@ -720,6 +744,32 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
+              "shardSpecs": [
+                {
+                  "name": "<имя_шарда>",
+                  "configSpec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>", 
+                      "resources": {
+                        "resourcePresetId": "<класс_хостов_в_шарде>",
+                        "diskSize": "<размер_хранилища_в_байтах>",
+                        "diskTypeId": "<тип_диска>"
+                      },
+                      "diskSizeAutoscaling": {
+                        "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                        "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                        "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                      },
+                      "config": {
+                        <настройки_СУБД>
+                      }
+                    }
+                  }
+                },
+                { <аналогичный_набор_настроек_для_шарда_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_шарда_N> }
+              ],
               "deletionProtection": <защита_кластера_от_удаления>,
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
@@ -756,7 +806,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskSize` — размер диска в байтах.
                     * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
                     * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
@@ -776,11 +826,11 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру: 
-              
+            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
@@ -806,15 +856,21 @@ description: Следуя данной инструкции, вы сможете
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
+            * `shardSpecs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
+
+                * `name` — имя шарда.
+                * `weight` — вес шарда.
+                * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
+
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenanceWindow` — настройки окна технического обслуживания:
-              
+
                 * `weeklyMaintenanceWindow.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
                 * `weeklyMaintenanceWindow.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
-              
+
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
@@ -928,6 +984,32 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
+              "shard_specs": [
+                {
+                  "name": "<имя_шарда>",
+                  "config_spec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>",
+                      "resources": {
+                        "resource_preset_id": "<класс_хостов>",
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
+                      },
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                        "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                        "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                      },
+                      "config": {
+                        <настройки_СУБД>
+                      }
+                    }
+                  }
+                },
+                { <аналогичный_набор_настроек_для_шарда_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_шарда_N> }
+              ],
               "deletion_protection": <защита_кластера_от_удаления>,
               "maintenance_window": {
                 "weekly_maintenance_window": {
@@ -947,7 +1029,7 @@ description: Следуя данной инструкции, вы сможете
 
             
             * `security_group_ids` — идентификаторы [групп безопасности](../../vpc/concepts/security-groups.md) в виде массива строк. массив Каждая строка — идентификатор группы безопасности.
-                
+
                 {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
 
 
@@ -966,7 +1048,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
 
                     * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
@@ -986,11 +1068,11 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру: 
-              
+            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
@@ -1016,12 +1098,18 @@ description: Следуя данной инструкции, вы сможете
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
+            * `shard_specs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
+
+                * `name` — имя шарда.
+                * `weight` — вес шарда.
+                * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
+
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenance_window` — настройки окна технического обслуживания:
-              
+
               * `weekly_maintenance_window.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
               * `weekly_maintenance_window.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
 
@@ -1087,8 +1175,24 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите облачную сеть для размещения кластера и группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
+    1. (Опционально) В блоке **{{ ui-key.yacloud.clickhouse.cluster.title_cluster-shards-settings }}**:
+
+        * Включите **{{ ui-key.yacloud.clickhouse.cluster.field_cluster-sharding }}**, чтобы создать кластер сразу с несколькими [шардами](../concepts/sharding.md). Добавить шарды можно также и после создания кластера.
+
+        * Укажите параметры шардов, создаваемых вместе с кластером. Чтобы изменить настройки шарда, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
+
+            * **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}** и его **{{ ui-key.yacloud.mdb.forms.base_field_shard-weight }}**.
+
+            * **{{ ui-key.yacloud.clickhouse.cluster.field_shard-resources-type }}** хостов шарда:
+
+                * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-default }}** — конфигурация хостов будет унаследована от конфигурации кластера.
+
+                * **{{ ui-key.yacloud.clickhouse.cluster.value_shard-resources-type-override }}** — задайте класс хоста, настройки хранилища и настройки СУБД для всех хостов шарда.
+
+        Чтобы добавить шарды в кластер, нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.add_shard-btn }}**.
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-      
+
       * Укажите параметры хостов БД, создаваемых вместе с кластером. Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его номером:
 
         * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
@@ -1098,26 +1202,26 @@ description: Следуя данной инструкции, вы сможете
         * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — разрешите [доступ](connect/index.md) к хосту из интернета.
 
 
-        * Если для кластера включено [шардирование](../concepts/sharding.md) и хостов больше, чем шардов, выберите шард.
+        * Если для кластера включено [шардирование](../concepts/sharding.md), выберите шард.
 
         Чтобы добавить хосты в кластер, нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
 
       * Выберите [сервис координации](../concepts/coordination-system.md) **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**.
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md) для хостов {{ ZK }}.
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) для хостов {{ ZK }}.
-  
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}** при необходимости измените настройки автоматически добавленных хостов {{ ZK }}.
-        
+
       Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
-          
+
       * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
+
       
-            
       * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
-      
-  
+
+
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * Если вы хотите управлять пользователями кластера через SQL, в поле **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** выберите из выпадающего списка **{{ ui-key.yacloud.common.enabled }}** и укажите пароль пользователя `admin`. Управление пользователями через другие интерфейсы при этом станет недоступно.
@@ -1147,8 +1251,8 @@ description: Следуя данной инструкции, вы сможете
 
       * Укажите имя БД. Имя базы может содержать латинские буквы, цифры и подчеркивание. Максимальная длина имени 63 символа. Запрещено создание базы данных с именем `default`.
 
-      * Выберите движок базы данных: 
-      
+      * Выберите движок базы данных:
+
         * `Atomic` (по умолчанию) — поддерживает неблокирующие операции `DROP TABLE` и `RENAME TABLE`, а также атомарные операции `EXCHANGE TABLES`.
         * `Replicated` — поддерживает репликацию метаданных таблиц между всеми репликами базы данных. При этом набор таблиц и их схемы будут одинаковыми для всех реплик.
 
@@ -1206,10 +1310,12 @@ description: Следуя данной инструкции, вы сможете
         --name <имя_кластера> \
         --environment <окружение> \
         --network-name <имя_сети> \
+        --shard name=<имя_шарда>,weight=<вес_шарда> \
         --host type=<тип_хоста>,`
-             `zone-id=<зона_доступности>,`
-             `subnet-id=<идентификатор_подсети>,`
-             `assign-public-ip=<публичный_доступ_к_хосту> \
+              `zone-id=<зона_доступности>,`
+              `subnet-id=<идентификатор_подсети>,`
+              `assign-public-ip=<публичный_доступ_к_хосту>,`
+              `shard-name=<имя_шарда> \
         --clickhouse-resource-preset <класс_хоста> \
         --clickhouse-disk-type <тип диска> \
         --clickhouse-disk-size <размер_хранилища_ГБ> \
@@ -1223,21 +1329,28 @@ description: Следуя данной инструкции, вы сможете
         --deletion-protection
       ```
 
-      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано две и более подсетей.
-
 
       Где:
 
       * `--environment` — окружение кластера: `prestable` или `production`.
+      * `--shard` — параметры [шарда](../concepts/sharding.md): его имя и вес.
+
+        Чтобы создать кластер сразу с несколькими шардами, передайте этот флаг нужное количество раз. Если не указать флаг `--shard`, будет создан кластер с одним шардом `shard1`.
+
       * `--host` — параметры хоста:
         * `type` — тип хоста: `clickhouse` или `zookeeper`.
         * `zone-id` — зона доступности.
 
         
+        * `subnet-id` — идентификатор подсети. Его необходимо указывать, если в выбранной зоне доступности создано две и более подсетей.
         * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
           {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
+
+        * `shard-name` — имя шарда, в котором будет размещен хост.
+
+        
         {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
 
@@ -1271,10 +1384,10 @@ description: Следуя данной инструкции, вы сможете
 
       
       * `--security-group-ids` — идентификаторы групп безопасности через запятую.
-        
+
           {% include [note-sg](../../_includes/mdb/mch/note-sg.md) %}
-      
-      
+
+
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
 
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
@@ -1348,7 +1461,7 @@ description: Следуя данной инструкции, вы сможете
          * `--cloud-storage-prefer-not-to-merge` — отключает слияние кусков данных в кластерном и объектном хранилищах: `true` или `false`.
 
       1. Чтобы задать настройки автоматического увеличения размера хранилищ {{ CH }} и {{ ZK }}, используйте флаг `--disk-size-autoscaling`:
-        
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -1362,11 +1475,23 @@ description: Следуя данной инструкции, вы сможете
          ```
 
          Где `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилищ:
-         
+
          {% include [disk-size-autoscaling-cli](../../_includes/mdb/mch/disk-size-autoscaling-cli.md) %}
-      
+
+         Настройки автоматического увеличения размера хранилища, заданные для {{ CH }}, применяются ко всем шардам. Чтобы задать индивидуальные настройки для отдельного шарда, передайте аналогичные параметры во флаге `--shard`:
+
+         ```bash
+         {{ yc-mdb-ch }} cluster create \
+           ...
+           --shard name=<имя_шарда>,`
+                  `disk-size-limit=<максимальный_размер_хранилища_ГБ>,`
+                  `planned-usage-threshold=<порог_для_планового_увеличения_в_процентах>,`
+                  `emergency-usage-threshold=<порог_для_незамедлительного_увеличения_в_процентах>
+           ...
+         ```
+
       1. Чтобы настроить [окно технического обслуживания](../concepts/maintenance.md), используйте флаг `--maintenance-window`:
-         
+
          ```bash
          {{ yc-mdb-ch }} cluster create \
            ...
@@ -1375,14 +1500,14 @@ description: Следуя данной инструкции, вы сможете
                                `day=<день_недели>
            ...
          ```
-         
+
          Где `--maintenance-window` — настройки окна технического обслуживания:
 
          * `type` — тип окна технического обслуживания. Допустимые значения:
-           
+
            * `anytime` (по умолчанию) — в любое время.
            * `weekly` — по расписанию. Для этого значения необходимо передать параметры `hour` и `day`.
-        
+
          * `hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
          * `day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
 
@@ -1521,8 +1646,8 @@ description: Следуя данной инструкции, вы сможете
        Где:
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
-        
-       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда. 
+
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда.
 
        * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
 
@@ -1532,9 +1657,9 @@ description: Следуя данной инструкции, вы сможете
           * `assign_public_ip` — публичный доступ к хосту {{ CH }}: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
-          
+
           * `shard_name` — имя шарда. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
-          
+
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
 
        Для пользователя указываются:
@@ -1723,6 +1848,32 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
+              "shardSpecs": [
+                {
+                  "name": "<имя_шарда>",
+                  "configSpec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>", 
+                      "resources": {
+                        "resourcePresetId": "<класс_хостов_в_шарде>",
+                        "diskSize": "<размер_хранилища_в_байтах>",
+                        "diskTypeId": "<тип_диска>"
+                      },
+                      "diskSizeAutoscaling": {
+                        "plannedUsageThreshold": "<порог_для_планового_увеличения_в_процентах>",
+                        "emergencyUsageThreshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                        "diskSizeLimit": "<максимальный_размер_хранилища_в_байтах>"
+                      },
+                      "config": {
+                        <настройки_СУБД>
+                      }
+                    }
+                  }
+                },
+                { <аналогичный_набор_настроек_для_шарда_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_шарда_N> }
+              ],
               "deletionProtection": <защита_кластера_от_удаления>,
               "maintenanceWindow": {
                 "weeklyMaintenanceWindow": {
@@ -1756,7 +1907,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
 
                     * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-ch](../../_includes/mdb/mch/disk-size-autoscaling-rest-ch.md) %}
 
                 * `zookeeper` — конфигурация [{{ ZK }}](../concepts/coordination-system.md#zk):
@@ -1766,7 +1917,7 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.diskTypeId` — [тип диска](../concepts/storage.md).
 
                     * `diskSizeAutoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
-                      
+
                       {% include [disk-size-autoscaling-rest-zk](../../_includes/mdb/mch/disk-size-autoscaling-rest-zk.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
@@ -1786,11 +1937,11 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру: 
-              
+            * `databaseSpecs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `userSpecs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
@@ -1814,17 +1965,23 @@ description: Следуя данной инструкции, вы сможете
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-                
+
+
+            * `shardSpecs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
+
+                * `name` — имя шарда.
+                * `weight` — вес шарда.
+                * `configSpec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletionProtection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenanceWindow` — настройки окна технического обслуживания:
-              
+
                 * `weeklyMaintenanceWindow.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
                 * `weeklyMaintenanceWindow.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
-              
+
             
             Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
 
@@ -1949,6 +2106,32 @@ description: Следуя данной инструкции, вы сможете
                 { ... },
                 { <аналогичный_набор_настроек_для_хоста_N> }
               ],
+              "shard_specs": [
+                {
+                  "name": "<имя_шарда>",
+                  "config_spec": {
+                    "clickhouse": {
+                      "weight": "<вес_шарда>",
+                      "resources": {
+                        "resource_preset_id": "<класс_хостов>",
+                        "disk_size": "<размер_хранилища_в_байтах>",
+                        "disk_type_id": "<тип_диска>"
+                      },
+                      "disk_size_autoscaling": {
+                        "planned_usage_threshold": "<порог_для_планового_увеличения_в_процентах>",
+                        "emergency_usage_threshold": "<порог_для_незамедлительного_увеличения_в_процентах>",
+                        "disk_size_limit": "<максимальный_размер_хранилища_в_байтах>"
+                      },
+                      "config": {
+                        <настройки_СУБД>
+                      }
+                    }
+                  }
+                },
+                { <аналогичный_набор_настроек_для_шарда_2> },
+                { ... },
+                { <аналогичный_набор_настроек_для_шарда_N> }
+              ],
               "deletion_protection": <защита_кластера_от_удаления>,
               "maintenance_window": {
                 "weekly_maintenance_window": {
@@ -1983,17 +2166,17 @@ description: Следуя данной инструкции, вы сможете
                     * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
 
                     * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ CH }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-ch](../../_includes/mdb/mch/disk-size-autoscaling-grpc-ch.md) %}
 
                 * `zookeeper` — конфигурация [{{ ZK }}](../concepts/coordination-system.md#zk):
-                    
+
                     * `resources.resource_preset_id` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../api-ref/ResourcePreset/list.md).
                     * `resources.disk_size` — размер диска в байтах.
                     * `resources.disk_type_id` — [тип диска](../concepts/storage.md).
 
                     * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища {{ ZK }}:
-                      
+
                         {% include [disk-size-autoscaling-grpc-zk](../../_includes/mdb/mch/disk-size-autoscaling-grpc-zk.md) %}
 
                 * `access` — настройки, которые разрешают доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}:
@@ -2013,11 +2196,11 @@ description: Следуя данной инструкции, вы сможете
 
                     {% include [SQL-management-can't-be-switched-off](../../_includes/mdb/mch/note-sql-db-and-users-create-cluster.md) %}
 
-            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру: 
-              
+            * `database_specs` — настройки баз данных в виде массива элементов. Каждый элемент соответствует отдельной базе данных и имеет следующую структуру:
+
                 * `name` — имя базы данных.
                 * `engine` — движок базы данных. Возможные значения:
-                  
+
                   {% include [database-engine-api](../../_includes/mdb/mch/database-engine-api.md) %}
 
             * `user_specs` — настройки пользователей в виде массива элементов. Каждый элемент соответствует отдельному пользователю и имеет следующую структуру:
@@ -2041,14 +2224,20 @@ description: Следуя данной инструкции, вы сможете
                    {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
 
                 {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-                
+
+
+            * `shard_specs` — настройки шардов в виде массива элементов, где каждый элемент соответствует отдельному шарду. Если не передать этот блок в запросе, будет создан кластер с одним шардом `shard1`. Вы можете задать следующие настройки:
+
+                * `name` — имя шарда.
+                * `weight` — вес шарда.
+                * `config_spec.clickhouse` — конфигурация хостов шарда: класс хоста, настройки хранилища и настройки СУБД. Если не указывать конфигурацию хостов шарда, она будет унаследована от конфигурации кластера.
 
             * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`. Значение по умолчанию — `false`.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
             * `maintenance_window` — настройки окна технического обслуживания:
-              
+
               * `weekly_maintenance_window.day` — день недели. Допустимые значения: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
               * `weekly_maintenance_window.hour` — час дня по UTC. Допустимые значения: от `1` до `24`.
 
@@ -2208,7 +2397,6 @@ description: Следуя данной инструкции, вы сможете
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-  
   * Один шард `shard1`.
   * Один хост класса `{{ host-class }}` в шарде `shard1`. Хост размещен в новой подсети `cluster-subnet-{{ region-id }}-a`.
 
@@ -2243,6 +2431,99 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+### Создание шардированного кластера {#creating-a-sharded-cluster}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+  Создайте кластер {{ mch-name }} с тестовыми характеристиками:
+
+  
+  * Имя `mych`.
+  * Окружение `production`.
+  * Сеть `{{ network-name }}`.
+  * Группа безопасности `{{ security-group }}`.
+  * Три хоста {{ CH }} класса `{{ host-class }}`, размещенные в разных шардах и разных подсетях:
+
+      * в шарде `shard1`, в подсети с идентификатором `e9bhbia2scnk********` в зоне доступности `{{ region-id }}-a`;
+      * в шарде `shard2`, в подсети с идентификатором `e2lfqbm5nt9r********` в зоне доступности `{{ region-id }}-b`;
+      * в шарде `shard3`, в подсети с идентификатором `fl8beqmjckv8********` в зоне доступности `{{ region-id }}-d`.
+
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
+  * Один пользователь `user1` с паролем `user1user1`.
+  * Одна база данных `db1`.
+  * Защита от непреднамеренного удаления.
+
+
+  Выполните следующую команду:
+
+  
+  ```bash
+  {{ yc-mdb-ch }} cluster create \
+    --name mych \
+    --environment=production \
+    --network-name {{ network-name }} \
+    --shard name=shard1,weight=1 \
+    --shard name=shard2,weight=1 \
+    --shard name=shard3,weight=1 \
+    --host type=clickhouse,zone-id={{ region-id }}-a,subnet-id=e9bhbia2scnk********,shard-name=shard1 \
+    --host type=clickhouse,zone-id={{ region-id }}-b,subnet-id=e2lfqbm5nt9r********,shard-name=shard2 \
+    --host type=clickhouse,zone-id={{ region-id }}-d,subnet-id=fl8beqmjckv8********,shard-name=shard3 \
+    --clickhouse-resource-preset {{ host-class }} \
+    --clickhouse-disk-type {{ disk-type-example }} \
+    --clickhouse-disk-size 20 \
+    --user name=user1,password=user1user1 \
+    --database name=db1 \
+    --security-group-ids {{ security-group }} \
+    --deletion-protection
+  ```
+
+
+
+- {{ TF }} {#tf}
+
+  Создайте кластер {{ mch-name }} и сеть для него с тестовыми характеристиками:
+
+  * Имя `mych`.
+  * Окружение `PRESTABLE`.
+  * Облако с идентификатором `{{ tf-cloud-id }}`.
+  * Каталог с идентификатором `{{ tf-folder-id }}`.
+  * Новая облачная сеть `cluster-net`.
+
+  * Три хоста {{ CH }} класса `{{ host-class }}`, размещенные в разных шардах и в новых подсетях, принадлежащих сети `cluster-net`:
+
+      * в шарде `shard1`, в подсети `cluster-subnet-{{ region-id }}-a` (диапазон `172.16.1.0/24`, зона доступности `{{ region-id }}-a`).
+      * в шарде `shard2`, в подсети `cluster-subnet-{{ region-id }}-b` (диапазон `172.16.2.0/24`, зона доступности `{{ region-id }}-b`).
+      * в шарде `shard3`, в подсети `cluster-subnet-{{ region-id }}-d` (диапазон `172.16.3.0/24`, зона доступности `{{ region-id }}-d`).
+
+  * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` в сети `cluster-net`, разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443` и `9440`.
+  * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ для каждого хоста {{ CH }}.
+  * Имя базы данных `db1`.
+  * Пользователь `user1` с паролем `user1user1`.
+  * Техническое обслуживание проводится в любое время.
+
+  Конфигурационные файлы для такого кластера выглядят так:
+
+  1. Конфигурационный файл с описанием настроек провайдера:
+
+      {% include [terraform-provider](../../_includes/mdb/terraform-provider.md) %}
+
+  1. Конфигурационный файл с описанием облачной сети и подсетей:
+
+      {% include [terraform-mdb-multiple-networks](../../_includes/mdb/terraform-multiple-networks.md) %}
+
+  1. Конфигурационный файл с описанием группы безопасности:
+
+      {% include [terraform-mch-sg](../../_includes/mdb/mch/terraform/security-groups.md) %}
+
+  1. Конфигурационный файл с описанием кластера и его хостов:
+
+      {% include [example-sharded-cluster](../../_includes/mdb/mch/terraform/example-sharded-cluster.md) %}
+
+
+{% endlist %}
+
 ### Создание кластера с сервисом координации {{ ZK }} {#creating-a-multi-host-cluster}
 
 
@@ -2258,13 +2539,13 @@ description: Следуя данной инструкции, вы сможете
   * Сеть `{{ network-name }}`.
   * Группа безопасности `{{ security-group }}`.
   * Три хоста {{ CH }} класса `{{ host-class }}`, размещенные в подсетях в трех разных зонах доступности:
-      
+
     * в подсети с идентификатором `e9bhbia2scnk********` в зоне доступности `{{ region-id }}-a`;
     * в подсети с идентификатором `e2lfqbm5nt9r********` в зоне доступности `{{ region-id }}-b`;
     * в подсети с идентификатором `fl8beqmjckv8********` в зоне доступности `{{ region-id }}-d`.
-  
+
   * Три хоста {{ ZK }} класса `{{ zk-host-class }}`, размещенные в подсетях в трех разных зонах доступности:
-      
+
     * в подсети с идентификатором `e9bhbia2scnk********` в зоне доступности `{{ region-id }}-a`;
     * в подсети с идентификатором `e2lfqbm5nt9r********` в зоне доступности `{{ region-id }}-b`;
     * в подсети с идентификатором `fl8beqmjckv8********` в зоне доступности `{{ region-id }}-d`.

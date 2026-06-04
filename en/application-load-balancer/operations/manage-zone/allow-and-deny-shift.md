@@ -5,6 +5,7 @@ description: Follow this guide to allow or deny zonal shift between availability
 
 # Allowing and denying availability zone shutdown
 
+
 If an [availability zone](../../../overview/concepts/geo-scope.md) is under maintenance or shows signs of failure, {{ yandex-cloud }} technicians may temporarily shut down that zone. In which case the load balancer will automatically redistribute traffic among the remaining zones. As soon as the zone is back on track, it gets re-enabled, and uniform traffic distribution is resumed.
 
 You can allow or deny auto-disabling an availability zone. However, you cannot select a particular zone to disable. Before allowing the automatic mode, you can try [disabling different availability zones](start-and-cancel-shift.md).
@@ -58,11 +59,11 @@ By default, availability zone shutdown is not allowed.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the resources for updates in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  For more information about `yandex_alb_load_balancer` properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 
@@ -119,11 +120,11 @@ By default, availability zone shutdown is not allowed.
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
+      {{ TF }} will change all required resources. You can check the resources for updates in the [management console]({{ link-console-main }}).
 
       {% include [Terraform timeouts](../../../_includes/application-load-balancer/terraform-timeout-alb.md) %}
 
-  For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/alb_load_balancer).
+  For more information about `yandex_alb_load_balancer` properties, see [this provider guide]({{ tf-provider-datasources-link }}/alb_load_balancer).
 
 - API {#api}
 

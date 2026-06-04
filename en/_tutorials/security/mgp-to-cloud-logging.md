@@ -18,7 +18,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -46,7 +46,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       ```bash
       yc managed-greenplum cluster create <cluster_name> \
-         --greenplum-version=6.25 \
+         --greenplum-version=<{{ GP }}_version> \
          --environment=PRODUCTION \
          --network-name=<cluster_network_name> \
          --user-name=<VM_user_name> \
@@ -101,7 +101,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
             zone               = "<availability_zone_ID>"
             subnet_id          = "<cluster_subnet_ID>"
             assign_public_ip   = true
-            version            = "6.25"
+            version            = "<{{ GP }}_version>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -152,7 +152,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           * `folder_id`: Specify the ID of the folder whose log group you want to use.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
@@ -207,7 +207,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}** service.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -266,7 +266,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Enter a name for the cluster.
       1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select:
@@ -294,7 +294,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
       ```bash
       yc managed-greenplum cluster create <cluster_name> \
-         --greenplum-version=6.25 \
+         --greenplum-version=<{{ GP }}_version> \
          --environment=PRODUCTION \
          --network-name=<cluster_network_name> \
          --user-name=<VM_user_name> \
@@ -349,7 +349,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
             zone               = "<availability_zone_ID>"
             subnet_id          = "<cluster_subnet_ID>"
             assign_public_ip   = true
-            version            = "6.25"
+            version            = "<{{ GP }}_version>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -400,7 +400,7 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
 
           * `log_group_id`: ID of the log group to write logs to.
 
-      1. Validate your {{ TF }} configuration files using this command:
+      1. Make sure the {{ TF }} configuration files are correct using this command:
 
           ```bash
           terraform validate
@@ -455,10 +455,10 @@ You can set up regular collection of {{ GP }} cluster performance logs. Logs wil
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}** service.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `greenplum-log-group` log group.
 
-      The page that opens will show the log group entries.
+      The page that opens will show the records.
 
    * CLI {#cli}
 

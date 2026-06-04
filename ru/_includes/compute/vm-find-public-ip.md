@@ -1,0 +1,1 @@
+Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.

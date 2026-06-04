@@ -30,6 +30,7 @@ default:
   api-host: api.cloud.yandex.net
   api-host-airflow: airflow.api.cloud.yandex.net
   api-host-apigw: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+  api-host-captcha: https://smartcaptcha.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -52,6 +53,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
   api-host-storage-grpc: storage.api.cloud.yandex.net:443
+  api-host-sws: https://smartwebsecurity.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -1965,6 +1967,13 @@ default:
         v2|pricingRate:
           1|number: 503.25
           1|string: "503,25\_₸"
+      vimpelcom_marketing_1|number: 39.4
+      vimpelcom_marketing_1|string: "39,4\_₸"
+      vimpelcom_marketing_from_5|number: 39.9
+      vimpelcom_marketing_from_5|string: "39,9\_₸"
+    notifications_packet_events:
+      vimpelcom_marketing_3_to_4|number: 97.85
+      vimpelcom_marketing_3_to_4|string: "97,85\_₸"
     notifications:
       sender_name_registration_event|number: 50833.3
       sender_name_registration_event|string: "50\_833,3\_₸"
@@ -2471,6 +2480,13 @@ default:
         v2|pricingRate:
           1|number: 100.65
           1|string: "100,65\_₽"
+      vimpelcom_marketing_1|number: 7.88
+      vimpelcom_marketing_1|string: "7,88\_₽"
+      vimpelcom_marketing_from_5|number: 7.98
+      vimpelcom_marketing_from_5|string: "7,98\_₽"
+    notifications_packet_events:
+      vimpelcom_marketing_3_to_4|number: 19.57
+      vimpelcom_marketing_3_to_4|string: "19,57\_₽"
     notifications:
       sender_name_registration_event|number: 10166.66
       sender_name_registration_event|string: "10\_166,66\_₽"
@@ -3009,17 +3025,13 @@ default:
         v2|pricingRate:
           1|number: 0.824999868
           1|string: "0,824999868\_$"
-      vimpelcom_marketing_1|number: 0.0645081864
-      vimpelcom_marketing_1|string: "0,0645081864\_$"
-      vimpelcom_marketing_2|number: 0.0637704816
-      vimpelcom_marketing_2|string: "0,0637704816\_$"
+      vimpelcom_marketing_1|number: 0.0645901536
+      vimpelcom_marketing_1|string: "0,0645901536\_$"
+      vimpelcom_marketing_from_5|number: 0.0654098256
+      vimpelcom_marketing_from_5|string: "0,0654098256\_$"
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 0.1574589912
-      vimpelcom_marketing_1|string: "0,1574589912\_$"
-      vimpelcom_marketing_2|number: 0.11680326
-      vimpelcom_marketing_2|string: "0,11680326\_$"
-      vimpelcom_marketing_3|number: 0.222950784
-      vimpelcom_marketing_3|string: "0,222950784\_$"
+      vimpelcom_marketing_3_to_4|number: 0.1604098104
+      vimpelcom_marketing_3_to_4|string: "0,1604098104\_$"
     notifications:
       sender_name_registration_event|number: 83.3332653552
       sender_name_registration_event|string: "83,3332653552\_$"
@@ -5873,6 +5885,8 @@ default:
           add_shard-btn: Добавить шард
           databases:
             popup-add_button_add: Создать
+          field_cluster-sharding: Шардирование кластера
+          field_shard-resources-type: Конфигурация
           format-schemas:
             button-action_add-format-schema: Создать схему
             dialog:
@@ -5901,9 +5915,12 @@ default:
           switch_shard-groups: Группы шардов
           switch_shards: Шарды
           switch_users: Пользователи
+          title_cluster-shards-settings: Настройки шардирования
           value_coordination-service-embedded-clickhouse-keeper: ClickHouse Keeper (встроенный)
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (на отдельных хостах)
           value_coordination-service-zookeeper: ZooKeeper (на отдельных хостах)
+          value_shard-resources-type-default: По умолчанию
+          value_shard-resources-type-override: Переопределённая
         Cluster:
           Shards:
             action_add-shards_iULX7: Создать шарды
@@ -7950,6 +7967,7 @@ default:
           base_field_roles: Роли
           base_field_service-account: Сервисный аккаунт
           base_field_shard-name: Имя шарда
+          base_field_shard-weight: Вес
           base_field_version: Версия
           button_add-host: Добавить хост
           button_add-initialization-action: Добавить

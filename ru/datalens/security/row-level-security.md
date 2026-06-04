@@ -173,9 +173,9 @@ where измерение in (значение_1, значение_2 ... знач
 
 {% endnote %}
 
-
 ## Как изменить права доступа к строке в датасете {#how-to-manage-rls}
 
 Чтобы настроить права доступа к строкам данных:
+
 
 {% include [datalens-manage-rls](../../_includes/datalens/operations/datalens-manage-rls.md) %}

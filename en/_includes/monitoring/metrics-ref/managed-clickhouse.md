@@ -11,7 +11,7 @@ resource_id | Cluster ID
 resource_type | Resource type: `cluster`
 service | Service ID: `managed-clickhouse`
 shard | Shard ID
-subcluster_name | Subcluster type: `clickhouse_subcluster` or `zookeeper_subcluster`
+subcluster_name | Subcluster type: `clickhouse_subcluster`, `zookeeper_subcluster`, or `keeper_subcluster`
 
 
 ## CPU metrics {#managed-clickhouse-cpu-metrics}
@@ -43,7 +43,7 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_s3_disk_parts_size`<br/>`DGAUGE`, bytes | Space used by [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) table parts in {{ objstorage-full-name }} with a {{ mch-name }} [hybrid storage](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. |
+| `ch_s3_disk_parts_size`<br/>`DGAUGE`, bytes | Space used by [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) table parts in {{ objstorage-full-name }} with a {{ mch-name }} [hybrid storage](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) configured. |
 | `disk.free_bytes`<br/>`DGAUGE`, bytes | Free space |
 | `disk.free_inodes`<br/>`DGAUGE`, count | Free inodes |
 | `disk.total_bytes`<br/>`DGAUGE`, bytes | Available space |
@@ -56,10 +56,10 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time |
-| `io.avg_write_time`<br/>`DGAUGE`, milliseconds | Average disk write time |
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk |
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk |
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a given disk |
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a given disk |
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
@@ -126,7 +126,7 @@ The consumption type goes into the `systag` label.
 
 #### System event metrics {#managed-clickhouse-system-events-metrics}
 
-These are the {{ CH }} native metrics from the [system.events]({{ ch.docs }}/operations/system-tables/events) table.
+These are the {{ CH }} native metrics from the [system.events]({{ ch.docs }}{{ lang }}/operations/system-tables/events) table.
 For each metric, the increment (`inc`) and change per unit of time (`rate`) are calculated.
 
 | Name<br/>Type |
@@ -647,7 +647,7 @@ For each metric, the increment (`inc`) and change per unit of time (`rate`) are 
 
 #### Current event metrics {#managed-clickhouse-system-metrics}
 
-These are the {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/) table.
+These are the {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/metrics) table.
 
 | Name<br/>Type |
 | ----- |
@@ -1093,7 +1093,7 @@ These are the {{ CH }} native metrics from the [system.metrics]({{ ch.docs }}/op
 
 #### Query queue metrics {#managed-clickhouse-query-log-metrics}
 
-These are the {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}/operations/system-tables/query_log) table.
+These are the {{ CH }} native metrics from the [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log) table.
 For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type |
@@ -1125,19 +1125,19 @@ For each metric, the increment per unit of time (second) is calculated.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `ch_replication-future_parts`<br/>`DGAUGE`, count | Number of data parts after the `MERGE` and `INSERT` operations |
-| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, count | Number of data parts enqueued for insert |
+| `ch_replication-future_parts`<br/>`DGAUGE`, count | Number of data parts after the `MERGE` and `INSERT` operations. |
+| `ch_replication-inserts_in_queue`<br/>`DGAUGE`, count | Number of data parts enqueued for insert. |
 | `ch_replication-is_alive`<br/>`DGAUGE`, 0/1 | Replication performance indicator.<br/>Either `1` if DB replication is active or `0` if not. |
-| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay |
-| `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Number of merges enqueued |
-| `ch_replication-parts_to_check`<br/>`DGAUGE`, count | Number of data parts to check |
-| `ch_replication-queue_size`<br/>`DGAUGE`, count | Merge and insert queue size |
-| `ch_replication-tables`<br/>`DGAUGE`, count | Number of tables to replicate |
+| `ch_replication-max_absolute_delay`<br/>`DGAUGE`, seconds | Maximum replication delay. |
+| `ch_replication-merges_in_queue`<br/>`DGAUGE`, count | Number of merges enqueued. |
+| `ch_replication-parts_to_check`<br/>`DGAUGE`, count | Number of data parts to check. |
+| `ch_replication-queue_size`<br/>`DGAUGE`, count | Merge and insert queue size. |
+| `ch_replication-tables`<br/>`DGAUGE`, count | Number of tables to replicate. |
 
 
 #### System metrics {#managed-clickhouse-config-metrics}
 
-{{ CH }} native metrics from the [system.asynchronous_metrics]({{ ch.docs }}/operations/system-tables/asynchronous_metrics) table.
+{{ CH }} native metrics from the [system.asynchronous_metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/asynchronous_metrics) table.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -1160,8 +1160,8 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_async_metrics_NumberOfStuckMutations`<br/>`DGAUGE`, count | Number of stuck mutations |
 | `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, count | Total tables across all databases on the server, excluding those DBs that cannot contain MergeTree tables. Excluded database engines are those that generate tables dynamically, such as Lazy, {{ MY }}, {{ PG }}, and SQLite. |
 | `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, count | Total system database tables stored as MergeTree tables on the server |
-| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, bytes | Memory utilized in query cache |
-| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, count | Number of entries in query cache |
+| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, bytes | Utilized query cache memory |
+| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, count | Number of query cache entries |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, seconds | Maximum replication delay |
 | `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, count | Maximum number of queued `INSERT` operations (to replicate) in replicated tables |
 | `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, count | Maximum number of queued `MERGE` operations (to apply) for replicated tables |
@@ -1179,8 +1179,8 @@ For each metric, the increment per unit of time (second) is calculated.
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTables`<br/>`DGAUGE`, count | Total rows (entries) across all MergeTree tables |
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, count | Total rows (records) in MergeTree tables within the system database |
 | `ch_system_async_metrics_UncompressedCacheBytes`<br/>`DGAUGE`, bytes | Memory used by uncompressed cache |
-| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, count | Number of elements in uncompressed cache |
-| `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Server uptime (in seconds), which includes the time used to initialize the server before it starts accepting connections |
+| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, count | Number of uncompressed cache items |
+| `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, seconds | Server uptime (in seconds), which includes the time used to initialize the server before it starts accepting connections     |
 
 
 ## Other metrics {#managed-clickhouse-other-metrics}
@@ -1189,8 +1189,8 @@ For each metric, the increment per unit of time (second) is calculated.
 | ----- | ----- |
 | `can_read`<br/>`DGAUGE`, 0/1 | Host read availability.<br/>Returns `1` if the host service is available for read operations, `0` if not. |
 | `can_write`<br/>`DGAUGE`, 0/1 | Host write access indicator.<br/>`1` if the host service is available for writes, `0` if not. |
-| `host_count`<br/>`DGAUGE`, count | Number of hosts |
+| `host_count`<br/>`DGAUGE`, count | Number of hosts. |
 | `is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>It can be either `1` if a DB host is healthy or `0` if not. |
-| `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time |
+| `read_time`<br/>`DGAUGE`, ms | Average disk read time |
 | `shard_count`<br/>`DGAUGE`, count | Number of shards |
-| `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time |
+| `write_time`<br/>`DGAUGE`, ms | Average disk write time |
