@@ -214,13 +214,13 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -235,7 +235,7 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
 - API {#api}
 
   1. Create `canary-network` using the [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) gRPC API call or the [create](../../vpc/api-ref/Network/create.md) REST API method.
-  1. Create `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` in the three availability zones using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
+  1. Create `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b`, and `canary-subnet-{{ region-id }}-d` subnets in the three [availability zones](../../overview/concepts/geo-scope.md) using the [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) gRPC API call or the [create](../../vpc/api-ref/Subnet/create.md) REST API method.
 
 {% endlist %}
 
@@ -315,13 +315,13 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -440,13 +440,13 @@ All resources you create will belong to the same [cloud network](../../vpc/conce
      1. Make sure the configuration files are correct.
 
         1. In the terminal, navigate to the directory where you created your configuration file.
-        1. Run a check using the following command:
+        1. Run a check using this command:
 
            ```bash
            terraform plan
            ```
 
-        If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+        If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
      1. Deploy the cloud resources.
 
@@ -598,18 +598,18 @@ To create security groups:
      }
      ```
 
-     For more information about resource properties in {{ TF }}, see the [relevant {{ TF }} documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about resource properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -857,13 +857,13 @@ To create security groups:
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -1080,13 +1080,13 @@ To create security groups:
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
@@ -1242,13 +1242,13 @@ To create security groups:
   1. Make sure the configuration files are correct.
 
      1. In the terminal, navigate to the directory where you created your configuration file.
-     1. Run a check using the following command:
+     1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
@@ -1418,16 +1418,16 @@ To configure DNS:
 
         For more information, see the [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) and [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) descriptions in the {{ TF }} provider documentation.
 
-     1. Validate your configuration files.
+     1. Make sure the configuration files are correct.
 
         1. In the terminal, navigate to the directory where you created your configuration file.
-        1. Run a check using the following command:
+        1. Run a check using this command:
 
            ```bash
            terraform plan
            ```
 
-        If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
+        If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
      1. Deploy the cloud resources.
 

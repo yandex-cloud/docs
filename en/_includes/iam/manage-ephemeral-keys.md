@@ -2,6 +2,7 @@
 
 Ephemeral access keys are created for [Yandex accounts](../../iam/concepts/users/accounts.md#passport), [federated accounts](../../iam/concepts/users/accounts.md#saml-federation), [local users](../../iam/concepts/users/accounts.md#local), and [service accounts](../../iam/concepts/users/service-accounts.md).
 
+To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephemeralAccessKeyAdmin` [role](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) or higher for the folder.
 
 ## Creating an ephemeral access key {#create}
 

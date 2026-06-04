@@ -207,14 +207,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
-{% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
-
-{% note info %}
-
-Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-{% endnote %}
-
 Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
@@ -256,7 +248,7 @@ description: Следуя данной инструкции, вы сможете
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. В команде изменения кластера передайте новый класса хоста {{ ZK }}, тип диска и размер хранилища:
+  1. В команде изменения кластера передайте новый класс хоста {{ ZK }}, тип диска и размер хранилища:
 
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \

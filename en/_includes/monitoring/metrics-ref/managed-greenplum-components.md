@@ -16,7 +16,6 @@ Some of the described metrics are cluster-specific, not host-specific. In such m
 Metrics of consumption of resources by individual service components. To get the data, you must specify an additional `component` label containing the component name value.
 
 Additional labels:
-
 * `component`: Component name: `odyssey`, `yproxy`, `pxf`, and `unified_agent`.
 
 | Name<br/>Type, units | Description |
@@ -25,8 +24,8 @@ Additional labels:
 | `managed_greenplum_component.cpu_time`<br/>`DGAUGE`, ms | Total CPU time used by the component (sum of `user` and `system`). |
 | `managed_greenplum_component.cpu_time_system`<br/>`DGAUGE`, ms | Processor time used by the component in kernel mode (`system`). |
 | `managed_greenplum_component.cpu_time_user`<br/>`DGAUGE`, ms | Processor time used by the component in `user` mode. |
-| `managed_greenplum_component.memory_usage`<br/>`DGAUGE`, bytes | Current memory consumption of the component. |
-| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, bytes | Amount of memory used by the component for data caching. |
+| `managed_greenplum_component.memory_usage`<br/>`DGAUGE`, bytes | Current memory usage by the component. |
+| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, bytes | Memory used by the component for data caching. |
 | `managed_greenplum_component.memory_rss`<br/>`DGAUGE`, bytes | Amount of resident storage (RSS) occupied by the component in physical memory. |
 | `managed_greenplum_component.cpu_quota_us`<br/>`DGAUGE`, microseconds | CPU time quota (`cgroup CPU quota`) in microseconds per period. |
 | `managed_greenplum_component.cpu_period_us`<br/>`DGAUGE`, microseconds | Processor scheduling period (`cgroup CPU period`) in microseconds. |
@@ -60,14 +59,13 @@ Composite metrics aggregating multiple indicators to quickly assess the status o
 | `gp.percent_xid_wraparound_warn_limit`<br/>`DGAUGE`, % | XID utilization warning threshold. |
 | `gp.percent_xid_wraparound_crit_limit`<br/>`DGAUGE`, % | Critical XID utilization threshold. |
 | `gp.seg_down`<br/>`DGAUGE`, count | Number of unavailable segments. |
-
 | `gp.seg_down_warn_limit`<br/>`DGAUGE`, count | Warning threshold for the number of unavailable segments. |
 | `gp.seg_not_pref_role`<br/>`DGAUGE`, count | Number of segments operating not in preferred role. |
 | `gp.seg_not_pref_role_warn_limit`<br/>`DGAUGE`, count | Warning threshold for segments that are not in preferred role. |
 | `gp.seg_not_synch`<br/>`DGAUGE`, count | Number of segments in an unsynchronized state. |
-| `gp.log_events_warning_total`<br/>`DGAUGE`, count | Total number of `WARNING` level events in {{ GP }} logs. |
-| `gp.log_events_error_total`<br/>`DGAUGE`, count | Total number of `ERROR` level events in {{ GP }} logs. |
-| `gp.log_events_fatal_total`<br/>`DGAUGE`, count | Total number of `FATAL` level events in {{ GP }} logs. |
+| `gp.log_events_warning_total`<br/>`DGAUGE`, count | Total number of `WARNING` level events in DBMS logs. |
+| `gp.log_events_error_total`<br/>`DGAUGE`, count | Total number of `ERROR` level events in DBMS logs. |
+| `gp.log_events_fatal_total`<br/>`DGAUGE`, count | Total number of `FATAL` level events in DBMS logs. |
 
 ## Odyssey (Pooler) component metrics {#managed-greenplum-odyssey-metrics}
 
@@ -80,7 +78,7 @@ Odyssey connection pooler metrics.
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, bytes | Pooler memory consumption warning threshold. |
 | `pooler.bytes_sent`<br/>`DGAUGE`, bytes per second | Data send speed from pooler to clients. |
 | `pooler.bytes_received`<br/>`DGAUGE`, bytes per second | Data receive speed from clients by pooler. |
-| `pooler.used_servers`<br/>`DGAUGE`, count | Number of active server connections (pooler → {{ GP }}). |
+| `pooler.used_servers`<br/>`DGAUGE`, count | Number of active server connections (pooler → DMBS). |
 | `pooler.free_servers`<br/>`DGAUGE`, count | Number of free server connections in the pool. |
 | `pooler.used_clients`<br/>`DGAUGE`, count | Number of active client connections (client → pooler). |
 | `pooler.query_0.5`<br/>`DGAUGE`, ms | 50th percentile of query execution time through the pooler. |

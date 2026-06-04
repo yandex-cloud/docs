@@ -1,9 +1,9 @@
 ---
-title: Managing investigations in {{ ycdr-full-name }}
+title: Investigation management in {{ ycdr-full-name }}
 description: Follow this guide to learn how to create, update, copy, and delete investigations in {{ ycdr-name }}.
 ---
 
-# Managing investigations
+# Investigation management
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 

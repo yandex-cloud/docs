@@ -102,7 +102,7 @@ with tracer.start_as_current_span("process_batch") as span:
     span.add_event("Batch processing completed")
 ```
 
-Typical use cases include the start or end of a stage, cache miss, retry, validation result.
+Typical use cases include logging the start and end of a stage, cache misses, retries, or validation results.
 
 ## Statuses and errors {#status}
 

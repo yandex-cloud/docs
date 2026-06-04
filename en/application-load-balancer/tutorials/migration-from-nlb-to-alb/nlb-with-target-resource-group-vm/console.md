@@ -2,6 +2,7 @@
 title: Migrating services from an NLB with an instance group as a target to an L7 ALB using the management console
 description: Follow this guide to migrate a service from a network load balancer with an instance group as a target to an L7 load balancer using the management console.
 canonical: '{{ link-docs }}/tutorials/security/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/console'
+noIndex: true
 ---
 
 # Migrating services from an NLB with an instance group as a target to an L7 ALB using the management console

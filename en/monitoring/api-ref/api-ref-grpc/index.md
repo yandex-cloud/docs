@@ -1,3 +1,8 @@
+---
+title: '{{ monitoring-full-name }} gRPC API overview'
+description: '{{ monitoring-name }} gRPC API reference: description of services, methods, response and error processing.'
+---
+
 # Overview
 
 This API reference is organized by resource. To perform an operation on a resource, make an RPC call. For more information, see the [{{ yandex-cloud }} API guidelines](../../../api-design-guide/).

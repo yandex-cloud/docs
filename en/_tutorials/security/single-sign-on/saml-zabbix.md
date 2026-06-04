@@ -260,7 +260,7 @@ For your organization's users to be able to authenticate in Zabbix with {{ org-f
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Zabbix integration work correctly, authenticate to Zabbix as one of the users you added to the app. Follow these steps:
+To make sure both your SAML app and Zabbix integration work correctly, authenticate to Zabbix as one of the users you added to the app. Proceed as follows:
 
 1. In your browser, navigate to the address of your Zabbix instance, e.g., `https://<your-domain>/zabbix/`.
 1. If you were logged in to Zabbix, log out.

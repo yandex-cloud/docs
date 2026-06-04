@@ -30,6 +30,8 @@ To prevent a hacker from using your token:
 
 ### OAuth token {#oauth-reissue}
 
+{% include [oauth-token-deprecated-soon](../../_includes/oauth-token-deprecated-soon.md) %}
+
 You can revoke an OAuth token. In this case, the IAM tokens obtained using the OAuth token will remain valid. Therefore, you must also revoke all such IAM tokens.
 
 To prevent a hacker from using your token:

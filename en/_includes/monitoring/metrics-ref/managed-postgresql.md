@@ -15,7 +15,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-postgresql-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -57,10 +57,10 @@ The consumption type goes into the `systag` label.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time |
-| `io.avg_write_time`<br/>`DGAUGE`, milliseconds | Average disk write time |
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk |
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk |
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time |
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time |
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a given disk |
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a given disk |
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk |
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk |
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
@@ -77,18 +77,18 @@ The consumption type goes into the `systag` label.
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 | `monitoring_disk.io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
 | `monitoring_disk.io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `monitoring_disk.read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `monitoring_disk.read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `monitoring_disk.read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `monitoring_disk.write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `monitoring_disk.write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `monitoring_disk.write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `monitoring_disk.write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `monitoring_disk.write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 
 ## RAM metrics {#managed-postgresql-ram-metrics}
@@ -147,26 +147,26 @@ The consumption type goes into the `systag` label.
 | `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors. |
 | `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, count | Number of fatal {{ PG }} connection errors due to an invalid password |
 | `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Indicator of data corruption in the {{ PG }} cluster<br/> `1` if corruption is detected, `0` if not.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
-| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, count | Number of Clog page SLRU cache hits (transaction commit log) |
+| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the Clog page (transaction commit log) |
 | `postgres.slru_Clog_blks_read`<br/>`DGAUGE`, count | Number of Clog SLRU page reads from the disk |
 | `postgres.slru_Clog_blks_written`<br/>`DGAUGE`, count | Number of Clog SLRU page writes to the disk |
-| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, count | Number of CommitTs page SLRU cache hits (transaction commit history).<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the CommitTs page (transaction commit history).<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_CommitTs_blks_read`<br/>`DGAUGE`, count | Number of CommitTs SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_CommitTs_blks_written`<br/>`DGAUGE`, count | Number of CommitTs SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
-| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, count | Number of MultiXactMember page SLRU cache hits.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the MultiXactMember page.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_MultiXactMember_blks_read`<br/>`DGAUGE`, count | Number of MultiXactMember SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_MultiXactMember_blks_written`<br/>`DGAUGE`, count | Number of MultiXactMember SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
-| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, count | Number of MultiXactOffset page SLRU cache hits.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the MultiXactOffset page.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_MultiXactOffset_blks_read`<br/>`DGAUGE`, count | Number of MultiXactOffset SLRU page reads from the disk |
 | `postgres.slru_MultiXactOffset_blks_written`<br/>`DGAUGE`, count | Number of MultiXactOffset SLRU page writes to the disk |
-| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, count | Number of notification queue page SLRU cache hits.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for the notification queue page.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Notify_blks_read`<br/>`DGAUGE`, count | Number of Notify SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Notify_blks_written`<br/>`DGAUGE`, count | Number of Notify SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_other_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for pages of other SLRU tables.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_other_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for pages of other SLRU tables.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul>
 `postgres.slru_other_blks_read`<br/>`DGAUGE`, count | Number of page reads from the disk for other SLRU tables |
 | `postgres.slru_other_blks_written`<br/>`DGAUGE`, count | Number of page writes to the disk for other SLRU tables.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
-| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, count | Number of sequence page SLRU cache hits.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
+| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, count | Number of SLRU cache hits for sequence pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Serial_blks_read`<br/>`DGAUGE`, count | Number of Serial SLRU page reads from the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Serial_blks_written`<br/>`DGAUGE`, count | Number of Serial SLRU page writes to the disk.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
 | `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, count | Number of  SLRU cache hits for subtransaction log data pages.<br/>Special labels:<ul><li>`cid`: Cluster ID</li><li>`fqdn`: Host FQDN</li></ul> |
@@ -251,8 +251,8 @@ Special labels for Odyssey metrics:
 | `odyssey.num_fds`<br/>`DGAUGE`, count | Number of Odyssey process open file descriptors |
 | `odyssey.running`<br/>`DGAUGE`, 0/1 | Indicates a running Odyssey process.<br/>Special labels:<ul><li>`pgrep`</li><li>`result`</li></ul> |
 | `odyssey.voluntary_context_switches`<br/>`DGAUGE`, count | Number of Odyssey process voluntary context switches |
-| `pooler-avg_query_time`<br/>`DGAUGE`, milliseconds | Average query execution time per database host |
-| `pooler-avg_xact_time`<br/>`DGAUGE`, milliseconds | Average transaction execution time per database host |
+| `pooler-avg_query_time`<br/>`DGAUGE`, ms | Average query execution time per database host |
+| `pooler-avg_xact_time`<br/>`DGAUGE`, ms | Average transaction execution time per database host |
 | `pooler-bytes_recieved`<br/>`DGAUGE`, bytes | Size of data received |
 | `pooler-bytes_recieved-<DB_name>-<username>`<br/>`DGAUGE`, bytes | Size of data received by `<username>` through `<DB_name>` |
 | `pooler-bytes_sent`<br/>`DGAUGE`, bytes | Total sent data size |
@@ -263,24 +263,24 @@ Special labels for Odyssey metrics:
 | `pooler-free_servers`<br/>`DGAUGE`, count | Remaining server connections in the connection pooler |
 | `pooler-is_alive`<br/>`DGAUGE`, 0/1 | Connection pooler health for each host both as a master and as a replica |
 | `pooler-login_clients`<br/>`DGAUGE`, count | Number of client connections established in the connection pooler |
-| `pooler-maxwait`<br/>`DGAUGE`, milliseconds | Maximum client connection wait time |
+| `pooler-maxwait`<br/>`DGAUGE`, ms | Maximum client connection wait time |
 | `pooler-pgbouncer_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL TCP connections |
 | `pooler-postgres_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PgBouncer TCP connections |
-| `pooler-query_0.5`<br/>`DGAUGE`, milliseconds | Median query execution time |
+| `pooler-query_0.5`<br/>`DGAUGE`, ms | Median query execution time |
 | `pooler-query_0.5-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, median value |
-| `pooler-query_0.75`<br/>`DGAUGE`, milliseconds | 75th percentile query execution time |
+| `pooler-query_0.75`<br/>`DGAUGE`, ms | 75th percentile query execution time |
 | `pooler-query_0.75-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 75th percentile |
-| `pooler-query_0.9`<br/>`DGAUGE`, milliseconds | Query execution time, 90th percentile |
+| `pooler-query_0.9`<br/>`DGAUGE`, ms | Query execution time, 90th percentile |
 | `pooler-query_0.9-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 90th percentile |
-| `pooler-query_0.95`<br/>`DGAUGE`, milliseconds | 95th percentile query execution time |
+| `pooler-query_0.95`<br/>`DGAUGE`, ms | 95th percentile query execution time |
 | `pooler-query_0.95-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 95th percentile |
-| `pooler-query_0.99`<br/>`DGAUGE`, milliseconds | 99th percentile query execution time |
+| `pooler-query_0.99`<br/>`DGAUGE`, ms | 99th percentile query execution time |
 | `pooler-query_0.99-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 99th percentile |
-| `pooler-query_0.999`<br/>`DGAUGE`, milliseconds | Query execution time, 99.9th percentile |
+| `pooler-query_0.999`<br/>`DGAUGE`, ms | Query execution time, 99.9th percentile |
 | `pooler-query_0.999-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 99.9th percentile |
-| `pooler-query_0.9999`<br/>`DGAUGE`, milliseconds | 99.99th percentile query execution time |
+| `pooler-query_0.9999`<br/>`DGAUGE`, ms | 99.99th percentile query execution time |
 | `pooler-query_0.9999-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 99.99th percentile |
-| `pooler-query_1`<br/>`DGAUGE`, milliseconds | 100th percentile query execution time |
+| `pooler-query_1`<br/>`DGAUGE`, ms | 100th percentile query execution time |
 | `pooler-query_1-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Execution time for queries run by `<username>` through `<DB_name>`, 100th percentile |
 | `pooler-query_count`<br/>`DGAUGE`, count | Number of running queries per DB host |
 | `pooler-sv_active`<br/>`DGAUGE`, count | Number of active server connections |
@@ -292,17 +292,17 @@ Special labels for Odyssey metrics:
 | `pooler-total_query_count`<br/>`DGAUGE`, count | Number of executed queries |
 | `pooler-total_tcp_connections`<br/>`DGAUGE`, connections per second | Number of PostgreSQL and PgBouncer TCP connections |
 | `pooler-total_xact_count`<br/>`DGAUGE`, count | Number of executed transactions |
-| `pooler-transaction_0.5`<br/>`DGAUGE`, milliseconds | Median transaction processing time |
+| `pooler-transaction_0.5`<br/>`DGAUGE`, ms | Median transaction processing time |
 | `pooler-transaction_0.5-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, median value |
-| `pooler-transaction_0.75`<br/>`DGAUGE`, milliseconds | Transaction processing time, 75th percentile |
+| `pooler-transaction_0.75`<br/>`DGAUGE`, ms | Transaction processing time, 75th percentile |
 | `pooler-transaction_0.75-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 75th percentile |
-| `pooler-transaction_0.9`<br/>`DGAUGE`, milliseconds | Transaction processing time, 90th percentile |
+| `pooler-transaction_0.9`<br/>`DGAUGE`, ms | Transaction processing time, 90th percentile |
 | `pooler-transaction_0.9-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 90th percentile |
-| `pooler-transaction_0.95`<br/>`DGAUGE`, milliseconds | Transaction processing time, 95th percentile |
+| `pooler-transaction_0.95`<br/>`DGAUGE`, ms | Transaction processing time, 95th percentile |
 | `pooler-transaction_0.95-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 95th percentile |
-| `pooler-transaction_0.99`<br/>`DGAUGE`, milliseconds | Transaction processing time, 99th percentile |
+| `pooler-transaction_0.99`<br/>`DGAUGE`, ms | Transaction processing time, 99th percentile |
 | `pooler-transaction_0.99-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 99th percentile |
-| `pooler-transaction_0.999`<br/>`DGAUGE`, milliseconds | Transaction processing time, 99.9th percentile |
+| `pooler-transaction_0.999`<br/>`DGAUGE`, ms | Transaction processing time, 99.9th percentile |
 | `pooler-transaction_0.999-<DB_name>-<username>`<br/>`DGAUGE`, milliseconds | Processing time for transactions executed by `<username>` through `<DB_name>`, 99.9th percentile |
 | `pooler-used_clients`<br/>`DGAUGE`, count | Number of client connections in the connection pooler |
 | `pooler-used_servers`<br/>`DGAUGE`, count | Number of server connections in the connection pooler |

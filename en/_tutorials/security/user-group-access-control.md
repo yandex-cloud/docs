@@ -8,7 +8,7 @@ This guide describes an example solution of working with [user groups](../../org
 
 In this tutorial, you will create a test organization with two [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), `production` and `testing`, together with the respective development environments. Three user groups created in the organization will use these clouds: a group of information security engineers (`security`), a group of DevOps engineers (`devops`), and a group of developers (`developers`).
 
-To each user group, you will assign its own set of [roles](../../iam/concepts/access-control/roles.md) based on the tasks users in these groups perform. For example, information security engineers will have permissions to get information about all resources, set up collection and storage of any resource [audit logs](../../audit-trails/concepts/trail.md), and configure and scan [Docker images](../../container-registry/concepts/docker-image.md) in [registries](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. These permissions will apply to the entire organization. 
+To each user group, you will assign its own set of [roles](../../iam/concepts/access-control/roles.md) based on the tasks users in these groups perform. For example, information security engineers will have permissions to get information about all resources, set up collection and storage of any resource [audit logs](../../audit-trails/concepts/trail.md), and configure and scan [Docker images](../../container-registry/concepts/docker-image.md) in [registries](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. These permissions will apply to the entire organization.
 
 Additionally, in the production environment, you will create a separate `security` [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) for the group of information security engineers. They will have administrator privileges in this folder to manage any of its resources and control access to them.
 
@@ -16,7 +16,7 @@ The group of DevOps engineers will have permissions to manage registries from {{
 
 The group of developers will get the following access permissions:
 * In the production environment, to download Docker images from registries in {{ container-registry-name }}, view information about {{ k8s }} clusters, connect to {{ compute-name }} VMs via [{{ oslogin }}](../../organization/concepts/os-login.md), and view information about {{ monitoring-name }} resources and [metrics](../../monitoring/concepts/data-model.md#metric).
-* In the testing environment, to download and upload Docker images to registries in {{ container-registry-name }}, manage {{ k8s }} clusters, connect to {{ compute-name }} VMs via [{{ oslogin }}](../../organization/concepts/os-login.md) as superusers, and manage {{ monitoring-name }} resources. 
+* In the testing environment, to download and upload Docker images to registries in {{ container-registry-name }}, manage {{ k8s }} clusters, connect to {{ compute-name }} VMs via [{{ oslogin }}](../../organization/concepts/os-login.md) as superusers, and manage {{ monitoring-name }} resources.
 
 To configure access control for organization's resources with the help of user groups:
 
@@ -271,7 +271,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
     - {{ cloud-center }} UI {#cloud-center}
 
       1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
-      1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
+      1. In the left-hand panel, select ![icon-users](../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**.
       1. In the top-right corner, click **{{ ui-key.yacloud_org.page.users.action.invite-users }}**.
       1. Enter the email addresses of the users you want to invite to the organization, separated by commas.
 

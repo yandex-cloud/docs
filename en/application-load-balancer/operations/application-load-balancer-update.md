@@ -12,7 +12,7 @@ To change L7 load balancer settings:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click your load balancer's name.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the load balancer settings:
@@ -23,7 +23,7 @@ To change L7 load balancer settings:
 
           {% include [security-groups-note](../_includes_service/security-groups-note.md) %}
 
-      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable incoming traffic for each availability zone using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
+      1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, enable or disable incoming traffic for each [availability zone](../../overview/concepts/geo-scope.md) using the **{{ ui-key.yacloud.alb.label_disable-traffic }}** option.
 
       1. Under **{{ ui-key.yacloud.alb.section_autoscale-settings }}**, set the [resource unit](../concepts/application-load-balancer.md#lcu-scaling) limit.
 
@@ -278,7 +278,7 @@ To change L7 load balancer settings:
      ...
      ```
 
-     For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
   1. Check the configuration using this command:
 
@@ -286,7 +286,7 @@ To change L7 load balancer settings:
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```bash
      Success! The configuration is valid.
@@ -298,9 +298,9 @@ To change L7 load balancer settings:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -331,7 +331,7 @@ To delete a listener from your L7 load balancer:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the load balancer is in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the load balancer and select **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, next to the appropriate listener name, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -399,15 +399,15 @@ To delete a listener from your L7 load balancer:
      ...
      ```
 
-     For more information about `yandex_alb_load_balancer` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/alb_load_balancer).
+     For more information about `yandex_alb_load_balancer` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/alb_load_balancer).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```bash
      Success! The configuration is valid.
@@ -419,9 +419,9 @@ To delete a listener from your L7 load balancer:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply

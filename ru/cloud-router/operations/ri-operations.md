@@ -4,8 +4,6 @@ title: Как получить список операций Routing Instance
 
 # Получить список операций Routing Instance
 
-{% include [cic-cr-access](../../_includes/interconnect/cic-cr-access.md) %}
-
 {% note info %}
 
 Для выполнения операции необходима роль [cloud-router.viewer](../security/index.md#cloudrouter-viewer).
@@ -55,4 +53,3 @@ title: Как получить список операций Routing Instance
     ```
   
 {% endlist %}
-

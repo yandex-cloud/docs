@@ -23,6 +23,7 @@ editable: false
 * Запись данных в {{ monium-logs-name }}.
 * Запись данных в {{ traces-name }}.
 * Отправка СМС и телефонные звонки.
+* [Вычисление алертов](#calc-alert-prices).
 
 Запись значений метрик ресурсов {{ yandex-cloud }}, чтение метрик через {{ prometheus-name }} Remote API, чтение логов и трейсов не тарифицируются.
 
@@ -90,6 +91,32 @@ editable: false
   />
 </MDX>
 
+
+
+
+
+### Тарификация вычисления алертов {#calc-alert-prices}
+
+{% note warning %}
+
+Цены на вычисление алертов действуют с 18 июня 2026 года.
+
+{% endnote %}
+
+Указаны цены за 1000 часов работы алертов или подалертов (алерто-часов). Алерт тарифицируется, пока существует в системе и для него выполняется проверка условий.
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include [rub.md](../_pricing/monium/rub-alert-calculations.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include [kzt.md](../_pricing/monium/kzt-alert-calculations.md) %}
+
+{% endlist %}
 
 
 

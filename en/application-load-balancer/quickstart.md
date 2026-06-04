@@ -25,7 +25,6 @@ Below we explain how to create each component individually. Alternatively, you c
 1. On the [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) page, make sure you have a linked [billing account](../billing/concepts/billing-account.md) with the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account yet, [create one](../billing/quickstart/index.md#create_billing_account).
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 
-
 ## Create a VM and set up a test web server on it {#create-vm}
 
 {% include [create-web-server](../_includes/application-load-balancer/create-web-server.md) %}
@@ -41,7 +40,7 @@ In our example, the target group will consist of a single VM.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create your target group.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand menu, select **{{ ui-key.yacloud.alb.label_target-groups }}**.
   1. Click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. Specify the target group name: `test-target-group`.
@@ -173,7 +172,6 @@ In the following example, we will deploy a load balancer and its backend node in
   1. Under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, select a subnet in your preferred [availability zone](../overview/concepts/geo-scope.md) and configure it to enable incoming traffic.
 
       Remove other availability zones by clicking ![xmark](../_assets/console-icons/xmark.svg) in each zone’s row.
-
 
   1. Under **{{ ui-key.yacloud.alb.label_listeners }}**, click **{{ ui-key.yacloud.alb.button_add-listener }}** and specify listener settings:
       1. Specify the listener name: `test-listener`.

@@ -1,6 +1,6 @@
 ---
 title: Creating a single-node file server using {{ TF }}
-description: In this tutorial, you will create a single-node NFS file server using the Samba software suite and the {{ vpc-full-name }} network infrastructure. The server will be hosted on a VM running Ubuntu. You will be able to connect to the server from Linux, macOS, and Windows computers.
+description: In this tutorial, you will create a single-node NFS file server using the Samba software suite and the {{ vpc-full-name }} network infrastructure via {{ TF }}.
 ---
 
 # Creating a single-node file server using {{ TF }}

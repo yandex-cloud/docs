@@ -34,7 +34,7 @@ To configure application access for your {{ org-full-name }} users, do the follo
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Enter a label in `key: value` format.
+          1. Add a label in `key: value` format.
           1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
   1. In the window that opens, on the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** tab, under **{{ ui-key.yacloud_org.application.overview.idp_section_title }}**, copy and save the `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` value representing the unique OAuth client ID. You will need this value later when setting up `OAuth2 Proxy`.
@@ -270,7 +270,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, type `Ubuntu 24.04 LTS` and select a public [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the same [availability zone](../../../overview/concepts/geo-scope.md) as that of your subnet.
@@ -301,7 +301,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
   ```
 
   Where:
-  * `--name`: VM name. The naming requirements are as follows:
+  * `--name`: VM name. Follow these naming requirements:
 
     {% include [name-format](../../../_includes/name-format.md) %}
 

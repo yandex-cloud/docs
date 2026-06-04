@@ -44,7 +44,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
 - Management console {#console}
 
   1. Open the [management console]({{ link-console-main }}).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `ephemeral-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `storage.editor`.
@@ -105,6 +105,8 @@ To manage [access](../../storage/security/overview.md) to the bucket, your servi
 ## Prepare a script for creating an ephemeral access key {#prepare-script}
 
 With a script, you can avoid updating the ephemeral key in the AWS CLI profile after the key expires. For instructions on how to manage ephemeral keys manually, see [{#T}](../../iam/operations/authentication/manage-ephemeral-keys.md).
+
+To create an ephemeral access key, the user needs the `iam.serviceAccounts.ephemeralAccessKeyAdmin` [role](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) or higher for the folder.
 
 {% list tabs group=instructions %}
 
