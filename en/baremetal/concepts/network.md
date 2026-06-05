@@ -11,13 +11,13 @@ The {{ baremetal-full-name }} network infrastructure includes public and private
 
 ## Public network {#public-network}
 
-A [public network](./public-network.md) is an internet-facing network to which all servers are physically connected. Public networks provide [ephemeral](./public-network.md#ephemeral-public-subnet) and [dedicated](./public-network.md#public-subnet) public subnets.
+A [public network](./public-network.md) is an internet-facing network to which all servers are physically connected. In public networks, [ephemeral](./public-network.md#ephemeral-public-subnet) and [dedicated](./public-network.md#public-subnet) public subnets are available.
 
 For more information about public networks, see [{#T}](./public-network.md).
 
 ## Private network {#private-network}
 
-A [private network](./private-network.md) is a local network to which all servers from a single [pool](./servers.md#server-pools) are connected. Private networks provide [private subnets](./private-network.md#private-subnet), [VRFs](./private-network.md#vrf-segment), and [private connections to cloud networks](./private-network.md#private-connection-to-vpc).
+A [private network](./private-network.md) is a local network to which all servers from a single [pool](./servers.md#server-pools) are connected. In private networks, [private subnets](./private-network.md#private-subnet), [VRFs](./private-network.md#vrf-segment), and [private connections to cloud networks](./private-network.md#private-connection-to-vpc) are available.
 
 For more information about private networks, see [{#T}](./private-network.md).
 

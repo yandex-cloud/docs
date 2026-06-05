@@ -95,7 +95,7 @@ Syntax:
 
   - [yc managed-greenplum v0 pxf-datasource list](pxf-datasource/list.md) — List pxf-datasources for specified Greenplum cluster
 
-- [yc managed-greenplum v0 resource-groups](resource-groups/index.md) — Manage Greenplum resource groups
+- [yc managed-greenplum v0 resource-groups](resource-groups/index.md) — Manage Greenplum and Apache Cloudberry resource groups
 
   - [yc managed-greenplum v0 resource-groups create](resource-groups/create.md) — Create resource group for specified Greenplum cluster
 

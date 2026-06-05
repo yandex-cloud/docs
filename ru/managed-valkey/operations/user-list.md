@@ -11,6 +11,12 @@ description: Вы можете получить информацию о поль
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}
@@ -91,6 +97,14 @@ description: Вы можете получить информацию о поль
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+      
+      Информация о пользователе доступна в списке пользователей.
+  
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}

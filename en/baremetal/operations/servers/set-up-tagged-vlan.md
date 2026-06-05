@@ -5,7 +5,7 @@ description: Follow this guide to add to a {{ baremetal-full-name }} server and 
 
 # Setting up a secondary private subnet with a tagged VLAN on a server
 
-In addition to the [main private subnet](../../concepts/private-network.md#native-vlan-subnet), you can attach several [additional](../../concepts/private-network.md#tagged-vlan-subnet) private subnets to the server's [network interface](../../concepts/servers.md#network-interfaces) (or the [MC-LAG](../../concepts/mc-lag.md) aggregation group) connected to a [private network](../../concepts/private-network.md).
+In addition to the [main private subnet](../../concepts/private-network.md#native-vlan-subnet), you can attach several [secondary](../../concepts/private-network.md#tagged-vlan-subnet) private subnets to the server's [network interface](../../concepts/servers.md#network-interfaces) (or the [MC-LAG](../../concepts/mc-lag.md) aggregation group) connected to a [private network](../../concepts/private-network.md).
 
 For information on how to attach or detach a secondary private subnet to a server, see [this section](./server-update.md).
 

@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ msp-full-name }}'
+description: This page lists {{ TF }} provider resources and data sources supported by {{ msp-name }}.
+---
+
 # {{ TF }} reference for {{ msp-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

@@ -28,7 +28,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -74,8 +74,6 @@ The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes 
 ### Cluster cost calculation example {#example}
 
 In the example, the price per month is provided for reference based on 720 hours per month.
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 

@@ -92,7 +92,7 @@ To enable the service account to access the model, create an [API key](../../iam
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select `yc.ai.languageModels.execute`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key.
+  1. Save the ID and the secret key.
 
 {% endlist %}
 

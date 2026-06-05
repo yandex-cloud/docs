@@ -1,3 +1,8 @@
+---
+title: Configuring deletion protection in {{ vpc-full-name }}
+description: To prevent accidental deletion of a static public IP address, enable deletion protection for it.
+---
+
 # Configuring deletion protection
 
 To prevent accidental deletion of a static public IP address, [enable deletion protection for it](#enable-deletion-protection).
@@ -94,7 +99,7 @@ You can [disable](#disable) this option when you no longer need it.
 
 {% endlist %}
 
-## Disabling deletion protection {#disable}
+## Disable deletion protection {#disable}
 
 {% list tabs %}
 
@@ -102,7 +107,7 @@ You can [disable](#disable) this option when you no longer need it.
 
    1. In the [management console]({{ link-console-main }}), navigate to the folder where you reserved the IP address.
    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. In the row with the IP address, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}**.
    1. In the window that opens, click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
 

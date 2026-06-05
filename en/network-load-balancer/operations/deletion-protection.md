@@ -1,3 +1,8 @@
+---
+title: Configuring deletion protection in {{ network-load-balancer-full-name }}
+description: To prevent accidental deletion of a network load balancer, enable deletion protection for it.
+---
+
 # Configuring deletion protection
 
 To prevent accidental deletion of a network load balancer, [enable deletion protection for it](#enable-deletion-protection).

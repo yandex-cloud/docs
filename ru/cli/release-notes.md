@@ -60,9 +60,9 @@ description: На странице представлены релизы CLI, а
 
 #### {{ mmy-name }} {#v-1-12-0-managed-mysql}
 
-Поддержаны ресурсные группы для {{ CB }}. Добавлены новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost` и `--io-limit` для команд:
+* Поддержаны ресурсные группы для {{ CB }}. Добавлены новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost` и `--io-limit` для команд:
 
-Добавлена параметр `--deletion-protection` для защиты от удаления пользователей {{ MY }} для следующих команд:
+* Добавлен параметр `--deletion-protection` для защиты от удаления пользователей {{ MY }} для следующих команд:
   * `yc managed-mysql user create`;
   * `yc managed-mysql user update`.
 

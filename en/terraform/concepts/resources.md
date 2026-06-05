@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} resources'
+description: Learn about resources in {{ TF }}, how they describe cloud infrastructure, and how dependencies between them help manage the order of creation and modification of resources.
+---
+
 # Resources
 
 *Resources* in {{ TF }} are the fundamental building blocks for creating, modifying, and managing infrastructure. In {{ TF }} configurations, the resources represent various cloud entities, such as virtual machines, networks, data storages, and other infrastructure components.

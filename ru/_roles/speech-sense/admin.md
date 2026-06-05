@@ -3,3 +3,4 @@
 
 Включает разрешения, предоставляемые ролями `speech-sense.editor` и `speech-sense.data.editor`.
 
+

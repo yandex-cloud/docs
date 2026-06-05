@@ -5,10 +5,13 @@ description: Follow this guide to configure autoscaling.
 
 # Configuring autoscaling
 
-{{ managed-k8s-name }} has three [autoscaling](../concepts/autoscale.md) methods available:
+{{ managed-k8s-name }} has the following [autoscaling](../concepts/autoscale.md) methods available:
 * [Cluster autoscaling](#ca)
+* [Master autoscaling](../concepts/autoscale.md#master-autoscaler)
 * [Horizontal pod autoscaling](#hpa)
 * [Vertical pod autoscaling](#vpa)
+
+{% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
 
 ## Getting started {#before-you-begin}
 

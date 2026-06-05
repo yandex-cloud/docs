@@ -1,6 +1,6 @@
 ---
 title: Networking in {{ mtr-full-name }}
-description: This article outlines networking in {{ mtr-full-name }} ways to configure it.
+description: This article outlines networking in {{ mtr-full-name }} and ways to configure it.
 ---
 
 # Networking in {{ mtr-name }}

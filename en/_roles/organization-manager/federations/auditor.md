@@ -1,7 +1,7 @@
 The `organization-manager.federations.auditor` role enables viewing info on the organization and its settings, the identity federations, and user group mappings.
 
 Users with this role can:
-* View info on the Identity Hub [organization](../../../organization/concepts/organization.md) and its settings.
+* View info on the {{ org-full-name }} [organization](../../../organization/concepts/organization.md) and its settings.
 * View info on [identity federations](../../../organization/concepts/add-federation.md).
 * View info on [certificates](../../../organization/concepts/add-federation.md#build-trust).
 * View the list of [user group mappings](../../../organization/concepts/add-federation.md#group-mapping) and info on them.

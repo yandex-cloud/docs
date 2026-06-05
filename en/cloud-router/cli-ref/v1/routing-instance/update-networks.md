@@ -12,148 +12,31 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 
 Syntax:
 
-`yc cloudrouter v1 routing-instance update-networks <ROUTING-INSTANCE-ID>`
+`yc cloudrouter v1 routing-instance update-networks <ROUTING-INSTANCE-NAME>|<ROUTING-INSTANCE-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
-|| `-r`, `--request-file` | `string`
-
-Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
-|| `-e`, `--example-yaml` | Generates a YAML template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
 || `--id` | `string`
 
 ID of the RoutingInstance resource. ||
-|| `--added-vpc-networks` | `shorthand/json`
-
-Lists information about the VPC networks that are added to the routing instance.
-
-{% cut "Description" %}
-
-> - vpc-network-id (string)\
-ID of the vpcNetwork that is attached to the routingInstance.
-> - vpc-az-info-prefixes ([]structure)\
-List of the az-related info about vpcNetworks which are attached to routingInstance
->> - az-id (string)\
-ID of the AZ.
->> - prefixes ([]string)\
-List of prefixes.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    vpc-az-info-prefixes = [
-      {
-        az-id = string,
-        prefixes = string,...
-      }, ...
-    ],
-    vpc-network-id = string
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "vpc-az-info-prefixes": [
-      {
-        "az-id": "string",
-        "prefixes": [
-          "string", ...
-        ]
-      }, ...
-    ],
-    "vpc-network-id": "string"
-  }, ...
-]
-```
-
-{% endcut %} ||
-|| `--updated-vpc-networks` | `shorthand/json`
-
-List of VPC network information that is updated in the routing instance.
-
-{% cut "Description" %}
-
-> - vpc-network-id (string)\
-ID of the vpcNetwork that is attached to the routingInstance.
-> - vpc-az-info-prefixes ([]structure)\
-List of the az-related info about vpcNetworks which are attached to routingInstance
->> - az-id (string)\
-ID of the AZ.
->> - prefixes ([]string)\
-List of prefixes.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    vpc-az-info-prefixes = [
-      {
-        az-id = string,
-        prefixes = string,...
-      }, ...
-    ],
-    vpc-network-id = string
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "vpc-az-info-prefixes": [
-      {
-        "az-id": "string",
-        "prefixes": [
-          "string", ...
-        ]
-      }, ...
-    ],
-    "vpc-network-id": "string"
-  }, ...
-]
-```
-
-{% endcut %} ||
-|| `--deleted-vpc-network-ids` | `[]string`
-
-List of VPC ids to remove from the routing instance. ||
-|| `--strict-remove` | Specifies whether to check for vpc in routing instance. ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--add-vpc-net` | `[]string`
+
+Lists information about the VPC networks that are added to the routing instance.
+Format: id=&lt;VPC-NETWORK-ID&gt;,zone=&lt;ZONE&gt;,ipv4-prefixes=[&lt;CIDR&gt;,...] ||
+|| `--update-vpc-net` | `[]string`
+
+List of VPC network information that is updated in the routing instance.
+Format: id=&lt;VPC-NETWORK-ID&gt;,zone=&lt;ZONE&gt;,ipv4-prefixes=[&lt;CIDR&gt;,...] ||
+|| `--delete-vpc-net-id` | `[]string`
+
+List of VPC ids to remove from the routing instance. ||
+|| `--strict-remove` | Specifies whether to check for vpc in routing instance. ||
 |#
 
 #### Global Flags

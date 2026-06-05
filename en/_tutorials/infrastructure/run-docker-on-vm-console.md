@@ -1,5 +1,5 @@
 1. [Get your cloud ready](#before-you-begin).
-1. [Create a {{ container-registry-name }}](#create-registry).
+1. [Create a registry in {{ container-registry-name }}](#create-registry).
 1. [Create a service account](#create-sa).
 1. [Create your {{ compute-name }} VM](#create-vm).
 1. [Build and push the Docker image to {{ container-registry-name }}](#create-image).
@@ -52,18 +52,19 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Create a service account {#create-sa}
 
-Create a [service account](../../iam/concepts/users/service-accounts.md) and assign to it the `{{ roles-cr-puller }}` [role](../../iam/concepts/access-control/roles.md) for the registry created earlier:
+Create a [service account](../../iam/concepts/users/service-accounts.md) and assign to it the `{{ roles-cr-puller }}` [role](../../iam/concepts/access-control/roles.md) for the registry you created earlier:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. At the top of the screen, navigate to the **Service accounts** tab.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter `images-puller` as the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Name the [service account](../../iam/concepts/users/service-accounts.md): `images-puller`.
+  1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Select the registry and click the row with its name.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. In the top-right corner, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
@@ -125,9 +126,9 @@ Create a VM with a public IP address and link the service account you created to
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard, click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}**, and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select an [image](../../compute/operations/images-with-pre-installed-software/get-list.md) and a Linux-based OS version.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you are not sure which one to choose, leave the default.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) to create your VM in. If you are not sure which availability zone you need, leave the default selection.
   1. Optionally, under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify the required boot [disk](../../compute/concepts/disk.md) [type](../../compute/concepts/disk.md#disks-types) and size.
 
       To add a new secondary disk or connect an existing one, click **{{ ui-key.yacloud.common.add }}**.
@@ -136,13 +137,13 @@ Create a VM with a public IP address and link the service account you created to
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
-      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance. If you prefer not to assign a public IP address, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
+      * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool. If you prefer not to assign a public IP address, select `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
       * Expand **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** and enable DDoS protection, if required.
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access data:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. Follow these naming requirements:

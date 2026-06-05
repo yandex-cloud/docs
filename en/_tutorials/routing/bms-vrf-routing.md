@@ -30,7 +30,7 @@ To configure a fault-tolerant cluster of {{ baremetal-name }} servers using VRRP
 1. [Create a virtual routing and forwarding segment](#create-vrf).
 1. [Create private subnets](#create-subnetworks).
 1. [Rent {{ baremetal-name }} servers](#rent-servers).
-1. [Configure Keepalived on the servers of the {{ region-id }}-m3 pool](#setup-keepalived).
+1. [Configure Keepalived on the servers of the `{{ region-id }}-m3` pool](#setup-keepalived).
 1. [Test the solution](#test-solution).
 
 See also [How to cancel server lease](#clear-out).
@@ -104,8 +104,8 @@ Create two private subnets in different [server pools](../../baremetal/concepts/
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
-          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
       

@@ -17,7 +17,7 @@ This data is usually analyzed by different specialists. Metrics and logs are use
 
 Audit event collection is not strictly part of observability, but analyzing this data together with metrics and logs provides helpful insights.
 
-See the table below for availability info on observability tools for specific services:
+See the table below for availability info on observability tools for specific services.
 
 | Service | {{ metrics-name }} | {{ at-name }} Control&nbsp;Plane | {{ at-name }} Data&nbsp;Plane | {{ cloud-logging-name }} |
 |--------|-----------------------|-----------------------------|--------------------------|--------------------------|

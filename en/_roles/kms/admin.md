@@ -10,7 +10,7 @@ Users with this role can:
 * View info on access permissions assigned to [digital signature key pairs](../../kms/concepts/asymmetric-signature-key.md) and modify such permissions.
 * View details on digital signature key pairs as well as create, activate, deactivate, and delete such key pairs, or modify their metadata.
 * Get a public key and sign data using a private key from a digital signature key pair.
-* View details on Key Management Service [quotas](../../kms/concepts/limits.md#kms-quotas).
+* View details on {{ kms-name }} [quotas](../../kms/concepts/limits.md#kms-quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `kms.editor` permissions.

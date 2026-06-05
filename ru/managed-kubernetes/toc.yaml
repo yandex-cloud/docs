@@ -396,6 +396,8 @@ items:
         href: concepts/limits.md
       - name: Рекомендации по использованию {{ managed-k8s-name }}
         href: concepts/usage-recommendations.md
+      - name: Рекомендуемые конфигурации мастера
+        href: concepts/master-configuration.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

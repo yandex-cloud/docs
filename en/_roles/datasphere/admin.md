@@ -1,4 +1,5 @@
-The `datasphere.admin` role allows you to manage communities, community projects and access to them, and use cloud networks and Virtual Private Cloud resources.
+
+The `datasphere.admin` role allows you to manage communities, community projects and access to them, and use cloud networks and {{ vpc-name }} resources.
 
 {% cut "Users with this role can:" %}
 
@@ -18,8 +19,8 @@ The `datasphere.admin` role allows you to manage communities, community projects
 * View the list of security groups and info on them, as well as use them.
 * View info on NAT gateways and connect them to route tables.
 * View information on the IP addresses used in subnets.
-* View the info on operations with the Virtual Private Cloud and Compute Cloud resources.
-* View info on the DataSphere and Virtual Private Cloud quotas.
+* View the info on operations with the {{ vpc-name }} and {{ compute-name }} resources.
+* View info on the {{ ml-platform-name }} and {{ vpc-name }} quotas.
 * View info on the relevant organization, cloud, and folder.
 
 {% endcut %}

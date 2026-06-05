@@ -8,8 +8,8 @@ description: Rules define the actions users can perform with SQL queries.
 Query access rules define the actions users can perform with SQL queries in a {{ mtr-name }} cluster.
 
 For each user-query pair, the rules apply as follows:
-* Rules are checked for matches in the order they are specified in the configuration file. The first rule matching the user-query pair applies.
-* If none of the rules match the user-query pair, no actions with the query are allowed to the user.
+* Rules are checked in the order of their declaration. The first rule matching the user-query pair applies.
+* If none of the rules match the user-query pair, the user is denied all actions with the query.
 * If no query access rules are set, any user can perform any actions with any query.
 * Query access rules apply together with the top-level [rules for catalog objects](./access-control-catalogs.md).
 
@@ -258,7 +258,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

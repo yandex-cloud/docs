@@ -14,7 +14,7 @@ In a {{ baremetal-full-name }} private network, you can create [static routes](.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![vector-square](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and in the list that opens, select the VRF you want to create a static route in. In the window that opens:
 
       1. In the top-right corner, click ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.

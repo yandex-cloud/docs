@@ -96,4 +96,6 @@ items:
     href: ../glossary/index.md
   - name: Обучающие курсы
     href: training.md
+  - name: Инструменты для работы с документацией
+    href: mcp-doc-server.md
 path: ru/overview/toc.yaml

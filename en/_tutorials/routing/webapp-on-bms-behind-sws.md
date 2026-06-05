@@ -1,5 +1,6 @@
 # Deploying a web application on {{ baremetal-full-name }} servers with an L7 load balancer and {{ sws-full-name }} protection
 
+
 In this tutorial, you will deploy a web application on {{ baremetal-full-name }} [servers](../../baremetal/concepts/servers.md). To evenly distribute load across the application hosts, you will configure an [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) in {{ alb-full-name }}. A {{ sws-full-name }} [profile](../../smartwebsecurity/concepts/profiles.md) will ensure protection of your web application from bots, DDoS, and web attacks. A {{ interconnect-full-name }} [routing instance](../../cloud-router/concepts/routing-instance.md) will provide a [private connection](../../interconnect/concepts/priv-con.md) between the {{ vpc-full-name }} [cloud network](../../vpc/concepts/network.md#network) and the {{ baremetal-full-name }} [private network](../../baremetal/concepts/private-network.md).
 
 You can see the solution architecture in the diagram below:
@@ -230,8 +231,8 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/p
 
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Debian 11` image.
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
-          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 

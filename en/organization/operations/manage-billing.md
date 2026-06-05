@@ -9,7 +9,7 @@ Connecting {{ org-full-name }} users to external applications is [billable](../p
 
 ## Linking a billing account to {{ org-full-name }} {#add-billing-account}
 
-By default, an {{ org-full-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To use {{ org-full-name }}'s billable features and [change](#modify-limit) this connection limit, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-name }}:
+By default, an {{ org-full-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To use {{ org-full-name }}'s billable features and [change](#modify-limit) this connection limit, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -80,7 +80,7 @@ To edit the connection limit:
       {% include [idp-connection-limit-modifying-role](../../_includes/organization/idp-connection-limit-modifying-role.md) %}
 
   1. In the left-hand panel, select ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
-  1. If your [billing account](../../billing/concepts/billing-account.md) is not linked to {{ org-full-name }} yet, [link](#add-billing-account) it to be able to use {{ org-name }}'s billable features.
+  1. If your [billing account](../../billing/concepts/billing-account.md) is not linked to {{ org-full-name }} yet, [link](#add-billing-account) it to be able to use {{ org-full-name }}'s billable features.
   1. Click **{{ ui-key.yacloud_org.organization.billing.ChangeLimitsBlock.change_limit_action }}**, and in the window that opens:
 
       1. To increase the connection limit:

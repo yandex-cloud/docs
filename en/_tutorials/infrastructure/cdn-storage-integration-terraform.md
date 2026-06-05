@@ -16,7 +16,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-
 To create your infrastructure via {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
@@ -85,9 +84,9 @@ To create your infrastructure via {{ TF }}:
     * `domain_name`: Name of the domain to host the test service.
 
         To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.
-    * `index_file_path`: Local path to the `index.html` file that contains your test service contents, e.g., `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
+    * `index_file_path`: Local path to the `index.html` file that contains your test service contents. Here is an example: `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
 
-1. Create the required resources:
+1. Create the resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -105,7 +104,7 @@ Before deleting the infrastructure, [delete](../../storage/operations/objects/de
 
 {% endnote %}
 
-To stop incurring charges for the resources you created:
+To stop paying for the resources you created:
 
 1. Open the `cdn-storage-integration-config.tf` file and delete your infrastructure description from it.
 1. Apply the changes:

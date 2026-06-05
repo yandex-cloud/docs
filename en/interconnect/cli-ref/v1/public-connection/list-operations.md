@@ -20,7 +20,7 @@ Syntax:
 || `--id` | `string`
 
  ||
-|| `--page-size` | `int`
+|| `--limit` | `int`
 
  ||
 || `--page-token` | `string`

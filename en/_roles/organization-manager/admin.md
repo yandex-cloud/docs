@@ -2,14 +2,14 @@ The `organization-manager.admin` role enables managing organization settings, id
 
 {% cut "Users with this role can:" %}
 
-* Link a [billing account](../../billing/concepts/billing-account.md) to an [Identity Hub organization](../../organization/concepts/organization.md).
-* View and edit info on the relevant Identity Hub organization.
+* Link a [billing account](../../billing/concepts/billing-account.md) to an [{{ org-full-name }} organization](../../organization/concepts/organization.md).
+* View and edit info on the relevant {{ org-full-name }} organization.
 * View and edit organization settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization and modify such permissions.
 * View [access policies](../../iam/concepts/access-control/access-policies.md) assigned to the relevant organization, as well as assign and revoke such policies.
 * View and edit the organization's [branding](../../organization/concepts/branding.md) settings.
 * View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
-* View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in an Identity Hub organization.
+* View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in an {{ org-full-name }} organization.
 * Remove users from the organization.
 * View info on invites to the organization sent to users, as well as [send](../../organization/operations/add-account.md#send-invitation) and delete such invites.
 * View info on [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
@@ -33,42 +33,42 @@ The `organization-manager.admin` role enables managing organization settings, id
 * View info on [MFA policies](../../organization/concepts/mfa.md#mfa-policies) and create, modify, activate, deactivate, and delete such policies.
 * Delete [MFA factors](../../iam/concepts/users/accounts.md#saml-federation) for federated and [local](../../iam/concepts/users/accounts.md#saml-federation) user accounts.
 * Reset the verification date for federated and local user accounts.
-* View info on the organization's [OS Login](../../organization/concepts/os-login.md) settings and modify them.
-* View the list of users' and [service accounts'](../../iam/concepts/users/service-accounts.md) OS Login [profiles](../../organization/concepts/os-login.md#os-login-profiles), as well as create, modify, and delete such profiles.
+* View info on the organization's [{{ oslogin }}](../../organization/concepts/os-login.md) settings and modify them.
+* View the list of users' and [service accounts'](../../iam/concepts/users/service-accounts.md) {{ oslogin }} [profiles](../../organization/concepts/os-login.md#os-login-profiles), as well as create, modify, and delete such profiles.
 * View the list of the organization users' SSH keys and info on such keys, as well as create, modify, and delete them.
 * View info on [user groups](../../organization/concepts/groups.md), as well as create, modify, and delete them.
 * Add users and service accounts to groups and remove them from groups.
 * View info on access permissions granted for user groups and modify such permissions.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
-* View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
-* View the list of members belonging to Identity Hub user groups associated with user groups in Active Directory or another external source, as well as manage membership in such groups.
+* View the list of and info on {{ org-full-name }} user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
+* View the list of members belonging to {{ org-full-name }} user groups associated with user groups in Active Directory or another external source, as well as manage membership in such groups.
 * Associate user groups with identity federations and user pools through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
-* Modify and delete Identity Hub user groups associated with user groups in Active Directory or another external source.
-* Link Identity Hub to a billing account.
-* View info on a subscription to the paid-for Identity Hub features.
-* View info on stats regarding the use of the quotes within a subscription to the paid-for Identity Hub features, as well as edit these quotas.
-* View the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
+* Modify and delete {{ org-full-name }} user groups associated with user groups in Active Directory or another external source.
+* Link {{ org-full-name }} to a billing account.
+* View info on a subscription to the paid-for {{ org-full-name }} features.
+* View info on stats regarding the use of the quotes within a subscription to the paid-for {{ org-full-name }} features, as well as edit these quotas.
+* View the list of users who employ the {{ org-full-name }} authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
 * View info on the organization users' refresh tokens, as well as revoke such tokens.
 * View and terminate federated and local users' [sessions](../../organization/concepts/sessions.md).
-* View info on Identity Hub quotas.
+* View info on {{ org-full-name }} quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
-* View, create, modify, and delete SourceCraft repositories.
-* Read files from a SourceCraft repository.
-* View, create, edit, and delete pull requests in SourceCraft repositories.
-* Merge pull requests in SourceCraft repositories.
-* Push changes to regular and protected SourceCraft repository branches.
-* View, create, and edit private and public issues in SourceCraft repositories.
-* Change the issue access type in SourceCraft repositories.
-* Add reactions to issues in SourceCraft repositories.
-* View, create, edit, and delete comments to pull requests and private and public issues in SourceCraft repositories, as well as mark such comments as resolved.
-* View, create, edit, and delete SourceCraft repository tags.
-* Manage access permissions for a SourceCraft repository.
-* View, get, create, modify, and delete secrets in SourceCraft repositories.
+* View, create, modify, and delete {{ src-name }} repositories.
+* Read files from a {{ src-name }} repository.
+* View, create, edit, and delete pull requests in {{ src-name }} repositories.
+* Merge pull requests in {{ src-name }} repositories.
+* Push changes to regular and protected {{ src-name }} repository branches.
+* View, create, and edit private and public issues in {{ src-name }} repositories.
+* Change the issue access type in {{ src-name }} repositories.
+* Add reactions to issues in {{ src-name }} repositories.
+* View, create, edit, and delete comments to pull requests and private and public issues in {{ src-name }} repositories, as well as mark such comments as resolved.
+* View, create, edit, and delete {{ src-name }} repository tags.
+* Manage access permissions for a {{ src-name }} repository.
+* View, get, create, modify, and delete secrets in {{ src-name }} repositories.
 
 {% endcut %}
 
 This role includes the `organization-manager.editor`, `organization-manager.federations.admin`, `organization-manager.osLogins.admin`, `organization-manager.userpools.admin`, `organization-manager.samlApplications.admin`, `organization-manager.oauthApplications.admin`, `organization-manager.groups.memberAdmin`, `organization-manager.groups.externalCreator`, `organization-manager.groups.externalManager`, `organization-manager.idpInstances.billingAdmin`, and `src.repositories.admin` permissions.
 
-To configure user group mapping, the role must be assigned for the Identity Hub groups you intend to map.
+To configure user group mapping, the role must be assigned for the {{ org-full-name }} groups you intend to map.

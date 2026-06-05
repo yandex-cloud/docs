@@ -185,6 +185,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/routing-instance/index.md
+              - name: add-labels
+                href: cli-ref/v1/routing-instance/add-labels.md
               - name: add-private-connection
                 href: cli-ref/v1/routing-instance/add-private-connection.md
               - name: create
@@ -206,6 +208,8 @@ items:
                 href: cli-ref/v1/routing-instance/move.md
               - name: move-prefix
                 href: cli-ref/v1/routing-instance/move-prefix.md
+              - name: remove-labels
+                href: cli-ref/v1/routing-instance/remove-labels.md
               - name: remove-prefixes
                 href: cli-ref/v1/routing-instance/remove-prefixes.md
               - name: remove-private-connection

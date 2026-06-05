@@ -1,80 +1,31 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v1/private-connection/remove-static-route
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v1/private-connection/upsert-static-routes
 editable: false
 ---
 
-# yc cic v1 private-connection remove-static-route
+# yc cic v1 private-connection upsert-static-routes
 
-Removes specified static routes to a PrivateConnection resource.
-Method starts an asynchronous operation that can be cancelled while it is in progress.
+Upsert static routes to a privateConnection.
 
 #### Command Usage
 
 Syntax:
 
-`yc cic v1 private-connection remove-static-route <PRIVATE-CONNECTION-ID>`
+`yc cic v1 private-connection upsert-static-routes <PRIVATE-CONNECTION-NAME>|<PRIVATE-CONNECTION-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
-|| `-r`, `--request-file` | `string`
-
-Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
-|| `-e`, `--example-yaml` | Generates a YAML template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
 || `--id` | `string`
 
-ID of the PrivateConnection resource. ||
-|| `--ipv4-static-routes` | `shorthand/json`
-
-IPv4 StaticRoute configs to remove
-
-{% cut "Description" %}
-
-> - prefix (string)\
-Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    prefix = string
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "prefix": "string"
-  }, ...
-]
-```
-
-{% endcut %} ||
+PrivateConnection id. ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||
+|| `--ipv4-static-routes` | `[]string`
+
+IPv4 static routes (in ipPrefix/length format) to upsert to the privateConnection. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

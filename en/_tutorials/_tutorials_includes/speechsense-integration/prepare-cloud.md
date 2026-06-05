@@ -1,12 +1,15 @@
 ## Get your cloud ready {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../../getting-started/).
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet. For information on how to get started with {{ yandex-cloud }}, see [Getting started with {{ yandex-cloud }}](../../../getting-started/).
 1. Accept the user agreement.
 1. In [{{ billing-name }}]({{ link-console-billing }}), make sure you have a [billing account](../../../billing/concepts/billing-account.md) linked and its status is `ACTIVE`. If you do not have a billing account yet, [create one](../../../billing/quickstart/index.md#create_billing_account). If your billing account has the `TRIAL_ACTIVE` status, [activate its paid version](../../../billing/operations/activate-commercial.md).
 1. [Assign](../../../iam/operations/roles/grant.md) the `speech-sense.spaces.creator` role to your {{ yandex-cloud }} account.
 
     {% include [note-managing-roles](../../../_includes/mdb/note-managing-roles.md) %}
 
+### Required paid resources {#paid-resources}
+
+The cost of the infrastructure for integration with external systems includes a {{ speechsense-name }} fee for the duration of each two-channel audio file (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing))).
 
 ### Create a service account {#create-sa}
 
@@ -33,7 +36,7 @@ Create a service account with the `speech-sense.data.editor` [role]({{ link-docs
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.

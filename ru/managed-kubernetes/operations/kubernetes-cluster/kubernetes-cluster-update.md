@@ -275,6 +275,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
+{% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

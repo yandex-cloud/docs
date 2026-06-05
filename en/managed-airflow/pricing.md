@@ -42,8 +42,6 @@ Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.
 
 ### Example of cluster cost calculation {#example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **Web server**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.

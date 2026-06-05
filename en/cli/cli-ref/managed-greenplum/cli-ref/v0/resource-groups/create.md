@@ -39,6 +39,21 @@ The percentage of reserved memory to share across transactions submitted in this
 || `--memory-spill-ratio` | `int`
 
 The memory usage threshold for memory-intensive transactions. When a transaction reaches this threshold, it spills to disk. ||
+|| `--cpu-max-percent` | `int`
+
+Apache Cloudberry only. The maximum percentage of CPU resources the group can use. ||
+|| `--cpu-weight` | `int`
+
+Apache Cloudberry only. The scheduling priority of the resource group. ||
+|| `--memory-quota` | `int`
+
+Apache Cloudberry only. The memory limit (Mb) specified for the resource group. ||
+|| `--min-cost` | `int`
+
+Apache Cloudberry only. The minimum cost of a query plan to be included in the resource group. ||
+|| `--io-limit` | `int`
+
+Apache Cloudberry only. The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second. ||
 |#
 
 #### Global Flags

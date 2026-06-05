@@ -8,4 +8,4 @@ Users with this role can:
 
 This role includes the `datasphere.community-projects.editor` permissions.
 
-In the DataSphere interface, users with the `datasphere.community-projects.admin` role have the `Admin` role in the **Members** tab on the community page.
+In the {{ ml-platform-name }} interface, users with the `datasphere.community-projects.admin` role have the `Admin` role in the **Members** tab on the community page.

@@ -5,7 +5,7 @@ editable: false
 
 # yc cic v1
 
-[PREVIEW] Manage Interconnect resources
+Manage Interconnect resources
 
 #### Command Usage
 
@@ -29,9 +29,11 @@ Syntax:
 
 - [yc cic v1 private-connection](private-connection/index.md) — A set of methods for managing PrivateConnection resources.
 
+  - [yc cic v1 private-connection add-labels](private-connection/add-labels.md) — Assign labels to a privateConnection.
+
   - [yc cic v1 private-connection batch-get](private-connection/batch-get.md) — Get list of PrivateConnections by their IDs
 
-  - [yc cic v1 private-connection create](private-connection/create.md) — Creates a PrivateConnection resource in the specified folder using the data specified in the request.
+  - [yc cic v1 private-connection create](private-connection/create.md) — Create a privateConnection.
 
   - [yc cic v1 private-connection delete](private-connection/delete.md) — Deletes a PrivateConnection resource.
 
@@ -43,11 +45,13 @@ Syntax:
 
   - [yc cic v1 private-connection move](private-connection/move.md) — Moves the specified PrivateConnection to another folder.
 
-  - [yc cic v1 private-connection remove-static-route](private-connection/remove-static-route.md) — Removes specified static routes to a PrivateConnection resource.
+  - [yc cic v1 private-connection remove-labels](private-connection/remove-labels.md) — Remove labels from a privateConnection.
 
-  - [yc cic v1 private-connection update](private-connection/update.md) — Updates a PrivateConnection resource using the data specified in the request.
+  - [yc cic v1 private-connection remove-static-routes](private-connection/remove-static-routes.md) — Remove static routes from a privateConnection.
 
-  - [yc cic v1 private-connection upsert-static-route](private-connection/upsert-static-route.md) — Upserts specified static routes to a PrivateConnection resource.
+  - [yc cic v1 private-connection update](private-connection/update.md) — Modify configuration or attributes of a privateConnection.
+
+  - [yc cic v1 private-connection upsert-static-routes](private-connection/upsert-static-routes.md) — Upsert static routes to a privateConnection.
 
 - [yc cic v1 public-connection](public-connection/index.md) — A set of methods for managing PublicConnection resources.
 
@@ -60,6 +64,8 @@ Syntax:
   - [yc cic v1 public-connection move](public-connection/move.md) — Moves the specified PublicConnection to another folder.
 
 - [yc cic v1 trunk-connection](trunk-connection/index.md) — A set of methods for managing TrunkConnection resources.
+
+  - [yc cic v1 trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
 
   - [yc cic v1 trunk-connection batch-get](trunk-connection/batch-get.md) — 
 
@@ -77,7 +83,9 @@ Syntax:
 
   - [yc cic v1 trunk-connection move](trunk-connection/move.md) — Moves the specified TrunkConnection to another folder.
 
-  - [yc cic v1 trunk-connection update](trunk-connection/update.md) — Updates a TrunkConnection resource using the data specified in the request.
+  - [yc cic v1 trunk-connection remove-labels](trunk-connection/remove-labels.md) — Remove labels from a trunk connection.
+
+  - [yc cic v1 trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
 
 #### Global Flags
 

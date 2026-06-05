@@ -7,6 +7,10 @@ editable: false
 
 Manage SmartWebSecurity resources
 
+Command tree v1 (new CLI interface) is the default. Run `yc smartwebsecurity v1 <command>`.
+Legacy command tree v0 is also available: `yc smartwebsecurity v0 <command>`.
+Set `services.smartwebsecurity.version: v0` or `services.smartwebsecurity.version: v1` in your profile to change the default.
+
 #### Command Usage
 
 Syntax:

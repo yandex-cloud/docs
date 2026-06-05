@@ -1496,6 +1496,8 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cic/cli-ref/v1/private-connection/index.md
+                  - name: add-labels
+                    href: cli-ref/cic/cli-ref/v1/private-connection/add-labels.md
                   - name: batch-get
                     href: cli-ref/cic/cli-ref/v1/private-connection/batch-get.md
                   - name: create
@@ -1511,14 +1513,16 @@ items:
                       cli-ref/cic/cli-ref/v1/private-connection/list-operations.md
                   - name: move
                     href: cli-ref/cic/cli-ref/v1/private-connection/move.md
-                  - name: remove-static-route
+                  - name: remove-labels
+                    href: cli-ref/cic/cli-ref/v1/private-connection/remove-labels.md
+                  - name: remove-static-routes
                     href: >-
-                      cli-ref/cic/cli-ref/v1/private-connection/remove-static-route.md
+                      cli-ref/cic/cli-ref/v1/private-connection/remove-static-routes.md
                   - name: update
                     href: cli-ref/cic/cli-ref/v1/private-connection/update.md
-                  - name: upsert-static-route
+                  - name: upsert-static-routes
                     href: >-
-                      cli-ref/cic/cli-ref/v1/private-connection/upsert-static-route.md
+                      cli-ref/cic/cli-ref/v1/private-connection/upsert-static-routes.md
               - name: public-connection
                 items:
                   - name: Overview
@@ -1536,6 +1540,8 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/index.md
+                  - name: add-labels
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection/add-labels.md
                   - name: batch-get
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/batch-get.md
                   - name: delete
@@ -1554,6 +1560,8 @@ items:
                       cli-ref/cic/cli-ref/v1/trunk-connection/list-public-connections.md
                   - name: move
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/move.md
+                  - name: remove-labels
+                    href: cli-ref/cic/cli-ref/v1/trunk-connection/remove-labels.md
                   - name: update
                     href: cli-ref/cic/cli-ref/v1/trunk-connection/update.md
       - name: cloud-registry
@@ -1859,6 +1867,9 @@ items:
                 items:
                   - name: Overview
                     href: cli-ref/cloudrouter/cli-ref/v1/routing-instance/index.md
+                  - name: add-labels
+                    href: >-
+                      cli-ref/cloudrouter/cli-ref/v1/routing-instance/add-labels.md
                   - name: add-private-connection
                     href: >-
                       cli-ref/cloudrouter/cli-ref/v1/routing-instance/add-private-connection.md
@@ -1884,6 +1895,9 @@ items:
                   - name: move-prefix
                     href: >-
                       cli-ref/cloudrouter/cli-ref/v1/routing-instance/move-prefix.md
+                  - name: remove-labels
+                    href: >-
+                      cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-labels.md
                   - name: remove-prefixes
                     href: >-
                       cli-ref/cloudrouter/cli-ref/v1/routing-instance/remove-prefixes.md

@@ -1,2 +1,2 @@
 
-The `search-api.webSearch.user` role enables running search queries in Yandex Search API, as well as viewing info on the [cloud]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud), [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), and Yandex Search API [quotas]({{ link-docs-ai }}search-api/concepts/limits#search-api-quotas).
+The `search-api.webSearch.user` role enables running search queries in {{ search-api }}, as well as viewing info on the [cloud]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud), [folder]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder), and {{ search-api }} [quotas]({{ link-docs-ai }}search-api/concepts/limits#search-api-quotas).

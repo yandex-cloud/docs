@@ -32,7 +32,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -66,7 +66,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
     1. Configure the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
     1. Optionally, under **{{ ui-key.yacloud.trino.title_catalogs }}**, add [{{ TR }} catalogs](../concepts/index.md#catalog). You can do this either when creating the cluster or later. For more information, see [Creating a {{ TR }} catalog](catalog-create.md).
-    1. Optionally, under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**, set [rules for access to cluster objects](../concepts/access-control.md). For more information, see [{#T}](access-control.md).
+    1. Optionally, under **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}**, set [rules for access to cluster objects](../concepts/access-control.md). For more information, see [{#T}](../operations/access-control.md).
     1. Optionally, under **{{ ui-key.yacloud.trino.section_resource-management }}**, [configure the resource groups](../concepts/access-control.md). For more information, see [{#T}](manage-resource-groups.md).
     1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -261,6 +261,16 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
 
+    1. To configure [cluster object access rules](../concepts/access-control.md), create a file named `access_control.yaml` defining the rules and provide its name in the `--access-control-from-file` parameter:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <cluster_name> \
+           ...
+           --access-control-from-file access_control.yaml
+        ```
+
+       For more information, see [{#T}](../operations/access-control.md).
+
 - {{ TF }} {#tf}
 
     {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -302,6 +312,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
     1. To set the TLS parameters:
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
+
+    1. To set [access rules for cluster objects](../concepts/access-control.md), add the `yandex_trino_access_control` resource with the list of rules to the cluster description. For more information, see [{#T}](../operations/access-control.md).
 
     1. Make sure the settings are correct.
 
@@ -371,7 +383,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             },
             "tls": {
               "trustedCertificates": [ <list_of_certificates> ]
-            }
+            },
+            "accessControl": { <access_rule_configuration> }
           },
           "network": {
             "subnetIds": [ <list_of_subnet_IDs> ],
@@ -448,6 +461,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
+            * `accessControl`: Configuration of [cluster object access rules](../concepts/access-control.md). For more information, see [{#T}](../operations/access-control.md).
+
         * `network`: Network settings:
 
             * `subnetIds`: List of subnet IDs.
@@ -482,7 +497,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -540,7 +555,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             },
             "tls": {
               "trusted_certificates": [ <list_of_certificates> ]
-            }
+            },
+            "access_control": { <access_rule_configuration> }
           },
           "network": {
             "subnet_ids": [ <list_of_subnet_IDs> ],
@@ -616,6 +632,8 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
 
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
+            * `access_control`: Configuration of [cluster object access rules](../concepts/access-control.md). For more information, see [{#T}](../operations/access-control.md).
 
         * `network`: Network settings:
 

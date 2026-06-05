@@ -292,6 +292,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/private-connection/index.md
+              - name: add-labels
+                href: cli-ref/v1/private-connection/add-labels.md
               - name: batch-get
                 href: cli-ref/v1/private-connection/batch-get.md
               - name: create
@@ -306,12 +308,14 @@ items:
                 href: cli-ref/v1/private-connection/list-operations.md
               - name: move
                 href: cli-ref/v1/private-connection/move.md
-              - name: remove-static-route
-                href: cli-ref/v1/private-connection/remove-static-route.md
+              - name: remove-labels
+                href: cli-ref/v1/private-connection/remove-labels.md
+              - name: remove-static-routes
+                href: cli-ref/v1/private-connection/remove-static-routes.md
               - name: update
                 href: cli-ref/v1/private-connection/update.md
-              - name: upsert-static-route
-                href: cli-ref/v1/private-connection/upsert-static-route.md
+              - name: upsert-static-routes
+                href: cli-ref/v1/private-connection/upsert-static-routes.md
           - name: public-connection
             items:
               - name: Overview
@@ -328,6 +332,8 @@ items:
             items:
               - name: Overview
                 href: cli-ref/v1/trunk-connection/index.md
+              - name: add-labels
+                href: cli-ref/v1/trunk-connection/add-labels.md
               - name: batch-get
                 href: cli-ref/v1/trunk-connection/batch-get.md
               - name: delete
@@ -344,6 +350,8 @@ items:
                 href: cli-ref/v1/trunk-connection/list-public-connections.md
               - name: move
                 href: cli-ref/v1/trunk-connection/move.md
+              - name: remove-labels
+                href: cli-ref/v1/trunk-connection/remove-labels.md
               - name: update
                 href: cli-ref/v1/trunk-connection/update.md
   - name: API reference
