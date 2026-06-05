@@ -1,7 +1,8 @@
-The `smart-web-security.editor` role enables using Smart Web Security resources and managing them.
+
+The `smart-web-security.editor` role enables using {{ sws-name }} resources and managing them.
 
 Users with this role can:
-* View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in Smart Web Security, create, modify, and delete them, as well as connect such security profiles to protected resources.
+* View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }}, create, modify, and delete them, as well as connect such security profiles to protected resources.
 * View the list of [resources](../../smartwebsecurity/operations/host-connect.md) to which a security profile is connected.
 * View info on [WAF profiles](../../smartwebsecurity/concepts/waf.md), as well as create, modify, use, and delete them.
 * View info on [ARL profiles](../../smartwebsecurity/concepts/arl.md), as well as create, modify, use, and delete them.

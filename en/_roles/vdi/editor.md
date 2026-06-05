@@ -8,6 +8,6 @@ Users with this role can:
 * Connect to their desktops.
 * Start, restart, and stop any desktops in a group.
 * Reset the password on any desktop in a group.
-* View info on the Cloud Desktop [quotas](../../cloud-desktop/concepts/limits.md#quotas).
+* View info on the {{ cloud-desktop-name }} [quotas](../../cloud-desktop/concepts/limits.md#quotas).
 
 This role includes the `vdi.viewer` and `vdi.desktopGroups.user` permissions.

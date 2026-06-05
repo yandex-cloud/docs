@@ -5,6 +5,6 @@
 * просматривать список трейлов и информацию о них, а также создавать, изменять и удалять трейлы;
 * читать [аудитные логи](../../audit-trails/concepts/index.md);
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о [квотах](../../audit-trails/concepts/limits.md#audit-trails-quotas) сервиса Audit Trails.
+* просматривать информацию о [квотах](../../audit-trails/concepts/limits.md#audit-trails-quotas) сервиса {{ at-name }}.
 
 Включает разрешения, предоставляемые ролью `audit-trails.editor`.

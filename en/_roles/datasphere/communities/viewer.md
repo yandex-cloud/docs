@@ -7,4 +7,4 @@ Users with this role can:
 
 This role includes the `datasphere.community-projects.viewer` permissions.
 
-In the DataSphere interface, users with the `datasphere.communities.viewer` role have the `Viewer` role in the **Members** tab on the community page.
+In the {{ ml-platform-name }} interface, users with the `datasphere.communities.viewer` role have the `Viewer` role in the **Members** tab on the community page.

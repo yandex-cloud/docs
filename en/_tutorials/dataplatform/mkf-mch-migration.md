@@ -1,13 +1,13 @@
 # Delivering data from an {{ KF }} queue to {{ CH }} using {{ data-transfer-full-name }}
 
 
-A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/)-engine tables.
+A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
 1. [Send test data to the {{ mkf-name }} topic](#send-sample-data-to-kf).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -16,8 +16,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mkf-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -29,7 +29,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+    1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
 
@@ -38,7 +38,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
         * With the `ACCESS_ROLE_PRODUCER` role for the producer.
         * With the `ACCESS_ROLE_CONSUMER` role for the consumer.
 
-    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+    1. Create a [{{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md) of any suitable [configuration](../../managed-clickhouse/concepts/instance-types.md). Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     
     1. If using security groups, configure them to allow internet access to your clusters:
@@ -98,7 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Configure additional settings {#additional-settings}
 
-1. Install these tools:
+1. Install the following tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in the {{ KF }} topic.
 
@@ -108,9 +108,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
         Make sure you can use it to [establish SSL connections to your {{ mkf-name }} clusters](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    * [clickhouse-client]({{ ch.docs }}/interfaces/cli/): For connecting to a database within the {{ mch-name }} cluster.
+    * [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli): For connecting to a database within the {{ mch-name }} cluster.
 
-        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -155,7 +155,7 @@ Let's assume your {{ KF }} topic receives car sensor data. This data will be tra
 }
 ```
 
-The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) to insert data into `Kafka` tables. This format converts strings from {{ KF }} messages to the relevant column values.
+The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow) to insert data into `Kafka` tables. This format converts strings from {{ KF }} messages to the relevant column values.
 
 1. Create a `sample.json` file with test data:
 
@@ -215,7 +215,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file-root }} -Z
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 {% include [tips for endpoint settings](../../_includes/data-transfer/queue-ch-transfer-tips.md) %}
 
@@ -318,7 +318,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
             * `source_endpoint_id` and set it to the value of the source endpoint ID from the previous step.
             * `yandex_datatransfer_endpoint` and `yandex_datatransfer_transfer` resources.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -334,7 +334,7 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -376,11 +376,11 @@ The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/inte
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).

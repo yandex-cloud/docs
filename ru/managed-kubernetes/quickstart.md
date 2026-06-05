@@ -51,6 +51,8 @@ description: В этой инструкции вы создадите класт
 
      {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
+     {% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
+
    * Выберите [группы безопасности](operations/connect/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](concepts/index.md#pod).

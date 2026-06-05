@@ -70,6 +70,20 @@ User-specific settings. Acceptable keys:
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms).
 
+- `connect_timeout_with_failover_secure`: The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+  Default value: **1000** (1 second).
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms).
+
+- `connections_with_failover_max_tries`: The maximum number of connection attempts with each replica for the Distributed table engine.
+
+  Default value: **3**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries).
+
 - `receive_timeout`: Receive timeout in milliseconds.
 
   Default value: **300000** (5 minutes).
@@ -474,13 +488,20 @@ This value is used to compute the overcommit ratio for the user. **0** means ski
 
   Default value: **0**.
 
-  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth).
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth).
 
 - `max_network_bandwidth_for_user`: The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
   Default value: **0**.
 
-  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user).
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user).
+
+- `max_network_bytes`: Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
 
 - `max_temporary_data_on_disk_size_for_query`: The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
 

@@ -3,7 +3,7 @@
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your private connection.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and then select the virtual network segment you need.
   1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click **{{ ui-key.yacloud.baremetal.action_add-vrf-interconnect }}**, and in the window that opens:
 
@@ -22,7 +22,7 @@
 
   To create a private connection with cloud networks, use the [PrivateCloudConnection.Create](../../baremetal/api-ref/PrivateCloudConnection/create.md) REST API method or the [PrivateCloudConnectionService/Create](../../baremetal/api-ref/grpc/PrivateCloudConnection/create.md) gRPC API call.
 
-  Run this query:
+  Run this request:
 
   ```bash
   curl -X POST \

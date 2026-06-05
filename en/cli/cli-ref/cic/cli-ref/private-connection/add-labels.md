@@ -11,7 +11,7 @@ Assign labels to a privateConnection.
 
 Syntax:
 
-`yc cic private-connection add-labels <PRIVATE-CONNECTION-NAME>|<PRIVATE-CONNECTION-ID> --labels KEY=VALUE[,KEY=VALUE...] [Flags...] [Global Flags...]`
+`yc cic private-connection add-labels <PRIVATE-CONNECTION-NAME>|<PRIVATE-CONNECTION-ID>`
 
 #### Flags
 
@@ -22,11 +22,11 @@ Syntax:
 PrivateConnection id. ||
 || `--name` | `string`
 
-PrivateConnection name. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
-|| `--labels` | `key=value[,key=value...]`
+Resolve id by resource name within the current scope. ||
+|| `--labels` | `map<string><string>`
 
 A list of label KEY=VALUE pairs to add. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
 #### Global Flags
@@ -35,39 +35,45 @@ A list of label KEY=VALUE pairs to add. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

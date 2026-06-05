@@ -14,8 +14,8 @@ You cannot set restrictions on running procedures invoked via the `system` schem
 {% endnote %}
 
 For each user-procedure pair, the rules apply as follows:
-* Rules are checked in their declaration order. The first rule matching the user-procedure pair applies.
-* If none of the rules match the user-procedure pair, no actions with the procedure are allowed to the user.
+* Rules are checked in the order of their declaration. The first rule matching the user-procedure pair applies.
+* If none of the rules match the user-procedure pair, the user is denied all actions with the procedure.
 * If no procedure access rules are set, each user can run only system procedures.
 * Procedure access rules apply together with the top-level [rules for objects in catalogs](./access-control-catalogs.md).
 
@@ -48,14 +48,17 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      1. Optionally, select `EXECUTE` in the **{{ ui-key.yacloud.trino.label_rbac-procedure-privileges }}** field to enable calling the procedure. If you do not select any privileges, the rule will prohibit any actions with the procedures.
 
-     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+     1. Optionally, specify full names of the procedures the rule will apply to, formatted as `<catalog_name>.<schema_name>.<procedure_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-procedure-access }}** field, specify the procedures the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select procedure names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the procedures whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all procedures.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select format for the procedures:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select procedure names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for procedure names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<procedure_name>` field may contain any value.
+
   1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -74,15 +77,15 @@ Procedure and schema names specified in the rules are not validated. If a proced
      procedures:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         procedure:
-           names:
-             any: [<list_of_procedure_names>]
+         catalog:
            name_regexp: <regular_expression>
          schema:
            names:
              any: [<list_of_schema_names>]
            name_regexp: <regular_expression>
-         catalog:
+         procedure:
+           names:
+             any: [<list_of_procedure_names>]
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -96,27 +99,36 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      Where:
 
-     * `procedures`: List of procedure rules. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `procedures`: List of procedure rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
      * `privileges`: Permitted actions with procedures:
        * `EXECUTE`: Allows calling the procedure.
 
        {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-     * `procedure`: Procedures the rule applies to. If `procedure` is not specified, the rule applies to all procedures.
-       * `names`: List of procedure names.
-       * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs set using the `name_regexp` parameter (regular expression for catalog names).
 
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
+
+       * `procedure`: Procedures specified by one of the following:
+         * `names`: List of procedure names.
+         * `name_regexp`: Regular expression for procedure names.
+
+         Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -168,14 +180,6 @@ Procedure and schema names specified in the rules are not validated. If a proced
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           procedure     = {
-             names       = ["<list_of_procedure_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -183,6 +187,14 @@ Procedure and schema names specified in the rules are not validated. If a proced
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           procedure     = {
+             names       = ["<list_of_procedure_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -205,30 +217,38 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      Where:
 
-     * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
      * `privileges`: Permitted actions with procedures:
        * `EXECUTE`: Allows calling the procedure.
 
        {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-     * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-       * `names`: List of procedure names.
-       * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `procedure`: Procedures specified by one of the following:
+         * `names`: List of procedure names.
+         * `name_regexp`: Regular expression for procedure names.
+
+         Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -277,10 +297,13 @@ Procedure and schema names specified in the rules are not validated. If a proced
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "procedure": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_procedure_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -293,13 +316,10 @@ Procedure and schema names specified in the rules are not validated. If a proced
                   },
                   "nameRegexp": "<regular_expression>"
                 },
-                "catalog": {
+                "procedure": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_procedure_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -329,30 +349,38 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
       * `privileges`: Permitted actions with procedures:
         * `EXECUTE`: Allows calling the procedure.
 
         {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-      * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-        * `names`: List of procedure names.
-        * `nameRegexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-        The `procedure` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
+          * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `procedure`: Procedures specified by one of the following:
+          * `names`: List of procedure names.
+          * `nameRegexp`: Regular expression for procedure names.
+
+          Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -372,7 +400,7 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -407,10 +435,13 @@ Procedure and schema names specified in the rules are not validated. If a proced
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "procedure": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_procedure_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -423,13 +454,10 @@ Procedure and schema names specified in the rules are not validated. If a proced
                   },
                   "name_regexp": "<regular_expression>"
                 },
-                "catalog": {
+                "procedure": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_procedure_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -459,30 +487,38 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
       * `privileges`: Permitted actions with procedures:
         * `EXECUTE`: Allows calling the procedure.
 
         {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-      * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-        * `names`: List of procedure names.
-        * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-        The `procedure` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `procedure`: Procedures specified by one of the following:
+          * `names`: List of procedure names.
+          * `name_regexp`: Regular expression for procedure names.
+
+          Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -535,19 +571,22 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      1. Optionally, select `EXECUTE` in the **{{ ui-key.yacloud.trino.label_rbac-procedure-privileges }}** field to enable calling the procedure. If you do not select any privileges, the rule will prohibit any actions with the procedures.
 
-     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+     1. Optionally, specify full names of the procedures the rule will apply to, formatted as `<catalog_name>.<schema_name>.<procedure_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-procedure-access }}** field, specify the procedures the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select procedure names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the procedures whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all procedures.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select format for the procedures:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select procedure names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for procedure names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<procedure_name>` field may contain any value.
+
   1. Add other rules in the same way as needed.
   1. To edit a rule:
      1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
-  1. To delete a rule you no longer need, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
+  1. To delete a rule you no longer need, сlick ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.save-changes }}**.
 
 - CLI {#cli}
@@ -564,19 +603,19 @@ Procedure and schema names specified in the rules are not validated. If a proced
      procedures:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         procedure:
-           names:
-             any: [<list_of_procedure_names>]
-           name_regexp: <regular_expression>
-         schema:
-           names:
-             any: [<list_of_schema_names>]
-           name_regexp: <regular_expression>
          catalog:
            ids:
              any: [<list_of_catalog_IDs>]
            names:
              any: [<list_of_catalog_names>]
+           name_regexp: <regular_expression>
+         schema:
+           names:
+             any: [<list_of_schema_names>]
+           name_regexp: <regular_expression>
+         procedure:
+           names:
+             any: [<list_of_procedure_names>]
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -590,31 +629,37 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      Where:
 
-     * `procedures`: List of procedure rules. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `procedures`: List of procedure rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
      * `privileges`: Permitted actions with procedures:
        * `EXECUTE`: Allows calling the procedure.
 
        {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-     * `procedure`: Procedures the rule applies to. If `procedure` is not specified, the rule applies to all procedures.
-       * `names`: List of procedure names.
-       * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
-
-       You can specify either `names` or `name_regexp` but not both.
-
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
-
-       You can specify either `names` or `name_regexp` but not both.
-
-     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
+     * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
        * `ids`: List of catalog IDs. These must be the existing catalogs.
        * `names`: List of catalog names. These must be the existing catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+       * `name_regexp`: Regular expression for catalog names.
 
-       Specify only one of these parameters: `ids`, `names`, or `name_regexp`.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
+
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
+
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
+
+       * `procedure`: Procedures specified by one of the following:
+         * `names`: List of procedure names.
+         * `name_regexp`: Regular expression for procedure names.
+
+         Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -667,14 +712,6 @@ Procedure and schema names specified in the rules are not validated. If a proced
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           procedure     = {
-             names       = ["<list_of_procedure_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -682,6 +719,14 @@ Procedure and schema names specified in the rules are not validated. If a proced
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           procedure     = {
+             names       = ["<list_of_procedure_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -704,30 +749,38 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
      Where:
 
-     * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
      * `privileges`: Permitted actions with procedures:
        * `EXECUTE`: Allows calling the procedure.
 
        {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-     * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-       * `names`: List of procedure names.
-       * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `procedure`: Procedures specified by one of the following:
+         * `names`: List of procedure names.
+         * `name_regexp`: Regular expression for procedure names.
+
+         Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -765,10 +818,15 @@ Procedure and schema names specified in the rules are not validated. If a proced
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "procedure": {
+                "catalog": {
+                  "ids": {
+                    "any": [
+                      "<list_of_catalog_IDs>"
+                    ]
+                  },
                   "names": {
                     "any": [
-                      "<list_of_procedure_names>"
+                      "<list_of_catalog_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -781,15 +839,10 @@ Procedure and schema names specified in the rules are not validated. If a proced
                   },
                   "nameRegexp": "<regular_expression>"
                 },
-                "catalog": {
-                  "ids": {
-                    "any": [
-                      "<list_of_catalog_IDs>"
-                    ]
-                  },
+                "procedure": {
                   "names": {
                     "any": [
-                      "<list_of_catalog_names>"
+                      "<list_of_procedure_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -827,31 +880,39 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
       * `privileges`: Permitted actions with procedures:
         * `EXECUTE`: Allows calling the procedure.
 
         {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-      * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-        * `names`: List of procedure names.
-        * `nameRegexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-        The `procedure` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `nameRegexp` parameter.
+        * `procedure`: Procedures specified by one of the following:
+          * `names`: List of procedure names.
+          * `nameRegexp`: Regular expression for procedure names.
+
+          Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -900,10 +961,15 @@ Procedure and schema names specified in the rules are not validated. If a proced
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "procedure": {
+                "catalog": {
+                  "ids": {
+                    "any": [
+                      "<list_of_catalog_IDs>"
+                    ]
+                  },
                   "names": {
                     "any": [
-                      "<list_of_procedure_names>"
+                      "<list_of_catalog_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -916,15 +982,10 @@ Procedure and schema names specified in the rules are not validated. If a proced
                   },
                   "name_regexp": "<regular_expression>"
                 },
-                "catalog": {
-                  "ids": {
-                    "any": [
-                      "<list_of_catalog_IDs>"
-                    ]
-                  },
+                "procedure": {
                   "names": {
                     "any": [
-                      "<list_of_catalog_names>"
+                      "<list_of_procedure_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -981,35 +1042,43 @@ Procedure and schema names specified in the rules are not validated. If a proced
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `procedure`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `procedures`: List of rule sections for procedures. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `procedure`, `groups`, `users`, and `description`.
 
       * `privileges`: Permitted actions with procedures:
         * `EXECUTE`: Allows calling the procedure.
 
         {% include notitle [procedures-privileges](../../_includes/managed-trino/access-control-src.md#procedures-privileges) %}
 
-      * `procedure`: Procedures the rule applies to. If the `procedure` section is not specified, the rule applies to all procedures.
-        * `names`: List of procedure names.
-        * `name_regexp`: Regular expression. The rule applies to the procedures whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `procedure` define the procedures the rule will apply to. Each of them is optional.
 
-        The `procedure` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `name_regexp` parameter.
+        * `procedure`: Procedures specified by one of the following:
+          * `names`: List of procedure names.
+          * `name_regexp`: Regular expression for procedure names.
+
+          Omitting the `procedure` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full procedure name follows this template: `<catalog_name>.<schema_name>.<procedure_name>`. The rule applies to a procedure only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. If you have already set the rules, open the relevant `body.json` file and edit it as needed. You can:
+  1. If you have already set the access rules, open the existing `body.json` rules file and edit it as needed. You can:
 
      * Add new rules.
      * Update the existing ones.

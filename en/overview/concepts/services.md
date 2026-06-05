@@ -51,7 +51,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ msp-full-name }}](../../managed-spark/index.yaml)                           | Service for creating and managing {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)                      | Service for creating and managing {{ CH }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mgl-full-name }}](../../managed-gitlab/index.yaml)                          | Service for managing the {{ GL }} DevOps platform | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)                       | Service for creating and managing {{ GP }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)                       | Service for creating and managing {{ GP }} and {{ CB }} database clusters. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml)             | Service for creating and managing Kubernetes clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mmg-full-name }}](../../storedoc/index.yaml)                         | Service for creating and managing {{ SD }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ mmy-full-name }}](../../managed-mysql/index.yaml)                          | Service for creating and managing {{ MY }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -93,5 +93,7 @@ Services at the Preview stage are available only to some users. If you want to u
 {% include [Apache trademark](../../_includes/data-processing/trademark.md) %}
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [Cloudberry trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

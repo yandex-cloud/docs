@@ -7,6 +7,8 @@ editable: false
 
 # {{ managed-k8s-name }} pricing policy
 
+{% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
+
 {% note tip %}
 
 
@@ -52,7 +54,6 @@ Nodes are charged based on the [{{ compute-full-name }} pricing policy](../compu
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|mk8s }}']}
-    excludeSkuIds={['{{ pc|mk8s.master.master_host_resources.cpu }}', '{{ pc|mk8s.master.master_host_resources.ram }}']}
     installationCode="ru"
     currency="USD"
   />

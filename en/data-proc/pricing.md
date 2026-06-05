@@ -45,8 +45,6 @@ Log collection and storage are billed according to the [{{ cloud-logging-full-na
 
 ### Example cost calculation for standard hosts {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Hourly cost for a cluster consisting of two subclusters with the following specifications:
 
 * First subcluster:

@@ -43,7 +43,6 @@ description: In this article, you will learn how to work with {{ si-full-name }}
 * [{{ message-queue-name }}](workflows/constructor/ymq.md)
 * [Yandex Disk](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
-* [AI agent](workflows/constructor/aiagent.md)
 * [Telegram bot](workflows/constructor/telegrambot.md)
 * [Database Query](workflows/constructor/databasequery.md)
 * [Switch](workflows/constructor/switch.md)

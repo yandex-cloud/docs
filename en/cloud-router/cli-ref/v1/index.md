@@ -5,7 +5,7 @@ editable: false
 
 # yc cloudrouter v1
 
-[PREVIEW] Manage Cloud Router resources
+Manage Cloud Router resources
 
 #### Command Usage
 
@@ -17,9 +17,11 @@ Syntax:
 
 - [yc cloudrouter v1 routing-instance](routing-instance/index.md) — A set of methods for managing RoutingInstance resources.
 
+  - [yc cloudrouter v1 routing-instance add-labels](routing-instance/add-labels.md) — Assign labels to a routingInstance.
+
   - [yc cloudrouter v1 routing-instance add-private-connection](routing-instance/add-private-connection.md) — Adds specified PrivateConnection to a RoutingInstance resource.
 
-  - [yc cloudrouter v1 routing-instance create](routing-instance/create.md) — Creates a RoutingInstance resource in the specified folder using the data specified in the request.
+  - [yc cloudrouter v1 routing-instance create](routing-instance/create.md) — Create a routingInstance.
 
   - [yc cloudrouter v1 routing-instance delete](routing-instance/delete.md) — Deletes a RoutingInstance resource.
 
@@ -37,17 +39,19 @@ Syntax:
 
   - [yc cloudrouter v1 routing-instance move-prefix](routing-instance/move-prefix.md) — Moves the specified prefix between availability zones of the RoutingInstance.
 
-  - [yc cloudrouter v1 routing-instance remove-prefixes](routing-instance/remove-prefixes.md) — Removes specified prefixes from a RoutingInstance resource.
+  - [yc cloudrouter v1 routing-instance remove-labels](routing-instance/remove-labels.md) — Remove labels from a routingInstance.
+
+  - [yc cloudrouter v1 routing-instance remove-prefixes](routing-instance/remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.
 
   - [yc cloudrouter v1 routing-instance remove-private-connection](routing-instance/remove-private-connection.md) — Removes specified PrivateConnection from a RoutingInstance resource.
 
-  - [yc cloudrouter v1 routing-instance update](routing-instance/update.md) — Updates a RoutingInstance resource using the data specified in the request.
+  - [yc cloudrouter v1 routing-instance update](routing-instance/update.md) — Modify configuration or attributes of a routingInstance.
 
-  - [yc cloudrouter v1 routing-instance update-networks](routing-instance/update-networks.md) — Updates multiple vpc using the data specified in the request.
+  - [yc cloudrouter v1 routing-instance update-networks](routing-instance/update-networks.md) — Update announced VPC network prefixes in the routingInstance.
 
   - [yc cloudrouter v1 routing-instance update-prefix-mask](routing-instance/update-prefix-mask.md) — Removes specified PrivateConnection from a RoutingInstance resource.
 
-  - [yc cloudrouter v1 routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upserts specified prefixes to a RoutingInstance resource.
+  - [yc cloudrouter v1 routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 
 #### Global Flags
 

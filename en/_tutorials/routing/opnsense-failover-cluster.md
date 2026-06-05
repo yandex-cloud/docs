@@ -32,7 +32,7 @@ To configure your OPNsense firewall in high availability cluster mode on {{ bare
 1. [Get your cloud ready](#before-you-begin).
 1. [Create your boot images in {{ baremetal-name }}](#create-images).
 1. [Create a {{ baremetal-name }} private subnet](#create-subnet).
-1. [Lease {{ baremetal-name }} servers](#rent-servers).
+1. [Rent {{ baremetal-name }} servers](#rent-servers).
 1. [Configure an OPNsense high availability cluster](#setup-opnsense).
 1. [Install a hypervisor and create a virtual machine](#setup-esxi).
 1. [Test the solution](#test-solution).
@@ -127,8 +127,8 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
       1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
-          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
-          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}

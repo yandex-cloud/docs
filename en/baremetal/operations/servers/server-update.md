@@ -10,7 +10,7 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Find the server you need in the list, click ![image](../../../_assets/console-icons/ellipsis.svg) in its row, and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Push your changes to the server configuration:
 
@@ -28,7 +28,7 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
           {% endnote %}
       
-      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section.
+      * Optionally, change the server's [network settings](../../concepts/network.md) under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
           To attach an [additional private subnet](../../concepts/private-network.md#tagged-vlan-subnet) to the server, click **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section and, in the field that appears, select an existing additional subnet or create a new one.
 

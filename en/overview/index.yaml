@@ -1,64 +1,184 @@
-title: Yandex Cloud overview
-description:
-  - >-
-    Yandex Cloud is a suite of connected services allowing you to quickly and
-    securely get as much computing power as you need on a pay-as-you-go basis.
-    You access the computing power over the internet. This approach to computing
-    resource consumption is called <i>cloud computing</i>.
-  - >-
-    Cloud computing can replace or complement traditional on-premise data
-    centers. Yandex Cloud undertakes to maintain the health and performance of
-    the cloud platform's hardware and software.
-  - >-
-    Yandex Cloud offers different categories of cloud resources, such as virtual
-    machines, disks, databases, etc. There is a dedicated service you can use to
-    manage the resources in each category.
-  - >-
-    The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
-    pursuant to the Russian Federal Law No. 152-FZ on Personal Data.
 meta:
-  title: Yandex Cloud overview
-  description: >-
-    Yandex Cloud is a suite of connected services allowing you to quickly and
-    securely get as much computing power as you need on a pay-as-you-go basis.
   keywords:
     - keyword: '{{ yandex-cloud }}'
     - keyword: '{{ yandex-cloud }} overview'
     - keyword: list of {{ yandex-cloud }} services
     - keyword: how to lease computing power
     - keyword: cloud computing
-links:
-  - title: Yandex Cloud services
-    description: ''
-    href: concepts/services
-  - title: Mobile app
-    description: ''
-    href: mobile-app/
-  - title: Regions
-    description: ''
-    href: concepts/region
-  - title: Availability zones
-    description: ''
-    href: concepts/geo-scope
-  - title: Getting started
-    description: ''
-    href: quickstart
-  - title: Release stages
-    description: ''
-    href: concepts/launch-stages
-  - title: Quotas and limits
-    description: ''
-    href: concepts/quotas-limits
-  - title: API
-    description: ''
-    href: api
-  - title: SDK
-    description: ''
-    href: sdk/overview
-  - title: Service Level Agreement
-    description: ''
-    href: sla
-  - title: Troubleshooting
-    description: ''
-    href: qa
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud overview
+    description: >-
+      Yandex Cloud is a suite of connected services allowing you to quickly and
+      securely get as much computing power as you need on a pay-as-you-go basis.
+      You access the computing power over the internet. This approach to
+      computing resource consumption is called _cloud computing_.
+
+
+      Cloud computing can replace or complement traditional on-premise data
+      centers.
+
+
+      Yandex Cloud undertakes to maintain the health and performance of the
+      cloud platform's hardware and software.
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    children:
+      - type: basic-card
+        title: Getting started
+        text: Getting started with Yandex Cloud
+        urlTitle: Getting started with Yandex Cloud
+        url: quickstart
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Regions
+        text: Information on the geographic location of data centers
+        urlTitle: Regions
+        url: concepts/region
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/map-pin.svg
+          dark: assets/icons/map-pin.svg
+      - type: basic-card
+        title: Courses
+        text: Available courses and training programs
+        urlTitle: Yandex Cloud courses
+        url: training
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/graduation-cap.svg
+          dark: assets/icons/graduation-cap.svg
+      - type: basic-card
+        title: Cloud terminology
+        text: Dictionary of cloud terms
+        urlTitle: Cloud terminology
+        url: https://yandex.cloud/ru/docs/glossary/
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/book.svg
+          dark: assets/icons/book.svg
+  - type: card-layout-block
+    title: Yandex Cloud services
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    children:
+      - type: basic-card
+        title: Service list
+        text: Overview of all available services
+        urlTitle: Service list
+        url: concepts/services
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/layers-3-diagonal.svg
+          dark: assets/icons/layers-3-diagonal.svg
+      - type: basic-card
+        title: Release stages
+        text: Information on service release stages
+        urlTitle: Release stages
+        url: concepts/launch-stages
+        border: shadow
+        controlPosition: content
+        size: s
+        animated: false
+        icon:
+          light: assets/icons/circle-info.svg
+          dark: assets/icons/circle-info.svg
+      - type: basic-card
+        title: Quotas and limits
+        text: Technical and organizational limitations
+        urlTitle: Quotas and limits
+        url: concepts/quotas-limits
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/sliders.svg
+          dark: assets/icons/sliders.svg
+      - type: basic-card
+        title: Troubleshooting
+        text: Answers to frequently asked questions
+        urlTitle: Troubleshooting
+        url: qa
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon:
+          light: assets/icons/circle-question.svg
+          dark: assets/icons/circle-question.svg
+  - type: card-layout-block
+    title: Service interfaces
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    children:
+      - type: basic-card
+        title: API
+        text: Yandex Cloud services API
+        urlTitle: API
+        url: api
+        border: shadow
+        controlPosition: content
+        animated: false
+        size: s
+        icon: assets/icons/code.svg
+        iconPosition: left
+      - type: basic-card
+        title: SDK
+        text: Development tools for interfacing with cloud infrastructure
+        urlTitle: SDK
+        url: sdk/overview/
+        border: shadow
+        controlPosition: content
+        size: s
+        animated: false
+        icon: assets/icons/folder-tree.svg
+        iconPosition: left
+      - type: basic-card
+        title: Mobile app
+        text: Manage resources from your mobile device
+        urlTitle: Mobile app
+        url: mobile-app/
+        border: shadow
+        controlPosition: content
+        size: s
+        animated: false
+        icon: assets/icons/smartphone.svg
+        iconPosition: left
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        The Yandex Cloud infrastructure is
+        [protected](https://yandex.cloud/en/docs/security/conform) pursuant to
+        the Russian Federal Law 152-FZ on Personal Data.
+
+
+        The services are subject to a [service level
+        agreement](https://yandex.cloud/en/docs/overview/sla).
+links: []

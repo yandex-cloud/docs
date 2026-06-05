@@ -43,12 +43,12 @@ To connect to a {{ TR }} cluster from a {{ yandex-cloud }} VM, configure a secur
 
 ### Security groups for {{ mgp-full-name }} {#security-groups-for-greenplum}
 
-To access the {{ GP }} cluster, the {{ TR }} connector uses the GPFDIST protocol:
+The connector uses the GPFDIST protocol for connection to the {{ mgp-name }} cluster:
 
-* {{ TR }} coordinators and workers send queries to the {{ GP }} master over TCP port {{ port-mgp }}.
-* {{ GP }} segments forward data to {{ TR }} workers over the GPFDIST TCP port in the 30078–30085 range.
+* {{ TR }} coordinators and workers send queries to the {{ mgp-name }} master over TCP port {{ port-mgp }}.
+* {{ mgp-name }} segments forward data to {{ TR }} workers over the GPFDIST TCP port in the 30078–30085 range.
 
-Data transmitted between the {{ GP }} and {{ TR }} clusters over the GPFDIST protocol is unencrypted. To secure your connection, configure security groups [in {{ mgp-name }}](#configuring-security-groups-greenplum) and, optionally, [in {{ mtr-name }}](#configuring-security-groups-trino).
+Data transmitted between the {{ mgp-name }} and {{ TR }} clusters over the GPFDIST protocol is unencrypted. To secure your connection, configure security groups [in {{ mgp-name }}](#configuring-security-groups-greenplum) and, optionally, [in {{ mtr-name }}](#configuring-security-groups-trino).
 
 #### {{ mgp-name }} side setup {#configuring-security-groups-greenplum}
 
@@ -56,7 +56,7 @@ Data transmitted between the {{ GP }} and {{ TR }} clusters over the GPFDIST pro
 
 - Incoming traffic {#incoming}
 
-    * Rule for internal {{ GP }} cluster traffic:
+    * Rule for internal {{ mgp-name }} cluster traffic:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
@@ -72,7 +72,7 @@ Data transmitted between the {{ GP }} and {{ TR }} clusters over the GPFDIST pro
 
 - Outgoing traffic {#outgoing}
 
-    * Rule for internal {{ GP }} cluster traffic:
+    * Rule for internal {{ mgp-name }} cluster traffic:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
@@ -90,27 +90,27 @@ Data transmitted between the {{ GP }} and {{ TR }} clusters over the GPFDIST pro
 
 #### {{ mtr-name }} side setup {#configuring-security-groups-trino}
 
-To configure security group rules in {{ TR }}, invert the {{ GP }} rule settings. Setting up rules for a {{ TR }} cluster is optional, but this provides added security for your cluster.
+To configure security group rules in {{ TR }}, invert the {{ mgp-name }} rule settings. Setting up rules for a {{ TR }} cluster is optional, but this provides added security for your cluster.
 
 {% list tabs group=traffic %}
 
 - Incoming traffic {#incoming}
 
-    Rule for receiving data from {{ GP }} segments:
+    Rule for receiving data from {{ mgp-name }} segments:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
 
 - Outgoing traffic {#outgoing}
 
-    Rule for connections to a {{ GP }} master:
+    Rule for connections to a {{ mgp-name }} master:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ mgp-name }} cluster security group.
 
 {% endlist %}
 
@@ -173,7 +173,7 @@ Before connecting:
 ## WebSQL {#websql}
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Open your {{ mtr-name }} cluster.
 1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.

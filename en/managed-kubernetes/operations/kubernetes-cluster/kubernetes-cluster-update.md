@@ -275,6 +275,8 @@ You can perform the following actions with [{{ managed-k8s-name }} cluster cloud
 
 {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
+{% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}

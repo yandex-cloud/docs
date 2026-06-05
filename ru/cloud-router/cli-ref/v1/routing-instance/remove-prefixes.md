@@ -12,79 +12,23 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 
 Syntax:
 
-`yc cloudrouter v1 routing-instance remove-prefixes <ROUTING-INSTANCE-ID>`
+`yc cloudrouter v1 routing-instance remove-prefixes <ROUTING-INSTANCE-NAME>|<ROUTING-INSTANCE-ID>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
-|| `-r`, `--request-file` | `string`
-
-Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
-|| `-e`, `--example-yaml` | Generates a YAML template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
 || `--id` | `string`
 
 ID of the RoutingInstance resource. ||
-|| `--vpc-network-id` | `string`
-
-ID of the VpcNetwork to update. ||
-|| `--vpc-az-info-prefixes` | `shorthand/json`
-
-List of VpcAzInfoPrefixes to remove.
-
-{% cut "Description" %}
-
-> - az-id (string)\
-ID of the AZ.
-> - prefixes ([]string)\
-List of prefixes.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    az-id = string,
-    prefixes = string,...
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "az-id": "string",
-    "prefixes": [
-      "string", ...
-    ]
-  }, ...
-]
-```
-
-{% endcut %} ||
 || `--name` | `string`
 
 Resolve id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--vpc-net` | `[]string`
+
+VPC network information.
+Format: id=&lt;VPC-NETWORK-ID&gt;,zone=&lt;ZONE&gt;,ipv4-prefixes=[&lt;CIDR&gt;,...] ||
 |#
 
 #### Global Flags

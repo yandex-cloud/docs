@@ -39,10 +39,10 @@ The infrastructure cost includes:
 
 - Management console {#console}
 
-  1. Create the `queue-autoscale-sa` service account and assign it the `editor` role for `example-folder`.
+  1. Create a service account named `queue-autoscale-sa` and assign it the `editor` role for `example-folder`.
   
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `queue-autoscale-sa`.
      1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `editor` role.
@@ -65,7 +65,7 @@ The infrastructure cost includes:
   1. Create a cloud network named `queue-autoscale-network`:
   
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `queue-autoscale-network`.
      1. Disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -245,7 +245,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
   1. Create a queue named `queue-autoscale-queue`:
   
      1. In the [management console]({{ link-console-main }}), select `example-folder`.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
      1. Click **{{ ui-key.yacloud.ymq.queues.button_create }}**.
      1. In the **{{ ui-key.yacloud.common.name }}** field, specify `queue-autoscale-queue`.
      1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -349,7 +349,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      - Management console {#console}
 
        1. In the [management console]({{ link-console-main }}), select `example-folder`.
-       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+       1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
        1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
        1. In the list that opens, select `queue-autoscale-sa`.
        1. Copy the service account **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}**.
@@ -379,41 +379,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      {% endcut %}
      
-   * In the `folder_id` field, specify the {{ yandex-cloud }} folder ID.
-   
-     {% cut "How to find the folder ID" %}
-     
-     {% list tabs group=instructions %}
-     
-     - Management console {#console}
-     
-       On the [cloud page]({{ link-console-cloud }}), find `example-folder` in the **Folders** list and copy its **{{ ui-key.yacloud.common.id }}**.
-     
-     - CLI {#cli}
-     
-       Run the following command:
-       
-       ```bash
-       yc resource-manager folder get example-folder
-       ```
-       
-       Result:
-       
-       ```
-       id: b1g9hv2loamq********
-       cloud_id: b1g2y61sxwqx********
-       created_at: "2021-10-04T13:21:32.788067492Z"
-       name: example-folder
-       status: ACTIVE
-       ```
-       
-     - API {#api}
-     
-       Use the [list](../../resource-manager/api-ref/Folder/list.md) REST API method for the [Folder](../../resource-manager/api-ref/Folder/index.md) resource or the [FolderService/List](../../resource-manager/api-ref/grpc/Folder/list.md) gRPC API call.
-     
-     {% endlist %}
-     
-     {% endcut %}
+   * In the `folder_id` field, specify the {{ yandex-cloud }} [folder ID](../../resource-manager/operations/folder/get-id.md).
      
    * In the `subnet_id` field, specify the `queue-autoscale-subnet-d` ID.
    
@@ -424,7 +390,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      - Management console {#console}
      
        1. In the [management console]({{ link-console-main }}), select `example-folder`.
-       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Navigate to the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}** tab.
        1. In the list of subnets, find `queue-autoscale-subnet-d` and copy its **{{ ui-key.yacloud.common.id }}**.
             
@@ -517,7 +483,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `example-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Click **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
@@ -601,7 +567,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        type: LINUX
      ```
      
-  1. Edit the `spec.yaml` file specifying the instance group:
+  1. Edit the `spec.yaml` file with the instance group specification:
   
      * In the `folder_id` field, specify the folder ID in {{ yandex-cloud }}.
      * In the `image_id` field, specify the image ID.
@@ -631,7 +597,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        - Management console {#console}
         
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
-         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
           
        - API {#api}
@@ -670,7 +636,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
        - Management console {#console}
         
          1. In the [management console]({{ link-console-main }}), select `example-folder`.
-         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
          1. In the list of networks, find `queue-autoscale-network` and copy its **{{ ui-key.yacloud.common.id }}**.
                
        - CLI {#cli}

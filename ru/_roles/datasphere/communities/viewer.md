@@ -7,4 +7,4 @@
 
 Включает разрешения, предоставляемые ролью `datasphere.community-projects.viewer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.viewer` имеют роль `Viewer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.viewer` имеют роль `Viewer` на вкладке **Участники** на странице сообщества.

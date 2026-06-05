@@ -20,23 +20,6 @@ Syntax:
 || `--update-mask` | `[]string`
 
 Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
-|| `-r`, `--request-file` | `string`
-
-Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
-|| `-e`, `--example-yaml` | Generates a YAML template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
 || `--id` | `string`
 
 ID of the captcha to update. ||
@@ -413,6 +396,27 @@ Optional description of the captcha. ||
 
 Resource labels as 'key:value' pairs. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc smartcaptcha captcha update --example-json > request.json
+or
+yc smartcaptcha captcha update --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc smartcaptcha captcha update -r request.json
+or
+yc smartcaptcha captcha update -r request.yaml ||
 |#
 
 #### Global Flags

@@ -9,4 +9,4 @@ Users with this role can:
 
 This role includes the `datasphere.communities.viewer` permissions.
 
-In the DataSphere interface, users with the `datasphere.communities.developer` role have the `Developer` role in the **Members** tab on the community page.
+In the {{ ml-platform-name }} interface, users with the `datasphere.communities.developer` role have the `Developer` role in the **Members** tab on the community page.

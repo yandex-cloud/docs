@@ -5,14 +5,13 @@ editable: false
 
 # yc cic v1 trunk-connection update
 
-Updates a TrunkConnection resource using the data specified in the request.
-Method starts an asynchronous operation that can be cancelled while it is in progress.
+Modify configuration or attributes of a trunk connection.
 
 #### Command Usage
 
 Syntax:
 
-`yc cic v1 trunk-connection update <TRUNK-CONNECTION-ID>`
+`yc cic v1 trunk-connection update <TRUNK-CONNECTION-NAME>|<TRUNK-CONNECTION-ID>`
 
 #### Flags
 
@@ -21,37 +20,44 @@ Syntax:
 || `--update-mask` | `[]string`
 
 Field paths for FieldMask: each segment may be proto snake_case or CLI kebab-case (e.g. name, labels, network-interface). Repeat the flag or use comma-separated values. When set and non-empty, takes precedence over update_mask in the request body/file and over mask inferred from -r. If omitted or empty, the mask is built from the fields you pass (changed flags, JSON/shorthand, and request file when update_mask is absent there). ||
+|| `--id` | `string`
+
+TrunkConnection id. ||
+|| `--name` | `string`
+
+Resolve id by resource name within the current scope. ||
+|| `--new-name` | `string`
+
+New name for the trunkConnection. ||
+|| `--description` | `string`
+
+New description for the trunkConnection. ||
+|| `--labels` | `key=value[,key=value...]`
+
+New set of labels for the trunkConnection as key-value pairs. ||
+|| `--deletion-protection` | Flag protecting the trunkConnection from deletion. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `-r`, `--request-file` | `string`
 
 Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
+|| `--example-json` | Generates a JSON template of the request. ||
 || `-e`, `--example-yaml` | Generates a YAML template of the request.
+
 The template can be customized and used as input for the command.
+
 Usage example:
 
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
-|| `--id` | `string`
+1. Generate template:
+yc cic v1 trunk-connection update --example-json > request.json
+or
+yc cic v1 trunk-connection update --example-yaml > request.yaml
 
-ID of the TrunkConnection resource to return. ||
-|| `--name` | `string`
+2. Edit the template file
 
-Name of the trunkConnection. The name must be unique within the folder. Value must match the regular expression ''\\|a-zA-Z?''. ||
-|| `--description` | `string`
-
-Optional description of the trunkConnection. 0-256 characters long. ||
-|| `--labels` | `map<string><string>`
-
-Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
-|| `--deletion-protection` | Deletion protection flag. Optional. If set prohibits deletion of the trunkConnection. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+3. Run with template:
+yc cic v1 trunk-connection update -r request.json
+or
+yc cic v1 trunk-connection update -r request.yaml ||
 |#
 
 #### Global Flags

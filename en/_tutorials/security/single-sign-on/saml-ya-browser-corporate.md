@@ -34,7 +34,7 @@ To give the users of your organization access to the management console of Yande
 
 ## Set up the integration {#setup-integration}
 
-To configure the integration between Yandex Browser for organizations and the SAML app you created in {{ org-name }}, complete the setup both in {{ org-name }} and Yandex Browser for organizations.
+To configure the integration between Yandex Browser for organizations and the SAML app you created in {{ org-full-name }}, complete the setup both in {{ org-full-name }} and Yandex Browser for organizations.
 
 ### Set up the SAML application in {{ org-full-name }} {#setup-idp}
 

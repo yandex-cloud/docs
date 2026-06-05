@@ -1,18 +1,18 @@
 # Creating a VM and an instance group from a {{ coi }} using {{ TF }}
 
-To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../../cos/concepts/index.md), follow the steps below.
+To use {{ TF }} to create configurations and run a [VM](../../compute/concepts/vm.md) or an [instance group](../../compute/concepts/instance-groups/index.md) from a [{{ coi }}](../../cos/concepts/index.md), follow the steps below.
 
 ## Getting started {#before-begin}
 
 {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-In our example, we use a configuration file named `example.tf`, which is located in the `~/cloud-terraform` directory.
+In this tutorial, we use a configuration file named `example.tf` and located in the `~/cloud-terraform` directory.
 
 ## Creating and running a VM with a COI ({{ coi }}) image {#creating-vm}
 
 ### Create VM configuration files {#create-config-vm}
 
-1. Use a {{ coi }} from the {{ yandex-cloud }} [image family](../../compute/concepts/image.md#family). To do this, add the following lines to the `example.tf` configuration file:
+1. Use a {{ coi }} from the {{ yandex-cloud }} [image family](../../compute/concepts/image.md#family). To do this, add these lines to the `example.tf` configuration file:
 
    ```
    data "yandex_compute_image" "container-optimized-image" {
@@ -20,7 +20,7 @@ In our example, we use a configuration file named `example.tf`, which is located
    }
    ```
 
-1. Describe the VM by adding the following lines to the `example.tf` configuration file:
+1. Describe the VM by adding these lines to the `example.tf` configuration file:
 
    ```
    resource "yandex_compute_instance" "instance-based-on-coi" {
@@ -44,7 +44,7 @@ In our example, we use a configuration file named `example.tf`, which is located
    }
    ```
 
-   Where `subnet_id` is the [subnet](../../vpc/concepts/network.md#subnet) ID.
+   Where `subnet_id` is the ID of the [subnet](../../vpc/concepts/network.md#subnet).
 
    If you use the [Docker Compose specification](../../cos/concepts/coi-specifications.md#compose-spec), replace the `docker-container-declaration` key with the `docker-compose` key in `metadata`:
 
@@ -92,7 +92,7 @@ In our example, we use a configuration file named `example.tf`, which is located
 
 ### Create a VM from a {{ coi }} {#create-vm-coi}
 
-Run the VM with a {{ coi }} using the {{ TF }} configuration.
+Run the {{ coi }} VM using the {{ TF }} configuration.
 
 {% list tabs group=instructions %}
 
@@ -100,7 +100,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the `~/cloud-terraform` directory containing configuration files:
+     1. In the command line, go to the `~/cloud-terraform` directory containing the configuration files:
 
         ```bash
         cd /Users/<username>/cloud-terraform
@@ -166,11 +166,11 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
         external_ip = <public_IP_address>
         ```
 
-        The required resources will be created in the folder. When created, the VM is assigned an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+        This will create the required resources in the folder. The system assigns an IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN) to the newly created VM.
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
-  1. Connect to the VM with the {{ coi }}.
+  1. Connect to the {{ coi }} VM.
 
      1. Run this command:
 
@@ -229,13 +229,13 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 ## Creating and running a VM with a COI ({{ coi }}) image {#creating-group}
 
-### Create instance group configuration files {#create-config-group}
+### Create the instance group configuration files {#create-config-group}
 
-1. Save a configuration file named `example.tf` to the `~/cloud-terraform` directory:
+1. Save the `example.tf` configuration file to the `~/cloud-terraform` directory:
 
    ```
    provider "yandex" {
-     token     = "<OAuth_token>"
+     token     = "<IAM_token>"
      cloud_id  = "<cloud_ID>"
      folder_id = "<folder_ID>"
      zone      = "{{ region-id }}-a"
@@ -288,17 +288,17 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
    Where:
 
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md) for {{ yandex-cloud }} access.
+   * `token`: [IAM token](../../iam/concepts/authorization/iam-token.md) for access to {{ yandex-cloud }}.
    * `name`: Instance group name.
    * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
    * `instance_template.network_interface.network_id`: [Network](../../vpc/concepts/network.md) ID.
    * `instance_template.network_interface.subnet_ids`: List of [subnet](../../vpc/concepts/network.md#subnet) IDs.
    * `instance_template.service_account_id`: ID of the [service account](../../iam/concepts/users/service-accounts.md) authorized for this instance group.
-   * `allocation_policy.zones`: List of [availability zones](../../overview/concepts/geo-scope.md).
+   * `allocation_policy.zones`: [Availability zones](../../overview/concepts/geo-scope.md) list.
 
 1. Use the `cloud_config.yaml` and `declaration.yaml` files from the [Create VM configuration files](#create-config-vm) section.
 
-1. Create a file named `output.tf` in the `~/cloud-terraform` directory to output the public IPs of each VM instance in the group:
+1. Create a file named `output.tf` in the `~/cloud-terraform` directory to output the public IPs of each VM in the instance group:
 
    ```
    output "external_ip" {
@@ -308,7 +308,7 @@ Run the VM with a {{ coi }} using the {{ TF }} configuration.
 
 ### Create an instance group from a {{ coi }} {#create-group-coi}
 
-Run the instance group with a {{ coi }} using the {{ TF }} configuration.
+Run the {{ coi }} instance group using the {{ TF }} configuration.
 
 {% list tabs group=instructions %}
 
@@ -316,7 +316,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, go to the `~/cloud-terraform` directory containing configuration files:
+     1. In the command line, go to the `~/cloud-terraform` directory containing the configuration files:
 
         ```bash
         cd /Users/<username>/cloud-terraform
@@ -383,11 +383,11 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         ]
         ```
 
-        The required resources will be created in the folder. When created, each VM is assigned a public IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN).
+        This will create the required resources in the folder. The system assigns a public IP address and a [host name](../../vpc/concepts/address.md#fqdn) (FQDN) to each newly created VM.
 
   1. Check the resources and their settings in the [management console]({{ link-console-main }}).
 
-  1. Connect to one of the VMs with the {{ coi }}.
+  1. Connect to one of the {{ coi }} VMs.
 
      1. Run this command:
 
@@ -421,7 +421,7 @@ Run the instance group with a {{ coi }} using the {{ TF }} configuration.
         applicable law.
         ```
 
-  1. Make an HTTP request to one of the VM instances in the group:
+  1. Make an HTTP request to one of the VMs in the instance group:
 
      ```html
      curl <VM_1_public_IP_address>

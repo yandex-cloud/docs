@@ -101,7 +101,7 @@ Aliases:
 
   - [yc managed-greenplum pxf-datasource list](pxf-datasource/list.md) — List pxf-datasources for specified Greenplum cluster
 
-- [yc managed-greenplum resource-groups](resource-groups/index.md) — Manage Greenplum resource groups
+- [yc managed-greenplum resource-groups](resource-groups/index.md) — Manage Greenplum and Apache Cloudberry resource groups
 
   - [yc managed-greenplum resource-groups create](resource-groups/create.md) — Create resource group for specified Greenplum cluster
 

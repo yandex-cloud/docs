@@ -18,7 +18,7 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--cic-private-connection-id` | `string`
+|| `--cic-prc-id` | `string`
 
 ID of the PrivateConnection resource to return by. To get the routingInstance ID use a [RoutingInstanceService.List] request. ||
 |#

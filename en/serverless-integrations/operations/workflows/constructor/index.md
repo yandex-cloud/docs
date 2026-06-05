@@ -26,7 +26,6 @@ You can configure the following workflow steps using the constructor:
 * [{{ message-queue-name }}](./ymq.md)
 * [Yandex Disk](./yadisk.md)
 * [{{ sw-name }}](./workflow.md)
-* [AI agent](./aiagent.md)
 * [Telegram bot](./telegrambot.md)
 * [Database Query](./databasequery.md)
 

@@ -5,6 +5,8 @@ description: Follow this guide to use {{ cdn-full-name }} to create and set up a
 
 # Creating a CDN resource with an origin server in {{ yandex-cloud }}
 
+{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
+
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 
 Set up content distribution over a CDN with a {{ compute-full-name }} [VM instance](../../compute/concepts/vm.md) or {{ baremetal-full-name }} [server](../../baremetal/concepts/servers.md) as the origin:

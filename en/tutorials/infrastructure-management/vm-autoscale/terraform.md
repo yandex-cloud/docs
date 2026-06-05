@@ -1,12 +1,12 @@
 ---
-title: Running a VM group with autoscaling if the load limit is exceeded via {{ TF }}
-description: In this tutorial, you will deploy an instance group with an autoscaling policy to apply if the load limit is exceeded. The VM loading will be balanced using a network load balancer.
+title: Working with an instance group with autoscaling in response to overload using {{ TF }}
+description: In this tutorial, you will deploy an instance group with an autoscaling policy in response to overload using {{ TF }}.
 ---
 
-# Running a VM group with autoscaling using {{ TF }}
+# Working with an instance group with autoscaling using {{ TF }}
 
 
-To create an infrastructure for an [instance group with an autoscaling policy](index.md) using {{ TF }}:
+To create an infrastructure for an [autoscaling instance group](index.md) with {{ TF }}:
 
 {% include [vm-autoscale-terraform](../../../_tutorials/infrastructure/vm-autoscale-terraform.md) %}
 

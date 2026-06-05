@@ -11,6 +11,54 @@ description: Вы можете создавать пользователей {{ 
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+  
+  
+  1. Выберите способ авторизации:
+      
+      * **Пароль** — авторизация по имени пользователя и паролю. Для этого способа авторизации:
+        
+        1. Введите имя пользователя.
+
+        
+        1. Задайте пароль пользователя одним из способов:
+ 
+            * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — введите пароль вручную. Длина пароля — от 8 до 128 символов.
+            * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — пароль будет сгенерирован с помощью сервиса [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) и сохранен в [секрете {{ lockbox-full-name }}](../../lockbox/concepts/secret.md).
+
+              Чтобы посмотреть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-full-name }}, в котором хранится пароль.
+
+              Для просмотра паролей требуется роль [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer).
+        
+
+      * **IAM** — авторизация с помощью [аккаунтов на {{ yandex-cloud }}](../../iam/concepts/users/accounts.md).
+        
+        Для этого способа авторизации выберите нужный аккаунт в поле **Пользователь**.
+
+
+  1. Выберите опцию **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}**, чтобы пользователь мог подключаться к кластеру и выполнять команды.
+  1. В блоке `Permissions` задайте разрешения пользователя:
+
+      * `Patterns` — разрешения на шаблоны ключей.
+      * `Pub Sub Channels` — разрешения на каналы Pub/Sub.
+      * `Categories` — разрешения на категории команд.
+      * `Commands` — разрешения на команды.
+      * `Sanitize Payload` — разрешение на очистку данных. Возможные значения:
+        
+        * `sanitize-payload` (по умолчанию) — очистка данных включена;
+        * `skip-sanitize-payload` — очистка данных отключена.
+        
+      {% include [user-permissions-note](../../_includes/mdb/mvk/user-permissions-note.md) %}
+
+      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+  
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
 - CLI {#cli}
   
   {% include [cli-install](../../_includes/cli-install.md) %}

@@ -1,3 +1,8 @@
+---
+title: Comparing load test results in {{ load-testing-full-name }}
+description: Follow this guide to learn how to compare results of multiple load tests in {{ load-testing-name }} using response time distribution charts, quantiles, as well as network and HTTP response codes.
+---
+
 # Comparing load test results
 
 {% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}

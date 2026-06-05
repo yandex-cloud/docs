@@ -14,7 +14,7 @@ Set rules for session system properties to limit user consumption of system reso
 {% endnote %}
 
 For each user-property pair, the rules apply as follows:
-* Rules are checked for matches in the order they are specified in the configuration file. The first rule matching the user-property pair applies.
+* Rules are checked in the order of their declaration. The first rule matching the user-property pair applies.
 * If none of the rules match the user-property pair, the user is not allowed to set this particular session system property.
 * If no rules are specified for system properties of a session, any user can set any system properties.
 * Access rules for session system properties apply together with the top-level [rules for objects in catalogs](./access-control-catalogs.md).
@@ -34,7 +34,7 @@ Property names specified in the rules are not validated. If a property name cont
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -265,7 +265,7 @@ Property names specified in the rules are not validated. If a property name cont
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -365,7 +365,7 @@ Property names specified in the rules are not validated. If a property name cont
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.ClusterForm.label_system-session-property_grCye }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:

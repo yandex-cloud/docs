@@ -9,4 +9,4 @@
 
 Включает разрешения, предоставляемые ролью `datasphere.communities.viewer`.
 
-В интерфейсе DataSphere пользователи с ролью `datasphere.communities.developer` имеют роль `Developer` на вкладке **Участники** на странице сообщества.
+В интерфейсе {{ ml-platform-name }} пользователи с ролью `datasphere.communities.developer` имеют роль `Developer` на вкладке **Участники** на странице сообщества.

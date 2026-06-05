@@ -43,7 +43,6 @@ description: Из статьи вы узнаете, как работать с {
 * [{{ message-queue-name }}](workflows/constructor/ymq.md)
 * [Яндекс Диск](workflows/constructor/yadisk.md)
 * [{{ sw-name }}](workflows/constructor/workflow.md)
-* [AI-агент](workflows/constructor/aiagent.md)
 * [Telegram-бот](workflows/constructor/telegrambot.md)
 * [Database Query](workflows/constructor/databasequery.md)
 * [Switch](workflows/constructor/switch.md)

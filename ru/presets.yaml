@@ -8,6 +8,7 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -266,6 +267,7 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
+  k8s-ma: Master Autoscaler
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -885,6 +887,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
@@ -1814,11 +1817,6 @@ default:
             cores: dn2jqpn5pcn1kjtf06e5
           highfreq-v4a:
             cores: dn28ft211q8jed0h7dif
-  pc|mk8s:
-    master:
-      master_host_resources:
-        cpu: dn2pjj9vapo7724rik0b
-        ram: dn2u6o8avnm6b5tb8klu
   pc|monitoring:
     alerts:
       notifications:
@@ -7905,6 +7903,7 @@ default:
             button_action-password: Изменить пароль
             button_action-update: Настроить
             button_advanced-settings: Дополнительные настройки
+            field_enable-user: Включить пользователя
             label_go-to-password: Посмотреть пароль
             popup-add_button_add: Создать
             popup-button_add: Создать
@@ -8913,22 +8912,17 @@ default:
         label_private-access: Приватный доступ
         label_rbac-add-rule: Добавить правило
         label_rbac-catalog: Каталоги
-        label_rbac-catalog-access: Каталоги, к которым применяется правило
         label_rbac-catalog-permissions: Разрешения
         label_rbac-function: Функции
-        label_rbac-function-access: Функции, к которым применяется правило
         label_rbac-function-privileges: Привилегии
         label_rbac-groups: Группы
         label_rbac-procedure: Процедуры
-        label_rbac-procedure-access: Процедуры, к которым применяется правило
         label_rbac-procedure-privileges: Привилегии
         label_rbac-query: Запросы
         label_rbac-query-privileges: Привилегии
         label_rbac-schema: Схемы
-        label_rbac-schema-access: Схемы, к которым применяется правило
         label_rbac-schema-owner: Владелец схемы
         label_rbac-table: Таблицы
-        label_rbac-table-access: Таблицы, к которым применяется правило
         label_rbac-users: Пользователи
         rbac-catalog-match-by-empty: Не задано
         rbac-catalog-match-by-id: ID
@@ -10473,6 +10467,10 @@ default:
         disk_properties_action_description_upload: Загрузка на диск
         disk_properties_action_properties_download_properties_view_spec_layout_title: Тип содержимого
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
+        disk_properties_oauth_token_description_lockbox: Lockbox
+        disk_properties_oauth_token_description_plain: Текст
+        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Секрет
+        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Значение
         disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
         disk_properties_path_view_spec_layout_title: Путь
         foundation_models_properties_action_description_classify: Дообученная классификация

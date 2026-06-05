@@ -5,10 +5,13 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка автомасштабирования
 
-Для {{ managed-k8s-name }} доступны три способа [автоматического масштабирования](../concepts/autoscale.md):
+Для {{ managed-k8s-name }} доступны следующие способы [автоматического масштабирования](../concepts/autoscale.md):
 * [Автоматическое масштабирование кластера](#ca).
+* [Автоматическое масштабирование мастера](../concepts/autoscale.md#master-autoscaler).
 * [Горизонтальное автомасштабирование подов](#hpa).
 * [Вертикальное автомасштабирование подов](#vpa).
+
+{% include [master-autoscaler-note](../../_includes/managed-kubernetes/master-autoscaler-note.md) %}
 
 ## Перед началом работы {#before-you-begin}
 

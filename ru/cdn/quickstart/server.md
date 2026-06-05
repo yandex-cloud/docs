@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание CDN-ресурса с источником-сервером в {{ yandex-cloud }}
 
+{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
+
 {% include [create-other-resources](../../_includes/cdn/create-other-resources-note.md) %}
 
 Настройте раздачу контента через CDN с [виртуальной машиной](../../compute/concepts/vm.md) {{ compute-full-name }} или [сервером](../../baremetal/concepts/servers.md) {{ baremetal-full-name }} в качестве источника:

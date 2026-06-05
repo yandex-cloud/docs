@@ -15,6 +15,8 @@ Syntax:
 
 #### Command Tree
 
+- [yc cic v1 trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
+
 - [yc cic v1 trunk-connection batch-get](batch-get.md) — 
 
 - [yc cic v1 trunk-connection delete](delete.md) — Deletes a TrunkConnection resource.
@@ -31,7 +33,9 @@ Syntax:
 
 - [yc cic v1 trunk-connection move](move.md) — Moves the specified TrunkConnection to another folder.
 
-- [yc cic v1 trunk-connection update](update.md) — Updates a TrunkConnection resource using the data specified in the request.
+- [yc cic v1 trunk-connection remove-labels](remove-labels.md) — Remove labels from a trunk connection.
+
+- [yc cic v1 trunk-connection update](update.md) — Modify configuration or attributes of a trunk connection.
 
 #### Global Flags
 

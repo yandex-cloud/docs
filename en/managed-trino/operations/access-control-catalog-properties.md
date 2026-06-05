@@ -14,7 +14,7 @@ Set rules for catalog session properties to limit user consumption of system res
 {% endnote %}
 
 For each user-property pair, the rules apply as follows:
-* Rules are checked for matches in the order they are specified in the configuration file. The first rule matching the user-property pair applies.
+* Rules are checked in the order of their declaration. The first rule matching the user-property pair applies.
 * If none of the rules match the user-property pair, the user is not allowed to set that property.
 * If no rules are specified for session properties, any user can set any session properties for all catalogs.
 * Property access rules apply together with the top-level [rules for objects in catalogs](./access-control-catalogs.md).
@@ -50,9 +50,12 @@ Property names specified in the rules are not validated. If a property name cont
         * `No`: Not allowed.
         * `Yes`: Allowed.
 
-     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+     1. Optionally, specify the catalogs the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select catalog names. You can only select catalogs added in **{{ ui-key.yacloud.trino.title_catalogs }}**.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for catalog names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all catalogs in the cluster.
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_session-property_cyTHR }}** field, specify the properties the rule applies to:
+     1. Optionally, specify the properties the rule applies to:
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select property names.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
@@ -75,11 +78,11 @@ Property names specified in the rules are not validated. If a property name cont
      catalog_session_properties:
        # Rule 1
        - allow: <permission_to_set_property>
+         catalog:
+           name_regexp: <regular_expression>
          property:
            names:
              any: [<list_of_property_names>]
-           name_regexp: <regular_expression>
-         catalog:
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -93,20 +96,19 @@ Property names specified in the rules are not validated. If a property name cont
 
      Where:
 
-     * `catalog_session_properties`: List of rules for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+     * `catalog_session_properties`: List of rules for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
      * `allow`: Permission to set a property:
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
+     * `catalog`: Cluster catalogs the rule applies to. These are set using the `name_regexp` parameter (regular expression for catalog names). If the `catalog` section is not specified, the rule applies to all cluster catalogs.
+
+     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
        * `names`: List of property names.
        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
 
        You can specify either `names` or `name_regexp` but not both.
-
-     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -158,10 +160,6 @@ Property names specified in the rules are not validated. If a property name cont
          # Rule 1
          {
            allow         = "<permission_to_set_property>"
-           property      = {
-             names       = ["<list_of_property_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -169,6 +167,10 @@ Property names specified in the rules are not validated. If a property name cont
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           property      = {
+             names       = ["<list_of_property_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -191,23 +193,23 @@ Property names specified in the rules are not validated. If a property name cont
 
      Where:
 
-     * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+     * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
      * `allow`: Permission to set a property:
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
-
-     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
-       * `names`: List of property names.
-       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
-
-       You can specify either `names` or `name_regexp` but not both.
 
      * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
        You can specify either `ids` or `name_regexp` but not both.
+
+     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
+       * `names`: List of property names.
+       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
+
+       You can specify either `names` or `name_regexp` but not both.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -254,14 +256,6 @@ Property names specified in the rules are not validated. If a property name cont
             "catalogSessionProperties": [
               {
                 "allow": "<permission_to_set_property>",
-                "property": {
-                  "names": {
-                    "any": [
-                      "<list_of_property_names>"
-                    ]
-                  },
-                  "nameRegexp": "<regular_expression>"
-                },
                 "catalog": {
                   "names": {
                     "any": [
@@ -269,6 +263,14 @@ Property names specified in the rules are not validated. If a property name cont
                       "<catalog_2_name>",
                       ...
                       "<catalog_N_name>"
+                    ]
+                  },
+                  "nameRegexp": "<regular_expression>"
+                },
+                "property": {
+                  "names": {
+                    "any": [
+                      "<list_of_property_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -298,23 +300,23 @@ Property names specified in the rules are not validated. If a property name cont
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `catalogSessionProperties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+      * `catalogSessionProperties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
       * `allow`: Permission to set a property:
         * `YES`: User is allowed to set the property.
         * `NO`: User is not allowed to set the property.
-
-      * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
-        * `names`: List of property names.
-        * `nameRegexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
-
-        The `property` section must contain either the nested `names` section or the `nameRegexp` parameter.
 
       * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
         * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
         * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
         The `catalog` section must contain either the nested `names` section or the `nameRegexp` parameter.
+
+      * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
+        * `names`: List of property names.
+        * `nameRegexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
+
+        The `property` section must contain either the nested `names` section or the `nameRegexp` parameter.
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -334,7 +336,7 @@ Property names specified in the rules are not validated. If a property name cont
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -367,14 +369,6 @@ Property names specified in the rules are not validated. If a property name cont
             "catalog_session_properties": [
               {
                 "allow": "<permission_to_set_property>",
-                "property": {
-                  "names": {
-                    "any": [
-                      "<list_of_property_names>"
-                    ]
-                  },
-                  "name_regexp": "<regular_expression>"
-                },
                 "catalog": {
                   "names": {
                     "any": [
@@ -382,6 +376,14 @@ Property names specified in the rules are not validated. If a property name cont
                       "<catalog_2_name>",
                       ...
                       "<catalog_N_name>"
+                    ]
+                  },
+                  "name_regexp": "<regular_expression>"
+                },
+                "property": {
+                  "names": {
+                    "any": [
+                      "<list_of_property_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -411,23 +413,23 @@ Property names specified in the rules are not validated. If a property name cont
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+      * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
       * `allow`: Permission to set a property:
         * `YES`: User is allowed to set the property.
         * `NO`: User is not allowed to set the property.
-
-      * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
-        * `names`: List of property names.
-        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
-
-        The `property` section must contain either the nested `names` section or the `name_regexp` parameter.
 
       * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
         * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
         * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
         The `catalog` section must contain either the nested `names` section or the `name_regexp` parameter.
+
+      * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
+        * `names`: List of property names.
+        * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
+
+        The `property` section must contain either the nested `names` section or the `name_regexp` parameter.
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -482,7 +484,16 @@ Property names specified in the rules are not validated. If a property name cont
         * `No`: Not allowed.
         * `Yes`: Allowed.
 
-     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+     1. Optionally, specify the catalogs the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-id }}**: Select catalog IDs. You can only select catalogs from those present in the cluster.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select catalog names. You can only select catalogs added in **{{ ui-key.yacloud.trino.title_catalogs }}**.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for catalog names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all catalogs in the cluster.
+
+     1. Optionally, specify the properties the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select property names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the properties whose names match the regular expression.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The rule applies to all properties.
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_session-property_cyTHR }}** field, specify the properties the rule applies to:
         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select property names.
@@ -510,15 +521,15 @@ Property names specified in the rules are not validated. If a property name cont
      catalog_session_properties:
        # Rule 1
        - allow: <permission_to_set_property>
-         property:
-           names:
-             any: [<list_of_property_names>]
-           name_regexp: <regular_expression>
          catalog:
            ids:
              any: [<list_of_catalog_IDs>]
            names:
              any: [<list_of_catalog_names>]
+           name_regexp: <regular_expression>
+         property:
+           names:
+             any: [<list_of_property_names>]
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -532,24 +543,24 @@ Property names specified in the rules are not validated. If a property name cont
 
      Where:
 
-     * `system_session_properties`: List of rules for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+     * `system_session_properties`: List of rules for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
      * `allow`: Permission to set a property:
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
 
-     * `property`: Properties the rule applies to. If `property` is not specified, the rule applies to all properties.
-       * `names`: List of property names.
-       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
-
-       You can specify either `names` or `name_regexp` but not both.
-
-     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
+     * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These must be the existing catalogs.
        * `names`: List of catalog names. These must be the existing catalogs.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
        You can specify only one of the following: `ids`, `names`, or `name_regexp`.
+
+     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
+       * `names`: List of property names.
+       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
+
+       You can specify either `names` or `name_regexp` but not both.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -602,10 +613,6 @@ Property names specified in the rules are not validated. If a property name cont
          # Rule 1
          {
            allow         = "<permission_to_set_property>"
-           property      = {
-             names       = ["<list_of_property_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -613,6 +620,10 @@ Property names specified in the rules are not validated. If a property name cont
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           property      = {
+             names       = ["<list_of_property_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -635,23 +646,23 @@ Property names specified in the rules are not validated. If a property name cont
 
      Where:
 
-     * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+     * `catalog_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
      * `allow`: Permission to set a property:
        * `YES`: User is allowed to set the property.
        * `NO`: User is not allowed to set the property.
-
-     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
-       * `names`: List of property names.
-       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
-
-       You can specify either `names` or `name_regexp` but not both.
 
      * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
        * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
 
        You can specify either `ids` or `name_regexp` but not both.
+
+     * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
+       * `names`: List of property names.
+       * `name_regexp`: Regular expression. The rule applies to the properties whose names match the regular expression.
+
+       You can specify either `names` or `name_regexp` but not both.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -687,6 +698,19 @@ Property names specified in the rules are not validated. If a property name cont
             "systemSessionProperties": [
               {
                 "allow": "<permission_to_set_property>",
+                "catalog": {
+                  "ids": {
+                    "any": [
+                      "<list_of_catalog_IDs>"
+                    ]
+                  },
+                  "names": {
+                    "any": [
+                      "<list_of_catalog_names>"
+                    ]
+                  },
+                  "nameRegexp": "<regular_expression>"
+                },
                 "property": {
                   "names": {
                     "any": [
@@ -733,6 +757,13 @@ Property names specified in the rules are not validated. If a property name cont
       * `allow`: Permission to set a property:
         * `YES`: User is allowed to set the property.
         * `NO`: User is not allowed to set the property.
+
+      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
+        * `ids`: List of catalog IDs. These must be the existing catalogs.
+        * `names`: List of catalog names. These must be the existing catalogs.
+        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+
+        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `name_regexp` parameter.
 
       * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
         * `names`: List of property names.
@@ -785,14 +816,6 @@ Property names specified in the rules are not validated. If a property name cont
             "catalog_session_properties": [
               {
                 "allow": "<permission_to_set_property>",
-                "property": {
-                  "names": {
-                    "any": [
-                      "<list_of_property_names>"
-                    ]
-                  },
-                  "name_regexp": "<regular_expression>"
-                },
                 "catalog": {
                   "ids": {
                     "any": [
@@ -802,6 +825,14 @@ Property names specified in the rules are not validated. If a property name cont
                   "names": {
                     "any": [
                       "<list_of_catalog_names>"
+                    ]
+                  },
+                  "name_regexp": "<regular_expression>"
+                },
+                "property": {
+                  "names": {
+                    "any": [
+                      "<list_of_property_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -858,11 +889,18 @@ Property names specified in the rules are not validated. If a property name cont
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `system_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `property`, `catalog`, `groups`, `users`, and `description` parameters.
+      * `system_session_properties`: List of rule sections for catalog session properties. Each rule contains the required `allow` parameter, as well as the optional `catalog`, `property`, `groups`, `users`, and `description` parameters.
 
       * `allow`: Permission to set a property:
         * `YES`: User is allowed to set the property.
         * `NO`: User is not allowed to set the property.
+
+      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
+        * `ids`: List of catalog IDs. These must be the existing catalogs.
+        * `names`: List of catalog names. These must be the existing catalogs.
+        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+
+        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `name_regexp` parameter.
 
       * `property`: Properties the rule applies to. If the `property` section is not specified, the rule applies to all properties.
         * `names`: List of property names.
@@ -870,16 +908,9 @@ Property names specified in the rules are not validated. If a property name cont
 
         The `property` section must contain either the nested `names` section or the `name_regexp` parameter.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
-
-        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `name_regexp` parameter.
-
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. If you have already set the rules, open the relevant `body.json` file and edit it as needed. You can:
+  1. If you have already set the access rules, open the existing `body.json` rules file and edit it as needed. You can:
 
      * Add new rules.
      * Update the existing ones.

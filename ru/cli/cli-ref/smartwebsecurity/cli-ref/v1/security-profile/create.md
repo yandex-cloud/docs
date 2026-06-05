@@ -17,23 +17,6 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `-r`, `--request-file` | `string`
-
-Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
-|| `-e`, `--example-yaml` | Generates a YAML template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
 || `--folder-id` | `string`
 
 ID of the folder to create a security profile in. ||
@@ -4277,6 +4260,27 @@ Action to perform if maximum size of body exceeded.
 
 {% endcut %} ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `-r`, `--request-file` | `string`
+
+Path to a request file. ||
+|| `--example-json` | Generates a JSON template of the request. ||
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
+
+The template can be customized and used as input for the command.
+
+Usage example:
+
+1. Generate template:
+yc smartwebsecurity v1 security-profile create --example-json > request.json
+or
+yc smartwebsecurity v1 security-profile create --example-yaml > request.yaml
+
+2. Edit the template file
+
+3. Run with template:
+yc smartwebsecurity v1 security-profile create -r request.json
+or
+yc smartwebsecurity v1 security-profile create -r request.yaml ||
 |#
 
 #### Global Flags

@@ -8,7 +8,7 @@
 * подключаться к своим рабочим столам;
 * запускать, перезапускать и останавливать любые рабочие столы в группе;
 * сбрасывать пароль на любых рабочих столах в группе;
-* просматривать информацию о [квотах](../../cloud-desktop/concepts/limits.md#quotas) сервиса Cloud Desktop;
+* просматривать информацию о [квотах](../../cloud-desktop/concepts/limits.md#quotas) сервиса {{ cloud-desktop-name }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролями `vdi.editor` и `vdi.desktopGroups.maintainer`.

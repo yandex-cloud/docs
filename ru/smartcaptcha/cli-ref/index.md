@@ -7,6 +7,10 @@ editable: false
 
 Manage SmartCaptcha resources
 
+Command tree v1 (new CLI interface) is the default. Run `yc smartcaptcha v1 <command>`.
+Legacy command tree v0 is also available: `yc smartcaptcha v0 <command>`.
+Set `services.smartcaptcha.version: v0` or `services.smartcaptcha.version: v1` in your profile to change the default.
+
 #### Command Usage
 
 Syntax:

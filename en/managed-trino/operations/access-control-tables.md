@@ -7,11 +7,13 @@ description: Rules define the actions users can perform with tables.
 
 Rules define the actions users can perform with tables in a {{ mtr-name }} cluster.
 
-For each user-table pair, rules apply as follows:
-* Rules are checked for matches in the order they are specified in the configuration file. The first rule matching the user-table pair applies.
-* If none of the rules match the user-table pair, no actions with the table are allowed to the user.
+For each user-table pair, the rules apply as follows:
+* Rules are checked in the order of their declaration. The first rule matching the user-table pair applies.
+* If none of the rules match the user-table pair, the user is denied all actions with the table.
 * If no table access rules are set, any user can perform any actions with any table.
 * Table access rules apply together with the top-level [rules for objects in catalogs](./access-control-catalogs.md).
+
+For general information about access rules, see [{#T}](../concepts/access-control.md).
 
 ## Setting rules when creating a cluster {#set-at-create}
 
@@ -28,7 +30,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ mtr-name }} cluster.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-table }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -60,14 +62,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         The user will only have access to the row if the expression returns `TRUE`. The SQL expression is calculated on behalf of the user who runs the query. If the `filter` parameter is not specified or contains an empty string, users will have access to all table rows.
 
-     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+     1. Optionally, specify full names of the tables the rule will apply to, formatted as `<catalog_name>.<schema_name>.<table_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-table-access }}** field, specify the tables the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select table names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the tables whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all tables.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select the format for the tables:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select table names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for table names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<table_name>` field may contain any value.
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_table-columns_68mj2 }}** field, add a list of rules restricting user access to table columns:
         1. Click **{{ ui-key.yacloud.trino.ClusterForm.label_table-column-add_241Co }}**.
@@ -104,15 +108,15 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      tables:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         table:
-           names:
-             any: [<list_of_table_names>]
+         catalog:
            name_regexp: <regular_expression>
          schema:
            names:
              any: [<list_of_schema_names>]
            name_regexp: <regular_expression>
-         catalog:
+         table:
+           names:
+             any: [<list_of_table_names>]
            name_regexp: <regular_expression>
          columns:
            # Access rule for column 1
@@ -137,7 +141,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
      Where:
 
-     * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+     * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
        * `SELECT`: Read data.
@@ -149,20 +153,29 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-     * `table`: Tables the rule applies to. If you do not specify `table`, the rule applies to all tables.
-       * `names`: List of table names.
-       * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs set using the `name_regexp` parameter (regular expression for catalog names).
 
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
+
+       * `table`: Tables specified by one of the following:
+         * `names`: List of table names.
+         * `name_regexp`: Regular expression for table names.
+
+         Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      * `columns`: List of rules restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
        * `name`: Column name.
@@ -225,14 +238,6 @@ Names of tables and schemas specified in rules are not validated. If a table nam
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           table     = {
-             names       = ["<list_of_table_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -240,6 +245,14 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           table         = {
+             names       = ["<list_of_table_names>"]
              name_regexp = "<regular_expression>"
            }
            columns       = [
@@ -259,7 +272,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                ...
              }                       
            ]
-           filter       = "<SQL_expression>"
+           filter        = "<SQL_expression>"
            users         = ["<list_of_user_IDs>"]
            groups        = ["<list_of_group_IDs>"]
            description   = "<rule_description>"
@@ -280,7 +293,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
      Where:
 
-     * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+     * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
        * `SELECT`: Read data.
@@ -292,23 +305,31 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-     * `table`: Tables the rule applies to. If you do not specify `table`, the rule applies to all tables.
-       * `names`: List of table names.
-       * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `table`: Tables specified by one of the following:
+         * `names`: List of table names.
+         * `name_regexp`: Regular expression for table names.
+
+         Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
        * `name`: Column name.
@@ -368,10 +389,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "table": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_table_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -384,13 +408,10 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                   },
                   "nameRegexp": "<regular_expression>"
                 },
-                "catalog": {
+                "table": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_table_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -435,7 +456,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
         * `SELECT`: Read data.
@@ -447,23 +468,31 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-      * `table`: Tables the rule applies to. If the `table` section is not specified, the rule applies to all tables.
-        * `names`: List of table names.
-        * `nameRegexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-        The `table` section must contain either the nested `names` section or the `nameRegexp` parameter.
+       * `catalog`: Catalogs specified by one of the following:
+         * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
+         * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `nameRegexp` parameter.
+       * `table`: Tables specified by one of the following:
+         * `names`: List of table names.
+         * `nameRegexp`: Regular expression for table names.
+
+         Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
       * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
         * `name`: Column name.
@@ -494,7 +523,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -529,10 +558,13 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "table": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_table_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -545,13 +577,10 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                   },
                   "name_regexp": "<regular_expression>"
                 },
-                "catalog": {
+                "table": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_table_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -596,7 +625,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
         * `SELECT`: Read data.
@@ -608,23 +637,31 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-      * `table`: Tables the rule applies to. If the `table` section is not specified, the rule applies to all tables.
-        * `names`: List of table names.
-        * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-        The `table` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `table`: Tables specified by one of the following:
+          * `names`: List of table names.
+          * `name_regexp`: Regular expression for table names.
+
+          Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
         * `name`: Column name.
@@ -675,7 +712,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-table }}**.
   1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
@@ -706,14 +743,16 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         The user will only have access to the row if the expression returns `TRUE`. The SQL expression is calculated on behalf of the user who runs the query. If the `filter` parameter is not specified or contains an empty string, users will have access to all table rows.
 
-     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+     1. Optionally, specify full names of the tables the rule will apply to, formatted as `<catalog_name>.<schema_name>.<table_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-table-access }}** field, specify the tables the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select table names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the tables whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all tables.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select the format for the tables:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select table names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for table names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<table_name>` field may contain any value.
 
      1. Optionally, in the **{{ ui-key.yacloud.trino.ClusterForm.label_table-columns_68mj2 }}** field, add a list of rules restricting user access to table columns:
         1. Click **{{ ui-key.yacloud.trino.ClusterForm.label_table-column-add_241Co }}**.
@@ -753,19 +792,19 @@ Names of tables and schemas specified in rules are not validated. If a table nam
      tables:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         table:
-           names:
-             any: [<list_of_table_names>]
-           name_regexp: <regular_expression>
-         schema:
-           names:
-             any: [<list_of_schema_names>]
-           name_regexp: <regular_expression>
          catalog:
            ids:
              any: [<list_of_catalog_IDs>]
            names:
              any: [<list_of_catalog_names>]
+           name_regexp: <regular_expression>
+         schema:
+           names:
+             any: [<list_of_schema_names>]
+           name_regexp: <regular_expression>
+         table:
+           names:
+             any: [<list_of_table_names>]
            name_regexp: <regular_expression>
          columns:
            # Access rule for column 1
@@ -790,7 +829,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
      Where:
 
-     * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+     * `tables`: List of table rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
        * `SELECT`: Read data.
@@ -802,24 +841,32 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-     * `table`: Tables the rule applies to. If you do not specify `table`, the rule applies to all tables.
-       * `names`: List of table names.
-       * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These must be the existing catalogs.
+         * `names`: List of catalog names. These must be the existing catalogs.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These must be the existing catalogs.
-       * `names`: List of catalog names. These must be the existing catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify only one of the following: `ids`, `names`, or `name_regexp`.
+       * `table`: Tables specified by one of the following:
+         * `names`: List of table names.
+         * `name_regexp`: Regular expression for table names.
+
+         Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      * `columns`: List of rules restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
        * `name`: Column name.
@@ -883,14 +930,6 @@ Names of tables and schemas specified in rules are not validated. If a table nam
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           table     = {
-             names       = ["<list_of_table_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -898,6 +937,14 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           table         = {
+             names       = ["<list_of_table_names>"]
              name_regexp = "<regular_expression>"
            }
            columns       = [
@@ -917,7 +964,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                ...
              }                       
            ]
-           filter       = "<SQL_expression>"
+           filter        = "<SQL_expression>"
            users         = ["<list_of_user_IDs>"]
            groups        = ["<list_of_group_IDs>"]
            description   = "<rule_description>"
@@ -938,7 +985,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
      Where:
 
-     * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+     * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with tables:
        * `SELECT`: Read data.
@@ -950,23 +997,31 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
        {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-     * `table`: Tables the rule applies to. If you do not specify `table`, the rule applies to all tables.
-       * `names`: List of table names.
-       * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If `schema` is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `table`: Tables specified by one of the following:
+         * `names`: List of table names.
+         * `name_regexp`: Regular expression for table names.
+
+         Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
        * `name`: Column name.
@@ -1015,10 +1070,18 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "table": {
+                "catalog": {
+                  "ids": {
+                    "any": [
+                      "<list_of_catalog_IDs>"
+                    ]
+                  },
                   "names": {
                     "any": [
-                      "<list_of_table_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -1031,13 +1094,10 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                   },
                   "nameRegexp": "<regular_expression>"
                 },
-                "catalog": {
+                "table": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_table_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -1090,7 +1150,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
         * `SELECT`: Read data.
@@ -1102,24 +1162,32 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-      * `table`: Tables the rule applies to. If the `table` section is not specified, the rule applies to all tables.
-        * `names`: List of table names.
-        * `nameRegexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-        The `table` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `nameRegexp` parameter.
+        * `table`: Tables specified by one of the following:
+          * `names`: List of table names.
+          * `nameRegexp`: Regular expression for table names.
+
+          Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
         * `name`: Column name.
@@ -1179,10 +1247,18 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "table": {
+                "catalog": {
+                  "ids": {
+                    "any": [
+                      "<list_of_catalog_IDs>"
+                    ]
+                  },
                   "names": {
                     "any": [
-                      "<list_of_table_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -1195,13 +1271,10 @@ Names of tables and schemas specified in rules are not validated. If a table nam
                   },
                   "name_regexp": "<regular_expression>"
                 },
-                "catalog": {
+                "table": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_table_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -1273,7 +1346,7 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `table`, `schema`, `catalog`, `columns`, `filter`, `groups`, `users`, and `description`.
+      * `tables`: List of table rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `table`, `columns`, `filter`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with tables:
         * `SELECT`: Read data.
@@ -1285,24 +1358,32 @@ Names of tables and schemas specified in rules are not validated. If a table nam
 
         {% include notitle [table-ownership](../../_includes/managed-trino/access-control-src.md#table-ownership) %}
 
-      * `table`: Tables the rule applies to. If the `table` section is not specified, the rule applies to all tables.
-        * `names`: List of table names.
-        * `name_regexp`: Regular expression. The rule applies to the tables whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `table` define the tables the rule will apply to. Each of them is optional.
 
-        The `table` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` or `names` sections, or the `name_regexp` parameter.
+        * `table`: Tables specified by one of the following:
+          * `names`: List of table names.
+          * `name_regexp`: Regular expression for table names.
+
+          Omitting the `table` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full table name follows this template: `<catalog_name>.<schema_name>.<table_name>`. The rule applies to a table only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       * `columns`: List of rule sections restricting user access to table columns. Each rule contains the required `Queuing Duration` and `Function Init Duration` parameters, and the optional `mask` parameter.
         * `name`: Column name.

@@ -1,7 +1,7 @@
 The `organization-manager.federations.admin` role enables managing identity federations, federated users, and certificates, as well as viewing info on the organization, its settings, and users.
 
 Users with this role can:
-* View info on the Identity Hub [organization](../../../organization/concepts/organization.md) and its settings.
+* View info on the {{ org-full-name }} [organization](../../../organization/concepts/organization.md) and its settings.
 * View info on [identity federations](../../../organization/concepts/add-federation.md) and create, modify, and delete such federations.
 * View info on [certificates](../../../organization/concepts/add-federation.md#build-trust) and create, modify, and delete them.
 * Add and remove [federated users](../../../iam/concepts/users/accounts.md#saml-federation).
@@ -12,11 +12,11 @@ Users with this role can:
 * View the lists of federated user group mappings and info on them, as well as create, edit, and delete such lists.
 * View the list of the organization's [users](../../../overview/roles-and-resources.md#users), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../../organization/concepts/mfa.md).
 * View the list of [groups](../../../organization/concepts/groups.md) that users are members of.
-* View the list of and info on Identity Hub user groups associated with identity federations through synchronization with user groups in Active Directory or another external source.
+* View the list of and info on {{ org-full-name }} user groups associated with identity federations through synchronization with user groups in Active Directory or another external source.
 * Associate user groups with identity federations through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
 * View the [attributes](../../../organization/operations/setup-federation.md#claims-mapping) of federated and local users.
 * View and terminate federated and local users' [sessions](../../../organization/concepts/sessions.md).
 
 This role includes the `organization-manager.federations.editor`, `organization-manager.federations.extGroupsManager`, and `organization-manager.federations.extGroupsCleaner` permissions.
 
-To configure user group mapping, the role must be assigned for the Identity Hub groups you intend to map.
+To configure user group mapping, the role must be assigned for the {{ org-full-name }} groups you intend to map.

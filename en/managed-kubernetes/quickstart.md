@@ -51,6 +51,8 @@ To get started with {{ managed-k8s-name }}:
 
      {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
+     {% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
+
    * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify the IP address range to allocate addresses to [pods](concepts/index.md#pod) from.

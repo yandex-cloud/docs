@@ -1,3 +1,4 @@
 
 The `speech-sense.data.viewer` role allows you to view a project's name or description, the list of [connections]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection), dashboards, and [project]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) members. It also enables you to search inside documents, listen to [dialogs]({{ link-docs-ai }}speechsense/concepts/dialogs), and view their text [transcripts]({{ link-docs-ai }}speechsense/concepts/dialogs#contents). When assigned for a [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space), this role enables you to view all of its projects without editing them.
 
+

@@ -20,7 +20,17 @@ description: Следуя данной инструкции, вы сможете
       1. (Опционально) Если API {{ tracker-full-name }} использует нестандартный эндпоинт, в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_endpoint_view_spec_layout_title }}** измените значение, заданное по умолчанию.
       1. В секции **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_view_spec_layout_title }}** укажите [OAuth-токен приложения]({{ link-tracker-cloudless }}concepts/access#about_OAuth) или [секрет](../../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в котором сохранен этот токен. Выберите:
 
-          {% include [oauth](../../../../_includes/serverless-integrations/workflows-constructor/oauth.md) %}
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_description_lockbox }}`, чтобы хранить OAuth-токен в секрете, и в блоке **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title }}** выберите секрет, его [версию](../../../../lockbox/concepts/secret.md#version) и ключ, в которых сохранен OAuth-токен.
+
+              Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
+            
+          * `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_description_plain }}`, чтобы хранить OAuth-токен в спецификации в виде текста, и в поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title }}** введите OAuth-токен.
+
+              {% note warning %}
+
+              Хранить OAuth-токен в открытом виде в тексте спецификации небезопасно.
+
+              {% endnote %}
 
       1. В поле **{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_view_spec_layout_title }}** выберите тип организации, к которой подключен {{ tracker-name }}: `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_cloud }}` или `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_yandex }}`, либо оставьте значение `{{ ui-key.yc-serverless-workflows.dynamic-forms.tracker_properties_organization_description_none }}`, чтобы не указывать организацию.
 
