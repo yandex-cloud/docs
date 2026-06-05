@@ -2,4 +2,4 @@
 
 Пользователи с этой ролью могут:
 * просматривать список [сертификатов](../../certificate-manager/concepts/index.md/#types) и [зависимых](../../certificate-manager/concepts/services.md) ресурсов, а также информацию о сертификатах и о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о [квотах](../../certificate-manager/concepts/limits.md#certificate-manager-quotas) сервиса Certificate Manager.
+* просматривать информацию о [квотах](../../certificate-manager/concepts/limits.md#certificate-manager-quotas) сервиса {{ certificate-manager-name }}.

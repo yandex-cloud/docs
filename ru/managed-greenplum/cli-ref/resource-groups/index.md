@@ -5,7 +5,7 @@ editable: false
 
 # yc managed-greenplum resource-groups
 
-Manage Greenplum resource groups
+Manage Greenplum and Apache Cloudberry resource groups
 
 #### Command Usage
 

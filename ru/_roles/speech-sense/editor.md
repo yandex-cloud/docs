@@ -3,3 +3,4 @@
 
 Включает разрешения, предоставляемые ролями `speech-sense.viewer` и `speech-sense.spaces.creator`.
 
+

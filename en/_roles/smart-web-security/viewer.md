@@ -1,4 +1,5 @@
-The `smart-web-security.viewer` role enables viewing info on Smart Web Security resources, as well as on the relevant cloud and folder.
+
+The `smart-web-security.viewer` role enables viewing info on {{ sws-name }} resources, as well as on the relevant cloud and folder.
 
 Users with this role can:
 * View info on [security profiles](../../smartwebsecurity/concepts/profiles.md).

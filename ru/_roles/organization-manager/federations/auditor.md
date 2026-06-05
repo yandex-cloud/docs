@@ -1,7 +1,7 @@
 Роль `organization-manager.federations.auditor` позволяет просматривать информацию об организации и ее настройках, о федерациях удостоверений и пользователях организации.
 
 Пользователи с этой ролью могут:
-* просматривать информацию об [организации](../../../organization/concepts/organization.md) Identity Hub и ее настройках;
+* просматривать информацию об [организации](../../../organization/concepts/organization.md) {{ org-full-name }} и ее настройках;
 * просматривать информацию о [федерациях удостоверений](../../../organization/concepts/add-federation.md);
 * просматривать информацию о [сертификатах](../../../organization/concepts/add-federation.md#build-trust);
 * просматривать списки [сопоставлений](../../../organization/concepts/add-federation.md#group-mapping) групп пользователей и информацию о таких сопоставлениях;

@@ -1,7 +1,8 @@
-The `smart-web-security.user` role enables viewing info on Smart Web Security resources, as well as connecting such security profiles to protected resources.
+
+The `smart-web-security.user` role enables viewing info on {{ sws-name }} resources, as well as connecting such security profiles to protected resources.
 
 Users with this role can:
-* View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in Smart Web Security and connect them to protected resources.
+* View info on [security profiles](../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }} and connect them to protected resources.
 * View the list of [resources](../../smartwebsecurity/operations/host-connect.md) to which a security profile is connected.
 * View info on [WAF profiles](../../smartwebsecurity/concepts/waf.md).
 * View info on [ARL profiles](../../smartwebsecurity/concepts/arl.md).

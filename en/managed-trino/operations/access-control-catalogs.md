@@ -8,7 +8,7 @@ description: Rules define the top-level user access to catalog objects, such as 
 Catalog object access rules enable you to restrict user access to all objects in one or more catalogs within a {{ mtr-name }} cluster. To manage access to individual cluster objects, use more granular rules, e.g., access rules for [schemas](./access-control-schemas.md) or [tables](./access-control-tables.md).
 
 For each user-object pair, the access rules apply as follows:
-* Rules are checked for matches in the order they are listed in the configuration file. The first rule matching the user-object pair applies.
+* Rules are checked in the order of their declaration. The first rule matching the user-object pair applies.
 * If none of the rules match the user-object pair, access is denied.
 * If no rules are defined for catalogs, user access to catalog objects is controlled by more granular rules, e.g., table rules.
 
@@ -38,7 +38,10 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
         * `ALL`: All operations are allowed. In which case user access to catalog objects is controlled by more granular rules, e.g., table rules.
         * `READ_ONLY`: Only read operations are allowed, e.g., reading data from a table.
 
-     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+     1. Optionally, specify the catalogs the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select catalog names. You can only select catalogs added in **{{ ui-key.yacloud.trino.title_catalogs }}**.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for catalog names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all catalogs in the cluster.
 
   1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
@@ -79,8 +82,7 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
        * `READ_ONLY`: Only read operations are allowed, e.g., reading data from a table.
        * `ALL`: All operations are allowed. In which case user access to catalog objects is controlled by more granular rules, e.g., table rules.
 
-     * `catalog`: Cluster catalogs the rule applies to. If `catalog` is not specified, the rule applies to all cluster catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+     * `catalog`: Cluster catalogs the rule applies to. These are set using the `name_regexp` parameter (regular expression for catalog names). If the `catalog` section is not specified, the rule applies to all cluster catalogs.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -286,7 +288,7 @@ You can set access rules for catalog objects when creating a {{ mtr-name }} clus
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -416,7 +418,11 @@ You can set or update access rules for catalog objects in an existing {{ mtr-nam
         * `ALL`: All operations are allowed. In which case user access to catalog objects is controlled by more granular rules, e.g., table rules.
         * `READ_ONLY`: Only read operations are allowed, e.g., reading data from a table.
 
-     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+     1. Optionally, specify the catalogs the rule applies to:
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-id }}**: Select catalog IDs. You can only select catalogs from those present in the cluster.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select catalog names. You can only select catalogs existing in the cluster.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for catalog names.
+        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all catalogs in the cluster.
 
   1. Add other rules in the same way as needed.
   1. To edit a rule:

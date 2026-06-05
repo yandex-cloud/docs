@@ -9,3 +9,11 @@
 * [Why do _Terminated_ pods remain in my cluster?](#terminated-pod)
 
 * [Is Horizontal Pod Autoscaler supported?](#horizontal-pod-autoscaler)
+
+* [How do I select the minimum master preset to reduce costs?](#master-preset-cost)
+
+* [Can I change the master autoscaling thresholds on my side?](#master-autoscaler-thresholds)
+
+* [Can I set an upper limit for master autoscaling?](#master-autoscaler-max)
+
+* [How do I prevent master resources from being reduced during autoscaling?](#master-autoscaler-no-scaledown)

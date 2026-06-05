@@ -3,3 +3,4 @@ The `speech-sense.admin` role assigned for a [space]({{ link-docs-ai }}speechsen
 
 This role includes the `speech-sense.editor` and `speech-sense.data.editor` permissions.
 
+

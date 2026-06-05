@@ -1,21 +1,21 @@
 # Object Storage
 
-{{ objstorage-name }} is an S3-compatiable object storage based on {{ objstorage-full-name }}. It can hold data of any format. To operate the storage, use tools supporting the S3 API.
+{{ objstorage-name }} is an S3-compatiable object storage based on {{ objstorage-full-name }}. You can use it for data in any format. To work with the storage, use tools that support the S3 API.
 
 ## Main features {#features}
 
-* Stores raw data of any size.
-* S3 API compatibility: use any tools and SDKs that support S3.
-* Bucket management via Kubernetes' `Bucket` CRD.
-* Flexible options for public access to objects.
-* Supports CORS for web applications.
+* Storing raw data of any size.
+* S3 API-compatibility: you can use it with any tools and SDKs that support S3.
+* Managing buckets using the Kubernetes `Bucket` CRD.
+* Configuring public access to objects in a flexible way.
+* CORS support for web applications.
 * Integration with {{ iam-name }} for access management.
 
 ## Resource model {#resource-model}
 
 ### Bucket {#bucket}
 
-A bucket is a container used to store objects. To create a bucket, follow [this guide](../../operations/storage/create-bucket.md).
+A bucket is a container for storing objects. To create a bucket, follow [this guide](../../operations/storage/create-bucket.md).
 
 Manifest example:
 
@@ -42,8 +42,8 @@ spec:
 
 Where:
 
-* `metadata.name`: Bucket name. The name must be unique within the entire storage. Use only lowercase Latin letters, numbers, and hyphens.
-* `metadata.namespace`: Project you are creating the bucket in.
+* `metadata.name`: Bucket name. It must be unique within the entire storage. It can include lowercase Latin letters, numbers, and hyphens.
+* `metadata.namespace`: Project to hold your new bucket.
 * `spec.anonymousAccessFlags`: Public access settings for the bucket:
   * `read`: Allows anonymous users to read objects in the bucket.
   * `list`: Allows anonymous users to get a list of object in the bucket.
@@ -59,20 +59,20 @@ Where:
 
 Once a bucket is created, you can see its status in the `status.phase` field:
 
-* `Pending`: The bucket is awaiting creation.
-* `Creating`: The bucket is being created.
-* `Ready`: The bucket is ready to use.
-* `Updating`: The bucket is being updated.
-* `Deleting`: The bucket is being deleted.
-* `Failed`: An error occurred.
+* `Pending`: Bucket awaiting creation.
+* `Creating`: Bucket being created.
+* `Ready`: Bucket ready to use.
+* `Updating`: Bucket being updated.
+* `Deleting`: Bucket being deleted.
+* `Failed`: Error occurred.
 
 ## Access management {#access-management}
 
-Access to {{ objstorage-name }} is managed via {{ iam-name }}. To use buckets, your applications need the following:
+Access to {{ objstorage-name }} is managed via {{ iam-name }}. To use buckets, your application requires the following:
 
-1. A service account. Create a `ServiceAccount` resource in your project.
-1. A role. Use the `AccessBinding` resource to assign the `storage.editor` or `storage.viewer` role to the service account.
-1. A static key. Get an access key to work with the S3 API.
+1. Service account. Create ServiceAccount in your project.
+1. Role. Assign to your service account the `storage.editor` or `storage.viewer` role using the `AccessBinding` resource.
+1. Static key. Get an access key to work with the S3 API.
 
 Learn more about creating access keys in [this guide](../../operations/storage/create-accesskey.md).
 
@@ -100,7 +100,7 @@ Use the following settings to connect to {{ objstorage-name }}:
 * Access Key ID: Get it from your service account secret.
 * Secret Access Key: Get it from your service account secret.
 
-AWS CLI configuration example:
+Example of the AWS CLI configuration:
 
 ```bash
 aws configure set aws_access_key_id <access-key-id>

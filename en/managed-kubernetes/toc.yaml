@@ -382,6 +382,8 @@ items:
         href: concepts/network-policy.md
       - name: Autoscaling
         href: concepts/autoscale.md
+      - name: Recommended master configurations
+        href: concepts/master-configuration.md
       - name: Audit policy
         href: concepts/audit-policy.md
       - name: External cluster nodes

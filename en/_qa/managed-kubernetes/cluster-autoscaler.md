@@ -86,3 +86,21 @@ To get answers to other questions about autoscaling, see [{{ k8s }} FAQ](https:/
 #### Is Horizontal Pod Autoscaler supported? {#horizontal-pod-autoscaler}
 
 Yes, {{ managed-k8s-name }} supports [Horizontal Pod Autoscaler](../../managed-kubernetes/concepts/autoscale.md#hpa).
+
+#### How do I select the minimum master preset to reduce costs? {#master-preset-cost}
+
+Select a master configuration that matches the actual cluster workload. Use the [recommended configurations](../../managed-kubernetes/concepts/master-configuration.md) as a reference: they depend on the number of nodes, the maximum number of pods, and the CNI in use.
+
+#### Can I change the master autoscaling thresholds on my side? {#master-autoscaler-thresholds}
+
+No. Scaling thresholds are managed by the {{ managed-k8s-name }} service. If you want to share feedback about the autoscaler behavior, contact [technical support]({{ link-console-support }}).
+
+You can indirectly influence the autoscaler behavior by selecting a master configuration. {{ k8s-ma }} does not reduce resources below the selected configuration.
+
+#### Can I set an upper limit for master autoscaling? {#master-autoscaler-max}
+
+No, you cannot set maximum scaling values.
+
+#### How do I prevent master resources from being reduced during autoscaling? {#master-autoscaler-no-scaledown}
+
+Select a master configuration that [matches the current workload](../../managed-kubernetes/concepts/master-configuration.md). {{ k8s-ma }} does not reduce resources below the selected configuration.

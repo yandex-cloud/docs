@@ -15,9 +15,11 @@ Syntax:
 
 #### Command Tree
 
+- [yc cic v1 private-connection add-labels](add-labels.md) — Assign labels to a privateConnection.
+
 - [yc cic v1 private-connection batch-get](batch-get.md) — Get list of PrivateConnections by their IDs
 
-- [yc cic v1 private-connection create](create.md) — Creates a PrivateConnection resource in the specified folder using the data specified in the request.
+- [yc cic v1 private-connection create](create.md) — Create a privateConnection.
 
 - [yc cic v1 private-connection delete](delete.md) — Deletes a PrivateConnection resource.
 
@@ -29,11 +31,13 @@ Syntax:
 
 - [yc cic v1 private-connection move](move.md) — Moves the specified PrivateConnection to another folder.
 
-- [yc cic v1 private-connection remove-static-route](remove-static-route.md) — Removes specified static routes to a PrivateConnection resource.
+- [yc cic v1 private-connection remove-labels](remove-labels.md) — Remove labels from a privateConnection.
 
-- [yc cic v1 private-connection update](update.md) — Updates a PrivateConnection resource using the data specified in the request.
+- [yc cic v1 private-connection remove-static-routes](remove-static-routes.md) — Remove static routes from a privateConnection.
 
-- [yc cic v1 private-connection upsert-static-route](upsert-static-route.md) — Upserts specified static routes to a PrivateConnection resource.
+- [yc cic v1 private-connection update](update.md) — Modify configuration or attributes of a privateConnection.
+
+- [yc cic v1 private-connection upsert-static-routes](upsert-static-routes.md) — Upsert static routes to a privateConnection.
 
 #### Global Flags
 

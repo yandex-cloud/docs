@@ -6,6 +6,6 @@ Users with this role can:
 * Create, activate, deactivate, and delete secrets.
 * Modify secret [version](../../lockbox/concepts/secret.md#version) metadata, create and delete secret versions, as well as change current secret versions, schedule deleting a secret version, or cancel a scheduled deletion.
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-* View details on Yandex Lockbox [quotas](../../lockbox/concepts/limits.md#quotas).
+* View details on {{ lockbox-name }} [quotas](../../lockbox/concepts/limits.md#quotas).
 
 This role includes the `lockbox.editor` and `lockbox.payloadViewer` permissions.

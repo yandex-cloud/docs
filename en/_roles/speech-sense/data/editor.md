@@ -5,3 +5,4 @@ This role includes the `speech-sense.data.viewer` permissions.
 
 Users with roles like `speech-sense.data.*` can view and rate the contents of documents but do not have access to aggregate information.
 
+

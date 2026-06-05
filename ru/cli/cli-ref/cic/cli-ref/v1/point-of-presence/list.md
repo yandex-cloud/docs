@@ -17,7 +17,7 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--page-size` | `int`
+|| `--limit` | `int`
 
 The maximum number of results per page to return. If the number of available results is larger than [page_size], the service returns a [ListPointOfPresencesResponse.next_page_token] that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
 || `--page-token` | `string`

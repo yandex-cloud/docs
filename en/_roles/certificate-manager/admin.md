@@ -5,7 +5,7 @@ Users with this role can:
 * View info on [access permissions](../../iam/concepts/access-control/index.md) assigned to certificates and modify such permissions.
 * Add, modify, update, and delete certificates.
 * Get certificate contents.
-* View info on the Certificate Manager [quotas](../../certificate-manager/concepts/limits.md#certificate-manager-quotas).
+* View info on the {{ certificate-manager-name }} [quotas](../../certificate-manager/concepts/limits.md#certificate-manager-quotas).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `certificate-manager.editor` permissions.

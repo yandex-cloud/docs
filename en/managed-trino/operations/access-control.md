@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ mtr-name }}
-description: In {{ mtr-name }}, you can flexibly control access to cluster objects for individual users or user groups.
+description: This page brings to you the guides on how to view, set up, and delete access rules for the {{ mtr-name }} cluster objects.
 ---
 
 # Access management in {{ mtr-name }}

@@ -41,7 +41,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
           In the window that opens, leave the default disk partitioning settings or edit them, then click **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** in the **Interface 2** section, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**, set the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field to `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **Interface 2** section.
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}

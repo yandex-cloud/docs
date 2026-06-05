@@ -14,7 +14,7 @@ To create a new [security group](../concepts/security-groups.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you need to create a security group.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the security group.
@@ -147,7 +147,7 @@ To create a new [security group](../concepts/security-groups.md):
         ```
         terraform plan
         ```
-     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
         
   1. Deploy the cloud resources.
 

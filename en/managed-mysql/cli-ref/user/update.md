@@ -57,6 +57,9 @@ The maximum permitted number of simultaneous client connections per hour. ||
 || `--max-user-connections` | `int`
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+|| `--deletion-protection` | `string`
+
+Protection from accidental deletion. Values: disabled, enabled, inherit, true, false ||
 |#
 
 #### Global Flags

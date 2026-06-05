@@ -5,135 +5,61 @@ editable: false
 
 # yc cic v1 private-connection create
 
-Creates a PrivateConnection resource in the specified folder using the data specified in the request.
-Method starts an asynchronous operation that can be cancelled while it is in progress.
+Create a privateConnection.
 
 #### Command Usage
 
 Syntax:
 
-`yc cic v1 private-connection create <FOLDER-ID>`
+`yc cic v1 private-connection create <PRIVATE-CONNECTION-NAME>`
 
 #### Flags
 
 #|
 ||Flag | Description ||
+|| `--name` | `string`
+
+Name of the privateConnection. ||
+|| `--description` | `string`
+
+Description of the privateConnection. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of privateConnection labels as key-value pairs. ||
+|| `--trunk-id` | `string`
+
+Id of a trunk connection of the privateConnection. ||
+|| `--vlan-id` | `int`
+
+VLAN id that the privateConnection uses in multiplexing. ||
+|| `--ipv4-peering` | `key=value[,key=value...]`
+
+A list of IPv4 peering parameters of the privateConnection. ||
+|| `--ipv4-static-routes` | `[]string`
+
+IPv4 static routes (in ipPrefix/length format) of the privateConnection. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `-r`, `--request-file` | `string`
 
 Path to a request file. ||
-|| `--example-json` | Generates a JSON template of the request.
-The template can be customized and used as input for the command.
-Usage example:
-
-1. Generate template: yc compute instance create --example-json > request.json
-2. Edit the template: vim request.json
-3. Run with template: yc compute instance create -r request.json ||
+|| `--example-json` | Generates a JSON template of the request. ||
 || `-e`, `--example-yaml` | Generates a YAML template of the request.
+
 The template can be customized and used as input for the command.
+
 Usage example:
 
-1. Generate template: yc compute instance create --example-yaml > request.yaml
-2. Edit the template: vim request.yaml
-3. Run with template: yc compute instance create -r request.yaml ||
-|| `--name` | `string`
+1. Generate template:
+yc cic v1 private-connection create --example-json > request.json
+or
+yc cic v1 private-connection create --example-yaml > request.yaml
 
-Name of the privateConnection. The name must be unique within the folder. Value must match the regular expression ''\\|a-zA-Z?''. ||
-|| `--description` | `string`
+2. Edit the template file
 
-Optional description of the privateConnection. 0-256 characters long. ||
-|| `--folder-id` | `string`
-
-ID of the folder that the privateConnection belongs to. ||
-|| `--trunk-connection-id` | `string`
-
-ID of the trunk_connection that the privateConnection belongs to. ||
-|| `--vlan-id` | `int`
-
-VLAN_ID that the privateConnection uses in multiplexing. Not used in connections over partners-II Value range: [1, 4095] ||
-|| `--ipv4-peering` | `shorthand/json`
-
-IPv4 peering config of connection
-
-{% cut "Description" %}
-
-> - peering-subnet (string)\
-PeeringSubnet. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
-> - peer-ip (string)\
-PeerIp. It's an ip with just an ipAddress format without mask.
-> - cloud-ip (string)\
-CloudIp. It's an ip with just an ipAddress format without mask.
-> - peer-bgp-asn (integer)\
-PeerBgpAsn. PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
-> - peer-bgp-md5-key (string)\
-PeerBgpMd5Key. Optional.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-{
-  cloud-ip = string,
-  peer-bgp-asn = integer,
-  peer-bgp-md5-key = string,
-  peer-ip = string,
-  peering-subnet = string
-}
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-{
-  "cloud-ip": "string",
-  "peer-bgp-asn": "integer",
-  "peer-bgp-md5-key": "string",
-  "peer-ip": "string",
-  "peering-subnet": "string"
-}
-```
-
-{% endcut %} ||
-|| `--ipv4-static-routes` | `shorthand/json`
-
-IPv4 StaticRoute config of connection
-
-{% cut "Description" %}
-
-> - prefix (string)\
-Prefix. It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    prefix = string
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "prefix": "string"
-  }, ...
-]
-```
-
-{% endcut %} ||
-|| `--labels` | `map<string><string>`
-
-Resource labels, 'key:value' pairs. No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression '[-_0-9a-z]*'. The string length in characters for each key must be 1-63. Each key must match the regular expression '[a-z][-_0-9a-z]*'. ||
-|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+3. Run with template:
+yc cic v1 private-connection create -r request.json
+or
+yc cic v1 private-connection create -r request.yaml ||
 |#
 
 #### Global Flags

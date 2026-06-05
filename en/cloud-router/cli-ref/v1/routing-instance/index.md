@@ -15,9 +15,11 @@ Syntax:
 
 #### Command Tree
 
+- [yc cloudrouter v1 routing-instance add-labels](add-labels.md) — Assign labels to a routingInstance.
+
 - [yc cloudrouter v1 routing-instance add-private-connection](add-private-connection.md) — Adds specified PrivateConnection to a RoutingInstance resource.
 
-- [yc cloudrouter v1 routing-instance create](create.md) — Creates a RoutingInstance resource in the specified folder using the data specified in the request.
+- [yc cloudrouter v1 routing-instance create](create.md) — Create a routingInstance.
 
 - [yc cloudrouter v1 routing-instance delete](delete.md) — Deletes a RoutingInstance resource.
 
@@ -35,17 +37,19 @@ Syntax:
 
 - [yc cloudrouter v1 routing-instance move-prefix](move-prefix.md) — Moves the specified prefix between availability zones of the RoutingInstance.
 
-- [yc cloudrouter v1 routing-instance remove-prefixes](remove-prefixes.md) — Removes specified prefixes from a RoutingInstance resource.
+- [yc cloudrouter v1 routing-instance remove-labels](remove-labels.md) — Remove labels from a routingInstance.
+
+- [yc cloudrouter v1 routing-instance remove-prefixes](remove-prefixes.md) — Remove announced VPC network prefixes from the routingInstance.
 
 - [yc cloudrouter v1 routing-instance remove-private-connection](remove-private-connection.md) — Removes specified PrivateConnection from a RoutingInstance resource.
 
-- [yc cloudrouter v1 routing-instance update](update.md) — Updates a RoutingInstance resource using the data specified in the request.
+- [yc cloudrouter v1 routing-instance update](update.md) — Modify configuration or attributes of a routingInstance.
 
-- [yc cloudrouter v1 routing-instance update-networks](update-networks.md) — Updates multiple vpc using the data specified in the request.
+- [yc cloudrouter v1 routing-instance update-networks](update-networks.md) — Update announced VPC network prefixes in the routingInstance.
 
 - [yc cloudrouter v1 routing-instance update-prefix-mask](update-prefix-mask.md) — Removes specified PrivateConnection from a RoutingInstance resource.
 
-- [yc cloudrouter v1 routing-instance upsert-prefixes](upsert-prefixes.md) — Upserts specified prefixes to a RoutingInstance resource.
+- [yc cloudrouter v1 routing-instance upsert-prefixes](upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 
 #### Global Flags
 

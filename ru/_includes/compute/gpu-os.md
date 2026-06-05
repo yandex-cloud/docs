@@ -25,3 +25,13 @@ Gen2
 : * [Ubuntu 20.04 LTS Secure Boot CUDA 12.2](/marketplace/products/yc/ubuntu-2004-lts-secureboot-cuda-12-2) (`ubuntu-2004-lts-secureboot-cuda-12-2`)
 
 Мы рекомендуем использовать стандартный образ от {{ yandex-cloud }}. Вы также можете [установить драйверы](../../compute/operations/vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно или [создать собственный образ](../../compute/operations/image-create/custom-image.md) с предустановленными драйверами.
+
+{% note info %}
+
+{% include [gpu-driver-versions](./gpu-driver-versions.md) %}
+
+При установке драйверов для платформы `gpu-standard-v3` ({{ a100-epyc }}) указывайте совместимую версию драйвера — `535`.
+
+Мы рекомендуем использовать именно эту версию драйвера — обновление до других версий не поддерживается и может привести к нестабильной работе GPU.
+
+{% endnote %}

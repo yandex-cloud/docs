@@ -18,7 +18,7 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--vpc-network-id` | `string`
+|| `--vpc-id` | `string`
 
 ID of the VpcNetwork resource to return by. To get the routingInstance ID use a [RoutingInstanceService.List] request. ||
 |#

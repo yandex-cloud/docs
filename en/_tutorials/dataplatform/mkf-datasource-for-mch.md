@@ -1,6 +1,6 @@
 
 
-A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/)-engine tables.
+A {{ mch-name }} cluster can ingest data from {{ KF }} topics in real time. This data will be automatically inserted into {{ CH }} [`Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka)-engine tables.
 
 To set up data delivery from {{ mkf-name }} to {{ mch-name }}:
 
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note warning %}
 
-This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than one {{ CH }} host, use a [distributed query]({{ ch.docs }}/sql-reference/statements/create/table) by specifying your cluster name in the SQL statements below: `CREATE ... ON CLUSTER '{cluster}'`. Additionally, use the `ReplicatedMergeTree` table engine to replace `MergeTree` wherever it appears in the statements.
+This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than one {{ CH }} host, use a [distributed query]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/table) by specifying your cluster name in the SQL statements below: `CREATE ... ON CLUSTER '{cluster}'`. Additionally, use the `ReplicatedMergeTree` table engine to replace `MergeTree` wherever it appears in the statements.
 
 {% endnote %}
 
@@ -22,8 +22,8 @@ This tutorial uses a single-host {{ CH }} cluster. If your cluster has more than
 
 The support cost for this solution includes:
 
-* {{ mkf-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
-* {{ mch-name }} cluster fee, which covers the use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mkf-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ KF }} pricing](../../managed-kafka/pricing.md)).
+* {{ mch-name }} cluster fee: use of computing resources allocated to hosts (including {{ ZK }} hosts) and disk space (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
 
@@ -119,9 +119,9 @@ The support cost for this solution includes:
 
         Make sure you can use it to [establish SSL connections to your {{ mkf-name }} clusters](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [clickhouse-client]({{ ch.docs }}/interfaces/cli/): For connecting to a database within the {{ mch-name }} cluster.
+    - [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli): For connecting to a database within the {{ mch-name }} cluster.
 
-        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+        1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -192,7 +192,7 @@ Configuration depends on how many {{ mkf-name }} clusters you have:
 
    {% endlist %}
 
-* Multiple {{ KF }} clusters: Create the required number of [named collections]({{ ch.docs }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
+* Multiple {{ KF }} clusters: Create the required number of [named collections]({{ ch.docs }}{{ lang }}/operations/named-collections) containing authentication data for each {{ mkf-name }} topic:
 
    1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
@@ -218,7 +218,7 @@ Let's assume your {{ KF }} topics receive some car sensor data in JSON format. T
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-For `Kafka` table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow), which converts rows from {{ KF }} messages into the required column values.
+For `Kafka` table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow), which converts rows from {{ KF }} messages into the required column values.
 
 For each {{ KF }} topic, create a separate table for incoming data in your {{ mch-name }} cluster:
 
@@ -270,7 +270,7 @@ For each {{ KF }} topic, create a separate table for incoming data in your {{ mc
 
 These tables will be automatically populated with messages consumed from {{ mkf-name }} topics. When reading data, {{ mch-name }} uses the [previously configured settings](#configure-mch-for-kf) for [users with the `ACCESS_ROLE_CONSUMER` role](#before-you-begin).
 
-For more information about creating `Kafka` tables, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+For more information about creating `Kafka` tables, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Send test data to your {{ mkf-name }} topics {#send-sample-data-to-kf}
 
@@ -377,7 +377,7 @@ To get all data from the materialized view:
 
 This query will return a table with data sent to the respective {{ mkf-name }} topic.
 
-To learn more about working with data received from {{ KF }}, see [this {{ CH }} article]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+To learn more about working with data received from {{ KF }}, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Delete the resources you created {#clear-out}
 

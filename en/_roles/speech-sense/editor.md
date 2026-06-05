@@ -3,3 +3,4 @@ The `speech-sense.editor` role enables you to edit a [project]({{ link-docs-ai }
 
 This role includes the `speech-sense.viewer` and `speech-sense.spaces.creator` permissions.
 
+

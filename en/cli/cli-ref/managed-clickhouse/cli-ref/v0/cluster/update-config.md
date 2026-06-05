@@ -680,6 +680,18 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds).
 
+- `merge_tree.replicated_deduplication_window_for_async_inserts`: The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+  Default value: **10000**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts).
+
+- `merge_tree.replicated_deduplication_window_seconds_for_async_inserts`: The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+  Default value: **604800** (7 days).
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts).
+
 - `merge_tree.fsync_after_insert`: Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.
 
   Default value: **false**.

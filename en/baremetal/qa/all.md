@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ baremetal-full-name }}
-description: This page covers FAQ about {{ baremetal-name }}.
+description: This page covers questions and answers about {{ baremetal-name }}.
 ---
 
 # FAQ about {{ baremetal-name }}
@@ -51,3 +51,59 @@ Calculation examples:
 ## How do I get the logs of my activity in the services? {#logs}
 
 Yes, you can request information about operations with your resources from {{ yandex-cloud }} logs. For more information, see [Data requests](../../support/request.md).
+
+## Network {#network}
+
+### What should I check in case of network issues? {#network-troubleshooting}
+
+If your {{ baremetal-name }} server is experiencing network issues, check the following:
+
+1. Make sure the network interfaces have IP addresses assigned:
+
+   ```bash
+   ip address
+   ```
+
+   If using DHCP IP address assignment, make sure DHCP is enabled. For details on setting up DHCP, see [{#T}](../concepts/dhcp.md).
+
+1. Check the route table:
+
+   ```bash
+   ip route
+   ```
+
+   Private subnets must be routed to the `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16` networks. For more information, see [{#T}](../concepts/network.md#routing-table).
+
+1. Check the default gateway availability:
+
+   ```bash
+   ping <gateway_address>
+   ```
+
+1. Check the MAC address limit: make sure the number of MAC addresses on the server does not exceed it. For more information, see [{#T}](../concepts/network-restrictions.md#mac-addresses).
+
+If DHCP is disabled, check the OS configuration files to make sure the static IP addresses and routes are configured correctly.
+
+### What information should I submit to support when reporting network issues? {#network-diagnostics}
+
+Before submitting a request to [support]({{ link-console-support }}), gather the following diagnostic information:
+
+1. Command output:
+
+   ```bash
+   ip address
+   ```
+
+1. Command output:
+
+   ```bash
+   ip route
+   ```
+
+1. Contents of the configuration files located in the `/etc/netplan/` directory (if any).
+
+1. If you have issues with access to specific resources, provide this command’s output:
+
+   ```bash
+   mtr -n <resource_address>
+   ```

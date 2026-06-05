@@ -8,6 +8,7 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
@@ -265,6 +266,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
+  k8s-ma: Master Autoscaler
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -500,7 +502,6 @@ default:
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
-  org-name: Identity Hub
   org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
@@ -884,6 +885,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
@@ -1813,11 +1815,6 @@ default:
             cores: dn2jqpn5pcn1kjtf06e5
           highfreq-v4a:
             cores: dn28ft211q8jed0h7dif
-  pc|mk8s:
-    master:
-      master_host_resources:
-        cpu: dn2pjj9vapo7724rik0b
-        ram: dn2u6o8avnm6b5tb8klu
   pc|monitoring:
     alerts:
       notifications:
@@ -7900,6 +7897,7 @@ default:
             button_action-password: Change password
             button_action-update: Configure
             button_advanced-settings: Additional settings
+            field_enable-user: Enable user
             label_go-to-password: View password
             popup-add_button_add: Create
             popup-button_add: Create
@@ -8906,22 +8904,17 @@ default:
         label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
-        label_rbac-catalog-access: Catalogs the rule applies to
         label_rbac-catalog-permissions: Permissions
         label_rbac-function: Functions
-        label_rbac-function-access: Functions the rule applies to
         label_rbac-function-privileges: Privileges
         label_rbac-groups: Groups
         label_rbac-procedure: Procedures
-        label_rbac-procedure-access: Procedures the rule applies to
         label_rbac-procedure-privileges: Privileges
         label_rbac-query: Queries
         label_rbac-query-privileges: Privileges
         label_rbac-schema: Schemas
-        label_rbac-schema-access: Schemas the rule applies to
         label_rbac-schema-owner: Schema owner
         label_rbac-table: Tables
-        label_rbac-table-access: Tables the rule applies to
         label_rbac-users: Users
         rbac-catalog-match-by-empty: Not specified
         rbac-catalog-match-by-id: ID
@@ -10466,6 +10459,10 @@ default:
         disk_properties_action_description_upload: Upload to disk
         disk_properties_action_properties_download_properties_view_spec_layout_title: Content type
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
+        disk_properties_oauth_token_description_lockbox: Lockbox
+        disk_properties_oauth_token_description_plain: Text
+        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
+        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
         foundation_models_properties_action_description_classify: Fine-tuned classification

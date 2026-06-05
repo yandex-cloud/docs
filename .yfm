@@ -1,4 +1,6 @@
 allowHTML: true
+keepNotVar: true
+
 connector:
     type: github
     github: 

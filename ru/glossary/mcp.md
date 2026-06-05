@@ -155,4 +155,4 @@ _MCP_ (Model Context Protocol) — фреймворк с открытым исх
 
 {{ yandex-cloud }} также предоставляет [собственные MCP-серверы]({{ link-src-docs }}/code-assistant/operations/agent/mcp/recommended-mcp-servers), с которыми можно работать в [{{ ca-full-name }}](/services/code-assistant/).
 
-[{{ yandex-cloud }} Documentation MCP-сервер](https://github.com/yandex-cloud/mcp/tree/master/servers/documentation-mcp-server) обеспечивает доступ в реальном времени к официальной документации {{ yandex-cloud }} с помощью генеративного поиска.
+[{{ yandex-cloud }} Documentation MCP-сервер](https://sourcecraft.dev/yandex-cloud/mcp/browse/servers/documentation-mcp-server/README.md) обеспечивает доступ в реальном времени к официальной документации {{ yandex-cloud }} с помощью генеративного поиска.

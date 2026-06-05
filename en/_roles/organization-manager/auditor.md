@@ -2,12 +2,12 @@ The `organization-manager.auditor` role enables viewing info on the organization
 
 {% cut "Users with this role can:" %}
 
-* View info on the Identity Hub [organization](../../organization/concepts/organization.md) and its settings.
+* View info on the {{ org-full-name }} [organization](../../organization/concepts/organization.md) and its settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
 * View [access policies](../../iam/concepts/access-control/access-policies.md) assigned to the organization.
 * View the organization's [branding](../../organization/concepts/branding.md) settings.
 * View the list of the organization's [users](../../organization/concepts/domains.md), info from the user accounts (except phone numbers), the latest authentication date, as well as the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/domains.md).
-* View info on access permissions granted to [entities](../../iam/concepts/access-control/index.md#subject) in an Identity Hub organization.
+* View info on access permissions granted to [entities](../../iam/concepts/access-control/index.md#subject) in an {{ org-full-name }} organization.
 * View info on the organization's [identity federations](../../organization/concepts/add-federation.md).
 * View info on identity federation [certificates](../../organization/concepts/add-federation.md#build-trust).
 * View the list of [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mappings](../../organization/concepts/add-federation.md#group-mapping) and info on them.
@@ -20,13 +20,13 @@ The `organization-manager.auditor` role enables viewing info on the organization
 * Get the certificates of SAML applications.
 * View the list of organization users that are [subscribed](../../organization/operations/subscribe-user-for-notifications.md) to technical notifications on organization events.
 * View info on [MFA policies](../../iam/concepts/users/accounts.md#local).
-* View info on the organization's [OS Login](../../organization/concepts/os-login.md) settings.
-* View the list of OS Login [profiles](../../organization/concepts/os-login.md#os-login-profiles) for users and service accounts.
+* View info on the organization's [{{ oslogin }}](../../organization/concepts/os-login.md) settings.
+* View the list of {{ oslogin }} [profiles](../../organization/concepts/os-login.md#os-login-profiles) for users and service accounts.
 * View the list of the organization users' SSH keys and info on such keys.
 * View info on [user groups](../../organization/concepts/groups.md) and access permissions granted for them.
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View info on the organization users' [refresh tokens](../../iam/concepts/authorization/refresh-token.md) and on the refresh token settings.
-* View info on Identity Hub quotas.
+* View info on {{ org-full-name }} quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
 * View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
 
