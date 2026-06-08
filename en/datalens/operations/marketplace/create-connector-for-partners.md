@@ -37,7 +37,7 @@ You need to create a connector based on the {{ CH }} cluster that will store you
 
 1. Create a [{{ CH }} cluster](../../../managed-clickhouse/operations/cluster-create.md) in the cloud.
 
-   1. In the cluster, add a database user named `datalens` with [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+   1. In the cluster, add a database user named `datalens` with [readonly = 2]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly).
 
       {% note info %}
 

@@ -47,6 +47,7 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * A multi-host cluster will switch to a new master host The hosts will undergo a rolling update, with each host unavailable for a few minutes while it is stopped and updated.
+* A cluster with local SSD storage may be unavailable for an extended period of time in case of data migration to another physical server.
 * Using a [special FQDN](./connect/fqdn.md#special-fqdns) does not guarantee a stable database connection: user sessions may be terminated.
 
 We recommend changing the host class only when the cluster is idle.
@@ -123,11 +124,11 @@ We recommend changing the host class only when the cluster is idle.
       }
       ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -214,7 +215,7 @@ We recommend changing the host class only when the cluster is idle.
 
      * `config_spec.resources.resource_preset_id`: New [host class](../concepts/instance-types.md).
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -297,11 +298,11 @@ You can change the DBMS settings for the hosts in your cluster.
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -344,7 +345,7 @@ You can change the DBMS settings for the hosts in your cluster.
 
      * `configSpec.postgresqlConfig_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
+       See the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterRequest) for the list of {{ PG }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
 
      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -399,9 +400,9 @@ You can change the DBMS settings for the hosts in your cluster.
 
      * `config_spec.postgresql_config_<{{ PG }}_version>`: {{ PG }} settings. Enter each setting on a new line, separated by commas.
 
-       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec) for the list of {{ PG }} versions supporting this option. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
+       See the [method description](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigSpec) for the list of {{ PG }} versions available for this parameter. See [{#T}](../concepts/settings-list.md#dbms-cluster-settings) for the descriptions and possible values of the settings.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -453,7 +454,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
             --datalens-access=<allow_access_from_{{ datalens-name }}> \
             --maintenance-window type=<maintenance_type>,`
                                 `day=<day_of_week>,`
-                                `hour=<hour> \
+                                `hour=<sequence_number_of_hour_interval> \
             --websql-access=<allow_access_from_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<connection_pooler_mode> \
@@ -498,8 +499,8 @@ Changing additional settings will restart the cluster. The only exceptions are t
     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
 
         * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
-        * `sessions-sampling-interval`: Session sampling interval in seconds. Allowed values range from `1` to `86400`.
-        * `statements-sampling-interval`: Statement sampling interval in seconds. Allowed values range from `60` to `86400`.
+        * `sessions-sampling-interval`: Session sampling interval in seconds. The valid values range from `1` to `86400`.
+        * `statements-sampling-interval`: Statement sampling interval in seconds. The valid values range from `60` to `86400`.
 
 
     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
@@ -594,7 +595,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -642,7 +643,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        },
        "deletionProtection": <protect_cluster_from_deletion>
@@ -691,13 +692,15 @@ Changing additional settings will restart the cluster. The only exceptions are t
          * `statementsSamplingInterval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
 
-     * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, including for stopped clusters. In `maintenanceWindow`, provide one of the following values:
+     * `maintenanceWindow`: [Maintenance](../concepts/maintenance.md) window settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-       * `anytime`: Maintenance can occur at any time.
-       * `weeklyMaintenanceWindow`: Maintenance occurs once a week at the specified time:
+       * `anytime`: Maintenance takes place at any time.
+       * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-         * `day`: Day of the week, in `DDD` format.
-         * `hour`: Hour, in `HH` format. Allowed values range from `1` to `24` hours.
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      * `deletionProtection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
@@ -707,7 +710,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -777,7 +780,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        },
        "deletion_protection": <protect_cluster_from_deletion>
@@ -826,13 +829,15 @@ Changing additional settings will restart the cluster. The only exceptions are t
          * `statements_sampling_interval`: Statement sampling interval. The values range from `60` to `86400` seconds.
 
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenance_window`, provide one of the two values:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-       * `anytime`: Maintenance can take place at any time.
-       * `weekly_maintenance_window`: Maintenance occurs once a week at the specified time:
+       * `anytime`: Maintenance takes place at any time.
+       * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-         * `day`: Day of the week, in `DDD` format.
-         * `hour`: Hour, in `HH` format. Allowed values range from `1` to `24` hours.
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      * `deletion_protection`: Protection of the cluster, its databases, and users against deletion, `true` or `false` value.
 
@@ -842,7 +847,7 @@ Changing additional settings will restart the cluster. The only exceptions are t
 
         {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -902,7 +907,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
   1. Click ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * To switch the master to one of the quorum replicas, leave the **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** option enabled.
@@ -947,7 +952,7 @@ To perform a master failover:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -974,7 +979,7 @@ To perform a master failover:
 
      Where `hostName` is the [FQDN of the replica](connect/fqdn.md) promoted to master.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/startFailover.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1004,7 +1009,7 @@ To perform a master failover:
 
      Where `host_name` is the [FQDN of the replica](connect/fqdn.md) promoted to master.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -1016,7 +1021,7 @@ To perform a master failover:
 
 - Management console {#console}
 
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Select the destination folder for your cluster.
@@ -1060,15 +1065,15 @@ To perform a master failover:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-    For more information, see [this {{ TF }} provider article]({{ tf-provider-mpg }}).
+    For more information, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mpg/terraform/timeouts.md) %}
 
@@ -1182,11 +1187,11 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
       }
       ```
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1275,7 +1280,7 @@ To move a cluster to a different availability zone, follow [this guide](host-mig
 
      * `security_group_ids`: New [security groups](../concepts/network.md#security-groups), formatted as an array.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 

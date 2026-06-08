@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать шаблон.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. На панели слева выберите ![route](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.cns.label_channels }}** и выберите канал с [индивидуальным отправителем](../../notifications/concepts/sms.md#individual-sender), в котором вы хотите создать шаблон.
   1. В меню слева выберите ![square-chart-bar](../../_assets/console-icons/square-chart-bar.svg) **{{ ui-key.yacloud.cns.local.label_templates_26VqM }}** и нажмите кнопку **{{ ui-key.yacloud.cns.SMSChannel.Templates.action_create-sms-template_e6hBJ }}**. В открывшемся окне:
 

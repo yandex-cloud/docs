@@ -70,7 +70,7 @@
 
 - ВМ с образом {{ GL }} {#gl-image-vm}
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис {{ compute-full-name }}.
+    1. Перейдите в сервис {{ compute-full-name }}.
     1. Выберите созданную [ВМ](../../compute/concepts/vm.md) и скопируйте ее [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
     1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH.
     1. Получите пароль администратора {{ GL }} с помощью команды ВМ:

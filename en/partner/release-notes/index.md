@@ -48,7 +48,7 @@ description: This section contains the {{ yandex-cloud }} partner portal release
 
    {% endcut %}
 
-   For more information about the available methods, see [Gateway API: Method attribute tables](https://disk.yandex.ru/d/LhDnJqO03ydBoQ/7.%20API%20Partner%20Portal).
+   For more information about the available methods, see [Gateway API: Method attribute tables](https://disk.yandex.ru/d/gsRt3rHTsTkC4w).
 
 1. Added one-time and regular export of [partner details](../operations/get-partner-report.md).
 

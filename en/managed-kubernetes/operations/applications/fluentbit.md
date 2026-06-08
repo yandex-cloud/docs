@@ -5,7 +5,6 @@ description: Follow this guide to install Fluent Bit with the plugin for {{ clou
 
 # Installing Fluent Bit with the plugin for {{ cloud-logging-full-name }}
 
-
 [Fluent Bit](https://www.fluentbit.io/) is an open-source multi-platform tool for collecting and processing logs. Fluent Bit collects, parses, and filters messages from a variety of inputs and saves them to a storage. Messages then go to the router that defines the output to send them to. Plugins are used to work with various inputs and outputs.
 
 [The plugin for {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) enables you to export logs generated in a {{ managed-k8s-name }} cluster, including at the [pod](../../concepts/index.md#pod) level, to [{{ cloud-logging-full-name }}](../../../logging/).
@@ -27,7 +26,7 @@ description: Follow this guide to install Fluent Bit with the plugin for {{ clou
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Fluent Bit with the plugin for {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -71,5 +70,5 @@ description: Follow this guide to install Fluent Bit with the plugin for {{ clou
 
 ## See also {#see-also}
 
-* [Fluent Bit documentation](https://docs.fluentbit.io/manual)
-* [{{ cloud-logging-name }} documentation](../../../logging/)
+* [Fluent Bit guides](https://docs.fluentbit.io/manual)
+* [{{ cloud-logging-name }} guides](../../../logging/)

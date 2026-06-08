@@ -1,9 +1,9 @@
 {% note warning %}
               
- The user must have the [readonly]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly) parameter set to one of the following values:
+ The user must have the [readonly]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly) parameter set to one of the following values:
          
   * `0`: Allows all queries.
-  * `1`: Allows only data read queries. In this case, specify the following in the {{ CH }} [settings]({{ ch.docs }}/operations/settings/settings):
+  * `1`: Allows only data read queries. In this case, specify the following in the {{ CH }} [settings]({{ ch.docs }}{{ lang }}/operations/settings/settings):
 
     * `join_use_nulls = 1`
     * `send_progress_in_http_headers = 0`

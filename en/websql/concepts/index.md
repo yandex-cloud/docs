@@ -45,7 +45,7 @@ In {{ websql-full-name }}, you can create, use, and manage DB connections. In th
 * [Connections to {{ yandex-cloud }} clusters](../operations/create-connection.md#connect-cluster): Connections to databases in managed database clusters via the {{ yandex-cloud }} internal network. Such clusters do not necessarily have to be publicly available.
 * [External connections](../operations/create-connection.md#connect-db): Connections to custom DB installations over the internet.
 
-The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ SD }}, {{ mtr-full-name }}, and {{ GP }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
+The **{{ yandex-cloud }} connections** subsection automatically displays {{ PG }}, {{ CH }}, {{ MY }}, {{ RD }}/{{ VLK }}, {{ SD }}, {{ mtr-full-name }}, and {{ mgp-full-name }} clusters from the current folder if the user has access to them. You can select a different folder in the bar above the **Connections** section. The list of clusters will update automatically.
 
 For each cluster, all database connections are grouped into a drop-down list under the cluster name. You cannot change this name in {{ websql-full-name }} but you can update the cluster name in the managed database service. The ![image](../../_assets/console-icons/folder-tree.svg) [**Connections**]({{ websql-link }}) section will automatically show this update.
 

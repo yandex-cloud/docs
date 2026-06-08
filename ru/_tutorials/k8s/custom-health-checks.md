@@ -338,7 +338,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
    1. Выберите под `yc-alb-ingress-controller-*` (не `yc-alb-ingress-controller-hc-*`), в котором запущен процесс создания ресурсов.
    1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
@@ -389,7 +389,7 @@ Docker-образ будет создан из файла `app/Dockerfile` и б
    - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Нажмите на имя нужного балансировщика и на панели слева выберите **{{ ui-key.yacloud.alb.label_healthchecks }}**.
       1. Проверьте состояние целевых ресурсов. Если они в статусе `HEALTHY`, значит, приложение доступно и работает.
 

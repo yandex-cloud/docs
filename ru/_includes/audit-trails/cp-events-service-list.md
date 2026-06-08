@@ -51,6 +51,7 @@
 * [{{ myt-full-name }}](../../audit-trails/concepts/events.md#ytsaurus)
 * [{{ resmgr-full-name }}](../../audit-trails/concepts/events.md#resmgr)
 * [{{ search-api-full-name }}](../../audit-trails/concepts/events.md#searchapi)
+* [{{ src-full-name }}](../../audit-trails/concepts/events.md#sourcecraft)
 * [{{ sd-full-name }}](../../audit-trails/concepts/events.md#security-deck)
 * [{{ serverless-containers-full-name }}](../../audit-trails/concepts/events.md#serverless-containers)
 * [{{ captcha-full-name }}](../../audit-trails/concepts/events.md#smartcaptcha)

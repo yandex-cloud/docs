@@ -207,7 +207,7 @@ the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](/docs/compute/api-r
 and create the disk from this image. ||
 || storageSize | **string** (int64)
 
-The size of the image, specified in bytes. ||
+The storage size of the image, specified in bytes. ||
 || minDiskSize | **string** (int64)
 
 Minimum size of the disk which will be created from this image. ||

@@ -929,7 +929,6 @@ default:
   yc-mdb-af: yc managed-airflow
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-es: yc managed-elasticsearch
-  yc-mdb-gl: yc managed-gitlab
   yc-mdb-gp: yc managed-greenplum
   yc-mdb-kf: yc managed-kafka
   yc-mdb-mg: yc managed-mongodb
@@ -3652,6 +3651,10 @@ default:
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         value_empty_clouds: Все облака и каталоги
         value_empty_service_instances: Все рабочие пространства
+      billing-widget:
+        activate_promocode: Активировать промокод
+        details: Детализация
+        grant: Гранты
       cloud-billing-account:
         label_card-add: Добавить карту
       create-account:

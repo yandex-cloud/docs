@@ -53,7 +53,7 @@
 
      Чтобы создать [облачную сеть](../../vpc/concepts/network.md):
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
      1. Задайте имя сети: `my-network`.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
@@ -185,7 +185,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана прерываемая ВМ.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud_billing.iam.folder.dashboard.label_compute }}**.
      1. Выберите виртуальную машину `my-rds-vm`.
      1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.compute.instances.button_action-restart }}**.
    

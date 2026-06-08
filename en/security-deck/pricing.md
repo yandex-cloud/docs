@@ -12,34 +12,33 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-In {{ sd-name }}, each module is billed separately. A starter package plan is available, which includes several modules.
+{{ sd-name }} modules are billed separately. You can also choose the Starter package, which includes multiple modules.
 
-The pricing policy for the following modules and packages is presented below:
+Pricing details are outlined below:
 
 * [Starter package](#starter-rules).
 * [Data Security Posture Management ({{ dspm-name }})](concepts/dspm.md).
 * [{{ atr-name }}](concepts/access-transparency.md).
-* [Kubernetes® Security Posture Management ({{ kspm-name }})](concepts/kspm.md).
-* [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md).
+* [{{ k8s }}® Security Posture Management ({{ kspm-name }})](./concepts/kspm.md).
+* [Cloud Security Posture Management ({{ cspm-name }})](./concepts/cspm.md).
 
 {% note info %}
 
-[Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) and [AI assistant](concepts/ai-assistant.md) are provided free of charge.
+[Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) and the [AI assistant](concepts/ai-assistant.md) are provided free of charge.
 
 {% endnote %}
 
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
 
-### Security Deck Starter package {#starter-rules}
+### Starter package {#starter-rules}
 
-This package includes [Cloud Security Posture Management (CSPM)](./concepts/cspm.md) and [Threat Detector (TD)](./concepts/threat-detector.md) modules.
+This package includes [Cloud Security Posture Management](./concepts/cspm.md) and [Threat Detector](./concepts/threat-detector.md).
 
 Our subscription plans are priced per calendar month.
-
 A calendar month is defined as the period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
 
-Prices for the number of resources are fixed and do not depend on the number of days in the month.
+Prices for the number of monthly resources are fixed and do not depend on the number of days in the month.
 
 ### {{ atr-name }} {#atr-rules}
 
@@ -61,7 +60,7 @@ The cost for using {{ kspm-full-name }} ({{ kspm-name }}) is monthly-based and d
 
 ### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-rules}
 
-Your {{ cspm-full-name }} ({{ cspm-name }}) charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
+Your {{ cspm-name }} charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
 
 Each environment is billed separately, even if their resources overlap.
 
@@ -69,11 +68,12 @@ Inactive resources are also billable.
 
 The price does not depend on the number of days in the calendar month.
 
+
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-### Security Deck Starter package {#starter-pricing}
+### Starter package {#starter-pricing}
 
 
 

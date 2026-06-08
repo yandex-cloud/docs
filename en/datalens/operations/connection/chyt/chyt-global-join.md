@@ -49,7 +49,7 @@ Same as a simple query, a SELECT query with a `JOIN` is sent to a clique instanc
 
   {% endnote %}
 
-* A **GLOBAL JOIN** is executed if you use the `GLOBAL` keyword with `JOIN`. The query coordinator fully executes and materializes the right-hand side, `rhs`. Next, its serialized representation is sent along with the query to the instances. They use this representation to retrieve the right-hand side in their memory. For more information, see [this guide](https://clickhouse.com/docs/en/sql-reference/operators/in#distributed-subqueries).
+* A **GLOBAL JOIN** is executed if you use the `GLOBAL` keyword with `JOIN`. The query coordinator fully executes and materializes the right-hand side, `rhs`. Next, its serialized representation is sent along with the query to the instances. They use this representation to retrieve the right-hand side in their memory. For more information, see [this guide]({{ ch.docs }}{{ lang }}/sql-reference/operators/in#select-distributed-subqueries).
 
   {% note info %}
 

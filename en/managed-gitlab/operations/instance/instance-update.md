@@ -54,13 +54,13 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
   1. View the description of the [CLI](../../../cli) command for updating {{ mgl-name }} instance settings:
 
       ```bash
-      {{ yc-mdb-gl }} instance update --help
+      {{ yc-gl }} instance update --help
       ```
 
   1. Update the {{ GL }} instance settings (this example does not use all available parameters):
 
       ```bash
-      {{ yc-mdb-gl }} instance update <instance_name_or_ID> \
+      {{ yc-gl }} instance update <instance_name_or_ID> \
         --new-name <new_instance_name> \
         --resource-preset-id <host_class> \
         --disk-size <disk_size_in_GB> \
@@ -174,7 +174,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
       {{ TF }} will update all the required resources. You can check the update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
-      {{ yc-mdb-gl }} instance list
+      {{ yc-gl }} instance list
       ```
 
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/gitlab_instance).

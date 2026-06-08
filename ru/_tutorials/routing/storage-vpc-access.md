@@ -207,7 +207,7 @@ warp get \
 ## Проверьте работоспособность решения {#check}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. В списке виртуальных машин выберите ВМ `test-s3-vm`.
 1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.

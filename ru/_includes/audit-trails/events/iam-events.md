@@ -22,8 +22,10 @@
 `oauthclient.DeleteOAuthClient` | Удаление OAuth-клиента
 `oauthclient.DeleteOAuthClientSecret` | Удаление секрета для OAuth-клиента
 `oauthclient.UpdateOAuthClient` | Обновление OAuth-клиента
+`ReactivateServiceAccount` | Активация сервисного аккаунта
 `RevokeLeakedCredential` | Отзыв скомпрометированного секрета
 `SetServiceAccountAccessBindings` | Назначение прав доступа для сервисного аккаунта
+`SuspendServiceAccount` | Деактивация сервисного аккаунта
 `UpdateAccessKey` | Обновление статического ключа
 `UpdateApiKey` | Обновление API-ключа
 `UpdateCertificate` | Обновление сертификата

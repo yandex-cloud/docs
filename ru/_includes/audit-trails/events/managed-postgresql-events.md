@@ -8,8 +8,10 @@
 `DeleteClusterHosts` | Удаление хостов из кластера
 `MoveCluster` | Перемещение кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StartClusterFailover` | Запуск переключения мастера для кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterHosts` | Изменение хостов в кластере

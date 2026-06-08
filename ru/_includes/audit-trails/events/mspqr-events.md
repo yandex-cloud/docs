@@ -6,6 +6,7 @@
 `DeleteBackup` | Удаление резервной копии
 `DeleteCluster` | Удаление кластера
 `DeleteClusterHosts` | Удаление хостов из кластера
+`MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
 `StartCluster` | Запуск кластера

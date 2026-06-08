@@ -413,6 +413,16 @@ items:
                 href: operations/data-catalog/catalog-operations.md
               - name: Deleting a metadata catalog
                 href: operations/data-catalog/delete-catalog.md
+          - name: Sources
+            items:
+              - name: Getting a list of sources
+                href: operations/data-catalog/source-list.md
+              - name: Creating a source
+                href: operations/data-catalog/create-source.md
+              - name: Edit origin
+                href: operations/data-catalog/update-source.md
+              - name: Deleting an origin
+                href: operations/data-catalog/delete-source.md
           - name: Ingestions
             items:
               - name: Getting a list of ingestions
@@ -427,31 +437,33 @@ items:
                 href: operations/data-catalog/get-info-ingestion.md
               - name: Deleting an ingestion
                 href: operations/data-catalog/delete-ingestion.md
-          - name: Classifications
+          - name: Operations with data
             items:
-              - name: Getting a list of classifications
-                href: operations/data-catalog/list-classifications.md
-              - name: Creating a classification
-                href: operations/data-catalog/create-classification.md
-              - name: Updating a classification
-                href: operations/data-catalog/update-classification.md
-              - name: Deleting a classification
-                href: operations/data-catalog/delete-classification.md
-          - name: Tags
+              - name: Metadata markup
+                href: operations/data-catalog/markup-metadata.md
+              - name: Metadata search
+                href: operations/data-catalog/search-metadata.md
+              - name: Analyzing links between metadata
+                href: operations/data-catalog/analysis-metadata.md
+              - name: Getting a data profile
+                href: operations/data-catalog/get-data-profile.md
+              - name: Queries against datasets with {{ websql-full-name }}
+                href: operations/data-catalog/web-sql-query.md
+          - name: Domains
             items:
-              - name: Getting a list of tags
-                href: operations/data-catalog/list-tags.md
-              - name: Creating a tag
-                href: operations/data-catalog/create-tag.md
-              - name: Updating a tag
-                href: operations/data-catalog/update-tag.md
-              - name: Deleting a tag
-                href: operations/data-catalog/delete-tag.md
+              - name: Getting a list of domains and subdomains
+                href: operations/data-catalog/list-domains.md
+              - name: Creating a domain
+                href: operations/data-catalog/create-domain.md
+              - name: Updating a domain
+                href: operations/data-catalog/update-domain.md
+              - name: Deleting a domain
+                href: operations/data-catalog/delete-domain.md
           - name: Glossaries
             items:
               - name: Getting a list of glossaries
                 href: operations/data-catalog/list-glossaries.md
-              - name: Creating a glossary
+              - name: Deleting a glossary
                 href: operations/data-catalog/create-glossary.md
               - name: Updating a glossary
                 href: operations/data-catalog/update-glossary.md
@@ -473,38 +485,26 @@ items:
                 href: operations/data-catalog/delete-term.md
               - name: Deleting a child term
                 href: operations/data-catalog/delete-term-child.md
-          - name: Domains
+          - name: Classifications
             items:
-              - name: Getting a list of domains and subdomains
-                href: operations/data-catalog/list-domains.md
-              - name: Creating a domain
-                href: operations/data-catalog/create-domain.md
-              - name: Updating a domain
-                href: operations/data-catalog/update-domain.md
-              - name: Deleting a domain
-                href: operations/data-catalog/delete-domain.md
-          - name: Sources
+              - name: Getting a list of classifications
+                href: operations/data-catalog/list-classifications.md
+              - name: Creating a classification
+                href: operations/data-catalog/create-classification.md
+              - name: Updating a classification
+                href: operations/data-catalog/update-classification.md
+              - name: Deleting a classification
+                href: operations/data-catalog/delete-classification.md
+          - name: Tags
             items:
-              - name: Getting a list of sources
-                href: operations/data-catalog/source-list.md
-              - name: Creating a source
-                href: operations/data-catalog/create-source.md
-              - name: Edit origin
-                href: operations/data-catalog/update-source.md
-              - name: Deleting an origin
-                href: operations/data-catalog/delete-source.md
-          - name: Operations with data
-            items:
-              - name: Metadata markup
-                href: operations/data-catalog/markup-metadata.md
-              - name: Metadata search
-                href: operations/data-catalog/search-metadata.md
-              - name: Analyzing links between metadata
-                href: operations/data-catalog/analysis-metadata.md
-              - name: Getting a data profile
-                href: operations/data-catalog/get-data-profile.md
-              - name: Queries against datasets with {{ websql-full-name }}
-                href: operations/data-catalog/web-sql-query.md
+              - name: Getting a list of tags
+                href: operations/data-catalog/list-tags.md
+              - name: Creating a tag
+                href: operations/data-catalog/create-tag.md
+              - name: Updating a tag
+                href: operations/data-catalog/update-tag.md
+              - name: Deleting a tag
+                href: operations/data-catalog/delete-tag.md
           - name: Data storage
             items:
               - name: Getting a list of data storages

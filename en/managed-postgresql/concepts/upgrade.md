@@ -5,6 +5,8 @@ description: To upgrade the major {{ PG }} version in {{ mpg-name }}, select a s
 
 # Upgrading the major {{ PG }} version in {{ mpg-full-name }}
 
+{% include [auto-update-of-deprecated-cluster](../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}
+
 To upgrade the major {{ PG }} version in {{ mpg-name }}, select a suitable time and version and [start the update](../operations/cluster-version-update.md#start-update).
 
 To upgrade a major version, the following must be free:
@@ -53,4 +55,4 @@ The master is unavailable for reads and writes during the major version update. 
 
 How long an upgrade takes depends on the number of affected databases and the number of objects in each of them. The more databases and objects there are, the longer your upgrade will take.
 
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).

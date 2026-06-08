@@ -11,10 +11,11 @@ description:
     Hub Connection Manager and vice versa.
   - >-
     Yandex WebSQL supports the following DB versions: <ul> <li>PostgreSQL: 12 or
-    higher</li> <li>MySQL: 5 or higher</li> <li>ClickHouse®: 23 or higher</li>
-    <li>Redis/Valkey™ (non-sharded clusters only): 6 or higher</li>
-    <li>MongoDB/Yandex StoreDoc: 6 or higher</li> <li>Yandex Managed Service for
-    Trino: 454 or higher</li> <li>Greenplum®: 6 or higher</li>     </ul>
+    higher.</li> <li>MySQL: 5 or higher.</li> <li>ClickHouse®: 23 or
+    higher.</li> <li>Redis/Valkey™ (non-sharded clusters only): 6 or
+    higher.</li> <li>MongoDB/Yandex StoreDoc: 6 or higher</li> <li>Yandex
+    Managed Service for Trino: 454 or higher.</li> <li>Greenplum®: 6.28 or
+    higher.</li>     </ul>
 meta:
   title: Yandex WebSQL
   keywords:
@@ -35,13 +36,13 @@ links:
     description: How to perform routine operations
     href: operations/
   - title: Concepts
-    description: Learn more about how it works
+    description: Learn about the service concepts
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use this service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation

@@ -21,9 +21,11 @@
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestartClusterHosts` | Перезапуск хостов кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterExtension` | Изменение расширения
 `UpdateClusterExternalDictionary` | Изменение внешнего словаря
 `UpdateClusterHosts` | Изменение хостов в кластере

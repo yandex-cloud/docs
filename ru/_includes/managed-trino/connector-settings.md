@@ -2,7 +2,7 @@
 
     Чтобы узнать IP-адрес кластера {{ metastore-name }}:
       1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     {% include [metastore version](metastore-version-catalog-create.md) %}

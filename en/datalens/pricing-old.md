@@ -1,6 +1,6 @@
 ---
-title: '{{ datalens-full-name }} pricing policy'
-description: This article covers the {{ datalens-name }} pricing policy.
+title: '{{ datalens-full-name }} pricing policy before December 1, 2025'
+description: This article covers the {{ datalens-name }} pricing policy effective before December 1, 2025.
 editable: false
 ---
 

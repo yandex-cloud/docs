@@ -25,7 +25,7 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
   To delete a {{ GL }} instance, run this command:
 
   ```bash
-  {{ yc-mdb-gl }} instance delete <instance_name_or_ID>
+  {{ yc-gl }} instance delete <instance_name_or_ID>
   ```
 
   You can [request](instance-list.md#list) the instance ID or name with the list of instances in the folder.
@@ -72,7 +72,7 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
   You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
-  {{ yc-mdb-gl }} instance list
+  {{ yc-gl }} instance list
   ```
 
 - API {#api}

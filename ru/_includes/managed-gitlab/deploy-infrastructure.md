@@ -57,7 +57,7 @@
 
         {% include [sg-common-warning](../managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     * [Группа безопасности по умолчанию](../../vpc/concepts/security-groups.md) и правила, необходимые для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
+     * [Группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group) и правила, необходимые для работы [инстанса {{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance).
      * [Реестр](../../container-registry/concepts/registry.md) [{{ container-registry-full-name }}](../../container-registry/).
      * [Авторизованный ключ](../../iam/concepts/authorization/key.md) для сервисного аккаунта. Ключ необходим для доступа к реестру из {{ GL }}.
      * Локальный файл `key.json` с данными авторизованного ключа.

@@ -11,7 +11,7 @@ description: High availability is the ability of a system to continue to operate
 
 A cluster may consist of one or more hosts.
 
-A single-host cluster does not provide high availability. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely. Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.ru/legal/cloud_sla_mdb/).
+A single-host cluster does not provide high availability. If the master host VM fails, your cluster will be unavailable for reading and writing until the VM recovers completely. Single-host clusters are not covered by the [Service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/).
 
 {% note warning %}
 
@@ -19,9 +19,9 @@ We do not recommend creating a single-host cluster.
 
 {% endnote %}
 
-A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
+A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
-A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). Such clusters are suitable for production environments subject to high availability and performance requirements.
+A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 
@@ -41,7 +41,7 @@ Using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) simplifies a
 
 ## Maintenance settings {#maintenance-settings}
 
-During [maintenance](maintenance.md), a cluster with two or more hosts may not be available for writes until the master automatically fails over. A single host cluster is completely unavailable during maintenance. Therefore, consider the expected load on your cluster when selecting the [maintenance day and hour](maintenance.md#maintenance-window).
+During [maintenance](maintenance.md), a cluster with two or more hosts may not be available for writes until the master automatically fails over. A single host cluster is completely unavailable during maintenance. Therefore, we recommend selecting the [maintenance day and time](maintenance.md#maintenance-window) based on expected cluster load.
 
 When updating a [{{ PG }} version](../operations/cluster-version-update.md), a cluster with three or more hosts is unavailable for writes but has at least one readable replica. A cluster with one or two hosts is completely unavailable during {{ PG }} version updates. Consider the expected load on your cluster when planning updates.
 
