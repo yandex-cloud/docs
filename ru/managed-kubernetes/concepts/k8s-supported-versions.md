@@ -12,14 +12,14 @@ description: Из статьи вы узнаете какие версии {{ k8
 
 ([Даты релизов](https://kubernetes.io/releases/)) {align="center"} | **Релизный канал** {align="center"} | > | > | **Прекращение поддержки** {align="center"} ||
 || ^ | `RAPID` {align="center"} | `REGULAR` {align="center"} | `STABLE` {align="center"} | ^ ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
-|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
+|| {{ k8s-version.0.name }} | {{ k8s-version.0.rapid }} | {{ k8s-version.0.regular }} | {{ k8s-version.0.stable }} | {{ k8s-version.0.deprecated }} ||
+|| {{ k8s-version.1.name }} | {{ k8s-version.1.rapid }} | {{ k8s-version.1.regular }} | {{ k8s-version.1.stable }} | {{ k8s-version.1.deprecated }} ||
+|| {{ k8s-version.2.name }} | {{ k8s-version.2.rapid }} | {{ k8s-version.2.regular }} | {{ k8s-version.2.stable }} | {{ k8s-version.2.deprecated }} ||
+|| {{ k8s-version.3.name }} | {{ k8s-version.3.rapid }} | {{ k8s-version.3.regular }} | {{ k8s-version.3.stable }} | {{ k8s-version.3.deprecated }} ||
+|| {{ k8s-version.4.name }} | {{ k8s-version.4.rapid }} | {{ k8s-version.4.regular }} | {{ k8s-version.4.stable }} | {{ k8s-version.4.deprecated }} ||
+|| {{ k8s-version.5.name }} | {{ k8s-version.5.rapid }} | {{ k8s-version.5.regular }} | {{ k8s-version.5.stable }} | {{ k8s-version.5.deprecated }} ||
+|| {{ k8s-version.6.name }} | {{ k8s-version.6.rapid }} | {{ k8s-version.6.regular }} | {{ k8s-version.6.stable }} | {{ k8s-version.6.deprecated }} ||
+|| {{ k8s-version.7.name }} | {{ k8s-version.7.rapid }} | {{ k8s-version.7.regular }} | {{ k8s-version.7.stable }} | {{ k8s-version.7.deprecated }} ||
 |#
 
 {% note info %}

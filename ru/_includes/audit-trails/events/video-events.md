@@ -25,6 +25,7 @@
 `DeleteSubtitle` | Удаление субтитров
 `DeleteThumbnail` | Удаление обложки
 `DeleteVideo` | Удаление видео
+`DownloadEpisode` | Скачивание эпизода
 `EpisodePerformAction` | Выполнение действий с эпизодом
 `SetChannelAccessBindings` | Назначение прав доступа на канал
 `StreamLinePerformAction` | Выполнение действий с линией трансляции

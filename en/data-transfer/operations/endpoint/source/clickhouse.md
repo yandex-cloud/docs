@@ -64,7 +64,7 @@ Connection to the database with the cluster specified in {{ yandex-cloud }}.
 
     {% include [Managed ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/managed-clickhouse-source.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -122,7 +122,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     {% include [On premise ClickHouse {{ TF }}](../../../../_includes/data-transfer/necessary-settings/terraform/on-premise-clickhouse-source.md) %}
 
-    Here is the configuration file example:
+    Here is an example of the configuration file structure:
 
     
     ```hcl
@@ -140,7 +140,7 @@ Connection to the database with explicitly specified network addresses and ports
                 native_port = "<port_for_native_interface_connection>"
                 shards {
                   name  = "<shard_name>"
-                  hosts = [ “list of IP addresses and FQDNs of shard hosts" ]
+                  hosts = [ "list of IP addresses and FQDNs of shard hosts" ]
                 }
                 tls_mode {
                   enabled {
@@ -182,7 +182,7 @@ Connection to the database with explicitly specified network addresses and ports
 
     * {% include [exclude_tables](../../../../_includes/data-transfer/fields/clickhouse/ui/exclude-tables.md) %}
 
-    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
+    Included and excluded table names must meet the ID naming rules in {{ CH }}. For more information, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-identifiers). Escaping double quotes is not required.
 
     Leave the lists empty to transfer all the tables.
 

@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы хотите настроить сервисное подключение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.vpc.switch_private-endpoints }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.private-endpoint.label_create-private-endpoint }}**.
 1. В поле **{{ ui-key.yacloud.vpc.private-endpoint.field_name }}** укажите название сервисного подключения. Требования к названию:

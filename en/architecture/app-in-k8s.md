@@ -190,12 +190,12 @@ Gateways | 1
 
 Before you start creating your infrastructure, [make sure](../quota-manager/operations/list-quotas.md) your [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) has enough unused [quotas](../quota-manager/concepts/index.md) for resources.
 
-You create the infrastructure with the help of the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-provider-link }}). For the source code discussed in the tutorial, visit [GitHub](https://github.com/yandex-cloud-examples/yc-mk8s-ha-todo-application).
+You create the infrastructure with the help of the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-provider-link }}). The source code for this guide is available on [GitHub](https://github.com/yandex-cloud-examples/yc-mk8s-ha-todo-application).
 
 To deploy your web app in a fault-tolerant {{ yandex-cloud }} environment:
 
 1. [Get your cloud ready](#before-you-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Test your web application](#test).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -217,16 +217,16 @@ The infrastructure support costs for a web app include:
 * Fee for using a public [DNS zone](../dns/concepts/dns-zone.md#public-zones) and public DNS requests (see [{{ dns-full-name }} pricing](../dns/pricing.md)).
 * Fee for logging and log storage in a [log group](../logging/concepts/log-group.md) (see [{{ cloud-logging-full-name }} pricing](../logging/pricing.md)).
  
-## Create your infrastructure {#deploy}
+## Create the infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 
-1. Set up your infrastructure description files:
+1. Prepare your infrastructure description files:
 
-    1. Clone the repository with configuration files:
+    1. Clone the repository containing the configuration files:
 
         ```bash
         git clone https://github.com/yandex-cloud-examples/yc-mk8s-ha-todo-application.git
@@ -236,7 +236,7 @@ To create an infrastructure using {{ TF }}:
         ```bash
         cd yc-mk8s-ha-todo-application
         ```
-    1. In the `terraform.tfvars` file, set the following user-defined properties:
+    1. In the `terraform.tfvars` file, specify these custom settings:
 
         * `folder_id`: [Folder ID](../resource-manager/operations/folder/get-id.md).
         * `target_host`: Your domain's name. The domain must be [delegated](../dns/concepts/dns-zone.md#public-zones) to [{{ dns-full-name }}](../dns/index.yaml).

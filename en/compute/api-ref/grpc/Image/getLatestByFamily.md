@@ -102,7 +102,7 @@ the [yandex.cloud.compute.v1.ImageService.GetLatestByFamily](#GetLatestByFamily)
 and create the disk from this image. ||
 || storage_size | **int64**
 
-The size of the image, specified in bytes. ||
+The storage size of the image, specified in bytes. ||
 || min_disk_size | **int64**
 
 Minimum size of the disk which will be created from this image. ||

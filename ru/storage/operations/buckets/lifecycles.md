@@ -328,12 +328,14 @@ description: Следуя данной инструкции, вы сможете
        description        = "static access key for object storage"
      }
 
+     // Создание бакета
      resource "yandex_storage_bucket" "bucket" {
        bucket     = "<имя_бакета>"
        acl        = "private"
        access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
        secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
 
+       // Правила жизненного цикла объектов
        lifecycle_rule {
          id      = "log"
          enabled = true
@@ -370,11 +372,12 @@ description: Следуя данной инструкции, вы сможете
          }
 
          expiration {
-           date = "2020-12-21"
+           date = "2026-12-21"
          }
        }
      }
 
+     // Создание бакета со включенным версионированием
      resource "yandex_storage_bucket" "versioning_bucket" {
        bucket     = "<имя_бакета>"
        acl        = "private"
@@ -385,6 +388,7 @@ description: Следуя данной инструкции, вы сможете
          enabled = true
        }
 
+       // Правила жизненного цикла объектов
        lifecycle_rule {
          enabled = true
 

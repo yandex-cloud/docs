@@ -5,7 +5,6 @@ description: In this tutorial, you will learn how to install KEDA with {{ monito
 
 # Installing KEDA with {{ monitoring-full-name }} support
 
-
 [KEDA](https://keda.sh) is an application that performs autoscaling of {{ k8s }} resources based on load monitoring.
 
 KEDA application:
@@ -50,7 +49,7 @@ KEDA application:
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [KEDA with {{ monitoring-full-name }} support](/marketplace/products/yc/keda) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -123,7 +122,7 @@ KEDA application:
    * `timeWindowOffset`: Delay in calculating the function in the time window.
 
    Logging parameters:
-   * `logLevel`: Logging level, The possible values are `debug`, `info`, `warn`, `error`, and `none`. The default value is `info`.
+   * `logLevel`: Logging level. The possible values are `debug`, `info`, `warn`, `error`, and `none`. The default value is `info`.
    * `logMetrics`: Allow logging of {{ monitoring-name }} requests, `true` or `false`. The default value is `false`.
    * `logAggregation`: Allow data aggregation logging, `true` or `false`. The default value is `false`.
 
@@ -196,5 +195,5 @@ KEDA application:
 
 ## See also {#see-also}
 
-* [KEDA documentation](https://keda.sh/docs/)
+* [KEDA guides](https://keda.sh/docs/)
 * [KEDA with {{ monitoring-full-name }} support on GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler)

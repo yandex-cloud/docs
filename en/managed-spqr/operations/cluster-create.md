@@ -39,7 +39,7 @@ keywords:
         1. Select the sharding type:
 
             * `{{ ui-key.yacloud.spqr.section_sharding-type-standard }}`: Cluster will consist only of infrastructure hosts.
-            * `{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}`: Cluster will consist only of router hosts and, optionally, coordinator hosts.
+            * `{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}`: Cluster will consist only of router hosts and coordinator hosts.
 
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**, select a [network](../../vpc/operations/network-create.md) and [security groups](../../vpc/concepts/security-groups.md) for the cluster.
 
@@ -52,7 +52,7 @@ keywords:
         * For standard sharding, specify the infrastructure host configuration under **{{ ui-key.yacloud.spqr.section_infra }}**.
         * For advanced sharding, specify the router host configuration under **{{ ui-key.yacloud.spqr.section_router }}**.
 
-            Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
+            Under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
 
         To specify your computing resource configuration:
 
@@ -166,9 +166,9 @@ keywords:
          {
            "name": "<DB_name>"
          },
-         { <similar_configuration_for_DB_2> },
+         { <similar_settings_for_DB_2> },
          { ... },
-         { <similar_configuration_for_DB_N> }
+         { <similar_settings_for_DB_N> }
        ],
        "userSpecs": [
          {
@@ -337,7 +337,7 @@ keywords:
      * `maintenanceWindow`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -437,9 +437,9 @@ keywords:
          {
            "name": "<DB_name>"
          },
-         { <similar_configuration_for_DB_2> },
+         { <similar_settings_for_DB_2> },
          { ... },
-         { <similar_configuration_for_DB_N> }
+         { <similar_settings_for_DB_N> }
        ],
        "user_specs": [
          {
@@ -608,7 +608,7 @@ keywords:
      * `maintenance_window`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

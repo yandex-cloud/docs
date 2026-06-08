@@ -33,7 +33,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать с реестром схем.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ metadata-hub-full-name }}**.
+  1. Перейдите в сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/layout-cells.svg) **{{ schema-registry-name }}** / **Пространство имён**.
   1. Нажмите кнопку **Создать пространство имён**. 
   1. Укажите [настройки пространства имен](../../../metadata-hub/operations/create-name-space.md). После сохранения пространства имен, вы сможете использовать его идентификатор для получения URL {{ schema-registry-name }}: `{namespace_id}.{{ schema-registry-endpoint }}`.
@@ -47,7 +47,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ data-transfer-full-name }}**. 
+  1. Перейдите в сервис **{{ data-transfer-full-name }}**. 
   1. [Создайте эндпоинт-источник {{ KF }}](../../../data-transfer/operations/endpoint/source/kafka.md) со следующими настройками:
 
       * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — **{{ KF }}**.

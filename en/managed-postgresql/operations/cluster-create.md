@@ -274,19 +274,17 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      You can also specify the `--host` `replication-source` option to [manually manage replication streams](../concepts/replication.md#replication-manual).
 
+     To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide `--maintenance-window type=<maintenance_window_type>`, where `type` takes the following values:
+
+     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+     
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
-
-     {% note info %}
-
-     The default [maintenance](../concepts/maintenance.md) mode for new clusters is `anytime`. You can set a specific maintenance period when [updating the cluster settings](update.md#change-additional-settings).
-
-     {% endnote %}
 
 - {{ TF }} {#tf}
 
@@ -524,7 +522,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -608,11 +606,16 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
        * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
 
+     
+     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings:
+       * `anytime`: Maintenance takes place at any time.
+       * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.  
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [Cluster.Create](../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -629,7 +632,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -712,7 +715,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<day_of_week>",
-           "hour": "<hour>"
+           "hour": "<sequence_number_of_hour_interval>"
          }
        }
      }
@@ -797,10 +800,15 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        * `assign_public_ip`: Permission for internet [access](connect/index.md) to the host.
 
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
+       * `anytime`: Maintenance takes place at any time.
+       * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
+
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
   1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

@@ -186,7 +186,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Задайте имя сети `shared-net`.
      1. Отключите опцию [{{ ui-key.yacloud.vpc.networks.create.field_is-default }}](../../vpc/operations/subnet-create.md), чтобы создать подсети вручную.
@@ -245,7 +245,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Нажмите на имя облачной сети `shared-net`.
      1. Нажмите кнопку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите название подсети `subnet-a`, `subnet-b` или `subnet-d` соответственно.
@@ -340,7 +340,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `net-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите на имя облачной сети `shared-net`.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `subnet-b`, и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог `dev-folder`.

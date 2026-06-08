@@ -26,7 +26,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 When using {{ ydb-name }} in *Serverless* mode, you pay for each database query. You do not have to specify which resources you need since the database quickly adjusts to changes in the workload. Apart from queries, you also pay for the data stored in {{ ydb-name }} on an hourly basis. Other operations, such as recovery from a backup, are charged extra.
 
-## What goes into the cost of using the Serverless mode in {{ ydb-name }} {#rules}
+## What goes into the cost of using {{ ydb-name }} in Serverless mode {#rules}
 
 When using {{ ydb-name }} in *Serverless* mode, you pay for:
 * Data operations.
@@ -42,7 +42,7 @@ In addition, you pay for the following resources you consume:
 
 ### Data operations and request units {#rules-ru}
 
-In *Serverless* mode, Yandex {{ ydb-name }} can work with data in several ways:
+In *Serverless* mode, {{ ydb-name }} can work with data in several ways:
 * YQL: SQL dialect to work with relational tables supported by the {{ ydb-short-name }} [SDK]({{ ydb.docs }}/reference/ydb-sdk/), [CLI]({{ ydb.docs }}/reference/ydb-cli/), and the management console.
 * Document API: Amazon’s DynamoDB-compatible HTTP API. You can use this API to perform operations on document tables.
 
@@ -58,7 +58,7 @@ Below, you can find the rules for calculating the cost of queries against {{ ydb
 
 #### Pricing for request unit consumption {#prices-ru}
 
-* **Actual consumption (on-demand)**. The cost of using {{ ydb-short-name }} for a certain period is the number of spent RUs multiplied by the price per RU minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no queries against the database or if the amount of RUs spent in the current month is less than the free package, there is no charge for the actual RU consumption.
+* **On-demand consumption**. The cost of using {{ ydb-short-name }} for a certain period is the number of spent RUs multiplied by the price per RU minus the monthly [free package](../../billing/concepts/serverless-free-tier.md#ydb). If there were no queries against the database or if the amount of RUs spent in the current month is less than the free package, there is no charge for the actual RU consumption.
 * **Provisioned capacity**. If your load is predictable and has a fixed component, you can reduce the cost of using {{ ydb-short-name }} by paying for some (or all) RUs you spent on an hourly basis. To do this, set a non-zero value for the _Provisioned capacity, RU/s_ property. After that, you will be charged according to a special pricing plan, the rate for which is set to RU/s per hour, with billing per second. The RUs consumed within the provisioned capacity will not be added to the RUs spent at the on-demand rate.
 
 ### Amount of stored data {#rules-storage}
@@ -85,13 +85,11 @@ If you export data using `ydb tools dump`, the billing is based on the `ReadTabl
 
 #### Example of calculating the cost of creating an on-demand backup {#example-of-cost-calculation-backup-storage}
 
-{% include [pricies-difference](../../_includes/prices-difference.md) %}
-
 Let's calculate the cost of creating backups of 1 GB and 10 GB databases.
 
 **Cost calculation for a 1 GB database**
 
-Actual (on-demand) consumption of RUs per month will be:
+On-demand consumption of RUs per month will be:
 
 > 128 RUs × 1,024 = 131,072 RUs
 
@@ -104,7 +102,7 @@ The number of RUs spent (131,072) is [less than 1,000,000](#prices), so creating
 
 **Cost calculation for a 10 GB database**
 
-Actual (on-demand) consumption of RUs per month will be:
+On-demand consumption of RUs per month will be:
 
 
 
@@ -123,13 +121,11 @@ If you restore data using `ydb tools restore`, billing is based on the cost of w
 
 #### Example of calculating the cost of recovery from a backup {#example-of-cost-calculation-backup-restore}
 
-{% include [pricies-difference](../../_includes/prices-difference.md) %}
-
 Let's calculate the cost of backup recovery for 1 GB and 10 GB databases.
 
 **Cost calculation for a 1 GB database**
 
-Actual (on-demand) consumption of RUs per month will be:
+On-demand consumption of RUs per month will be:
 
 > 0.5 RUs × 1,024 × 1,024 = 524,288 RUs
 
@@ -142,7 +138,7 @@ The number of RUs spent (524,288) is [less than 1,000,000](#prices), so recovery
 
 **Cost calculation for a 10 GB database**
 
-Actual (on-demand) consumption of RUs per month will be:
+On-demand consumption of RUs per month will be:
 
 
 

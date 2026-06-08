@@ -127,7 +127,7 @@ In the settings of the line chart added to the dashboard, you can apply modeling
 
     Year | Home appliances | Household goods | Household cleaners
     ----- | ---------| ---------- | ---------- 
-    2018 | 25K | 21K | 16K
+    2?018 | 25K | 21K | 16K
 
   {% endlist %}
 
@@ -161,7 +161,7 @@ To create a line chart:
 1. {% include [create-3](../../_includes/datalens/visualization-ref/create-3.md) %}
 1. {% include [create-4](../../_includes/datalens/visualization-ref/create-4.md) %}
 1. Select **Line chart** as your chart type.
-1. Drag a dimension from the dataset to the **X** section. The values will be displayed in the lower part of the chart on the X axis.
+1. Drag a dimension from the dataset to the **X** section. The values will appear in the lower part of the chart on the X axis.
 1. Drag one or more measures from the dataset to the **Y** section. The values will be displayed as a chart on the Y axis.
 1. Drag one or more measures from the dataset to the **Y2** section. The values will be displayed as a chart on the second Y axis.
 1. Drag a dimension to the **Color** section. The measure value will be divided by color depending on the dimension you select.
@@ -231,7 +231,7 @@ To create a line chart:
 
 * For better visualization, use formatting in the [dimension](../concepts/chart/settings.md#measure-settings) and [measure](../concepts/chart/settings.md#indicator-settings) setup window.
   Check the data type for correct sorting and comparison of values. Specify additional parameters. 
-
+  
   For example, the format and units for numeric data and the number of decimal places for fractions.
   
   {% cut "Example of measure settings" %}

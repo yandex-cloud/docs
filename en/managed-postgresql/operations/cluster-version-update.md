@@ -1,18 +1,20 @@
 # {{ PG }} version update
 
+{% include [auto-update-of-deprecated-cluster](../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}
+
 You can upgrade the {{ PG }} version in your {{ mpg-name }} cluster to `18` or lower. Note that you can only upgrade a major version step by step, one version at a time.
+
+How long an upgrade takes depends on the number of affected databases and the number of objects in each of them. The more databases and objects there are, the longer your upgrade will take.
+
+For more information about version upgrades, see [Updating the {{ PG }} major version in {{ mpg-name }}](../concepts/upgrade.md).
+
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note info %}
 
 Upgrade from a standard version to a _1С:Enterprise_ version (e.g., `14` to `14-1c`) is not supported.
 
 {% endnote %}
-
-How long an upgrade takes depends on the number of affected databases and the number of objects in each of them. The more databases and objects there are, the longer your upgrade will take.
-
-For more information about version upgrades, see [Updating the {{ PG }} major version in {{ mpg-name }}](../concepts/upgrade.md).
-
-To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## Before a version upgrade {#before-update}
 
@@ -22,7 +24,7 @@ Make sure the upgrade will not disrupt your applications:
 1. Try upgrading a test cluster. You can [deploy](cluster-backups.md#restore) it from a backup of the main cluster.
 1. [Back up](cluster-backups.md#create-backup) your main cluster before upgrading.
 
-## Updating the {{ PG }} version {#start-update}
+## Upgrading the {{ PG }} version {#start-update}
 
 {% note warning %}
 
@@ -88,7 +90,7 @@ To upgrade a major version, the following must be free:
        }
        ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
          {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -175,7 +177,7 @@ To upgrade a major version, the following must be free:
 
      * `config_spec.version`: New {{ PG }} version.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

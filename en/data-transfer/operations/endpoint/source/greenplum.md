@@ -120,7 +120,7 @@ Connection to the database with explicitly specified network addresses and ports
 
 ### Specifics of working with the Greenplum source {#advanced}
 
-{{ data-transfer-name }} supports {{ GP }} version 6 only. {{ GP }} versions 4 and 5 are not supported.
+{{ data-transfer-name }} supports only {{ GP }} versions 6.28 and above. Other {{ GP }} versions are not supported.
 
 The service performs operations with a {{ GP }} cluster in transactions with the `READ COMMITTED` [level of isolation]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html).
 

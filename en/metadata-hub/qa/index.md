@@ -1,6 +1,6 @@
 ---
 title: '{{ metadata-hub-full-name }}. Troubleshooting'
-description: How do I fix the error I get when creating a DB in {{ metastore-name }}? Find the answer to this and other questions in this article.
+description: This section describes issues you may encounter in {{ metadata-hub-name }} and how to troubleshoot them.
 ---
 
 # Troubleshooting in {{ metadata-hub-name }}

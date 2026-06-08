@@ -55,7 +55,7 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.
@@ -63,7 +63,7 @@ To get started:
 1. Select the sharding type:
 
     * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}**: Cluster will consist only of infrastructure hosts.
-    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}**: Cluster will consist only of router hosts and, optionally, coordinator hosts.
+    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}**: Cluster will consist only of router hosts and coordinator hosts.
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
@@ -87,7 +87,7 @@ To get started:
 
          If you plan to connect to the cluster from the internet, enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** for the hosts.
 
-1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
+1. Under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
 
 1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
 

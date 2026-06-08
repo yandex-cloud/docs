@@ -94,14 +94,20 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
 
   If you do not have the AWS CLI yet, [install and configure it](../../tools/aws-cli.md).
 
+  {% note info %}
+
+  The commands in this section follow [Bash](https://en.wikipedia.org/wiki/Bash_(Unix_shell)) syntax. If using Windows, [read](../../../overview/concepts/console-syntax-guide.md) about using Bash in Microsoft Windows and use [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install), [Git Bash](https://git-scm.com/install/windows), or another bash-compatible terminal.
+
+  {% endnote %}
+
   1. Create a variable containing the bucket name:
-  
+
      ```bash
      BUCKET_NAME=<bucket_name>
      ```
-     
+
   1. Delete all object versions from the bucket:
-    
+
      ```bash
      aws s3api delete-objects \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -114,10 +120,14 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
            --max-items 1000)"
      ```
 
-     You can also use `--max-keys` instead of the `--max-items` parameter.
+     The `--max-items` argument specifies the number of object versions the command provides in a single request. The value cannot exceed `1000`, because `delete-objects` accepts a maximum of 1,000 keys at a time.
+
+     If `--max-items` causes an error, you can use `--max-keys`. Both produce the same result, but `--max-items` operates on the client side, whereas `--max-keys`, on the server side.
+
+     If you need to delete more than 1,000 object versions, repeat the command several times.
 
      Result:
-         
+
      ```json
      {
          "Deleted": [
@@ -133,11 +143,9 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
          ]
      }
      ```
-         
-     Using this command, you can delete a maximum of 1,000 object versions at a time due to the `aws s3api delete-objects` limitations. If your bucket contains more versions, run the command multiple times.
-  
+
   1. For buckets with enabled [versioning](../../concepts/versioning.md), remove all delete markers:
-       
+
      ```bash
      aws s3api delete-objects \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -150,10 +158,14 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
            --max-items 1000)"
      ```
 
-     You can also use `--max-keys` instead of the `--max-items` parameter.
+     The `--max-items` parameter specifies the number of delete markers the command provides in a single request. The value cannot exceed `1000`, because `delete-objects` accepts a maximum of 1,000 keys at a time.
+
+     If `--max-items` causes an error, you can use `--max-keys`. Both produce the same result, but `--max-items` operates on the client side, whereas `--max-keys`, on the server side.
+
+     If you need to delete more than 1,000 delete markers, repeat the command several times.
 
      Result:
-       
+
      ```json
      {
          "Deleted": [
@@ -171,11 +183,9 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
          ]
      }
      ```
-     
-     Using this command, you can delete a maximum of 1,000 delete markers at a time due to the `aws s3api delete-objects` limitations. If your bucket contains more delete markers, run the command multiple times.
-   
+
   1. Delete partially uploaded objects:
-    
+
      ```bash
      aws s3api list-multipart-uploads \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -189,9 +199,9 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
            $line";
      done
      ```
-       
+
   1. Get a list of object parts remaining in the bucket:
-    
+
      ```bash
      aws s3api list-multipart-uploads \
        --endpoint-url https://{{ s3-storage-host }} \
@@ -205,9 +215,9 @@ To clear a bucket and avoid storage[charges](../../pricing.md):
            $line";
      done
      ```
-       
+
      The list may include parts of objects whose upload started before and completed after the preceding step. If the list is not empty, repeat steps 4 and 5.
-     
+
 - Python (boto3) {#boto3}
 
   Run the following code:
