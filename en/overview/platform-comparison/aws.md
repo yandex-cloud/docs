@@ -43,7 +43,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Amazon Simple Email Service | [{{ postbox-full-name }}](../../postbox/) |
 | Amazon Simple Queue Service | [{{ message-queue-full-name }}](../../message-queue/) |
 | Amazon SNS | [{{ cns-full-name }}](../../notifications/) |
-| Amazon Transcribe, Amazon Kinesis | [{{ speechsense-full-name }}](../../speechsense/) |
+| Amazon Transcribe, Amazon Kinesis | [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) |
 | Amazon Translate | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |
 | Amazon Virtual Private Cloud | [{{ vpc-full-name }}](../../vpc/) |
 | Amazon WorkSpaces | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |

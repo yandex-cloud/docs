@@ -96,7 +96,8 @@ The maximum string length in characters is 400. ||
         "pubSubChannels": "string",
         "categories": "string",
         "commands": "string",
-        "sanitizePayload": "string"
+        "sanitizePayload": "string",
+        "databases": "string"
       },
       "enabled": "boolean",
       "aclOptions": "string"
@@ -162,4 +163,7 @@ Commands user can execute. ||
 || sanitizePayload | **string**
 
 SanitizePayload parameter. ||
+|| databases | **string**
+
+Databases parameter. ||
 |#

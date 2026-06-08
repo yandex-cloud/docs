@@ -7,7 +7,7 @@ description: This section contains the {{ cns-name }} release notes.
 
 ## Q1 2026 {#q1-2026}
 
-Added the ability to create SMS templates for channels with an individual sender. Templates define the SMS notification type: transactional, authentication, or service. If the message text does not match any of the templates, such message is classified as an ad. [Sending costs](pricing.md) vary by notification type. In {{ cns-name }}, you can create an SMS template and register it with telecom providers.
+Added the ability to create SMS templates for channels with an individual sender. Templates define the SMS notification type: transactional, authorization, or service. If the message text does not match any of the templates, such message is classified as an ad. [Sending costs](pricing.md) vary by notification type. In {{ cns-name }}, you can create an SMS template and register it with telecom providers.
 
 Read more in [{#T}](concepts/sms.md#templates).
 

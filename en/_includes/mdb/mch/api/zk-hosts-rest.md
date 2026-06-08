@@ -1,4 +1,4 @@
-1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it in an environment variable:
+1. [Get an IAM token for API authentication](../../../../managed-clickhouse/api-ref/authentication.md) and put it into an environment variable:
 
     {% include [api-auth-token](../../api-auth-token.md) %}
 
@@ -38,13 +38,13 @@
       * `diskSize`: Disk size, in bytes.
       * `diskTypeId`: [Disk type](../../../../managed-clickhouse/concepts/storage.md).
 
-    * `hostSpecs`: Array of settings for the new hosts. Each array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts. An array element has the following structure:
+    * `hostSpecs`: Array of settings for the new hosts. One array element contains settings for a single host and the cluster must have at least three {{ ZK }} hosts. An array element has the following structure:
 
-      * `type`: Host type, `ZOOKEEPER`.
+      * `type`: `ZOOKEEPER` host type.
       * `zoneId`: Availability zone.
       * `subnetId`: Subnet ID.
 
-    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. This will automatically convert [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication) ones.
+    * `convertTablesToReplicated`: Converting non-replicated tables to [replicated](../../../../managed-clickhouse/concepts/replication.md#replicated-tables) ones, `true` or `false`. This will automatically convert non-replicated tables [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) tables to [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)-based replicated ones.
 
       {% note warning %}
 
@@ -52,6 +52,6 @@
 
       {% endnote %}
 
-    You can get the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](../../../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
 1. View the [server response](../../../../managed-clickhouse/api-ref/Cluster/addZookeeper.md#responses) to make sure your request was successful.

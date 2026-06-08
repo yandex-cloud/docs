@@ -46,6 +46,8 @@ items:
                 href: operations/servers/reinstall-os-from-own-image.md
           - name: Настроить дополнительную приватную подсеть
             href: operations/servers/set-up-tagged-vlan.md
+          - name: Изменить тип сети, подключенной к сетевому интерфейсу
+            href: operations/servers/switch-network-type.md
           - name: Настроить группу агрегирования MC-LAG
             href: operations/servers/set-up-mc-lag.md
           - name: Сбросить пароль на сервере
@@ -66,6 +68,8 @@ items:
             href: operations/subnet-create.md
           - name: Заказать выделенную публичную подсеть
             href: operations/reserve-public-subnet.md
+          - name: Удалить выделенную публичную подсеть
+            href: operations/delete-public-subnet.md
           - name: Создать приватное соединение с облачными сетями
             href: operations/create-vpc-connection.md
           - name: Создать статический маршрут

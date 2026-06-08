@@ -130,6 +130,7 @@ To get the endpoint ID, make an [EndpointService.List](/docs/data-transfer/api-r
       ],
       "slot_byte_lag_limit": "int64",
       "service_schema": "string",
+      "collapse_inherit_table": "bool",
       "object_transfer_settings": {
         "sequence": "ObjectTransferStage",
         "sequence_owned_by": "ObjectTransferStage",
@@ -1068,6 +1069,9 @@ Default is 50 gigabytes ||
 Name of the database schema in which auxiliary tables needed for the transfer
 will be created (__consumer_keeper, __data_transfer_mole_finder).
 Empty `service_schema` implies schema `public` ||
+|| collapse_inherit_table | **bool**
+
+Will collapse pg_inherit table into one big table in replication process ||
 || object_transfer_settings | **[PostgresObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.PostgresObjectTransferSettings)**
 
 Defines which database schema objects should be transferred, e.g. views,

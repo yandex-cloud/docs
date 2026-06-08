@@ -14,11 +14,11 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся ресурсы, наблюдаемые в {{ monitoring-name }}.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. [Создайте функцию](../../../functions/operations/function/function-create.md) и [версию функции](../../../functions/operations/function/version-manage.md).
   1. Включите в настройках функции [возможность асинхронного вызова](../../../functions/operations/function/function-invoke-async.md).
   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`, он потребуется для вызова функции.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
+  1. Перейдите в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений.
   1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите **{{ sf-name }}**.

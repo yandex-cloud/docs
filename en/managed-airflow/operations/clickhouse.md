@@ -15,9 +15,9 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
    * **Password**: `admin-password`
 
    {% note warning %}
-   
+
    You cannot create a database named `default`.
-   
+
    {% endnote %}
 
 1. [Create](../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket to store the DAG file in.
@@ -30,7 +30,7 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 
 1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
@@ -42,9 +42,9 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 
 [Create a {{ lockbox-name }}](../../lockbox/operations/secret-create.md) secret with the following parameters:
    * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/ch`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: `Custom`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Select **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** and specify the following contents:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
       ```json
       {

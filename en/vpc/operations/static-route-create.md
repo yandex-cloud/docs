@@ -15,13 +15,13 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
 - Management console {#console}
 
-  To create a route table and add [static routes](../concepts/routing.md) to it:
+  To create a route table with [static routes](../concepts/routing.md):
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a static route.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a static route.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
-  1. Enter a name for the route table. The naming requirements are as follows:
+  1. Enter a name for the route table. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -36,14 +36,14 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   To use static routes, associate the route table with a subnet:
 
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. In the row of the subnet you need, click ![image](../../_assets/console-icons/ellipsis.svg).
+  1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-  1. In the window that opens, select the created table from the list.
+  1. In the window that opens, select your route table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 
-  To create a route table and add [static routes](../concepts/routing.md) to it:
+  To create a route table with [static routes](../concepts/routing.md):
 
   1. View the description of the CLI command for creating route tables:
 
@@ -51,7 +51,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
       yc vpc route-table create --help
       ```
 
-  1. Get the IDs of cloud networks in your cloud:
+  1. Get your cloud network ID:
 
       ```bash
       yc vpc network list
@@ -100,9 +100,9 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
         next_hop_address: 192.168.1.5
       ```
 
-  To use static routes, associate the route table with a subnet:
+  Link your route table to a subnet that will use its static routes:
 
-  1. Get a list of subnets in your cloud:
+  1. Get a list your cloud subnets:
 
       ```bash
       yc vpc subnet list
@@ -146,19 +146,19 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To create a route table and add [static routes](../concepts/routing.md) to it:
+  To create a route table with [static routes](../concepts/routing.md):
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
-     * `name`: Name of the route table. The name format is as follows:
+     * `name`: Route table name. Use the following name format:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
-     * `network_id`: ID of the network where the table will be created.
+     * `network_id`: ID of the network to host the table.
      * `static_route`: Static route description:
 
         * `destination_prefix`: Destination subnet prefix in CIDR notation.
-        * `next_hop_address`: Internal IP address of the VM from the [allowed ranges](../concepts/network.md#subnet) the traffic will be routed through.
+        * `next_hop_address`: Gateway VM internal IP address serving as the next hop for the [allowed](../concepts/network.md#subnet) traffic.
 
      Here is an example of the configuration file structure:
 
@@ -175,30 +175,30 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
 
      To add, update, or delete a route table, use the `yandex_vpc_route_table` resource indicating the network in the `network_id` field, e.g., `network_id = yandex_vpc_network.test_route_table.id`.
 
-     For more information about the `yandex_vpc_route_table` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+     For more information about the `yandex_vpc_route_table` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
-  1. Make sure the configuration files are correct.
+  1. Make sure your configuration files are correct.
 
-     1. In the command line, go to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their parameters. If the configuration contains any errors, {{ TF }} will point them out.
+     If the configuration is described correctly, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+     1. Confirm creating the resources: type `yes` and press **Enter**.
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
+        This will create all the resources you need in the specified folder. You can see their detailed description using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
         ```bash
         yc vpc route-table list
@@ -219,7 +219,7 @@ VMs with public IP addresses use the default static route (`0.0.0.0/0`). If you 
   To create a route table and add [static routes](../concepts/routing.md) to it, use the [create](../api-ref/RouteTable/create.md) REST API method for the [RouteTable](../api-ref/RouteTable/index.md) resource or the [RouteTableService/Create](../api-ref/grpc/RouteTable/create.md) gRPC API call, and provide the following in the request:
 
   * ID of the folder the route table will reside in, in the `folderId` parameter.
-  * Route table name in the `name` parameter. The name format is as follows:
+  * Route table name in the `name` parameter. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 
@@ -297,7 +297,7 @@ Create a route table and associate it with your subnet. The example uses the fol
       }
       ```
 
-      For more information about the resources you can create with {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/vpc_route_table).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_route_table).
 
   1. Make sure the settings are correct.
 

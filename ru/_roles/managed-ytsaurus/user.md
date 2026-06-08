@@ -1,9 +1,9 @@
-Роль `managed-ytsaurus.user` позволяет выполнять базовые операции с кластерами YTsaurus.
+Роль `managed-ytsaurus.user` позволяет выполнять базовые операции с кластерами {{ ytsaurus-name }}.
 
 Пользователи с этой ролью могут:
-* использовать веб-интерфейс YTsaurus;
-* просматривать информацию о кластерах YTsaurus;
-* просматривать информацию о [квотах](../../managed-ytsaurus/concepts/limits.md#quotas) сервиса Managed Service for YTsaurus;
-* просматривать информацию об операциях с ресурсами сервиса Managed Service for YTsaurus.
+* использовать веб-интерфейс {{ ytsaurus-name }};
+* просматривать информацию о кластерах {{ ytsaurus-name }};
+* просматривать информацию о [квотах](../../managed-ytsaurus/concepts/limits.md#quotas) сервиса {{ myt-name }};
+* просматривать информацию об операциях с ресурсами сервиса {{ myt-name }}.
 
 Включает разрешения, предоставляемые ролью `managed-ytsaurus.viewer`.

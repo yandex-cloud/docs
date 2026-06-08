@@ -13,9 +13,9 @@ To update a secret:
 
     1. In the [management console]({{ link-console-main }}), select the folder the secret belongs to.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.label_section-secrets }}**.
+    1. In the left-hand menu, select **{{ ui-key.yacloud.lockbox.routes.label_section-secrets }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the secret and select **{{ ui-key.yacloud.common.edit }}**.
-    1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.forms.field_deletion-protection }}**.
+    1. Update the name and description of the secret. If necessary, select **{{ ui-key.yacloud.lockbox.BaseInfoSection.field_deletion-protection }}**.
     1. Change the secret type and specify either key and value or value generation parameters.
         
         When you change the secret type, key, or generation parameters, a new version will be created.

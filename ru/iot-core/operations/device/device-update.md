@@ -1,5 +1,7 @@
 # Изменение устройства
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Вы можете изменить [имя](device-update.md#update-name) или [описание](device-update.md#update-description) устройства.
 
 Для обращения к устройству используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя устройства, читайте в разделе [{#T}](device-list.md).
@@ -13,7 +15,7 @@
    Чтобы изменить имя устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить имя устройства.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.
@@ -109,7 +111,7 @@
    Чтобы изменить описание устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите изменить описание устройства.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Выберите в списке нужный реестр.
    1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Справа от имени нужного устройства нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.edit }}**.

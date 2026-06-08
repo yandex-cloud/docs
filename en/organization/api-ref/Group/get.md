@@ -24,7 +24,6 @@ apiPlayground:
 # Identity Hub API, REST: Group.Get
 
 Returns the specified Group resource.
-
 To get the list of available Group resources, make a [List](/docs/organization/api-ref/Group/list#List) request.
 
 ## HTTP request

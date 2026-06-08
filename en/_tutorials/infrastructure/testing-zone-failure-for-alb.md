@@ -1,5 +1,6 @@
 # Fault tolerance testing in the {{ yandex-cloud }} infrastructure based on {{ alb-full-name }}
 
+
 This guide covers the practical aspects of the fault tolerance testing routine outlined in [Recommendations on fault tolerance in {{ yandex-cloud }}](../../architecture/fault-tolerance.md), for the {{ yandex-cloud }} infrastructure based on L7 [{{ alb-name }}](../../application-load-balancer/concepts/application-load-balancer.md). It is assumed that the principles behind the subject infrastructure are aligned with the principles discussed in the article.
 
 ## Goals of testing {#goals}

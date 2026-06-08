@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как получить сп
 
 # Управление сертификатами брокера
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 Чтобы начать обмен сообщениями между клиентами брокера, необходимо [авторизоваться](../../concepts/authorization.md). В данном разделе описано, как управлять сертификатами брокера для соответствующего способа авторизации.
@@ -28,7 +30,7 @@ description: Из статьи вы узнаете, как получить сп
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат брокера.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите в списке нужный брокер.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}** и нажмите кнопку **{{ ui-key.yacloud.component.certificates.button_empty-add }}**.
@@ -153,7 +155,7 @@ description: Из статьи вы узнаете, как получить сп
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого хотите удалить сертификат брокера.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
    1. Выберите в списке нужный брокер.
    1. На странице **{{ ui-key.yacloud.common.overview }}** перейдите к разделу **{{ ui-key.yacloud.iot.label_certificates }}**.

@@ -8,11 +8,20 @@ description: Следуя данной инструкции, вы сможете
 
 После создания ВМ вы можете изменить ее вычислительные ресурсы. Как изменить имя, описание и метки ВМ читайте в разделе [{#T}](vm-update.md).
 
+{% note warning %}
+
+При изменении вычислительных ресурсов ВМ они могут быть перераспределены равномерно по двум [NUMA](https://ru.wikipedia.org/wiki/Неоднородный_доступ_к_памяти)-узлам физического сервера. Это приводит к смене PCI-топологии и возможному изменению адреса сетевого адаптера на PCI-шине.
+
+Учитывайте это при работе с операционными системами, чувствительными к таким изменениям. Например, в ОС Windows настройки сетевого адаптера могут быть сброшены к значениям по умолчанию — получение сетевых настроек по [DHCP](https://ru.wikipedia.org/wiki/DHCP). Как следствие, доступ к ВМ может быть потерян.
+
+{% endnote %}
+
 ## Изменить конфигурацию vCPU и RAM {#update-vcpu-ram}
 
 В этом разделе приведена инструкция для изменения количества и производительности ядер процессора (vCPU), а также количества памяти (RAM).
 
 {% note warning %}
+
 
 {% include [vcpu-note](../../../_includes/compute/vcpu-note.md) %}
 
@@ -25,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить vCPU и RAM ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -96,13 +105,15 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+## Добавить GPU к существующей виртуальной машине {#add-gpu}
+
 {% note warning %}
 
-При изменении ресурсов ВМ возможна смена PCI-топологии. Учитывайте это при работе с операционными системами, чувствительными к таким изменениям. Например, при сильно измененных настройках сети в Windows Server возможна потеря сетевой связанности и, как следствие, пропадание доступа к ВМ.
+{% include [gpu-add-to-vm-notice](../../../_includes/compute/gpu-add-to-vm-notice.md) %}
+
+{% include [gpu-driver-versions](../../../_includes/compute/gpu-driver-versions.md) %}
 
 {% endnote %}
-
-## Добавить GPU к существующей виртуальной машине {#add-gpu}
 
 Чтобы добавить [GPU](../../concepts/gpus.md) к существующей ВМ, измените платформу и укажите количество GPU.
 
@@ -113,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить количество GPU на ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -195,6 +206,14 @@ description: Следуя данной инструкции, вы сможете
 
 ## Изменить количество GPU {#update-gpu}
 
+{% note warning %}
+
+{% include [gpu-add-to-vm-notice](../../../_includes/compute/gpu-add-to-vm-notice.md) %}
+
+{% include [gpu-driver-versions](../../../_includes/compute/gpu-driver-versions.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -202,7 +221,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
@@ -293,7 +312,7 @@ description: Следуя данной инструкции, вы сможете
   Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. Нажмите на имя нужной ВМ.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.

@@ -1,6 +1,6 @@
 ---
-title: '{{ kafka-ui }} web UI for {{ KF }}'
-description: In this tutorial, you will learn about the capabilities of the {{ kafka-ui }} web interface for {{ KF }}.
+title: How to enable the {{ kafka-ui }} web interface for {{ KF }}
+description: In this tutorial, you will learn how to enable the {{ kafka-ui }} web interface for {{ KF }}.
 ---
 
 # {{ kafka-ui }} web interface for {{ KF }}
@@ -60,7 +60,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
           }
         }
         ```
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -103,7 +103,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
         * `updateMask`: Comma-separated string of settings to update. Specify `configSpec.kafkaUiConfig.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `configSpec.kafkaUiConfig.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -148,7 +148,7 @@ To work with {{ mkf-name }} clusters, you can use {{ kafka-ui }}. It will help y
         * `update_mask`: List of settings to update as an array of strings (`paths[]`). Specify `config_spec.kafka_ui_config.enabled` to update the setting for enabling {{ kafka-ui }}.
         * `config_spec.kafka_ui_config.enabled`: Set to `true` to enable {{ kafka-ui }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

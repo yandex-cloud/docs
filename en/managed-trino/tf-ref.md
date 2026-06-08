@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} reference for {{ mtr-full-name }}'
+description: This page lists {{ TF }} provider resources and data sources supported by {{ mtr-name }}.
+---
+
 # {{ TF }} reference for {{ mtr-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}
@@ -10,7 +15,8 @@
 | --- | --- |
 | [yandex_trino_cluster]({{ tf-provider-resources-link }}/trino_cluster) | Cluster |
 | [yandex_trino_cluster_iam_binding]({{ tf-provider-resources-link }}/trino_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
-| [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Catalog |
+| [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Folder |
+| [yandex_trino_access_control]({{ tf-provider-resources-link }}/trino_access_control) | Setting up object access rules |
 
 ## Data sources {#data-sources}
 
@@ -20,3 +26,4 @@
 | --- | --- |
 | [yandex_trino_cluster]({{ tf-provider-datasources-link }}/trino_cluster) | [{{ TR }} cluster](./concepts/index.md#cluster-architecture) information |
 | [yandex_trino_catalog]({{ tf-provider-datasources-link }}/trino_catalog) | [{{ TR }} catalog](./concepts/index.md#catalog) information |
+| [yandex_trino_access_control]({{ tf-provider-datasources-link }}/trino_access_control) | Information about [object access rules in {{ TR }}](./concepts/access-control.md) |

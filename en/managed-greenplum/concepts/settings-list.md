@@ -1,6 +1,6 @@
-# {{ GP }} settings
+# DBMS settings
 
-For {{ mgp-name }} clusters, you can configure {{ GP }} settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
+In {{ mgp-name }}, you can configure DBMS-related settings. Some settings are configured [at the cluster level](#dbms-cluster-settings), while others, at the level of external data sources, such as [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
 
 The label next to the setting name helps determine which interface is used to set the value of this setting: the management console, CLI, API, SQL, or Terraform. The {{ tag-all }} label means you can use any of the above interfaces.
 
@@ -9,23 +9,24 @@ The name for a setting depends on the interface you use. For example, **max_conn
 * `max_connections` in the gRPC API
 * `maxConnections` in the REST API
 
-## Settings depending on the storage size {#settings-instance-dependent}
+## Settings dependent on storage size {#settings-instance-dependent}
 
-The values of some {{ GP }} settings may be automatically adjusted when you change the storage size:
+Some DBMS setting values may be automatically changed as you edit storage size:
 
-* If the values were not specified or are not suitable for the new size, the default settings for this size will apply.
-* If the settings you specified manually are suitable for the new size, they will be preserved.
+* If no values are set or the values are not compatible with the new size, the defaults for this size will apply.
+* If the settings you specify manually are compatible with the new size, they will not be changed.
 
-The settings that depend on the storage size are:
+Settings dependent on storage size:
 
 * [gp_workfile_limit_per_segment](#setting-gp-workfile-limit-per-segment)
 * [max_slot_wal_keep_size](#setting-max-slot-wal-keep-size)
 
 ## Cluster-level DBMS settings {#dbms-cluster-settings}
 
-This section contains information about {{ GP }} configuration properties users can edit by themselves, as well as important default properties that cannot be edited by users.
+This section contains information about DBMS configuration settings that can be edited by the user as well as important default settings the user cannot edit.
 
-The list of properties partially duplicates the one found in the [official documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html).
+The list of settings partially duplicates the one found in the
+[official guides]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html).
 
 The important distinctions of this list of parameters are the following:
 
@@ -79,7 +80,7 @@ The following settings are available:
 
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
-    Database URL. Examples:
+    Database URL. Here are some examples:
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
@@ -219,7 +220,7 @@ The following settings are available:
 
 * **Ppd**{#setting-ppd} {{ tag-con }} {{ tag-api }}
 
-    This setting determines whether predicate pushdown is enabled for external table queries. Enabled by default.
+    This setting determines whether predicate pushdown is enabled for external table queries. This parameter is enabled by default.
 
     For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
@@ -234,3 +235,5 @@ The following settings are available:
 * **Auth Kerberos Principal**{#setting-auth-kerberos-principal} {{ tag-con }} {{ tag-api }}
 
     Kerberos server principal.
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

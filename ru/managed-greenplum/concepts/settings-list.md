@@ -1,6 +1,6 @@
-# Настройки {{ GP }}
+# Настройки СУБД
 
-Для кластера в сервисе {{ mgp-name }} можно задать настройки, которые относятся к {{ GP }}. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — на уровне внешних источников данных: [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
+В сервисе {{ mgp-name }} можно задать настройки, которые относятся к СУБД. Часть настроек задается [на уровне кластера](#dbms-cluster-settings), часть — на уровне внешних источников данных: [S3](#s3-settings), [JDBC](#jdbc-settings), [HDFS](#hdfs-settings), [Hive](#hive-settings).
 
 Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md), SQL или Terraform. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
 
@@ -11,7 +11,7 @@
 
 ## Зависимость настроек от размера хранилища {#settings-instance-dependent}
 
-Значения некоторых настроек {{ GP }} могут быть автоматически скорректированы при изменении размера хранилища:
+Значения некоторых настроек СУБД могут быть автоматически скорректированы при изменении размера хранилища:
 
 * Если значения не были заданы или не подходят новому размеру, будут применены настройки по умолчанию для этого размера.
 * Если заданные вручную настройки подходят для нового размера, они не будут изменены.
@@ -23,18 +23,13 @@
 
 ## Настройки СУБД уровня кластера {#dbms-cluster-settings}
 
-Данный раздел содержит информацию о конфигурационных параметрах {{ GP }},
-доступных для редактирования силами пользователя,
-а также важных параметров по умолчанию, которые пользователь не может редактировать.
+Раздел содержит информацию о конфигурационных параметрах СУБД, доступных для редактирования силами пользователя, а также тех параметрах по умолчанию, которые пользователь не может редактировать.
 
-Список параметров отчасти дублирует тот, что есть в
-[официальной документации]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html).
+Некоторые параметры для сервиса {{ mgp-name }} отличаются от приведенных в [официальной документации](https://cloudberry.apache.org/docs/config-params-guc-list/), в частности:
 
-Важное отличие данного списка параметров заключается в следующем:
-
-- в рамках сервиса для некоторых параметров отличаются возможные (граничные) значения;
-- в рамках сервиса для некоторых параметров отличаются значения по умолчанию;
-- в рамках сервиса есть некоторые параметры, cпецифичные для сборки [open-gpdb](https://github.com/open-gpdb/gpdb).
+- отличаются возможные (граничные) значения;
+- отличаются значения по умолчанию;
+- есть параметры, cпецифичные для сборки [open-gpdb](https://github.com/open-gpdb/gpdb).
 
 {% include [mgp-dbms-settings](../../_includes/mdb/mgp/dbms-settings.md) %}
 
@@ -46,13 +41,9 @@
 
     Публичный ключ доступа к S3-хранилищу.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
-
 * **Secret Key**{#setting-secret-key} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Секретный ключ доступа к S3-хранилищу.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 * **Fast Upload**{#setting-fast-upload} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -60,13 +51,9 @@
 
     По умолчанию быстрая загрузка включена.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
-
 * **Endpoint**{#setting-endpoint} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Адрес S3-хранилища. Значение для {{ objstorage-full-name }} — `{{ s3-storage-host }}`. Это значение используется по умолчанию.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/s3_objstore_cfg.html#minio_cfg).
 
 ## Настройки внешнего источника данных JDBC {#jdbc-settings}
 
@@ -78,27 +65,19 @@
 
     {% include [JBDC driver](../../_includes/mdb/mgp/jdbc-driver.md) %}
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **Url**{#setting-url} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     URL базы данных. Примеры:
 
     {% include [URL examples](../../_includes/mdb/mgp/url-examples.md) %}
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **User**{#setting-user} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Имя пользователя, владельца БД.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
-
 * **Password**{#setting-password} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Пароль пользователя БД.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#cfg_server).
 
 * **Statement Batch Size**{#setting-statement-batch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -106,15 +85,11 @@
 
     Значение по умолчанию — `100`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
-
 * **Statement Fetch Size**{#setting-statement-fetch-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Количество строк, которые нужно поместить в буфер при чтении из внешней таблицы.
 
     Значение по умолчанию — `1000`.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
 
 * **Statement Query Timeout**{#setting-statement-query-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -122,13 +97,9 @@
 
     Значение по умолчанию — `60`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#stateprop).
-
 * **Pool Enabled**{#setting-pool-enabled} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Определяет, используется ли пул подключений JDBC. По умолчанию используется.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Maximum Size**{#setting-pool-maximum-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -136,15 +107,11 @@
 
     Значение по умолчанию — `5`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
-
 * **Pool Connection Timeout**{#setting-pool-connection-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Максимальное время (в миллисекундах) для ожидания подключения из пула.
 
     Значение по умолчанию — `30000`.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 * **Pool Idle Timeout**{#setting-pool-idle-timeout} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -152,15 +119,11 @@
 
     Значение по умолчанию — `30000`.
 
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
-
 * **Pool Minimum Idle**{#setting-pool-minimum-idle} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
     Минимальное количество простаивающих подключений в пуле.
 
     Значение по умолчанию — `0`.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/jdbc_cfg.html#jdbcconpool).
 
 ## Настройки внешнего источника данных HDFS {#hdfs-settings}
 
@@ -223,8 +186,6 @@
 * **Ppd**{#setting-ppd} {{ tag-con }} {{ tag-api }}
 
     Определяет, включено ли выталкивание предикатов (predicate pushdown) для запросов к внешним таблицам. По умолчанию включено.
-
-    Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/cfg_server.html#pxf-site).
 
 * **Metastore Uris**{#setting-metastore-uris} {{ tag-con }} {{ tag-api }}
 

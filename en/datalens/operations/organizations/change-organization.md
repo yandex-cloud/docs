@@ -11,5 +11,5 @@ To switch to a different {{ datalens-short-name }} instance:
 
 1. Select the organization you want to switch to from the list:
 
-   * If the selected an organization has {{ datalens-short-name }} activated, its instance will open.
+   * If the selected organization has {{ datalens-short-name }} activated, its instance will open.
    * If {{ datalens-short-name }} is not activated in the selected organization, you need to [activate](../../quickstart.md#before-you-begin) it.

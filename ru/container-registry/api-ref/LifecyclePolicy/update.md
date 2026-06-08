@@ -218,9 +218,7 @@ The minimum value is 0. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "lifecyclePolicyId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -229,23 +227,7 @@ The minimum value is 0. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "name": "string",
-    "repositoryId": "string",
-    "description": "string",
-    "status": "string",
-    "createdAt": "string",
-    "rules": [
-      {
-        "description": "string",
-        "expirePeriod": "string",
-        "tagRegexp": "string",
-        "untagged": "boolean",
-        "retainedTop": "string"
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -287,7 +269,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateLifecyclePolicyMetadata](#yandex.cloud.containerregistry.v1.UpdateLifecyclePolicyMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -302,7 +284,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[LifecyclePolicy](#yandex.cloud.containerregistry.v1.LifecyclePolicy)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -317,15 +299,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateLifecyclePolicyMetadata {#yandex.cloud.containerregistry.v1.UpdateLifecyclePolicyMetadata}
-
-#|
-||Field | Description ||
-|| lifecyclePolicyId | **string**
-
-ID of the lifecycle policy resource that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -343,72 +316,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## LifecyclePolicy {#yandex.cloud.containerregistry.v1.LifecyclePolicy}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the lifecycle policy. ||
-|| name | **string**
-
-Name of the lifecycle policy. ||
-|| repositoryId | **string**
-
-ID of the repository that the lifecycle policy belongs to.
-Required. The maximum string length in characters is 50. ||
-|| description | **string**
-
-Description of the lifecycle policy.
-The maximum string length in characters is 256. ||
-|| status | **enum** (Status)
-
-Status of lifecycle policy.
-
-- `ACTIVE`: Policy is active and regularly deletes Docker images according to the established rules.
-- `DISABLED`: Policy is disabled and does not delete Docker images in the repository.
-Policies in this status can be used for preparing and testing rules. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| rules[] | **[LifecycleRule](#yandex.cloud.containerregistry.v1.LifecycleRule2)**
-
-The rules of lifecycle policy. ||
-|#
-
-## LifecycleRule {#yandex.cloud.containerregistry.v1.LifecycleRule2}
-
-#|
-||Field | Description ||
-|| description | **string**
-
-Description of the lifecycle policy rule.
-
-The maximum string length in characters is 256. ||
-|| expirePeriod | **string** (duration)
-
-Period of time for automatic deletion.
-Period must be a multiple of 24 hours. ||
-|| tagRegexp | **string**
-
-Tag for specifying a filter in the form of a regular expression.
-
-The maximum string length in characters is 256. ||
-|| untagged | **boolean**
-
-Tag for applying the rule to Docker images without tags. ||
-|| retainedTop | **string** (int64)
-
-Number of Docker images (falling under the specified filter by tags) that must be left, even if the expire_period has already expired.
-
-The minimum value is 0. ||
 |#

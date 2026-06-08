@@ -22,7 +22,7 @@ SELECT * FROM clickhouse_mdb_connection.my_table
 Чтобы создать соединение с {{ mch-name }}:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
 1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
 1. Укажите параметры соединения:
@@ -71,7 +71,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 Ограничения:
 1. {% include [!](_includes/supported_requests.md) %}
 1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
-В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
+В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
@@ -98,7 +98,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Поддерживаемые типы данных {#supported_types}
 
-По умолчанию в {{ CH }} колонки физически не могут содержать значение `NULL`, однако пользователь имеет возможность создать таблицу с колонками опциональных, или [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) типов. Типы колонок, отображаемые {{ yq-full-name }} при извлечении данных из внешнего источника {{ CH }}, будут зависеть от того, используются ли в таблице {{ CH }} примитивные или опциональные типы. 
+По умолчанию в {{ CH }} колонки физически не могут содержать значение `NULL`, однако пользователь имеет возможность создать таблицу с колонками опциональных, или [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) типов. Типы колонок, отображаемые {{ yq-full-name }} при извлечении данных из внешнего источника {{ CH }}, будут зависеть от того, используются ли в таблице {{ CH }} примитивные или опциональные типы. 
 
 Ниже приведены таблицы соответствия типов {{ CH }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
 

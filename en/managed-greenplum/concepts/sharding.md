@@ -3,9 +3,9 @@ title: Sharding in {{ mgp-full-name }}
 description: In this tutorial, you will learn about sharding and the distribution key.
 ---
 
-# Sharding in {{ GP }}
+# Sharding in {{ mgp-name }}
 
-_Sharding_ is a horizontal {{ GP }} cluster scaling strategy where parts of each database table are placed on different segment hosts. Every write or read request in {{ GP }} utilizes all cluster segments.
+_Sharding_ is a horizontal {{ mgp-name }} cluster scaling strategy that spreads parts of each database table across different segment hosts. Every write or read request in {{ mgp-name }} utilizes all cluster segments.
 
 ## Distribution key {#distribution-key}
 
@@ -34,5 +34,3 @@ If you choose a key incorrectly, most of the data might be stored in a single se
 If you do not specify a distribution key when creating a table, data will be distributed across host segments either by the primary key (if specified) or by the first table field.
 
 {% endnote %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

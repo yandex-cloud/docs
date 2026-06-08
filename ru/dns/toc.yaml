@@ -43,6 +43,10 @@ items:
         items:
           - name: Создать фильтр
             href: operations/filter-create.md
+      - name: DNS-подключения
+        items:
+          - name: Создать входящее DNS-подключение
+            href: operations/connection-inbound-create.md
   - name: Концепции
     items:
       - name: Обзор
@@ -55,6 +59,8 @@ items:
         href: concepts/dns-filter.md
       - name: DNS-резолвер
         href: concepts/dns-resolver.md
+      - name: DNS-подключения
+        href: concepts/dns-connection.md
       - name: Интеграция с {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Квоты и лимиты
@@ -147,6 +153,34 @@ items:
             href: cli-ref/firewall/set-access-bindings.md
           - name: update
             href: cli-ref/firewall/update.md
+      - name: inbound-endpoint
+        items:
+          - name: Overview
+            href: cli-ref/inbound-endpoint/index.md
+          - name: add-access-binding
+            href: cli-ref/inbound-endpoint/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/inbound-endpoint/add-labels.md
+          - name: create
+            href: cli-ref/inbound-endpoint/create.md
+          - name: delete
+            href: cli-ref/inbound-endpoint/delete.md
+          - name: get
+            href: cli-ref/inbound-endpoint/get.md
+          - name: list
+            href: cli-ref/inbound-endpoint/list.md
+          - name: list-access-bindings
+            href: cli-ref/inbound-endpoint/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/inbound-endpoint/list-operations.md
+          - name: remove-access-binding
+            href: cli-ref/inbound-endpoint/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/inbound-endpoint/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/inbound-endpoint/set-access-bindings.md
+          - name: update
+            href: cli-ref/inbound-endpoint/update.md
       - name: v0
         items:
           - name: Overview
@@ -187,6 +221,34 @@ items:
                 href: cli-ref/v0/firewall/set-access-bindings.md
               - name: update
                 href: cli-ref/v0/firewall/update.md
+          - name: inbound-endpoint
+            items:
+              - name: Overview
+                href: cli-ref/v0/inbound-endpoint/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/inbound-endpoint/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/inbound-endpoint/add-labels.md
+              - name: create
+                href: cli-ref/v0/inbound-endpoint/create.md
+              - name: delete
+                href: cli-ref/v0/inbound-endpoint/delete.md
+              - name: get
+                href: cli-ref/v0/inbound-endpoint/get.md
+              - name: list
+                href: cli-ref/v0/inbound-endpoint/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/inbound-endpoint/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/inbound-endpoint/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/inbound-endpoint/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/inbound-endpoint/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/inbound-endpoint/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/inbound-endpoint/update.md
           - name: zone
             items:
               - name: Overview

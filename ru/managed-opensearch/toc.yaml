@@ -70,6 +70,8 @@ items:
         href: tutorials/trails-to-opensearch.md
       - name: Аутентификация в {{ OS }} Dashboards с помощью {{ keycloak }}
         href: tutorials/saml-keycloak.md
+      - name: Подключение MCP-клиента к {{ OS }}
+        href: tutorials/mcp.md
       - name: Использование плагина yandex-lemmer
         href: tutorials/opensearch-yandex-lemmer.md
       - name: Миграция и копирование данных

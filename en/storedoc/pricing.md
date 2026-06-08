@@ -16,7 +16,7 @@ This section describes the {{ mmg-name }} pricing [policy](#rules) and [current 
 
 
 
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on our website or check out the pricing below.
+To estimate your service costs, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) or check out the pricing below.
 
 
 {% endnote %}
@@ -70,8 +70,6 @@ You are billed for the following:
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 

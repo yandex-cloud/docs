@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 
@@ -130,35 +130,18 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса `yandex_cdn_resource`:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth-токен>"
-        cloud_id  = "<идентификатор_облака>"
-        folder_id = "<идентификатор_каталога>"
-        zone      = "<зона_доступности>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            edge_cache_settings    = "345600"
-            browser_cache_settings = "1800"
-            ignore_cookie          = true
-            ignore_query_params    = false
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          edge_cache_settings    = "345600"
+          browser_cache_settings = "1800"
+          ignore_cookie          = true
+          ignore_query_params    = false
+        }
       }
       ```
 

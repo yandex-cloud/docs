@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for Redis API, REST: ResourcePreset.Get
 
 Returns the specified resource preset.
-
 To get the list of available resource presets, make a [List](/docs/managed-redis/api-ref/ResourcePreset/list#List) request.
 
 ## HTTP request
@@ -63,7 +62,7 @@ A resource preset that describes hardware configuration for a host.
 ||Field | Description ||
 || id | **string**
 
-ID of the resource preset. ||
+Required field. ID of the resource preset. ||
 || zoneIds[] | **string**
 
 IDs of availability zones where the resource preset is available. ||

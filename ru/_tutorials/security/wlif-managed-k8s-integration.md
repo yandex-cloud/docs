@@ -4,14 +4,6 @@
 
 ![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
 
-{% note warning %}
-
-Полная интеграция с федерацией сервисных аккаунтов с использованием контроллера DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен доступна для кластеров с [актуальной версией {{ k8s }}](../../managed-kubernetes/concepts/k8s-supported-versions.md) в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`.
-
-Частичная интеграция с [ручным обменом токенов](#manual-token-exchange) сервисного аккаунта {{ k8s }} на IAM-токен доступна для кластеров со всеми актуальными версиями {{ k8s }} во всех релизных каналах.
-
-{% endnote %}
-
 В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} со стороны кластера {{ managed-k8s-name }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) {{ iam-name }}. 
 
 Аналогичным образом можно выполнить любое действие через [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), [SDK](../../overview/sdk/overview.md) или [API](../../api-design-guide/).
@@ -381,11 +373,11 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
-  1. Выберите **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите неконфиденциальный идентификатор, например `test-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите конфиденциальные данные для хранения, например `hello-world`.
+  1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите неконфиденциальный идентификатор, например `test-secret`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите конфиденциальные данные для хранения, например `hello-world`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
   1. Сохраните идентификатор секрета, он понадобится в дальнейшем.
 
@@ -476,12 +468,6 @@
 {% endlist %}
 
 ## Проверьте работу интеграции {#check-integration}
-
-{% note tip %}
-
-Ниже представлен сценарий c использованием контроллера DaemonSet `yc-metadata-server` на узлах для автоматического обмена токенов сервисного аккаунта {{ k8s }} на IAM-токен, доступный для кластеров в [релизном канале](../../managed-kubernetes/concepts/release-channels-and-updates.md) `RAPID`. Для кластеров в других релизных каналах см. подраздел [{#T}](#manual-token-exchange).
-
-{% endnote %}
 
 1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру {{ managed-k8s-name }} с помощью `kubectl`.
 1. Создайте манифест тестового пода `pod.yaml` со следующим содержимым:

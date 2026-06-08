@@ -19,7 +19,6 @@ Use the appropriate credential type for authentication:
 * [API key](api-key.md) is used for [services](api-key.md#supported-services) that do not support authentication with IAM tokens. You can limit the API key by [validity period and scope](api-key.md#scoped-api-keys).
 * [Static access key](access-key.md) is suitable for authentication in services with an AWS-compatible API, such as [{{ objstorage-full-name }}](../../../storage/index.yaml) and [{{ ydb-full-name }}](../../../ydb/index.yaml). From a static key, you can create a [temporary access key](sts.md) for {{ objstorage-name }} buckets.
 * [Authorized key](key.md) is used in cases where you need to control all stages of issuing an IAM token. You may need it when obtaining an IAM token for a [service account](../../operations/iam-token/create-for-sa#via-jwt). Authorized keys are used for authentication only by applications form [{{ marketplace-full-name }}]({{ link-cloud-marketplace }}).
-* [OAuth token](oauth-token.md) is used to obtain an IAM token on behalf of a user with a [Yandex account](../users/accounts.md#passport).
 * [ID token](id-token.md) is used to for {{ yandex-cloud }} service account authentication in third-party systems with [OIDC](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) support. It is not suitable for authentication within {{ yandex-cloud }}.
 * [Cookie](cookie.md) is only used for service purposes.
 

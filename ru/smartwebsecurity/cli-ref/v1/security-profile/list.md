@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v1/security-profile/list
 editable: false
 ---
 
@@ -59,6 +60,7 @@ Set the ID of the service account to impersonate. ||
 || `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||

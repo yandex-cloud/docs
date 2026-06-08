@@ -105,7 +105,7 @@ keywords:
   * [Модели]({{ link-docs-ai }}ai-studio/concepts/generation/models) генерации текста.
   * [Классификаторы]({{ link-docs-ai }}ai-studio/concepts/classifier/index) на базе {{ yagpt-name }}.
 * [{{ ml-platform-full-name }}](/services/datasphere/) — сервис, позволяющий создавать новые модели, а также дообучать фундаментальные, чтобы они точнее отвечали на ваши запросы. Подробнее см. в [документации](../datasphere/).
-* [{{ speechsense-full-name }}](/services/speechsense/) — сервис для организации аналитики контактных центров, использующий технологии {{ speechkit-name }} и {{ yagpt-name }}. Подробнее см. в [документации](../speechsense/).
+* [{{ speechsense-full-name }}](/services/speechsense/) — сервис для организации аналитики контактных центров, использующий технологии {{ speechkit-name }} и {{ yagpt-name }}. Подробнее см. в [документации]({{ link-docs-ai }}speechsense/).
 
 Для продвинутой работы с запросами к большим языковым моделям вы также можете изучить [Руководство по проектированию промптов]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/about).
 

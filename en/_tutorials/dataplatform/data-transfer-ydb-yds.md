@@ -9,7 +9,7 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the {{ ydb-name }} source database](#prepare-source-ydb).
 1. [Create a target stream in {{ yds-name }}](#create-target-yds).
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -66,7 +66,7 @@ Set up your infrastructure:
         * `target_db_name`: Name of the {{ ydb-name }} database for the target data stream.
         * `transfer_enabled`: `0` to ensure that no transfer is created before you [create the endpoints](#prepare-transfer).
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -91,20 +91,20 @@ Set up your infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
     - {{ ydb-short-name }} CLI {#cli}
 
         1. [Set up a connection to the {{ ydb-name }} database](../../ydb/operations/connection.md).
-        1. Make sure you can run queries using the {{ ydb-short-name }} CLI with the selected authentication mode. For example, for an [OAuth token](../../iam/concepts/authorization/oauth-token.md), run the following query:
+        1. Make sure you can run queries using the {{ ydb-short-name }} CLI with the selected authentication mode. For example, for an [IAM token](../../iam/concepts/authorization/iam-token.md):
 
             ```bash
             ydb \
               --endpoint <endpoint> \
               --database <DB_name> \
-              --yc-token-file <path_to_OAuth_token> \
+              --iam-token-file <path_to_IAM_token> \
               yql -s "SELECT 1;"
             ```
 
@@ -135,7 +135,7 @@ Set up your infrastructure:
 
 [Create a stream for the {{ yds-name }}](../../data-streams/operations/manage-streams.md#create-data-stream).
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`YDB` source endpoint](../../data-transfer/operations/endpoint/source/ydb.md):
 

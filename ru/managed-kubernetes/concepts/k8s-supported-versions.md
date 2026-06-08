@@ -10,8 +10,9 @@ description: Из статьи вы узнаете какие версии {{ k8
 #|
 || **Версия {{ k8s }}**
 
-([Даты релизов](https://kubernetes.io/releases/)) {.cell-align-center} | **Релизный канал** {.cell-align-center} | > | > | **Прекращение поддержки** {.cell-align-center} ||
-|| ^ | `RAPID` {.cell-align-center} | `REGULAR` {.cell-align-center} | `STABLE` {.cell-align-center} | ^ ||
+([Даты релизов](https://kubernetes.io/releases/)) {align="center"} | **Релизный канал** {align="center"} | > | > | **Прекращение поддержки** {align="center"} ||
+|| ^ | `RAPID` {align="center"} | `REGULAR` {align="center"} | `STABLE` {align="center"} | ^ ||
+|| {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||
 || {{ version.name }} | {{ version.rapid }} | {{ version.regular }} | {{ version.stable }} | {{ version.deprecated }} ||

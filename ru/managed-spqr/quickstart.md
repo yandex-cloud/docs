@@ -55,7 +55,7 @@ keywords:
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPQR }}.
-1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера.
 1. Выберите окружение `PRODUCTION`.
@@ -63,7 +63,7 @@ keywords:
 1. Выберите тип шардирования:
 
     * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}** — кластер будет состоять только из инфраструктурных хостов.
-    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}** — кластер будет состоять только из хостов-роутеров и (опционально) хостов-координаторов.
+    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}** — кластер будет состоять только из хостов-роутеров и хостов-координаторов.
 
 1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
@@ -87,7 +87,7 @@ keywords:
 
          Если вы собираетесь подключаться к кластеру из интернета, включите для хостов опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
 
-1. (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
+1. В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
 
 1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите параметры БД, в которой можно выполнять запросы к таблицам на шардах:
 

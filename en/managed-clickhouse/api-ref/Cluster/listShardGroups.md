@@ -56,7 +56,6 @@ GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardG
 || clusterId | **string**
 
 Required field. ID of the cluster that the shard group belongs to.
-
 To get the cluster ID, make a [ClusterService.List](/docs/managed-clickhouse/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -69,14 +68,12 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the service returns a [ListClusterShardGroupsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) that can be used to get the next page of results in subsequent list requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token.
-
 To get the next page of results, set `pageToken` to the [ListClusterShardGroupsResponse.nextPageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsResponse) returned by the previous list request.
 
 The maximum string length in characters is 100. ||
@@ -110,7 +107,6 @@ List of ClickHouse cluster's shard groups. ||
 || nextPageToken | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterShardGroupsRequest.pageSize](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest), use the `nextPageToken` as the value for the [ListClusterShardGroupsRequest.pageToken](#yandex.cloud.mdb.clickhouse.v1.ListClusterShardGroupsRequest) parameter in the next list request.
 Each subsequent list request will have its own `nextPageToken` to continue paging through the results. ||
 |#

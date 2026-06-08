@@ -1,3 +1,6 @@
-Роль `speech-sense.viewer` позволяет просматривать характеристики [проекта](../../speechsense/concepts/resources-hierarchy.md#project) или [пространства](../../speechsense/concepts/resources-hierarchy.md#space), список участников, список [подключений](../../speechsense/concepts/resources-hierarchy.md#connection) и дашборды.
+
+Роль `speech-sense.viewer` позволяет просматривать характеристики [проекта]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) или [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space), список участников, список [подключений]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) и дашборды.
 
 Включает разрешения, предоставляемые ролью `speech-sense.auditor`.
+
+

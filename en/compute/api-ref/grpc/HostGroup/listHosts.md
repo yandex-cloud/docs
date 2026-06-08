@@ -24,25 +24,23 @@ Lists hosts that belongs to the specified host group.
 ||Field | Description ||
 || host_group_id | **string**
 
-Required field. ID of the host group to list hosts for.
+ID of the host group to list hosts for.
 To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/grpc/HostGroup/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListHostGroupHostsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListHostGroupHostsResponse.next_page_token](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## ListHostGroupHostsResponse {#yandex.cloud.compute.v1.ListHostGroupHostsResponse}

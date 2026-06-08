@@ -19,7 +19,7 @@ description: При заполнении хранилища более чем н
 
 ## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
 
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. Выберите сервисный дашборд **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
@@ -92,7 +92,7 @@ description: При заполнении хранилища более чем н
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -266,7 +266,7 @@ description: При заполнении хранилища более чем н
 
 - Консоль управления {#console}
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ mpg-name }}**.
+    1. Перейдите в сервис **{{ mpg-name }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
 
@@ -370,7 +370,7 @@ description: При заполнении хранилища более чем н
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<порядковый_номер_часового_интервала>"
+                     "hour": "<час>"
                    }
                  }
                }'
@@ -395,7 +395,7 @@ description: При заполнении хранилища более чем н
      * `maintenanceWindow` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `plannedUsageThreshold`. Содержит следующие параметры:
 
        * `weeklyMaintenanceWindow.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `weeklyMaintenanceWindow.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `weeklyMaintenanceWindow.hour` — час по UTC: от `1` до `24`.
            
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -439,7 +439,7 @@ description: При заполнении хранилища более чем н
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<порядковый_номер_часового_интервала>"
+                 "hour": "<час>"
                }
              }
            }' \
@@ -462,7 +462,7 @@ description: При заполнении хранилища более чем н
      * `maintenance_window` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `planned_usage_threshold`. Содержит следующие параметры:
 
        * `weekly_maintenance_window.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `weekly_maintenance_window.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `weekly_maintenance_window.hour` — час по UTC: от `1` до `24`.
            
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 

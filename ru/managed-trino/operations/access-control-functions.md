@@ -34,7 +34,7 @@ description: Правила определяют, какие действия п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ mtr-name }}.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}** и задайте параметры кластера.
   1. В блоке **{{ ui-key.yacloud.trino.section_rbac }}** нажмите на значок ![image](../../_assets/console-icons/chevron-down.svg).
   1. В поле **{{ ui-key.yacloud.trino.label_rbac-function }}** нажмите кнопку **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
@@ -577,7 +577,7 @@ description: Правила определяют, какие действия п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. Перейдите в блок **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-function }}**.
   1. Чтобы добавить правило, нажмите кнопку **{{ ui-key.yacloud.trino.label_rbac-add-rule }}** и в открывшемся окне задайте параметры правила:

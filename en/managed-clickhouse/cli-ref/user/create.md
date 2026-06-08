@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/create
 editable: false
 ---
 
@@ -68,6 +69,20 @@ User-specific settings. Acceptable keys:
   Default value: **1000** (1 second).
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_ms).
+
+- `connect_timeout_with_failover_secure`: The timeout in milliseconds for connecting to a remote server for a Distributed table engine, for secure connections.
+
+  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+
+  Default value: **1000** (1 second).
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout_with_failover_secure_ms).
+
+- `connections_with_failover_max_tries`: The maximum number of connection attempts with each replica for the Distributed table engine.
+
+  Default value: **3**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connections_with_failover_max_tries).
 
 - `receive_timeout`: Receive timeout in milliseconds.
 
@@ -176,7 +191,7 @@ Enable this setting to achieve a smaller memory footprint on the server that sou
 
 - `distributed_ddl_output_mode`: Determines the format of distributed DDL query result.
 
-  Default value: **DISTRIBUTED_DDL_OUTPUT_MODE_THROW**.
+  Default value: **DISTRIBUTED_DDL_OUTPUT_MODE_THROW_ONLY_ACTIVE** for versions 26.3 and higher, **DISTRIBUTED_DDL_OUTPUT_MODE_THROW** for versions 26.2 and lower.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_output_mode).
 
@@ -350,6 +365,24 @@ you can use this setting to force ClickHouse to do flushing and complete aggrega
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_group_by).
 
+- `max_bytes_ratio_before_external_group_by`: The ratio of available memory that is allowed for GROUP BY. Once reached, external memory is used for aggregation.
+
+  For example, if set to 0.6, GROUP BY will allow using 60%!o(MISSING)f the available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external aggregation.
+
+  Default value: **0** for versions 24.12 and lower, **0.5** for versions 25.1 and higher.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_ratio_before_external_group_by).
+
+- `max_bytes_ratio_before_external_sort`: The ratio of available memory that is allowed for ORDER BY. Once reached, external sort is used.
+
+  For example, if set to 0.6, ORDER BY will allow using 60%!o(MISSING)f available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external sort.
+
+  Note, that max_bytes_before_external_sort is still respected, spilling to disk will be done only if the sorting block is bigger then max_bytes_before_external_sort.
+
+  Default value: **0** for versions 24.12 and lower, **0.5** for versions 25.1 and higher.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_ratio_before_external_sort).
+
 - `max_bytes_before_external_sort`: Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **ORDER BY** operation,
 should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER BY** in the external memory is disabled.
 
@@ -455,13 +488,20 @@ This value is used to compute the overcommit ratio for the user. **0** means ski
 
   Default value: **0**.
 
-  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth).
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth).
 
 - `max_network_bandwidth_for_user`: The maximum speed of data exchange over the network in bytes per second for all concurrently running user queries. **0** means unlimited.
 
   Default value: **0**.
 
-  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max-network-bandwidth-for-user).
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bandwidth_for_user).
+
+- `max_network_bytes`: Limits the data volume (in bytes) that is received or transmitted over the network when executing a query.
+This setting applies to every individual query.
+
+  Default value: **0**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_network_bytes).
 
 - `max_temporary_data_on_disk_size_for_query`: The maximum amount of data consumed by temporary files on disk in bytes for all concurrently running queries. **0** means unlimited.
 
@@ -914,7 +954,7 @@ Use this setting to command ClickHouse to compress the result when sending it vi
 
 - `http_max_field_name_size`: Maximum length of field name in HTTP header.
 
-  Default value: **131072**.
+  Default value: **4096** (4 KiB) for versions 26.4 and higher, **131072** (128 KiB) for versions 26.3 and lower.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_max_field_name_size).
 
@@ -1241,9 +1281,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

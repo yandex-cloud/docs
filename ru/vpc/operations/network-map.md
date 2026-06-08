@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог с сетью, которую вы хотите изучить.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. В панели слева нажмите кнопку **Ещё**, затем — **{{ ui-key.yacloud.vpc.title_network-map-page }}**.
 
 {% endlist %}

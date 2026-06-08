@@ -20,3 +20,4 @@ The {{ yandex-cloud }} platform is hosted in four Yandex data centers. You can h
 When new availability zones appear or existing ones change location, {{ yandex-cloud }} notifies all its customers.
 
 {% endnote %}
+

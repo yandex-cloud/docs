@@ -7,6 +7,140 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.12.0 (04.06.26) {#v-1-12-0}
+
+#### Изменения в системных командах CLI {#v-1-12-0-yc}
+
+* Добавлено удаление кешированных учетных данных при повторной инициализации профиля в `yc init`.
+* OAuth-токены больше не принимаются в команде `yc init` без параметров.
+
+#### {{ interconnect-name }} {#v-1-12-0-interconnect-name}
+
+* Версия v1 для сервиса `cic` используется по умолчанию. 
+* Изменены параметры команд `yc cic`:
+  * В команды `list` добавлены параметры `--filter`, `--page-token` и `--folder-id`:
+    * `yc cic partner list`;
+    * `yc cic point-of-presence list`;
+    * `yc cic private-connection list`;
+    * `yc cic private-connection list-operations`;
+    * `yc cic public-connection list`;
+    * `yc cic public-connection list-operations`;
+    * `yc cic trunk-connection list`;
+    * `yc cic trunk-connection list-operations`;
+    * `yc cic trunk-connection list-private-connections`;
+    * `yc cic trunk-connection list-public-connections`.
+
+  * В команды `get` добавлен параметр `--id`:
+    * `yc cic partner get`;
+    * `yc cic point-of-presence get`.
+
+  * В командах `batch-get` вместо параметров `--id` и `--name` используются `--private-connection-ids` и `--trunk-connection-ids`:
+    * `yc cic private-connection batch-get`;
+    * `yc cic trunk-connection batch-get`.
+
+  * В командах `move` удален параметр `--destination-folder-name`:
+    * `yc cic private-connection move`;
+    * `yc cic public-connection move`;
+    * `yc cic trunk-connection move`.
+
+  * В команды `update` добавлен параметр `--update-mask`:
+    * `yc cic private-connection update`;
+    * `yc cic trunk-connection update`.
+
+#### {{ cr-name }} {#v-1-12-0-cr-name}
+
+* Версия v1 для сервиса `cloud-router` используется по умолчанию.
+
+* Изменены параметры команд:  
+  * `yc cloud-router routing-instance list` — добавлены `--filter`, `--page-token` и `--folder-id`;;
+  * `yc cloud-router routing-instance list-operations` — добавлен `--page-token`;
+  * `yc cloud-router routing-instance move` — удален `--destination-folder-name`;
+  * `yc cloud-router routing-instance update` — добавлен `--update-mask`;
+  * `yc cloud-router routing-instance update-prefix-mask` — изменен тип `--new-mask` с `int32` на `int64`.
+
+#### {{ mmy-name }} {#v-1-12-0-managed-mysql}
+
+* Поддержаны ресурсные группы для {{ CB }}. Добавлены новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost` и `--io-limit` для команд:
+
+* Добавлен параметр `--deletion-protection` для защиты от удаления пользователей {{ MY }} для следующих команд:
+  * `yc managed-mysql user create`;
+  * `yc managed-mysql user update`.
+
+#### {{ mgp-name }} {#v-1-12-0-mgp-name}
+
+Добавлена поддержка ресурс-групп Apache Cloudberry: новые параметры `--cpu-max-percent`, `--cpu-weight`, `--memory-quota`, `--min-cost`, `--io-limit` для команд:
+  * `yc managed-greenplum resource-groups create`;
+  * `yc managed-greenplum resource-groups update`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.11.0 (28.05.26) {#v-1-11-0}
+
+#### {{ interconnect-name }} {#v-1-11-0-cic-name}
+
+* Добавлена команда `yc cic v1 private-connection batch-get` для получения списка приватных соединений по списку идентификаторов.
+
+#### {{ vpc-name }} {#v-1-11-0-vpc-name}
+
+* Добавлен параметр `--service-name` в команду `yc vpc private-endpoint create`.
+
+### Версия 1.10.0 (25.05.26) {#v-1-10-0}
+
+#### {{ mos-name }} {#v-1-10-0-mos-name}
+
+* Добавлена поддержка ролей `WARM` и `INGEST` для групп хостов.
+
+### Версия 1.9.0 (21.05.26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Добавлена группа команд `yc dns inbound-endpoint` для управления inbound endpoint:
+  * `yc dns inbound-endpoint get`;
+  * `yc dns inbound-endpoint list`;
+  * `yc dns inbound-endpoint create`;
+  * `yc dns inbound-endpoint update`;
+  * `yc dns inbound-endpoint delete`;
+  * `yc dns inbound-endpoint add-labels`;
+  * `yc dns inbound-endpoint remove-labels`;
+  * `yc dns inbound-endpoint list-access-bindings`;
+  * `yc dns inbound-endpoint set-access-bindings`;
+  * `yc dns inbound-endpoint add-access-binding`;
+  * `yc dns inbound-endpoint remove-access-binding`;
+  * `yc dns inbound-endpoint list-operations`.
+
+### Версия 1.8.1 (20.05.26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Добавлена группа команд `yc sws waf waf-profile` для управления WAF-профилями (create, get, list, update, delete) в syntax-2 CLI:
+  * `yc sws waf waf-profile create`;
+  * `yc sws waf waf-profile get`;
+  * `yc sws waf waf-profile list`;
+  * `yc sws waf waf-profile update`;
+  * `yc sws waf waf-profile delete`.
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Добавлен параметр `failover-type` для команды `start-failover`%
+  * `yc redis cluster start-failover`.
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Добавлены параметры для настройки `folder-id` для создания соединений и их секретов в интеграции Connection Manager для {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql user create`.
+
+* При детальном выводе одного пользователя удалено устаревшее поле `connection_manager` и добавлено заменяющее его u`ser_connection_manager`:
+  * `yc managed-postgresql user get`;
+  * `yc managed-postgresql user list`;
+  * `yc managed-postgresql user create`.
+
+* Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster create`.
+
 ### Версия 1.8.0 (18.05.26) {#v-1-8-0}
 
 #### Изменения в системных командах CLI {#v-1-8-0-yc}
@@ -38,8 +172,6 @@ description: На странице представлены релизы CLI, а
 
 * Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
   * `yc serverless container revision deploy`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.7.0 (12.05.26) {#v-1-7-0}
 
@@ -1910,7 +2042,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 Исправлено сообщение об ошибке, которое появлялось после успешного окончания операции перезапуска кластера OpenSearch или смены мастера.
 
 ##### {{ mpg-name }}
-Добавлены команды для управления пользователями в ресурсных группах в {{ GP }}:
+Добавлены команды для управления пользователями в ресурсных группах {{ GP }}:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user get`;
   * `yc managed-greenplum user list`;

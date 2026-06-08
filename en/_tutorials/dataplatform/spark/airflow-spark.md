@@ -42,9 +42,9 @@ The {{ msp-full-name }} cluster we create here does not use the S3 [{{ objstorag
 
 This tutorial uses a simplified infrastructure setup:
 
-* A single service account with advanced privileges.
-* A single bucket for the whole data.
-* The default security group.
+* Single service account with advanced privileges.
+* Single bucket for the whole data.
+* Default security group.
 
 This setup is good for testing but does not ensure a sufficient security level for real-world scenarios. To make the solution more secure, adhere to the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access).
 

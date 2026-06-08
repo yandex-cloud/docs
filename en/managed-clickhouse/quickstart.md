@@ -1,9 +1,13 @@
 ---
 title: Getting started with {{ mch-full-name }}
-description: Follow this guide to create a {{ CH }} cluster and connect to it.
+description: Follow this guide to create an {{ CH }} cluster and connect to it.
 ---
 
 # Getting started with {{ mch-name }}
+
+
+
+
 
 To get started:
 
@@ -21,7 +25,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) to your {{ yandex-cloud }} account to be able to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mch.editor }} role or higher](security.md#roles-list) to your {{ yandex-cloud }} account. These roles enable you to create a cluster.
 
    To attach the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -38,7 +42,7 @@ To get started:
    {% endnote %}
 
 1. [Connect](../compute/operations/vm-connect/ssh.md) to your VM over SSH.
-1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -61,10 +65,10 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the management console, select the folder where you want to create your database cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Navigate to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Configure your cluster and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
-1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard will change to **Running** and its state, to **Alive**. This may take a while.
+1. Specify the cluster settings and click **{{ ui-key.yacloud.mdb.forms.button_create }}**. For more information, see [Creating a cluster](operations/cluster-create.md).
+1. Wait until the cluster is ready: its status on the {{ mch-short-name }} dashboard will change to **Running**, and its state to **Alive**. This may take a while.
 
 
 ## Connect to the database {#connect}
@@ -76,7 +80,7 @@ To get started:
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Use the {{ CH }} CLI to connect:
-   1. Specify the path to the `{{ crt-local-file-root }}` SSL certificate in the [configuration file]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), in the `<caConfig>` element:
+   1. Specify the path to the `{{ crt-local-file-root }}` SSL certificate in the [configuration file]({{ ch.docs }}{{ lang }}/interfaces/cli#interfaces_cli_configuration), in the `<caConfig>` element:
 
       ```xml
       <config>
@@ -104,6 +108,6 @@ To get started:
 
 * Read about the [service concepts](concepts/index.md).
 * Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
-* Check [questions and answers](qa/general.md).
+* Check out the [questions and answers](qa/general.md).
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

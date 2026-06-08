@@ -1,8 +1,8 @@
 # Users and roles in {{ mgp-name }}
 
-{{ GP }} manages database access permissions using roles. Roles can own database objects, such as tables, and have [attributes](#attributes) and [privileges](#privileges). You can assign privileges to other roles on behalf of a particular role.
+{{ mgp-name }} manages database access permissions using roles. Roles can own database objects, such as tables, and have [attributes](#attributes) and [privileges](#privileges). You can assign privileges to other roles on behalf of a particular role.
 
-In {{ GP }}, a user is a role that can log in to the database. To this end, it is granted the `LOGIN` [attribute](#attributes).
+In {{ mgp-name }}, a user is a role that can log in to the database. To this end, it is granted the `LOGIN` [attribute](#attributes).
 
 An admin user with the [mdb_admin](#mdb_admin) role has the maximum privileges among all users.
 
@@ -95,9 +95,9 @@ Do not use the `mdb_admin` role for routine tasks because an incorrect command s
 
 For more information about privileges and their management, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-roles_privs.html#managing-object-privileges).
 
-## The mdb_admin role instead of a superuser {#mdb_admin}
+## The `mdb_admin` role instead of a superuser {#mdb_admin}
 
-In a {{ GP }} cluster, superuser permissions are not granted. Instead, you can work with databases as an admin user with the `mdb_admin` role. Such user is created along with the cluster and allows you the following operations:
+In a {{ mgp-name }} cluster, superuser permissions are not granted. Instead, you can work with databases as an admin user with the `mdb_admin` role. Such user is created along with the cluster and allows you the following operations:
 
 * [Managing roles and users](../operations/roles-and-users.md).
 * [Managing resource groups](../operations/resource-groups.md).
@@ -116,7 +116,6 @@ In a {{ GP }} cluster, superuser permissions are not granted. Instead, you can w
    * Accessing user credentials. This data is transmitted over PXF in an open format.
 
 * [Expanding the cluster](../operations/cluster-expand.md): adding segment hosts to it and redistributing data between them using `gp_expand`.
-* Connecting to the `gpperfmon` database and [diagnosing cluster performance](../operations/performance-diagnostics.md).
 
 The admin username and password are created [together with the cluster](../operations/cluster-create.md#create-cluster).
 
@@ -127,3 +126,4 @@ GRANT mdb_admin TO <username>;
 ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

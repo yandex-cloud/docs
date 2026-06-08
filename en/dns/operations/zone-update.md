@@ -1,3 +1,8 @@
+---
+title: How to change a DNS zone in {{ dns-full-name }}
+description: Follow this guide to change a DNS zone.
+---
+
 # Updating a DNS zone
 
 You can rename or add a descriptoin to an existing [DNS zone](../concepts/dns-zone.md).
@@ -88,15 +93,19 @@ To update a DNS zone:
      Success! The configuration is valid.
      ```
 
-  1. Run this command:
+   1. Run this command:
      ```
      terraform plan
      ```
   
      You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-     
-  1. Type `yes` and press **Enter** to confirm changes.
+   1. Apply the configuration changes:
+      ```
+      terraform apply
+      ```
+
+   1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check whether the DNS zone has been successfully updated in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
 

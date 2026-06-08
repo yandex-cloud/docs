@@ -27,12 +27,10 @@ apiPlayground:
         folderId:
           description: |-
             **string**
-            Required field. ID of the folder to list oauth clients for
+            ID of the folder to list oauth clients for
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
             The maximum string length in characters is 50.
           type: string
-      required:
-        - folderId
       additionalProperties: false
     body: null
     definitions: null
@@ -68,7 +66,7 @@ Page token. To get the next page of results, set `pageToken` to the
 The maximum string length in characters is 2000. ||
 || folderId | **string**
 
-Required field. ID of the folder to list oauth clients for
+ID of the folder to list oauth clients for
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||

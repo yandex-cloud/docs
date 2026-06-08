@@ -2,7 +2,7 @@
 
 Контекст параметра определяет, на каком уровне и в каком интерфейсе параметр может быть определен.
 
-Для {{ GP }} используются следующие контексты параметров:
+Для {{ mgp-name }} используются следующие контексты параметров:
 
 | Контекст | Позволяет задавать параметр через `SET` | Требует перезапуска | Описание | Интерфейс |
 | --- | --- | --- | --- | --- |
@@ -36,8 +36,6 @@
 1. Настройка сжатия данных, указанная в параметре конфигурации сервера [gp_default_storage_options](#setting-gp-default-storage-options).
 1. Настройка сжатия данных по умолчанию.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_add_column_inherits_table_setting).
-
 #### gp_autostats_mode {#setting-gp-autostats-mode}
 
 | Доступен в версии | Допустимые значения | Значение по умолчанию | Контекст |
@@ -63,8 +61,6 @@
 
 {% endnote %}
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_mode).
-
 #### gp_autostats_on_change_threshold {#setting-gp-autostats-on-change-threshold}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -73,19 +69,15 @@
 
 Указывает пороговое значение для автоматического сбора статистики, когда параметр [gp_autostats_mode](#setting-gp-autostats-mode) установлен в `on_change`. Если операция с таблицей затрагивает количество строк, превышающее это пороговое значение, выполняется `ANALYZE`, и для таблицы собирается статистика.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_autostats_on_change_threshold).
-
 #### gp_cached_segworkers_threshold {#setting-gp-cached-segworkers-threshold}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 и выше | Integer | от 1 до 10 | 5 | `user` |
 
-Когда пользователь начинает сессию работы с базой данных и отправляет запрос, система создает группы рабочих процессов (`gangs`) на каждом сегменте для выполнения работы. После завершения работы `worker`-процессы на сегментах уничтожаются, за исключением некоторого количества, которое сохраняется в кэше — оно задается этим параметром.
+Когда пользователь начинает сессию работы с базой данных и отправляет запрос, система создает группы рабочих процессов (`gangs`) на каждом сегменте для выполнения работы. После завершения работы `worker`-процессы на сегментах уничтожаются, за исключением некоторого количества, которое сохраняется в кеше — оно задается этим параметром.
 
 Более низкое значение параметра позволяет экономить системные ресурсы на хостах с сегментами, но более высокое значение может повысить производительность в сценариях, когда последовательно отправляется множество сложных запросов.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_cached_segworkers_threshold).
 
 #### gp_enable_global_deadlock_detector {#setting-gp-enable-global-deadlock-detector}
 
@@ -96,8 +88,6 @@
 Включает или выключает глобальный детектор взаимных блокировок (`Global Deadlock Detector`), который используется для управления одновременными операциями `UPDATE` и `DELETE` в таблицах с кучей (`heap tables`) с целью повышения производительности.
 
 Если глобальный детектор взаимных блокировок выключен, база данных выполняет одновременные операции обновления и удаления в таблице с кучей (`heap tables`) последовательно. Если глобальный детектор взаимных блокировок включен, одновременные обновления разрешены, и детектор определяет наличие взаимной блокировки и устраняет ее, отменяя один или несколько фоновых процессов, связанных с самыми «молодыми» транзакциями.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_enable_global_deadlock_detector).
 
 #### gp_enable_zstd_memory_accounting {#setting-gp-enable-zstd-memory-accounting}
 
@@ -124,8 +114,6 @@
 
 Указывает интервал выполнения (в секундах) фонового рабочего процесса глобального детектора взаимных блокировок (`Global Deadlock Detector`, см. параметр [gp_enable_global_deadlock_detector](#setting-gp-enable-global-deadlock-detector)).
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_global_deadlock_detector_period).
-
 #### gp_max_plan_size {#setting-gp-max-plan-size}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -133,8 +121,6 @@
 | 6.25 и выше | Integer | от 0 до 2147483647 | 0 | `superuser` |
 
 Определяет максимально допустимый суммарный несжатый размер плана выполнения запроса, умноженный на количество операторов `Motion` (слайсов, `slices`) в плане. Если размер плана запроса превышает указанное значение, запрос отменяется и возвращается ошибка. Значение 0 означает, что размер плана не отслеживается. Измеряется в байтах. Значение параметра должно быть кратно 1 МБ.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_plan_size).
 
 #### gp_max_slices {#setting-gp-max-slices}
 
@@ -153,8 +139,6 @@
 
 {% endnote %}
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_max_slices).
-
 #### gp_resource_group_memory_limit {#setting-gp-resource-group-memory-limit}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -169,8 +153,6 @@
 
 Определяет максимальный процент системных ресурсов памяти, который может быть выделен группам ресурсов на каждом узле сегмента базы данных. Уменьшение значения параметра может быть оправдано в тех случаях, когда нужно выделить больше ресурсов вспомогательным компонентам, находящимся на узле сегмента базы данных (например, `PXF`).
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_group_memory_limit).
-
 #### gp_vmem_protect_segworker_cache_limit {#setting-gp-vmem-protect-segworker-cache-limit}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -178,9 +160,7 @@
 | 6.25 и выше       | Real | от 0 до 4096        | 500                   | `postmaster` |
 
 
-Если процесс выполнения запроса потребляет больше заданного объема памяти, то после завершения этот процесс не будет помещаться в кэш для использования в последующих запросах. В системах с большим количеством подключений или простаивающих процессов можно уменьшить это значение, чтобы освободить больше памяти на сегментах. Измеряется в мегабайтах.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_vmem_protect_segworker_cache_limit).
+Если процесс выполнения запроса потребляет больше заданного объема памяти, то после завершения этот процесс не будет помещаться в кеш для использования в последующих запросах. В системах с большим количеством подключений или простаивающих процессов можно уменьшить это значение, чтобы освободить больше памяти на сегментах. Измеряется в мегабайтах.
 
 #### gp_workfile_compression {#setting-gp-workfile-compression}
 
@@ -190,8 +170,6 @@
 
 
 Указывает, будут ли сжиматься временные файлы, создаваемые при выгрузке на диск в ходе операций хеширования (агрегации или соединения). В некоторых случаях включение сжатия может помочь избежать перегрузки подсистемы дисков операциями ввода-вывода.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
 {% include [requires-restart](../note-requires-manual-restart.md) %}
 
@@ -205,8 +183,6 @@
 Устанавливает максимальное количество временных рабочих файлов (`workfiles`), разрешенных для одного запроса на каждом сегменте. Рабочие файлы создаются при выполнении запроса, который требует больше памяти, чем выделено.
 При превышении установленного лимита текущий запрос завершается. Значение 0 (ноль) обозначает неограниченное количество файлов выгрузки.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_files_per_query).
-
 #### gp_workfile_limit_per_query {#setting-gp-workfile-limit-per-query} 
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -215,8 +191,6 @@
 
 
 Устанавливает максимальный объем дискового пространства, который отдельный запрос может использовать для создания временных рабочих файлов (`workfiles`) на каждом сегменте. Значение 0 — отсутствие ограничения. Задается в байтах. Значение должно быть кратно 1 мегабайту.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_query).
 
 #### gp_workfile_limit_per_segment {#setting-gp-workfile-limit-per-segment}
 
@@ -232,8 +206,6 @@
 ```text
 0.1 × <размер_хранилища_хоста-сегмента> / <количество_сегментов_на_хост>
 ```
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_limit_per_segment).
 
 #### idle_in_transaction_session_timeout {#setting-idle-in-transaction-session-timeout}
 
@@ -264,8 +236,6 @@
 
 База данных использует параметры [deadlock_timeout](#setting-deadlock-timeout) и [gp_global_deadlock_detector_period](#setting-gp-global-deadlock-detector-period) для запуска локального и глобального обнаружения взаимных блокировок. Обратите внимание: если [lock_timeout](#setting-lock-timeout) включен и установлен на значение, меньшее, чем таймауты обнаружения взаимных блокировок, база данных прервет запрос до того, как в этой сессии будет запущена проверка на взаимную блокировку.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#lock_timeout).
-
 #### log_connections {#setting-log-connections}
 
 | Доступен в версии | Тип     | Допустимые значения            | Значение по умолчанию | Контекст  |
@@ -273,8 +243,6 @@
 | 6.25 и выше | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `backend` |
 
 Записывает в журнал сервера строку с подробной информацией о каждом успешном подключении. Некоторые клиентские программы, например `psql`, пытаются подключиться дважды, чтобы определить, требуется ли пароль, поэтому повторяющиеся сообщения «connection received» не всегда указывают на проблему.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_connections).
 
 #### log_disconnections {#setting-log-disconnections}
 
@@ -284,8 +252,6 @@
 
 Записывает в журнал сервера строку при завершении сессии клиента, включая продолжительность сессии.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_disconnections).
-
 #### log_error_verbosity {#setting-log-error-verbosity}
 
 | Доступен в версии | Допустимые значения | Значение по умолчанию | Контекст |
@@ -294,8 +260,6 @@
 
 Управляет уровнем детализации информации, записываемой в журнал сервера для каждого сообщения.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_error_verbosity).
-
 #### log_hostname {#setting-log-hostname} 
 
 | Доступен в версии | Тип     | Допустимые значения            | Значение по умолчанию | Контекст |
@@ -303,8 +267,6 @@
 | 6.25 и выше | Boolean | `true` (`on`), `false` (`off`) | `true` (`on`) | `sighup` |
 
 По умолчанию в сообщениях журнала подключений отображается только IP-адрес подключающегося хоста. Включение этой опции приведет к тому, что в журнал будут записываться IP-адрес и имя подключающегося хоста в журнал мастера.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_hostname).
 
 #### log_min_duration_statement {#setting-log-min-duration-statement}
 
@@ -317,8 +279,6 @@
 
 Включение этой опции может быть полезно для поиска неоптимизированных запросов в ваших приложениях.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_duration_statement).
-
 #### log_min_messages {#setting-log-min-messages}
 
 | Доступен в версии | Допустимые значения | Значение по умолчанию | Контекст |
@@ -326,8 +286,6 @@
 | 6.25 и выше | `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `log`, `error`, `fatal`, `panic` | `warning` | `superuser` |
 
 Управляет уровнями сообщений, которые записываются в журнал сервера. Каждый уровень включает в себя все последующие уровни. Чем позже указан уровень в списке, тем меньше сообщений будет отправлено в журнал.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_messages).
 
 #### log_statement {#setting-log-statement}
 
@@ -337,8 +295,6 @@
 
 Управляет тем, какие SQL-запросы записываются в журнал. Уровень `ddl` регистрирует все команды определения данных, такие как `CREATE`, `ALTER` и `DROP`. Уровень `mod` регистрирует все операторы `DDL`, а также `INSERT`, `UPDATE`, `DELETE`, `TRUNCATE` и `COPY FROM`. Запросы `PREPARE` и `EXPLAIN ANALYZE` также записываются в журнал, если содержащийся в них оператор относится к соответствующему типу.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement).
-
 #### log_statement_stats {#setting-log-statement-stat}
 
 | Доступен в версии | Тип     | Допустимые значения            | Значение по умолчанию | Контекст    |
@@ -346,8 +302,6 @@
 | 6.25 и выше | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `superuser` |
 
 Для каждого запроса записывать в журнал сервера общую статистику производительности парсера, планировщика и исполнителя запроса. Используется в качестве простого инструмента профилирования.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_statement_stats).
 
 #### master_shared_buffers {#setting-master-shared-buffers}
 
@@ -369,8 +323,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 Измеряется в байтах.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
-
 {% include [requires-restart](../note-requires-manual-restart.md) %}
 
 #### max_connections {#setting-max-connections}
@@ -380,7 +332,7 @@ max(0.24 × объем доступной памяти на мастере, 1638
 | 6.25 и выше | Integer | от 50 до 1000 | 200 | `postmaster` |
 
 
-Максимальное количество одновременных подключений к кластеру. Для подключения пользователей доступно `max_connections − 20`, так как `20` подключений резервируется для суперпользователей. Количество подключений для суперпользователей определяется параметром `superuser_reserved_connections`, значение которого не может быть изменено. Подробнее о параметре `superuser_reserved_connections` см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#superuser_reserved_connections).
+Максимальное количество одновременных подключений к кластеру. Для подключения пользователей доступно `max_connections − 20`, так как `20` подключений резервируется для суперпользователей. Количество подключений для суперпользователей определяется параметром `superuser_reserved_connections`, значение которого не может быть изменено.
 
 При увеличении `max_connections` необходимо также увеличить значение [max_prepared_transactions](#setting-max-prepared-transactions). Увеличение `max_connections` может привести к тому, что база данных запросит больший объем общей памяти (см. [master_shared_buffers](#setting-master-shared-buffers) и [segment_shared_buffers](#setting-segment-shared-buffers)).
 
@@ -391,8 +343,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 При изменении настройки проводится проверка, что объем доступной оперативной памяти на одно подключение (как на мастере, так и на сегменте) будет составлять не меньше 20 МБ. Если это условие не выполняется, возникает [ошибка](../../../managed-greenplum/qa/cluster-hosts.md#memory-limit).
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_connections).
-
 #### max_locks_per_transaction {#setting-max-locks-per-transaction}
 
 | Доступен в версии | Тип | Допустимые значения | Значение по умолчанию | Контекст |
@@ -401,8 +351,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 Таблица общих блокировок создается с возможностью описать блокировки для [max_locks_per_transaction](#setting-max-locks-per-transaction) × ([max_connections](#setting-max-connections) + [max_prepared_transactions](#setting-max-prepared-transactions)) объектов, поэтому одновременно может быть заблокировано не более этого количества различных объектов. Это не жесткое ограничение на число блокировок, устанавливаемых одной транзакцией, а скорее максимально среднее значение. Возможно, вам потребуется увеличить это значение, если у вас есть клиенты, которые обращаются к множеству различных таблиц в рамках одной транзакции.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_locks_per_transaction).
-
 #### max_prepared_transactions {#setting-max-prepared-transactions}
 
 | Доступен в версии | Тип     | Допустимые значения | Значение по умолчанию | Контекст     |
@@ -410,8 +358,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 | 6.25 и выше       | Integer | от 50 до 10000      | 200                   | `postmaster` |
 
 Устанавливает максимальное количество транзакций, которые могут находиться в подготовленном состоянии одновременно. База данных использует подготовленные транзакции внутренне для обеспечения целостности данных на сегментах. Это значение должно быть не меньше значения [max_connections](#setting-max-connections) на мастере.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_prepared_transactions).
 
 #### max_slot_wal_keep_size {#setting-max-slot-wal-keep-size}
 
@@ -425,8 +371,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 
 Если для действующих основных экземпляров установлено нестандартное значение параметра [max_slot_wal_keep_size](#setting-max-slot-wal-keep-size), полное и инкрементное восстановление их зеркал может оказаться невозможным. В зависимости от нагрузки на основной экземпляр, которая действует одновременно с полным восстановлением, процесс восстановления может завершиться ошибкой из-за отсутствия файлов WAL.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_slot_wal_keep_size).
-
 #### max_statement_mem {#setting-max-statement-mem}
 
 | Доступен в версии | Тип     | Допустимые значения           | Значение по умолчанию | Контекст    |
@@ -436,8 +380,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 Устанавливает максимальный лимит памяти для запроса. Помогает избежать ошибок нехватки памяти на хосте сегмента во время обработки запроса из-за слишком высокого значения параметра [statement_mem](#setting-statement-mem).
 
 При изменении параметров [max_statement_mem](#setting-max-statement-mem) и [statement_mem](#setting-statement-mem) сначала необходимо изменить [max_statement_mem](#setting-max-statement-mem).
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#max_statement_mem).
 
 #### runaway_detector_activation_percent {#setting-runaway-detector-activation-percent}
 
@@ -452,8 +394,6 @@ max(0.24 × объем доступной памяти на мастере, 1638
 Например, если объем памяти `vmem` установлен на 10 ГБ, а значение этого параметра — 90 (90 %), база данных начнет завершать запросы, когда используемый объем памяти `vmem` превысит 9 ГБ. Когда включены ресурсные группы — этот параметр устанавливает процент использования общей глобальной памяти ресурсных групп. При превышении это процента завершаются запросы, управляемые ресурсными группами, для которых настроен аудитор памяти `vmtracker`, например `admin_group` и `default_group`. У ресурсных групп есть общий глобальный пул памяти, если сумма значений атрибута `MEMORY_LIMIT`, настроенных для всех групп ресурсов, меньше 100%. Например, если у вас есть три ресурсных группы со значениями `memory_limit` 10, 20 и 30%, то общая глобальная память составит 40% = 100% − (10% + 20% + 30%).
 
 Если процент использования общей глобальной памяти превысит указанное значение, база данных начнет завершать запросы на основе использования памяти, выбирая из запросов, управляемых группами ресурсов с аудитором памяти `vmtracker`. Система начнет с запроса, который потребляет наибольший объем памяти. Запросы будут завершаться до тех пор, пока процент использования общей глобальной памяти не станет ниже указанного значения. Например, если объем общей глобальной памяти составляет 10 ГБ, а значение параметра — 90 (90%), база данных начнет завершать запросы, когда используемый объем общей глобальной памяти превысит 9 ГБ.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#runaway_detector_activation_percent).
 
 #### segment_shared_buffers
 
@@ -474,12 +414,10 @@ max(0.24 × объем доступной памяти на мастере, 1638
 max(0.2 × объем доступной памяти на сегменте / количество сегментов на хосте), 16384 × 5 × max_connections)
 ```
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
-
 {% include [requires-restart](../note-requires-manual-restart.md) %}
 
 
-### Параметры доступные пользователю для локального управления {#setting-gp-loca}
+### Параметры, доступные пользователю для локального управления {#setting-gp-loca}
 
 В данной секции собраны параметры, которыми пользователь может управлять **только** на уровне сессии, пользователя или базы данных. Этими параметрами **невозможно** управлять на уровне консоли управления, YC CLI, Terraform или API.
 
@@ -520,8 +458,6 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Чтобы создать в базе данных `mytest` таблицу, оптимизированную для добавления данных, с колоночным форматом и сжатием `RLE`, пользователю достаточно указать в предложении `WITH` только `appendoptimized=TRUE`.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_default_storage_options).
-
 #### statement_mem {#setting-statement-mem}
 
 | Доступен в версии | Тип     | Допустимые значения   | Значение по умолчанию | Контекст |
@@ -529,8 +465,6 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 | 6.25 и выше       | Integer | от 1000 до 2147483647 | 128000 (125 МБ)       | `user`   |
 
 Выделяет память хоста сегмента на каждый запрос. Объем памяти, выделяемый с помощью этого параметра, не может превышать значение [max_statement_mem](#setting-max-statement-mem) или лимит памяти очереди ресурсов либо ресурсных групп, через которые был отправлен запрос. Если для запроса требуется дополнительный объем памяти, используются временные файлы выгрузки на диске.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#statement_mem).
 
 #### statement_timeout {#setting-statement-timeout}
 
@@ -540,9 +474,7 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Прерывает любой запрос, выполнение которого занимает больше указанного количества миллисекунд. Значение 0 отключает ограничение.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#statement_timeout).
-
-### Параметры недоступные пользователю {#setting-gp-unavailable}
+### Параметры, недоступные пользователю {#setting-gp-unavailable}
 
 В данной секции собраны параметры недоступные пользователю для управления, но на которые ссылаются другие параметры данной документации.
 
@@ -554,8 +486,6 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Время ожидания блокировки перед проверкой наличия взаимной блокировки. На сильно загруженном сервере может потребоваться увеличить это значение. В идеале настройка должна превышать типичное время транзакции, чтобы повысить вероятность того, что блокировка будет снята до того, как ожидающий процесс решит проверить наличие взаимной блокировки.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#deadlock_timeout).
-
 #### log_min_error_statement {#setting-log-min-error-statement}
 
 | Доступен в версии | Допустимые значения | Значение по умолчанию | Контекст |
@@ -565,8 +495,6 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 
 Управляет тем, будет ли SQL-запрос, который приводит к ошибке, записываться в журнал сервера. В журнал записываются все SQL-запросы, которые вызывают ошибку указанного уровня или выше. Чтобы фактически отключить логирование неудачных запросов, установите для этого параметра значение `panic`.
 
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#log_min_error_statement).
-
 #### gp_resource_manager {#setting-gp-resource-manager}
 
 | Доступен в версии | Допустимые значения | Значение по умолчанию | Контекст |
@@ -574,5 +502,3 @@ ALTER DATABASE mytest SET gp_default_storage_options = 'orientation=column, comp
 | 6.25 и выше | `group`, `queue` | `group` | `postmaster` |
 
 Указывает схему управления ресурсами, которая в настоящее время активирована в кластере. По умолчанию используется схема с ресурсными группами.
-
-Подробнее см. в [документации {{ GP }}]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_resource_manager).

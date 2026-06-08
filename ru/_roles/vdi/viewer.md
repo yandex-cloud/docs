@@ -3,6 +3,6 @@
 Пользователи с этой ролью могут:
 * просматривать информацию о группах рабочих столов и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к таким группам;
 * просматривать информацию о [рабочих столах](../../cloud-desktop/concepts/desktops-and-groups.md);
-* просматривать информацию о [квотах](../../cloud-desktop/concepts/limits.md#quotas) сервиса Cloud Desktop.
+* просматривать информацию о [квотах](../../cloud-desktop/concepts/limits.md#quotas) сервиса {{ cloud-desktop-name }}.
 
 Включает разрешения, предоставляемые ролью `vdi.auditor`.

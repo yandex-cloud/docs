@@ -1,5 +1,7 @@
 # Отключение и включение реестра
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Вы можете отключить и включить [реестр](../../concepts/index.md#registry). При отключении реестр переводится в статус `DISABLED`, и реестр, и все [устройства](../../concepts/index.md#device) внутри него перестают принимать входящие соединения.
 
 {% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}

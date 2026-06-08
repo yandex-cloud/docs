@@ -78,7 +78,8 @@ The maximum string length in characters is 50. ||
     }
   ],
   "createdAt": "string",
-  "replacementDomain": "string"
+  "replacementDomain": "string",
+  "enablePasswordWriteback": "boolean"
 }
 ```
 
@@ -126,6 +127,9 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || replacementDomain | **string**
 
 Domain replacement configuration. ||
+|| enablePasswordWriteback | **boolean**
+
+Enables password writeback feature. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}

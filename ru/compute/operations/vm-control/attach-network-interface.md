@@ -6,15 +6,53 @@ description: Следуя данной инструкции, вы сможете
 # Добавить дополнительный сетевой интерфейс на виртуальную машину
 
 
-У виртуальной машины может быть один или несколько [сетевых интерфейсов](../../concepts/network.md). Подробнее о максимальном количестве сетевых интерфейсов на ВМ см. в [{#T}](../../concepts/limits.md). 
+У виртуальной машины может быть один или несколько [сетевых интерфейсов](../../concepts/network.md). Подробнее о максимальном количестве сетевых интерфейсов на ВМ в разделе [{#T}](../../concepts/limits.md). 
 
 Добавить сетевые интерфейсы можно как на [запущенные](#add-to-running), так и на [остановленные](#add-to-stopped) ВМ. Для сохранения [сетевой связности](../../../vpc/concepts/routing.md#rt-vm) рекомендуется добавлять сетевые интерфейсы на остановленные ВМ.
+
+{% note tip %}
+
+Если вы хотите привязать к ВМ публичный IP-адрес, то воспользуйтесь [инструкцией](vm-attach-public-ip.md).
+
+{% endnote %}
 
 ## Добавление сетевого интерфейса на остановленную ВМ {#add-to-stopped}
 
 Чтобы добавить дополнительный интерфейс на виртуальную машину:
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Выберите ВМ, которой необходимо добавить дополнительный сетевой интерфейс.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
+  1. В открывшемся окне укажите параметры сетевого интерфейса:
+
+     * **{{ ui-key.yacloud.compute.instances.field_network-interface-index }}** — отвечает за порядок подключения сетевых интерфейсов. Каждый сетевой интерфейс ВМ должен иметь уникальный номер.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка. Если подсети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** и [создайте](../../../vpc/operations/subnet-create.md) ее.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи соответствующей опции.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — не назначать публичный IP-адрес.
+
+     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите [группы безопасности](../../../vpc/concepts/security-groups.md). Если оставить поле пустым, виртуальной машине будет назначена группа безопасности по умолчанию.
+     * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы задать внутренний IP-адрес ВМ вручную.
+       * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
+
+     * (Опционально) Создайте записи для ВМ в [зоне DNS](../../../dns/concepts/dns-zone.md):
+     
+       * Разверните блок **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** и нажмите **{{ ui-key.yacloud.dns.button_add-record }}**.
+       * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `{{ ui-key.yacloud.dns.label_auto-select-zone }}`.
+       
+         Вы можете добавить несколько записей во [внутренние зоны](../../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../../dns/concepts/compute-integration.md).
+
+       * Чтобы создать еще одну запись, нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
 
 - CLI {#cli}
 
@@ -336,17 +374,17 @@ description: Следуя данной инструкции, вы сможете
 
 Для того чтобы активировать добавленный сетевой интерфейс, [перезапустите](./vm-stop-and-start.md#restart) ВМ. Для ОС Windows перезапуск ВМ — это единственный способ активировать интерфейс.
 
-Если ваша ВМ под управлением ОС Linux, и у вас нет возможности перезапустить ее, вы можете активировать сетевой интерфейс без перезапуска ВМ. При этом, чтобы избежать потери сетевой связности, выполнять настройки необходимо из [серийной консоли](../serial-console/index.md):
+Если ваша ВМ под управлением ОС Linux и у вас нет возможности перезапустить ее, вы можете активировать сетевой интерфейс без перезапуска ВМ. При этом, чтобы избежать потери сетевой связности, выполнять настройки необходимо из [серийной консоли](../../concepts/serial-console.md):
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-  1. [Включите](../serial-console/index.md#turn-on-for-current-instance) на ВМ доступ к серийной консоли. 
+  1. [Включите](../serial-console/index.md#enable) на ВМ доступ к серийной консоли.
 
       При создании пользователя для аутентификации на ВМ через серийную консоль добавьте этого пользователя в группу `sudo` с помощью команды `sudo usermod -a -G sudo <имя_пользователя>`.
 
-  1. Подключитесь к серийной консоли ВМ [с помощью CLI](../serial-console/connect-cli.md#connect-to-serial-console) или [по SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
+  1. [Подключитесь](../serial-console/connect-ssh.md) к серийной консоли ВМ с помощью {{ yandex-cloud }} CLI или по SSH.
 
   1. Активируйте добавленный сетевой интерфейс:
 
@@ -368,7 +406,7 @@ description: Следуя данной инструкции, вы сможете
       sudo ip route del default dev <имя_интерфейса>
       ```
 
-  1. [Отключите](../serial-console/disable.md) доступ к серийной консоли ВМ, если он вам больше не нужен.
+  1. [Отключите](../serial-console/index.md#disable) доступ к серийной консоли ВМ, если он вам больше не нужен.
 
 {% endlist %}
 
@@ -551,3 +589,9 @@ description: Следуя данной инструкции, вы сможете
       Все сетевые интерфейсы запущены и активны.
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](./vm-attach-public-ip.md)
+* [{#T}](./vm-set-static-ip.md)
+* [{#T}](../../../vpc/operations/set-static-ip.md)

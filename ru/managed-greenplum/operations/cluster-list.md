@@ -1,6 +1,6 @@
-# Информация об имеющихся кластерах {{ GP }}
+# Информация об имеющихся кластерах {{ mgp-name }}
 
-Вы можете запросить детальную информацию о каждом созданном вами кластере {{ GP }}.
+Вы можете запросить детальную информацию о каждом созданном вами кластере {{ mgp-name }}.
 
 ## Получить список кластеров в каталоге {#list-clusters}
 
@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
 - CLI {#cli}
 
@@ -17,7 +17,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы запросить список кластеров {{ GP }} в каталоге, выполните команду:
+    Чтобы запросить список кластеров {{ mgp-name }} в каталоге, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} cluster list
@@ -84,7 +84,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
@@ -93,7 +93,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы получить информацию о кластере {{ GP }}, выполните команду:
+    Чтобы получить информацию о кластере {{ mgp-name }}, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} cluster get <имя_или_идентификатор_кластера>
@@ -157,7 +157,7 @@
 - Консоль управления {#console}
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
 
     В списке хостов в колонке **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** указывается роль каждого хоста:

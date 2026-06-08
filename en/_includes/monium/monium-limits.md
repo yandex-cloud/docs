@@ -24,5 +24,5 @@ Minimum time interval for exporting metrics | 1 second
 #### Alerting limits {#monitoring-alerting-limits}
 Type of limit | Value
 ----- | -----
-Number of metrics per alert | 1,000
+Number of metrics per alert | {{ alerting-metrics-limit }}
 Number of SMS per number per day | 100

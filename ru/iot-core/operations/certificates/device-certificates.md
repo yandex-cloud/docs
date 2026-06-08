@@ -1,5 +1,7 @@
 # Управление сертификатами устройства
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Чтобы начать обмен данными и командами между устройствами и реестрами, необходимо [авторизоваться](../../concepts/authorization.md). В данном разделе описано, как управлять сертификатами устройства для соответствующего способа авторизации.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}
@@ -23,7 +25,7 @@
    Чтобы добавить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который вы хотите добавить сертификат устройства.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Нажмите на имя нужного реестра.
    1. Перейдите в раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.
@@ -146,7 +148,7 @@
    Чтобы удалить сертификат устройства:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить сертификат устройства.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Нажмите на имя нужного реестра.
    1. Перейдите в раздел **{{ ui-key.yacloud.iot.label_devices }}**.
    1. Выберите в списке нужное устройство.

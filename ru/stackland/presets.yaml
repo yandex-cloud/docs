@@ -1,12 +1,13 @@
 default:
   cluster-domain: <домен кластера>
-  version: 26.1.0
+  version: 26.1
   site: true
   region: ru
   lang: ru
   audience: external
   product: yandex-cloud
   yandex-cloud: Yandex Cloud
+  compute-full-name: Yandex Compute Cloud
   iam-full-name: Yandex Identity and Access Management
   objstorage-full-name: Yandex Object Storage
   mpg-full-name: Yandex Managed Service for PostgreSQL
@@ -31,6 +32,7 @@ default:
   baremetal-full-name: Yandex BareMetal
   ai-studio-full-name: Yandex AI Studio
   stackland-full-name: Yandex Cloud Stackland
+  compute-name: Compute Cloud
   iam-name: Identity and Access Management
   objstorage-name: Object Storage
   mpg-name: Managed Service for PostgreSQL
@@ -69,7 +71,6 @@ default:
   foundation-models-name: AI Studio
   baremetal-name: BareMetal
   ai-studio-name: AI Studio
-  speechkit-slug: speechkit
   CH: ClickHouse®
   KF: Apache Kafka®
   AF: Apache Airflow™

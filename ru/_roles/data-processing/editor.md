@@ -1,21 +1,22 @@
-Роль `dataproc.editor` позволяет управлять кластерами Yandex Data Processing, запускать задания и просматривать информацию о них, а также предоставляет доступ к веб-интерфейсам компонентов сервиса.
+
+Роль `dataproc.editor` позволяет управлять кластерами {{ dataproc-name }}, запускать задания и просматривать информацию о них, а также предоставляет доступ к веб-интерфейсам компонентов сервиса.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
-* просматривать информацию о [кластерах](../../data-proc/concepts/index.md#resources) Yandex Data Processing, а также создавать, изменять, запускать останавливать и удалять такие кластеры;
+* просматривать информацию о [кластерах](../../data-proc/concepts/index.md#resources) {{ dataproc-name }}, а также создавать, изменять, запускать останавливать и удалять такие кластеры;
 * просматривать информацию о [заданиях](../../data-proc/concepts/jobs.md), а также создавать задания;
-* использовать веб-интерфейс для доступа к компонентам Yandex Data Processing;
-* просматривать информацию о кластерах [ClickHouse®](../../managed-clickhouse/concepts/index.md), [Greenplum®](../../managed-greenplum/concepts/index.md), [Apache Kafka®](../../managed-kafka/concepts/index.md), [Yandex StoreDoc](../../storedoc/concepts/index.md), [MySQL®](../../managed-mysql/concepts/index.md), [PostgreSQL](../../managed-postgresql/concepts/index.md), [Valkey™](../../managed-valkey/concepts/index.md), [OpenSearch](../../managed-opensearch/concepts/index.md) и SQL Server;
-* просматривать информацию о хостах кластеров [Greenplum®](../../managed-greenplum/concepts/instance-types.md), [Yandex StoreDoc](../../storedoc/concepts/instance-types.md), [MySQL®](../../managed-mysql/concepts/instance-types.md), [PostgreSQL](../../managed-postgresql/concepts/instance-types.md), [Valkey™](../../managed-valkey/concepts/instance-types.md) и SQL Server;
-* просматривать информацию о резервных копиях БД кластеров [Greenplum®](../../managed-greenplum/concepts/backup.md), [Yandex StoreDoc](../../storedoc/concepts/backup.md), [MySQL®](../../managed-mysql/concepts/backup.md), [PostgreSQL](../../managed-postgresql/concepts/backup.md), [Valkey™](../../managed-valkey/concepts/backup.md) и SQL Server;
-* просматривать информацию о пользователях кластеров [Yandex StoreDoc](../../storedoc/concepts/users-and-roles.md), [MySQL®](../../managed-mysql/concepts/user-rights.md), [PostgreSQL](../../managed-postgresql/concepts/roles.md) и SQL Server;
-* просматривать информацию о базах данных Yandex StoreDoc, MySQL®, PostgreSQL и SQL Server;
-* просматривать информацию об алертах Yandex StoreDoc, MySQL®, PostgreSQL и Valkey™;
-* просматривать информацию о результатах диагностики производительности кластеров Greenplum®, Yandex StoreDoc, MySQL® и PostgreSQL;
-* просматривать информацию о шардах кластеров [Yandex StoreDoc](../../storedoc/concepts/sharding.md) и [Valkey™](../../managed-valkey/concepts/sharding.md);
-* просматривать логи работы кластеров Greenplum®, Yandex StoreDoc, MySQL®, PostgreSQL, Valkey™ и SQL Server;
-* просматривать информацию о квотах сервисов [Managed Service for ClickHouse®](../../managed-clickhouse/concepts/limits.md#mch-quotas), [Managed Service for Apache Kafka®](../../managed-kafka/concepts/limits.md#mkf-quotas), [Managed Service for OpenSearch](../../managed-opensearch/concepts/limits.md#quotas), [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/concepts/limits.md#quotas), [Yandex StoreDoc](../../storedoc/concepts/limits.md#mmg-quotas), [Managed Service for MySQL®](../../managed-mysql/concepts/limits.md#mmy-quotas), [Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-quotas), [Yandex Managed Service for Valkey™](../../managed-valkey/concepts/limits.md#mrd-quotas) и SQL Server;
-* просматривать информацию об операциях с ресурсами всех сервисов управляемых баз данных Yandex Cloud;
+* использовать веб-интерфейс для доступа к компонентам {{ dataproc-name }};
+* просматривать информацию о кластерах [{{ CH }}](../../managed-clickhouse/concepts/index.md), [{{ mgp-name }}](../../managed-greenplum/concepts/index.md), [{{ KF }}](../../managed-kafka/concepts/index.md), [{{ SD }}](../../storedoc/concepts/index.md), [{{ MY }}](../../managed-mysql/concepts/index.md), [{{ PG }}](../../managed-postgresql/concepts/index.md), [{{ VLK }}](../../managed-valkey/concepts/index.md), [{{ OS }}](../../managed-opensearch/concepts/index.md) и {{ MS }};
+* просматривать информацию о хостах кластеров [{{ mgp-name }}](../../managed-greenplum/concepts/instance-types.md), [{{ SD }}](../../storedoc/concepts/instance-types.md), [{{ MY }}](../../managed-mysql/concepts/instance-types.md), [{{ PG }}](../../managed-postgresql/concepts/instance-types.md), [{{ VLK }}](../../managed-valkey/concepts/instance-types.md) и {{ MS }};
+* просматривать информацию о резервных копиях БД кластеров [{{ mgp-name }}](../../managed-greenplum/concepts/backup.md), [{{ SD }}](../../storedoc/concepts/backup.md), [{{ MY }}](../../managed-mysql/concepts/backup.md), [{{ PG }}](../../managed-postgresql/concepts/backup.md), [{{ VLK }}](../../managed-valkey/concepts/backup.md) и {{ MS }};
+* просматривать информацию о пользователях кластеров [{{ SD }}](../../storedoc/concepts/users-and-roles.md), [{{ MY }}](../../managed-mysql/concepts/user-rights.md), [{{ PG }}](../../managed-postgresql/concepts/roles.md) и {{ MS }};
+* просматривать информацию о базах данных {{ SD }}, {{ MY }}, {{ PG }} и {{ MS }};
+* просматривать информацию об алертах {{ SD }}, {{ MY }}, {{ PG }} и {{ VLK }};
+* просматривать информацию о результатах диагностики производительности кластеров {{ mgp-name }}, {{ SD }}, {{ MY }} и {{ PG }};
+* просматривать информацию о шардах кластеров [{{ SD }}](../../storedoc/concepts/sharding.md) и [{{ VLK }}](../../managed-valkey/concepts/sharding.md);
+* просматривать логи работы кластеров {{ mgp-name }}, {{ SD }}, {{ MY }}, {{ PG }}, {{ VLK }} и {{ MS }};
+* просматривать информацию о квотах сервисов [{{ mch-name }}](../../managed-clickhouse/concepts/limits.md#mch-quotas), [{{ mkf-name }}](../../managed-kafka/concepts/limits.md#mkf-quotas), [{{ mos-name }}](../../managed-opensearch/concepts/limits.md#quotas), [{{ mgp-name }}](../../managed-greenplum/concepts/limits.md#quotas), [{{ SD }}](../../storedoc/concepts/limits.md#mmg-quotas), [{{ mmy-name }}](../../managed-mysql/concepts/limits.md#mmy-quotas), [{{ mpg-name }}](../../managed-postgresql/concepts/limits.md#mpg-quotas), [{{ mrd-name }}](../../managed-valkey/concepts/limits.md#mrd-quotas) и {{ MS }};
+* просматривать информацию об операциях с ресурсами всех сервисов управляемых баз данных {{ yandex-cloud }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}

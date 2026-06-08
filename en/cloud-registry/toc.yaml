@@ -67,6 +67,16 @@ items:
             items:
               - name: Setting up PyPI
                 href: operations/pypi/installation.md
+              - name: Creating a Python package
+                href: operations/pypi/create.md
+              - name: Pushing a Python package to a registry
+                href: operations/pypi/push.md
+              - name: Pulling a Python package from a registry
+                href: operations/pypi/pull.md
+              - name: Deleting a Python package from a registry
+                href: operations/pypi/delete.md
+              - name: Examples of working with PyPI registries
+                href: operations/pypi/examples.md
           - name: Binary artifact
             items:
               - name: Pushing a binary artifact to a registry
@@ -279,6 +289,8 @@ items:
                 href: api-ref/grpc/Artifact/index.md
               - name: Get
                 href: api-ref/grpc/Artifact/get.md
+              - name: GetByPath
+                href: api-ref/grpc/Artifact/getByPath.md
               - name: Delete
                 href: api-ref/grpc/Artifact/delete.md
               - name: ListAccessBindings
@@ -287,6 +299,8 @@ items:
                 href: api-ref/grpc/Artifact/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/grpc/Artifact/updateAccessBindings.md
+              - name: UpsertFolder
+                href: api-ref/grpc/Artifact/upsertFolder.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -303,6 +317,8 @@ items:
                 href: api-ref/grpc/LifecyclePolicy/list.md
               - name: ChangeState
                 href: api-ref/grpc/LifecyclePolicy/changeState.md
+              - name: DryRun
+                href: api-ref/grpc/LifecyclePolicy/dryRun.md
           - name: Operation
             items:
               - name: Overview
@@ -341,6 +357,34 @@ items:
                 href: api-ref/grpc/Registry/updateIpPermissions.md
               - name: ListArtifacts
                 href: api-ref/grpc/Registry/listArtifacts.md
+          - name: Scanner
+            items:
+              - name: Overview
+                href: api-ref/grpc/Scanner/index.md
+              - name: Scan
+                href: api-ref/grpc/Scanner/scan.md
+              - name: Get
+                href: api-ref/grpc/Scanner/get.md
+              - name: GetLast
+                href: api-ref/grpc/Scanner/getLast.md
+              - name: List
+                href: api-ref/grpc/Scanner/list.md
+              - name: ListVulnerabilities
+                href: api-ref/grpc/Scanner/listVulnerabilities.md
+          - name: ScanPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/ScanPolicy/index.md
+              - name: Get
+                href: api-ref/grpc/ScanPolicy/get.md
+              - name: GetByRegistry
+                href: api-ref/grpc/ScanPolicy/getByRegistry.md
+              - name: Create
+                href: api-ref/grpc/ScanPolicy/create.md
+              - name: Update
+                href: api-ref/grpc/ScanPolicy/update.md
+              - name: Delete
+                href: api-ref/grpc/ScanPolicy/delete.md
       - name: REST
         items:
           - name: Overview
@@ -351,6 +395,8 @@ items:
                 href: api-ref/Artifact/index.md
               - name: Get
                 href: api-ref/Artifact/get.md
+              - name: GetByPath
+                href: api-ref/Artifact/getByPath.md
               - name: Delete
                 href: api-ref/Artifact/delete.md
               - name: ListAccessBindings
@@ -359,6 +405,8 @@ items:
                 href: api-ref/Artifact/setAccessBindings.md
               - name: UpdateAccessBindings
                 href: api-ref/Artifact/updateAccessBindings.md
+              - name: UpsertFolder
+                href: api-ref/Artifact/upsertFolder.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -375,6 +423,8 @@ items:
                 href: api-ref/LifecyclePolicy/list.md
               - name: ChangeState
                 href: api-ref/LifecyclePolicy/changeState.md
+              - name: DryRun
+                href: api-ref/LifecyclePolicy/dryRun.md
           - name: Operation
             items:
               - name: Overview
@@ -413,6 +463,20 @@ items:
                 href: api-ref/Registry/updateIpPermissions.md
               - name: ListArtifacts
                 href: api-ref/Registry/listArtifacts.md
+          - name: ScanPolicy
+            items:
+              - name: Overview
+                href: api-ref/ScanPolicy/index.md
+              - name: Get
+                href: api-ref/ScanPolicy/get.md
+              - name: GetByRegistry
+                href: api-ref/ScanPolicy/getByRegistry.md
+              - name: Create
+                href: api-ref/ScanPolicy/create.md
+              - name: Update
+                href: api-ref/ScanPolicy/update.md
+              - name: Delete
+                href: api-ref/ScanPolicy/delete.md
   - name: '{{ at-name }} events'
     href: at-ref.md
 path: en/cloud-registry/toc.yaml

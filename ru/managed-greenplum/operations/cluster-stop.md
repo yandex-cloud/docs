@@ -1,4 +1,4 @@
-# Остановка и запуск кластера {{ GP }}
+# Остановка и запуск кластера {{ mgp-name }}
 
 При необходимости вы можете остановить кластер и запустить его заново. У остановленного кластера не тарифицируются количество vCPU и оперативная память хостов, но вы продолжаете платить за объем хранилища кластера и за резервные копии в соответствии с [тарифом](../pricing/index.md#prices-storage).
 
@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Найдите нужный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
     1. Подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
@@ -21,7 +21,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы остановить кластер {{ GP }}, выполните команду:
+    Чтобы остановить кластер {{ mgp-name }}, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} cluster stop <имя_или_идентификатор_кластера>
@@ -86,7 +86,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Найдите нужный остановленный кластер в списке, нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
     1. Подтвердите запуск кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
 
@@ -96,7 +96,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы запустить кластера {{ GP }}, выполните команду:
+    Чтобы запустить кластер {{ mgp-name }}, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} cluster start <имя_или_идентификатор_кластера>
@@ -152,5 +152,3 @@
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/start.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

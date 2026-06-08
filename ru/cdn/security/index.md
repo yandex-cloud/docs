@@ -20,7 +20,7 @@
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/cdn/security/service-roles-hierarchy.svg)
+{% include [roles-cdn](../../_mermaid/roles/cdn.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -53,7 +53,7 @@
 **Управление CDN-ресурсами** | 
 [Создание ресурса](../operations/resources/create-resource.md) | `cdn.editor` на каталог, где будут создаваться ресурсы
 [Изменение основных настроек ресурса](../operations/resources/configure-basics.md) | `cdn.editor` на каталог с CDN-ресурсами
-[Отключение ресурса](../operations/resources/disable-resource.md) | `cdn.editor` на каталог с CDN-ресурсами
+[Приостановить и возобновить работу ресурса](../operations/resources/disable-resource.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Настройка кеширования ресурса](../operations/resources/configure-caching.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Принудительная загрузка файлов в кеш CDN-серверов](../operations/resources/prefetch-files.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Очистка кеша ресурса](../operations/resources/purge-cache.md) | `cdn.editor` на каталог с CDN-ресурсами

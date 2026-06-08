@@ -84,6 +84,43 @@ apiPlayground:
               Acceptable values are 0 to 100, inclusive.
             type: string
             format: int64
+          cpuMaxPercent:
+            description: |-
+              **string** (int64)
+              References to CPU_MAX_PERCENT from Apache Cloudberry resource group parameter:
+              The maximum percentage of CPU resources the group can use.
+            type: string
+            format: int64
+          cpuWeight:
+            description: |-
+              **string** (int64)
+              References to CPU_WEIGHT from Apache Cloudberry resource group parameter:
+              The scheduling priority of the resource group.
+              Acceptable values are 1 to 500, inclusive.
+            type: string
+            format: int64
+          memoryQuota:
+            description: |-
+              **string** (int64)
+              References to MEMORY_QUOTA from Apache Cloudberry resource group parameter:
+              The memory limit (Mb) specified for the resource group.
+            type: string
+            format: int64
+          minCost:
+            description: |-
+              **string** (int64)
+              References to MIN_COST from Apache Cloudberry resource group parameter:
+              The minimum cost of a query plan to be included in the resource group.
+            type: string
+            format: int64
+          ioLimit:
+            description: |-
+              **string** (int64)
+              References to IO_LIMIT from Apache Cloudberry resource group parameter:
+              The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
+              Set the value on a per-tablespace basis.
+            type: string
+            format: int64
         required:
           - name
 ---
@@ -121,7 +158,12 @@ The maximum string length in characters is 50. ||
     "cpuRateLimit": "string",
     "memoryLimit": "string",
     "memorySharedQuota": "string",
-    "memorySpillRatio": "string"
+    "memorySpillRatio": "string",
+    "cpuMaxPercent": "string",
+    "cpuWeight": "string",
+    "memoryQuota": "string",
+    "minCost": "string",
+    "ioLimit": "string"
   }
 }
 ```
@@ -142,6 +184,28 @@ The rest of the fields will be reset to the default. ||
 |#
 
 ## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup}
+
+ResourceGroup defines a resource group configuration shared between Greenplum and Apache Cloudberry,
+but the two engines use different sets of fields.
+
+Greenplum fields:
+* concurrency
+* cpu_rate_limit
+* memory_limit
+* memory_shared_quota
+* memory_spill_ratio
+
+Apache Cloudberry fields:
+* concurrency
+* cpu_max_percent
+* cpu_weight
+* memory_quota
+* min_cost
+* io_limit
+
+The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
+fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
+field validation is performed at runtime by the service.
 
 #|
 ||Field | Description ||
@@ -176,6 +240,29 @@ Acceptable values are 0 to 100, inclusive. ||
 References to MEMORY_SPILL_RATIO from gp resource group parameter
 
 Acceptable values are 0 to 100, inclusive. ||
+|| cpuMaxPercent | **string** (int64)
+
+References to CPU_MAX_PERCENT from Apache Cloudberry resource group parameter:
+The maximum percentage of CPU resources the group can use. ||
+|| cpuWeight | **string** (int64)
+
+References to CPU_WEIGHT from Apache Cloudberry resource group parameter:
+The scheduling priority of the resource group.
+
+Acceptable values are 1 to 500, inclusive. ||
+|| memoryQuota | **string** (int64)
+
+References to MEMORY_QUOTA from Apache Cloudberry resource group parameter:
+The memory limit (Mb) specified for the resource group. ||
+|| minCost | **string** (int64)
+
+References to MIN_COST from Apache Cloudberry resource group parameter:
+The minimum cost of a query plan to be included in the resource group. ||
+|| ioLimit | **string** (int64)
+
+References to IO_LIMIT from Apache Cloudberry resource group parameter:
+The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
+Set the value on a per-tablespace basis. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -209,7 +296,12 @@ Acceptable values are 0 to 100, inclusive. ||
     "cpuRateLimit": "string",
     "memoryLimit": "string",
     "memorySharedQuota": "string",
-    "memorySpillRatio": "string"
+    "memorySpillRatio": "string",
+    "cpuMaxPercent": "string",
+    "cpuWeight": "string",
+    "memoryQuota": "string",
+    "minCost": "string",
+    "ioLimit": "string"
   }
   // end of the list of possible fields
 }
@@ -319,6 +411,28 @@ A list of messages that carry the error details. ||
 
 ## ResourceGroup {#yandex.cloud.mdb.greenplum.v1.ResourceGroup2}
 
+ResourceGroup defines a resource group configuration shared between Greenplum and Apache Cloudberry,
+but the two engines use different sets of fields.
+
+Greenplum fields:
+* concurrency
+* cpu_rate_limit
+* memory_limit
+* memory_shared_quota
+* memory_spill_ratio
+
+Apache Cloudberry fields:
+* concurrency
+* cpu_max_percent
+* cpu_weight
+* memory_quota
+* min_cost
+* io_limit
+
+The sets partially overlap (concurrency is common to both). Passing Greenplum-specific
+fields to a CloudBerry cluster or vice versa is not rejected at the proto level -
+field validation is performed at runtime by the service.
+
 #|
 ||Field | Description ||
 || name | **string**
@@ -352,4 +466,27 @@ Acceptable values are 0 to 100, inclusive. ||
 References to MEMORY_SPILL_RATIO from gp resource group parameter
 
 Acceptable values are 0 to 100, inclusive. ||
+|| cpuMaxPercent | **string** (int64)
+
+References to CPU_MAX_PERCENT from Apache Cloudberry resource group parameter:
+The maximum percentage of CPU resources the group can use. ||
+|| cpuWeight | **string** (int64)
+
+References to CPU_WEIGHT from Apache Cloudberry resource group parameter:
+The scheduling priority of the resource group.
+
+Acceptable values are 1 to 500, inclusive. ||
+|| memoryQuota | **string** (int64)
+
+References to MEMORY_QUOTA from Apache Cloudberry resource group parameter:
+The memory limit (Mb) specified for the resource group. ||
+|| minCost | **string** (int64)
+
+References to MIN_COST from Apache Cloudberry resource group parameter:
+The minimum cost of a query plan to be included in the resource group. ||
+|| ioLimit | **string** (int64)
+
+References to IO_LIMIT from Apache Cloudberry resource group parameter:
+The limit for the maximum read/write disk I/O throughput, and maximum read/write I/O operations per second.
+Set the value on a per-tablespace basis. ||
 |#

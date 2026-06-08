@@ -23,7 +23,7 @@ To add information to a message displayed when contacting support:
 
    {% note info %}
 
-   The [Markdown](../../dashboard/markdown.md) markup language is supported.
+   This field supports the [Markdown](../../dashboard/markdown.md) markup language.
 
    {% endnote %}
 
@@ -32,4 +32,4 @@ To add information to a message displayed when contacting support:
 
 Now, if the user clicks the ![image](../../../_assets/console-icons/circle-question.svg) icon in the bottom-left corner of the screen and selects **Create request**, an additional message will appear in the **Information** window.
 
-To remove the additional information to the message, save an empty description in the **Window when contacting support**.
+To remove this additional information, save an empty description in the **Window before contacting support**.

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Удаление реестра
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% note warning %}
 
 Удалить можно только пустой реестр. Не забудьте [удалить устройства из реестра](../device/device-delete.md) перед началом операции.
@@ -20,7 +22,7 @@ description: Следуя данной инструкции, вы сможете
    Чтобы удалить реестр:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить реестр.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
    1. Справа от имени удаляемого реестра нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg), в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
 

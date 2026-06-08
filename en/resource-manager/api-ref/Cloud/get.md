@@ -24,7 +24,6 @@ apiPlayground:
 # Resource Manager API, REST: Cloud.Get
 
 Returns the specified Cloud resource.
-
 To get the list of available Cloud resources, make a [List](/docs/resource-manager/api-ref/Cloud/list#List) request.
 
 ## HTTP request

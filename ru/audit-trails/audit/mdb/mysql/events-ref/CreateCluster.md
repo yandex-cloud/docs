@@ -167,6 +167,11 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "showCompatibility_56": "boolean",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -177,11 +182,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
-            "showCompatibility_56": "boolean",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -205,7 +205,8 @@ editable: false
             "innodbLruScanDepth": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "userConfig": {
             "innodbBufferPoolSize": "string",
@@ -265,6 +266,11 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "showCompatibility_56": "boolean",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -275,11 +281,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
-            "showCompatibility_56": "boolean",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -303,7 +304,8 @@ editable: false
             "innodbLruScanDepth": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "string",
@@ -363,6 +365,11 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
+            "showCompatibility_56": "boolean",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -373,11 +380,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
-            "showCompatibility_56": "boolean",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -401,7 +403,8 @@ editable: false
             "innodbLruScanDepth": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           }
         },
         "mysqlConfig_8_0": {
@@ -464,6 +467,10 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -474,10 +481,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -500,7 +503,8 @@ editable: false
             "sqlRequirePrimaryKey": "boolean",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "userConfig": {
             "innodbBufferPoolSize": "string",
@@ -561,6 +565,10 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -571,10 +579,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -597,7 +601,8 @@ editable: false
             "sqlRequirePrimaryKey": "boolean",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "string",
@@ -658,6 +663,10 @@ editable: false
             "mdbOfflineModeEnableLag": "string",
             "mdbOfflineModeDisableLag": "string",
             "rangeOptimizerMaxMemSize": "string",
+            "innodbOnlineAlterLogMaxSize": "string",
+            "innodbFtMinTokenSize": "string",
+            "innodbFtMaxTokenSize": "string",
+            "lowerCaseTableNames": "string",
             "slowQueryLog": "boolean",
             "slowQueryLogAlwaysWriteTime": "number",
             "logSlowRateType": "string",
@@ -668,10 +677,6 @@ editable: false
             ],
             "mdbPriorityChoiceMaxLag": "string",
             "innodbPageSize": "string",
-            "innodbOnlineAlterLogMaxSize": "string",
-            "innodbFtMinTokenSize": "string",
-            "innodbFtMaxTokenSize": "string",
-            "lowerCaseTableNames": "string",
             "maxSpRecursionDepth": "string",
             "innodbCompressionLevel": "string",
             "binlogTransactionDependencyTracking": "string",
@@ -694,7 +699,8 @@ editable: false
             "sqlRequirePrimaryKey": "boolean",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           }
         },
         "mysqlConfig_8_4": {
@@ -792,7 +798,8 @@ editable: false
             "mdbAsyncAllowedLag": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "userConfig": {
             "innodbBufferPoolSize": "string",
@@ -888,7 +895,8 @@ editable: false
             "mdbAsyncAllowedLag": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           },
           "defaultConfig": {
             "innodbBufferPoolSize": "string",
@@ -984,7 +992,8 @@ editable: false
             "mdbAsyncAllowedLag": "string",
             "mdbForceSsl": "boolean",
             "innodbChangeBuffering": "string",
-            "maxWriteLockCount": "string"
+            "maxWriteLockCount": "string",
+            "innodbAdaptiveHashIndexParts": "string"
           }
         },
         // end of the list of possible fields
@@ -1382,10 +1391,10 @@ Acceptable values are 7 to 60, inclusive. ||
 ||Field | Description ||
 || innodbBufferPoolSize | **string** (int64)
 
-The minimum value is 5242880. ||
+The minimum value is 134217728. ||
 || maxConnections | **string** (int64)
 
-Acceptable values are 10 to 16384, inclusive. ||
+Acceptable values are 10 to 100000, inclusive. ||
 || longQueryTime | **number** (double)
 
 Acceptable values are 0 to 3600, inclusive. ||
@@ -1426,7 +1435,7 @@ Acceptable values are 0 to 3600, inclusive. ||
 - `NO_DIR_IN_CREATE` ||
 || maxAllowedPacket | **string** (int64)
 
-Acceptable values are 1024 to 1073741824, inclusive. ||
+Acceptable values are 1048576 to 1073741824, inclusive. ||
 || defaultAuthenticationPlugin | **enum** (AuthPlugin)
 
 - `MYSQL_NATIVE_PASSWORD`
@@ -1471,7 +1480,7 @@ Acceptable values are 16384 to 536870912, inclusive. ||
 Acceptable values are 1048576 to 268435456, inclusive. ||
 || innodbLogFileSize | **string** (int64)
 
-Acceptable values are 268435456 to 4294967296, inclusive. ||
+Acceptable values are 268435456 to 8589934592, inclusive. ||
 || innodbIoCapacity | **string** (int64)
 
 Acceptable values are 100 to 100000, inclusive. ||
@@ -1492,7 +1501,7 @@ Acceptable values are 1 to 16, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || innodbTempDataFileMaxSize | **string** (int64)
 
-Acceptable values are 0 to 107374182400, inclusive. ||
+Acceptable values are 1073741824 to 107374182400, inclusive. ||
 || threadCacheSize | **string** (int64)
 
 Acceptable values are 10 to 10000, inclusive. ||
@@ -1538,7 +1547,7 @@ Acceptable values are 0 to 50000, inclusive. ||
 || binlogRowsQueryLogEvents | **boolean** ||
 || rplSemiSyncMasterWaitForSlaveCount | **string** (int64)
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slaveParallelType | **enum** (SlaveParallelType)
 
 - `DATABASE`
@@ -1563,9 +1572,24 @@ Acceptable values are 30 to 86400, inclusive. ||
 Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
-Acceptable values are 1048576 to 268435456, inclusive. ||
+Acceptable values are 60 to 268435456, inclusive. ||
+|| innodbOnlineAlterLogMaxSize | **string** (int64)
+
+Acceptable values are 65536 to 107374182400, inclusive. ||
+|| innodbFtMinTokenSize | **string** (int64)
+
+Acceptable values are 0 to 16, inclusive. ||
+|| innodbFtMaxTokenSize | **string** (int64)
+
+Acceptable values are 10 to 84, inclusive. ||
+|| lowerCaseTableNames | **string** (int64)
+
+Acceptable values are 0 to 1, inclusive. ||
+|| showCompatibility_56 | **boolean** ||
 || slowQueryLog | **boolean** ||
-|| slowQueryLogAlwaysWriteTime | **number** (double) ||
+|| slowQueryLogAlwaysWriteTime | **number** (double)
+
+Acceptable values are 0 to 3600, inclusive. ||
 || logSlowRateType | **enum** (LogSlowRateType)
 
 - `SESSION`
@@ -1588,19 +1612,6 @@ Acceptable values are 0 to 86400, inclusive. ||
 || innodbPageSize | **string** (int64)
 
 Acceptable values are 4096 to 65536, inclusive. ||
-|| innodbOnlineAlterLogMaxSize | **string** (int64)
-
-Acceptable values are 65536 to 107374182400, inclusive. ||
-|| innodbFtMinTokenSize | **string** (int64)
-
-Acceptable values are 0 to 16, inclusive. ||
-|| innodbFtMaxTokenSize | **string** (int64)
-
-Acceptable values are 10 to 84, inclusive. ||
-|| lowerCaseTableNames | **string** (int64)
-
-Acceptable values are 0 to 1, inclusive. ||
-|| showCompatibility_56 | **boolean** ||
 || maxSpRecursionDepth | **string** (int64)
 
 Acceptable values are 0 to 255, inclusive. ||
@@ -1618,11 +1629,13 @@ Acceptable values are 0 to 9, inclusive. ||
 || innodbPrintLockWaitTimeoutInfo | **boolean** ||
 || logErrorVerbosity | **string** (int64)
 
-Acceptable values are 1 to 3, inclusive. ||
+Acceptable values are 2 to 3, inclusive. ||
 || maxDigestLength | **string** (int64)
 
-Acceptable values are 0 to 1048576, inclusive. ||
-|| queryCacheLimit | **string** (int64) ||
+Acceptable values are 1024 to 1048576, inclusive. ||
+|| queryCacheLimit | **string** (int64)
+
+Acceptable values are 0 to 4294967295, inclusive. ||
 || queryCacheSize | **string** (int64) ||
 || queryCacheType | **string** (int64)
 
@@ -1663,6 +1676,9 @@ Acceptable values are 100 to 4294967295, inclusive. ||
 || maxWriteLockCount | **string** (int64)
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -1680,11 +1696,13 @@ The minimum value is 1. ||
 ||Field | Description ||
 || innodbBufferPoolSize | **string** (int64)
 
-The minimum value is 5242880. ||
+The minimum value is 134217728. ||
 || maxConnections | **string** (int64)
 
-Acceptable values are 10 to 16384, inclusive. ||
-|| longQueryTime | **number** (double) ||
+Acceptable values are 10 to 100000, inclusive. ||
+|| longQueryTime | **number** (double)
+
+Acceptable values are 0 to 3600, inclusive. ||
 || generalLog | **boolean** ||
 || auditLog | **boolean** ||
 || sqlMode[] | **enum** (SQLMode)
@@ -1712,7 +1730,7 @@ Acceptable values are 10 to 16384, inclusive. ||
 - `NO_DIR_IN_CREATE` ||
 || maxAllowedPacket | **string** (int64)
 
-Acceptable values are 1024 to 1073741824, inclusive. ||
+Acceptable values are 1048576 to 1073741824, inclusive. ||
 || defaultAuthenticationPlugin | **enum** (AuthPlugin)
 
 - `MYSQL_NATIVE_PASSWORD`
@@ -1757,7 +1775,7 @@ Acceptable values are 16384 to 536870912, inclusive. ||
 Acceptable values are 1048576 to 268435456, inclusive. ||
 || innodbLogFileSize | **string** (int64)
 
-Acceptable values are 268435456 to 4294967296, inclusive. ||
+Acceptable values are 268435456 to 8589934592, inclusive. ||
 || innodbIoCapacity | **string** (int64)
 
 Acceptable values are 100 to 100000, inclusive. ||
@@ -1778,7 +1796,7 @@ Acceptable values are 1 to 16, inclusive. ||
 Acceptable values are 0 to 1000, inclusive. ||
 || innodbTempDataFileMaxSize | **string** (int64)
 
-Acceptable values are 0 to 107374182400, inclusive. ||
+Acceptable values are 1073741824 to 107374182400, inclusive. ||
 || threadCacheSize | **string** (int64)
 
 Acceptable values are 10 to 10000, inclusive. ||
@@ -1824,7 +1842,7 @@ Acceptable values are 0 to 50000, inclusive. ||
 || binlogRowsQueryLogEvents | **boolean** ||
 || rplSemiSyncMasterWaitForSlaveCount | **string** (int64)
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slaveParallelType | **enum** (SlaveParallelType)
 
 - `DATABASE`
@@ -1852,9 +1870,23 @@ Acceptable values are 30 to 86400, inclusive. ||
 Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
-Acceptable values are 1048576 to 268435456, inclusive. ||
+Acceptable values are 60 to 268435456, inclusive. ||
+|| innodbOnlineAlterLogMaxSize | **string** (int64)
+
+Acceptable values are 65536 to 107374182400, inclusive. ||
+|| innodbFtMinTokenSize | **string** (int64)
+
+Acceptable values are 0 to 16, inclusive. ||
+|| innodbFtMaxTokenSize | **string** (int64)
+
+Acceptable values are 10 to 84, inclusive. ||
+|| lowerCaseTableNames | **string** (int64)
+
+Acceptable values are 0 to 1, inclusive. ||
 || slowQueryLog | **boolean** ||
-|| slowQueryLogAlwaysWriteTime | **number** (double) ||
+|| slowQueryLogAlwaysWriteTime | **number** (double)
+
+Acceptable values are 0 to 3600, inclusive. ||
 || logSlowRateType | **enum** (LogSlowRateType)
 
 - `SESSION`
@@ -1877,18 +1909,6 @@ Acceptable values are 0 to 86400, inclusive. ||
 || innodbPageSize | **string** (int64)
 
 Acceptable values are 4096 to 65536, inclusive. ||
-|| innodbOnlineAlterLogMaxSize | **string** (int64)
-
-Acceptable values are 65536 to 107374182400, inclusive. ||
-|| innodbFtMinTokenSize | **string** (int64)
-
-Acceptable values are 0 to 16, inclusive. ||
-|| innodbFtMaxTokenSize | **string** (int64)
-
-Acceptable values are 10 to 84, inclusive. ||
-|| lowerCaseTableNames | **string** (int64)
-
-Acceptable values are 0 to 1, inclusive. ||
 || maxSpRecursionDepth | **string** (int64)
 
 Acceptable values are 0 to 255, inclusive. ||
@@ -1906,10 +1926,10 @@ Acceptable values are 0 to 9, inclusive. ||
 || innodbPrintLockWaitTimeoutInfo | **boolean** ||
 || logErrorVerbosity | **string** (int64)
 
-Acceptable values are 1 to 3, inclusive. ||
+Acceptable values are 2 to 3, inclusive. ||
 || maxDigestLength | **string** (int64)
 
-Acceptable values are 0 to 1048576, inclusive. ||
+Acceptable values are 1024 to 1048576, inclusive. ||
 || lockWaitTimeout | **string** (int64)
 
 Acceptable values are 1 to 31536000, inclusive. ||
@@ -1948,6 +1968,9 @@ Acceptable values are 100 to 4294967295, inclusive. ||
 || maxWriteLockCount | **string** (int64)
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfigSet8_4 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_4}
@@ -2103,7 +2126,7 @@ Acceptable values are 0 to 50000, inclusive. ||
 || binlogRowsQueryLogEvents | **boolean** ||
 || rplSemiSyncMasterWaitForSlaveCount | **string** (int64)
 
-Acceptable values are 1 to 2, inclusive. ||
+The minimum value is 1. ||
 || slaveParallelType | **enum** (SlaveParallelType)
 
 - `DATABASE`
@@ -2134,7 +2157,7 @@ Acceptable values are 10 to 86400, inclusive. ||
 Acceptable values are 60 to 268435456, inclusive. ||
 || innodbOnlineAlterLogMaxSize | **string** (int64)
 
-Acceptable values are 60 to 107374182400, inclusive. ||
+Acceptable values are 65536 to 107374182400, inclusive. ||
 || innodbFtMinTokenSize | **string** (int64)
 
 Acceptable values are 0 to 16, inclusive. ||
@@ -2169,7 +2192,7 @@ Acceptable values are 1 to 1000, inclusive. ||
 Acceptable values are 0 to 86400, inclusive. ||
 || innodbPageSize | **string** (int64)
 
-Acceptable values are 1 to 65536, inclusive. ||
+Acceptable values are 4096 to 65536, inclusive. ||
 || maxSpRecursionDepth | **string** (int64)
 
 Acceptable values are 0 to 255, inclusive. ||
@@ -2185,7 +2208,7 @@ Acceptable values are 0 to 9, inclusive. ||
 Acceptable values are 2 to 3, inclusive. ||
 || maxDigestLength | **string** (int64)
 
-Acceptable values are 1024 to 8192, inclusive. ||
+Acceptable values are 1024 to 1048576, inclusive. ||
 || lockWaitTimeout | **string** (int64)
 
 Acceptable values are 1 to 31536000, inclusive. ||
@@ -2228,6 +2251,9 @@ Acceptable values are 0 to 86400, inclusive. ||
 || maxWriteLockCount | **string** (int64)
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}

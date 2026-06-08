@@ -77,16 +77,10 @@ Required field. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "shard_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -114,7 +108,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddClusterShardMetadata](#yandex.cloud.mdb.spqr.v1.AddClusterShardMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -129,7 +123,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Shard](#yandex.cloud.mdb.spqr.v1.Shard)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -144,28 +138,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddClusterShardMetadata {#yandex.cloud.mdb.spqr.v1.AddClusterShardMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the SPQR cluster that a shard is being added to. ||
-|| shard_name | **string**
-
-Name of the shard being added. ||
-|#
-
-## Shard {#yandex.cloud.mdb.spqr.v1.Shard}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the shard. ||
-|| cluster_id | **string**
-
-ID of the cluster that the shard belongs to. ||
 |#

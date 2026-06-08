@@ -43,6 +43,8 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [master-config-preview-note](../../../_includes/managed-kubernetes/master-config-preview-note.md) %}
 
+{% include [master-pricing-note](../../../_includes/managed-kubernetes/master-pricing-note.md) %}
+
 {% include [os-new-version](../../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
 {% list tabs group=instructions %}
@@ -510,7 +512,7 @@ description: Следуя данной инструкции, вы сможете
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли и SSH-ключи.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.
@@ -718,7 +720,7 @@ description: Следуя данной инструкции, вы сможете
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли и SSH-ключи.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.
@@ -903,7 +905,7 @@ description: Следуя данной инструкции, вы сможете
   }
 
   resource "yandex_kms_symmetric_key" "kms-key" {
-    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли, OAuth-токены и SSH-ключи.
+    # Ключ {{ kms-full-name }} для шифрования важной информации, такой как пароли и SSH-ключи.
     name              = "kms-key"
     default_algorithm = "AES_128"
     rotation_period   = "8760h" # 1 год.

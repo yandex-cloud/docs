@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/update-config
 editable: false
 ---
 
@@ -679,6 +680,18 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds).
 
+- `merge_tree.replicated_deduplication_window_for_async_inserts`: The number of most recently async inserted blocks for which ClickHouse Keeper stores hash sums to check for duplicates.
+
+  Default value: **10000**.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_for_async_inserts).
+
+- `merge_tree.replicated_deduplication_window_seconds_for_async_inserts`: The number of seconds after which the hash sums of the async inserts are removed from ClickHouse Keeper.
+
+  Default value: **604800** (7 days).
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#replicated_deduplication_window_seconds_for_async_inserts).
+
 - `merge_tree.fsync_after_insert`: Do fsync for every inserted part. Significantly decreases performance of inserts, not recommended to use with wide parts.
 
   Default value: **false**.
@@ -885,6 +898,11 @@ the session timeout, the broker will remove the consumer from the group and trig
 
 - `custom_macros.value`: Value of the macro.
 
+- `tls.trusted_certificates`: CA certificates in PEM format. Each element must contain a single self-signed CA certificate
+or a certificate chain ordered as leaf -> intermediates -> self-signed root.
+
+  Change of the setting is applied with restart.
+
 - `builtin_dictionaries_reload_interval`: The interval in seconds before reloading built-in dictionaries.
 
   Default value: **3600**.
@@ -907,9 +925,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

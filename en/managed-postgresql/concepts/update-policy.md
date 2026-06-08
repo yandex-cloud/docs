@@ -13,16 +13,16 @@ The new major version (`New`) becomes available shortly after its release by the
 
 {% endnote %}
 
-## {{ PG }} version lifecycle terms and stages {#version-lifecycle}
+## Terminology and lifecycle stages of {{ PG }} versions {#version-lifecycle}
 
 In {{ mpg-name }}, each major {{ PG }} version has the following **5-year** lifecycle:
 
-| Version status | Description and key [actions](#actions-available) | Period^1^                     |
+| Version stage | Description and key [actions](#actions-available) | Period^1^                     |
 |:------|:-------------|:----------------------------|
 | `New` | Latest version with long-term support (`LTS`). **Recommended for all new projects**.   | First year                  |
-| `Supported`  | Previous LTS version. Fully supported; allows creating new clusters. **Recommended for all projects**.  | Years two through four |
-| `Deprecated` | Version nearing the end of its support period. The existing clusters operate normally. **Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.** | Fifth year                   |
-| End of life (EOL) | Discontinued version. **Clusters still running this version get auto-updated to the latest supported version or stopped.** | At the end of five years |
+| Supported (`Supported`)  | Previous LTS version. Fully supported; allows creating new clusters. **Recommended for all projects**.  | Years two through four |
+| Deprecated (`Deprecated`) | Version nearing the end of its support period. The existing clusters operate normally. **Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.** | Fifth year                   |
+| End of life (EOL) | Discontinued version. **Clusters still running this version get auto-updated to the latest supported version or stopped.** | At the end of five years. |
 
 ^1^ The periods are relative to the major version release date. The exact status change dates are officially announced by the service.
 
@@ -30,7 +30,7 @@ In {{ mpg-name }}, each major {{ PG }} version has the following **5-year** life
 
 Depending on {{ PG }} version status, the following operations are available for clusters:
 
-| Action | `New` | `Supported` | `Deprecated` | End of life (`EOL`) |
+| Action | `New` | Supported (`Supported`) | Deprecated (`Deprecated`) | End of life (`EOL`) |
 | :--- | :---: | :---: | :---: | :---: |
 | Creating new clusters | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | Recovery from a backup | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
@@ -49,13 +49,13 @@ The {{ PG }} versioning policy is based on the following key principles:
 
 * **Support duration**. Each major version remains either `New` or `Supported` for four and a half years.
 * **Incremental deprecation**. In its fifth year, the version get the `Deprecated` status, and it becomes impossible to create new clusters six months before the end of life date.
-* **Active notification**: **Six months before `EOL`**, {{ mpg-name }} begins an active campaign to notify customers about the need to update.
-* **End of life**: On reaching `EOL` (end of fifth year), clusters running obsolete versions get **automatically updated ** to the **latest `Supported` version**. If the update is not possible for technical reasons, the cluster will be stopped. **Before it stops, the final backup will be automatically uploaded to the customer's {{ objstorage-name }} bucket**. After the cluster is stopped and the backup is uploaded, the cluster will be deleted.
+* **Active notification**. **Six months before `EOL`**, {{ mpg-name }} begins an active campaign to notify customers about the need to update.
+* **End of life**. On reaching `EOL` (end of fifth year), clusters running obsolete versions get **automatically updated ** to the **latest `Supported` version**. If the update is not possible for technical reasons, the cluster will be stopped. **Before it stops, the final backup will be automatically uploaded to the customer's {{ objstorage-name }} bucket**. After the cluster is stopped and the backup is uploaded, the cluster will be deleted.
 
 ## Update policy {#update-policy}
 
-* **Minor updates** (within a major version, e.g., 15.1 → 15.2) are installed automatically as part of maintenance performed during the cluster's specified maintenance window or at the customer's request. These updates contain security and bug fixes. The update requires a short, successive reboot of the cluster hosts.
-* **Major updates** (major version changes, e.g., 15.x → 16.x) are user-initiated, except for automatic updates for versions that have reached EOL. **We highly recommend you to update before the EOL date**.
+* **Minor updates** (within the major version, e.g., 15.1 → 15.2) are installed automatically as part of maintenance performed during the cluster's stated maintenance window or at the customer's request. These updates contain security and bug fixes. A minor update requires a short, successive reboot of the cluster hosts.
+* **Major updates** (changes of the major version, e.g., 15.x → 16.x) are user-initiated, except for automatic updates for versions that have reached EOL. **We highly recommend you to update before the EOL date**.
 
 ## Automatic update and stopping procedure {#update-eol}
 For clusters still running versions with expired support (`EOL`), {{ mpg-name }} initiates an automatic update.
@@ -67,7 +67,7 @@ For clusters still running versions with expired support (`EOL`), {{ mpg-name }}
 
 ## Notifications {#notifications}
 
-{{ mpg-name }} provides these upcoming update notifications in advance:
+{{ mpg-name }} provides these early upcoming update notifications:
 
 * Entering `Deprecated` status (prohibits creating new clusters).
 * **Six months** ahead of `EOL` (start of active notification phase).

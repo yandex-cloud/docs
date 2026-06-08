@@ -18,6 +18,8 @@ items:
         href: operations/trunk-update.md
       - name: Получить список операций транкового подключения
         href: operations/trunk-operations.md
+      - name: Переместить транковое подключение в другой каталог
+        href: operations/trunk-move.md
       - name: Удалить транковое подключение
         href: operations/trunk-delete.md
       - name: Получить информацию о приватных соединениях
@@ -28,10 +30,8 @@ items:
         href: operations/priv-con-update.md
       - name: Получить список операций приватного соединения
         href: operations/priv-con-operations.md
-      - name: Изменить список статических маршрутов для приватного соединения
-        href: operations/priv-con-static-upsert.md
-      - name: Удалить статические маршруты для приватного соединения
-        href: operations/priv-con-static-remove.md
+      - name: Переместить приватное соединение в другой каталог
+        href: operations/priv-con-move.md
       - name: Удалить приватное соединение
         href: operations/priv-con-delete.md
       - name: Получить информацию о публичных соединениях
@@ -140,6 +140,8 @@ items:
             href: cli-ref/private-connection/index.md
           - name: add-labels
             href: cli-ref/private-connection/add-labels.md
+          - name: batch-get
+            href: cli-ref/private-connection/batch-get.md
           - name: create
             href: cli-ref/private-connection/create.md
           - name: delete
@@ -168,6 +170,8 @@ items:
             href: cli-ref/public-connection/get.md
           - name: list
             href: cli-ref/public-connection/list.md
+          - name: list-operations
+            href: cli-ref/public-connection/list-operations.md
           - name: move
             href: cli-ref/public-connection/move.md
       - name: trunk-connection
@@ -176,6 +180,8 @@ items:
             href: cli-ref/trunk-connection/index.md
           - name: add-labels
             href: cli-ref/trunk-connection/add-labels.md
+          - name: batch-get
+            href: cli-ref/trunk-connection/batch-get.md
           - name: delete
             href: cli-ref/trunk-connection/delete.md
           - name: get
@@ -220,6 +226,8 @@ items:
                 href: cli-ref/v0/private-connection/index.md
               - name: add-labels
                 href: cli-ref/v0/private-connection/add-labels.md
+              - name: batch-get
+                href: cli-ref/v0/private-connection/batch-get.md
               - name: create
                 href: cli-ref/v0/private-connection/create.md
               - name: delete
@@ -248,6 +256,8 @@ items:
                 href: cli-ref/v0/public-connection/get.md
               - name: list
                 href: cli-ref/v0/public-connection/list.md
+              - name: list-operations
+                href: cli-ref/v0/public-connection/list-operations.md
               - name: move
                 href: cli-ref/v0/public-connection/move.md
           - name: trunk-connection
@@ -256,6 +266,8 @@ items:
                 href: cli-ref/v0/trunk-connection/index.md
               - name: add-labels
                 href: cli-ref/v0/trunk-connection/add-labels.md
+              - name: batch-get
+                href: cli-ref/v0/trunk-connection/batch-get.md
               - name: delete
                 href: cli-ref/v0/trunk-connection/delete.md
               - name: get
@@ -274,6 +286,92 @@ items:
                 href: cli-ref/v0/trunk-connection/remove-labels.md
               - name: update
                 href: cli-ref/v0/trunk-connection/update.md
+      - name: v1
+        items:
+          - name: Overview
+            href: cli-ref/v1/index.md
+          - name: partner
+            items:
+              - name: Overview
+                href: cli-ref/v1/partner/index.md
+              - name: get
+                href: cli-ref/v1/partner/get.md
+              - name: list
+                href: cli-ref/v1/partner/list.md
+          - name: point-of-presence
+            items:
+              - name: Overview
+                href: cli-ref/v1/point-of-presence/index.md
+              - name: get
+                href: cli-ref/v1/point-of-presence/get.md
+              - name: list
+                href: cli-ref/v1/point-of-presence/list.md
+          - name: private-connection
+            items:
+              - name: Overview
+                href: cli-ref/v1/private-connection/index.md
+              - name: add-labels
+                href: cli-ref/v1/private-connection/add-labels.md
+              - name: batch-get
+                href: cli-ref/v1/private-connection/batch-get.md
+              - name: create
+                href: cli-ref/v1/private-connection/create.md
+              - name: delete
+                href: cli-ref/v1/private-connection/delete.md
+              - name: get
+                href: cli-ref/v1/private-connection/get.md
+              - name: list
+                href: cli-ref/v1/private-connection/list.md
+              - name: list-operations
+                href: cli-ref/v1/private-connection/list-operations.md
+              - name: move
+                href: cli-ref/v1/private-connection/move.md
+              - name: remove-labels
+                href: cli-ref/v1/private-connection/remove-labels.md
+              - name: remove-static-routes
+                href: cli-ref/v1/private-connection/remove-static-routes.md
+              - name: update
+                href: cli-ref/v1/private-connection/update.md
+              - name: upsert-static-routes
+                href: cli-ref/v1/private-connection/upsert-static-routes.md
+          - name: public-connection
+            items:
+              - name: Overview
+                href: cli-ref/v1/public-connection/index.md
+              - name: get
+                href: cli-ref/v1/public-connection/get.md
+              - name: list
+                href: cli-ref/v1/public-connection/list.md
+              - name: list-operations
+                href: cli-ref/v1/public-connection/list-operations.md
+              - name: move
+                href: cli-ref/v1/public-connection/move.md
+          - name: trunk-connection
+            items:
+              - name: Overview
+                href: cli-ref/v1/trunk-connection/index.md
+              - name: add-labels
+                href: cli-ref/v1/trunk-connection/add-labels.md
+              - name: batch-get
+                href: cli-ref/v1/trunk-connection/batch-get.md
+              - name: delete
+                href: cli-ref/v1/trunk-connection/delete.md
+              - name: get
+                href: cli-ref/v1/trunk-connection/get.md
+              - name: list
+                href: cli-ref/v1/trunk-connection/list.md
+              - name: list-operations
+                href: cli-ref/v1/trunk-connection/list-operations.md
+              - name: list-private-connections
+                href: cli-ref/v1/trunk-connection/list-private-connections.md
+              - name: list-public-connections
+                href: cli-ref/v1/trunk-connection/list-public-connections.md
+              - name: move
+                href: cli-ref/v1/trunk-connection/move.md
+              - name: remove-labels
+                href: cli-ref/v1/trunk-connection/remove-labels.md
+              - name: update
+                href: cli-ref/v1/trunk-connection/update.md
   - name: Справочник API
     items:
       - name: Аутентификация в API
@@ -320,12 +418,16 @@ items:
                 href: api-ref/grpc/PrivateConnection/update.md
               - name: Delete
                 href: api-ref/grpc/PrivateConnection/delete.md
+              - name: Move
+                href: api-ref/grpc/PrivateConnection/move.md
+              - name: ListOperations
+                href: api-ref/grpc/PrivateConnection/listOperations.md
               - name: UpsertStaticRoute
                 href: api-ref/grpc/PrivateConnection/upsertStaticRoute.md
               - name: RemoveStaticRoute
                 href: api-ref/grpc/PrivateConnection/removeStaticRoute.md
-              - name: ListOperations
-                href: api-ref/grpc/PrivateConnection/listOperations.md
+              - name: BatchGet
+                href: api-ref/grpc/PrivateConnection/batchGet.md
           - name: PublicConnection
             items:
               - name: Overview
@@ -334,20 +436,30 @@ items:
                 href: api-ref/grpc/PublicConnection/get.md
               - name: List
                 href: api-ref/grpc/PublicConnection/list.md
+              - name: Move
+                href: api-ref/grpc/PublicConnection/move.md
+              - name: ListOperations
+                href: api-ref/grpc/PublicConnection/listOperations.md
           - name: TrunkConnection
             items:
               - name: Overview
                 href: api-ref/grpc/TrunkConnection/index.md
               - name: Get
                 href: api-ref/grpc/TrunkConnection/get.md
+              - name: BatchGet
+                href: api-ref/grpc/TrunkConnection/batchGet.md
               - name: List
                 href: api-ref/grpc/TrunkConnection/list.md
-              - name: Create
-                href: api-ref/grpc/TrunkConnection/create.md
               - name: Update
                 href: api-ref/grpc/TrunkConnection/update.md
               - name: Delete
                 href: api-ref/grpc/TrunkConnection/delete.md
+              - name: ListPrivateConnections
+                href: api-ref/grpc/TrunkConnection/listPrivateConnections.md
+              - name: ListPublicConnections
+                href: api-ref/grpc/TrunkConnection/listPublicConnections.md
+              - name: Move
+                href: api-ref/grpc/TrunkConnection/move.md
               - name: ListOperations
                 href: api-ref/grpc/TrunkConnection/listOperations.md
       - name: REST (англ.)
@@ -392,12 +504,14 @@ items:
                 href: api-ref/PrivateConnection/update.md
               - name: Delete
                 href: api-ref/PrivateConnection/delete.md
+              - name: Move
+                href: api-ref/PrivateConnection/move.md
+              - name: ListOperations
+                href: api-ref/PrivateConnection/listOperations.md
               - name: UpsertStaticRoute
                 href: api-ref/PrivateConnection/upsertStaticRoute.md
               - name: RemoveStaticRoute
                 href: api-ref/PrivateConnection/removeStaticRoute.md
-              - name: ListOperations
-                href: api-ref/PrivateConnection/listOperations.md
           - name: PublicConnection
             items:
               - name: Overview
@@ -406,20 +520,30 @@ items:
                 href: api-ref/PublicConnection/get.md
               - name: List
                 href: api-ref/PublicConnection/list.md
+              - name: Move
+                href: api-ref/PublicConnection/move.md
+              - name: ListOperations
+                href: api-ref/PublicConnection/listOperations.md
           - name: TrunkConnection
             items:
               - name: Overview
                 href: api-ref/TrunkConnection/index.md
               - name: Get
                 href: api-ref/TrunkConnection/get.md
+              - name: BatchGet
+                href: api-ref/TrunkConnection/batchGet.md
               - name: List
                 href: api-ref/TrunkConnection/list.md
-              - name: Create
-                href: api-ref/TrunkConnection/create.md
               - name: Update
                 href: api-ref/TrunkConnection/update.md
               - name: Delete
                 href: api-ref/TrunkConnection/delete.md
+              - name: ListPrivateConnections
+                href: api-ref/TrunkConnection/listPrivateConnections.md
+              - name: ListPublicConnections
+                href: api-ref/TrunkConnection/listPublicConnections.md
+              - name: Move
+                href: api-ref/TrunkConnection/move.md
               - name: ListOperations
                 href: api-ref/TrunkConnection/listOperations.md
   - name: История изменений

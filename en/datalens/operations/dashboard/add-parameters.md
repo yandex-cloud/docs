@@ -19,7 +19,7 @@ To set a [parameter](../../dashboard/dashboard_parameters.md#params-dash):
 1. In the settings window, click **Dashboard parameters** ![image](../../../_assets/console-icons/sliders-vertical.svg).
 
 
-1. Enter the parameter's name (key) and value. You can set multiple parameter values.
+1. Enter the parameter name (key) and value. You can set multiple parameter values.
 1. To add another parameter, click **Add parameter** and repeat the previous step.
 1. Click **Save**.
 1. In the top-right corner of the dashboard edit window, click **Save**.

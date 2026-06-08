@@ -1,0 +1,1 @@
+The `datalens.collections.visitor` is assigned for a collection and enables viewing info on it without access to its nested objects. In the {{ datalens-name }} UI, this role is referred to as `Visitor of collection`. We recommend assigning this role only via the {{ datalens-name }} UI.

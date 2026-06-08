@@ -10,7 +10,7 @@ In {{ mgp-name }}, you can use a Hive DBMS as part of [{{ dataproc-full-name }}]
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Open the page of the {{ GP }} cluster in question.
+    1. Open the page of the {{ mgp-name }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_hive }}` connection type.
@@ -99,5 +99,3 @@ In {{ mgp-name }}, you can use a Hive DBMS as part of [{{ dataproc-full-name }}]
 {% endlist %}
 
 After you create an external data source, [create an external table](create-table.md).
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

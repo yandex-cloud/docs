@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/update-config
 editable: false
 ---
 
@@ -30,8 +31,7 @@ Set Redis cluster parameters. Can be used multiple times. Acceptable keys:
 - `maxmemory_policy`: Redis key eviction policy for a dataset that reaches maximum memory,
 available to the host. Redis maxmemory setting depends on Managed
 Service for Redis [host class](/docs/managed-redis/concepts/instance-types).
-
-  All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
+All policies are described in detail in [Redis documentation](https://redis.io/topics/lru-cache).
 
 - `timeout`: Time that Redis keeps the connection open while the client is idle.
 If no new command is sent during that time, the connection is closed.
@@ -86,7 +86,9 @@ If no new command is sent during that time, the connection is closed.
 
 - `aof_max_size_percent`: AOF maximum size as a percentage of disk available
 
-- `activedefrag`: Enable active (online) memory defragmentation ||
+- `activedefrag`: Enable active (online) memory defragmentation
+
+- `audit_log`: Enable/disable audit logs for Valkey ||
 |#
 
 #### Global Flags
@@ -104,9 +106,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

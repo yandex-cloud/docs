@@ -1,10 +1,15 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/
 editable: false
 ---
 
 # yc smartcaptcha
 
 Manage SmartCaptcha resources
+
+Command tree v1 (new CLI interface) is the default. Run `yc smartcaptcha v1 <command>`.
+Legacy command tree v0 is also available: `yc smartcaptcha v0 <command>`.
+Set `services.smartcaptcha.version: v0` or `services.smartcaptcha.version: v1` in your profile to change the default.
 
 #### Command Usage
 
@@ -33,6 +38,10 @@ Aliases:
   - [yc smartcaptcha captcha list](captcha/list.md) — Retrieves the list of Captcha resources in the specified folder.
 
   - [yc smartcaptcha captcha update](captcha/update.md) — Updates the specified captcha.
+
+- [yc smartcaptcha v0](v0/index.md) — (legacy command tree) Manage SmartCaptcha resources
+
+
 
 - [yc smartcaptcha v1](v1/index.md) — Manage SmartCaptcha resources
 
@@ -76,6 +85,7 @@ Set the ID of the service account to impersonate. ||
 || `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||

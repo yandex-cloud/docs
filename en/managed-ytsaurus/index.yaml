@@ -112,10 +112,8 @@ blocks:
         The Yandex Cloud infrastructure is
         [protected](https://yandex.cloud/en/docs/security/conform) pursuant to
         the Russian Federal Law No. 152-FZ on Personal Data.
-  - type: content-layout-block
-    textContent:
-      title: ''
-      text: >-
+
+
         This service is subject to a [service level
         agreement](https://yandex.com/legal/cloud_sla/en/). The service level is
         set out in the document titled [Yandex Managed Service for YTsaurus

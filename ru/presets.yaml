@@ -8,11 +8,13 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerting-metrics-limit: 1 000
   alerts-name: Алерты
   all-mdb:
     max-databases: 1000
@@ -29,6 +31,7 @@ default:
   api-host: api.cloud.yandex.net
   api-host-airflow: airflow.api.cloud.yandex.net
   api-host-apigw: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+  api-host-captcha: https://smartcaptcha.api.cloud.yandex.net
   api-host-certmanager: certificate-manager.api.cloud.yandex.net
   api-host-certmanager-certcontent: data.certificate-manager.api.cloud.yandex.net
   api-host-certmanager-validation: validation.certificate-manager.api.cloud.yandex.net
@@ -51,6 +54,7 @@ default:
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
   api-host-storage-grpc: storage.api.cloud.yandex.net:443
+  api-host-sws: https://smartwebsecurity.api.cloud.yandex.net
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -82,6 +86,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -91,7 +96,7 @@ default:
   CH: ClickHouse®
   ch-domain: clickhouse.com
   ch:
-    docs: https://clickhouse.com/docs/ru
+    docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -262,6 +267,7 @@ default:
   k8s-decomission-timeout: 5 минут
   k8s-docs: https://kubernetes.io/ru/docs
   k8s-hpa: Horizontal Pod Autoscaler
+  k8s-ma: Master Autoscaler
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -620,11 +626,7 @@ default:
   roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
-  roles-speechsense-data-viewer: Data viewer
-  roles-speechsense-editor: Editor
-  roles-speechsense-viewer: Viewer
   roles-viewer: viewer
   roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
@@ -795,7 +797,6 @@ default:
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
@@ -886,6 +887,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
@@ -974,6 +976,7 @@ default:
   yq-short-name: YQ
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
+  yt-name: YT
   ytsaurus-name: YTsaurus
   YZ: Yezzey
   ZK: ZooKeeper
@@ -983,6 +986,7 @@ default:
   pcs|api-gateway: dn25mc2lq81eqg1ohe4i
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -1040,6 +1044,21 @@ default:
         12_month: dn2p6himjfj4hnjshxco
         3_month: dn2idsw46rbwcnkndlhn
         6_month: dn2hi7cbvh3bnbkef4up
+      bms_6017r_1p_body:
+        1_month: dn2q2frxpt6tvufg4dbj
+        12_month: dn2jbwhte5bfbbaktedf
+        3_month: dn2rbrihkjxszdhcqspo
+        6_month: dn2b2nlopzirnvkm6jui
+      bms_6017r_2p_body:
+        1_month: dn2so47gvuqx5azgciwy
+        12_month: dn2tcjv6cx76pi5bpxb5
+        3_month: dn2bwgkxfxqi2he7idmx
+        6_month: dn2d5amh7npq6uybeid2
+      bms_6018r_body:
+        1_month: dn2inhbs6bc4xt5qslnx
+        12_month: dn2nzwmnpelqxxvtwye5
+        3_month: dn2lzxls7ofr42crh4dw
+        6_month: dn2gupw4x3udejwq5e5u
       bms_cpu_i6230:
         1_month: dn2dxqjz3vqfxeq6fqbz
         12_month: dn25uptp35c3njgv25wn
@@ -1050,6 +1069,36 @@ default:
         12_month: dn2pydc6l4pylhxzylql
         3_month: dn2revpxepujo6i4wvqv
         6_month: dn2r4dbzpdsyoxjryx7n
+      bms_cpu_ie5_2660v4:
+        1_month: dn2l54dob4rh7tcdtjzv
+        12_month: dn2ig6lvlsqelfhir524
+        3_month: dn2taonqwhl2vrfzys37
+        6_month: dn2mtpccuek5frawr5c6
+      bms_cpu_ie5_2683v4:
+        1_month: dn2dfnvwxwtlpfjbxk3e
+        12_month: dn2ksjdod7xaford5gb7
+        3_month: dn2drrgaldi27t2xgthq
+        6_month: dn2yixalmc2pietpjnth
+      bms_ram3_512:
+        1_month: dn272obotmhjs6qugtzr
+        12_month: dn2dmubcjjn6l2mtrj7t
+        3_month: dn25p4ghrem3sn243lyb
+        6_month: dn2dhr4kosajyu44vuwo
+      bms_ram4_16:
+        1_month: dn23h2is6g3cbqeptfvz
+        12_month: dn2c7sqmplx7xdxmaqdh
+        3_month: dn2kfl2eqfpzcf2w3wmt
+        6_month: dn2lt74sflg4e3poxhzr
+      bms_ram4_32:
+        1_month: dn2mgfustyk26cx5rnrk
+        12_month: dn2cte6dlvabkmfwxryi
+        3_month: dn2qm5zh6wthji2febzy
+        6_month: dn26pe7pi3th4wrcboym
+      bms_ram4_64:
+        1_month: dn2fumiz6cxhwgmz76cy
+        12_month: dn2cxcdjpeocox42tkmk
+        3_month: dn2sbp4q2d4kch7jro77
+        6_month: dn2dg23ibbqvgkcyo2t5
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -1314,6 +1363,12 @@ default:
         12_month: dn2p7j4g65rioh676pec
         3_month: dn2td7drocpwss27prtp
         6_month: dn24m37i7jgimv47zsao
+      ba_i218_s:
+        1_day: dn2yspxmcbxndak267qp
+        1_month: dn2eyi7ztdxbxmd4dgj5
+        12_month: dn2zlvn2xg4xmjtzizsd
+        3_month: dn2vj6swslxr2owotaqt
+        6_month: dn2szgigswzw6nv7adb3
       ba_i311_s:
         1_day: dn2pmeuzaf5x5jog4dxl
         1_month: dn2rx7dxbtooxf6ckpkc
@@ -1592,6 +1647,12 @@ default:
         12_month: dn24yko6koontg32wjtm
         3_month: dn2fk5rqjzelrsqlh6zw
         6_month: dn2plhocvyi3hfzx7uv5
+      la_i114_s:
+        1_day: dn2c3fvr5id64qmsvelk
+        1_month: dn22gcl3uajdmvxh3ilp
+        12_month: dn2hy7escq66mrhbqz62
+        3_month: dn2rpej2eep226m4lnin
+        6_month: dn2jupfua327m4scynoi
       la-i100-h:
         1_day: dn2t33wjf2qexcjgwqfm
         1_month: dn2a7ztltvaxx4jix3j4
@@ -1643,17 +1704,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -1767,11 +1817,6 @@ default:
             cores: dn2jqpn5pcn1kjtf06e5
           highfreq-v4a:
             cores: dn28ft211q8jed0h7dif
-  pc|mk8s:
-    master:
-      master_host_resources:
-        cpu: dn2pjj9vapo7724rik0b
-        ram: dn2u6o8avnm6b5tb8klu
   pc|monitoring:
     alerts:
       notifications:
@@ -1920,17 +1965,13 @@ default:
         v2|pricingRate:
           1|number: 503.25
           1|string: "503,25\_₸"
-      vimpelcom_marketing_1|number: 39.35
-      vimpelcom_marketing_1|string: "39,35\_₸"
-      vimpelcom_marketing_2|number: 38.9
-      vimpelcom_marketing_2|string: "38,9\_₸"
+      vimpelcom_marketing_1|number: 39.4
+      vimpelcom_marketing_1|string: "39,4\_₸"
+      vimpelcom_marketing_from_5|number: 39.9
+      vimpelcom_marketing_from_5|string: "39,9\_₸"
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 96.05
-      vimpelcom_marketing_1|string: "96,05\_₸"
-      vimpelcom_marketing_2|number: 71.25
-      vimpelcom_marketing_2|string: "71,25\_₸"
-      vimpelcom_marketing_3|number: 136
-      vimpelcom_marketing_3|string: "136\_₸"
+      vimpelcom_marketing_3_to_4|number: 97.85
+      vimpelcom_marketing_3_to_4|string: "97,85\_₸"
     notifications:
       sender_name_registration_event|number: 50833.3
       sender_name_registration_event|string: "50\_833,3\_₸"
@@ -2224,37 +2265,6 @@ default:
         vcpu:
           v2|number: 7.85
           v2|string: "7,85\_₸"
-  sku|KZT|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.7625
-        v1|string: "0,7625\_₸"
-      audio|number: 0.0505
-      audio|pricingRate:
-        30000000|number: 0.0254
-        6000000|number: 0.0305
-      text:
-        v2|number: 7.015
-        v2|pricingRate:
-          100000|number: 5.185
-          100000|string: "5,185\_₸"
-          1000000|string: "2,135\_₸"
-          2500000|string: "1,525\_₸"
-          500000|number: 3.05
-          500000|string: "3,05\_₸"
-        v2|string: "7,015\_₸"
-      v1|number: 0.1165
-      v1|pricingRate:
-        150000000|number: 0.0254
-        30000000|number: 0.0505
-        6000000|number: 0.086
-        60000000|number: 0.0355
-    reinit:
-      assistant:
-        v1|number: 0.7625
-        v1|string: "0,7625\_₸"
-      tag:
-        v1|string: "0,06\_₸"
   sku|KZT|storage:
     api:
       get:
@@ -2468,17 +2478,13 @@ default:
         v2|pricingRate:
           1|number: 100.65
           1|string: "100,65\_₽"
-      vimpelcom_marketing_1|number: 7.87
-      vimpelcom_marketing_1|string: "7,87\_₽"
-      vimpelcom_marketing_2|number: 7.78
-      vimpelcom_marketing_2|string: "7,78\_₽"
+      vimpelcom_marketing_1|number: 7.88
+      vimpelcom_marketing_1|string: "7,88\_₽"
+      vimpelcom_marketing_from_5|number: 7.98
+      vimpelcom_marketing_from_5|string: "7,98\_₽"
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 19.21
-      vimpelcom_marketing_1|string: "19,21\_₽"
-      vimpelcom_marketing_2|number: 14.25
-      vimpelcom_marketing_2|string: "14,25\_₽"
-      vimpelcom_marketing_3|number: 27.2
-      vimpelcom_marketing_3|string: "27,2\_₽"
+      vimpelcom_marketing_3_to_4|number: 19.57
+      vimpelcom_marketing_3_to_4|string: "19,57\_₽"
     notifications:
       sender_name_registration_event|number: 10166.66
       sender_name_registration_event|string: "10\_166,66\_₽"
@@ -2804,37 +2810,6 @@ default:
         vcpu:
           v2|number: 1.57
           v2|string: "1,57\_₽"
-  sku|RUB|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.1525
-        v1|string: "0,1525\_₽"
-      audio|number: 0.0101
-      audio|pricingRate:
-        30000000|number: 0.00508
-        6000000|number: 0.0061
-      text:
-        v2|number: 1.403
-        v2|pricingRate:
-          100000|number: 1.037
-          100000|string: "1,037\_₽"
-          1000000|string: "0,427\_₽"
-          2500000|string: "0,305\_₽"
-          500000|number: 0.61
-          500000|string: "0,61\_₽"
-        v2|string: "1,403\_₽"
-      v1|number: 0.0233
-      v1|pricingRate:
-        150000000|number: 0.00508
-        30000000|number: 0.0101
-        6000000|number: 0.0172
-        60000000|number: 0.0071
-    reinit:
-      assistant:
-        v1|number: 0.1525
-        v1|string: "0,1525\_₽"
-      tag:
-        v1|string: "0,012\_₽"
   sku|RUB|storage:
     api:
       get:
@@ -3048,17 +3023,13 @@ default:
         v2|pricingRate:
           1|number: 0.824999868
           1|string: "0,824999868\_$"
-      vimpelcom_marketing_1|number: 0.0645081864
-      vimpelcom_marketing_1|string: "0,0645081864\_$"
-      vimpelcom_marketing_2|number: 0.0637704816
-      vimpelcom_marketing_2|string: "0,0637704816\_$"
+      vimpelcom_marketing_1|number: 0.0645901536
+      vimpelcom_marketing_1|string: "0,0645901536\_$"
+      vimpelcom_marketing_from_5|number: 0.0654098256
+      vimpelcom_marketing_from_5|string: "0,0654098256\_$"
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 0.1574589912
-      vimpelcom_marketing_1|string: "0,1574589912\_$"
-      vimpelcom_marketing_2|number: 0.11680326
-      vimpelcom_marketing_2|string: "0,11680326\_$"
-      vimpelcom_marketing_3|number: 0.222950784
-      vimpelcom_marketing_3|string: "0,222950784\_$"
+      vimpelcom_marketing_3_to_4|number: 0.1604098104
+      vimpelcom_marketing_3_to_4|string: "0,1604098104\_$"
     notifications:
       sender_name_registration_event|number: 83.3332653552
       sender_name_registration_event|string: "83,3332653552\_$"
@@ -3366,37 +3337,6 @@ default:
         vcpu:
           v2|number: 0.0128688504
           v2|string: "0,0128688504\_$"
-  sku|USD|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: "0,0012499998\_$"
-      audio|number: 0.0000827869
-      audio|pricingRate:
-        30000000|number: 0.0000416393
-        6000000|number: 0.00005
-      text:
-        v2|number: 0.0114999982
-        v2|pricingRate:
-          100000|number: 0.0084999986
-          100000|string: "0,0084999986\_$"
-          1000000|string: "0,0034999994\_$"
-          2500000|string: "0,0024999996\_$"
-          500000|number: 0.0049999992
-          500000|string: "0,0049999992\_$"
-        v2|string: "0,0114999982\_$"
-      v1|number: 0.0001909836
-      v1|pricingRate:
-        150000000|number: 0.0000416393
-        30000000|number: 0.0000827869
-        6000000|number: 0.0001409836
-        60000000|number: 0.0000581967
-    reinit:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: "0,0012499998\_$"
-      tag:
-        v1|string: "0,0000983606\_$"
   sku|USD|storage:
     api:
       get:
@@ -3711,6 +3651,7 @@ default:
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         value_empty_clouds: Все облака и каталоги
+        value_empty_service_instances: Все рабочие пространства
       cloud-billing-account:
         label_card-add: Добавить карту
       create-account:
@@ -3961,6 +3902,7 @@ default:
         button_add-label: Добавить метку
       marketplace:
         label_product-ids: Идентификаторы продукта
+        label_subscriptions: Варианты тарификации
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
@@ -4038,6 +3980,7 @@ default:
           save: Сохранить
       alert-template:
         field:
+          delay-key-value: Задержка вычисления
           evaluation-window-key-value: Окно вычисления
         no-metrics-policy:
           alarm: Alarm
@@ -4402,6 +4345,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4964,14 +4908,14 @@ default:
             not_verified: Не проверяется
         controls:
           ControlExceptionForm:
-            allResources_2ax5E: Все ресурсы
+            allResources_2ax5E: Все ресурсы окружения
             ExceptionRulesSection:
               action_select-rules: Выбрать правила
               rules-select_option_all: Все правила
               rules-select_option_selected: Выбранные правила
-              section-title: Исключённые правила
+              section-title: Правила
             label_active-exclusion_fjPgA: Активировать исключение
-            scopeOfControl_aRkwB: Область действия контроля
+            scopeOfControl_aRkwB: Область действия
             section-title_3YcSF: Причина исключения
             selectResources_bD5MC: Выбрать ресурсы
           ControlsExceptionsPage:
@@ -4995,8 +4939,8 @@ default:
             header_caption_cspm_9dTJt: Контроль конфигурации
             info_type_1dxbZ: Тип исключения
           ResourceExceptionForm:
-            title_exclude_uK4FD: Не проверять ресурс
-            title_reportCompliance_re4wo: Ресурс проверен вручную
+            title_exclude_uK4FD: Проверка не требуется
+            title_reportCompliance_re4wo: Проверено вручную
           rule-result:
             controlRule_kr2Bv: Правило контроля
             module_63uuk: Модуль контроля
@@ -5011,9 +4955,9 @@ default:
             field_author_8hf4z: Создано
             field_reason_qN8a7: Причина исключения
             field_rules_vBK4W: Правила
-            field_type_exclude_cigcD: Не проверять ресурс
+            field_type_exclude_cigcD: Проверка не требуется
             field_type_kCG8J: Тип исключения
-            field_type_manual_mbKxp: Ресурс проверен
+            field_type_manual_mbKxp: Проверено вручную
         discovery:
           header_resource_kDJFW: Ресурс
           more_details_button_aPdgv: Больше деталей
@@ -5138,7 +5082,7 @@ default:
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
-            tabStandards_wSeaW: Соответствие требованиям
+            tabStandards_wSeaW: Модули контроля
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Приёмник алертов
             billing_account_title_sU1Tj: Оплата ресурсов
@@ -5153,7 +5097,7 @@ default:
             generalParamsTitle_xzLoX: Основные параметры
             resourcesTitle_fE6qp: Ресурсы
             saveAndContinue_9xKZY: Сохранить и продолжить
-            standartsTitle_cxvJ8: Соответствие требованиям
+            standartsTitle_cxvJ8: Модули контроля
           WorkspaceOnboardingPageLayout:
             pageTitle_ehdBw: Создание и настройка окружения
           WorkspacePageLayout:
@@ -5281,6 +5225,7 @@ default:
         label_domains-status: Статус проверки
         label_page-id: PageID
         label_provider-type: Провайдер
+        label_show-source-file-before-transcoding: Показывать видео в плеере до окончания обработки
         label_title: Имя
         title_settings: Настройки канала
       common:
@@ -5311,25 +5256,28 @@ default:
         action_create-preset: Создать шаблон
         action_set-as-default: Выбрать шаблоном по умолчанию
         button_open-preset-template-dialog: Посмотреть шаблон в отдельном окне
+        field_logo-enabled: Показывать логотип
+        field_logo-redirect-on-click-url: Ссылка на логотипе
+        field_logo-show-with-controls: Скрывать с интерфейсом плеера
         label_style-preset: Шаблон плеера
         label_title: Имя шаблона
+        section_logo-settings: Настройка логотипа
         section_styles-settings: Настройка стилей
         section_wigets-settings: Настройки виджетов
         title_presets: Шаблоны плеера
       stream-lines:
-        action_create-line: Создать линию
         label_input-stream-protocol: Протокол входного потока
         label_input-stream-type: Тип потока
         label_server-address: Адрес сервера
         label_stream-key: Ключ трансляции
         label_url: Адрес сервера
-        title_lines: Линии
       streams:
         action_add-stream-episode: Добавить эпизод
         action_copy-code: Скопировать
         action_create-stream: Создать трансляцию
         action_start-stream: Начать
         action_stop-stream: Завершить
+        field_segment-duration: Режим задержки
         label_auto-publish-streams: Автозапуск трансляции
         label_episode-autoplay: Запускать видео автоматически
         label_episode-hidden: Скрывать элементы управления в плеере
@@ -5343,15 +5291,13 @@ default:
         label_start-broadcast-auto: автоматически
         label_stream-episode-end: Конец эпизода
         label_stream-episode-start: Начало эпизода
-        label_stream-type: Тип потока
-        label_type-on-demand: По требованию
-        label_type-schedule: По расписанию
+        option_segment-duration-low: Низкая
+        option_segment-duration-standart: Стандартная
         status_finished: Finished
         status_offline: Offline
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
-        title_past-code: Встроить на сайте
         title_stream-episodes: Эпизоды
         title_streams: Трансляции
       thumbnails:
@@ -5557,6 +5503,7 @@ default:
         label_destination: Назначение
         label_event-filter-section: Сбор событий с уровня сервисов
         label_eventRouter: EventRouter
+        label_log-group: Лог-группа
         label_object-prefix: Префикс объекта
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5802,6 +5749,7 @@ default:
         label_dns-settings_title: Настройки DNS
         label_headers: Заголовок
         label_host-header: Заголовок Host
+        label_ignore: Игнорировать
         label_ip-address: IP-адрес
         label_locations: Локационные правила
         label_metrics-requests: Запросы от клиентов
@@ -5935,6 +5883,8 @@ default:
           add_shard-btn: Добавить шард
           databases:
             popup-add_button_add: Создать
+          field_cluster-sharding: Шардирование кластера
+          field_shard-resources-type: Конфигурация
           format-schemas:
             button-action_add-format-schema: Создать схему
             dialog:
@@ -5963,9 +5913,12 @@ default:
           switch_shard-groups: Группы шардов
           switch_shards: Шарды
           switch_users: Пользователи
+          title_cluster-shards-settings: Настройки шардирования
           value_coordination-service-embedded-clickhouse-keeper: ClickHouse Keeper (встроенный)
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (на отдельных хостах)
           value_coordination-service-zookeeper: ZooKeeper (на отдельных хостах)
+          value_shard-resources-type-default: По умолчанию
+          value_shard-resources-type-override: Переопределённая
         Cluster:
           Shards:
             action_add-shards_iULX7: Создать шарды
@@ -5975,8 +5928,6 @@ default:
             action_add-clickhouse-hosts: Создать хосты ClickHouse
             action_add-host-item: Создать хост
             action_submit: Создать хосты
-            field_copy_schema: Копировать схему данных
-            title_additional-settings: Дополнительные настройки
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Группы запросов
@@ -6097,6 +6048,7 @@ default:
         create: Создать
         created-at: Дата создания
         delete: Удалить
+        deletion-protection: Защита от удаления
         description: Описание
         disable: Выключить
         disabled: Выключено
@@ -6340,6 +6292,19 @@ default:
             button_reschedule_3SHfY: Перенести
           PlatformField:
             value_platform-tab-gpu_hGyQ8: Есть GPU
+          ScheduleSection:
+            label_cron_kZwc5: Cron
+            label_daily_o3t6f: Каждый день
+            label_monthly_dJYSn: По месяцам
+            label_repeat-type_7fBWj: Создавать снимки
+            label_start-date_pbnDp: Начало действия
+            label_weekly_pB4YE: По дням недели
+            section_schedule_ro4p7: Расписание запуска
+          SnapshotScheduleFormContent:
+            label_empty-retention-policy_voaWW: Хранить все снимки
+            section_general-info_bN9QE: Общая информация
+            section_snapshot-settings: Настройки снимка
+            section_storage-settings_wG5uP: Настройки хранения
           SshViaPrivateKeyDialog:
             connect-via-private-key_6DKKe: Подключиться
         disk-form:
@@ -6478,6 +6443,7 @@ default:
           overview:
             button_action-edit: Изменить ВМ
             button_action-ssh: Подключиться в Cloud Shell
+            button_add-network-interface: Добавить сетевой интерфейс
             button_add-public-ip: Добавить публичный IP-адрес
             button_edit-network-interface: Изменить
             button_remove-public-ip: Отвязать публичный IP-адрес
@@ -6568,6 +6534,8 @@ default:
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker-compose
+            value_serial-port-enable: Разрешить
+          field_network-interface-index: Номер сетевого интерфейса
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
           popup-confirm_button_gr-stop: Остановить
@@ -6621,21 +6589,17 @@ default:
             main-pool-info-section_xoPE2: Общая информация о пуле
             resources-section-title_wAFm8: Вычислительные ресурсы ВМ
         section_additional_7yvYG: Дополнительно
+        snapshot-schedule-form-next:
+          active-retention-policy-field:
+            message_store-last-begin_few: Только последние
         snapshots_81jHX: Снимки дисков
         snapshots-schedules:
           action_attach-disk: Добавить диск
           action_detach-disk: Удалить из расписания
           action_detach-schedule: Отвязать от диска
           action_edit-disk-schedules: Настроить расписания снимков
-          label_custom: По cron-выражению
-          label_daily: По дням
-          label_empty-retention-policy: Хранить все снимки
-          label_hourly: По часам
-          label_schedule-policy: Создавать снимки
-          label_start-at: Начиная с
+          button_create-snapshot-schedule: Создать расписание снимков
           label_title: Расписания снимков
-          label_weekly: По неделям
-          message_store-last-begin_many: Только последние
           title_snapshot-schedule-disks: Диски
         snapshots:
           list:
@@ -7098,7 +7062,7 @@ default:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
           incident-notifications:
-            button_open-dialog: Добавить
+            button_open-add-notification-dialog: Добавить уведомление
           label_create_cloud: Создать облако
           quotas:
             button_action-request: Повысить
@@ -7276,6 +7240,35 @@ default:
           action_disable-access: Отключить  доступ
           action_enable-access: Включить доступ
           label_filter-by-service-placeholder: Фильтр по сервису
+      interconnect:
+        bgp-asn_3dSL7: BGP ASN
+        bgp-key_cn2dU: BGP Key
+        cloud-ip_6ESSe: Cloud IP
+        peer-ip_pMdxo: Peer IP
+        peering-subnet_eYRTR: Стыковая подсеть
+        private-connection:
+          create-private-connection_6K9tP: Создать приватное соединение
+          private-connections_daeaR: Приватные соединения
+          StaticRoutePrefixRow:
+            add-prefix-button_n11CU: Добавить префикс
+          TrunkConnectionSuggestOrCreate:
+            title_oPBF7: Идентификатор транкового подключения
+        public-connection:
+          public-connections_7xYcV: Публичные соединения
+        trunk-connection:
+          connection-capacity_tkrnE: Ёмкость подключения
+          connection-type_23Twp: Тип подключения
+          connection-type-lag_nkLCb: LAG
+          connection-type-partner_tsPPf: Через партнёра
+          connection-type-single-port-direct_1QHVe: Прямое
+          DirectConnectionFields:
+            ports-count_d9Zds: Количество портов
+          point-of-presence_265QN: Точка присутствия
+          transceiver-type_2WtM8: Тип трансивера
+          trunk-connections_kBGNL: Транковые подключения
+          TrunkConnectionListScreen:
+            create-trunk-connection_oUuYo: Создать транковое подключение
+        vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Добавить алиас
         button_add-device: Добавить устройство
@@ -7464,20 +7457,41 @@ default:
         field_connector-alias: Псевдоним
         field_connector-bootstrap-servers: Бутстрап-серверы
         field_connector-bucket-name: Имя бакета
+        field_connector-catalog-uri: URI каталога
+        field_connector-commit-interval-ms: Интервал коммита, мс
+        field_connector-commit-threads: Потоки коммита
+        field_connector-commit-timeout-ms: Таймаут коммита, мс
         field_connector-compression-type: Механизм сжатия
         field_connector-config-mirror-maker-source-cluster: Кластер-источник
         field_connector-config-mirror-maker-target-cluster: Кластер-приёмник
         field_connector-config-mirror-maker-topics: Топики
+        field_connector-control-topic: Топик управления
+        field_connector-default-commit-branch: Ветка коммитов по умолчанию
+        field_connector-default-id-columns: Список столбцов по умолчанию
+        field_connector-default-partition-by: Партиционирование по умолчанию
         field_connector-endpoint: Эндпоинт
+        field_connector-evolve-schema-enabled: Включить автоматическую эволюцию схемы
         field_connector-file-max-records: Максимальное количество записей на файл
+        field_connector-group-id-prefix: Префикс consumer group
+        field_connector-metastore-connection: Подключение к Metastore
         field_connector-region: Регион
+        field_connector-route-field: Поле маршрутизации
         field_connector-s3-connection: Подключение к S3
         field_connector-sasl-mechanism: SASL механизм
         field_connector-sasl-password: SASL пароль
         field_connector-sasl-username: SASL имя пользователя
+        field_connector-schema-case-insensitive: Регистронезависимое сопоставление имён полей
+        field_connector-schema-force-optional: Сделать все колонки nullable
         field_connector-secret-access-key: Секретный ключ
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
+        field_connector-static-tables: Таблицы
+        field_connector-table-routing: Маршрутизация таблиц
+        field_connector-table-routing-dynamic: Динамическая
+        field_connector-table-routing-static: Статическая
+        field_connector-topics-source: Источник топиков
+        field_connector-transactional-prefix: Транзакционный префикс
+        field_connector-warehouse: Warehouse
         field_kafka-ui: Kafka UI
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
@@ -7505,6 +7519,9 @@ default:
         label_topic-retention-bytes: Максимальный размер раздела, байт
         label_topic-retention-ms: Время жизни сегмента лога, мс
         label_topics: Топики
+        section_iceberg-control-config: Настройки управления
+        section_iceberg-optional-settings: Дополнительные настройки
+        section_iceberg-tables-config: Настройки таблиц
         section_kraft-resources: Класс хоста KRaft
         section_properties: Дополнительные свойства
         section_topic-config: Настройки топика
@@ -7646,37 +7663,46 @@ default:
         value_imbalance_rps-chart-type: 'Точка разладки: RPS'
         value_instances-chart-type: 'Тестирующие потоки: количество'
       lockbox:
-        button_action-make-version-current: Сделать текущей версией
-        button_action-open-version-add-dialog: Создать версию на основе этой
-        button_action-schedule-for-destruction: Запланировать удаление
-        button_activate-secret: Активировать секрет
-        button_add-version: Добавить версию
-        button_create-secret: Создать секрет
-        button_deactivate-secret: Деактивировать
-        field_make-version-current: Сделать текущей версией
-        forms:
-          alert_generated-version-edit_button: Редактировать секрет
-          button_add-pair: Добавить ключ/значение
-          button_schedule-destruction: Запланировать
+        BaseInfoSection:
           field_deletion-protection: Запретить удаление секрета
-          label_key: Ключ
-          label_value: Значение
-          title_auto-generation_params_section: Параметры автоматической генерации
+        EncryptionInfoSection:
           title_kms-key: Ключ KMS
-          title_secret-data-section: Данные секрета
-          title_secret-type: Тип секрета
+        FormFields:
           title_secret-type-custom: Пользовательский
           title_secret-type-generated: Генерируемый
-          title_version-payload-entries-value-placeholder: Значение
+        routes:
+          label_section-secrets: Секреты
+        ScheduleDestructionFormDialog:
+          button_schedule-destruction: Запланировать
+        SecretActions:
+          button_activate-secret: Активировать секрет
+          button_deactivate-secret: Деактивировать
+        SecretGeneratedVersion:
+          label_key: Ключ
+        SecretInfoSection:
+          title_auto-generation_params_section: Параметры автоматической генерации
+          title_secret-data-section: Данные секрета
+          title_secret-type: Тип секрета
+        SecretOverviewPage:
+          button_add-version: Добавить версию
+          label_secret-general-section: Информация о секрете
+          label_secret-id: Идентификатор
+          label_secret-versions-section: Версии
+        SecretsPage:
+          button_create-secret: Создать секрет
+        SecretVersionsInputs:
           value_payload-entry-value-type-text: Текст
-        label_password-key: Ключ
-        label_secret-general-section: Информация о секрете
-        label_secret-id: Идентификатор
-        label_secret-versions-section: Версии
-        label_section-overview: Обзор
-        label_section-secrets: Секреты
-        label_version-current: Текущая
-        label_version-dialog-title: Версия
+        SecretVersionsList:
+          button_add-pair: Добавить ключ/значение
+          label_key: Ключ
+          label_value: Значение
+        VersionAddDialog:
+          button_add-version: Добавить версию
+        VersionsTable:
+          button_action-make-version-current: Сделать текущей версией
+          button_action-open-version-add-dialog: Создать версию на основе этой
+          button_action-schedule-for-destruction: Запланировать удаление
+          label_version-current: Текущая
       logging:
         button_create-group: Создать группу
         button_create-sink: Создать приёмник логов
@@ -7716,6 +7742,7 @@ default:
         action_move: Переместить
         action_purchase-license: Купить подписку
         action_specify-vm: Привязать виртуальную машину
+        action_to-pay-license: Оплатить
         button_continue: Далее
         button_disallow-analytics-scanning: Запретить Marketplace собирать статистику
         button_k8s-product-use: Перейти к установке
@@ -7822,6 +7849,7 @@ default:
             popup-confirm_button: Подтвердить
             switch_monitoring: Мониторинги
             switch_overview: Обзор
+          label_mdb: Кластер
           logs:
             label_hosts: Хосты
             label_severity: Уровень логирования
@@ -7875,6 +7903,7 @@ default:
             button_action-password: Изменить пароль
             button_action-update: Настроить
             button_advanced-settings: Дополнительные настройки
+            field_enable-user: Включить пользователя
             label_go-to-password: Посмотреть пароль
             popup-add_button_add: Создать
             popup-button_add: Создать
@@ -7937,6 +7966,7 @@ default:
           base_field_roles: Роли
           base_field_service-account: Сервисный аккаунт
           base_field_shard-name: Имя шарда
+          base_field_shard-weight: Вес
           base_field_version: Версия
           button_add-host: Добавить хост
           button_add-initialization-action: Добавить
@@ -8882,22 +8912,17 @@ default:
         label_private-access: Приватный доступ
         label_rbac-add-rule: Добавить правило
         label_rbac-catalog: Каталоги
-        label_rbac-catalog-access: Каталоги, к которым применяется правило
         label_rbac-catalog-permissions: Разрешения
         label_rbac-function: Функции
-        label_rbac-function-access: Функции, к которым применяется правило
         label_rbac-function-privileges: Привилегии
         label_rbac-groups: Группы
         label_rbac-procedure: Процедуры
-        label_rbac-procedure-access: Процедуры, к которым применяется правило
         label_rbac-procedure-privileges: Привилегии
         label_rbac-query: Запросы
         label_rbac-query-privileges: Привилегии
         label_rbac-schema: Схемы
-        label_rbac-schema-access: Схемы, к которым применяется правило
         label_rbac-schema-owner: Владелец схемы
         label_rbac-table: Таблицы
-        label_rbac-table-access: Таблицы, к которым применяется правило
         label_rbac-users: Пользователи
         rbac-catalog-match-by-empty: Не задано
         rbac-catalog-match-by-id: ID
@@ -8907,6 +8932,8 @@ default:
         section_resource-management: Управление ресурсами
         title_catalogs: Каталоги
       ui:
+        constants:
+          label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:
             constants:
@@ -9488,6 +9515,40 @@ default:
                         title: Сегменты кластера Greenplum
                       subnet_id:
                         title: Идентификатор подсети
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: Не очищать
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Идентификатор статического ключа
+                      bucket:
+                        title: Бакет
+                      endpoint:
+                        title: Эндпоинт
+                      region:
+                        title: Регион
+                      secret_access_key:
+                        title: Содержимое статического ключа
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Бакет
+                      service_account_id:
+                        title: Сервисный аккаунт
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      mdb_cluster_id:
+                        title: Кластер Apache Hive™ Metastore
+                      prefix:
+                        title: Префикс пути
+                      security_group_ids:
+                        title: Группы безопасности
             kafka:
               console:
                 form:
@@ -9596,6 +9657,24 @@ default:
                         title: Парсер CloudLogging
                       parser_config_common_debezium_cdc:
                         title: Парсер Debezium CDC
+                      parser_raw_to_table:
+                        advanced:
+                          title: Дополнительные параметры
+                        dlq_suffix:
+                          title: Суффикс имени таблицы DLQ
+                        is_headers_enabled:
+                          title: Сохранять заголовки сообщения
+                        is_key_enabled:
+                          title: Сохранять ключ сообщения
+                        is_timestamp_enabled:
+                          title: Сохранять время записи
+                        key_type:
+                          title: Тип ключа
+                        table_name:
+                          title: Имя целевой таблицы
+                        title: Парсер Raw-to-table
+                        value_type:
+                          title: Тип значения
                     ParserConfigProto:
                       included_fields:
                         title: Включаемые поля
@@ -9634,6 +9713,13 @@ default:
                         columns:
                           title: Поля
                         title: Визиты
+            migration:
+              console:
+                form:
+                  migration:
+                    PostgresMigrationTablesFilter:
+                      include_tables:
+                        title: Список включённых таблиц
             mongo:
               console:
                 form:
@@ -10381,6 +10467,10 @@ default:
         disk_properties_action_description_upload: Загрузка на диск
         disk_properties_action_properties_download_properties_view_spec_layout_title: Тип содержимого
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: Содержимое файла
+        disk_properties_oauth_token_description_lockbox: Lockbox
+        disk_properties_oauth_token_description_plain: Текст
+        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Секрет
+        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Значение
         disk_properties_oauth_token_view_spec_layout_title: OAuth-токен
         disk_properties_path_view_spec_layout_title: Путь
         foundation_models_properties_action_description_classify: Дообученная классификация
@@ -10822,57 +10912,22 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs-key-value: Все диалоги
         applying: Использование
         assistants: Ассистенты
-        create-assistant-key-value: Создать ассистента
-        filtered-dialogs-key-value: Выбранные диалоги
-        generate-prompt-key-value: Улучшить инструкцию
         prompt: Инструкция
-        result-key-value: Результат
-        templates: Шаблоны
-        testing-key-value: Тестирование
       common:
         add: Добавить
-        add-filter: Добавить фильтр
-        apply: Применить
-        bind: Привязать
         create: Создать
-        customize: Настроить
-        delete-key-value: Удалить
-        duplicate: Дублировать
-        edit: Редактировать
         more: Еще
-        'no': Нет
-        period: Период
-        save: Сохранить
-        search: Найти
-        settings: Настройки
-        show-more: Показать ещё
-        update: Обновить
-        'yes': Да
       connections:
         add-key: Добавить ключ
-        additional:
-          separators:
-            finish-key-value: Конец диалога
-            start-key-value: Начало диалога
-          slice-length: Длина отрезка
-          split:
-            title: Разбивать диалоги на отрезки
-          title: Дополнительно
         column:
-          description: Описание
           name: Название в системе
         connection: Подключение
-        connection-name: Название подключения
         connections: Подключения
         create-connection-key-value: Создать подключение
-        edit-connection-key-value: Редактировать подключение
         fields:
-          client: Клиент
           metadata: Общие метаданные
-          operator: Оператор
         template:
           amo-crm:
             name: AmoCRM
@@ -10882,140 +10937,20 @@ default:
             name: Пустая форма
         type:
           chat-key-value: Чат
-          one-channel-key-value: Одноканальное аудио
           two-channel-key-value: Двухканальное аудио
       dialogs:
-        all-participants: Все участники
         bot: Бот
-        classifier:
-          appreciation-key-value: Благодарность
-        classifiers: Теги
         client: Клиент
-        client-tags: Теги клиента
-        common-metadata: Общие метаданные
-        dialog: Диалог
         dialogs: Диалоги
-        direction-key-value: Направление
-        direction:
-          incoming: Входящий
-          outgoing: Исходящий
-        exact-match-by-key-phrases: Точное совпадение ключевых фраз
-        open-dialog: Перейти в диалог
         operator: Оператор
-        search:
-          dictionary:
-            title: Словарный
-          neuro:
-            title: Смысловой
-          text:
-            title: Текстовый
-        speech-statistics: Статистики речи
-        system-meta:
-          talk:
-            statistics:
-              simultaneous_silence:
-                ratio-key-value: Доля тишины в диалоге
-      dictionaries:
-        add-dictionary: Добавить словарь
-        create-dictionary-key-value: Создать словарь
-        dictionaries: Словари
-      neuro-tags:
-        apply-inverted:
-          theme: Не содержат тему
-        apply:
-          theme: Cодержат тему
-        confidence-key-value: Вероятность
-        gpt-criteria: Критерии YandexGPT
-        reasons-key-value: Причины
-        refresh-suggestions: Обновить список
-        results-key-value: Итоги
-        test-tag: Протестировать тег
-        testing-dataset: Тестирование тега
-        themes-key-value: Темы
       projects:
         add-connection: Добавить подключение
         add-participant: Добавить участника
         create-project: Создать проект
-        dialogs: Диалоги
-        projects: Проекты
-        sumarization: Анализ от YandexGPT
-      reinit:
-        action:
-          cancel:
-            title: Отменить пересчет
-        tab:
-          title: Задачи на пересчет
-      reports:
-        add-parameter: Добавить параметр
-        barchart: График
-        comparison-key-value: Сравнение
-        create-report: Создать отчет
-        datalens-key-value: Дашборд в DataLens
-        details-key-value: Детализация
-        generate-report: Создать отчет
-        grouping-field: Группировать по
-        parameter:
-          description: Название параметра в отчете
-          filter: Параметры оценки
-          weight: Вес
-        rating-key-value: Форма оценки
-        reports: Отчеты
-        save-report-key-value: Сохранить отчет
-        table-key-value: Таблица
       spaces:
         create-space: Создать пространство
-        error:
-          billing:
-            title: Пространство не привязано к платёжному аккаунту
-        gpt-learning:
-          title: Обучение YandexGPT
-      statements:
-        call_reasons: Причины звонка
-        call_results: Итоги
-        client_keywords: Ключевые слова клиента
-        common_question: Общий вопрос
-        operator_keywords: Ключевые слова оператора
-        problems: Проблемы
-        summary: Суммаризация
-        theme: Тема
-      tags:
-        binding-events-key-value: Ограничения
-        binding-events:
-          classifier: Сработал основной тег
-          dialog-start-key-value: Начало диалога
-          silence-key-value: Длинная пауза
-        change-channel: Изменить канал
-        channel:
-          client: Клиент
-          operator: Оператор
-          operator-and-client: Оператор и клиент
-        conditions: Условия срабатывания
-        create-dependent-tag: Создать зависимый тег
-        create-tag-key-value: Создать тег
-        exact-match-key-value: Точное совпадение
-        exceptions: Исключения
-        exceptions-keywords: Слова-исключения
-        important-tag-key-value: Важный тег
-        key-phrases-key-value: Ключевые фразы
-        new-channel: Новый канал
-        reinit: Пересчитать
-        restrict-search-area-key-value: Ограничить область поиска
-        search-area-key-value: Направление поиска
-        search-area:
-          after-key-value: Вперед
-        tag-using-key-value: Использование
-        tags: Теги
-        tags-type:
-          dictionary-key-value: Словарный
-          neuro-key-value: Смысловой
-          neuro-pro-key-value: Смысловой Pro
-        words-between-key-value: Дистанция между словами
       team:
         add-from-organization-key-value: Добавить из организации
-        invite-new-key-value: Пригласить нового пользователя
-        team: Команда
-      upload-audio:
-        upload-audio-key-value: Добавление диалогов
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:
@@ -11258,17 +11193,16 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.6
+        tag: 0.43.7
     yc_external-secrets:
       helmChart:
         name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.10.5
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
+        tag: 2.5.0
     yc_externaldns:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-dns-yc-webhook/charts/external-dns
-        tag: 1.20.0-yc
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
+        tag: 0.5.1-b
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
@@ -11303,7 +11237,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.3.1
+        tag: v1.4.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

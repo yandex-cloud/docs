@@ -7,7 +7,7 @@ description: A {{ cdn-name }} point of presence is the physical location of CDN 
 
 _Points of presence_, or PoPs, are geographically distributed physical CDN servers that cache and deliver content to end users. They reside in strategic geographic locations with efficient access to communication links, enabling content delivery via the shortest route with minimal latency.
 
-{{ cdn-full-name }} provides access to 50 points of presence with a total throughput exceeding 3 Tbps.
+{{ cdn-full-name }} provides access to 59 points of presence with a total throughput exceeding 3 Tbps.
 
 {% note info %}
 
@@ -34,6 +34,7 @@ Cities with at least one PoP:
 |------------|---------------|----------------|----------------|
 | Alexandrov | Aktobe | Tashkent | Manas |
 | Vladivostok | Karaganda | | |
+| Vladikavkaz | | | |
 | Volgograd | | | |
 | Voronezh | | | |
 | Yekaterinburg | | | |

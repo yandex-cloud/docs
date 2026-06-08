@@ -9,14 +9,14 @@ Access rules define the actions users can perform with custom functions in a {{ 
 
 {% note info %}
 
-You cannot set restrictions on running functions from the `system.builtin` virtual schema, i.e., native {{ TR }} functions.
+You cannot restrict the execution of functions residing in the `system.builtin` virtual schema, i.e., the built-in {{ TR }} functions.
 
 {% endnote %}
 
 For each user-function pair, the rules apply as follows:
-* Rules are checked in their declaration order. The first rule matching the user-function pair applies.
-* If none of the rules match the user-function pair, no actions with the function are allowed to the user.
-* If no function access rules are set, each user can run only built-in functions.
+* Rules are checked in the order of their declaration. The first rule matching the user-function pair applies.
+* If none of the rules match the user-function pair, the user is denied all actions with the function.
+* If no function access rules are set, only the built-in functions are allowed for each user.
 * Function access rules apply together with the top-level [rules for objects in catalogs](./access-control-catalogs.md).
 
 ## Setting rules when creating a cluster {#set-at-create}
@@ -38,7 +38,7 @@ Function and schema names specified in the rules are not validated. If a functio
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-function }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -59,15 +59,18 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% endnote %}
 
-     1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
+     1. Optionally, specify full names of the functions the rule will apply to, formatted as `<catalog_name>.<schema_name>.<function_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-console](../../_includes/managed-trino/calatogs-description-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-function-access }}** field, specify the functions the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the functions whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all functions.
-  1. Add other rules in a similar way if required.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select format for the functions:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for function names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<function_name>` field may contain any value.
+
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -85,15 +88,15 @@ Function and schema names specified in the rules are not validated. If a functio
      functions:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         function:
-           names:
-             any: [<list_of_function_names>]
+         catalog:
            name_regexp: <regular_expression>
          schema:
            names:
              any: [<list_of_schema_names>]
            name_regexp: <regular_expression>
-         catalog:
+         function:
+           names:
+             any: [<list_of_function_names>]
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -107,7 +110,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
      Where:
 
-     * `functions`: List of function rules. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `functions`: List of function rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with functions:
        * `EXECUTE`: Calling a function.
@@ -116,20 +119,29 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If you do not specify `function`, the rule applies to all functions.
-       * `names`: List of function names.
-       * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs set using the `name_regexp` parameter (regular expression for catalog names).
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       Specify either `names` or `name_regexp`.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
+
+       * `function`: Functions specified by one of the following:
+         * `names`: List of function names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+         Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -181,14 +193,6 @@ Function and schema names specified in the rules are not validated. If a functio
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           function     = {
-             names       = ["<list_of_function_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -196,6 +200,14 @@ Function and schema names specified in the rules are not validated. If a functio
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           function      = {
+             names       = ["<list_of_function_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -218,7 +230,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
      Where:
 
-     * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with functions:
        * `EXECUTE`: Calling a function.
@@ -227,27 +239,35 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-       * `names`: List of function names.
-       * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These catalogs must be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `function`: Functions specified by one of the following:
+         * `names`: List of function names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+         Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -292,10 +312,13 @@ Function and schema names specified in the rules are not validated. If a functio
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "function": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_function_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -308,13 +331,10 @@ Function and schema names specified in the rules are not validated. If a functio
                   },
                   "nameRegexp": "<regular_expression>"
                 },
-                "catalog": {
+                "function": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_function_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -344,7 +364,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with functions:
         * `EXECUTE`: Calling a function.
@@ -353,23 +373,31 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-      * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-        * `names`: List of function names.
-        * `nameRegexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-        The `function` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
+          * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [Cluster.Create](../api-ref/Cluster/create.md) call.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `function`: Functions specified by one of the following:
+          * `names`: List of function names.
+          * `nameRegexp`: Regular expression for function names.
+
+          Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -424,10 +452,13 @@ Function and schema names specified in the rules are not validated. If a functio
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "function": {
+                "catalog": {
                   "names": {
                     "any": [
-                      "<list_of_function_names>"
+                      "<catalog_1_name>",
+                      "<catalog_2_name>",
+                      ...
+                      "<catalog_N_name>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -440,13 +471,10 @@ Function and schema names specified in the rules are not validated. If a functio
                   },
                   "name_regexp": "<regular_expression>"
                 },
-                "catalog": {
+                "function": {
                   "names": {
                     "any": [
-                      "<catalog_1_name>",
-                      "<catalog_2_name>",
-                      ...
-                      "<catalog_N_name>"
+                      "<list_of_function_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -476,7 +504,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with functions:
         * `EXECUTE`: Calling a function.
@@ -485,23 +513,31 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-      * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-        * `names`: List of function names.
-        * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-        The `function` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `names`: List of catalog names. You must create catalogs within the same [ClusterService/Create](../api-ref/grpc/Cluster/create.md) call.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `function`: Functions specified by one of the following:
+          * `names`: List of function names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+          Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -544,7 +580,7 @@ Function and schema names specified in the rules are not validated. If a functio
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-function }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -565,15 +601,18 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% endnote %}
 
-     1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
+     1. Optionally, specify full names of the functions the rule will apply to, formatted as `<catalog_name>.<schema_name>.<function_name>`. Use a separate field for each part of the name.
 
-     1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+        1. {% include [calatogs-description-ID-console](../../_includes/managed-trino/calatogs-description-ID-console.md) %}
 
-     1. Optionally, in the **{{ ui-key.yacloud.trino.label_rbac-function-access }}** field, specify the functions the rule applies to:
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression. The rule applies to the functions whose names match the regular expression.
-        * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: Rule applies to all functions.
-  1. Add other rules in a similar way if required.
+        1. {% include [schemas-description-console](../../_includes/managed-trino/schemas-description-console.md) %}
+
+        1. Select format for the functions:
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}**: Select function names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Enter a regular expression for function names.
+           * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}**: The `<function_name>` field may contain any value.
+
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
      1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
@@ -594,19 +633,19 @@ Function and schema names specified in the rules are not validated. If a functio
      functions:
        # Rule 1
        - privileges: [<list_of_privileges>]
-         function:
-           names:
-             any: [<list_of_function_names>]
-           name_regexp: <regular_expression>
-         schema:
-           names:
-             any: [<list_of_schema_names>]
-           name_regexp: <regular_expression>
          catalog:
            ids:
              any: [<list_of_catalog_IDs>]
            names:
              any: [<list_of_catalog_names>]
+           name_regexp: <regular_expression>
+         schema:
+           names:
+             any: [<list_of_schema_names>]
+           name_regexp: <regular_expression>
+         function:
+           names:
+             any: [<list_of_function_names>]
            name_regexp: <regular_expression>
          groups: [<list_of_group_IDs>]
          users: [<list_of_user_IDs>]
@@ -620,7 +659,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
      Where:
 
-     * `functions`: List of function rules. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `functions`: List of function rules. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with functions:
        * `EXECUTE`: Calling a function.
@@ -629,24 +668,32 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If you do not specify `function`, the rule applies to all functions.
-       * `names`: List of function names.
-       * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These must be the existing catalogs.
+         * `names`: List of catalog names. These must be the existing catalogs.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If you do not specify `schema`, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Catalogs the rule applies to. If you do not specify `catalog`, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These must be the existing catalogs.
-       * `names`: List of catalog names. These must be the existing catalogs.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify only one of the following: `ids`, `names`, or `name_regexp`.
+       * `function`: Functions specified by one of the following:
+         * `names`: List of function names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+         Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -699,14 +746,6 @@ Function and schema names specified in the rules are not validated. If a functio
          # Rule 1
          {
            privileges    = ["<list_of_privileges>"]
-           function     = {
-             names       = ["<list_of_function_names>"]
-             name_regexp = "<regular_expression>"
-           }
-           schema        = {
-             names       = ["<list_of_schema_names>"]
-             name_regexp = "<regular_expression>"
-           }
            catalog       = {
              ids         = [
                yandex_trino_catalog.<catalog_1_name>.id,
@@ -714,6 +753,14 @@ Function and schema names specified in the rules are not validated. If a functio
                ... 
                yandex_trino_catalog.<catalog_N_name>.id
              ]
+             name_regexp = "<regular_expression>"
+           }
+           schema        = {
+             names       = ["<list_of_schema_names>"]
+             name_regexp = "<regular_expression>"
+           }
+           function     = {
+             names       = ["<list_of_function_names>"]
              name_regexp = "<regular_expression>"
            }
            users         = ["<list_of_user_IDs>"]
@@ -736,7 +783,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
      Where:
 
-     * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+     * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
      * `privileges`: List of permitted actions with functions:
        * `EXECUTE`: Calling a function.
@@ -745,23 +792,31 @@ Function and schema names specified in the rules are not validated. If a functio
 
        {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-     * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-       * `names`: List of function names.
-       * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+     * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `catalog`: Catalogs specified by one of the following:
+         * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
+         * `name_regexp`: Regular expression for catalog names.
 
-     * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-       * `names`: List of schema names.
-       * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+         Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `names` or `name_regexp` but not both.
+       * `schema`: Schemas specified by one of the following:
+         * `names`: List of schema names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-     * `catalog`: Cluster catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-       * `ids`: List of catalog IDs. These must exist or be created in the same manifest.
-       * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+         Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-       You can specify either `ids` or `name_regexp` but not both.
+       * `function`: Functions specified by one of the following:
+         * `names`: List of function names.
+         * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+         Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+       {% note info %}
+
+       In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+       {% endnote %}
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -771,7 +826,7 @@ Function and schema names specified in the rules are not validated. If a functio
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -799,22 +854,6 @@ Function and schema names specified in the rules are not validated. If a functio
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "function": {
-                  "names": {
-                    "any": [
-                      "<list_of_function_names>"
-                    ]
-                  },
-                  "nameRegexp": "<regular_expression>"
-                },
-                "schema": {
-                  "names": {
-                    "any": [
-                      "<list_of_schema_names>"
-                    ]
-                  },
-                  "nameRegexp": "<regular_expression>"
-                },
                 "catalog": {
                   "ids": {
                     "any": [
@@ -827,6 +866,22 @@ Function and schema names specified in the rules are not validated. If a functio
                       "<catalog_2_name>",
                       ...
                       "<catalog_N_name>"
+                    ]
+                  },
+                  "nameRegexp": "<regular_expression>"
+                },
+                "schema": {
+                  "names": {
+                    "any": [
+                      "<list_of_schema_names>"
+                    ]
+                  },
+                  "nameRegexp": "<regular_expression>"
+                },
+                "function": {
+                  "names": {
+                    "any": [
+                      "<list_of_function_names>"
                     ]
                   },
                   "nameRegexp": "<regular_expression>"
@@ -864,7 +919,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
       * `accessControl`: Access rule configuration in the cluster.
 
-      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with functions:
         * `EXECUTE`: Calling a function.
@@ -873,24 +928,32 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-      * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-        * `names`: List of function names.
-        * `nameRegexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-        The `function` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `nameRegexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `nameRegexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `nameRegexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * `nameRegexp`: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `nameRegexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `nameRegexp` parameter.
+        * `function`: Functions specified by one of the following:
+          * `names`: List of function names.
+          * `nameRegexp`: Regular expression for function names.
+
+          Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
@@ -939,22 +1002,6 @@ Function and schema names specified in the rules are not validated. If a functio
                 "privileges": [
                   "<list_of_privileges>"
                 ],
-                "function": {
-                  "names": {
-                    "any": [
-                      "<list_of_function_names>"
-                    ]
-                  },
-                  "name_regexp": "<regular_expression>"
-                },
-                "schema": {
-                  "names": {
-                    "any": [
-                      "<list_of_schema_names>"
-                    ]
-                  },
-                  "name_regexp": "<regular_expression>"
-                },
                 "catalog": {
                   "ids": {
                     "any": [
@@ -967,6 +1014,22 @@ Function and schema names specified in the rules are not validated. If a functio
                       "<catalog_2_name>",
                       ...
                       "<catalog_N_name>"
+                    ]
+                  },
+                  "name_regexp": "<regular_expression>"
+                },
+                "schema": {
+                  "names": {
+                    "any": [
+                      "<list_of_schema_names>"
+                    ]
+                  },
+                  "name_regexp": "<regular_expression>"
+                },
+                "function": {
+                  "names": {
+                    "any": [
+                      "<list_of_function_names>"
                     ]
                   },
                   "name_regexp": "<regular_expression>"
@@ -1023,7 +1086,7 @@ Function and schema names specified in the rules are not validated. If a functio
 
       * `access_control`: Access rule configuration in the cluster.
 
-      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `function`, `schema`, `catalog`, `groups`, `users`, and `description`.
+      * `functions`: List of function rule sections. All the rule parameters are optional: `privileges`, `catalog`, `schema`, `function`, `groups`, `users`, and `description`.
 
       * `privileges`: List of permitted actions with functions:
         * `EXECUTE`: Calling a function.
@@ -1032,28 +1095,36 @@ Function and schema names specified in the rules are not validated. If a functio
 
         {% include notitle [function-ownership](../../_includes/managed-trino/access-control-src.md#function-ownership) %}
 
-      * `function`: Functions the rule applies to. If the `function` section is not specified, the rule applies to all functions.
-        * `names`: List of function names.
-        * `name_regexp`: Regular expression. The rule applies to the functions whose names match the regular expression.
+      * Combined, `catalog`, `schema`, and `function` define the functions the rule will apply to. Each of them is optional.
 
-        The `function` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `catalog`: Catalogs specified by one of the following:
+          * `ids`: List of catalog IDs. These must be the existing catalogs.
+          * `names`: List of catalog names. These must be the existing catalogs.
+          * `name_regexp`: Regular expression for catalog names.
 
-      * `schema`: Schemas the rule applies to. If the `schema` section is not specified, the rule applies to all schemas.
-        * `names`: List of schema names.
-        * `name_regexp`: Regular expression. The rule applies to the schemas whose names match the regular expression.
+          Omitting the `catalog` section is equivalent to using the `.*` regular expression.
 
-        The `schema` section must contain either the nested `names` section or the `name_regexp` parameter.
+        * `schema`: Schemas specified by one of the following:
+          * `names`: List of schema names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for schema names.
 
-      * `catalog`: Catalogs the rule applies to. If the `catalog` section is not specified, the rule applies to all cluster catalogs.
-        * `ids`: List of catalog IDs. These must be the existing catalogs.
-        * `names`: List of catalog names. These must be the existing catalogs.
-        * `name_regexp`: Regular expression. The rule applies to the catalogs whose names match the regular expression.
+          Omitting the `schema` section is equivalent to using the `.*` regular expression.
 
-        The `catalog` section must contain either one of the nested `ids` and `names` sections or the `name_regexp` parameter.
+        * `function`: Functions specified by one of the following:
+          * `names`: List of function names.
+          * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}**: Regular expression for function names.
+
+          Omitting the `function` section is equivalent to using the `.*` regular expression.
+
+        {% note info %}
+
+        In {{ mtr-name }}, full function name follows this template: `<catalog_name>.<schema_name>.<function_name>`. The rule applies to a function only if its full name is consistent with all the specified parameters.
+
+        {% endnote %}
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. If you have already set the rules, open the relevant `body.json` file and edit it as needed. You can:
+  1. If you have already set the access rules, open the existing `body.json` rules file and edit it as needed. You can:
 
      * Add new rules.
      * Update the existing ones.
@@ -1074,7 +1145,7 @@ Function and schema names specified in the rules are not validated. If a functio
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -1083,7 +1154,7 @@ Function and schema names specified in the rules are not validated. If a functio
 Let's configure access rules for custom functions in a {{ TR }} cluster:
 1. Prohibit any actions with functions to the user with the `banned_user_id` ID.
 1. Allow users in the group with the `admins_group_id` to create and delete any functions, and also call them to create a `VIEW`.
-1. Allow all other users to call functions with with the naming pattern of `.*_public`.
+1. Allow all other users to call functions with the `.*_public` name format.
 
 {% list tabs group=instructions %}
 

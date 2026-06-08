@@ -17,7 +17,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нового шарда, чтобы изменить его параметры:
@@ -194,7 +194,7 @@
 
           При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-          Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
+          Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `hostSpecs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -283,7 +283,7 @@
 
             При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-            Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
+            Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
 
         * `host_specs` — настройки хостов, которые будут добавлены в шард. Настройки представлены в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
@@ -323,7 +323,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
 
 - CLI {#cli}
@@ -394,20 +394,18 @@
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
-{% note info %}
-
-Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
   1. Нажмите ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+  1. Внесите необходимые изменения и нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Если вы изменили тип диска для шарда с хостами {{ CH }}:
+      1. В открывшемся окне посмотрите количество нереплицированных таблиц на графике **Non-replicated MergeTree tables** и их размер на графике **Size of non-replicated MergeTree tables**. Данные в нереплицированных таблицах будут утеряны. Если необходимо сохранить их, перед изменением типа диска [преобразуйте]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) нереплицированные таблицы в реплицированные.
+      1. Подтвердите изменение ресурсов.
 
 - CLI {#cli}
 
@@ -431,7 +429,8 @@
        --weight <вес_шарда> \
        --clickhouse-resource-preset <класс_хостов> \
        --clickhouse-disk-size <размер_хранилища> \
-       --clickhouse-disk-type <тип_диска>
+       --clickhouse-disk-type <тип_диска> \
+       --allow-host-recreation
      ```
 
      Где:
@@ -441,6 +440,7 @@
      * `--clickhouse-resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--clickhouse-disk-size` — размер хранилища в гигабайтах.
      * `--clickhouse-disk-type` — [тип диска](../concepts/storage.md).
+     * `--allow-host-recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Имя шарда можно запросить со [списком шардов в кластере](#list-shards).
 
@@ -461,7 +461,7 @@
          --header "Content-Type: application/json" \
          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>' \
          --data '{
-                   "updateMask": "configSpec.clickhouse.config.<настройка_{{ CH }}>,configSpec.clickhouse.resources,configSpec.clickhouse.weight",
+                   "updateMask": "configSpec.clickhouse.config.<настройка_{{ CH }}>,configSpec.clickhouse.resources,configSpec.clickhouse.weight,allowHostRecreation",
                    "configSpec": {
                      "clickhouse": {
                        "config": {
@@ -474,7 +474,8 @@
                        },
                        "weight": "<вес_шарда>"
                      }
-                   }
+                   },
+                   "allowHostRecreation": "true"
                  }'
      ```
 
@@ -497,7 +498,9 @@
 
          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
+         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+
+     * `allowHostRecreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
 
@@ -528,7 +531,8 @@
                "paths": [
                  "config_spec.clickhouse.config.<настройка_{{ CH }}>",
                  "config_spec.clickhouse.resources",
-                 "config_spec.clickhouse.weight"
+                 "config_spec.clickhouse.weight",
+                 "allow_host_recreation"
                ]
              },
              "config_spec": {
@@ -543,7 +547,8 @@
                  },
                  "weight": "<вес_шарда>"
                }
-             }
+             },
+             "allow_host_recreation": "true"
            }' \
        {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.clickhouse.v1.ClusterService.UpdateShard
@@ -568,7 +573,9 @@
 
          При расчете приоритета шарда при распределении данных складываются веса всех шардов, далее вес каждого шарда делится на полученную сумму. Например, если у одного шарда вес `1`, а у другого — `3`, то у первого шарда приоритет `1/4`, а у второго — `3/4`. Чем выше приоритет, тем больше данных окажется на шарде.
 
-         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/special/distributed).
+         Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed).
+
+     * `allow_host_recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя шарда — со [списком шардов в кластере](#list-shards).
 
@@ -589,7 +596,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}**.
     1. Удалите один или несколько шардов:
         * Чтобы удалить один шард, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного шарда и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.

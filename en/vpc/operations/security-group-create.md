@@ -13,8 +13,8 @@ To create a new [security group](../concepts/security-groups.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a security group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a security group.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Enter a name for the security group.
@@ -79,7 +79,7 @@ To create a new [security group](../concepts/security-groups.md):
 
   To create a security group with multiple rules: 
     
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `name`: Security group name.
      * `description`: Optional description of the security group.
@@ -138,20 +138,20 @@ To create a new [security group](../concepts/security-groups.md):
      }
      ```
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
      
   1. Make sure the configuration files are correct.
      
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
         ```
         terraform plan
         ```
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
         
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
         ```
         terraform apply
         ```
@@ -178,3 +178,4 @@ To create a new [security group](../concepts/security-groups.md):
     * Last port in the traffic port range, in the `ruleSpecs[].ports.toPort` parameter. The possible values range from `0` to `65535`.
 
 {% endlist %}
+

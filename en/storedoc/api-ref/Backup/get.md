@@ -23,7 +23,6 @@ apiPlayground:
 # Managed Service for MongoDB API, REST: Backup.Get
 
 Returns the specified MongoDB backup.
-
 To get the list of available MongoDB backups, make a [List](/docs/managed-mongodb/api-ref/Backup/list#List) request.
 
 ## HTTP request

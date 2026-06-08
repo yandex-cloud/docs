@@ -244,9 +244,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    ```
 
    Сохраните полученные параметры:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
    * `cloud-id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+
+1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [авторизованный ключ](../../iam/concepts/authorization/key.md).
 1. Создайте директорию `crud-api` и перейдите в нее:
 
    ```bash
@@ -258,14 +259,12 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 1. Создайте файл `main.tf` и скопируйте в него конфигурацию {{ TF }}-модуля. Укажите параметры создаваемых ресурсов:
    * `cloud_id` — идентификатор облака.
    * `folder_id` — идентификатор каталога.
-   * `oauth_token` — OAuth-токен.
    * `database_connector_bucket` — имя бакета с функцией-интеграцией.
 
    ```hcl
    locals {
      cloud_id    = "<идентификатор_облака>"
      folder_id   = "<идентификатор_каталога>"
-     oauth_token = "<OAuth-токен>"
      zone        = "{{ region-id }}-d"
    }
 
@@ -296,7 +295,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    }
 
    provider "yandex" {
-     token     = local.oauth_token
      cloud_id  = local.cloud_id
      folder_id = local.folder_id
      zone      = local.zone

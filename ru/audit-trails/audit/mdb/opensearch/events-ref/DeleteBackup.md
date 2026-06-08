@@ -215,7 +215,17 @@ editable: false
           },
           "snapshotMaxAgeDays": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "auditLog": {
+          "complianceEnabled": "boolean",
+          "logRequestBody": "boolean",
+          "logSearchQueries": "boolean",
+          "logDataModifications": "boolean",
+          "logIndexMetadataAccess": "boolean",
+          "logMonitoringChecks": "boolean",
+          "logIndexMaintenance": "boolean",
+          "logBackupOperations": "boolean"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -485,6 +495,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || access | **[Access](#yandex.cloud.mdb.opensearch.v1.Access)** ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)** ||
 || fullVersion | **string** ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)** ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -512,7 +523,9 @@ Includes only one of the fields `opensearchConfigSet_2`. ||
 || roles[] | **enum** (GroupRole)
 
 - `DATA`
-- `MANAGER` ||
+- `MANAGER`
+- `WARM`
+- `INGEST` ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)** ||
 |#
 
@@ -521,7 +534,9 @@ Includes only one of the fields `opensearchConfigSet_2`. ||
 #|
 ||Field | Description ||
 || resourcePresetId | **string** ||
-|| diskSize | **string** (int64) ||
+|| diskSize | **string** (int64)
+
+Value must be greater than 0. ||
 || diskTypeId | **string** ||
 |#
 
@@ -551,13 +566,9 @@ Acceptable values are 0 to 100, inclusive. ||
 
 #|
 ||Field | Description ||
-|| maxClauseCount | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+|| maxClauseCount | **string** (int64) ||
 || fielddataCacheSize | **string** ||
-|| searchMaxBuckets | **string** (int64)
-
-Acceptable values are 0 to 2147483647, inclusive. ||
+|| searchMaxBuckets | **string** (int64) ||
 || reindexRemoteWhitelist | **string** ||
 || httpMaxInitialLineLength | **string** ||
 |#
@@ -655,6 +666,20 @@ Acceptable values are 0 to 23, inclusive. ||
 || minute | **string** (int64)
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean** ||
+|| logRequestBody | **boolean** ||
+|| logSearchQueries | **boolean** ||
+|| logDataModifications | **boolean** ||
+|| logIndexMetadataAccess | **boolean** ||
+|| logMonitoringChecks | **boolean** ||
+|| logIndexMaintenance | **boolean** ||
+|| logBackupOperations | **boolean** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

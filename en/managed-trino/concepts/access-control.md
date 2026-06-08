@@ -18,15 +18,22 @@ User access to {{ mtr-name }} cluster objects results from a combination of thes
 * Top-level rules which control access to all objects in the catalog.
 * Granular rules which control access to individual schemas, tables, functions, procedures, queries, session’s system properties, or catalog’s session properties.
 
-Each access rule contains the following parameter groups:
-* Subjects: Users or user groups the rule applies to.
-* Objects: {{ mtr-name }} cluster objects the rule applies to. These can be specified explicitly (e.g., a function with a given name) or implicitly (e.g., all functions of a given schema).
-* Privileges: Actions users can perform on objects.
-* Additional parameters: Other rule parameters, e.g., its description.
+An access rule describes:
+* Users the rule applies to.
+* {{ mtr-name }} cluster objects the rule applies to.
+* User privileges: Actions users can perform on objects.
 
-As soon as a user accesses an object, all rules for objects of that type get checked for matches. Rules are checked in their declaration order. The first rule matching the user-object pair applies.
+You can specify users and objects as a list or a regular expression that the user or object name must match.
 
-For more information about access rule management in {{ mtr-name }}, see [this guide](../operations/access-control.md).
+{% note info %}
+
+Rules apply to objects created both before and after the rule was set.
+
+{% endnote %}
+
+As soon as a user accesses an object, all rules for objects of that type get checked for matches. Rules are checked in the order of their declaration. The first rule matching the user-object pair applies.
+
+For more information, see [{#T}](../operations/access-control.md).
 
 ## Managing rules {#management}
 
@@ -37,6 +44,6 @@ To update access rules, you do not have to restart {{ mtr-name }} cluster nodes.
 ## Auto-updating of rules {#catalog-tracking}
 
 {{ mtr-name }} automatically updates access rules when you rename or delete catalogs:
-* Catalog names and IDs get validated. If catalog name or ID contains an error, the rule will not be created.
+* Catalog names and IDs get validated. If a catalog with the specified name or ID does not exist, the rule will not be created.
 * If you rename a catalog, its name will be automatically updated in all the rules that contain it. 
 * If you delete a catalog, its name and ID will be automatically deleted from all the rules that contain them. If you delete the only catalog specified in the rule, the rule itself will be automatically deleted.

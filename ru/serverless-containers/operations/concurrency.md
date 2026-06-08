@@ -7,7 +7,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
     1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** задайте количество одновременных вызовов экземпляра контейнера.
@@ -60,7 +60,7 @@
     metadata_options: {}
     ```
 
-    Более подробную информацию о команде смотрите в [справочнике CLI](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
+    Более подробную информацию о команде смотрите в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/container/revision/deploy.md).
 
 - {{ TF }} {#tf}
   

@@ -6,7 +6,7 @@ description: Следуя данной инструкции, вы создади
 # Создание адреса
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [адрес](../concepts/glossary.md#adress).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Домен может быть любого уровня.
 1. (Опционально) [Привяжите конфигурацию к адресу](bind-configuration.md).
@@ -20,11 +20,15 @@ description: Следуя данной инструкции, вы создади
 
     - Расширенная настройка {#advanced}
 
-        1. Сгенерируйте ключ для создания DKIM-подписи. {{ postbox-name }} поддерживает ключи длиной 1024 или 2048 бит. Для генерации ключа используйте следующую команду OpenSSL:
+        1. Сгенерируйте ключ для создания DKIM-подписи в терминале на локальном компьютере с помощью команды OpenSSL:
 
             ```bash
             openssl genrsa -out privatekey.pem 2048
             ```
+
+            Приватный ключ будет сохранен в файл `privatekey.pem` в текущей директории.
+            
+            {{ postbox-name }} поддерживает ключи длиной 1024 или 2048 бит.
 
             {% note info %}
      

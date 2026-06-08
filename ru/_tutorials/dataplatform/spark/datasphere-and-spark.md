@@ -88,7 +88,7 @@
 
 {% endlist %}
 
-### Создайте сервисный аккаунт кластера {#create-sa}
+### Создайте сервисный аккаунт для кластера {{ msp-full-name }} {#create-sa}
 
 {% list tabs group=instructions %}
 
@@ -131,6 +131,16 @@
    * [Группы безопасности](../../../vpc/concepts/security-groups.md), если они используются в вашей организации.
 
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+
+### Измените настройки сообщества {#change-settings-community}
+
+Чтобы настроить подключение к кластерам {{ SPRK }}:
+
+1. Выберите сообщество, в котором вы [создали проект](#create-project).
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
+1. В открывшемся окне выберите [созданный ранее](#create-sa) сервисный аккаунт и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** и выберите созданный ранее сервисный аккаунт.
 
 ## Создайте кластер {{ msp-name }} и коннектор Spark {#create-spark}
 

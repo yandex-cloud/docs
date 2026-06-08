@@ -8,8 +8,8 @@ description: Rules define the actions users can perform with SQL queries.
 Query access rules define the actions users can perform with SQL queries in a {{ mtr-name }} cluster.
 
 For each user-query pair, the rules apply as follows:
-* Rules are checked for matches in the order they are specified in the configuration file. The first rule matching the user-query pair applies.
-* If none of the rules match the user-query pair, no actions with the query are allowed to the user.
+* Rules are checked in the order of their declaration. The first rule matching the user-query pair applies.
+* If none of the rules match the user-query pair, the user is denied all actions with the query.
 * If no query access rules are set, any user can perform any actions with any query.
 * Query access rules apply together with the top-level [rules for catalog objects](./access-control-catalogs.md).
 
@@ -32,7 +32,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}** and set the cluster parameters.
   1. Under **{{ ui-key.yacloud.trino.section_rbac }}**, click ![image](../../_assets/console-icons/chevron-down.svg).
   1. In the **{{ ui-key.yacloud.trino.label_rbac-query }}** field, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**.
-  1. In the window that opens, set the rule settings:
+  1. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -60,7 +60,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
         I no user is selected in the **{{ ui-key.yacloud.trino.ClusterForm.label_query-owners_a81zm }}** field, the rule will apply to queries of all users.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To delete a rule added by mistake, click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the line with this rule.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -172,7 +172,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -258,7 +258,7 @@ You can set query access rules when creating a {{ mtr-name }} cluster.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -351,7 +351,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** → **{{ ui-key.yacloud.trino.label_rbac-query }}**.
-  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set the rule settings:
+  1. To add a rule, click **{{ ui-key.yacloud.trino.label_rbac-add-rule }}**. In the window that opens, set up the rule:
 
      1. {% include [description-console](../../_includes/managed-trino/description-console.md) %}
 
@@ -379,7 +379,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
 
         I no user is selected in the **{{ ui-key.yacloud.trino.ClusterForm.label_query-owners_a81zm }}** field, the rule will apply to queries of all users.
 
-  1. Add other rules in a similar way if required.
+  1. Add other rules in the same way as needed.
   1. To edit a rule:
      1. Click ![trash-bin](../../_assets/console-icons/pencil.svg) in the line with this rule.
      1. Update the rule settings and click **{{ ui-key.yacloud.common.update }}**.
@@ -501,7 +501,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
      * Update the existing ones.
      * Delete the rules you no longer need.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
@@ -712,7 +712,7 @@ You can set or update query access rules in an existing {{ mtr-name }} cluster.
         < body.json
       ```
 
-  1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

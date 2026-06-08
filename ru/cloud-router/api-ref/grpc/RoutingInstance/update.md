@@ -19,7 +19,6 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
   "update_mask": "google.protobuf.FieldMask",
   "name": "string",
   "description": "string",
-  "region_id": "string",
   "vpc_info": [
     {
       "vpc_network_id": "string",
@@ -40,7 +39,8 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
       "cic_private_connection_id": "string"
     }
   ],
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "deletion_protection": "bool"
 }
 ```
 
@@ -48,7 +48,9 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ||Field | Description ||
 || routing_instance_id | **string**
 
-Required field. ID of the RoutingInstance resource to return. ||
+Required field. ID of the RoutingInstance resource to return.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the RoutingInstance resource are going to be updated. ||
@@ -56,13 +58,14 @@ Field mask that specifies which fields of the RoutingInstance resource are going
 
 Name of the RoutingInstance.
 The name must be unique within the folder.
-Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
+Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``.
+
+Value must match the regular expression ``` |[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])? ```. ||
 || description | **string**
 
-Optional description of the RoutingInstance. 0-256 characters long. ||
-|| region_id | **string**
+Optional description of the RoutingInstance. 0-256 characters long.
 
-ID of the region that the routingInstance belongs to. ||
+The maximum string length in characters is 256. ||
 || vpc_info[] | **[VpcInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo)**
 
 List of the info about vpcNetworks which are attached to the RoutingInstance. ||
@@ -76,7 +79,10 @@ No more than 64 per resource.
 The maximum string length in characters for each value is 63.
 Each value must match the regular expression `[-_0-9a-z]*`.
 The string length in characters for each key must be 1-63.
-Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
+Each key must match the regular expression `[a-z][-_0-9a-z]*`.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| deletion_protection | **bool** ||
 |#
 
 ## VpcInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo}
@@ -85,10 +91,14 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 ||Field | Description ||
 || vpc_network_id | **string**
 
-ID of the vpcNetwork that is attached to the routingInstance. ||
+Required field. ID of the vpcNetwork that is attached to the routingInstance.
+
+The maximum string length in characters is 50. ||
 || az_infos[] | **[VpcAzInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo)**
 
-List of the az-related info about vpcNetworks which are attached to routingInstance ||
+List of the az-related info about vpcNetworks which are attached to routingInstance
+
+The number of elements must be in the range 0-50. ||
 |#
 
 ## VpcAzInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo}
@@ -97,7 +107,7 @@ List of the az-related info about vpcNetworks which are attached to routingInsta
 ||Field | Description ||
 || manual_info | **[VpcManualInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo)**
 
-VpcInfo which is set by user ||
+Required field. VpcInfo which is set by user ||
 |#
 
 ## VpcManualInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo}
@@ -106,10 +116,14 @@ VpcInfo which is set by user ||
 ||Field | Description ||
 || az_id | **string**
 
-ID of the AZ ||
+Required field. ID of the AZ
+
+The maximum string length in characters is 50. ||
 || prefixes[] | **string**
 
-List of prefixes to announce ||
+List of prefixes to announce
+
+The number of elements must be in the range 0-10000. ||
 |#
 
 ## CicPrivateConnectionInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo}
@@ -118,7 +132,9 @@ List of prefixes to announce ||
 ||Field | Description ||
 || cic_private_connection_id | **string**
 
-ID of the cicPrivateConnection that is attached to the routingInstance. ||
+Required field. ID of the cicPrivateConnection that is attached to the routingInstance.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -131,41 +147,10 @@ ID of the cicPrivateConnection that is attached to the routingInstance. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "routing_instance_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "name": "string",
-    "description": "string",
-    "folder_id": "string",
-    "region_id": "string",
-    "vpc_info": [
-      {
-        "vpc_network_id": "string",
-        "az_infos": [
-          {
-            "manual_info": {
-              "az_id": "string",
-              "prefixes": [
-                "string"
-              ]
-            }
-          }
-        ]
-      }
-    ],
-    "cic_private_connection_info": [
-      {
-        "cic_private_connection_id": "string"
-      }
-    ],
-    "status": "Status",
-    "created_at": "google.protobuf.Timestamp",
-    "labels": "map<string, string>"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -193,7 +178,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateRoutingInstanceMetadata](#yandex.cloud.cloudrouter.v1.UpdateRoutingInstanceMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -208,7 +193,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[RoutingInstance](#yandex.cloud.cloudrouter.v1.RoutingInstance)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -223,104 +208,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateRoutingInstanceMetadata {#yandex.cloud.cloudrouter.v1.UpdateRoutingInstanceMetadata}
-
-#|
-||Field | Description ||
-|| routing_instance_id | **string**
-
-ID of the RoutingInstance resource. ||
-|#
-
-## RoutingInstance {#yandex.cloud.cloudrouter.v1.RoutingInstance}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the routingInstance. ||
-|| name | **string**
-
-Name of the routingInstance.
-The name must be unique within the folder.
-Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
-|| description | **string**
-
-Optional description of the routingInstance. 0-256 characters long. ||
-|| folder_id | **string**
-
-ID of the folder that the routingInstance belongs to. ||
-|| region_id | **string**
-
-ID of the region that the routingInstance belongs to. ||
-|| vpc_info[] | **[VpcInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo2)**
-
-List of the info about vpcNetworks which are attached to routingInstance. ||
-|| cic_private_connection_info[] | **[CicPrivateConnectionInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo2)**
-
-List of the info about privateConnections which are attached to routingInstance. ||
-|| status | enum **Status**
-
-Status of the routingInstance.
-
-- `STATUS_UNSPECIFIED`
-- `CREATING`
-- `UPDATING`
-- `DELETING`
-- `ACTIVE` ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels, `key:value` pairs.
-No more than 64 per resource.
-The maximum string length in characters for each value is 63.
-Each value must match the regular expression `[-_0-9a-z]*`.
-The string length in characters for each key must be 1-63.
-Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
-|#
-
-## VpcInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcInfo2}
-
-#|
-||Field | Description ||
-|| vpc_network_id | **string**
-
-ID of the vpcNetwork that is attached to the routingInstance. ||
-|| az_infos[] | **[VpcAzInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo2)**
-
-List of the az-related info about vpcNetworks which are attached to routingInstance ||
-|#
-
-## VpcAzInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcAzInfo2}
-
-#|
-||Field | Description ||
-|| manual_info | **[VpcManualInfo](#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo2)**
-
-VpcInfo which is set by user ||
-|#
-
-## VpcManualInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.VpcManualInfo2}
-
-#|
-||Field | Description ||
-|| az_id | **string**
-
-ID of the AZ ||
-|| prefixes[] | **string**
-
-List of prefixes to announce ||
-|#
-
-## CicPrivateConnectionInfo {#yandex.cloud.cloudrouter.v1.RoutingInstance.CicPrivateConnectionInfo2}
-
-#|
-||Field | Description ||
-|| cic_private_connection_id | **string**
-
-ID of the cicPrivateConnection that is attached to the routingInstance. ||
 |#

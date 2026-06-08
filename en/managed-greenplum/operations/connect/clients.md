@@ -1,13 +1,13 @@
 ---
-title: Connecting to a {{ GP }} cluster in {{ mgp-full-name }}
-description: Follow this guide to connect to a {{ GP }} cluster database with the help of command line tools, graphical IDEs, {{ pgadmin }}, or a Docker container.
+title: Connecting to a {{ mgp-full-name }} cluster
+description: Follow this guide to connect to a {{ mgp-name }} cluster database with the help of command line tools, graphical IDEs, {{ pgadmin }}, or a Docker container.
 ---
 
-# Connecting to a {{ GP }} cluster from applications
+# Connecting to a {{ mgp-name }} cluster from applications
 
 This section provides settings for connecting to {{ mgp-name }} cluster hosts using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), [{{ pgadmin }}](#connection-pgadmin), or a [Docker container](#connection-docker). To learn how to connect from your application code, see [Code examples](code-examples.md).
 
-Creating a {{ GP }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
+Creating a {{ mgp-name }} cluster does not entail creating a user database. To test the connection, use the `postgres` service database.
 
 To connect to a publicly accessible , [prepare an SSL certificate](index.md#get-ssl-cert). In these examples, the `root.crt` SSL certificate is located in the following directory:
 
@@ -99,9 +99,9 @@ SELECT version();
 ```
 
 
-### Connecting with IAM authentication {#iam}
+### Connecting with authorization via IAM {#iam}
 
-You can connect to a {{ GP }} database from the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#install) using IAM authentication. To do this, associate a [Yandex account](../../../iam/concepts/users/accounts.md#passport) or [federated account](../../../iam/concepts/users/accounts.md#saml-federation) with the {{ GP }} user. You can only use IAM authentication to connect to a public cluster, in which case you do not need an SSL certificate.
+You can connect to a {{ mgp-name }} cluster database from the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#install) via IAM authorization. To do this, associate a [Yandex account](../../../iam/concepts/users/accounts.md#passport) or [federated account](../../../iam/concepts/users/accounts.md#saml-federation) with the {{ mgp-name }} user. You can use IAM authorization only when connecting to a public cluster, in which case you do not need an SSL certificate.
 
 Before connecting, install the {{ PG }} client:
 
@@ -115,7 +115,7 @@ Set up your {{ mgp-name }} cluster for connection:
 
 - Management console {#console}
 
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
   1. Click the cluster name.
 
@@ -127,16 +127,16 @@ Set up your {{ mgp-name }} cluster for connection:
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-greenplum.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-  1. Create a {{ GP }} user and grant them access to the database:
-     1. Connect to the {{ mgp-name }} cluster using any method of your choice.
-     1. Create a {{ GP }} user, specifying their account’s email as their username.
+  1. Create a user in the {{ mgp-name }} cluster and grant them access to a database of your choice:
+     1. Connect to the {{ mgp-name }} cluster using any method you like.
+     1. Create a user with their account email as username:
 
         ```sql
         CREATE ROLE "<account_email>"
             LOGIN
             ENCRYPTED PASSWORD '<password>';
         ```
-     1. If required, [configure privileges](../roles-and-users.md#privileges) and attributes of the {{ GP }} user you created.
+     1. Optionally, [configure privileges](../roles-and-users.md#privileges) and attributes of the new user.
 
   1. Add the authentication rule for the user you created:
      1. Select the **{{ ui-key.yacloud.greenplum.label_user-auth }}** tab.
@@ -153,7 +153,7 @@ Set up your {{ mgp-name }} cluster for connection:
 
 {% endlist %}
 
-To connect to the {{ GP }} database, run this command:
+To connect to a {{ mgp-name }} cluster database, run this command:
 
 ```bash
 {{ yc-mdb-gp }} connect <cluster_name_or_ID> --db <DB_name>
@@ -253,7 +253,7 @@ This error does not occur in other {{ pgadmin }} tabs.
 
 ## Before you connect from a Docker container {#connection-docker}
 
-To connect to a {{ GP }} cluster from a Docker container, add the following lines to the Dockerfile:
+To connect to a {{ mgp-name }} cluster from a Docker container, add the following lines to the Dockerfile:
 
 {% list tabs group=connection %}
 

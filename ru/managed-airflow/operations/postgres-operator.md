@@ -24,16 +24,16 @@ description: С помощью направленного ациклическо
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `apache-airflow-providers-postgres`.
 
       {% note warning %}
-      
+
       Установка pip-пакета необходима для кластеров с версией {{ AF }} 3.0 и выше. В кластерах с версией {{ AF }} ниже 3.0 pip-пакет установлен по умолчанию.
-      
+
       {% endnote %}
       
    1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет {{ objstorage-name }}. Из него будет загружен DAG-файл.
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
@@ -45,9 +45,9 @@ description: С помощью направленного ациклическо
 
 [Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
    * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/pg1`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
 
       ```json
       {

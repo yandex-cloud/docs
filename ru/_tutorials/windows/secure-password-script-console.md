@@ -135,13 +135,12 @@
 - Консоль управления {#console}
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `win-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** укажите ключ `win-secret-key`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите логин администратора `Administrator`.
-      * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите пароль для администратора.
-  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и введите логин и пароль для следующего пользователя.
+  1. В поле **{{ ui-key.yacloud.lockbox.EncryptionInfoSection.title_kms-key }}** укажите ключ `win-secret-key`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите логин администратора `Administrator`.
+  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите пароль для администратора.
+  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и введите логин и пароль для следующего пользователя.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -280,7 +279,7 @@
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
          * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
-         * Разрешите доступ к [серийной консоли](../../compute/operations/serial-console/index.md).
+         * Разрешите доступ к [серийной консоли](../../compute/concepts/serial-console.md).
      1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
          * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.
          * В поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** вставьте содержимое файла `init.ps1`.

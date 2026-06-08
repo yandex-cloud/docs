@@ -10,7 +10,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать ресурс.
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
 
@@ -143,19 +143,12 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
-     provider "yandex" {
-       token     = "<OAuth-токен>"
-       cloud_id  = "<идентификатор_облака>"
-       folder_id = "<идентификатор_каталога>"
-       zone      = "<зона_доступности_по_умолчанию>"
-     }
-
+     ```hcl
      resource "yandex_cdn_resource" "my_resource" {
-       cname = "<доменное_имя_ресурса>"
-       active = true
+       cname           = "<доменное_имя_ресурса>"
+       active          = true
        origin_protocol = "https"
-	    origin_group_id = <идентификатор_группы_источников>
+       origin_group_id = <идентификатор_группы_источников>
      }
      ```
 
@@ -183,7 +176,7 @@
   
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 
   1. Нажмите на имя необходимого ресурса.
 

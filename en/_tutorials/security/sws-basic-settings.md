@@ -31,7 +31,7 @@ In this guide, you will set up web resource protection using SWS tools connected
    1. [Set up filtering by IP address lists](#list-filters)
    1. Optionally, [set up filtering by regions](#region-filters)
    1. [Set up an allowing rule for captcha](#captcha-rule)
-   1. [Check the sequence in which the rules will apply](#rules-execution-order)
+   1. [Check the order of executing the rules](#rules-execution-order)
    1. [Connect the security profile to your resources](#profile-connect)
    1. [Test your security profile in logging mode](#test-sp-rules)
    1. [Test your security profile in real mode](#check-sp-rules)
@@ -314,7 +314,7 @@ An allowing rule for {{ captcha-name }} is requred in case the `{{ ui-key.yaclou
 
 {% include [allow-path-captcha](../../_includes/smartwebsecurity/allow-patch-captcha.md) %}
 
-### Check the sequence in which the rules will apply {#rules-execution-order}
+### Check the order of executing the rules {#rules-execution-order}
 
 {% include [waf-priority-rules](../../_includes/smartwebsecurity/waf-priority-rules.md) %}
 

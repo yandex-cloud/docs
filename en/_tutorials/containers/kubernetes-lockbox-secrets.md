@@ -51,8 +51,8 @@ The cost of resources for syncing secrets includes:
 
   1. [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following properties:
      * **{{ ui-key.yacloud.common.name }}**: `lockbox-secret`.
-     * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: Enter `password` as the non-secret ID.
-     * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Enter the confidential data for storing `p@$$w0rd`.
+     * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: Enter `password` as the non-secret ID.
+     * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Enter the confidential data for storing `p@$$w0rd`.
 
      Save the ID of the secret. You will need it later.
 

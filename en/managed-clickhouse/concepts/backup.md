@@ -25,8 +25,8 @@ To restore a cluster from a backup, follow [this guide](../operations/cluster-ba
 
 You can create backups either automatically or manually. In both cases, the incremental method is used:
 
-* When you create a new backup, {{ mch-short-name }} checks [data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) for uniqueness.
-* If one of the existing backups already contains identical [data parts]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-data-storage) and they are not older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in a [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
+* When you create a new backup, {{ mch-short-name }} checks [data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage) for uniqueness.
+* If one of the existing backups already contains identical [data parts]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-data-storage) and they are not older than {{ mch-dedup-retention }} days, they are not duplicated. For cold data in a [hybrid storage](storage.md#hybrid-storage-features), this period is {{ mch-backup-retention }} days.
 
 A backup includes the entire cluster and contains all its [shards](./sharding.md). You can recover either individual shards or the entire cluster.
 
@@ -41,7 +41,7 @@ You can recover multiple shards to a single cluster if their backups were create
 
 {% endnote %}
 
-Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. Learn more about the engines in [this {{ CH }} guide]({{ ch.docs }}/engines/table-engines/).
+Backups contain data solely for the `MergeTree` engine family. For other engines, backups only contain table schemas. Learn more about the engines in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/engines/table-engines).
 
 The system uses random replica hosts to create backups. Thus, if cluster hosts lack data consistency, restoring such a cluster from a backup does not guarantee complete data recovery. For example, this may occur in the following cases:
 

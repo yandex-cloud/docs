@@ -93,13 +93,15 @@ items:
             items:
               - name: До 20 июня 2023 года
                 href: concepts/instance-types-archive/instance-types-20062023.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Сеть в {{ mrd-name }}
         href: concepts/network.md
       - name: Шардирование
         href: concepts/sharding.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Репликация и отказоустойчивость
+      - name: Репликация и персистентность
         href: concepts/replication.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md
@@ -357,6 +359,18 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/grpc/BackupRetentionPolicy/list.md
+              - name: ListByFolder
+                href: api-ref/grpc/BackupRetentionPolicy/listByFolder.md
+              - name: Create
+                href: api-ref/grpc/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/grpc/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -463,6 +477,18 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/BackupRetentionPolicy/list.md
+              - name: ListByFolder
+                href: api-ref/BackupRetentionPolicy/listByFolder.md
+              - name: Create
+                href: api-ref/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview

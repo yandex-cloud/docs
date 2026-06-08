@@ -1,6 +1,6 @@
 ---
 title: FAQ about {{ mmg-full-name }}
-description: This page covers FAQ about {{ mmg-short-name }}.
+description: This page covers questions and answers about {{ mmg-short-name }}.
 ---
 
 # FAQ about {{ mmg-short-name }}

@@ -1,23 +1,26 @@
 ## Delivering data from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate a database from {{ mpg-full-name }} to {{ mos-full-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
-1. [Set up the transfer](#prepare-transfer).
+1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Set up your transfer](#prepare-transfer).
 1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-Set up your infrastructure:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mpg-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -166,7 +169,7 @@ Set up your infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
 1. Delete the other resources depending on how you created them:

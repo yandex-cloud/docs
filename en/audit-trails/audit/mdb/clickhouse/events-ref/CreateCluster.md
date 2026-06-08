@@ -446,6 +446,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             },
             "userConfig": {
@@ -785,6 +790,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             },
             "defaultConfig": {
@@ -1124,6 +1134,11 @@ editable: false
                   "value": "string"
                 }
               ],
+              "tls": {
+                "trustedCertificates": [
+                  "string"
+                ]
+              },
               "builtinDictionariesReloadInterval": "string"
             }
           },
@@ -1175,11 +1190,11 @@ editable: false
         "sqlUserManagement": "boolean",
         "embeddedKeeper": "boolean",
         "backupRetainPeriodDays": "string",
-        "fullVersion": "string",
         "performanceDiagnostics": {
           "enabled": "boolean",
           "processesRefreshInterval": "string"
-        }
+        },
+        "fullVersion": "string"
       },
       "networkId": "string",
       "health": "string",
@@ -1285,6 +1300,8 @@ editable: false
           "mergeTreeMinRowsForConcurrentRead": "string",
           "mergeTreeMinBytesForConcurrentRead": "string",
           "maxBytesBeforeExternalGroupBy": "string",
+          "maxBytesRatioBeforeExternalGroupBy": "number",
+          "maxBytesRatioBeforeExternalSort": "number",
           "maxBytesBeforeExternalSort": "string",
           "groupByTwoLevelThreshold": "string",
           "groupByTwoLevelThresholdBytes": "string",
@@ -1684,8 +1701,8 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || sqlUserManagement | **boolean** ||
 || embeddedKeeper | **boolean** ||
 || backupRetainPeriodDays | **string** (int64) ||
-|| fullVersion | **string** ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)** ||
+|| fullVersion | **string** ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Clickhouse}
@@ -1710,31 +1727,15 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 #|
 ||Field | Description ||
-|| backgroundPoolSize | **string** (int64)
-
-The minimum value is 1. ||
+|| backgroundPoolSize | **string** (int64) ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64) ||
-|| backgroundSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundFetchesPoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundMovePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundDistributedSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundBufferFlushSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundMessageBrokerSchedulePoolSize | **string** (int64)
-
-The minimum value is 1. ||
-|| backgroundCommonPoolSize | **string** (int64)
-
-The minimum value is 1. ||
+|| backgroundSchedulePoolSize | **string** (int64) ||
+|| backgroundFetchesPoolSize | **string** (int64) ||
+|| backgroundMovePoolSize | **string** (int64) ||
+|| backgroundDistributedSchedulePoolSize | **string** (int64) ||
+|| backgroundBufferFlushSchedulePoolSize | **string** (int64) ||
+|| backgroundMessageBrokerSchedulePoolSize | **string** (int64) ||
+|| backgroundCommonPoolSize | **string** (int64) ||
 || dictionariesLazyLoad | **boolean** ||
 || logLevel | **enum** (LogLevel)
 
@@ -1743,32 +1744,16 @@ The minimum value is 1. ||
 - `INFORMATION`
 - `WARNING`
 - `ERROR` ||
-|| queryLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| queryLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| queryLogRetentionSize | **string** (int64) ||
+|| queryLogRetentionTime | **string** (int64) ||
 || queryThreadLogEnabled | **boolean** ||
-|| queryThreadLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| queryThreadLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
-|| partLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| partLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| queryThreadLogRetentionSize | **string** (int64) ||
+|| queryThreadLogRetentionTime | **string** (int64) ||
+|| partLogRetentionSize | **string** (int64) ||
+|| partLogRetentionTime | **string** (int64) ||
 || metricLogEnabled | **boolean** ||
-|| metricLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| metricLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| metricLogRetentionSize | **string** (int64) ||
+|| metricLogRetentionTime | **string** (int64) ||
 || traceLogEnabled | **boolean** ||
 || traceLogRetentionSize | **string** (int64) ||
 || traceLogRetentionTime | **string** (int64) ||
@@ -1783,81 +1768,37 @@ The minimum value is 0. ||
 - `WARNING`
 - `ERROR` ||
 || opentelemetrySpanLogEnabled | **boolean** ||
-|| opentelemetrySpanLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| opentelemetrySpanLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| opentelemetrySpanLogRetentionSize | **string** (int64) ||
+|| opentelemetrySpanLogRetentionTime | **string** (int64) ||
 || queryViewsLogEnabled | **boolean** ||
-|| queryViewsLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| queryViewsLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| queryViewsLogRetentionSize | **string** (int64) ||
+|| queryViewsLogRetentionTime | **string** (int64) ||
 || asynchronousMetricLogEnabled | **boolean** ||
-|| asynchronousMetricLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| asynchronousMetricLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| asynchronousMetricLogRetentionSize | **string** (int64) ||
+|| asynchronousMetricLogRetentionTime | **string** (int64) ||
 || sessionLogEnabled | **boolean** ||
-|| sessionLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| sessionLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| sessionLogRetentionSize | **string** (int64) ||
+|| sessionLogRetentionTime | **string** (int64) ||
 || zookeeperLogEnabled | **boolean** ||
-|| zookeeperLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| zookeeperLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| zookeeperLogRetentionSize | **string** (int64) ||
+|| zookeeperLogRetentionTime | **string** (int64) ||
 || asynchronousInsertLogEnabled | **boolean** ||
-|| asynchronousInsertLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| asynchronousInsertLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| asynchronousInsertLogRetentionSize | **string** (int64) ||
+|| asynchronousInsertLogRetentionTime | **string** (int64) ||
 || processorsProfileLogEnabled | **boolean** ||
-|| processorsProfileLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| processorsProfileLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| processorsProfileLogRetentionSize | **string** (int64) ||
+|| processorsProfileLogRetentionTime | **string** (int64) ||
 || errorLogEnabled | **boolean** ||
-|| errorLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| errorLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| errorLogRetentionSize | **string** (int64) ||
+|| errorLogRetentionTime | **string** (int64) ||
 || queryMetricLogEnabled | **boolean** ||
-|| queryMetricLogRetentionSize | **string** (int64)
-
-The minimum value is 0. ||
-|| queryMetricLogRetentionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| queryMetricLogRetentionSize | **string** (int64) ||
+|| queryMetricLogRetentionTime | **string** (int64) ||
 || accessControlImprovements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)** ||
-|| maxConnections | **string** (int64)
-
-Acceptable values are 128 to 8192, inclusive. ||
-|| maxConcurrentQueries | **string** (int64)
-
-The minimum value is 100. ||
-|| maxTableSizeToDrop | **string** (int64)
-
-The minimum value is 0. ||
-|| maxPartitionSizeToDrop | **string** (int64)
-
-The minimum value is 0. ||
+|| maxConnections | **string** (int64) ||
+|| maxConcurrentQueries | **string** (int64) ||
+|| maxTableSizeToDrop | **string** (int64) ||
+|| maxPartitionSizeToDrop | **string** (int64) ||
 || keepAliveTimeout | **string** (int64) ||
 || uncompressedCacheSize | **string** (int64) ||
 || markCacheSize | **string** (int64) ||
@@ -1867,20 +1808,12 @@ The minimum value is 0. ||
 || defaultDatabase | **string** ||
 || totalMemoryProfilerStep | **string** (int64) ||
 || totalMemoryTrackerSampleProbability | **number** (double) ||
-|| asyncInsertThreads | **string** (int64)
-
-The minimum value is 0. ||
+|| asyncInsertThreads | **string** (int64) ||
 || backupThreads | **string** (int64) ||
 || restoreThreads | **string** (int64) ||
-|| vectorSimilarityIndexCacheSize | **string** (int64)
-
-The minimum value is 0. ||
-|| vectorSimilarityIndexCacheMaxEntries | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBuildVectorSimilarityIndexThreadPoolSize | **string** (int64)
-
-The minimum value is 0. ||
+|| vectorSimilarityIndexCacheSize | **string** (int64) ||
+|| vectorSimilarityIndexCacheMaxEntries | **string** (int64) ||
+|| maxBuildVectorSimilarityIndexThreadPoolSize | **string** (int64) ||
 || mergeTree | **[MergeTree](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree)** ||
 || compression[] | **[Compression](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Compression)** ||
 || dictionaries[] | **[ExternalDictionary](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary)** ||
@@ -1893,6 +1826,7 @@ The minimum value is 0. ||
 || jdbcBridge | **[JdbcBridge](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge)** ||
 || mysqlProtocol | **boolean** ||
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)** ||
+|| tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)** ||
 || builtinDictionariesReloadInterval | **string** (int64) ||
 |#
 
@@ -1910,41 +1844,23 @@ The minimum value is 0. ||
 ||Field | Description ||
 || partsToDelayInsert | **string** (int64) ||
 || partsToThrowInsert | **string** (int64) ||
-|| inactivePartsToDelayInsert | **string** (int64)
-
-The minimum value is 0. ||
-|| inactivePartsToThrowInsert | **string** (int64)
-
-The minimum value is 0. ||
-|| maxAvgPartSizeForTooManyParts | **string** (int64)
-
-The minimum value is 0. ||
+|| inactivePartsToDelayInsert | **string** (int64) ||
+|| inactivePartsToThrowInsert | **string** (int64) ||
+|| maxAvgPartSizeForTooManyParts | **string** (int64) ||
 || maxPartsInTotal | **string** (int64) ||
 || maxReplicatedMergesInQueue | **string** (int64) ||
 || numberOfFreeEntriesInPoolToLowerMaxSizeOfMerge | **string** (int64) ||
 || numberOfFreeEntriesInPoolToExecuteMutation | **string** (int64) ||
 || numberOfFreeEntriesInPoolToExecuteOptimizeEntirePartition | **string** (int64) ||
 || maxBytesToMergeAtMinSpaceInPool | **string** (int64) ||
-|| maxBytesToMergeAtMaxSpaceInPool | **string** (int64)
-
-The minimum value is 0. ||
+|| maxBytesToMergeAtMaxSpaceInPool | **string** (int64) ||
 || minBytesForWidePart | **string** (int64) ||
 || minRowsForWidePart | **string** (int64) ||
-|| cleanupDelayPeriod | **string** (int64)
-
-The minimum value is 0. ||
-|| maxCleanupDelayPeriod | **string** (int64)
-
-The minimum value is 0. ||
-|| mergeSelectingSleepMs | **string** (int64)
-
-The minimum value is 0. ||
-|| maxMergeSelectingSleepMs | **string** (int64)
-
-The minimum value is 0. ||
-|| minAgeToForceMergeSeconds | **string** (int64)
-
-The minimum value is 0. ||
+|| cleanupDelayPeriod | **string** (int64) ||
+|| maxCleanupDelayPeriod | **string** (int64) ||
+|| mergeSelectingSleepMs | **string** (int64) ||
+|| maxMergeSelectingSleepMs | **string** (int64) ||
+|| minAgeToForceMergeSeconds | **string** (int64) ||
 || minAgeToForceMergeOnPartitionOnly | **boolean** ||
 || mergeMaxBlockSize | **string** (int64) ||
 || deduplicateMergeProjectionMode | **enum** (DeduplicateMergeProjectionMode)
@@ -2077,28 +1993,14 @@ The number of elements must be greater than 0. ||
 - `DIRECT`
 - `COMPLEX_KEY_DIRECT`
 - `IP_TRIE` ||
-|| sizeInCells | **string** (int64)
-
-The minimum value is 0. ||
+|| sizeInCells | **string** (int64) ||
 || allowReadExpiredKeys | **boolean** ||
-|| maxUpdateQueueSize | **string** (int64)
-
-The minimum value is 0. ||
-|| updateQueuePushTimeoutMilliseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| queryWaitTimeoutMilliseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| maxThreadsForUpdates | **string** (int64)
-
-The minimum value is 0. ||
-|| initialArraySize | **string** (int64)
-
-The minimum value is 0. ||
-|| maxArraySize | **string** (int64)
-
-The minimum value is 0. ||
+|| maxUpdateQueueSize | **string** (int64) ||
+|| updateQueuePushTimeoutMilliseconds | **string** (int64) ||
+|| queryWaitTimeoutMilliseconds | **string** (int64) ||
+|| maxThreadsForUpdates | **string** (int64) ||
+|| initialArraySize | **string** (int64) ||
+|| maxArraySize | **string** (int64) ||
 || accessToKeyFromAttributes | **boolean** ||
 |#
 
@@ -2133,9 +2035,7 @@ The minimum value is 0. ||
 ||Field | Description ||
 || db | **string** ||
 || table | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)** ||
@@ -2152,12 +2052,8 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| priority | **string** (int64)
-
-The minimum value is 0. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| priority | **string** (int64) ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 |#
@@ -2171,9 +2067,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || where | **string** ||
@@ -2189,9 +2083,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || options | **string** ||
@@ -2204,9 +2096,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || db | **string** ||
 || table | **string** ||
 || hosts[] | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || invalidateQuery | **string** ||
@@ -2269,12 +2159,8 @@ The number of elements must be greater than 0. ||
 || saslUsername | **string** ||
 || saslPassword | **string** ||
 || enableSslCertificateVerification | **boolean** ||
-|| maxPollIntervalMs | **string** (int64)
-
-The minimum value is 0. ||
-|| sessionTimeoutMs | **string** (int64)
-
-The minimum value is 0. ||
+|| maxPollIntervalMs | **string** (int64) ||
+|| sessionTimeoutMs | **string** (int64) ||
 || debug | **enum** (Debug)
 
 - `DEBUG_GENERIC`
@@ -2307,12 +2193,8 @@ The minimum value is 0. ||
 - `AUTO_OFFSET_RESET_LATEST`
 - `AUTO_OFFSET_RESET_END`
 - `AUTO_OFFSET_RESET_ERROR` ||
-|| messageMaxBytes | **string** (int64)
-
-Acceptable values are 1000 to 1000000000, inclusive. ||
-|| batchSize | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+|| messageMaxBytes | **string** (int64) ||
+|| batchSize | **string** (int64) ||
 |#
 
 ## KafkaTopic {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic}
@@ -2345,18 +2227,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 
 #|
 ||Field | Description ||
-|| maxSizeInBytes | **string** (int64)
-
-The minimum value is 0. ||
-|| maxEntries | **string** (int64)
-
-The minimum value is 0. ||
-|| maxEntrySizeInBytes | **string** (int64)
-
-The minimum value is 0. ||
-|| maxEntrySizeInRows | **string** (int64)
-
-The minimum value is 0. ||
+|| maxSizeInBytes | **string** (int64) ||
+|| maxEntries | **string** (int64) ||
+|| maxEntrySizeInBytes | **string** (int64) ||
+|| maxEntrySizeInRows | **string** (int64) ||
 |#
 
 ## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
@@ -2364,9 +2238,7 @@ The minimum value is 0. ||
 #|
 ||Field | Description ||
 || host | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 |#
 
 ## Macro {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro}
@@ -2375,10 +2247,17 @@ Acceptable values are 0 to 65535, inclusive. ||
 ||Field | Description ||
 || name | **string**
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 || value | **string**
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
+|#
+
+## Tls {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls}
+
+#|
+||Field | Description ||
+|| trustedCertificates[] | **string** ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
@@ -2573,9 +2452,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 #|
 ||Field | Description ||
-|| readonly | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| readonly | **string** (int64) ||
 || allowDdl | **boolean** ||
 || allowIntrospectionFunctions | **boolean** ||
 || connectTimeout | **string** (int64) ||
@@ -2584,15 +2461,11 @@ Acceptable values are 0 to 2, inclusive. ||
 || sendTimeout | **string** (int64) ||
 || idleConnectionTimeout | **string** (int64) ||
 || timeoutBeforeCheckingExecutionSpeed | **string** (int64) ||
-|| insertQuorum | **string** (int64)
-
-The minimum value is 0. ||
+|| insertQuorum | **string** (int64) ||
 || insertQuorumTimeout | **string** (int64) ||
 || insertQuorumParallel | **boolean** ||
 || selectSequentialConsistency | **boolean** ||
-|| replicationAlterPartitionsSync | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| replicationAlterPartitionsSync | **string** (int64) ||
 || maxReplicaDelayForDistributedQueries | **string** (int64) ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean** ||
 || distributedProductMode | **enum** (DistributedProductMode)
@@ -2624,52 +2497,24 @@ Acceptable values are 0 to 2, inclusive. ||
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || preferLocalhostReplica | **boolean** ||
 || compileExpressions | **boolean** ||
-|| minCountToCompileExpression | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBlockSize | **string** (int64)
-
-The minimum value is 1. ||
-|| minInsertBlockSizeRows | **string** (int64)
-
-The minimum value is 0. ||
-|| minInsertBlockSizeBytes | **string** (int64)
-
-The minimum value is 0. ||
-|| maxInsertBlockSize | **string** (int64)
-
-The minimum value is 1. ||
-|| maxPartitionsPerInsertBlock | **string** (int64)
-
-The minimum value is 0. ||
-|| minBytesToUseDirectIo | **string** (int64)
-
-The minimum value is 0. ||
+|| minCountToCompileExpression | **string** (int64) ||
+|| maxBlockSize | **string** (int64) ||
+|| minInsertBlockSizeRows | **string** (int64) ||
+|| minInsertBlockSizeBytes | **string** (int64) ||
+|| maxInsertBlockSize | **string** (int64) ||
+|| maxPartitionsPerInsertBlock | **string** (int64) ||
+|| minBytesToUseDirectIo | **string** (int64) ||
 || useUncompressedCache | **boolean** ||
-|| mergeTreeMaxRowsToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMaxBytesToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinRowsForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinBytesForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
-|| maxBytesBeforeExternalGroupBy | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesBeforeExternalSort | **string** (int64)
-
-The minimum value is 0. ||
-|| groupByTwoLevelThreshold | **string** (int64)
-
-The minimum value is 0. ||
-|| groupByTwoLevelThresholdBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| mergeTreeMaxRowsToUseCache | **string** (int64) ||
+|| mergeTreeMaxBytesToUseCache | **string** (int64) ||
+|| mergeTreeMinRowsForConcurrentRead | **string** (int64) ||
+|| mergeTreeMinBytesForConcurrentRead | **string** (int64) ||
+|| maxBytesBeforeExternalGroupBy | **string** (int64) ||
+|| maxBytesRatioBeforeExternalGroupBy | **number** (double) ||
+|| maxBytesRatioBeforeExternalSort | **number** (double) ||
+|| maxBytesBeforeExternalSort | **string** (int64) ||
+|| groupByTwoLevelThreshold | **string** (int64) ||
+|| groupByTwoLevelThresholdBytes | **string** (int64) ||
 || deduplicateBlocksInDependentMaterializedViews | **boolean** ||
 || localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
 
@@ -2682,160 +2527,84 @@ The minimum value is 0. ||
 
 - `REMOTE_FILESYSTEM_READ_METHOD_READ`
 - `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
-|| priority | **string** (int64)
-
-The minimum value is 0. ||
-|| maxThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxInsertThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxMemoryUsage | **string** (int64)
-
-The minimum value is 0. ||
-|| maxMemoryUsageForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryOvercommitRatioDenominator | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| maxNetworkBandwidth | **string** (int64)
-
-The minimum value is 0. ||
-|| maxNetworkBandwidthForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
-
-The minimum value is 0. ||
+|| priority | **string** (int64) ||
+|| maxThreads | **string** (int64) ||
+|| maxInsertThreads | **string** (int64) ||
+|| maxMemoryUsage | **string** (int64) ||
+|| maxMemoryUsageForUser | **string** (int64) ||
+|| memoryOvercommitRatioDenominator | **string** (int64) ||
+|| memoryOvercommitRatioDenominatorForUser | **string** (int64) ||
+|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64) ||
+|| maxNetworkBandwidth | **string** (int64) ||
+|| maxNetworkBandwidthForUser | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||
 || forceIndexByDate | **boolean** ||
 || forcePrimaryKey | **boolean** ||
-|| maxRowsToRead | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToRead | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToRead | **string** (int64) ||
+|| maxBytesToRead | **string** (int64) ||
 || readOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsToGroupBy | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToGroupBy | **string** (int64) ||
 || groupByOverflowMode | **enum** (GroupByOverflowMode)
 
 - `GROUP_BY_OVERFLOW_MODE_THROW`
 - `GROUP_BY_OVERFLOW_MODE_BREAK`
 - `GROUP_BY_OVERFLOW_MODE_ANY` ||
-|| maxRowsToSort | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToSort | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToSort | **string** (int64) ||
+|| maxBytesToSort | **string** (int64) ||
 || sortOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxResultRows | **string** (int64)
-
-The minimum value is 0. ||
-|| maxResultBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| maxResultRows | **string** (int64) ||
+|| maxResultBytes | **string** (int64) ||
 || resultOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInDistinct | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInDistinct | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInDistinct | **string** (int64) ||
+|| maxBytesInDistinct | **string** (int64) ||
 || distinctOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsToTransfer | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToTransfer | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToTransfer | **string** (int64) ||
+|| maxBytesToTransfer | **string** (int64) ||
 || transferOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxExecutionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| maxExecutionTime | **string** (int64) ||
 || timeoutOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInSet | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInSet | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInSet | **string** (int64) ||
+|| maxBytesInSet | **string** (int64) ||
 || setOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInJoin | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInJoin | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInJoin | **string** (int64) ||
+|| maxBytesInJoin | **string** (int64) ||
 || joinOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxColumnsToRead | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryColumns | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryNonConstColumns | **string** (int64)
-
-The minimum value is 0. ||
-|| maxQuerySize | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstDepth | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstElements | **string** (int64)
-
-The minimum value is 1. ||
-|| maxExpandedAstElements | **string** (int64)
-
-The minimum value is 1. ||
-|| maxParserDepth | **string** (int64)
-
-The minimum value is 0. ||
-|| minExecutionSpeed | **string** (int64)
-
-The minimum value is 0. ||
-|| minExecutionSpeedBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| maxColumnsToRead | **string** (int64) ||
+|| maxTemporaryColumns | **string** (int64) ||
+|| maxTemporaryNonConstColumns | **string** (int64) ||
+|| maxQuerySize | **string** (int64) ||
+|| maxAstDepth | **string** (int64) ||
+|| maxAstElements | **string** (int64) ||
+|| maxExpandedAstElements | **string** (int64) ||
+|| maxParserDepth | **string** (int64) ||
+|| minExecutionSpeed | **string** (int64) ||
+|| minExecutionSpeedBytes | **string** (int64) ||
 || inputFormatValuesInterpretExpressions | **boolean** ||
 || inputFormatDefaultsForOmittedFields | **boolean** ||
 || inputFormatNullAsDefault | **boolean** ||
@@ -2897,9 +2666,7 @@ The minimum value is 0. ||
 || useQueryCache | **boolean** ||
 || enableReadsFromQueryCache | **boolean** ||
 || enableWritesToQueryCache | **boolean** ||
-|| queryCacheMinQueryRuns | **string** (int64)
-
-The minimum value is 0. ||
+|| queryCacheMinQueryRuns | **string** (int64) ||
 || queryCacheMinQueryDuration | **string** (int64) ||
 || queryCacheTtl | **string** (int64) ||
 || queryCacheMaxEntries | **string** (int64) ||
@@ -2939,21 +2706,11 @@ The minimum value is 0. ||
 || anyJoinDistinctRightTableKeys | **boolean** ||
 || allowSuspiciousLowCardinalityTypes | **boolean** ||
 || flattenNested | **boolean** ||
-|| memoryProfilerStep | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryProfilerSampleProbability | **number** (double)
-
-Acceptable values are 0 to 1, inclusive. ||
-|| maxFinalThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxReadBufferSize | **string** (int64)
-
-The minimum value is 1. ||
-|| insertKeeperMaxRetries | **string** (int64)
-
-The minimum value is 0. ||
+|| memoryProfilerStep | **string** (int64) ||
+|| memoryProfilerSampleProbability | **number** (double) ||
+|| maxFinalThreads | **string** (int64) ||
+|| maxReadBufferSize | **string** (int64) ||
+|| insertKeeperMaxRetries | **string** (int64) ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
 || enableAnalyzer | **boolean** ||
@@ -2971,24 +2728,12 @@ The minimum value is 0. ||
 
 #|
 ||Field | Description ||
-|| intervalDuration | **string** (int64)
-
-The minimum value is 1000. ||
-|| queries | **string** (int64)
-
-The minimum value is 0. ||
-|| errors | **string** (int64)
-
-The minimum value is 0. ||
-|| resultRows | **string** (int64)
-
-The minimum value is 0. ||
-|| readRows | **string** (int64)
-
-The minimum value is 0. ||
-|| executionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| intervalDuration | **string** (int64) ||
+|| queries | **string** (int64) ||
+|| errors | **string** (int64) ||
+|| resultRows | **string** (int64) ||
+|| readRows | **string** (int64) ||
+|| executionTime | **string** (int64) ||
 |#
 
 ## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}

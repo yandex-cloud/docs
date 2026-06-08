@@ -53,7 +53,7 @@ items:
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
-          - name: Installing ExternalDNS with a plugin for {{ dns-name }}
+          - name: Installing ExternalDNS with Webhook {{ dns-name }}
             href: operations/applications/externaldns.md
           - name: Installing Falco
             href: operations/applications/falco.md
@@ -382,6 +382,8 @@ items:
         href: concepts/network-policy.md
       - name: Autoscaling
         href: concepts/autoscale.md
+      - name: Recommended master configurations
+        href: concepts/master-configuration.md
       - name: Audit policy
         href: concepts/audit-policy.md
       - name: External cluster nodes
@@ -826,6 +828,8 @@ items:
             href: alb-ref/ingress-gwin-migration.md
           - name: Migrating applications from NGINX Ingress to Gwin
             href: alb-ref/nginx-gwin-migration.md
+          - name: Attachment mechanism for Gwin integration with {{ alb-name }}
+            href: alb-ref/gwin-alb-attachment.md
           - name: Resource configuration
             items:
               - name: Gateway

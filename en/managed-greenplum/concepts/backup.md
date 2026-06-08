@@ -24,9 +24,9 @@ The first and every seventh automatic backups as well as all manually created ba
 
 A backup is automatically created once a day. You cannot disable automatic backups. However, for such backups, you can specify a time interval during which the backup will start when you [create](../operations/cluster-create.md) or [update](../operations/update.md#change-additional-settings) a cluster. The default value is `22:00 - 23:00` UTC (Coordinated Universal Time).
 
-After a backup is created, it is compressed for storage. Append-optimized tables use data deduplication technology: newly added data or old data last archived more than 30 days ago is copied. The backup size does not include the deduplicated part size, so the displayed value can be significantly smaller than the data size in the cluster.
+Once created, a backup is compressed for storage. Append-optimized tables use data deduplication technology: newly added data or old data last archived more than 30 days ago is copied. The backup size does not include the deduplicated part size, so the displayed value can be significantly smaller than the data size in the cluster.
 
-Backups are only created on running clusters. If you are not using your {{ GP }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
+Backups are only created on running clusters. If you are not using your {{ mgp-name }} cluster 24/7, check the [settings of backup start time](../operations/update.md#change-additional-settings).
 
 Learn about creating manual backups in [Managing backups](../operations/cluster-backups.md#create-backup).
 
@@ -51,5 +51,3 @@ To test how backup works, [restore a cluster from a backup](../operations/cluste
 ## Use cases {#examples}
 
 * [{#T}](../operations/cluster-backups.md)
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

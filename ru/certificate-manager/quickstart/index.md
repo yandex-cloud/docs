@@ -25,7 +25,7 @@
     1. Публичный бакет в Object Storage с точно таким же именем, что и домен. Если бакета еще нет, создайте его:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
         1. Введите имя бакета в точности совпадающее с именем домена.
         1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
@@ -35,7 +35,7 @@
     1. Настройте [хостинг](../../storage/operations/hosting/setup.md) в бакете:
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
         1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
         1. На панели слева выберите ![wrench](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
         1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
@@ -59,7 +59,7 @@
 - Консоль управления {#console}
 
     1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
     1. В открывшемся меню выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
     1. В открывшемся окне задайте имя сертификата.
@@ -79,7 +79,7 @@
 - Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Выберите в списке нужный сертификат со статусом `Validating` и нажмите на него.
   1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**:
       1. Скопируйте ссылку из поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}**:
@@ -96,7 +96,7 @@
 - Консоль управления {#console}
 
   1. Перейдите в [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
   1. Справа сверху нажмите ![folder](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.storage.bucket.button_create }}** и создайте папку `.well-known`.
   1. В `.well-known` создайте папку `acme-challenge`.
@@ -143,7 +143,7 @@
 - Консоль управления {#console}
 
     1. Перейдите в [консоль управления]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. На вкладке ![box](../../_assets/console-icons/box.svg) **{{ ui-key.yacloud.storage.switch_buckets }}** нажмите на бакет с именем домена.
     1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
     1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.

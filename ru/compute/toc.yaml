@@ -291,18 +291,14 @@ items:
             href: operations/filesystem/filesystem-access.md
           - name: Удалить файловое хранилище
             href: operations/filesystem/delete.md
-      - name: Управление серийной консолью
+      - name: Серийная консоль
         items:
-          - name: Начало работы
+          - name: Управлять доступом к серийной консоли
             href: operations/serial-console/index.md
-          - name: Подключиться к серийной консоли по SSH
+          - name: Подключиться к серийной консоли ВМ с ОС Linux
             href: operations/serial-console/connect-ssh.md
-          - name: Подключиться к серийной консоли с помощью CLI
-            href: operations/serial-console/connect-cli.md
-          - name: Запустить командную оболочку в Windows SAC
+          - name: Подключиться к серийной консоли ВМ с ОС Windows
             href: operations/serial-console/windows-sac.md
-          - name: Отключить доступ к серийной консоли
-            href: operations/serial-console/disable.md
       - name: Создание группы виртуальных машин
         items:
           - name: Создать группу ВМ фиксированного размера
@@ -674,6 +670,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Политики обслуживания ВМ
             href: concepts/maintenance-policies.md
+          - name: Серийная консоль
+            href: concepts/serial-console.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
       - name: Метаданные виртуальных машин
@@ -1948,24 +1946,24 @@ items:
                 href: api-ref/grpc/Instance/attachFilesystem.md
               - name: DetachFilesystem
                 href: api-ref/grpc/Instance/detachFilesystem.md
-              - name: AttachNetworkInterface
-                href: api-ref/grpc/Instance/attachNetworkInterface.md
-              - name: DetachNetworkInterface
-                href: api-ref/grpc/Instance/detachNetworkInterface.md
               - name: AddOneToOneNat
                 href: api-ref/grpc/Instance/addOneToOneNat.md
               - name: RemoveOneToOneNat
                 href: api-ref/grpc/Instance/removeOneToOneNat.md
               - name: UpdateNetworkInterface
                 href: api-ref/grpc/Instance/updateNetworkInterface.md
+              - name: AttachNetworkInterface
+                href: api-ref/grpc/Instance/attachNetworkInterface.md
+              - name: DetachNetworkInterface
+                href: api-ref/grpc/Instance/detachNetworkInterface.md
               - name: ListOperations
                 href: api-ref/grpc/Instance/listOperations.md
+              - name: SimulateMaintenanceEvent
+                href: api-ref/grpc/Instance/simulateMaintenanceEvent.md
               - name: Move
                 href: api-ref/grpc/Instance/move.md
               - name: Relocate
                 href: api-ref/grpc/Instance/relocate.md
-              - name: SimulateMaintenanceEvent
-                href: api-ref/grpc/Instance/simulateMaintenanceEvent.md
               - name: ListAccessBindings
                 href: api-ref/grpc/Instance/listAccessBindings.md
               - name: SetAccessBindings
@@ -2038,8 +2036,6 @@ items:
                 href: api-ref/grpc/SnapshotSchedule/index.md
               - name: Get
                 href: api-ref/grpc/SnapshotSchedule/get.md
-              - name: List
-                href: api-ref/grpc/SnapshotSchedule/list.md
               - name: Create
                 href: api-ref/grpc/SnapshotSchedule/create.md
               - name: Update
@@ -2052,6 +2048,8 @@ items:
                 href: api-ref/grpc/SnapshotSchedule/disable.md
               - name: Enable
                 href: api-ref/grpc/SnapshotSchedule/enable.md
+              - name: List
+                href: api-ref/grpc/SnapshotSchedule/list.md
               - name: ListOperations
                 href: api-ref/grpc/SnapshotSchedule/listOperations.md
               - name: ListSnapshots
@@ -2114,6 +2112,10 @@ items:
                     href: instancegroup/api-ref/grpc/InstanceGroup/update.md
                   - name: UpdateFromYaml
                     href: instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md
+                  - name: Delete
+                    href: instancegroup/api-ref/grpc/InstanceGroup/delete.md
+                  - name: Start
+                    href: instancegroup/api-ref/grpc/InstanceGroup/start.md
                   - name: Stop
                     href: instancegroup/api-ref/grpc/InstanceGroup/stop.md
                   - name: RollingRestart
@@ -2121,10 +2123,6 @@ items:
                   - name: RollingRecreate
                     href: >-
                       instancegroup/api-ref/grpc/InstanceGroup/rollingRecreate.md
-                  - name: Start
-                    href: instancegroup/api-ref/grpc/InstanceGroup/start.md
-                  - name: Delete
-                    href: instancegroup/api-ref/grpc/InstanceGroup/delete.md
                   - name: ListInstances
                     href: instancegroup/api-ref/grpc/InstanceGroup/listInstances.md
                   - name: DeleteInstances
@@ -2132,6 +2130,15 @@ items:
                       instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md
                   - name: StopInstances
                     href: instancegroup/api-ref/grpc/InstanceGroup/stopInstances.md
+                  - name: ResumeProcesses
+                    href: >-
+                      instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
+                  - name: PauseProcesses
+                    href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
+                  - name: DisableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/disableZones.md
+                  - name: EnableZones
+                    href: instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
                   - name: ListOperations
                     href: instancegroup/api-ref/grpc/InstanceGroup/listOperations.md
                   - name: ListLogRecords
@@ -2145,15 +2152,6 @@ items:
                   - name: UpdateAccessBindings
                     href: >-
                       instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md
-                  - name: ResumeProcesses
-                    href: >-
-                      instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md
-                  - name: PauseProcesses
-                    href: instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md
-                  - name: DisableZones
-                    href: instancegroup/api-ref/grpc/InstanceGroup/disableZones.md
-                  - name: EnableZones
-                    href: instancegroup/api-ref/grpc/InstanceGroup/enableZones.md
               - name: Operation
                 items:
                   - name: Overview
@@ -2362,24 +2360,24 @@ items:
                 href: api-ref/Instance/attachFilesystem.md
               - name: DetachFilesystem
                 href: api-ref/Instance/detachFilesystem.md
-              - name: AttachNetworkInterface
-                href: api-ref/Instance/attachNetworkInterface.md
-              - name: DetachNetworkInterface
-                href: api-ref/Instance/detachNetworkInterface.md
               - name: AddOneToOneNat
                 href: api-ref/Instance/addOneToOneNat.md
               - name: RemoveOneToOneNat
                 href: api-ref/Instance/removeOneToOneNat.md
               - name: UpdateNetworkInterface
                 href: api-ref/Instance/updateNetworkInterface.md
+              - name: AttachNetworkInterface
+                href: api-ref/Instance/attachNetworkInterface.md
+              - name: DetachNetworkInterface
+                href: api-ref/Instance/detachNetworkInterface.md
               - name: ListOperations
                 href: api-ref/Instance/listOperations.md
+              - name: SimulateMaintenanceEvent
+                href: api-ref/Instance/simulateMaintenanceEvent.md
               - name: Move
                 href: api-ref/Instance/move.md
               - name: Relocate
                 href: api-ref/Instance/relocate.md
-              - name: SimulateMaintenanceEvent
-                href: api-ref/Instance/simulateMaintenanceEvent.md
               - name: ListAccessBindings
                 href: api-ref/Instance/listAccessBindings.md
               - name: SetAccessBindings
@@ -2452,8 +2450,6 @@ items:
                 href: api-ref/SnapshotSchedule/index.md
               - name: Get
                 href: api-ref/SnapshotSchedule/get.md
-              - name: List
-                href: api-ref/SnapshotSchedule/list.md
               - name: Create
                 href: api-ref/SnapshotSchedule/create.md
               - name: Update
@@ -2466,6 +2462,8 @@ items:
                 href: api-ref/SnapshotSchedule/disable.md
               - name: Enable
                 href: api-ref/SnapshotSchedule/enable.md
+              - name: List
+                href: api-ref/SnapshotSchedule/list.md
               - name: ListOperations
                 href: api-ref/SnapshotSchedule/listOperations.md
               - name: ListSnapshots
@@ -2528,22 +2526,26 @@ items:
                     href: instancegroup/api-ref/InstanceGroup/update.md
                   - name: UpdateFromYaml
                     href: instancegroup/api-ref/InstanceGroup/updateFromYaml.md
+                  - name: Delete
+                    href: instancegroup/api-ref/InstanceGroup/delete.md
+                  - name: Start
+                    href: instancegroup/api-ref/InstanceGroup/start.md
                   - name: Stop
                     href: instancegroup/api-ref/InstanceGroup/stop.md
                   - name: RollingRestart
                     href: instancegroup/api-ref/InstanceGroup/rollingRestart.md
                   - name: RollingRecreate
                     href: instancegroup/api-ref/InstanceGroup/rollingRecreate.md
-                  - name: Start
-                    href: instancegroup/api-ref/InstanceGroup/start.md
-                  - name: Delete
-                    href: instancegroup/api-ref/InstanceGroup/delete.md
                   - name: ListInstances
                     href: instancegroup/api-ref/InstanceGroup/listInstances.md
                   - name: DeleteInstances
                     href: instancegroup/api-ref/InstanceGroup/deleteInstances.md
                   - name: StopInstances
                     href: instancegroup/api-ref/InstanceGroup/stopInstances.md
+                  - name: ResumeProcesses
+                    href: instancegroup/api-ref/InstanceGroup/resumeProcesses.md
+                  - name: PauseProcesses
+                    href: instancegroup/api-ref/InstanceGroup/pauseProcesses.md
                   - name: ListOperations
                     href: instancegroup/api-ref/InstanceGroup/listOperations.md
                   - name: ListLogRecords
@@ -2555,10 +2557,6 @@ items:
                   - name: UpdateAccessBindings
                     href: >-
                       instancegroup/api-ref/InstanceGroup/updateAccessBindings.md
-                  - name: ResumeProcesses
-                    href: instancegroup/api-ref/InstanceGroup/resumeProcesses.md
-                  - name: PauseProcesses
-                    href: instancegroup/api-ref/InstanceGroup/pauseProcesses.md
               - name: Operation
                 items:
                   - name: Overview
@@ -2571,18 +2569,6 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Справочник аудитных логов
-    items:
-      - name: Overview
-        href: events-ref/index.md
-      - name: Operation
-        items:
-          - name: Overview
-            href: events-ref/Operation/index.md
-          - name: Get
-            href: events-ref/Operation/get.md
-          - name: Cancel
-            href: events-ref/Operation/cancel.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы

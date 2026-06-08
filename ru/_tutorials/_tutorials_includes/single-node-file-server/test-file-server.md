@@ -1,22 +1,11 @@
-1. Установите ACL на виртуальной машине `fileserver-tutorial`:
+1. Установите ACL на виртуальной машине `fileserver-tutorial` и создайте директорию `remote` и файл `test.txt`:
 
    {% list tabs group=operating_system %}
 
    - Ubuntu {#ubuntu}
 
      ```bash
-     sudo apt install acl
-     ```
-
-   {% endlist %}
-
-1. Создайте на ВМ `fileserver-tutorial` директорию `remote` и файл `test.txt`:
-
-   {% list tabs group=operating_system %}
-
-   - Ubuntu {#ubuntu}
-
-     ```bash
+     sudo apt-get install acl
      sudo mkdir /my_folder/remote
      sudo setfacl -m u:<имя_вашего_пользователя>:rwx /my_folder/remote
      echo "Hello world!" > /my_folder/remote/test.txt

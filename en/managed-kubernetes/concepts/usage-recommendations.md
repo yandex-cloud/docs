@@ -57,7 +57,7 @@ Test the strategies below in a test environment before implementing them in `PRO
 
 Use these recommendations if the load on your {{ managed-k8s-name }} cluster is constantly increasing:
 * To reduce the load on the {{ k8s }} DNS, use [NodeLocal DNS](../tutorials/node-local-dns.md). If the cluster has over 50 nodes, use [DNS autoscaling](../tutorials/dns-autoscaler.md).
-* To reduce horizontal traffic within the cluster, use a [network load balancer](../operations/create-load-balancer.md) and the [`externalTrafficPolicy:Local` rule](../operations/create-load-balancer.md#advanced) where possible.
+* To reduce horizontal traffic within the cluster, use a [network load balancer](../operations/create-load-balancer.md) and the [`externalTrafficPolicy:Local` rule](../operations/create-load-balancer.md#create-lb) where possible.
 * Consider node storage requirements in advance:
   * Check the [disk limits](../../compute/concepts/limits.md) for {{ compute-full-name }}.
   * Load test your disk subsystem in a test environment.

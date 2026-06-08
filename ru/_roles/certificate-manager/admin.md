@@ -5,7 +5,7 @@
 * просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к сертификатам и изменять такие права доступа;
 * добавлять, изменять, обновлять и удалять сертификаты;
 * получать содержимое сертификатов;
-* просматривать информацию о [квотах](../../certificate-manager/concepts/limits.md#certificate-manager-quotas) сервиса Certificate Manager;
+* просматривать информацию о [квотах](../../certificate-manager/concepts/limits.md#certificate-manager-quotas) сервиса {{ certificate-manager-name }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `certificate-manager.editor`.

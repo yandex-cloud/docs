@@ -20,7 +20,7 @@ items:
             href: operations/servers/custom-server-lease.md
           - name: Getting information about a server
             href: operations/servers/get-info.md
-          - name: Updating a server
+          - name: Reconfiguring a server
             href: operations/servers/server-update.md
           - name: Connecting to the KVM console
             href: operations/servers/server-kvm.md
@@ -28,6 +28,8 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Canceling a server rent
             href: operations/servers/server-lease-cancel.md
+          - name: Restoring a server from quarantine
+            href: operations/servers/restore-from-quarantine.md
           - name: Uploading a custom OS image
             href: operations/image-upload.md
           - name: >-

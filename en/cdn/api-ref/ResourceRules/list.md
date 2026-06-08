@@ -32,6 +32,8 @@ GET https://cdn.{{ api-host }}/cdn/v1/rules
 
 ## Query parameters {#yandex.cloud.cdn.v1.ListResourceRulesRequest}
 
+A request to list resource rules.
+
 #|
 ||Field | Description ||
 || resourceId | **string**
@@ -243,6 +245,8 @@ The maximum string length in characters is 50. ||
   ]
 }
 ```
+
+A response to list resource rules.
 
 #|
 ||Field | Description ||

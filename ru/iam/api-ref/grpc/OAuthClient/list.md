@@ -38,7 +38,7 @@ Page token. To get the next page of results, set `page_token` to the
 The maximum string length in characters is 2000. ||
 || folder_id | **string**
 
-Required field. ID of the folder to list oauth clients for
+ID of the folder to list oauth clients for
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
 The maximum string length in characters is 50. ||

@@ -1,8 +1,10 @@
 ---
 title: Аутентификация в Broker API {{ iot-full-name }}
-description: Для выполнения операций через API в сервисе облачного MQTT-сервера – {{ iot-full-name }}, необходимо получить IAM-токен для своего аккаунта.
+description: Для выполнения операций через Broker API в сервисе облачного MQTT-сервера – {{ iot-full-name }}, необходимо получить IAM-токен для своего аккаунта.
 ---
 
 # Аутентификация в Broker API {{ iot-name }}
+
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
 
 {% include notitle [auth](../../../_includes/authentication.md) %}

@@ -12,7 +12,15 @@ description: How to set up a demo Java application and send telemetry to {{ moni
 
 ## Setting up a demo app and telemetry delivery {#example-app}
 
-{% include [pet-clinic](../../_includes/monium/pet-clinic.md) %}
+{% include [pet-clinic-intro](../../_includes/monium/pet-clinic-intro.md) %}
+
+{% list tabs group=instructions %}
+
+- Your infrastructure {#user-infrastructure}
+
+  {% include [pet-clinic](../../_includes/monium/pet-clinic.md) %}
+
+{% endlist %}
   
 ## Viewing telemetry in {{ monium-name }} {#view-telemetry}
 

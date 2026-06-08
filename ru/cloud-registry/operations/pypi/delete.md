@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы удалите
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится реестр.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud.cloud-registry.title_registries }}**.
     1. Выберите реестр, из которого хотите удалить пакет.
     1. На панели слева выберите ![cube](../../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.cloud-registry.title_registry-artifacts }}**.

@@ -24,7 +24,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
     1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Open the page of the {{ GP }} cluster in question.
+    1. Open the page of the {{ mgp-name }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_jdbc }}` connection type.
@@ -75,8 +75,6 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         You can also configure [advanced settings](../../concepts/settings-list.md#jdbc-settings).
 
-    After you create an external data source, [create an external table](create-table.md).
-
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
@@ -112,9 +110,7 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. Check the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
-
-    After you create an external data source, [create an external table](create-table.md).
+    1. View the [server response](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -159,25 +155,22 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
 
     1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    After you create an external data source, [create an external table](create-table.md).
-
 - SQL {#sql}
 
   This method works well for {{ mgp-name }} that uses [Apache Cloudberry™](https://cloudberry.apache.org).
   
-  To create an external data source and an external table using SQL, follow these steps:
+  To create an external data source, do the following:
 
   1. Create an external data source: 
 
       ```sql
-      CREATE SERVER pgserver
+      CREATE SERVER "<local_source_name>"
         FOREIGN DATA WRAPPER jdbc_pxf_fdw
         OPTIONS (
-          CONFIG 'default',
-          JDBC_DRIVER 'org.postgresql.Driver',
-          DB_URL 'jdbc:postgresql://host:5432/db',
-          USER '<username>',
-          PASS '<password>'
+          jdbc_driver '<JDBC_driver_class_name>',
+          db_url 'jdbc:<DBMS_type>://<cluster_FQDN>:<port>/<database_name>',
+          user '<username>',
+          pass '<password>'
         );
       ```
   
@@ -185,18 +178,16 @@ This list contains managed {{ yandex-cloud }} DBs and third-party DBs.
   
       ```sql
       CREATE USER MAPPING FOR CURRENT_USER
-        SERVER "pgserver";
-      ```
-
-  1. Create an external table:
-
-      ```sql
-      CREATE FOREIGN TABLE <table_name>
-        (<column_name> <data_type> [, ...])
-        SERVER "pgserver";
+        SERVER "<local_source_name>";
       ```
 
 {% endlist %}
+
+{% note tip %}
+
+After you create an external data source, [create an external table](create-table.md).
+
+{% endnote %}
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}
 

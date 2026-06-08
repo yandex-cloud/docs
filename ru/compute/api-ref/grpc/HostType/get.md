@@ -22,11 +22,10 @@ Returns information about specified host type.
 ||Field | Description ||
 || host_type_id | **string**
 
-Required field. ID of the host type to return.
-
+ID of the host type to return.
 To get a host type ID make a [HostTypeService.List](/docs/compute/api-ref/grpc/HostType/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## HostType {#yandex.cloud.compute.v1.HostType}

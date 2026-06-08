@@ -187,7 +187,7 @@ The cost of resources you need for {{ monium-name }} includes:
        
        {% endcut %}
 
-       More on [logs](../logs/).
+       More on [logs](../logs/quickstart-resources.md).
      
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
 

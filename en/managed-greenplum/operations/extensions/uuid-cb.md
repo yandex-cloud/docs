@@ -10,7 +10,7 @@ The `uuid-cb` extension exports functions for generating and validating unique I
 * `uuid_cb_generate()`: Generates a `text` value that is a unique ID in the format required by the Russian Central Bank.
 * `uuid_cb_valid(text)`: Returns a `boolean` value that indicates if a text argument is a unique ID in the format required by the Russian Central Bank.
 
-## Installing the uuid-cb extension in a {{ GP }} cluster {#uuid-cb-install}
+## Installing the uuid-cb extension in a {{ mgp-name }} cluster {#uuid-cb-install}
 
 1. [Connect to the database](../connect/index.md) as the owner or a user with the `CREATE` permission in the database and run this command:
 
@@ -71,5 +71,3 @@ The `uuid-cb` extension exports functions for generating and validating unique I
      4b68f586-6739-11ed-80d4-1b1dc5b7125e-9 |    7
     (10 rows)
     ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

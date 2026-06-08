@@ -18,7 +18,7 @@ In a {{ mch-name }} cluster, you can only employ one user management method at a
 
 {% note info %}
 
-Creating a {{ CH }} cluster automatically creates [service users](../concepts/service-users.md) to administer and monitor the service.
+Creating a {{ CH }} cluster automatically creates service users to administer and monitor the service.
 
 {% endnote %}
 
@@ -39,7 +39,7 @@ In a cluster with **User management via SQL** enabled:
 * The existing users as well as user settings created with the native {{ yandex-cloud }} interfaces will remain unchanged.
 * Users are managed by the `admin` account. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
-For more information about managing users via SQL, see [this {{ CH }} article]({{ ch.docs }}/operations/access-rights).
+For more information about managing users via SQL, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/operations/access-rights).
 
 ## Getting a list of users {#list-users}
 
@@ -174,7 +174,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
   {{ yc-mdb-ch }} user create <username> \
      --cluster-name=<cluster_name> \
      --password=<user_password> \
-     --permissions=<database_list> \
+     --permissions=<DB_list> \
      --quota=<list_of_single_quota_settings_for_user> \
      --settings=<list_of_{{ CH }}_settings_for_user>
   ```
@@ -259,7 +259,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -317,7 +317,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
             * `settings`: List of [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) for the user.
 
-                Settings are specified as comma-separated `key: value` pairs.
+                Specified as comma-separated `key: value` pairs.
 
             * `quotas`: Array of [quota settings](../concepts/settings-list.md#quota-settings). Each array element contains settings for a single quota.
 
@@ -388,7 +388,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
             * `settings`: List of [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) for the user.
 
-                Settings are specified as comma-separated `key: value` pairs.
+                Specified as comma-separated `key: value` pairs.
 
             * `quotas`: Array of [quota settings](../concepts/settings-list.md#quota-settings). Each array element contains settings for a single quota.
 
@@ -424,7 +424,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-  For more information about creating users, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/create/user/).
+  For more information about creating users, see [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -452,7 +452,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
   
-  To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  To view the new password, navigate to the cluster page, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -476,7 +476,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
   
   You can also generate a new password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<new_password>`.
 
-  To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -508,7 +508,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         
         You can also generate a new password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
 
-        To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+        To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
         {% note info %}
 
@@ -568,7 +568,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            }
            ```
 
-           To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+           To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -634,7 +634,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            }
            ```
 
-           To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+           To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -687,14 +687,14 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          admin_password = "<admin_password>"
+          admin_password = "<admin_user_password>"
           ...
         }
         ```
 
         {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -935,7 +935,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1076,19 +1076,19 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - SQL {#sql}
 
   1. [Connect](connect/clients.md) to your cluster as [`admin`](#sql-user-management).
-  1. To change user privileges and roles, use the [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) and [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/) statements. For example, grant the user read permissions for all objects in a specific database:
+  1. To change user privileges and roles, use the [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) and [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke) statements. For example, grant the user read permissions for all objects in a specific database:
 
       ```sql
       GRANT SELECT ON <DB_name>.* TO <username>;
       ```
 
-  1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement) statements. For example, limit the total number of user queries for a 15-month period:
+  1. To update user [quota settings](../concepts/settings-list.md#quota-settings), use the [CREATE QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/quota#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/quota#alter-quota-statement), and [DROP QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop#drop-quota-statement) statements. For example, limit the total number of user queries for a 15-month period:
 
       ```sql
       CREATE QUOTA <quota_name> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <username>;
       ```
 
-  1. To change a user account, use the [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/) statement. For example, to update [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below, listing the settings to update:
+  1. To change a user account, use the [ALTER USER]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user) statement. For example, to update [{{ CH }} settings](../concepts/settings-list.md#dbms-user-settings), run the command below, listing the settings to update:
 
       ```sql
       ALTER USER <username> SETTINGS <list_of_{{ CH }}_settings>;
@@ -1131,7 +1131,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     1. Delete the `yandex_mdb_clickhouse_user` resource with the target user’s description.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1199,7 +1199,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
       DROP USER <username>;
       ```
 
-  Learn more about deleting objects in [this {{ CH }} guide]({{ ch.docs }}/sql-reference/statements/drop/).
+  Learn more about deleting objects in [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -1274,7 +1274,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

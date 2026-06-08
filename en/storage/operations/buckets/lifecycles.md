@@ -13,7 +13,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure object lifecycles for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -24,6 +24,18 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
      {% include [storage-create-rule](../../_includes_service/storage-create-rule.md) %}
 
      For more information, see [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
+
+  {% note tip %}
+
+  To delete a rule or the whole lifecycle configuration:
+  1. In the **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}** tab, click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
+  1. Next to the rule to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+
+      To remove the entire lifecycle configuration, repeat this step for each rule.
+
+  1. Click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_save }}**.
+
+  {% endnote %}
 
 - {{ yandex-cloud }} CLI {#cli}
 

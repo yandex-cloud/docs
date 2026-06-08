@@ -1,10 +1,15 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/
 editable: false
 ---
 
 # yc smartwebsecurity
 
 Manage SmartWebSecurity resources
+
+Command tree v1 (new CLI interface) is the default. Run `yc smartwebsecurity v1 <command>`.
+Legacy command tree v0 is also available: `yc smartwebsecurity v0 <command>`.
+Set `services.smartwebsecurity.version: v0` or `services.smartwebsecurity.version: v1` in your profile to change the default.
 
 #### Command Usage
 
@@ -32,7 +37,15 @@ Aliases:
 
   - [yc smartwebsecurity security-profile update](security-profile/update.md) — Updates the specified security profile.
 
+- [yc smartwebsecurity v0](v0/index.md) — (legacy command tree) Manage SmartWebSecurity resources
+
+
+
 - [yc smartwebsecurity v1](v1/index.md) — Manage SmartWebSecurity resources
+
+
+
+- [yc smartwebsecurity waf](waf/index.md) — 
 
 
 
@@ -74,6 +87,7 @@ Set the ID of the service account to impersonate. ||
 || `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||

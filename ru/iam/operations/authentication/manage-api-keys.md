@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, как создавать и
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
   1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** отобразится список API-ключей.
 
@@ -220,41 +220,13 @@ description: Из статьи вы узнаете, как создавать и
   yc iam api-key list-scopes
   ```
 
-  Результат:
-
-
-  ```text
-  - yc.ai.foundationModels.execute
-  - yc.ai.imageGeneration.execute
-  - yc.ai.languageModels.execute
-  - yc.ai.speechkitStt.execute
-  - yc.ai.speechkitTts.execute
-  - yc.ai.translate.execute
-  - yc.ai.vision.execute
-  - yc.logging.write
-  - yc.monitoring.manage
-  - yc.monitoring.read
-  - yc.monium.logs.write
-  - yc.monium.metrics.write
-  - yc.monium.traces.write
-  - yc.monium.telemetry.write
-  - yc.postbox.send
-  - yc.search-api.execute
-  - yc.serverless.containers.invoke
-  - yc.serverless.functions.invoke
-  - yc.ydb.tables.manage
-  - yc.ydb.topics.manage
-  ```
-
 - API {#api}
 
   Чтобы посмотреть доступные [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) API-ключа, воспользуйтесь методом REST API [ListScopes](../../api-ref/ApiKey/listScopes.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md) или вызовом gRPC API [ApiKeyService/ListScopes](../../api-ref/grpc/ApiKey/listScopes.md).
 
 {% endlist %}
 
-### Примеры {#examples}
-
-#### Добавить описание при создании API-ключа {#add-description}
+## Добавить описание при создании API-ключа {#add-description}
 
 Чтобы добавить описание API-ключа при его создании:
 

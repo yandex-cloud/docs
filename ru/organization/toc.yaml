@@ -147,7 +147,7 @@ items:
                 href: operations/applications/saml-create.md
               - name: Изменить приложение
                 href: operations/applications/saml-update.md
-              - name: Настроить доступ пользователям приложения
+              - name: Настроить доступ к приложению
                 href: operations/applications/saml-set-access-bindings.md
               - name: Получить информацию о приложении
                 href: operations/applications/saml-get.md
@@ -159,7 +159,7 @@ items:
                 href: operations/applications/oidc-create.md
               - name: Изменить приложение
                 href: operations/applications/oidc-update.md
-              - name: Настроить доступ пользователям приложения
+              - name: Настроить доступ к приложению
                 href: operations/applications/oidc-set-access-bindings.md
               - name: Получить список приложений
                 href: operations/applications/oidc-list.md
@@ -259,6 +259,14 @@ items:
         items:
           - name: Обзор
             href: tutorials/single-sign-on/index.md
+          - name: 1С:Предприятие
+            href: tutorials/single-sign-on/oidc-1c-enterprise.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Grafana Cloud
             items:
               - name: SAML
@@ -267,46 +275,42 @@ items:
                 href: tutorials/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: tutorials/single-sign-on/oidc-grafana-oss.md
-          - name: 1С:Предприятие
-            href: tutorials/single-sign-on/oidc-1c-enterprise.md
-          - name: '{{ mos-name }}'
-            href: tutorials/single-sign-on/saml-opensearch.md
-          - name: '{{ OS }}'
-            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
-          - name: '{{ mgl-name }}'
-            href: tutorials/single-sign-on/saml-managed-gitlab.md
-          - name: Zabbix
-            href: tutorials/single-sign-on/saml-zabbix.md
-          - name: '{{ yandex-360 }}'
-            href: tutorials/single-sign-on/saml-yandex-360.md
-          - name: Яндекс Браузер для организаций
-            href: tutorials/single-sign-on/saml-ya-browser-corporate.md
-          - name: Selectel
-            href: tutorials/single-sign-on/saml-selectel.md
-          - name: SonarQube
-            href: tutorials/single-sign-on/saml-sonarqube.md
-          - name: OpenVPN Access Server
-            href: tutorials/single-sign-on/saml-ovpn.md
-          - name: MWS
-            href: tutorials/single-sign-on/oidc-mws.md
           - name: Harbor
             href: tutorials/single-sign-on/oidc-harbor.md
-          - name: Cloud.ru
-            items:
-              - name: SAML
-                href: tutorials/single-sign-on/cloud-ru/saml-cloud-ru.md
-              - name: OpenID Connect
-                href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
-          - name: VK Cloud
-            href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
-          - name: Sentry
-            href: tutorials/single-sign-on/saml-sentry.md
           - name: Jenkins
             items:
               - name: SAML
                 href: tutorials/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
+          - name: '{{ mgl-name }}'
+            href: tutorials/single-sign-on/saml-managed-gitlab.md
+          - name: '{{ mos-name }}'
+            href: tutorials/single-sign-on/saml-opensearch.md
+          - name: MWS
+            href: tutorials/single-sign-on/oidc-mws.md
+          - name: '{{ OS }}'
+            href: tutorials/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN Access Server
+            href: tutorials/single-sign-on/saml-ovpn.md
+          - name: Selectel
+            href: tutorials/single-sign-on/saml-selectel.md
+          - name: Sentry
+            href: tutorials/single-sign-on/saml-sentry.md
+          - name: SonarQube
+            href: tutorials/single-sign-on/saml-sonarqube.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
+          - name: Zabbix
+            href: tutorials/single-sign-on/saml-zabbix.md
+          - name: Пассворк
+            href: tutorials/single-sign-on/saml-passwork.md
+          - name: '{{ yandex-360 }}'
+            href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: Яндекс Браузер для организаций
+            href: tutorials/single-sign-on/saml-ya-browser-corporate.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Концепции
@@ -1502,6 +1506,10 @@ items:
                     href: idp/api-ref/grpc/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/grpc/User/resolveExternalIds.md
+                  - name: GetPasswordChanges
+                    href: idp/api-ref/grpc/User/getPasswordChanges.md
+                  - name: CommitPassword
+                    href: idp/api-ref/grpc/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview
@@ -1960,6 +1968,8 @@ items:
                     href: idp/api-ref/User/setPasswordHash.md
                   - name: ResolveExternalIds
                     href: idp/api-ref/User/resolveExternalIds.md
+                  - name: CommitPassword
+                    href: idp/api-ref/User/commitPassword.md
               - name: OAUTH Application API
                 items:
                   - name: Overview

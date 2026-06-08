@@ -1,9 +1,9 @@
 ---
-title: Как изменить конфигурацию кластера {{ GP }} в {{ mgp-full-name }}
-description: Следуя данной инструкции, вы сможете изменить конфигурацию кластера {{ GP }}.
+title: Как изменить конфигурацию кластера {{ mgp-full-name }}
+description: Следуя данной инструкции, вы сможете изменить конфигурацию кластера {{ mgp-name }}.
 ---
 
-# Изменение конфигурации кластера {{ GP }}
+# Изменение конфигурации кластера {{ mgp-name }}
 
 
 После создания кластера вы можете:
@@ -30,9 +30,9 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов-мастеров или хостов-сегментов {{ GP }}.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов-мастеров или хостов-сегментов {{ mgp-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -90,9 +90,9 @@ description: Следуя данной инструкции, вы сможете
 
       Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-      Полный список доступных для изменения полей конфигурации кластера {{ GP }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+      Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
-  1. Измените в описании кластера {{ GP }} значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+  1. Измените в описании кластера {{ mgp-name }} значение атрибута `resource_preset_id` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
       ```hcl
       resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -228,7 +228,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Выберите нужный кластер.
   1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.overview.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**:
@@ -266,9 +266,9 @@ description: Следуя данной инструкции, вы сможете
 
         Как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ GP }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
-    1. Измените в описании кластера {{ GP }} значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
+    1. Измените в описании кластера {{ mgp-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `master_subcluster.resources` или `segment_subcluster.resources`:
 
         ```hcl
         resource "yandex_mdb_greenplum_cluster" "<имя_кластера>" {
@@ -409,13 +409,11 @@ description: Следуя данной инструкции, вы сможете
 
 ## Расширить кластер {#add-hosts}
 
-Вы можете добавить хосты-сегменты в кластер {{ GP }}, выполнив процедуру [расширения кластера](cluster-expand.md). Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md) при расширении кластера.
+Вы можете добавить хосты-сегменты в кластер {{ mgp-name }}, выполнив процедуру [расширения кластера](cluster-expand.md). Количество добавляемых хостов не может быть меньше двух. Вы также можете увеличить [количество сегментов на хост](../concepts/index.md) при расширении кластера.
 
 ## Изменить зону доступности кластера {#change-cluster-zone}
 
-Все хосты кластера {{ GP }} располагаются в одной [зоне доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Перенести кластер в другую зону доступности нельзя. При необходимости сменить зону доступности [восстановите кластер из резервной копии](cluster-backups.md#restore). При восстановлении из резервной копии укажите новую зону доступности в настройках нового кластера.
+Все хосты кластера {{ mgp-name }} располагаются в одной [зоне доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Перенести кластер в другую зону доступности нельзя. При необходимости сменить зону доступности [восстановите кластер из резервной копии](cluster-backups.md#restore). При восстановлении из резервной копии укажите новую зону доступности в настройках нового кластера.
 
 {% include [zone-d-disk-restrictions](../../_includes/mdb/ru-central1-d-local-ssd.md) %}
 
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

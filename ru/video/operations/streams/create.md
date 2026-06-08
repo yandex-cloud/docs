@@ -19,6 +19,11 @@ description: Следуя данной инструкции, вы сможете
       {% include [push-pull](../../../_includes/video/push-pull.md) %}
 
   1. Если вы выбрали тип потока `Pull`, в поле **{{ ui-key.yacloud_video.stream-lines.label_url }}** укажите адрес вашего сервера трансляций.
+  1. Выберите **{{ ui-key.yacloud_video.streams.field_segment-duration }}**, который определяет время между захватом видео на источнике и его воспроизведением у зрителей:
+     
+     * **{{ ui-key.yacloud_video.streams.option_segment-duration-standart }}** — обеспечивает высокое качество картинки и устойчивость к нестабильному соединению. Подходит для трансляций, где нет активного взаимодействия со зрителями в реальном времени.
+     * **{{ ui-key.yacloud_video.streams.option_segment-duration-low }}** — подходит для сценариев с активным взаимодействием со зрителями, но более чувствительна к качеству сети.
+  
   1. Для автоматической публикации эпизодов при подаче входящего сигнала активируйте опцию **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
 
@@ -55,7 +60,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% endnote %}
 
-  1. Включите или выключите рекламу. Для включения заранее [настройте](../../../../ru/video/operations/channels/settings.md#ad-settings) показ рекламы.
+  1. Включите или выключите рекламу. Для включения заранее [настройте](../channels/settings.md#ad-settings) показ рекламы.
   1. Чтобы изменить [шаблон плеера](../../concepts/player.md#player-presets), в списке **{{ ui-key.yacloud_video.streams.label_player-template }}** выберите нужный из доступных в канале или создайте новый.
   1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
   

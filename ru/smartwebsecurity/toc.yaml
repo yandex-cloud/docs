@@ -99,8 +99,8 @@ items:
         href: operations/configure-logging.md
       - name: Настроить логи через {{ alb-name }}
         href: operations/configure-logging-alb.md
-      - name: Миграция на WAF с поддержкой правил Яндекс
-        href: operations/waf-migration.md
+      - name: Миграция на новый формат условий в API, CLI и Terraform
+        href: operations/api-migration.md
   - name: Практические руководства
     items:
       - name: Все практические руководства
@@ -244,6 +244,24 @@ items:
             href: cli-ref/security-profile/list.md
           - name: update
             href: cli-ref/security-profile/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: security-profile
+            items:
+              - name: Overview
+                href: cli-ref/v0/security-profile/index.md
+              - name: create
+                href: cli-ref/v0/security-profile/create.md
+              - name: delete
+                href: cli-ref/v0/security-profile/delete.md
+              - name: get
+                href: cli-ref/v0/security-profile/get.md
+              - name: list
+                href: cli-ref/v0/security-profile/list.md
+              - name: update
+                href: cli-ref/v0/security-profile/update.md
       - name: v1
         items:
           - name: Overview
@@ -262,6 +280,42 @@ items:
                 href: cli-ref/v1/security-profile/list.md
               - name: update
                 href: cli-ref/v1/security-profile/update.md
+          - name: waf
+            items:
+              - name: Overview
+                href: cli-ref/v1/waf/index.md
+              - name: waf-profile
+                items:
+                  - name: Overview
+                    href: cli-ref/v1/waf/waf-profile/index.md
+                  - name: create
+                    href: cli-ref/v1/waf/waf-profile/create.md
+                  - name: delete
+                    href: cli-ref/v1/waf/waf-profile/delete.md
+                  - name: get
+                    href: cli-ref/v1/waf/waf-profile/get.md
+                  - name: list
+                    href: cli-ref/v1/waf/waf-profile/list.md
+                  - name: update
+                    href: cli-ref/v1/waf/waf-profile/update.md
+      - name: waf
+        items:
+          - name: Overview
+            href: cli-ref/waf/index.md
+          - name: waf-profile
+            items:
+              - name: Overview
+                href: cli-ref/waf/waf-profile/index.md
+              - name: create
+                href: cli-ref/waf/waf-profile/create.md
+              - name: delete
+                href: cli-ref/waf/waf-profile/delete.md
+              - name: get
+                href: cli-ref/waf/waf-profile/get.md
+              - name: list
+                href: cli-ref/waf/waf-profile/list.md
+              - name: update
+                href: cli-ref/waf/waf-profile/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета {{ objstorage-full-name }} в [пространство {{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#space). Поддерживаемые форматы:
+Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета {{ objstorage-full-name }} в [пространство {{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Поддерживаемые форматы:
 
   * `MP3`, `WAV`, `OggOpus` — для аудиозаписей;
   * `JSON` — для переписки из чата.
@@ -28,7 +28,7 @@
     1. При успешной загрузке файла логируются его метаданные и уникальный идентификатор в пространстве {{ speechsense-name }}.
 1. Сервис {{ websql-name }} позволяет получить доступ к БД с метаданными. Для просмотра используется один пользователь БД, а для загрузки файлов — другой.
 
-Настроить автоматическую загрузку данных можно сразу для нескольких [подключений {{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#connection).
+Настроить автоматическую загрузку данных можно сразу для нескольких [подключений {{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection).
 
 Чтобы автоматизировать загрузку данных в {{ speechsense-name }}:
 
@@ -50,7 +50,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}](../../../speechsense/pricing.md)).
+* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 * Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
 * Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
 * Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-name }}](../../../functions/pricing.md)).
@@ -74,7 +74,7 @@
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), `serverless.workflows.admin`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), `serverless.workflows.executor`.
+  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -115,15 +115,17 @@
 
       Если вы будете создавать секрет {{ lockbox-name }} через {{ yandex-cloud }} CLI  от имени сервисного аккаунта `deploy-sa`, также назначьте ему роль [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor).
 
-  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), `serverless.workflows.executor`.
+  1. Повторите предыдущие шаги и создайте сервисный аккаунт `speechsense-sa` c ролями [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
 
 - API {#api}
 
+  
   Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService.Create](../../../iam/api-ref/grpc/ServiceAccount/create.md).
 
   Чтобы назначить сервисному аккаунту `deploy-sa` роли [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin) и `serverless.workflows.admin`, воспользуйтесь методом [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService.SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
 
-  Таким же способом назначьте сервисному аккаунту `speechsense-sa` роли [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), `serverless.workflows.executor`.
+  Таким же способом назначьте сервисному аккаунту `speechsense-sa` роли [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), `serverless.workflows.executor`.
+
 
 {% endlist %}
 
@@ -172,7 +174,9 @@
 
 - API {#api}
 
+  
   Создайте API-ключ с помощью метода REST API [create](../../../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../../../iam/api-ref/ApiKey/index.md):
+
 
   ```bash
   export SERVICEACCOUNT_ID=<идентификатор_сервисного_аккаунта>
@@ -187,10 +191,12 @@
 
   Где:
 
+  
   * `SERVICEACCOUNT_ID` — [идентификатор](../../../iam/operations/sa/get-id.md) сервисного аккаунта.
   * `IAM_TOKEN` — [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
 
   Также API-ключ можно создать с помощью вызова gRPC API [ApiKeyService.Create](../../../iam/api-ref/grpc/ApiKey/create.md).
+
 
 {% endlist %}      
 
@@ -219,7 +225,7 @@
   1. Перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
   1. Cкопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense-sa` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}](../../../speechsense/security/index.md#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
+  1. Выберите сервисный аккаунт `speechsense-sa` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту `speechsense-sa` загружать данные в {{ speechsense-name }}.
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 {% endlist %}
@@ -368,7 +374,9 @@
 
     {% endlist %}
 
+    
     В командной строке введите [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), имя сервисного аккаунта `speechsense-sa`, от которого будут вызываться функции и запускаться рабочий процесс, и [имя бакета](../../../storage/concepts/bucket.md#naming).
+
 
     Примерное время выполнения скрипта — 10-15 минут.
 
@@ -380,27 +388,27 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `speechsense-secret`.
 
-  1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-        1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}**.
+        1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
         
         1. Добавьте API-ключ сервисного аккаунта:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_api_key`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_api_key`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение [созданного ранее](#create-key) API-ключа сервисного аккаунта `speechsense-sa`.
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и добавьте идентификатор подключения {{ speechsense-name }}:
+        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте идентификатор подключения {{ speechsense-name }}:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_connection_id`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите идентификатор подключения, [созданного ранее](#create-connection).
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_connection_id`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите идентификатор подключения, [созданного ранее](#create-connection).
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и добавьте формат файлов с диалогами, которые будут загружены в {{ speechsense-name }}:
+        1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и добавьте формат файлов с диалогами, которые будут загружены в {{ speechsense-name }}:
 
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** укажите: `speechsense_file_format`.
-            * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `speechsense_file_format`.
+            * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите формат файла. Допустимые значения: `mp3`,`wav`,`ogg`, `text`.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
@@ -434,7 +442,9 @@
 
 - API {#api}
 
+  
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService.Create](../../../lockbox/api-ref/grpc/Secret/create.md).
+
 
 {% endlist %}
 
@@ -740,6 +750,7 @@
 ## Удалите ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать.
+
 
 1. [Удалите](../../../storage/operations/buckets/delete.md) объекты в бакете {{ objstorage-name }} и сам бакет.
 1. [Удалите](../../../managed-postgresql/operations/cluster-delete.md) кластер {{ mpg-name }}.

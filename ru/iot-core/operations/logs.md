@@ -1,5 +1,7 @@
 # Просмотр журнала подключений
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 Журнал содержит информацию о подключении и отключении устройств, а также о возникающих ошибках. Вы можете посмотреть журналы подключений [реестра](#registry) и [устройства](#device). Время указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
 
 ## Посмотрите журнал подключений реестра {#registry}
@@ -11,7 +13,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений реестра.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **{{ ui-key.yacloud.common.logs }}**.
    
@@ -54,7 +56,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите посмотреть журнал подключений устройства.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. Выберите в списке реестр с нужным устройством.
     1. В левой части окна выберите раздел **{{ ui-key.yacloud.iot.label_devices }}**.
     1. Выберите в списке нужное устройство.

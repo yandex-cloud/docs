@@ -24,14 +24,12 @@ Deletes a format schema from a cluster.
 || cluster_id | **string**
 
 Required field. ClickHouse cluster ID.
-
 To get a ClickHouse cluster ID, use the [ClusterService.List](/docs/managed-clickhouse/api-ref/grpc/Cluster/list#List) method.
 
 The maximum string length in characters is 50. ||
 || format_schema_name | **string**
 
 Required field. Format schema name.
-
 To get a format schema name, use the [FormatSchemaService.List](/docs/managed-clickhouse/api-ref/grpc/FormatSchema/list#List) method.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
@@ -47,13 +45,10 @@ The maximum string length in characters is 63. Value must match the regular expr
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "format_schema_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -81,7 +76,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DeleteFormatSchemaMetadata](#yandex.cloud.mdb.clickhouse.v1.DeleteFormatSchemaMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -96,7 +91,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -111,16 +106,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## DeleteFormatSchemaMetadata {#yandex.cloud.mdb.clickhouse.v1.DeleteFormatSchemaMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ClickHouse cluster ID. ||
-|| format_schema_name | **string**
-
-Format schema name. ||
 |#

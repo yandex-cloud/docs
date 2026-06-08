@@ -8,11 +8,13 @@ default:
   adv-ddos-protection: Advanced Yandex DDoS Protection
   AF: Apache Airflow™
   agents-atelier-name: Agent Atelier
+  ai-playground: AI Playground
   ai-studio-full-name: Yandex Cloud AI Studio
   ai-studio-name: AI Studio
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerting-metrics-limit: 1 000
   alerts-name: Alerts
   all-mdb:
     max-databases: 1000
@@ -82,6 +84,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -263,6 +266,7 @@ default:
   k8s-decomission-timeout: 7 minutes
   k8s-docs: https://kubernetes.io/docs
   k8s-hpa: Horizontal Pod Autoscaler
+  k8s-ma: Master Autoscaler
   k8s-vpa: Vertical Pod Autoscaler
   kafka-ui: Kafka UI
   kafka-ui-kafbat: https://ui.docs.kafbat.io/
@@ -318,7 +322,7 @@ default:
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
   link-docs: https://yandex.cloud/en/docs
-  link-docs-ai: https://aistudio.yandex.ru/docs/ru/
+  link-docs-ai: https://aistudio.yandex.ru/docs/en/
   link-forms-b2b: https://forms.yandex.com/cloud/admin
   link-forms-cloudless: https://yandex.ru/support/forms/ru
   link-keycloak-example: http://keycloak.example.com:8080/realms/master
@@ -498,7 +502,6 @@ default:
   oracle:
     docs: https://docs.oracle.com/en/database/oracle/oracle-database/19
   org-full-name: Yandex Identity Hub
-  org-name: Identity Hub
   org-sync-agent-name: Yandex Identity Hub Sync Agent
   OS: OpenSearch
   os:
@@ -517,7 +520,9 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
+        dpr: '14'
         str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
+        str-last: '15'
       tf:
         latest: '18'
         str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 and 18-1c
@@ -619,11 +624,7 @@ default:
   roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
-  roles-speechsense-data-viewer: Data viewer
-  roles-speechsense-editor: Editor
-  roles-speechsense-viewer: Viewer
   roles-viewer: viewer
   roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
@@ -794,7 +795,6 @@ default:
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
@@ -885,6 +885,7 @@ default:
   unified-agent-short-name: Unified Agent
   v100-broadwell: Intel Broadwell with NVIDIA® Tesla® V100
   v100-cascade-lake: Intel Cascade Lake with NVIDIA® Tesla® V100
+  vector-store-name: Vector Store
   video-full-name: Yandex Cloud Video
   video-name: Cloud Video
   video-player-name: Cloud Video Player
@@ -973,6 +974,7 @@ default:
   yq-short-name: YQ
   yql-full-name: Yandex Query Language
   yql-short-name: YQL
+  yt-name: YT
   ytsaurus-name: YTsaurus
   YZ: Yezzey
   ZK: ZooKeeper
@@ -982,6 +984,7 @@ default:
   pcs|api-gateway: dn25mc2lq81eqg1ohe4i
   pcs|audit-trails: dn27fg1qtguelq2d772a
   pcs|baremetal: dn2jfbheag6vvls7oplt
+  pcs|baremetal_custom: dn2ix4ahzfz24aamritd
   pcs|cdn: dn2rse5n40m8h0bu8jqa
   pcs|cloud_backup: dn21j2nquomme940r5rt
   pcs|cloud_desktop: dn25bk2bcun5eb7kkdq0
@@ -1039,6 +1042,21 @@ default:
         12_month: dn2p6himjfj4hnjshxco
         3_month: dn2idsw46rbwcnkndlhn
         6_month: dn2hi7cbvh3bnbkef4up
+      bms_6017r_1p_body:
+        1_month: dn2q2frxpt6tvufg4dbj
+        12_month: dn2jbwhte5bfbbaktedf
+        3_month: dn2rbrihkjxszdhcqspo
+        6_month: dn2b2nlopzirnvkm6jui
+      bms_6017r_2p_body:
+        1_month: dn2so47gvuqx5azgciwy
+        12_month: dn2tcjv6cx76pi5bpxb5
+        3_month: dn2bwgkxfxqi2he7idmx
+        6_month: dn2d5amh7npq6uybeid2
+      bms_6018r_body:
+        1_month: dn2inhbs6bc4xt5qslnx
+        12_month: dn2nzwmnpelqxxvtwye5
+        3_month: dn2lzxls7ofr42crh4dw
+        6_month: dn2gupw4x3udejwq5e5u
       bms_cpu_i6230:
         1_month: dn2dxqjz3vqfxeq6fqbz
         12_month: dn25uptp35c3njgv25wn
@@ -1049,6 +1067,36 @@ default:
         12_month: dn2pydc6l4pylhxzylql
         3_month: dn2revpxepujo6i4wvqv
         6_month: dn2r4dbzpdsyoxjryx7n
+      bms_cpu_ie5_2660v4:
+        1_month: dn2l54dob4rh7tcdtjzv
+        12_month: dn2ig6lvlsqelfhir524
+        3_month: dn2taonqwhl2vrfzys37
+        6_month: dn2mtpccuek5frawr5c6
+      bms_cpu_ie5_2683v4:
+        1_month: dn2dfnvwxwtlpfjbxk3e
+        12_month: dn2ksjdod7xaford5gb7
+        3_month: dn2drrgaldi27t2xgthq
+        6_month: dn2yixalmc2pietpjnth
+      bms_ram3_512:
+        1_month: dn272obotmhjs6qugtzr
+        12_month: dn2dmubcjjn6l2mtrj7t
+        3_month: dn25p4ghrem3sn243lyb
+        6_month: dn2dhr4kosajyu44vuwo
+      bms_ram4_16:
+        1_month: dn23h2is6g3cbqeptfvz
+        12_month: dn2c7sqmplx7xdxmaqdh
+        3_month: dn2kfl2eqfpzcf2w3wmt
+        6_month: dn2lt74sflg4e3poxhzr
+      bms_ram4_32:
+        1_month: dn2mgfustyk26cx5rnrk
+        12_month: dn2cte6dlvabkmfwxryi
+        3_month: dn2qm5zh6wthji2febzy
+        6_month: dn26pe7pi3th4wrcboym
+      bms_ram4_64:
+        1_month: dn2fumiz6cxhwgmz76cy
+        12_month: dn2cxcdjpeocox42tkmk
+        3_month: dn2sbp4q2d4kch7jro77
+        6_month: dn2dg23ibbqvgkcyo2t5
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -1313,6 +1361,12 @@ default:
         12_month: dn2p7j4g65rioh676pec
         3_month: dn2td7drocpwss27prtp
         6_month: dn24m37i7jgimv47zsao
+      ba_i218_s:
+        1_day: dn2yspxmcbxndak267qp
+        1_month: dn2eyi7ztdxbxmd4dgj5
+        12_month: dn2zlvn2xg4xmjtzizsd
+        3_month: dn2vj6swslxr2owotaqt
+        6_month: dn2szgigswzw6nv7adb3
       ba_i311_s:
         1_day: dn2pmeuzaf5x5jog4dxl
         1_month: dn2rx7dxbtooxf6ckpkc
@@ -1591,6 +1645,12 @@ default:
         12_month: dn24yko6koontg32wjtm
         3_month: dn2fk5rqjzelrsqlh6zw
         6_month: dn2plhocvyi3hfzx7uv5
+      la_i114_s:
+        1_day: dn2c3fvr5id64qmsvelk
+        1_month: dn22gcl3uajdmvxh3ilp
+        12_month: dn2hy7escq66mrhbqz62
+        3_month: dn2rpej2eep226m4lnin
+        6_month: dn2jupfua327m4scynoi
       la-i100-h:
         1_day: dn2t33wjf2qexcjgwqfm
         1_month: dn2a7ztltvaxx4jix3j4
@@ -1642,17 +1702,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -1766,11 +1815,6 @@ default:
             cores: dn2jqpn5pcn1kjtf06e5
           highfreq-v4a:
             cores: dn28ft211q8jed0h7dif
-  pc|mk8s:
-    master:
-      master_host_resources:
-        cpu: dn2pjj9vapo7724rik0b
-        ram: dn2u6o8avnm6b5tb8klu
   pc|monitoring:
     alerts:
       notifications:
@@ -1919,17 +1963,13 @@ default:
         v2|pricingRate:
           1|number: 503.25
           1|string: ₸503.25
-      vimpelcom_marketing_1|number: 39.35
-      vimpelcom_marketing_1|string: ₸39.35
-      vimpelcom_marketing_2|number: 38.9
-      vimpelcom_marketing_2|string: ₸38.9
+      vimpelcom_marketing_1|number: 39.4
+      vimpelcom_marketing_1|string: ₸39.4
+      vimpelcom_marketing_from_5|number: 39.9
+      vimpelcom_marketing_from_5|string: ₸39.9
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 96.05
-      vimpelcom_marketing_1|string: ₸96.05
-      vimpelcom_marketing_2|number: 71.25
-      vimpelcom_marketing_2|string: ₸71.25
-      vimpelcom_marketing_3|number: 136
-      vimpelcom_marketing_3|string: ₸136
+      vimpelcom_marketing_3_to_4|number: 97.85
+      vimpelcom_marketing_3_to_4|string: ₸97.85
     notifications:
       sender_name_registration_event|number: 50833.3
       sender_name_registration_event|string: ₸50833.3
@@ -2223,37 +2263,6 @@ default:
         vcpu:
           v2|number: 7.85
           v2|string: ₸7.85
-  sku|KZT|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.7625
-        v1|string: ₸0.7625
-      audio|number: 0.0505
-      audio|pricingRate:
-        30000000|number: 0.0254
-        6000000|number: 0.0305
-      text:
-        v2|number: 7.015
-        v2|pricingRate:
-          100000|number: 5.185
-          100000|string: ₸5.185
-          1000000|string: ₸2.135
-          2500000|string: ₸1.525
-          500000|number: 3.05
-          500000|string: ₸3.05
-        v2|string: ₸7.015
-      v1|number: 0.1165
-      v1|pricingRate:
-        150000000|number: 0.0254
-        30000000|number: 0.0505
-        6000000|number: 0.086
-        60000000|number: 0.0355
-    reinit:
-      assistant:
-        v1|number: 0.7625
-        v1|string: ₸0.7625
-      tag:
-        v1|string: ₸0.06
   sku|KZT|storage:
     api:
       get:
@@ -2467,17 +2476,13 @@ default:
         v2|pricingRate:
           1|number: 100.65
           1|string: ₽100.65
-      vimpelcom_marketing_1|number: 7.87
-      vimpelcom_marketing_1|string: ₽7.87
-      vimpelcom_marketing_2|number: 7.78
-      vimpelcom_marketing_2|string: ₽7.78
+      vimpelcom_marketing_1|number: 7.88
+      vimpelcom_marketing_1|string: ₽7.88
+      vimpelcom_marketing_from_5|number: 7.98
+      vimpelcom_marketing_from_5|string: ₽7.98
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 19.21
-      vimpelcom_marketing_1|string: ₽19.21
-      vimpelcom_marketing_2|number: 14.25
-      vimpelcom_marketing_2|string: ₽14.25
-      vimpelcom_marketing_3|number: 27.2
-      vimpelcom_marketing_3|string: ₽27.2
+      vimpelcom_marketing_3_to_4|number: 19.57
+      vimpelcom_marketing_3_to_4|string: ₽19.57
     notifications:
       sender_name_registration_event|number: 10166.66
       sender_name_registration_event|string: ₽10166.66
@@ -2803,37 +2808,6 @@ default:
         vcpu:
           v2|number: 1.57
           v2|string: ₽1.57
-  sku|RUB|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.1525
-        v1|string: ₽0.1525
-      audio|number: 0.0101
-      audio|pricingRate:
-        30000000|number: 0.00508
-        6000000|number: 0.0061
-      text:
-        v2|number: 1.403
-        v2|pricingRate:
-          100000|number: 1.037
-          100000|string: ₽1.037
-          1000000|string: ₽0.427
-          2500000|string: ₽0.305
-          500000|number: 0.61
-          500000|string: ₽0.61
-        v2|string: ₽1.403
-      v1|number: 0.0233
-      v1|pricingRate:
-        150000000|number: 0.00508
-        30000000|number: 0.0101
-        6000000|number: 0.0172
-        60000000|number: 0.0071
-    reinit:
-      assistant:
-        v1|number: 0.1525
-        v1|string: ₽0.1525
-      tag:
-        v1|string: ₽0.012
   sku|RUB|storage:
     api:
       get:
@@ -3047,17 +3021,13 @@ default:
         v2|pricingRate:
           1|number: 0.824999868
           1|string: $0.824999868
-      vimpelcom_marketing_1|number: 0.0645081864
-      vimpelcom_marketing_1|string: $0.0645081864
-      vimpelcom_marketing_2|number: 0.0637704816
-      vimpelcom_marketing_2|string: $0.0637704816
+      vimpelcom_marketing_1|number: 0.0645901536
+      vimpelcom_marketing_1|string: $0.0645901536
+      vimpelcom_marketing_from_5|number: 0.0654098256
+      vimpelcom_marketing_from_5|string: $0.0654098256
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 0.1574589912
-      vimpelcom_marketing_1|string: $0.1574589912
-      vimpelcom_marketing_2|number: 0.11680326
-      vimpelcom_marketing_2|string: $0.11680326
-      vimpelcom_marketing_3|number: 0.222950784
-      vimpelcom_marketing_3|string: $0.222950784
+      vimpelcom_marketing_3_to_4|number: 0.1604098104
+      vimpelcom_marketing_3_to_4|string: $0.1604098104
     notifications:
       sender_name_registration_event|number: 83.3332653552
       sender_name_registration_event|string: $83.3332653552
@@ -3365,37 +3335,6 @@ default:
         vcpu:
           v2|number: 0.0128688504
           v2|string: $0.0128688504
-  sku|USD|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: $0.0012499998
-      audio|number: 0.0000827869
-      audio|pricingRate:
-        30000000|number: 0.0000416393
-        6000000|number: 0.00005
-      text:
-        v2|number: 0.0114999982
-        v2|pricingRate:
-          100000|number: 0.0084999986
-          100000|string: $0.0084999986
-          1000000|string: $0.0034999994
-          2500000|string: $0.0024999996
-          500000|number: 0.0049999992
-          500000|string: $0.0049999992
-        v2|string: $0.0114999982
-      v1|number: 0.0001909836
-      v1|pricingRate:
-        150000000|number: 0.0000416393
-        30000000|number: 0.0000827869
-        6000000|number: 0.0001409836
-        60000000|number: 0.0000581967
-    reinit:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: $0.0012499998
-      tag:
-        v1|string: $0.0000983606
   sku|USD|storage:
     api:
       get:
@@ -3710,6 +3649,7 @@ default:
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds: All clouds and folders
+        value_empty_service_instances: All workspaces
       cloud-billing-account:
         label_card-add: Add card
       create-account:
@@ -3960,6 +3900,7 @@ default:
         button_add-label: Add label
       marketplace:
         label_product-ids: Product IDs
+        label_subscriptions: Pricing options
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
@@ -4037,6 +3978,7 @@ default:
           save: Save
       alert-template:
         field:
+          delay-key-value: Evaluation delay
           evaluation-window-key-value: Evaluation window
         no-metrics-policy:
           alarm: Alarm
@@ -4401,6 +4343,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4963,14 +4906,14 @@ default:
             not_verified: Not verified
         controls:
           ControlExceptionForm:
-            allResources_2ax5E: All resources
+            allResources_2ax5E: All workspace resources
             ExceptionRulesSection:
               action_select-rules: Select rules
               rules-select_option_all: All rules
               rules-select_option_selected: Selected rules
-              section-title: Excepted rules
+              section-title: Rules
             label_active-exclusion_fjPgA: Activate exception
-            scopeOfControl_aRkwB: Scope of control
+            scopeOfControl_aRkwB: Scope
             section-title_3YcSF: Reason for exclusion
             selectResources_bD5MC: Select resources
           ControlsExceptionsPage:
@@ -4994,8 +4937,8 @@ default:
             header_caption_cspm_9dTJt: Configuration control
             info_type_1dxbZ: Exception type
           ResourceExceptionForm:
-            title_exclude_uK4FD: Do not check resource
-            title_reportCompliance_re4wo: Resource has been checked manually
+            title_exclude_uK4FD: No check required
+            title_reportCompliance_re4wo: Checked manually
           rule-result:
             controlRule_kr2Bv: Control rule
             module_63uuk: Module of control
@@ -5011,9 +4954,9 @@ default:
             field_author_8hf4z: Created
             field_reason_qN8a7: Exception reason
             field_rules_vBK4W: Rules
-            field_type_exclude_cigcD: Do not scan resource
+            field_type_exclude_cigcD: No check required
             field_type_kCG8J: Exception type
-            field_type_manual_mbKxp: Resource scanned
+            field_type_manual_mbKxp: Manually scanned
         discovery:
           header_resource_kDJFW: Resource
           more_details_button_aPdgv: More details
@@ -5139,7 +5082,7 @@ default:
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
-            tabStandards_wSeaW: Security compliance
+            tabStandards_wSeaW: Control modules
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
             billing_account_title_sU1Tj: Payment for resources
@@ -5154,7 +5097,7 @@ default:
             generalParamsTitle_xzLoX: Main parameters
             resourcesTitle_fE6qp: Resources
             saveAndContinue_9xKZY: Save and continue
-            standartsTitle_cxvJ8: Security compliance
+            standartsTitle_cxvJ8: Control modules
           WorkspaceOnboardingPageLayout:
             pageTitle_ehdBw: Creating and configuring workspace
           WorkspacePageLayout:
@@ -5282,6 +5225,7 @@ default:
         label_domains-status: Check status
         label_page-id: PageID
         label_provider-type: Provider
+        label_show-source-file-before-transcoding: Show video in player before processing is complete
         label_title: Name
         title_settings: Channel settings
       common:
@@ -5312,25 +5256,28 @@ default:
         action_create-preset: Create template
         action_set-as-default: Select as default template
         button_open-preset-template-dialog: View template in a separate window
+        field_logo-enabled: Show logo
+        field_logo-redirect-on-click-url: Logo redirect link
+        field_logo-show-with-controls: Hide with player interface
         label_style-preset: Player preset
         label_title: Template name
+        section_logo-settings: Logo settings
         section_styles-settings: Style setup
         section_wigets-settings: Widget settings
         title_presets: Player template
       stream-lines:
-        action_create-line: Create a line
         label_input-stream-protocol: Stream input protocol
         label_input-stream-type: Stream type
         label_server-address: Server address
         label_stream-key: Broadcast key
         label_url: Server address
-        title_lines: Lines
       streams:
         action_add-stream-episode: Add an episode
         action_copy-code: Copy
         action_create-stream: Create a broadcast
         action_start-stream: Start
         action_stop-stream: Finish
+        field_segment-duration: Delay mode
         label_auto-publish-streams: Auto-start broadcast
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
@@ -5344,15 +5291,13 @@ default:
         label_start-broadcast-auto: automatically
         label_stream-episode-end: Episode end
         label_stream-episode-start: Episode start
-        label_stream-type: Stream type
-        label_type-on-demand: On demand
-        label_type-schedule: By schedule
+        option_segment-duration-low: Low
+        option_segment-duration-standart: Standard
         status_finished: Finished
         status_offline: Offline
         status_on-air: On air
         status_preparing: Preparing
         status_ready: Ready
-        title_past-code: Embed in site
         title_stream-episodes: Episodes
         title_streams: Broadcasts
       thumbnails:
@@ -5558,6 +5503,7 @@ default:
         label_destination: Destination
         label_event-filter-section: Collecting data events
         label_eventRouter: EventRouter
+        label_log-group: Log group
         label_object-prefix: Object prefix
         label_objectStorage: Object Storage
         label_organization-manager:
@@ -5799,6 +5745,7 @@ default:
         label_dns-settings_title: DNS settings
         label_headers: Header
         label_host-header: Host header
+        label_ignore: Ignore
         label_ip-address: IP address
         label_locations: Location rules
         label_metrics-requests: Requests
@@ -5932,6 +5879,8 @@ default:
           add_shard-btn: Add shard
           databases:
             popup-add_button_add: Create
+          field_cluster-sharding: Cluster sharding
+          field_shard-resources-type: Configuration
           format-schemas:
             button-action_add-format-schema: Create schema
             dialog:
@@ -5960,9 +5909,12 @@ default:
           switch_shard-groups: Shard groups
           switch_shards: Shards
           switch_users: Users
+          title_cluster-shards-settings: Sharding settings
           value_coordination-service-embedded-clickhouse-keeper: Embedded ClickHouse Keeper
           value_coordination-service-separated-clickhouse-keeper: ClickHouse Keeper (on separate hosts)
           value_coordination-service-zookeeper: ZooKeeper (on separate hosts)
+          value_shard-resources-type-default: Default
+          value_shard-resources-type-override: Redefined
         Cluster:
           Shards:
             action_add-shards_iULX7: Create shards
@@ -5972,8 +5924,6 @@ default:
             action_add-clickhouse-hosts: Create ClickHouse hosts
             action_add-host-item: Create host
             action_submit: Create hosts
-            field_copy_schema: Copy data schema
-            title_additional-settings: Additional settings
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Query groups
@@ -6094,6 +6044,7 @@ default:
         create: Create
         created-at: Date created
         delete: Delete
+        deletion-protection: Deletion protection
         description: Description
         disable: Disable
         disabled: Disabled
@@ -6337,6 +6288,19 @@ default:
             button_reschedule_3SHfY: Reschedule
           PlatformField:
             value_platform-tab-gpu_hGyQ8: With GPU
+          ScheduleSection:
+            label_cron_kZwc5: Cron
+            label_daily_o3t6f: Daily
+            label_monthly_dJYSn: By month
+            label_repeat-type_7fBWj: Create snapshots
+            label_start-date_pbnDp: Start date
+            label_weekly_pB4YE: By day of week
+            section_schedule_ro4p7: Launch schedule
+          SnapshotScheduleFormContent:
+            label_empty-retention-policy_voaWW: Store all snapshots
+            section_general-info_bN9QE: General information
+            section_snapshot-settings: Snapshot settings
+            section_storage-settings_wG5uP: Storage settings
           SshViaPrivateKeyDialog:
             connect-via-private-key_6DKKe: Connect
         disk-form:
@@ -6475,6 +6439,7 @@ default:
           overview:
             button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
+            button_add-network-interface: Add network interface
             button_add-public-ip: Add public IP address
             button_edit-network-interface: Edit
             button_remove-public-ip: Disassociate public IP address
@@ -6563,6 +6528,8 @@ default:
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker Compose
+            value_serial-port-enable: Enable
+          field_network-interface-index: Network interface index
           label_title: Virtual machines
           popup-confirm_button_delete: Delete
           popup-confirm_button_gr-stop: Stop
@@ -6616,21 +6583,17 @@ default:
             main-pool-info-section_xoPE2: General information about the pool
             resources-section-title_wAFm8: VM computing resources
         section_additional_7yvYG: Additional
+        snapshot-schedule-form-next:
+          active-retention-policy-field:
+            message_store-last-begin_few: Only the last
         snapshots_81jHX: Snapshots
         snapshots-schedules:
           action_attach-disk: Add disk
           action_detach-disk: Delete from schedule
           action_detach-schedule: Detach from disk
           action_edit-disk-schedules: Edit snapshot schedules
-          label_custom: By cron expression
-          label_daily: By day
-          label_empty-retention-policy: Store all snapshots
-          label_hourly: By hour
-          label_schedule-policy: Create snapshots
-          label_start-at: Starting on
+          button_create-snapshot-schedule: Create snapshot schedule
           label_title: Snapshot schedules
-          label_weekly: By week
-          message_store-last-begin_many: Only the last
           title_snapshot-schedule-disks: Disks
         snapshots:
           list:
@@ -7093,7 +7056,7 @@ default:
             button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
           incident-notifications:
-            button_open-dialog: Add
+            button_open-add-notification-dialog: Add notification
           label_create_cloud: Create cloud
           quotas:
             button_action-request: Increase
@@ -7271,6 +7234,35 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
+      interconnect:
+        bgp-asn_3dSL7: BGP ASN
+        bgp-key_cn2dU: BGP Key
+        cloud-ip_6ESSe: Cloud IP
+        peer-ip_pMdxo: Peer IP
+        peering-subnet_eYRTR: Peering subnet
+        private-connection:
+          create-private-connection_6K9tP: Create private connection
+          private-connections_daeaR: Private connections
+          StaticRoutePrefixRow:
+            add-prefix-button_n11CU: Add prefix
+          TrunkConnectionSuggestOrCreate:
+            title_oPBF7: Trunk connection ID
+        public-connection:
+          public-connections_7xYcV: Public connections
+        trunk-connection:
+          connection-capacity_tkrnE: Connection capacity
+          connection-type_23Twp: Connection type
+          connection-type-lag_nkLCb: LAG
+          connection-type-partner_tsPPf: Via partner
+          connection-type-single-port-direct_1QHVe: Direct
+          DirectConnectionFields:
+            ports-count_d9Zds: Number of ports
+          point-of-presence_265QN: Point of presence
+          transceiver-type_2WtM8: Transceiver type
+          trunk-connections_kBGNL: Trunk connections
+          TrunkConnectionListScreen:
+            create-trunk-connection_oUuYo: Create trunk connection
+        vlan-id_2wghK: VLAN ID
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7459,20 +7451,41 @@ default:
         field_connector-alias: Alias
         field_connector-bootstrap-servers: Bootstrap servers
         field_connector-bucket-name: Bucket
+        field_connector-catalog-uri: Catalog URI
+        field_connector-commit-interval-ms: Commit interval, ms
+        field_connector-commit-threads: Commit threads
+        field_connector-commit-timeout-ms: Commit timeout, ms
         field_connector-compression-type: Compression type
         field_connector-config-mirror-maker-source-cluster: Source cluster
         field_connector-config-mirror-maker-target-cluster: Target cluster
         field_connector-config-mirror-maker-topics: Topics
+        field_connector-control-topic: Control topic
+        field_connector-default-commit-branch: Default commit branch
+        field_connector-default-id-columns: Default column list
+        field_connector-default-partition-by: Default partition
         field_connector-endpoint: Endpoint
+        field_connector-evolve-schema-enabled: Enable automatic schema evolution
         field_connector-file-max-records: Max record per file
+        field_connector-group-id-prefix: Consumer group prefix
+        field_connector-metastore-connection: Metastore connection
         field_connector-region: Region
+        field_connector-route-field: Route field
         field_connector-s3-connection: S3 connection
         field_connector-sasl-mechanism: SASL mechanism
         field_connector-sasl-password: SASL password
         field_connector-sasl-username: SASL username
+        field_connector-schema-case-insensitive: Enable case-insensitive field name matching
+        field_connector-schema-force-optional: Force all columns to be nullable
         field_connector-secret-access-key: Secret access key
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_connector-static-tables: Tables
+        field_connector-table-routing: Table routing
+        field_connector-table-routing-dynamic: Dynamic
+        field_connector-table-routing-static: Static
+        field_connector-topics-source: Topic source
+        field_connector-transactional-prefix: Transactional prefix
+        field_connector-warehouse: Warehouse
         field_kafka-ui: Kafka UI
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
@@ -7500,6 +7513,9 @@ default:
         label_topic-retention-bytes: Retention, bytes
         label_topic-retention-ms: Retention, ms
         label_topics: Topics
+        section_iceberg-control-config: Control settings
+        section_iceberg-optional-settings: Optional settings
+        section_iceberg-tables-config: Table settings
         section_kraft-resources: KRaft host class
         section_properties: Additional properties
         section_topic-config: Topic settings
@@ -7641,37 +7657,46 @@ default:
         value_imbalance_rps-chart-type: 'Fault point: RPS'
         value_instances-chart-type: 'Testing threads: quantity'
       lockbox:
-        button_action-make-version-current: Set as current version
-        button_action-open-version-add-dialog: Create a version from this one
-        button_action-schedule-for-destruction: Schedule destruction
-        button_activate-secret: Activate secret
-        button_add-version: Add version
-        button_create-secret: Create secret
-        button_deactivate-secret: Deactivate
-        field_make-version-current: Set as current version
-        forms:
-          alert_generated-version-edit_button: Edit secret
-          button_add-pair: Add key/value
-          button_schedule-destruction: Schedule
+        BaseInfoSection:
           field_deletion-protection: Block secret deletion
-          label_key: Key
-          label_value: Value
-          title_auto-generation_params_section: Automatic generation options
+        EncryptionInfoSection:
           title_kms-key: KMS key
-          title_secret-data-section: Secret data
-          title_secret-type: Secret type
+        FormFields:
           title_secret-type-custom: Custom
           title_secret-type-generated: Generated
-          title_version-payload-entries-value-placeholder: Value
+        routes:
+          label_section-secrets: Secrets
+        ScheduleDestructionFormDialog:
+          button_schedule-destruction: Schedule
+        SecretActions:
+          button_activate-secret: Activate secret
+          button_deactivate-secret: Deactivate
+        SecretGeneratedVersion:
+          label_key: Key
+        SecretInfoSection:
+          title_auto-generation_params_section: Automatic generation options
+          title_secret-data-section: Secret data
+          title_secret-type: Secret type
+        SecretOverviewPage:
+          button_add-version: Add version
+          label_secret-general-section: Information about secret
+          label_secret-id: ID
+          label_secret-versions-section: Versions
+        SecretsPage:
+          button_create-secret: Create secret
+        SecretVersionsInputs:
           value_payload-entry-value-type-text: Text
-        label_password-key: Key
-        label_secret-general-section: Information about secret
-        label_secret-id: ID
-        label_secret-versions-section: Versions
-        label_section-overview: Overview
-        label_section-secrets: Secrets
-        label_version-current: Current
-        label_version-dialog-title: Version
+        SecretVersionsList:
+          button_add-pair: Add key/value
+          label_key: Key
+          label_value: Value
+        VersionAddDialog:
+          button_add-version: Add version
+        VersionsTable:
+          button_action-make-version-current: Set as current version
+          button_action-open-version-add-dialog: Create a version from this one
+          button_action-schedule-for-destruction: Schedule destruction
+          label_version-current: Current
       logging:
         button_create-group: Create group
         button_create-sink: Create sink
@@ -7711,6 +7736,7 @@ default:
         action_move: Move
         action_purchase-license: Purchase a subscription
         action_specify-vm: Link virtual machine
+        action_to-pay-license: Pay
         button_continue: Continue
         button_disallow-analytics-scanning: Prohibit Marketplace from collecting statistics
         button_k8s-product-use: Go to install
@@ -7817,6 +7843,7 @@ default:
             popup-confirm_button: Confirm
             switch_monitoring: Monitoring
             switch_overview: Overview
+          label_mdb: Cluster
           logs:
             label_hosts: Hosts
             label_severity: "\_Severity"
@@ -7870,6 +7897,7 @@ default:
             button_action-password: Change password
             button_action-update: Configure
             button_advanced-settings: Additional settings
+            field_enable-user: Enable user
             label_go-to-password: View password
             popup-add_button_add: Create
             popup-button_add: Create
@@ -7932,6 +7960,7 @@ default:
           base_field_roles: Roles
           base_field_service-account: Service account
           base_field_shard-name: Shard name
+          base_field_shard-weight: Weight
           base_field_version: Version
           button_add-host: Add host
           button_add-initialization-action: Add
@@ -8875,22 +8904,17 @@ default:
         label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
-        label_rbac-catalog-access: Catalogs the rule applies to
         label_rbac-catalog-permissions: Permissions
         label_rbac-function: Functions
-        label_rbac-function-access: Functions the rule applies to
         label_rbac-function-privileges: Privileges
         label_rbac-groups: Groups
         label_rbac-procedure: Procedures
-        label_rbac-procedure-access: Procedures the rule applies to
         label_rbac-procedure-privileges: Privileges
         label_rbac-query: Queries
         label_rbac-query-privileges: Privileges
         label_rbac-schema: Schemas
-        label_rbac-schema-access: Schemas the rule applies to
         label_rbac-schema-owner: Schema owner
         label_rbac-table: Tables
-        label_rbac-table-access: Tables the rule applies to
         label_rbac-users: Users
         rbac-catalog-match-by-empty: Not specified
         rbac-catalog-match-by-id: ID
@@ -8900,6 +8924,8 @@ default:
         section_resource-management: Resource management
         title_catalogs: Catalogs
       ui:
+        constants:
+          label_interconnect_aUMcv: Cloud Interconnect
         metadata-hub:
           data-catalog:
             constants:
@@ -9479,6 +9505,40 @@ default:
                         title: Greenplum cluster segments
                       subnet_id:
                         title: Subnet ID
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: DISABLED
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Access Key ID
+                      bucket:
+                        title: Bucket
+                      endpoint:
+                        title: Endpoint
+                      region:
+                        title: Region
+                      secret_access_key:
+                        title: Secret Access Key
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Bucket
+                      service_account_id:
+                        title: Service account
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      mdb_cluster_id:
+                        title: Apache Hive™ Metastore cluster
+                      prefix:
+                        title: Path prefix
+                      security_group_ids:
+                        title: Security groups
             kafka:
               console:
                 form:
@@ -9587,6 +9647,24 @@ default:
                         title: CloudLogging parser
                       parser_config_common_debezium_cdc:
                         title: Debezium CDC parser
+                      parser_raw_to_table:
+                        advanced:
+                          title: Advanced settings
+                        dlq_suffix:
+                          title: DLQ table name suffix
+                        is_headers_enabled:
+                          title: Store message headers
+                        is_key_enabled:
+                          title: Store message key
+                        is_timestamp_enabled:
+                          title: Store write timestamp
+                        key_type:
+                          title: Key type
+                        table_name:
+                          title: Target table name
+                        title: Raw to table parser
+                        value_type:
+                          title: Value type
                     ParserConfigProto:
                       included_fields:
                         title: Included fields
@@ -9625,6 +9703,13 @@ default:
                         columns:
                           title: Fields
                         title: Sessions
+            migration:
+              console:
+                form:
+                  migration:
+                    PostgresMigrationTablesFilter:
+                      include_tables:
+                        title: Included tables
             mongo:
               console:
                 form:
@@ -10374,6 +10459,10 @@ default:
         disk_properties_action_description_upload: Upload to disk
         disk_properties_action_properties_download_properties_view_spec_layout_title: Content type
         disk_properties_action_properties_upload_properties_content_view_spec_layout_title: File content
+        disk_properties_oauth_token_description_lockbox: Lockbox
+        disk_properties_oauth_token_description_plain: Text
+        disk_properties_oauth_token_properties_lockbox_properties_name_view_spec_layout_title: Secret
+        disk_properties_oauth_token_properties_plain_properties_token_view_spec_layout_title: Value
         disk_properties_oauth_token_view_spec_layout_title: OAuth token
         disk_properties_path_view_spec_layout_title: Path
         foundation_models_properties_action_description_classify: Fine-tuned classification
@@ -10815,57 +10904,22 @@ default:
         transfer-selected-projects: Transfer selected projects
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs-key-value: All dialogs
         applying: Enable assistant
         assistants: Assistants
-        create-assistant-key-value: Create assistant
-        filtered-dialogs-key-value: Selected dialogs
-        generate-prompt-key-value: Generate instructions
         prompt: Instructions
-        result-key-value: Result
-        templates: Templates
-        testing-key-value: Testing
       common:
         add: Add
-        add-filter: Add filter
-        apply: Apply
-        bind: Link
         create: Create
-        customize: Customize
-        delete-key-value: Delete
-        duplicate: Duplicate
-        edit: Edit
         more: More
-        'no': 'No'
-        period: Period
-        save: Save
-        search: Search
-        settings: Settings
-        show-more: Show more
-        update: Refresh
-        'yes': 'Yes'
       connections:
         add-key: Add key
-        additional:
-          separators:
-            finish-key-value: End of dialog
-            start-key-value: Start of dialog
-          slice-length: Slice length
-          split:
-            title: Split dialogs by slices
-          title: Additional
         column:
-          description: Description
           name: Name in the system
         connection: Connection
-        connection-name: Connection name
         connections: Connections
         create-connection-key-value: Create connection
-        edit-connection-key-value: Edit connection
         fields:
-          client: Client
           metadata: Shared metadata
-          operator: Agent
         template:
           amo-crm:
             name: AmoCRM
@@ -10875,140 +10929,20 @@ default:
             name: Blank form
         type:
           chat-key-value: Сhat
-          one-channel-key-value: Single-channel audio
           two-channel-key-value: Two-channel audio
       dialogs:
-        all-participants: All participants
         bot: Bot
-        classifier:
-          appreciation-key-value: Appreciation
-        classifiers: Tags
         client: Customer
-        client-tags: Customer tags
-        common-metadata: Shared metadata
-        dialog: Dialog
         dialogs: Dialogs
-        direction-key-value: Direction
-        direction:
-          incoming: Incoming
-          outgoing: Outgoing
-        exact-match-by-key-phrases: Exact match by keywords
-        open-dialog: Open dialog
         operator: Agent
-        search:
-          dictionary:
-            title: Dictionary
-          neuro:
-            title: Semantic
-          text:
-            title: Text
-        speech-statistics: Conversation statistics
-        system-meta:
-          talk:
-            statistics:
-              simultaneous_silence:
-                ratio-key-value: Share of silence in dialog
-      dictionaries:
-        add-dictionary: Add dictionary
-        create-dictionary-key-value: Create dictionary
-        dictionaries: Dictionaries
-      neuro-tags:
-        apply-inverted:
-          theme: Do not contain theme
-        apply:
-          theme: Contain the theme
-        confidence-key-value: Confidence
-        gpt-criteria: YandexGPT criteria
-        reasons-key-value: Reasons
-        refresh-suggestions: Refresh list
-        results-key-value: Results
-        test-tag: Test tag
-        testing-dataset: Tag testing
-        themes-key-value: Themes
       projects:
         add-connection: Add connection
         add-participant: Add participant
         create-project: Create project
-        dialogs: Dialogs
-        projects: Projects
-        sumarization: YandexGPT analysis
-      reinit:
-        action:
-          cancel:
-            title: Cancel recalculation
-        tab:
-          title: Recalculation tasks
-      reports:
-        add-parameter: Add parameter
-        barchart: Chart
-        comparison-key-value: Comparison
-        create-report: Create report
-        datalens-key-value: Dashboard in DataLens
-        details-key-value: Details
-        generate-report: Create report
-        grouping-field: Group by
-        parameter:
-          description: Parameter name in report
-          filter: Evaluation parameters
-          weight: Weight
-        rating-key-value: Evaluation form
-        reports: Reports
-        save-report-key-value: Save report
-        table-key-value: Table
       spaces:
         create-space: Create space
-        error:
-          billing:
-            title: Space is not linked to a billing account
-        gpt-learning:
-          title: Tuning YandexGPT
-      statements:
-        call_reasons: Call reasons
-        call_results: Results
-        client_keywords: Client keywords
-        common_question: Common question
-        operator_keywords: Agent keywords
-        problems: Problems
-        summary: Summarization
-        theme: Theme
-      tags:
-        binding-events-key-value: Limitations
-        binding-events:
-          classifier: The main tag was triggered
-          dialog-start-key-value: Start of dialog
-          silence-key-value: Long pause
-        change-channel: Change channel
-        channel:
-          client: Client
-          operator: Agent
-          operator-and-client: Agent and customer
-        conditions: Trigger conditions
-        create-dependent-tag: Create dependent tag
-        create-tag-key-value: Create tag
-        exact-match-key-value: Exact match
-        exceptions: Exceptions
-        exceptions-keywords: Exclusion words
-        important-tag-key-value: Important tag
-        key-phrases-key-value: Keywords
-        new-channel: New channel
-        reinit: Recalculate
-        restrict-search-area-key-value: Limit the search area
-        search-area-key-value: Search direction
-        search-area:
-          after-key-value: Forward
-        tag-using-key-value: Usage
-        tags: Tags
-        tags-type:
-          dictionary-key-value: Dictionary
-          neuro-key-value: Semantic tag
-          neuro-pro-key-value: Semantic Pro tag
-        words-between-key-value: Distance between words
       team:
         add-from-organization-key-value: Add from organization
-        invite-new-key-value: Invite a new user
-        team: Team
-      upload-audio:
-        upload-audio-key-value: Adding dialogs
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:
@@ -11251,12 +11185,12 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.6
+        tag: 0.43.7
     yc_external-secrets:
       helmChart:
         name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.10.5
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
+        tag: 2.5.0
     yc_externaldns:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
@@ -11295,7 +11229,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.3.1
+        tag: v1.4.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

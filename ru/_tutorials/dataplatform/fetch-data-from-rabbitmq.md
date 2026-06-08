@@ -1,7 +1,7 @@
 # Получение данных из {{ RMQ }} в {{ mch-full-name }}
 
 
-В кластер {{ mch-name }} можно поставлять данные из {{ RMQ }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/) данные, поступающие на определенные точки обмена указанных очередей {{ RMQ }}.
+В кластер {{ mch-name }} можно поставлять данные из {{ RMQ }} в реальном времени. {{ mch-name }} будет автоматически вставлять в таблицу на [движке {{ RMQ }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/rabbitmq) данные, поступающие на определенные точки обмена указанных очередей {{ RMQ }}.
 
 Чтобы настроить поставку данных из {{ RMQ }} в {{ mch-name }}:
 
@@ -116,7 +116,7 @@
 
 1. Установите утилиту `clickhouse-client` для подключения к базе данных в кластере {{ mch-name }}.
 
-    1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+    1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
         ```bash
         sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -190,7 +190,7 @@
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения {{ RMQ }} в нужные значения столбцов.
+Кластер {{ mch-name }} будет использовать при вставке в таблицу [формат данных JSONEachRow]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow), который преобразует строки из сообщения {{ RMQ }} в нужные значения столбцов.
 
 Создайте в кластере {{ mch-name }} таблицу, в которую будут заноситься поступающие от {{ RMQ }} данные:
 

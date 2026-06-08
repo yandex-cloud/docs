@@ -5,7 +5,6 @@ editable: false
 # Compute Cloud API, gRPC: DiskTypeService.Get
 
 Returns the information about specified disk type.
-
 To get the list of available disk types, make a [List](/docs/compute/api-ref/grpc/DiskType/list#List) request.
 
 ## gRPC request
@@ -24,8 +23,9 @@ To get the list of available disk types, make a [List](/docs/compute/api-ref/grp
 ||Field | Description ||
 || disk_type_id | **string**
 
-Required field. ID of the disk type to return information about.
-To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request. ||
+ID of the disk type to return information about.
+To get the disk type ID use a [DiskTypeService.List](/docs/compute/api-ref/grpc/DiskType/list#List) request.
+This field is required. ||
 |#
 
 ## DiskType {#yandex.cloud.compute.v1.DiskType}

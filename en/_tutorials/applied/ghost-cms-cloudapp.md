@@ -55,11 +55,11 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
 - Management console {#console}
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `db_password`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, set a password for the {{ mmy-name }} database. Password requirements:
+  1. In the **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, set a password for the {{ mmy-name }} database. Password requirements:
 
       * It must be from 8 to 128 characters long.
       * It must contain numbers, upper-case and lower-case Latin letters, and special characters.

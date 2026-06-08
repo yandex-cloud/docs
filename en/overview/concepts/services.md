@@ -51,7 +51,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ msp-full-name }}](../../managed-spark/index.yaml)                           | Service for creating and managing {{ SPRK }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mch-full-name }}](../../managed-clickhouse/index.yaml)                      | Service for creating and managing {{ CH }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mgl-full-name }}](../../managed-gitlab/index.yaml)                          | Service for managing the {{ GL }} DevOps platform | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
-| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)                       | Service for creating and managing {{ GP }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
+| [{{ mgp-full-name }}](../../managed-greenplum/index.yaml)                       | Service for creating and managing {{ GP }} and {{ CB }} database clusters. | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ managed-k8s-full-name }}®](../../managed-kubernetes/index.yaml)             | Service for creating and managing Kubernetes clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ mmg-full-name }}](../../storedoc/index.yaml)                         | Service for creating and managing {{ SD }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ mmy-full-name }}](../../managed-mysql/index.yaml)                          | Service for creating and managing {{ MY }} clusters | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
@@ -78,7 +78,7 @@ There are different service packages available in different [regions](region.md)
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml)                        | System user identification service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ sws-full-name }}](../../smartwebsecurity/index.yaml)                        | Service for protection against DDoS attacks and bots at the application level (L7) | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) | Speech recognition and synthesis technologies | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
-| [{{ speechsense-full-name }}](../../speechsense/index.yaml)                     | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
+| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/)                     | Speech analytics service for analyzing voice and text communication channels | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index)                         | Machine translation service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
 | [{{ vpc-full-name }}](../../vpc/index.yaml)                                     | Cloud network management service | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/yes.svg) |
 | [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index)                               | Computer vision service for image text and PDF recognition | ![image](../../_assets/common/yes.svg) | ![image](../../_assets/common/no.svg) |
@@ -93,5 +93,7 @@ Services at the Preview stage are available only to some users. If you want to u
 {% include [Apache trademark](../../_includes/data-processing/trademark.md) %}
 
 {% include [Greenplum trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [Cloudberry trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

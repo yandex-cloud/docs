@@ -112,9 +112,9 @@ The support cost for this solution includes:
 
 ## Create tables with data {#create-tables}
 
-Let’s assume you need to enable sharding for the `hits_v1` [table]({{ ch.docs }}/getting-started/example-datasets/metrica/). The create table statement text will depend on your chosen sharding strategy.
+Let’s assume you need to enable sharding for the `hits_v1` [table]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica). The create table statement text will depend on your chosen sharding strategy.
 
-Replace the `<table_structure>` placeholder with column descriptions from [this {{ CH }} guide]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+Replace the `<table_structure>` placeholder with column descriptions from [this {{ CH }} guide]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables).
 
 Once you enable sharding (by any method), you will be able to send `SELECT` and `INSERT` queries to the distributed table. These queries will be processed according to the specified configuration.
 
@@ -124,10 +124,10 @@ In the following examples, we use a random number, `rand()`, as a sharding key.
 
 In this example, the distributed table built from `hits_v1` uses every shard in the `chcluster` cluster: `shard1`, `shard2`, and `shard3`.
 
-Before using the distributed table:
+Before operating the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host in the cluster using the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) engine:
+1. Create the `hits_v1` table on every host in the cluster using the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <table_structure> )
@@ -141,7 +141,7 @@ Before using the distributed table:
 To create a distributed table named `hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table:
+1. Create a [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -150,7 +150,7 @@ To create a distributed table named `hits_v1_distributed` in the cluster:
 
    Here, you can use the `AS tutorial.hits_v1` expression instead of explicitly stating the table structure since both tables, `hits_v1_distributed` and `hits_v1`, reside on the same cluster hosts.
 
-   When creating a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table, use `chcluster` as the cluster ID. You can get it with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+   When creating a [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table, use `chcluster` as the cluster ID. You can get it with the [list of clusters in the folder](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -168,7 +168,7 @@ In this example:
 Before using the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host in the `sgroup` shard group, using the [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) engine:
+1. Create the `hits_v1` table on every host in the `sgroup` shard group, using the [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <table_structure> )
@@ -182,7 +182,7 @@ Before using the distributed table:
 To create a distributed table named `tutorial.hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table:
+1. Create a [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -199,10 +199,10 @@ In this example:
 1. The distributed table resides in the `sgroup` shard group.
 1. The `hits_v1` underlying table resides in the `sgroup_data` shard group.
 
-Before using the distributed table:
+Before operating the distributed table:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create the `hits_v1` table on every host of the `sgroup_data` shard group, using the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) engine:
+1. Create the `hits_v1` table on every host of the `sgroup_data` shard group, using the [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) engine:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <table_structure> )
@@ -218,7 +218,7 @@ Before using the distributed table:
 To create a distributed table named `tutorial.hits_v1_distributed` in the cluster:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md) to the `tutorial` database.
-1. Create a [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) table:
+1. Create a [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) table:
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <table_structure> )

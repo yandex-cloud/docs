@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [Настройка технического обслуживания](cluster-maintenance.md).
 * [Перенос кластера в другую зону доступности](host-migration.md).
-* [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
+* [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).
 
 
@@ -40,7 +40,7 @@ description: Следуя данной инструкции, вы сможете
     Чтобы изменить настройки сервисного аккаунта:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В разделе **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** выберите нужный сервисный аккаунт из списка или [создайте новый](../../iam/operations/sa/create.md). Подробнее о настройке сервисного аккаунта см. в разделе [{#T}](s3-access.md).
 
@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -75,7 +75,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Чтобы изменить класс хостов {{ CH }}, в блоке **{{ ui-key.yacloud.mdb.forms.new_section_resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста.
   1. Чтобы изменить класс хостов {{ ZK }}, в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
@@ -325,12 +325,6 @@ description: Следуя данной инструкции, вы сможете
 
 Вы также можете [изменить тип диска и размер хранилища у отдельного шарда](shards.md#shard-update).
 
-{% note info %}
-
-Чтобы изменить тип диска на `local-ssd`, обратитесь в [техническую поддержку]({{ link-console-support }}).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -338,11 +332,14 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ CH }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
-  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ ZK }}, выберите нужное значение в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ CH }}, выберите нужные значения в блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
+  1. Чтобы изменить тип диска и увеличить размер хранилища для хостов {{ CK }} или {{ ZK }}, выберите нужные значения в блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** или **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** соответственно.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Если вы изменили тип диска для хостов {{ CH }}:
+      1. В открывшемся окне посмотрите количество нереплицированных таблиц на графике **Non-replicated MergeTree tables** и их размер на графике **Size of non-replicated MergeTree tables**. Данные в нереплицированных таблицах будут утеряны. Если необходимо сохранить их, перед изменением типа диска [преобразуйте]({{ ch.docs }}{{ lang }}/sql-reference/statements/attach#attach-mergetree-table-as-replicatedmergetree) нереплицированные таблицы в реплицированные.
+      1. Подтвердите изменение ресурсов.
 
 - CLI {#cli}
 
@@ -363,8 +360,11 @@ description: Следуя данной инструкции, вы сможете
      ```bash
      {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
        --clickhouse-disk-size <размер_хранилища_ГБ> \
-       --clickhouse-disk-type <тип_диска>
+       --clickhouse-disk-type <тип_диска> \
+       --allow-host-recreation
      ```
+
+     Параметр `--allow-host-recreation` необходим при изменении типа диска, чтобы разрешить кластеру пересоздать хосты.
 
           
      Новый размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера.
@@ -372,18 +372,24 @@ description: Следуя данной инструкции, вы сможете
 
      Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
-  1. Чтобы изменить тип диска и увеличить размер хранилища хостов {{ ZK }}, передайте нужные значения в параметре `--zookeeper-disk-size`.
+  1. Чтобы изменить тип диска и увеличить размер хранилища хостов {{ ZK }}, передайте нужные значения в параметрах `--zookeeper-disk-size` и `--zookeeper-disk-type`.
 
 
 - {{ TF }} {#tf}
 
-  Чтобы изменить [тип диска](../concepts/storage.md) и увеличить размер хранилища:
+  {% note info %}
+
+  С помощью {{ TF }} невозможно изменить тип диска.
+
+  {% endnote %}
+
+  Чтобы увеличить размер хранилища:
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mch-name }} значения параметров `disk_size` и `disk_type_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
+    1. Измените в описании кластера {{ mch-name }} значение параметра `disk_size` в блоке `clickhouse.resources` или `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -391,14 +397,12 @@ description: Следуя данной инструкции, вы сможете
           clickhouse = {
             resources = {
               disk_size = <размер_хранилища_ГБ>
-              disk_type_id = "<тип_диска>"
               ...
             }
           }
           zookeeper = {
             resources = {
               disk_size = <размер_хранилища_ГБ>
-              disk_type_id = "<тип_диска>"
               ...
             }
           }
@@ -435,7 +439,7 @@ description: Следуя данной инструкции, вы сможете
             --header "Content-Type: application/json" \
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
-                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId",
+                      "updateMask": "configSpec.clickhouse.resources.diskSize,configSpec.clickhouse.resources.diskTypeId,configSpec.zookeeper.resources.diskSize,configSpec.zookeeper.resources.diskTypeId,allowHostRecreation",
                       "configSpec": {
                         "clickhouse": {
                           "resources": {
@@ -449,7 +453,8 @@ description: Следуя данной инструкции, вы сможете
                             "diskTypeId": "<тип_диска>"
                           }
                         }
-                      }
+                      },
+                      "allowHostRecreation": "true"
                     }'
         ```
 
@@ -468,6 +473,7 @@ description: Следуя данной инструкции, вы сможете
         * `configSpec.clickhouse.resources.diskTypeId` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
         * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов {{ ZK }} в байтах.
         * `configSpec.zookeeper.resources.diskTypeId` — тип диска хостов {{ ZK }}.
+        * `allowHostRecreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -499,7 +505,8 @@ description: Следуя данной инструкции, вы сможете
                       "config_spec.clickhouse.resources.disk_size",
                       "config_spec.clickhouse.resources.disk_type_id",
                       "config_spec.zookeeper.resources.disk_size",
-                      "config_spec.zookeeper.resources.disk_type_id"
+                      "config_spec.zookeeper.resources.disk_type_id",
+                      "allow_host_recreation"
                     ]
                   },
                   "config_spec": {
@@ -515,13 +522,15 @@ description: Следуя данной инструкции, вы сможете
                         "disk_type_id": "<тип_диска>"
                       }
                     }
-                  }
+                  },
+                  "allow_host_recreation": "true"
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
         Где:
+
         * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
             Укажите нужные параметры:
@@ -537,6 +546,7 @@ description: Следуя данной инструкции, вы сможете
         * `config_spec.clickhouse.resources.disk_type_id` — [тип диска](../concepts/storage.md) хостов {{ CH }}.
         * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов {{ ZK }} в байтах.
         * `config_spec.zookeeper.resources.disk_type_id` — тип диска хостов {{ ZK }}.
+        * `allow_host_recreation` — разрешить кластеру пересоздать хосты (параметр обязателен при изменении типа диска).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](./cluster-list.md#list-clusters).
 
@@ -565,25 +575,25 @@ description: Следуя данной инструкции, вы сможете
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
   1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/coordination-system.md).
   1. В зависимости от выбранного сервиса задайте следующие настройки:
-      
+
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
 
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ ZK }}.
 
         * В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-hosts }}**:
-          
+
           * При необходимости измените настройки автоматически добавленных хостов {{ ZK }}.
-        
+
             Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
-          
+
             * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
             * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
           * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
-          
-            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
-            
+
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+
             После включения этой настройки ее нельзя отключить.
 
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**:
@@ -591,18 +601,18 @@ description: Следуя данной инструкции, вы сможете
         * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md).
         * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-disk }}** выберите [тип диска](../concepts/storage.md), размер хранилища и при необходимости задайте настройки [автоматического увеличения размера хранилища](../concepts/storage.md#autoscaling) {{ CK }}.
         * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-hosts }}**:
-        
+
           * При необходимости измените настройки автоматически добавленных хостов {{ CK }}.
-        
+
             Чтобы изменить настройки хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке нужного хоста и укажите:
-          
+
             * **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
             * **{{ ui-key.yacloud.mdb.hosts.dialog.field_subnetworks }}** — выберите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
           * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
-          
-            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
-            
+
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+
             После включения этой настройки ее нельзя отключить.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -618,7 +628,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В зависимости от выбранного сервиса координации задайте следующие настройки:
-      
+
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**:
 
         * В блоке **{{ ui-key.yacloud.clickhouse.cluster.section_clickhouse-keeper-resource }}** выберите платформу, тип виртуальной машины и [класс хоста](../concepts/instance-types.md);
@@ -635,7 +645,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Включить управление пользователями и базами данных через SQL {#SQL-management}
 
-Сервис {{ mch-name }} позволяет включить управление [пользователями](./cluster-users.md#sql-user-management) и [базами данных](./databases.md#sql-database-management) кластера через SQL.
+Сервис {{ mch-name }} позволяет управлять [пользователями](../concepts/user-access-rights.md#sql-user-management) и [базами данных](databases.md#sql-database-management) кластера через SQL.
 
 {% note alert %}
 
@@ -651,10 +661,10 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. Для [управления пользователями через SQL](./cluster-users.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
-  1. Для [управления базами данных через SQL](./databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
+  1. Для [управления пользователями через SQL](../concepts/user-access-rights.md#sql-user-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройку **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и укажите пароль пользователя `admin`.
+  1. Для [управления базами данных через SQL](databases.md#sql-database-management), в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** включите настройки **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** и **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}**, укажите пароль пользователя `admin`.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
@@ -663,7 +673,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    1. Чтобы включить [режим управления пользователями через SQL](./cluster-users.md#sql-user-management):
+    1. Чтобы включить [управление пользователями через SQL](../concepts/user-access-rights.md#sql-user-management):
 
         * задайте значение `true` для параметра `--enable-sql-user-management`;
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
@@ -675,7 +685,7 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
         ```
 
-    1. Чтобы включить [режим управления базами данных через SQL](./databases.md#sql-database-management):
+    1. Чтобы включить [управление базами данных через SQL](databases.md#sql-database-management):
 
         * задайте значение `true` для параметров `--enable-sql-user-management` и `--enable-sql-database-management`;
         * задайте пароль для пользователя `admin` в параметре `--admin-password`.
@@ -825,7 +835,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -1229,7 +1239,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.common.move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -1353,7 +1363,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для сетевого трафика кластера.
 

@@ -33,7 +33,7 @@
 Для прохождения процедуры проверки прав на домен `example.com`:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и нажмите на имя нужного сертификата.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и нажмите на имя нужного сертификата.
 1. Подготовьте файл, который позволит удостоверяющему центру Let's Encrypt убедиться, что вы являетесь владельцем указанного в сертификате домена:
 
     1. С помощью панели управления вашим хостингом создайте на сервере файл, имя и путь к которому соответствуют значению поля **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_http-url }}** в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**. Например:
@@ -70,7 +70,7 @@
 
 Для автоматического прохождения проверки прав на домен `example.com`:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. В списке сертификатов выберите сертификат, который участвует в проверке.
 1. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис {{ dns-full-name }} или сторонний DNS-провайдер.
 
@@ -83,7 +83,7 @@
 
 Для прохождения проверки прав на домен `example.com`:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. В списке сертификатов выберите сертификат, который участвует в проверке.
 1. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис {{ dns-full-name }} или сторонний DNS-провайдер.
 

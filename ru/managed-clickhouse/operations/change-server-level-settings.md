@@ -1,6 +1,6 @@
 # Изменение настроек {{ CH }} на уровне сервера
 
-Вы можете задать [настройки {{ CH }} на уровне сервера](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
+Вы можете задать [настройки {{ CH }} на уровне сервера]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
 
   * С помощью [интерфейсов {{ yandex-cloud }}](#yandex-cloud-interfaces). Так можно задать только настройки {{ CH }}, доступные в {{ yandex-cloud }}.
   * С помощью [SQL-запросов](#sql-queries). Так задаются настройки для таблиц MergeTree. Вы можете:
@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Значение настройки [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -26,7 +26,7 @@
    Чтобы задать настройки {{ CH }}:
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Задайте [настройки {{ CH }}](../concepts/settings-list.md#server-level-settings).
@@ -275,7 +275,7 @@
             <название_настройки> = <значение_настройки>;
          ```
 
-         Пример запроса для настроек [merge_with_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
+         Пример запроса для настроек [merge_with_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
 
          ```sql
          CREATE TABLE <имя_таблицы>
@@ -289,7 +289,7 @@
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      Подробнее о создании таблиц MergeTree см. в [документации {{ CH }}](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      Подробнее о создании таблиц MergeTree см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 

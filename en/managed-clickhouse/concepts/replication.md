@@ -14,7 +14,7 @@ A {{ mch-name }} cluster with replication is considered to be [highly available]
 
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} only supports automatic replication for tables on [the ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/). To enable replication, you can create such tables on each host separately or use a distributed DDL query.
+{{ CH }} only supports automatic replication for tables on [the ReplicatedMergeTree engine]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication). To enable replication, you can create such tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -41,7 +41,7 @@ Where:
 * `/table_01`: Path to the table in {{ ZK }} or {{ CK }}, which must start with a forward slash, `/`.
 * `{replica}`: Host ID macro substitution.
 
-To create replicated tables on all cluster hosts, run this [distributed DDL query]({{ ch.docs }}/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, run this [distributed DDL query]({{ ch.docs }}{{ lang }}/sql-reference/distributed-ddl):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (

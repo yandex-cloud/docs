@@ -34,6 +34,12 @@ The naming requirements are as follows:
 
 When choosing a name for your bucket, keep in mind that names containing dots are used for [static website hosting](hosting.md). You may encounter a name conflict that will prevent you or another user from hosting a website in Object Storage.
 
+{% note warning %}
+
+If you want to use your [own domain](../operations/hosting/own-domain.md) to access the bucket, the bucket name must be an exact match of your domain, e.g., `example.com`.
+
+{% endnote %}
+
 ## Bucket URL {#bucket-url}
 
 You can use the following URL formats to access a bucket:

@@ -1,3 +1,8 @@
+---
+title: Как создать домен в {{ data-catalog-full-name }}
+description: Следуя данной инструкции, вы сможете создать домен в {{ data-catalog-name }}.
+---
+
 # Создание домена
 
 

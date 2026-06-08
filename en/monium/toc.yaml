@@ -77,10 +77,10 @@ items:
         href: metrics/overview.md
       - name: Metrics search and analysis
         href: metrics/metric-explorer.md
-      - name: All guides
-        href: operations/index.md
       - name: Delivering and exporting metrics
         items:
+          - name: All guides
+            href: operations/index.md
           - name: Delivering Linux system metrics
             href: operations/unified-agent/linux_metrics.md
           - name: Delivering custom application metrics
@@ -233,7 +233,7 @@ items:
             href: logs/concepts/ttl.md
       - name: Log metrics
         href: logs/logs-metrics.md
-      - name: Limits
+      - name: Limitations
         href: logs/limits.md
   - name: Traces
     items:
@@ -263,6 +263,8 @@ items:
         items:
           - name: Searching for traces and spans
             href: traces/operations/traces-explorer.md
+          - name: Service map
+            href: traces/operations/service-map.md
           - name: Viewing and analyzing traces
             href: traces/operations/trace-view.md
           - name: Query language
@@ -285,7 +287,7 @@ items:
             href: traces/llm/manual_instrumentation.md
           - name: Viewing and analyzing LLM traces
             href: traces/llm/traces.md
-      - name: Limits
+      - name: Limitations
         href: traces/limits.md
   - name: Visualizing data
     items:
@@ -343,6 +345,9 @@ items:
             href: concepts/alerting/escalations.md
       - name: Mutes
         href: alerts/mutes.md
+      - name: Alert expressions
+        href: alerts/alert-expression.md
+        hidden: true
   - name: SLO
     items:
       - name: Overview

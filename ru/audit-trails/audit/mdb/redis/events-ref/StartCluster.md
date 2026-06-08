@@ -398,7 +398,8 @@ editable: false
             "ioThreadsAllowed": "boolean",
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
-            "activedefrag": "boolean"
+            "activedefrag": "boolean",
+            "auditLog": "boolean"
           },
           "userConfig": {
             "maxmemoryPolicy": "string",
@@ -432,7 +433,8 @@ editable: false
             "ioThreadsAllowed": "boolean",
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
-            "activedefrag": "boolean"
+            "activedefrag": "boolean",
+            "auditLog": "boolean"
           },
           "defaultConfig": {
             "maxmemoryPolicy": "string",
@@ -466,7 +468,8 @@ editable: false
             "ioThreadsAllowed": "boolean",
             "zsetMaxListpackEntries": "string",
             "aofMaxSizePercent": "string",
-            "activedefrag": "boolean"
+            "activedefrag": "boolean",
+            "auditLog": "boolean"
           }
         },
         "diskSizeAutoscaling": {
@@ -809,10 +812,12 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+Value must be greater than 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -867,10 +872,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+Value must be greater than 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -925,10 +932,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+The minimum value is 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -986,10 +995,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+The minimum value is 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -1074,22 +1085,20 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
-|| password | **string**
-
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
-|| databases | **string** (int64)
-
-Value must be greater than 0. ||
-|| slowlogLogSlowerThan | **string** (int64)
+|| timeout | **string** (int64)
 
 The minimum value is 0. ||
+|| password | **string** ||
+|| databases | **string** (int64)
+
+Acceptable values are 1 to 1024, inclusive. ||
+|| slowlogLogSlowerThan | **string** (int64)
+
+The minimum value is 10. ||
 || slowlogMaxLen | **string** (int64)
 
 The minimum value is 0. ||
-|| notifyKeyspaceEvents | **string**
-
-Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
+|| notifyKeyspaceEvents | **string** ||
 || clientOutputBufferLimitPubsub | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || clientOutputBufferLimitNormal | **[ClientOutputBufferLimit](#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit)** ||
 || maxmemoryPercent | **string** (int64)
@@ -1097,19 +1106,19 @@ Value must match the regular expression ` [KEg$lshzxeAtm]{0,13} `. ||
 Acceptable values are 1 to 75, inclusive. ||
 || luaTimeLimit | **string** (int64)
 
-The minimum value is 0. ||
+Acceptable values are 0 to 5000, inclusive. ||
 || replBacklogSizePercent | **string** (int64)
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 75, inclusive. ||
 || clusterRequireFullCoverage | **boolean** ||
 || clusterAllowReadsWhenDown | **boolean** ||
 || clusterAllowPubsubshardWhenDown | **boolean** ||
 || lfuDecayTime | **string** (int64)
 
-The minimum value is 0. ||
+Acceptable values are 0 to 100000, inclusive. ||
 || lfuLogFactor | **string** (int64)
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || turnBeforeSwitchover | **boolean** ||
 || allowDataLoss | **boolean** ||
 || useLuajit | **boolean** ||
@@ -1121,6 +1130,7 @@ Acceptable values are 32 to 2048, inclusive. ||
 
 Acceptable values are 1 to 99, inclusive. ||
 || activedefrag | **boolean** ||
+|| auditLog | **boolean** ||
 |#
 
 ## ClientOutputBufferLimit {#yandex.cloud.mdb.redis.v1.config.RedisConfig.ClientOutputBufferLimit}

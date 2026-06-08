@@ -1,6 +1,6 @@
-# Information about existing {{ GP }} clusters
+# Information about existing {{ mgp-name }} clusters
 
-You can get detailed information about each {{ GP }} cluster you created.
+You can get detailed information about each {{ mgp-name }} cluster you created.
 
 ## Getting a list of clusters in a folder {#list-clusters}
 
@@ -9,7 +9,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
 
 - CLI {#cli}
 
@@ -17,7 +17,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get a list of {{ GP }} clusters in a folder, run this command:
+    To get a list of {{ mgp-name }} clusters in a folder, run this command:
 
     ```bash
     {{ yc-mdb-gp }} cluster list
@@ -25,7 +25,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -47,7 +47,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -84,8 +84,8 @@ You can get detailed information about each {{ GP }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
-    1. Click the name of your cluster.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Click the cluster name.
 
 - CLI {#cli}
 
@@ -93,7 +93,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To get {{ GP }} cluster details, run the following command:
+    To get {{ mgp-name }} cluster details, run the following command:
 
     ```bash
     {{ yc-mdb-gp }} cluster get <cluster_name_or_ID>
@@ -103,7 +103,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -122,7 +122,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -157,7 +157,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Click the cluster name and select the ![hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 
     In the list of hosts, the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_role }}** column shows the role of each host:
@@ -190,7 +190,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -226,7 +226,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -234,7 +234,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     1. To get a list of cluster master hosts:
 
-        1. Use the [ClusterService.ListMasterHosts](../api-ref/grpc/Cluster/listMasterHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.ListMasterHosts](../api-ref/grpc/Cluster/listMasterHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -256,7 +256,7 @@ You can get detailed information about each {{ GP }} cluster you created.
 
     1. To get a list of cluster segment hosts:
 
-        1. Use the [ClusterService.ListSegmentHosts](../api-ref/grpc/Cluster/listSegmentHosts.md) call and make a request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.ListSegmentHosts](../api-ref/grpc/Cluster/listSegmentHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \

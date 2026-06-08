@@ -1,40 +1,3 @@
-title: Yandex Security Deck
-description:
-  - >-
-    <em>Сервис Yandex Security Deck находится на <a
-    href="/docs/overview/concepts/launch-stages">стадии Preview</a></em>.
-  - ''
-  - >-
-    Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
-    модули:
-  - >-
-    <ul><li><a
-    href="/docs/security-deck/concepts/access-transparency">Отслеживания
-    действий команды {{ yandex-cloud }} с ресурсами пользователя</a> ({{
-    atr-name }}).</li> <li><a href="/docs/security-deck/concepts/dspm">Контроля
-    данных</a> ({{ dspm-name }}).</li> <li><a
-    href="/docs/security-deck/concepts/cspm">Контроля конфигурации</a> ({{
-    cspm-name }}).</li> <li><a href="/docs/security-deck/concepts/kspm">Контроля
-    {{ k8s }}</a> ({{ kspm-name }}).</li> <li><a
-    href="/docs/security-deck/concepts/ciem">Диагностики доступов</a> ({{
-    ciem-name }}).</li> <li><a
-    href="/docs/security-deck/concepts/vulnerability-management">Управления
-    уязвимостями</a>.</li> <li><a
-    href="/docs/security-deck/concepts/alerts">Просмотра алертов</a>.</li>
-    <li><a href="/docs/security-deck/concepts/compliance">Портал соответствия
-    требованиям</a>.</li></ul>
-  - >-
-    Сервис также предоставляет <a
-    href="/docs/security-deck/concepts/ai-assistant">AI-ассистента</a> на базе
-    {{ yagpt-name }} для получения рекомендаций по безопасности.
-  - >-
-    Предоставляемые сервисом инструменты позволяют вести мониторинг и
-    реагировать на инциденты, обнаруживать уязвимости в контейнерных образах,
-    контролировать конфигурацию облачной инфраструктуры и безопасность
-    контейнеризованных приложений, отслеживать и защищать доступ к данным, а
-    также контролировать соблюдение нормативных актов и отраслевых стандартов.
-    Управление настройками и ресурсами модулей осуществляется через <a
-    href="/docs/security-deck/concepts/workspace">окружения</a> (Workspaces).
 meta:
   title: Yandex Security Deck
   description: >-
@@ -82,22 +45,175 @@ meta:
     - keyword: окружения {{ sd-name }}
     - keyword: Workspaces {{ sd-name }}
     - keyword: управление окружениями безопасности
-links:
-  - title: Начало работы
-    description: Начало работы с сервисом Yandex Security Deck
-    href: quickstart-overview
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте про концепции и сущности сервиса
-    href: concepts/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex Security Deck
+      text: >-
+        Сервис Yandex Security Deck находится на [стадии
+        Preview](https://yandex.cloud/ru/docs/overview/concepts/launch-stages).
+
+
+        Предоставляемые сервисом инструменты позволяют вести мониторинг и
+        реагировать на инциденты, обнаруживать уязвимости в контейнерных
+        образах, контролировать конфигурацию облачной инфраструктуры и
+        безопасность контейнеризованных приложений, отслеживать и защищать
+        доступ к данным, а также контролировать соблюдение нормативных актов и
+        отраслевых стандартов.
+    size: l
+  - type: icons-block
+    size: l
+    items:
+      - src: _assets/image/cspm-base-yc.svg
+        text: "Базовые правила безопасности Yandex\_Cloud"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-security-baseline
+      - src: _assets/image/cspm-standard-yc.svg
+        text: Стандарт по защите облачной инфраструктуры
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-cloud-security-standard
+      - src: _assets/image/cspm-152-fz.svg
+        text: №152-ФЗ «О персональных данных»
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-personal-data-protection
+      - src: _assets/image/cspm-cis-k8s-standard.svg
+        text: "CIS\_Benchmark™ для Kubernetes"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/cis-kubernetes-benchmark
+      - src: _assets/image/cspm-pci-dss.svg
+        text: "Payment\_Card Industry\_Data Security\_Standard"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-pci-dss
+      - src: _assets/image/cspm-gost.svg
+        text: "ГОСТ\_Р\_57580"
+        url: >-
+          https://yandex.cloud/ru/docs/security-deck/concepts/standard-compliance/yc-gost-57580
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    size: m
+    background: ''
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Настройте первое окружение
+        icon: _assets/icons/rocket.svg
+        urlTitle: Начало работы с Yandex Security Deck
+        url: quickstart-overview
+        centered: true
+        size: s
+        animated: false
+      - type: basic-card
+        title: Правила тарификации
+        text: Изучите цены и тарифы
+        icon: _assets/icons/calculator.svg
+        urlTitle: Правила тарификации Yandex Security Deck
+        url: pricing
+        centered: true
+        size: s
+        animated: false
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        icon: _assets/icons/persons-lock.svg
+        urlTitle: Управление доступом в Yandex Security Deck
+        url: security/index
+        centered: true
+        size: s
+        animated: false
+      - type: basic-card
+        title: История изменений
+        text: Обновления и изменения в сервисе
+        icon: _assets/icons/timeline.svg
+        urlTitle: История изменений Yandex Security Deck
+        url: release-notes
+        centered: true
+        size: s
+        animated: false
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    size: m
+    background: ''
+    title: Модули Yandex Security Deck
+    children:
+      - type: basic-card
+        title: Контроль данных (DSPM)
+        text: >-
+          Инвентаризация и обнаружение чувствительных данных в бакетах Object
+          Storage и Яндекс Диск 360
+        urlTitle: Контроль данных (DSPM)
+        url: concepts/dspm
+        size: s
+        icon: _assets/icons/dspm.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Контроль Kubernetes® (KSPM)
+        text: Безопасность использования контейнеризированных приложений
+        urlTitle: Контроль Kubernetes® (KSPM)
+        url: concepts/kspm
+        size: s
+        icon: _assets/icons/kspm.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Диагностика доступа (CIEM)
+        text: Аудит прав доступа
+        urlTitle: Диагностика доступа (CIEM)
+        url: concepts/ciem
+        size: s
+        icon: _assets/icons/ciem.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Контроль конфигурации (CSPM)
+        text: Проверка безопасности инфраструктуры на соответствие требованиям
+        urlTitle: Контроль конфигурации (CSPM)
+        url: concepts/cspm
+        size: s
+        icon: _assets/icons/cspm.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Обнаружение угроз (TD)
+        text: Обнаружение подозрительной активности и уведомления об угрозах
+        urlTitle: Обнаружение угроз (TD)
+        url: concepts/threat-detector
+        size: s
+        icon: _assets/icons/td.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Управление уязвимостями (VM)
+        text: Сканирование контейнерных образов на уязвимости
+        urlTitle: Управление уязвимостями (VM)
+        url: concepts/vulnerability-management
+        size: s
+        icon: _assets/icons/vm.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Access Transparency
+        text: Отслеживания действий команды Yandex Cloud с ресурсами пользователя
+        urlTitle: Access Transparency
+        url: concepts/access-transparency
+        size: s
+        icon: _assets/icons/at.svg
+        iconPosition: left
+        animated: false
+      - type: basic-card
+        title: Алерты
+        text: Единый интерфейс для просмотра алертов
+        urlTitle: Алерты
+        url: concepts/alerts
+        size: s
+        icon: _assets/icons/alerts.svg
+        iconPosition: left
+        animated: false
+links: []

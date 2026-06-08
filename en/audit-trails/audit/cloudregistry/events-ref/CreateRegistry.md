@@ -295,7 +295,8 @@ A list of messages that carry the error details. ||
 
 - `LOCAL`
 - `REMOTE`
-- `VIRTUAL` ||
+- `VIRTUAL`
+- `TRANSITIONAL` ||
 || status | **enum** (Status)
 
 - `CREATING`

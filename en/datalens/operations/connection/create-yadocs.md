@@ -8,7 +8,7 @@ description: Follow this guide to create a connection to Yandex Documents.
 
 To create a connection to Yandex Documents:
 
-1. Open the page for [creating a new connection]({{ link-datalens-main }}/connections/new).
+1. Open the [connection creation page]({{ link-datalens-main }}/connections/new).
 1. Under **Files and services**, select the **Yandex Documents** connection.
 1. Add files depending on access permissions:
 
@@ -22,13 +22,13 @@ To create a connection to Yandex Documents:
 
         {% note info %}
 
-        You can also get a link to the file in Yandex Disk. For more information, see the [documentation](https://yandex.com/support/disk/share/sharing.html#how-to-share).
+        You can also get a link to the file in Yandex Disk. For more information, see [this guide](https://yandex.com/support/disk/share/sharing.html#how-to-share).
 
         {% endnote %}
 
      1. In {{ datalens-short-name }}, paste the link into the `Link to file in Yandex Documents` field and click **Add**.
      1. If the file you are uploading contains several sheets, specify the ones you want to upload, or select all available. Each sheet is uploaded to a separate table.
-     1. Click **Add**. The information about the added file and the uploaded data will be displayed at the center of the screen.
+     1. Click **Add**. Information about this file and the data to upload will appear at the center of the screen.
 
    - Private
 
@@ -42,22 +42,22 @@ To create a connection to Yandex Documents:
      1. On the tab, you will see a Yandex Documents authorization message. If authorized, proceed to the next step. If not, complete authorization:
          1. Click **Log in**.
          1. Select a Yandex account to log in to Yandex Documents.
-         1. Grant **{{ datalens-short-name }}** a permission to access your Yandex account. Click **Next**.
-     1. Specify the **Path to file in Yandex Documents** relative to the root directory. Omit `/disk` at the beginning. You can view the file location in Yandex Documents: open the file and navigate to **File** → **Table details**.
+         1. Allow **{{ datalens-short-name }}** to access your Yandex account. Click **Next**.
+     1. Specify the **Path to file in Yandex Documents** relative to the root directory. Omit `/disk` at the beginning. You can view the file location in Yandex Documents: open the file and go to **File** → **Table details**.
      1. Click **Add**.
      1. If the file you are uploading contains several sheets, specify the ones you want to upload, or select all available. Each sheet is uploaded to a separate table.
-     1. Click **Add**. The information about the added file and the uploaded data will be displayed at the center of the screen.
+     1. Click **Add**. Information about this file and the data to upload will appear at the center of the screen.
 
         To log out of your Yandex account, open the connection page and click ![image](../../../_assets/console-icons/arrow-right-from-square.svg) next to the **You are authorized in Yandex Documents** button. Confirm token revocation. The sheets from the files with restricted access will no longer be displayed.
 
    {% endlist %}
 
 1. Set the **Show column headers** option to **Yes** or **No**.
-1. (Optional) Enable automatic updates for the spreadsheet data. To do this, in the top-right corner, select **Update automatically**. The spreadsheet data will be updated once in 30 minutes or less often. To update the data manually, click **Update data**.
+1. Optionally, enable automatic updates for spreadsheet data. To do this, in the top-right corner, select **Update automatically**. Spreadsheet data will be updated every 30 minutes or less often. To update your data manually, click **Update data**.
 1. Click **Create connection**.
 
 
-1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
@@ -76,5 +76,5 @@ Consider the following limitations when creating a connection to Yandex Document
 * Maximum number of table sheets per connection: 10. When creating a connection, all sheets will be loaded, but you can only select ten of them to work with at the same time.
 * Maximum size per sheet: 200 MB.
 * Maximum number of columns per sheet: 300.
-* Minimum number of rows per table: 2. In a table with one row, you cannot specify column types because you cannot tell a header from a data row.
+* Minimum number of rows per spreadsheet: 2. In a spreadsheet with one row, you cannot identify column types as you cannot tell a header from a data row.
 * The link to the file in Yandex Documents must be formatted as `https://disk.yandex.ru/i/id`. If the link contains `/d` instead of `/i`, you will get an error. [What to do in case of the _Invalid link format_ error](../../qa/connections.md#yadocs-error-link)

@@ -13,6 +13,7 @@ apiPlayground:
             The maximum number of results per page to return. If the number of available
             results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListResourcePresetsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            Acceptable values are 0 to 1000, inclusive.
           type: string
           format: int64
         pageToken:
@@ -20,6 +21,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListResourcePresetsResponse)
             returned by the previous list request.
+            The maximum string length in characters is 400.
           type: string
       additionalProperties: false
     body: null
@@ -44,11 +46,15 @@ GET https://{{ api-host-mdb }}/managed-redis/v1/resourcePresets
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListResourcePresetsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the [ListResourcePresetsResponse.nextPageToken](#yandex.cloud.mdb.redis.v1.ListResourcePresetsResponse)
-returned by the previous list request. ||
+returned by the previous list request.
+
+The maximum string length in characters is 400. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.ListResourcePresetsResponse}
@@ -92,7 +98,7 @@ A resource preset that describes hardware configuration for a host.
 ||Field | Description ||
 || id | **string**
 
-ID of the resource preset. ||
+Required field. ID of the resource preset. ||
 || zoneIds[] | **string**
 
 IDs of availability zones where the resource preset is available. ||

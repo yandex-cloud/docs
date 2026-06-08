@@ -1,74 +1,181 @@
-title: Обзор платформы Yandex Cloud
-description:
-  - >-
-    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
-    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
-    это необходимо. При этом доступ к вычислительным мощностям вы получаете
-    через интернет. Такой подход к потреблению вычислительных ресурсов
-    называется <i>облачные вычисления</i>.
-  - >-
-    Облачные вычисления заменяют и дополняют традиционные дата-центры,
-    расположенные на территории потребителя. Yandex Cloud берет на себя задачи
-    по поддержанию работоспособности и производительности аппаратного и
-    программного обеспечения облачной платформы.
-  - >-
-    Yandex Cloud предлагает вам различные категории облачных ресурсов: например,
-    виртуальные машины, диски, базы данных. Управлять ресурсами каждой категории
-    можно с помощью соответствующего сервиса.
-  - >-
-    Инфраструктура Yandex Cloud <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a>
-    в соответствии с Федеральным законом Российской Федерации «О персональных
-    данных» № 152-ФЗ.
 meta:
-  title: Обзор платформы Yandex Cloud
-  description: >-
-    Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро и
-    безопасно взять в аренду вычислительные мощности в тех объемах, в которых
-    это необходимо.
   keywords:
     - keyword: '{{ yandex-cloud }}'
     - keyword: обзор {{ yandex-cloud }}
     - keyword: список сервисов {{ yandex-cloud }}
     - keyword: как взять в аренду вычислительные мощности
     - keyword: облачные вычисления
-links:
-  - title: Сервисы Yandex Cloud
-    description: ''
-    href: concepts/services
-  - title: Мобильное приложение
-    description: ''
-    href: mobile-app/
-  - title: Регионы
-    description: ''
-    href: concepts/region
-  - title: Зоны доступности
-    description: ''
-    href: concepts/geo-scope
-  - title: Начало работы
-    description: ''
-    href: quickstart
-  - title: Стадии готовности сервисов
-    description: ''
-    href: concepts/launch-stages
-  - title: Квоты и лимиты
-    description: ''
-    href: concepts/quotas-limits
-  - title: API
-    description: ''
-    href: api
-  - title: SDK
-    description: ''
-    href: sdk/overview
-  - title: Соглашение об уровне обслуживания
-    description: ''
-    href: sla
-  - title: Решение проблем
-    description: ''
-    href: qa
-  - title: Облачная терминология
-    description: ''
-    href: ../glossary/
-  - title: Обучающие курсы
-    description: ''
-    href: training
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Обзор платформы Yandex Cloud
+      text: >-
+        Yandex Cloud — это набор связанных сервисов, которые помогут вам быстро
+        и безопасно взять в аренду вычислительные мощности в тех объемах, в
+        которых это необходимо. При этом доступ к вычислительным мощностям вы
+        получаете через интернет. Такой подход к потреблению вычислительных
+        ресурсов называется _облачные вычисления_.
+
+
+        Облачные вычисления заменяют и дополняют традиционные дата-центры,
+        расположенные на территории потребителя.
+
+
+        Yandex Cloud берет на себя задачи по поддержанию работоспособности и
+        производительности аппаратного и программного обеспечения облачной
+        платформы.
+    size: l
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    size: m
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Как начать работу в Yandex Cloud
+        urlTitle: Как начать работу в Yandex Cloud
+        url: quickstart
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Регионы
+        text: Информация о географическом расположении дата-центров
+        urlTitle: Регионы
+        url: concepts/region
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/map-pin.svg
+          dark: assets/icons/map-pin.svg
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        urlTitle: Обучающие курсы Yandex Cloud
+        url: training
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/graduation-cap.svg
+          dark: assets/icons/graduation-cap.svg
+      - type: basic-card
+        title: Облачная терминология
+        text: Словарь облачных терминов
+        urlTitle: Облачная терминология
+        url: https://yandex.cloud/ru/docs/glossary/
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/book.svg
+          dark: assets/icons/book.svg
+  - type: card-layout-block
+    title:
+      text: Сервисы Yandex Cloud
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    children:
+      - type: basic-card
+        title: Список сервисов
+        text: Обзор всех доступных сервисов
+        urlTitle: Список сервисов
+        url: concepts/services
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/layers-3-diagonal.svg
+          dark: assets/icons/layers-3-diagonal.svg
+      - type: basic-card
+        title: Стадии готовности сервисов
+        text: Информация о стадиях готовности сервисов
+        urlTitle: Стадии готовности сервисов
+        url: concepts/launch-stages
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/circle-info.svg
+          dark: assets/icons/circle-info.svg
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения
+        urlTitle: Квоты и лимиты
+        url: concepts/quotas-limits
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/sliders.svg
+          dark: assets/icons/sliders.svg
+      - type: basic-card
+        title: Решение проблем
+        text: Ответы на часто задаваемые вопросы
+        urlTitle: Решение проблем
+        url: qa
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/circle-question.svg
+          dark: assets/icons/circle-question.svg
+  - type: card-layout-block
+    title:
+      text: Интерфейсы для работы с сервисами
+    colSizes:
+      all: 12
+      lg: 4
+      sm: 4
+    size: m
+    children:
+      - type: basic-card
+        title: API
+        text: API сервисов Yandex Cloud
+        urlTitle: API
+        url: api
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon: assets/icons/code.svg
+        iconPosition: left
+      - type: basic-card
+        title: SDK
+        text: Средства разработки для взаимодействия с облачной инфраструктурой
+        urlTitle: SDK
+        url: sdk/overview/
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon: assets/icons/folder-tree.svg
+        iconPosition: left
+      - type: basic-card
+        title: Мобильное приложение
+        text: Управляйте ресурсами с мобильного устройства
+        urlTitle: Мобильное приложение
+        url: mobile-app/
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon: assets/icons/smartphone.svg
+        iconPosition: left
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Инфраструктура Yandex Cloud
+        [защищена](https://yandex.cloud/ru/docs/security/conform) в соответствии
+        с Федеральным законом Российской Федерации «О персональных данных»
+        № 152-ФЗ.
+
+         Для сервисов действует [соглашение об уровне обслуживания](https://yandex.cloud/ru/docs/overview/sla).
+links: []

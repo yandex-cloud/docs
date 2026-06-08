@@ -26,7 +26,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. [Задайте](create-linux-vm.md) нужные параметры ВМ.
@@ -383,7 +383,7 @@ description: Следуя данной инструкции, вы сможете
           --silent \
           --show-error \
           --location \
-          https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl \
+          https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl \
           --output /usr/local/etc/kubectl
         sudo install -o root -g root -m 0755 /usr/local/etc/kubectl /usr/local/bin/kubectl
         sudo rm -rf /usr/local/etc/kubectl

@@ -15,29 +15,15 @@ description: Из статьи вы узнаете, как изменить ра
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится расписание.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}**.
   1. Напротив расписания, которое нужно изменить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры расписания снимков [диска](../../concepts/disk.md):
-     * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
-
-       {% include [name-format](../../../_includes/name-format.md) %}
-
-     * **{{ ui-key.yacloud.common.description }}**.
-     * В поле **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}** выберите периодичность создания снимков диска: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}` [или `{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). Время создания снимка диска указывается в часовом поясе [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
-     * В поле **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** укажите дату, начиная с которой будет работать расписание.
-     * Выберите политику хранения снимков диска:
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}** — будут храниться все снимки диска, созданные по этому расписанию. 
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}** — укажите количество последних снимков диска, которые нужно хранить, или количество дней, снимки за которые нужно хранить. Остальные снимки диска, созданные по этому расписанию, будут удаляться автоматически.
-
-       {% note info %}
-
-       На количество и суммарный объем снимков диска в облаке действуют [квоты](../../concepts/limits.md#compute-quotas).
-
-       {% endnote %}
-
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. {% include [section-schedule](../../_includes_service/schedule/section-schedule.md) %}
+  1. {% include [section-storage](../../_includes_service/schedule/section-storage.md) %}
+  1. {% include [section-general](../../_includes_service/schedule/section-general.md) %}
+  1. {% include [section-snapshot](../../_includes_service/schedule/section-snapshot.md) %}
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -74,36 +60,28 @@ description: Из статьи вы узнаете, как изменить ра
 
      ```bash
      yc compute snapshot-schedule update <имя_или_идентификатор_расписания> \
-       --new-name <новое_имя_расписания> \
-       --description <описание> \
-       --expression <cron-выражение> \
-       --retention-period <срок_хранения_снимков_диска> \
-       --snapshot-count <количество_снимков_диска> \
-       --start-at <дата_и_время_начала> \
-       --labels <метки>
+       --expression "<cron-выражение>" \
+       --new-name "<новое_имя_расписания>"
       ```
 
      Где:
+     * `--expression` — [cron-выражение](../../concepts/snapshot-schedule.md#cron). Обязательный параметр.
      * `--new-name` — новое имя расписания.
-     * `--description` — описание.
-     * `--expression` — [cron-выражение](../../concepts/snapshot-schedule.md#cron).
-     * `--retention-period` — длительность хранения снимков [диска](../../concepts/disk.md), указанная в секундах (`s`), минутах (`m`) или часах (`h`).
-     * `--snapshot-count` — количество хранимых снимков диска. Используйте либо параметр `--snapshot-count`, либо `--retention-period`. См. подробнее о политике [хранения снимков диска](../../concepts/snapshot-schedule.md#retention).
-     * `--start-at` — дата и время начала. Также можно указать промежуток времени относительно текущего момента. Например: `"2022-12-31T16:39:00+05:00"`, `"2h"`.
-     * `--labels` — метки, указанные в формате `ключ=значение`.
 
-     Подробнее о команде `yc compute snapshot-schedule update` см. в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
+     Подробнее о команде `yc compute snapshot-schedule update` в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot-schedule/update.md).
 
      Результат:
 
      ```text
-     done (3s)
-     id: fc8e52mvchb2********
-     folder_id: e1ea8s8l71li********
-     ...
-       expression: 36 14 */1 * *
-     snapshot_count: "3"
-     snapshot_spec: {}
+     id: fd8uhc5qcinv********
+     folder_id: b1g681qpemb4********
+     created_at: "2026-05-25T21:03:22Z"
+     name: my-schedule
+     status: ACTIVE
+     schedule_policy:
+       start_at: "2027-01-02T15:04:05Z"
+       expression: 10 19 ? * *
+     retention_period: 3600s
      ```
 
 - {{ TF }} {#tf}
@@ -116,22 +94,12 @@ description: Из статьи вы узнаете, как изменить ра
 
      ```hcl
      resource "yandex_compute_snapshot_schedule" "default" {
-       name = "my-name"
-
        schedule_policy {
-         expression = "0 0 * * *"
+         expression = "10 19 ? * *"
        }
 
-       snapshot_count = 1
-
-       snapshot_spec {
-         description = "snapshot-description"
-         labels = {
-           snapshot-label = "my-snapshot-label-value"
-         }
-       }
-
-       disk_ids = ["test_disk_id", "another_test_disk_id"]
+       name     = "my-name"
+       disk_ids = ["epdqo0pr4ath********", "epdr5lb64ra1********"]
      }
      ```
 
@@ -144,7 +112,7 @@ description: Из статьи вы узнаете, как изменить ра
   Проверить изменение расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
   ```bash
-  yc compute snapshot-schedule get <имя_расписания>
+  yc compute snapshot-schedule get <имя_или_идентификатор_расписания>
   ```
 
 - API {#api}
@@ -166,11 +134,11 @@ description: Из статьи вы узнаете, как изменить ра
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится расписание.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}**.
   1. На вкладке **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** выберите расписание, в котором нужно изменить список дисков.
   1. Измените список дисков:
-     * Чтобы добавить новый диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+     * Чтобы добавить новый диск, в блоке **{{ ui-key.yacloud.compute.snapshots-schedules.title_snapshot-schedule-disks }}** нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.compute.snapshots-schedules.action_attach-disk }}**. В открывшемся окне выберите диск, который нужно добавить к расписанию, и нажмите **{{ ui-key.yacloud.common.save }}**.
 
        {% include [snapshot-disk-types](../../../_includes/compute/snapshot-disk-types.md) %}
 
@@ -310,6 +278,37 @@ description: Из статьи вы узнаете, как изменить ра
      snapshot_count: "3"
      snapshot_spec: {}
      ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Откройте файл конфигурации {{ TF }} и измените список дисков, указанный в параметре `disk_ids`:
+
+     {% cut "Пример описания расписания в конфигурации {{ TF }}" %}
+
+     ```hcl
+     resource "yandex_compute_snapshot_schedule" "default" {
+       schedule_policy {
+         expression = "10 19 ? * *"
+       }
+
+       name     = "my-name"
+       disk_ids = ["epdqo0pr4ath********", "epdr5lb64ra1********"]
+     }
+     ```
+
+     {% endcut %}
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+  Проверить изменение расписания и его настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
+
+  ```bash
+  yc compute snapshot-schedule get <имя_или_идентификатор_расписания>
+  ```
 
 - API {#api}
 

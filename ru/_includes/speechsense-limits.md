@@ -3,14 +3,14 @@
 Вид ограничения | Значение
 ----- | -----
 **Общие квоты** |
-Максимальное количество [тегов](../speechsense/concepts/tags.md) в проекте | 1 000
-Максимальное количество [метаданных](../speechsense/concepts/resources-hierarchy.md#connection) в подключении | 200
-Максимальное количество [словарей](../speechsense/concepts/dictionaries) в пространстве | 100
+Максимальное количество [тегов]({{ link-docs-ai }}speechsense/concepts/tags) в проекте | 1 000
+Максимальное количество [метаданных]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) в подключении | 200
+Максимальное количество [словарей]({{ link-docs-ai }}speechsense/concepts/dictionaries) в пространстве | 100
 Максимальный размер строки в метаданных диалога, байт | 1 024
-Максимальное количество файлов в одной [базе знаний](../speechsense/concepts/assistants.md#tools) для одного ассистента | 10
-Максимальный размер файла в одной базе знаний для одного [ассистента](../speechsense/concepts/assistants.md) | 30 МБ
+Максимальное количество файлов в одной [базе знаний]({{ link-docs-ai }}speechsense/concepts/assistants#tools) для одного ассистента | 10
+Максимальный размер файла в одной базе знаний для одного [ассистента]({{ link-docs-ai }}speechsense/concepts/assistants) | 30 МБ
 Максимальное суммарное количество символов в инструкции для ассистента с учетом количества символов в диалоге | 120 000
-Максимальное суммарное количество символов в [полях результата](../speechsense/concepts/assistants.md) | 4 000
+Максимальное суммарное количество символов в [полях результата]({{ link-docs-ai }}speechsense/concepts/assistants) | 4 000
 **Квоты на проект** |
 Общее количество запросов на получение диалогов по API и просмотр в интерфейсе {{ speechsense-name }}, в секунду | 20
 Общее количество запросов на получение диалогов по API и просмотр в интерфейсе {{ speechsense-name }}, в минуту | 200
@@ -22,7 +22,7 @@
 Вид ограничения | Значение
 ----- | -----
 Срок хранения пользовательских данных | 3 месяца
-Пересчет измененных и вновь созданных [словарных и смысловых тегов](../speechsense/concepts/tags.md) за месяц | Раз в сутки ночью
+Пересчет измененных и вновь созданных [словарных и смысловых тегов]({{ link-docs-ai }}speechsense/concepts/tags) за месяц | Раз в сутки ночью
 Количество возвращаемых результатов поиска | 10 000
-Максимальное количество [проектов](../speechsense/concepts/resources-hierarchy.md#project) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 100
-Максимальное количество [подключений](../speechsense/concepts/resources-hierarchy.md#connection) в [пространстве](../speechsense/concepts/resources-hierarchy.md#space) | 20
+Максимальное количество [проектов]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) в [пространстве]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 100
+Максимальное количество [подключений]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) в [пространстве]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) | 20

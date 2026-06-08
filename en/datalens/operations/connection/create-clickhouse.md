@@ -3,11 +3,11 @@ title: How to create a {{ CH }} connection in {{ datalens-full-name }}
 description: Follow this guide to create a connection to {{ CH }} in {{ datalens-full-name }}.
 ---
 
-# Creating a connection to {{ CH }} in {{ datalens-full-name }}
+# Creating a {{ CH }} connection in {{ datalens-full-name }}
 
 {% note info %}
 
-All data requests must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics of using a connection to {{ CH }}](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
+All data queries must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics of using a connection to {{ CH }}](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -28,24 +28,24 @@ To create a {{ CH }} connection:
 
      {% include [datalens-db-select](../../../_includes/datalens/datalens-db-select.md) %}
 
-     * **Cloud and folder**. Select the folder the cluster is located in.
-     * **Cluster**. Specify a cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }}** access option enabled. If you do not have an available cluster, click **Create new**.
+     * **Cloud and folder**: Select the folder the cluster is located in.
+     * **Cluster**: Specify the cluster from the list of available {{ CH }} clusters. Cluster settings must have the **{{ datalens-short-name }} access** option enabled. If you do not have an available cluster, click **Create new**.
 
        {% include [datalens-cluster-list](../../../_includes/datalens/datalens-cluster-list.md) %}
 
-     * **Host type**. Select a host type:
+     * **Host type**: Select the host type:
 
        * **Regular** (default): Allows you to select regular hosts to connect to.
        * **Special FQDNs**: Allows you to select a [special FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto) to connect to an available {{ CH }} cluster host.
 
-     * **Hostname**. Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you are unable to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
-     * **HTTP interface port**. Specify the {{ CH }} connection port. The default port is 8443.
-     * **Username**. Specify the username for the {{ CH }} connection.
+     * **Host name**: Select the host name from the list of hosts available in the {{ CH }} cluster. You can select multiple hosts. If you fail to connect to the first host, {{ datalens-short-name }} will select the next one from the list.
+     * **HTTP interface port**: Specify the {{ CH }} connection port. The default port is 8443.
+     * **Username**: Specify the username for the {{ CH }} connection.
 
        {% include [datalens-db-note](../../../_includes/datalens/datalens-db-note.md) %}
 
-     * **Password**. Enter the password for the user.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Password**: Enter the password for the user.
+     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
 
      {% include [datalens-db-sql-level](../../../_includes/datalens/datalens-db-connection-sql-level.md) %}
 
@@ -65,14 +65,14 @@ To create a {{ CH }} connection:
 
      {% include [datalens-conn-man-role](../../../_includes/datalens/datalens-conn-man-role.md) %}
 
-     Select a [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
+     Select the [connection](../../../metadata-hub/concepts/connection-manager.md) to a {{ CH }} managed database cluster created in {{ connection-manager-full-name }}:
 
-     * **Cloud and folder**. Select the folder where the connection to the cluster was created.
-     * **Connection ID**. Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
-     * **Host**. Select a host from the list of available hosts in the {{ CH }} cluster.
-     * **Port**. It is set automatically depending on the selected host.
-     * **Username**. It is set automatically from the selected connection data.
-     * **Cache TTL in seconds**. Specify the cache time-to-live or leave the default value. The recommended value is 300 seconds (5 minutes).
+     * **Cloud and folder**: Select the folder where you created the connection to the cluster.
+     * **Connection ID**: Select an available connection in {{ connection-manager-name }} or [create a new one](../../../metadata-hub/operations/create-connection.md).
+     * **Host**: Select the host from the list of available hosts in the {{ CH }} cluster.
+     * **Port**: It is set automatically depending on the selected host.
+     * **Username**: It is set automatically from the selected connection data.
+     * **Cache TTL in seconds**: Specify the cache TTL or leave the default value. The recommended value is 300 seconds (5 minutes).
      
      {% include [datalens-db-connection-parameters](../../../_includes/datalens/datalens-db-connection-parameters.md) %}
 
@@ -82,7 +82,7 @@ To create a {{ CH }} connection:
 1. Click **Create connection**.
 
 
-1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
@@ -91,19 +91,19 @@ To create a {{ CH }} connection:
 
 ## Additional settings {#clickhouse-additional-settings}
 
-You can specify additional connection settings in the **Advanced connection settings** section:
+You can specify additional connection settings under **Advanced connection settings**:
 
-* **TLS**: If this option is enabled, the DB is accessed via `HTTPS`; if not, via `HTTP`.
+* **TLS**: If this option is enabled, the database is accessed over `HTTPS`; if not, over `HTTP`.
 
 * **CA Certificate**: To upload a certificate, click **Attach file** and select the certificate file. When the certificate is uploaded, the field shows the file name.
 
 * {% include [datalens-db-connection-export-settings-item](../../../_includes/datalens/operations/datalens-db-connection-export-settings-item.md) %}
 
-* **Readonly**: Select a permission for requests to read data, write data, and change parameters. This setting must not exceed the user's corresponding setting in {{ CH }}:
+* **Readonly**: Select the permission for queries to read data, write data, and change parameters. This setting value must not exceed the user's corresponding setting in {{ CH }}:
 
-  * `0`: All requests are allowed.
-  * `1`: Only read data requests are allowed.
-  * `2`: Allows requests to read data and edit settings.
+  * `0`: Allows all queries.
+  * `1`: Allows only data read queries.
+  * `2`: Allows queries to read data and edit settings.
 
 ## Specifics of using a connection to {{ CH }} {#ch-connection-specify}
 

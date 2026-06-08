@@ -1,8 +1,8 @@
 
 
-You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
+You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Follow these steps:
 
-1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
 1. [Test replication](#example-check-replication).
 1. [Query data in the target system](#working-with-data-ch).
 
@@ -11,10 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mch-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -84,7 +84,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 {% endlist %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect/index.md).
 1. In the `db1` database, create a table named `x_tab` and populate it with data:
@@ -133,7 +133,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
         1. In the `postgresql-to-clickhouse.tf` file, set the `transfer_enabled` variable to `1`.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -147,7 +147,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
         {% include [terraform-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-        The transfer will be activated automatically upon creation.
+        The transfer will be activated automatically as soon as it is created.
 
     {% endlist %}
 
@@ -190,7 +190,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 ## Query data in {{ CH }} {#working-with-data-ch}
 
-For table recovery, {{ CH }} targets with [replication](../../managed-clickhouse/concepts/replication.md) use the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines. The following columns are automatically added to each table:
+For table recovery, {{ CH }} targets with [replication](../../managed-clickhouse/concepts/replication.md) use the [ReplicatedReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) and [ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree) engines. The following columns are automatically added to each table:
 
 * `__data_transfer_commit_time`: Time the row was updated to this value, in `TIMESTAMP` format.
 * `__data_transfer_delete_time`: Time the row was deleted from the source, in `TIMESTAMP` format. A value of `0` indicates that the row is still active.
@@ -219,10 +219,10 @@ Using the `FINAL` keyword reduces query performance, so avoid it whenever possib
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
-1. Delete other resources, applying the same method used for their creation:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

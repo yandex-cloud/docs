@@ -48,7 +48,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
 
      * `--name`: Zone name. Note that the zone name must be unique within a folder. This is an optional setting.
      * `--zone`: Domain zone name. Note that the domain zone name must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required setting.
-     * `--private-visibility`: Enable this flag to create a private zone.
+     * `--private-visibility`: Enable this parameter to create a private zone.
      * `--network-ids`: IDs of the networks whose resources will belong to the new zone.
 
      Result:
@@ -84,7 +84,7 @@ To create a private [DNS zone](../concepts/dns-zone.md):
 
        zone    = "<domain_zone>."
        public           = false
-       private_networks = ["<network_1_ID>","<network_2_ID"]
+       private_networks = ["<network_1_ID>","<network_2_ID>"]
      }
      ```
 

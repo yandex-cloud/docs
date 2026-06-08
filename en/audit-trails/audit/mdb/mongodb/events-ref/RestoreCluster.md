@@ -3628,7 +3628,13 @@ editable: false
             }
           }
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "autocompactConfig": {
+          "enabled": "boolean",
+          "targetFreeSpace": "string",
+          "bloatPercent": "number",
+          "compactionType": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -3923,6 +3929,7 @@ Includes only one of the fields `mongodb_3_6`, `mongodb_4_0`, `mongodb_4_2`, `mo
 || access | **[Access](#yandex.cloud.mdb.mongodb.v1.Access)** ||
 || mongodbConfig | **[Mongodb](#yandex.cloud.mdb.mongodb.v1.Mongodb)** ||
 || fullVersion | **string** ||
+|| autocompactConfig | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)** ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -4042,12 +4049,8 @@ Acceptable values are 10 to 32768, inclusive. ||
 
 #|
 ||Field | Description ||
-|| plannedUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
-|| emergencyUsageThreshold | **string** (int64)
-
-Acceptable values are 0 to 100, inclusive. ||
+|| plannedUsageThreshold | **string** (int64) ||
+|| emergencyUsageThreshold | **string** (int64) ||
 || diskSizeLimit | **string** (int64) ||
 |#
 
@@ -6786,6 +6789,19 @@ The number of elements must be in the range 1-3.
 || configMongocfg | **[MongoCfgConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet)** ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)** ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)** ||
+|#
+
+## AutoCompactConfig {#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig}
+
+#|
+||Field | Description ||
+|| enabled | **boolean** ||
+|| targetFreeSpace | **string** (int64) ||
+|| bloatPercent | **number** (double) ||
+|| compactionType | **enum** (CompactionType)
+
+- `COMPACTION_TYPE_IGNORE_PRIMARY`
+- `COMPACTION_TYPE_SWITCH_PRIMARY` ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}

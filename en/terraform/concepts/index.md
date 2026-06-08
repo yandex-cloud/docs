@@ -1,3 +1,8 @@
+---
+title: '{{ TF }} overview in {{ yandex-cloud }}'
+description: 'Learn how to use {{ TF }} to manage infrastructure in {{ yandex-cloud }}: explore benefits, key workflows, and resource configuration examples.'
+---
+
 # Overview
 
 {% include [terraform-intro](../../_includes/terraform-intro.md) %}

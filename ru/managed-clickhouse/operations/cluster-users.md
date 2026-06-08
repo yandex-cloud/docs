@@ -7,39 +7,29 @@ description: Из статьи вы узнаете, как управлять п
 
 {{ mch-name }} позволяет управлять пользователями и их индивидуальными настройками двумя способами:
 
-* С помощью стандартных интерфейсов {{ yandex-cloud }} (консоль управления, CLI, {{ TF }}, [API](../../glossary/rest-api.md)). Способ подходит, если вы хотите добавлять, изменять и удалять пользователей и их индивидуальные настройки, используя возможности сервиса {{ mch-full-name }}.
-* С помощью SQL-запросов к кластеру. Способ подходит, если вы хотите использовать уже существующее у вас решение для создания и управления пользователями или если вы используете [RBAC](https://ru.wikipedia.org/wiki/Управление_доступом_на_основе_ролей).
-
-{% note warning %}
-
-В кластере {{ mch-name }} можно одновременно использовать только один способ управления пользователями — с помощью стандартных интерфейсов или SQL-запросов.
-
-{% endnote %}
-
-{% note info %}
-
-При создании кластера {{ CH }} автоматически создаются [служебные пользователи](../concepts/service-users.md) для администрирования и мониторинга работы сервиса.
-
-{% endnote %}
-
-## Управление пользователями через SQL {#sql-user-management}
+* через интерфейсы {{ yandex-cloud }} ([консоль управления]({{ link-console-main }}), [CLI](../../cli/index.yaml), {{ TF }} и [API](../../glossary/rest-api.md));
+* через SQL.
 
 
-Чтобы включить управление, выберите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** при [создании](cluster-create.md) или [изменении настроек](update.md#SQL-management) кластера.
+Одновременное управление через интерфейсы {{ yandex-cloud }} и через SQL не поддерживается.
 
-{% note warning %}
+Выбрать способ управления можно:
 
-Включенную настройку управления пользователями через SQL невозможно выключить.
+* через интерфейсы {{ yandex-cloud }} — только при [создании кластера](../operations/cluster-create.md);
+* через SQL — при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/update.md#SQL-management).
 
-{% endnote %}
 
-В кластере с включенным управлением пользователями через SQL:
+[Подробнее об управлении пользователями и правами доступа в {{ mch-name }}](../concepts/user-access-rights.md).
 
-* Управление пользователями через стандартные интерфейсы {{ yandex-cloud }} (консоль управления, CLI, API, {{ TF }}) недоступно.
-* Существующие пользователи и настройки пользователей, созданные с помощью стандартных интерфейсов {{ yandex-cloud }}, будут сохранены.
-* Управление пользователями осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опции **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**.
+При управлении пользователями доступны следующие действия:
 
-Подробнее об управлении пользователями через SQL см. в [документации {{ CH }}]({{ ch.docs }}/operations/access-rights).
+* [получение списка пользователей](#list-users);
+* [создание пользователя](#adduser);
+* [изменение пароля](#updateuser);
+* [изменение пароля пользователя admin](#admin-password-change);
+* [изменение настроек пользователя](#update-settings);
+* [удаление пользователя](#removeuser).
+
 
 ## Получить список пользователей {#list-users}
 
@@ -48,7 +38,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
 
 - CLI {#cli}
@@ -131,7 +121,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных.
@@ -424,7 +414,7 @@ description: Из статьи вы узнаете, как управлять п
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
+  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -437,7 +427,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
@@ -452,7 +442,7 @@ description: Из статьи вы узнаете, как управлять п
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-password_button_change }}**.
 
   
-  Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  Чтобы увидеть новый пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -476,7 +466,7 @@ description: Из статьи вы узнаете, как управлять п
   
   Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `--password=<новый_пароль>` укажите `--generate-password`.
 
-  Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+  Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
   Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -508,7 +498,7 @@ description: Из статьи вы узнаете, как управлять п
         
         Новый пароль также можно сгенерировать с помощью сервиса {{ connection-manager-name }}. Для этого вместо `password = "<новый_пароль>"` укажите `generate_password = true`.
 
-        Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+        Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
         {% note info %}
 
@@ -568,7 +558,7 @@ description: Из статьи вы узнаете, как управлять п
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`.
 
@@ -634,7 +624,7 @@ description: Из статьи вы узнаете, как управлять п
            }
            ```
 
-           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.label_version-current }}**.
+           Чтобы увидеть новый пароль, в [консоли управления]({{ link-console-main }}) выберите кластер, перейдите на вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-name }}, в котором хранится пароль. Новая версия пароля отмечается как **{{ ui-key.yacloud.lockbox.VersionsTable.label_version-current }}**.
 
            Для просмотра паролей требуется роль `lockbox.payloadViewer`
 
@@ -800,7 +790,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
   1. Настройте права пользователя на доступ к определенным базам данных:
@@ -1076,19 +1066,19 @@ description: Из статьи вы узнаете, как управлять п
 - SQL {#sql}
 
   1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
-  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) и [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
+  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) и [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
       GRANT SELECT ON <имя_базы_данных>.* TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
+  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/quota#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/quota#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
 
       ```sql
       CREATE QUOTA <название_квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
+  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
       ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
@@ -1103,7 +1093,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
@@ -1199,7 +1189,7 @@ description: Из статьи вы узнаете, как управлять п
       DROP USER <имя_пользователя>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -1216,7 +1206,7 @@ description: Из статьи вы узнаете, как управлять п
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на кластер с именем `mych` и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Введите имя пользователя базы данных `ro-user` и пароль `Passw0rd`.

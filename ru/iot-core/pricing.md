@@ -6,6 +6,8 @@ editable: false
 
 # Правила тарификации для {{ iot-name }}
 
+{% include [iot-sunset-warning](../_includes/iot-core/sunset-warning.md) %}
+
 
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
@@ -42,8 +44,6 @@ editable: false
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Пример расчета стоимости {#price-example}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 

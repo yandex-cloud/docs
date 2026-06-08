@@ -9,12 +9,11 @@ apiPlayground:
         diskPlacementGroupId:
           description: |-
             **string**
-            Required field. ID of the placement group to return.
+            ID of the placement group to return.
             To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - diskPlacementGroupId
       additionalProperties: false
     query: null
     body: null
@@ -39,8 +38,8 @@ GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacement
 
 Required field. ID of the placement group to return.
 To get the placement group ID, use [DiskPlacementGroupService.List](/docs/compute/api-ref/DiskPlacementGroup/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.DiskPlacementGroup}

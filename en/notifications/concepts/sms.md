@@ -64,27 +64,27 @@ The template may include the following placeholder variables:
 **Variable** | **Description**
 ||
 ||
-`%w` {.cell-align-center} | Any continuous sequence of letters, digits, or special characters^1^.
+`%w` {align="center"} | Any continuous sequence of letters, digits, or special characters^1^.
 ||
 ||
-`%w{1,n}` {.cell-align-center}
+`%w{1,n}` {align="center"}
 |
 A limited sequence of one to `n` words, separated by one or more spaces. The following conditions must be met:
 * Words may consist of letters, digits, or special characters^1^.
 * `n` must be between `2` and `20`.
 ||
 ||
-`%d` {.cell-align-center} | Any continuous sequence of digits or special characters^1^.
+`%d` {align="center"} | Any continuous sequence of digits or special characters^1^.
 ||
 ||
-`%d{1,n}` {.cell-align-center}
+`%d{1,n}` {align="center"}
 |
 A limited sequence of one to `n` numbers, separated by one or more spaces. The following conditions must be met:
 * Numbers may consist of digits or special characters^1^.
 * `n` must be between `2` and `20`.
 ||
 ||
-`%d+` {.cell-align-center} | A sequence of numbers (digits or special characters^1^), separated by one or more spaces.
+`%d+` {align="center"} | A sequence of numbers (digits or special characters^1^), separated by one or more spaces.
 ||
 |#
 

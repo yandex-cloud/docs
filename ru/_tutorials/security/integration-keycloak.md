@@ -743,9 +743,9 @@
 
       1. На вкладке **Keys** SAML-приложения включите опции **Encrypt Assertions**, опция **Client Signature Required** должна быть выключена.
 
-      1. Для опций **Client Signature Required** нужно выбрать метод **Import**.
+      1. В поле **Select method** выберите **Import**.
 
-      1. В поле **Archive Format** выберите **Certificate PEM**. (возможно понадобится сначала сгенерировать сертификаты, чтобы после нажатия кнопки **Import key** стал доступен вариант **Certificate PEM**)
+      1. В поле **Archive Format** выберите **Certificate PEM**. Если пункт **Certificate PEM** отсутствует, закройте окно, нажмите **Regenerate** → **Yes** → **Import key**. Пункт появится в списке.
       {#signature}
       1. Нажмите кнопку **Browse** и выберите скачанный ранее SAML-сертификат {{ yandex-cloud }} для подписи запросов аутентификации. Если вы не скачивали SAML-сертификат при создании федерации, вы можете скачать его на странице сведений о федерации в {{ org-full-name }}, нажав кнопку ![ArrowDownToLine](../../_assets/console-icons/arrow-down-to-line.svg) **{{ ui-key.yacloud_org.page.federation.action.download-cert }}** в поле **{{ ui-key.yacloud_org.entity.federation.field.encryptedAssertions }}**.
 

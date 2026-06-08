@@ -79,7 +79,7 @@ Information on server disk status is saved in the report’s `drive` directory, 
       * `Power_On_Hours`: Total number of disk power-on hours.
       * `Spin_Retry_Count`: Total number of retry attempts to spin up the disk to its operational speed in cases when the previous attempt failed. If this attribute’s value increases, there are likely to be problems with the disk’s mechanical parts.
       * `Power_Cycle_Count`: Total number of disk power cycles.
-      * `End-to-End_Error`: Total number of errors caused by the mismatch in the host and disk parity data transferred though the cache.
+      * `End-to-End_Error`: Total number of errors caused by mismatch between the host and the disk in terms of parity of data transferred though the cache.
       * `Reported_Uncorrect`: Total number of errors that could not be recovered using hardware error correction mechanisms.
       * `Command_Timeout`: Total number of operations interrupted by the disk timeout.
       * `High_Fly_Writes`: Total number of cases detected during write operations where the head was flying higher over the disk surface than the calculated range.
@@ -132,7 +132,7 @@ Information on server disk status is saved in the report’s `drive` directory, 
       * `Program_Fail_Cnt_Total`: Total number of failures when attempting to write data to a flash memory block.
       * `Erase_Fail_Count_Total`: Total number of failures when attempting to erase data from a flash memory block.
       * `Runtime_Bad_Block`: Total number of flash memory blocks with unfixable errors detected over the entire disk operation time.
-      * `End-to-End_Error`: Total number of errors caused by the mismatch in the host and disk parity data transferred though the cache.
+      * `End-to-End_Error`: Total number of errors caused by mismatch between the host and the disk in terms of parity of data transferred though the cache.
       * `Reported_Uncorrect`: Total number of errors that could not be recovered using hardware error correction mechanisms.
       * `Airflow_Temperature_Cel`: Air temperature inside the disk case.
       * `Hardware_ECC_Recovered`: Total number of times the disk controller has corrected [ECC](https://en.wikipedia.org/wiki/ECC_memory) errors.

@@ -16,8 +16,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте группу узлов](../node-group/node-group-create.md) с оперативной памятью не менее 14 ГБ.
-
+1. [Создайте](../kubernetes-cluster/kubernetes-cluster-create.md) кластер {{ managed-k8s-name }}.
+1. [Создайте](../node-group/node-group-create.md) группу узлов с оперативной памятью не менее 14 ГБ.
 1. {% include [check-sg-prerequsites](../../../_includes/managed-kubernetes/security-groups/check-sg-prerequsites-lvl3.md) %}
 
     {% include [sg-common-warning](../../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -25,9 +25,9 @@ description: Следуя данной инструкции, вы сможете
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Chaos Mesh с поддержкой Yandex Cloud](/marketplace/products/yc/chaos-mesh) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
 
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `chaos-mech-space`). Если вы оставите пространство имен по умолчанию, Chaos Mesh может работать некорректно.

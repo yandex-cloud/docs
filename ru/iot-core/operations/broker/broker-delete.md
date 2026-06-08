@@ -5,6 +5,8 @@ description: Из статьи вы узнаете, как удалить бро
 
 # Удаление брокера
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 Для обращения к [брокеру](../../concepts/index.md#broker) используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя брокера, читайте в разделе [{#T}](broker-list.md).
@@ -14,7 +16,7 @@ description: Из статьи вы узнаете, как удалить бро
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, из которого вы хотите удалить брокер.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
     1. На панели слева выберите **{{ ui-key.yacloud.iot.label_brokers }}**.
     1. Справа от имени брокера, который хотите удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и в выпадающем списке выберите **{{ ui-key.yacloud.common.delete }}**.
     1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

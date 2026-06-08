@@ -17,7 +17,7 @@ This data is usually analyzed by different specialists. Metrics and logs are use
 
 Audit event collection is not strictly part of observability, but analyzing this data together with metrics and logs provides helpful insights.
 
-See the table below for availability info on observability tools for specific services:
+See the table below for availability info on observability tools for specific services.
 
 | Service | {{ metrics-name }} | {{ at-name }} Control&nbsp;Plane | {{ at-name }} Data&nbsp;Plane | {{ cloud-logging-name }} |
 |--------|-----------------------|-----------------------------|--------------------------|--------------------------|
@@ -86,7 +86,7 @@ See the table below for availability info on observability tools for specific se
 | [{{ captcha-full-name }}](../../smartcaptcha/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ sws-full-name }}](../../smartwebsecurity/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/overview) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| [{{ speechsense-full-name }}](../../speechsense/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
+| [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ objstorage-full-name }}](../../storage/index.yaml) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) ^2^ |
 | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
 | [{{ video-full-name }}](../../video/index.yaml) | ![no](../../_assets/common/no.svg) | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) | ![no](../../_assets/common/no.svg) |

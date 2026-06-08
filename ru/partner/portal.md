@@ -1,3 +1,8 @@
+---
+title: Партнерский портал {{ yandex-cloud }}
+description: Партнерский портал — главный инструмент партнера {{ yandex-cloud }} для управления клиентами и финансами.
+---
+
 # Партнерский портал
 
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}

@@ -16,6 +16,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. Domain name.
+            The string length in characters must be 1-253.
           type: string
       required:
         - userpoolId
@@ -49,7 +50,9 @@ Required field. ID of the userpool to get a domain for.
 The maximum string length in characters is 50. ||
 || domain | **string**
 
-Required field. Domain name. ||
+Required field. Domain name.
+
+The string length in characters must be 1-253. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.Domain}

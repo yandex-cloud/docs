@@ -12,7 +12,7 @@ The list of databases is available to all [users](../concepts/cluster-users.md).
 
 - SQL {#sql}
 
-  To get the list of databases in a cluster, run this command:
+  To get a list of cluster databases, run this command:
 
   ```sql
   SELECT * FROM pg_database ORDER BY datname;
@@ -110,7 +110,7 @@ Database size info is available to all users.
 
 {% endlist %}  
   
-## Changing {{ GP }} settings at the database level {#greenplum-settings}
+## Changing DBMS settings at the database level {#greenplum-settings}
 
 Settings set at the database level via SQL queries override the [cluster-level](../concepts/settings-list.md) settings.
 
@@ -169,3 +169,5 @@ Before deleting, make sure the following conditions are met:
   {% endnote %}
 
 {% endlist %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -5,7 +5,7 @@ description: Follow this guide to add a chart to a dashboard in {{ datalens-full
 
 # Adding a chart to a dashboard in {{ datalens-full-name }}
 
-To add a chart to a dashboard:
+Follow these steps to add a chart to a dashboard:
 
 
 {% include [datalens-workbooks-collections-select-note](../../../_includes/datalens/operations/datalens-workbooks-collections-select-note.md) %}
@@ -13,22 +13,22 @@ To add a chart to a dashboard:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](create.md).
 1. At the top of the page, click **Edit**.
-1. In the panel at the bottom of the page, hold down ![image](../../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, drag ![image](../../../_assets/console-icons/chart-column.svg) **Chart** where you need.
 
    ![image](../../../_assets/datalens/operations/widget-select.png =500x118)
 
 1. Specify the widget settings. Pay close attention to the following fields:
 
-   * **Title**. Sets the name of the widget. If the **Show** option is enabled (by default), the name is displayed at the top of the widget.
-   * **Chart**. Sets the widget you are adding. Select a chart: 
+   * **Header**. It sets the widget name. If the **Show** option is enabled (by default), the name is displayed at the top of the widget.
+   * **Chart**. It sets the widget you are adding. Select the chart: 
 
      {% list tabs %}
 
      - From the list of objects
 
-       Click **Select**. Select the desired chart from the list of objects. If the chart is already selected, you can proceed to edit it. To do this, click **Open** to the right of the chart.
+       Click **Select**. Select the chart from the list of objects. If the chart is already selected, you can proceed to edit it by clicking **Open** next to the chart.
 
-     - Via a link
+     - Using a link
 
        Click **Specify link**. Enter the chart URL in the input field. Click **OK** on the right.
 
@@ -37,8 +37,8 @@ To add a chart to a dashboard:
 
    * **Description**. This option allows adding a description for the widget. The description is displayed at the bottom of the widget. You can use either a visual editor or [Markdown](../../dashboard/markdown.md).
    * **Tooltip**. This option allows adding a tooltip to the widget. With this option on, the ![image](../../../_assets/console-icons/circle-question.svg) icon will appear next to the chart header. Hovering over the icon will bring up the tooltip. You can use either a visual editor or [Markdown](../../dashboard/markdown.md).
-   * **Auto height**. Sets automatic height for the **Table** widget type. If this parameter is disabled, you can set the height of the widget on the page using the mouse.
-   * **Filtering**. Enables cross-chart [filtering](../../dashboard/chart-chart-filtration.md) from this chart to other charts on the dashboard.
+   * **Auto height**. It sets the automatic height for a widget of the **Table** type. If it is disabled, you can set the widget height on the page using the mouse.
+   * **Filtering**. It enables cross-chart [filtering](../../dashboard/chart-chart-filtration.md) on the dashboard.
 
-1. Optionally, under **Parameters**, list [chart parameters](../../dashboard/dashboard_parameters.md#params-chart) and set their default values. If the default values are not set, an error will be displayed on the dashboard.
-1. Click **Add**. The widget will be displayed on the dashboard.
+1. Optionally, under **Parameters**, list [chart parameters](../../dashboard/dashboard_parameters.md#params-chart) and set their default values. If you do not set the default values, an error will be displayed on the dashboard.
+1. Click **Add**. The widget will appear on the dashboard.

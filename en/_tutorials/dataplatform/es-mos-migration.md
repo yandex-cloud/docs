@@ -24,15 +24,11 @@ There are three ways to migrate data from a source {{ ES }} cluster to a target 
 
     You can use this method to move your existing indexes, aliases, or data streams. This method is good for all version 7 {{ ES }} clusters.
 
-
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mos-name }} cluster fee, which covers the use of computing resources allocated to hosts (including hosts with the `MANAGER` role) and disk storage (see [{{ OS }} pricing](../../managed-opensearch/pricing.md)).
-* Fee for public IP addresses for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../managed-opensearch/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
 
 ## Migration using snapshots {#snapshot}
 
@@ -151,7 +147,7 @@ If you no longer need the resources you are using, [delete them](#clear-out-snap
 
     ```bash
     curl --request PUT \
-         "https://admin:<admin_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
+         "https://admin:<admin_user_password>@<ID_of_{{ OS }}_host_with_DATA_role>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<repository_name>" \
          --cacert ~/.opensearch/root.crt \
          --header 'Content-Type: application/json' \
          --data '{

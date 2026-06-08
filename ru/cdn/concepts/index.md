@@ -1,5 +1,7 @@
 # Обзор сервиса {{ cdn-full-name }}
 
+{% include [pricing-change-short-warning](../../_includes/cdn/pricing-change-short-warning.md) %}
+
 {% include [cdn-overview-intro](../../_includes/cdn/cdn-overview-intro.md) %}
 
 ### Как работает CDN

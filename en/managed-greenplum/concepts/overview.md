@@ -1,31 +1,33 @@
 ---
-title: '{{ GP }} and {{ mgp-full-name }} overview'
-description: This article provides general information about {{ GP }} and {{ mgp-full-name }}.
+title: Overview of {{ GP }} and {{ CB }} DBMSs in {{ mgp-full-name }}
+description: This article provides general information about {{ mgp-full-name }} and supported databases, {{ GP }} and {{ CB }}.
 ---
 
-# {{ GP }} and {{ mgp-full-name }} overview
+# Overview of {{ GP }} and {{ CB }} DBMSs in {{ mgp-full-name }}
 
-{{ GP }} is an analytical, column-oriented DBMS designed for storing and processing large volumes of data.
+{{ mgp-full-name }} allows you to deploy analytical, column-oriented [MPP](https://en.wikipedia.org/wiki/Massively_parallel) database [clusters](index.md) based on {{ PG }} for large-scale data processing. Each DBMS aggregates multiple {{ PG }} databases into an MPP cluster and establishes communication between them via an Interconnect network. Each cluster node runs its own OS and uses dedicated memory and disk resources, enabling parallel data storage and processing across many nodes. This MPP architecture supports horizontal scaling, ensures high cluster availability, and delivers near-linear performance growth as you add resources. 
 
-Built on {{ PG }}, {{ GP }} consists of multiple {{ PG }} database instances combined into a single cluster using [MPP](https://en.wikipedia.org/wiki/Massively_parallel) architecture. These instances communicate over a high-speed network, Interconnect. Each cluster node runs its own OS and uses dedicated memory and disk resources, enabling parallel data storage and processing across many nodes. This MPP architecture supports horizontal scaling, ensures high cluster availability, and delivers near-linear performance growth as you add resources.
+The following databases are supported:
 
-## {{ GP }} use cases {#usage}
+* {{ GP }}: Based on {{ PG }} version 9.4. 
 
-* Analytical DB: for example, you can linearly accelerate large hash joins in {{ GP }} by adding more CPUs or nodes.
-* General-purpose database replacement: {{ GP }} can serve as a drop-in alternative to Oracle DB, Microsoft SQL Server, or IBM DB2. It handles not only analytical workloads but also numerous short [OLTP queries](https://en.wikipedia.org/wiki/Point-in-time_recovery) typical of {{ PG }}.
-* High-performance alternative to {{ PG }}: based on {{ PG }}, {{ GP }} supports many familiar {{ PG }} tools, such as JDBC and ODBC drivers, and conforms to the ANSI SQL:2008 standard.
+    {{ GP }} was originally developed as an open-source project; however, in 2024, access to its source code was restricted. Despite this, {{ mgp-name }} continues to support {{ GP }} version 6 using its open-source [fork](https://github.com/open-gpdb/gpdb).
 
-## {{ GP }} in {{ mgp-full-name }} {#managed-gp}
+* {{ CB }}: Based on {{ GP }} version 7 with a modernized {{ PG }} 14 kernel; supports dynamic tables and [PAX](https://cloudberry.apache.org/docs/operate-with-data/pax-table-format/) format.
 
-{{ GP }} was originally developed as an open-source project; however, in 2024, access to its source code was restricted. Despite this, {{ mgp-name }} continues to support {{ GP }} version 6 using its open-source [fork](https://github.com/orgs/open-gpdb/discussions/11). 
+    {{ CB }} is an open-source project developed under Apache License v2.0. 
 
-{{ mgp-name }} enables you to deploy {{ GP }} [clusters](index.md) in the {{ yandex-cloud }} infrastructure and automates most maintenance tasks, including:
+    {{ CB }} will serve as the basis for future major versions of {{ mgp-name }}.
+
+Learn more about the differences between {{ CB }} and {{ GP }} in [this {{ CB }} guide](https://cloudberry.apache.org/docs/cbdb-vs-gp-features).
+
+{{ mgp-name }} handles most of the cluster maintenance operations, including:
 
 * Provisioning resources, creating and reconfiguring databases, and applying software updates.
 * Automatically restoring cluster resilience after failures.
 * Creating [backups](backup.md) using [WAL-G](https://wal-g.readthedocs.io/), storing them in an S3 storage, and enabling point-in-time recovery ([PITR](https://en.wikipedia.org/wiki/Point-in-time_recovery)) to any moment.
 
-The solution also provides self-service tools for managing {{ GP }} clusters:
+The solution also provides self-service tools for managing clusters:
 
 * [Roles](../security/index.md) for data access management.
 * [Command center](command-center.md) and [metrics](../metrics.md) for real-time cluster monitoring.
@@ -33,11 +35,20 @@ The solution also provides self-service tools for managing {{ GP }} clusters:
 
 {{ mgp-name }} clusters support seamless integration with other {{ yandex-cloud }} services, e.g., with [{{ data-transfer-full-name }}](../../data-transfer/index.yaml) for database migration or [{{ datalens-full-name }}](../../datalens/index.yaml) for data visualization.
 
+## {{ mgp-name }} use cases {#usage}
+
+* Analytical DB: For example, you can linearly accelerate large hash joins by adding more CPUs or nodes.
+* General-purpose database replacement: {{ mgp-name }} can be used as a drop-in alternative to Oracle DB, Microsoft SQL Server, or IBM DB2. It handles not only analytical workloads but also numerous short [OLTP queries](https://en.wikipedia.org/wiki/Point-in-time_recovery) typical of {{ PG }}.
+* High-performance alternative to {{ PG }}: Because databases available in {{ mgp-name }} are based on {{ PG }}, it supports many familiar {{ PG }} tools, such as JDBC and ODBC drivers, and conforms to the ANSI SQL:2008 standard.
+
 ## See also {see-also}
 
-* [{{ GP }} official documentation](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/landing-index.html)
+* [Official {{ GP }} guides](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/landing-index.html)
+* [Official {{ CB }} guides](https://cloudberry.apache.org/docs/)
 * [Getting started with {{ mgp-name }}](../quickstart.md)
 * [Resource relationships in {{ mgp-name }}](index.md)
 * [{{ mgp-name }} tutorials](../tutorials/index.md)
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

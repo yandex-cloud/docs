@@ -177,6 +177,51 @@ items:
                 href: cli-ref/v0/routing-instance/update-prefix-mask.md
               - name: upsert-prefixes
                 href: cli-ref/v0/routing-instance/upsert-prefixes.md
+      - name: v1
+        items:
+          - name: Overview
+            href: cli-ref/v1/index.md
+          - name: routing-instance
+            items:
+              - name: Overview
+                href: cli-ref/v1/routing-instance/index.md
+              - name: add-labels
+                href: cli-ref/v1/routing-instance/add-labels.md
+              - name: add-private-connection
+                href: cli-ref/v1/routing-instance/add-private-connection.md
+              - name: create
+                href: cli-ref/v1/routing-instance/create.md
+              - name: delete
+                href: cli-ref/v1/routing-instance/delete.md
+              - name: get
+                href: cli-ref/v1/routing-instance/get.md
+              - name: get-by-cic-private-connection-id
+                href: >-
+                  cli-ref/v1/routing-instance/get-by-cic-private-connection-id.md
+              - name: get-by-vpc-network-id
+                href: cli-ref/v1/routing-instance/get-by-vpc-network-id.md
+              - name: list
+                href: cli-ref/v1/routing-instance/list.md
+              - name: list-operations
+                href: cli-ref/v1/routing-instance/list-operations.md
+              - name: move
+                href: cli-ref/v1/routing-instance/move.md
+              - name: move-prefix
+                href: cli-ref/v1/routing-instance/move-prefix.md
+              - name: remove-labels
+                href: cli-ref/v1/routing-instance/remove-labels.md
+              - name: remove-prefixes
+                href: cli-ref/v1/routing-instance/remove-prefixes.md
+              - name: remove-private-connection
+                href: cli-ref/v1/routing-instance/remove-private-connection.md
+              - name: update
+                href: cli-ref/v1/routing-instance/update.md
+              - name: update-networks
+                href: cli-ref/v1/routing-instance/update-networks.md
+              - name: update-prefix-mask
+                href: cli-ref/v1/routing-instance/update-prefix-mask.md
+              - name: upsert-prefixes
+                href: cli-ref/v1/routing-instance/upsert-prefixes.md
   - name: Справочник API
     items:
       - name: gRPC (англ.)
@@ -211,20 +256,22 @@ items:
                 href: api-ref/grpc/RoutingInstance/upsertPrefixes.md
               - name: RemovePrefixes
                 href: api-ref/grpc/RoutingInstance/removePrefixes.md
-              - name: UpdateNetworks
-                href: api-ref/grpc/RoutingInstance/updateNetworks.md
-              - name: MovePrefix
-                href: api-ref/grpc/RoutingInstance/movePrefix.md
-              - name: UpdatePrefixMask
-                href: api-ref/grpc/RoutingInstance/updatePrefixMask.md
               - name: AddPrivateConnection
                 href: api-ref/grpc/RoutingInstance/addPrivateConnection.md
               - name: RemovePrivateConnection
                 href: api-ref/grpc/RoutingInstance/removePrivateConnection.md
+              - name: UpdateNetworks
+                href: api-ref/grpc/RoutingInstance/updateNetworks.md
               - name: Delete
                 href: api-ref/grpc/RoutingInstance/delete.md
+              - name: Move
+                href: api-ref/grpc/RoutingInstance/move.md
               - name: ListOperations
                 href: api-ref/grpc/RoutingInstance/listOperations.md
+              - name: MovePrefix
+                href: api-ref/grpc/RoutingInstance/movePrefix.md
+              - name: UpdatePrefixMask
+                href: api-ref/grpc/RoutingInstance/updatePrefixMask.md
       - name: REST (англ.)
         items:
           - name: Overview
@@ -243,6 +290,10 @@ items:
                 href: api-ref/RoutingInstance/index.md
               - name: Get
                 href: api-ref/RoutingInstance/get.md
+              - name: GetByVpcNetworkId
+                href: api-ref/RoutingInstance/getByVpcNetworkId.md
+              - name: GetByCicPrivateConnectionId
+                href: api-ref/RoutingInstance/getByCicPrivateConnectionId.md
               - name: List
                 href: api-ref/RoutingInstance/list.md
               - name: Create
@@ -257,8 +308,12 @@ items:
                 href: api-ref/RoutingInstance/addPrivateConnection.md
               - name: RemovePrivateConnection
                 href: api-ref/RoutingInstance/removePrivateConnection.md
+              - name: UpdateNetworks
+                href: api-ref/RoutingInstance/updateNetworks.md
               - name: Delete
                 href: api-ref/RoutingInstance/delete.md
+              - name: Move
+                href: api-ref/RoutingInstance/move.md
               - name: ListOperations
                 href: api-ref/RoutingInstance/listOperations.md
   - name: История изменений

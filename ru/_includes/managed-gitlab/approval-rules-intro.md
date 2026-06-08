@@ -1,0 +1,3 @@
+{{ mgl-name }} позволяет гибко настраивать обязательные _правила ревью кода_, прежде чем код может быть добавлен в целевую [ветку проекта](../../glossary/vcs.md#branch). Функциональность является альтернативой встроенному в {{ GL }} Enterprise Edition инструменту [Approval Rules](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/rules.html) и доступна вне зависимости от [версии](https://about.gitlab.com/pricing) {{ GL }}.
+
+Конфигурация правил ревью в {{ mgl-name }} настраиваются только в виде кода (Configuration as Code) в файлах `APPROVALRULES` и (опционально) `CODEOWNERS`.

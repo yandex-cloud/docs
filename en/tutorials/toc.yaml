@@ -230,6 +230,14 @@ items:
             href: security/wlif-managed-k8s-integration.md
       - name: Setting up single sign-on (SSO) for apps
         items:
+          - name: 1C:Enterprise
+            href: security/single-sign-on/oidc-1c-enterprise.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Grafana Cloud
             items:
               - name: SAML
@@ -238,48 +246,42 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: security/single-sign-on/oidc-grafana-oss.md
-          - name: 1C:Enterprise
-            href: security/single-sign-on/oidc-1c-enterprise.md
-          - name: Zabbix
-            href: security/single-sign-on/saml-zabbix.md
-          - name: '{{ yandex-360 }}'
-            href: security/single-sign-on/saml-yandex-360.md
-          - name: Yandex Browser for organizations
-            href: security/single-sign-on/saml-ya-browser-corporate.md
-          - name: '{{ mos-name }}'
-            href: security/single-sign-on/saml-opensearch.md
-          - name: '{{ OS }}'
-            href: security/single-sign-on/saml-opensearch-self-managed.md
-          - name: '{{ mgl-name }}'
-            href: security/single-sign-on/saml-managed-gitlab.md
-          - name: Selectel
-            href: security/single-sign-on/saml-selectel.md
-          - name: SonarQube
-            href: security/single-sign-on/saml-sonarqube.md
-          - name: OpenVPN Access Server
-            href: security/single-sign-on/saml-ovpn.md
-          - name: MWS
-            href: security/single-sign-on/oidc-mws.md
           - name: Harbor
             href: security/single-sign-on/oidc-harbor.md
-          - name: Cloud.ru
-            items:
-              - name: SAML
-                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
-              - name: OpenID Connect
-                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
-          - name: VK Cloud
-            items:
-              - name: SAML
-                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
-          - name: Sentry
-            href: security/single-sign-on/saml-sentry.md
           - name: Jenkins
             items:
               - name: SAML
                 href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
                 href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
+          - name: Selectel
+            href: security/single-sign-on/saml-selectel.md
+          - name: Sentry
+            href: security/single-sign-on/saml-sentry.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
+          - name: VK Cloud
+            items:
+              - name: SAML
+                href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
+          - name: Passwork
+            href: security/single-sign-on/saml-passwork.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: Yandex Browser for organizations
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Uploading audit logs to {{ mos-name }}
@@ -357,7 +359,7 @@ items:
             href: archive/vm-with-backup-policy/terraform.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: archive/replicate-logs-to-storage-via-data-streams.md
-      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+      - name: "Replicating logs to {{ objstorage-name }} using Fluent\_Bit"
         href: archive/replicate-logs-to-storage.md
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: archive/copy-files-from-object-storage.md
@@ -807,7 +809,7 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Building a 1C-Bitrix website
+          - name: Creating a 1C-Bitrix website
             items:
               - name: Overview
                 href: web/bitrix-website/index.md
@@ -1392,7 +1394,13 @@ items:
       - name: All tutorials
         href: windows/index.md
       - name: Secure password transmission to an initialization script
-        href: windows/secure-password-script.md
+        items:
+          - name: Overview
+            href: windows/secure-password-script/index.md
+          - name: Management console, CLI, and API
+            href: windows/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: windows/secure-password-script/terraform.md
       - name: Deploying Active Directory
         href: windows/active-directory.md
       - name: Deploying Microsoft Exchange
@@ -1612,7 +1620,13 @@ items:
           - name: Developing a custom integration in {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: URL shortener
-            href: serverless/serverless-url-shortener.md
+            items:
+              - name: Overview
+                href: serverless/serverless-url-shortener/index.md
+              - name: Management console
+                href: serverless/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: serverless/serverless-url-shortener/terraform.md
           - name: Developing CRUD APIs for a movie service
             href: serverless/movies-database.md
           - name: Creating an interactive serverless application using WebSocket
@@ -1637,7 +1651,7 @@ items:
             href: serverless/container-pg-connect.md
           - name: >-
               Deploying a web app with JWT authorization in {{ api-gw-name }}
-              and authentication in Firebase
+              and Firebase authentication
             href: serverless/jwt-authorizer-firebase.md
           - name: >-
               Developing functions in Functions Framework and deploying them to

@@ -1,6 +1,6 @@
 # Работа с AI-ассистентом в {{ speechsense-name }}
 
-Вы можете получить из диалога информацию, извлеченную с помощью [AI-ассистента](../../../speechsense/concepts/assistants.md). Его можно подключать к аудиодиалогам и к чатам. В этом руководстве рассмотрено подключение к чатам. В качестве примера приведена переписка клиента с турагентством.
+Вы можете получить из диалога информацию, извлеченную с помощью [AI-ассистента]({{ link-docs-ai }}speechsense/concepts/assistants.md). Его можно подключать к аудиодиалогам и к чатам. В этом руководстве рассмотрено подключение к чатам. В качестве примера приведена переписка клиента с турагентством.
 
 Чтобы получить нужную информацию из чата с помощью AI-ассистента:
 
@@ -23,8 +23,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}](../../../speechsense/pricing.md)).
-* AI-ассистент: генерация текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)). Тарификация за использование ассистента начинается с момента его включения.
+* Сервис {{ speechsense-name }}: количество символов в каждом текстовом диалоге и анализ диалогов с помощью AI-ассистента (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}/speechsense/pricing)).
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
@@ -73,9 +72,9 @@
 
     1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
     1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
-    1. Введите название [пространства](../../../speechsense/concepts/resources-hierarchy.md#space).
+    1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
     1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-    1. [Привяжите платежный аккаунт](../../../speechsense/operations/space/link-ba.md) к пространству для оплаты {{ speechsense-name }}.
+    1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
 
 {% endlist %}
 
@@ -334,7 +333,7 @@
 
 - REST API {#api}
 
-    Воспользуйтесь методом [Assistants.List](../../../speechsense/api-ref/Assistants/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    Воспользуйтесь методом [Assistants.List]({{ link-docs-ai }}speechsense/api-ref/Assistants/list) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
     ```bash
     curl \
@@ -379,7 +378,7 @@
 
 - gRPC API {#grpc-api}
 
-    Воспользуйтесь вызовом [AssistantsService.List](../../../speechsense/api-ref/grpc/Assistants/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    Воспользуйтесь вызовом [AssistantsService.List]({{link-docs-ai }}/speechsense/api-ref/grpc/Assistants/list) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
     ```bash
     grpcurl \
@@ -437,7 +436,7 @@
 
 - REST API {#api}
 
-    Воспользуйтесь методом [Talk.Get](../../../speechsense/api-ref/Talk/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    Воспользуйтесь методом [Talk.Get]({{ link-docs-ai }}speechsense/api-ref/Talk/get) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
     ```bash
     curl \
@@ -495,7 +494,7 @@
 
 - gRPC API {#grpc-api}
 
-    Воспользуйтесь вызовом [TalkService.Get](../../../speechsense/api-ref/grpc/Talk/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    Воспользуйтесь вызовом [TalkService.Get]({{ link-docs-ai }}speechsense/api-ref/grpc/Talk/get) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
     ```bash
     grpcurl \
@@ -559,4 +558,4 @@
 
 ## Удалите ресурсы {#clear-out}
 
-Некоторые ресурсы платные. Чтобы за них не списывалась плата, [удалите проект {{ speechsense-name }}](../../../speechsense/operations/project/delete.md), если вы больше не будете его использовать. AI-ассистент будет удален при удалении проекта.
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, [удалите проект {{ speechsense-name }}]({{ link-docs-ai }}speechsense/operations/project/delete), если вы больше не будете его использовать. AI-ассистент будет удален при удалении проекта.

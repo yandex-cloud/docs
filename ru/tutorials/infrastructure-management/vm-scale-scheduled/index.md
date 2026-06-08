@@ -1,3 +1,8 @@
+---
+title: Масштабирование группы виртуальных машин по расписанию в {{ yandex-cloud }}
+description: Следуя данному руководству, вы настроите масштабирование группы виртуальных машин по расписанию в {{ yandex-cloud }}.
+---
+
 {% include [vm-scale-scheduled](../../../_tutorials/infrastructure/vm-scale-scheduled.md) %}
 
 * [Консоль управления, CLI и API](console.md) — используйте консоль управления {{ yandex-cloud }}, CLI или API, чтобы создать инфраструктуру в пошаговом режиме.

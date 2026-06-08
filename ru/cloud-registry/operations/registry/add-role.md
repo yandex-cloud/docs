@@ -5,18 +5,12 @@ description: Следуя данной инструкции, вы сможете
 
 # Назначить роль на реестр
 
-{% note info %}
-
-Рекомендуем назначать роли публичной группе `All users` только на Docker-реестры — для остальных форматов корректная работа не гарантируется.
-
-{% endnote %}
-
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится реестр.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Выберите реестр.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.

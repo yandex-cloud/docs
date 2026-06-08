@@ -91,11 +91,17 @@ Once connected to the DBMS, run the `SELECT version();` command.
 
 You can connect to a {{ mmy-name }} database via the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#install) using IAM authentication. This method is available to [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated accounts](../../../iam/concepts/users/accounts.md#saml-federation), and [local users](../../../iam/concepts/users/accounts.md#local). When connecting with IAM authentication, you do not need to obtain an SSL certificate or specify the cluster hosts’ FQDNs.
 
-Before connecting, install the {{ MY }} client:
+Before connecting:
 
-```bash
-sudo apt update && sudo apt install --yes mysql-client
-```
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+1. Install the {{ MY }} client:
+
+    ```bash
+    sudo apt update && sudo apt install --yes mysql-client
+    ```
 
 Set up your {{ mmy-name }} cluster for connection:
 
@@ -110,7 +116,7 @@ Set up your {{ mmy-name }} cluster for connection:
      1. Click ![image](../../../_assets/console-icons/ellipsis.svg) in the first host's row and select **{{ ui-key.yacloud.common.edit }}**.
      1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Repeat the same for the remaining hosts in the cluster.
-  1. Assign a role to the user account connecting to the database:
+  1. Assign the `managed-mysql.clusters.connector` role to the user account that will connect to the database:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Enter the user account’s email.
      1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-mysql.clusters.connector` role.
@@ -121,7 +127,7 @@ Set up your {{ mmy-name }} cluster for connection:
      1. Select **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}** as the authentication method.
      1. Select the account with the `managed-mysql.clusters.connector` role.
      1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database from the drop-down list.
-     1. Click ![image](../../../_assets/console-icons/plus.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column and select the privilege from the drop-down list.
+     1. Click ![image](../../../_assets/console-icons/plus.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column and select privileges from the drop-down list.
      1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 {% endlist %}
@@ -131,6 +137,8 @@ To connect to the {{ mmy-name }} database, run this command:
 ```bash
 {{ yc-mdb-my }} connect <cluster_name_or_ID> --db <DB_name>
 ```
+
+You can get the cluster name and ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
 
 ## Connecting from graphical IDEs {#connection-ide}
@@ -183,6 +191,85 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
   1. Click **Done** to save the database connection settings.
 
 {% endlist %}
+
+### Connecting with IAM authentication {#ide-iam}
+
+To connect to a {{ mmy-name }} database from graphical IDEs with [{{ iam-full-name }} authentication](../../../iam/), run the [{{ yandex-cloud }} CLI](../../../cli/) in listening proxy server mode.
+
+This type of connection is available to [Yandex accounts](../../../iam/concepts/users/accounts.md#passport), [federated accounts](../../../iam/concepts/users/accounts.md#saml-federation), and [local users](../../../iam/concepts/users/accounts.md#local). When connecting this way, you do not need to get an SSL certificate or specify the cluster hosts' FQDNs.
+
+You can only use graphical IDEs to connect to publicly accessible cluster hosts.
+
+To connect to a {{ mmy-name }} database:
+
+1. Assign the `managed-mysql.clusters.connector` role to the user account that will connect to the database:
+
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Click the cluster name.
+    1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Enter the user account’s email.
+    1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-mysql.clusters.connector` role.
+    1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+1. Create a user named {{ MY }}:
+
+    1. Select the **{{ ui-key.yacloud.mysql.cluster.switch_users }}** tab.
+    1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+    1. Select **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}** as the authentication method.
+    1. Select the account with the `managed-mysql.clusters.connector` role.
+    1. Click **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** and select the database from the drop-down list.
+    1. Click ![image](../../../_assets/console-icons/plus.svg) in the **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** column and select privileges from the drop-down list.
+    1. Click **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
+1. Start the {{ yandex-cloud }} CLI in proxy server mode:
+
+    1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+        {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. Run this command:
+
+        ```bash
+        {{ yc-mdb-my }} connect <cluster_name_or_ID> --db <DB_name> --daemon
+        ```
+
+        This will start a proxy server on port `3306`. To select a different port, specify `--port <port_number>` in the command.
+
+        You can get the cluster name and ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+1. Connect to the {{ mmy-name }} cluster:
+
+    {% list tabs group=ide %}
+
+    - DBeaver {#dbeaver}
+
+        1. Create a new DB connection:
+            1. In the **Database** menu, select **New connection**.
+            1. Select **{{ MY }}** from the DB list.
+            1. Click **Next**.
+            1. Specify the connection settings on the **Main** tab:
+                * **Server**: `localhost`.
+                * **Port**: `3306` or any other port you specified when starting the proxy server.
+                * **Database**: DB to connect to.
+                * **Username**: Your account's login or email address.
+                * **Password**: Leave this field empty.
+        1. Click **Test Connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
+        1. Click **Done** to save the database connection settings.
+
+    - {{ MY }} Workbench {#mysql-workbench}
+
+        1. Create a new database connection:
+            1. In the **Database** menu, select **Manage connections...**.
+            1. Click **New**.
+            1. Specify the following connection settings on the **Connection** tab:
+                * **Hostname**: `127.0.0.1`.
+                * **Port**: `3306` or any other port you specified when starting the proxy server.
+                * **Username**: Your account's login or email address.
+                * **Default schema**: Name of the database to connect to.
+                * **SSL** → **Use SSL**: `No`.
+        1. Click **Test Connection**. If the connection is successful, you will see its details.
+
+    {% endlist %}
 
 
 ## Connecting from {{ websql-full-name }} {#websql}

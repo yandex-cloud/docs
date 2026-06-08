@@ -28,13 +28,13 @@ keywords:
     Чтобы получить список резервных копий кластера:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
     Чтобы получить список всех резервных копий в каталоге:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -165,13 +165,13 @@ keywords:
     Чтобы получить информацию о резервной копии существующего кластера:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
     Чтобы получить информацию о резервной копии удаленного ранее кластера:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
 
 - CLI {#cli}
@@ -270,7 +270,7 @@ keywords:
 - Консоль управления {#console}
   
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -367,7 +367,7 @@ keywords:
     Чтобы восстановить из резервной копии существующий кластер:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
     1. Задайте настройки нового кластера.
@@ -376,7 +376,7 @@ keywords:
     Чтобы восстановить из резервной копии удаленный ранее кластер:
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}**.
     1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
@@ -774,6 +774,51 @@ keywords:
     PUT https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>
     ```
 
+
+### Восстановить индекс из снапшота {#restore-index-from-snapshot}
+
+Чтобы восстановить один или несколько индексов из снапшота:
+
+1. Закройте восстанавливаемые индексы, если они существуют:
+    
+    ```http
+    POST https://admin:<пароль>@<FQDN_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/<список_индексов>/_close
+    ```
+
+    О том, как получить FQDN хоста, читайте в разделе [{#T}](connect/fqdn.md).
+
+    Подробнее о закрытии индексов читайте в [документации {{ OS }}]({{ os.docs }}/api-reference/index-apis/close-index/).
+
+1. Восстановите нужные индексы из снапшота:
+
+    ```http
+    POST https://admin:<пароль>@<FQDN_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/_snapshot/<имя_репозитория>/<имя_снапшота>/_restore?wait_for_completion=true&pretty
+    
+    {
+      "indices": "<список_индексов>",
+      "ignore_unavailable": false,
+      "include_global_state": false
+    }
+    ```
+
+    Где:
+    
+    * `indices` — список восстанавливаемых индексов, разделенных запятыми.
+    * `ignore_unavailable` — поведение при отсутствии указанных индексов в снапшоте:
+      
+      * `true` — отсутствующие индексы игнорируются;
+      * `false` — восстановление завершается ошибкой.
+    
+    * `include_global_state` — восстановление глобального состояния кластера:
+
+      * `true` — состояние кластера восстанавливается;
+      * `false` — состояние кластера не восстанавливается.
+
+    Имя снапшота можно получить со [списком снапшотов](#list-snapshots).
+
+    Подробнее о восстановлении из снапшота читайте в [документации {{ OS }}]({{ os.docs }}/api-reference/snapshots/restore-snapshot/).
+
+
 ### Восстановить кластер из снапшота {#restore-from-snapshot}
 
 {% note warning %}
@@ -793,7 +838,7 @@ keywords:
 1. Закройте открытые индексы с помощью [{{ OS }} API]({{ os.docs }}/api-reference/index-apis/close-index/):
 
     ```http
-    POST: https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/<имя_индекса>/_close
+    POST https://admin:<пароль>@<идентификатор_хоста_{{ OS }}_с_ролью_DATA>.{{ dns-zone }}:{{ port-mos }}/<имя_индекса>/_close
     ```
 
     Для восстановления всего кластера закройте все открытые индексы. Для восстановления отдельных индексов закройте только их.

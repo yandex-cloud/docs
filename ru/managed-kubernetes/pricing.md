@@ -7,6 +7,8 @@ editable: false
 
 # Правила тарификации для {{ managed-k8s-name }}
 
+{% include [master-pricing-note](../_includes/managed-kubernetes/master-pricing-note.md) %}
+
 {% note tip %}
 
 
@@ -49,12 +51,10 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|mk8s }}']}
-    excludeSkuIds={['{{ pc|mk8s.master.master_host_resources.cpu }}', '{{ pc|mk8s.master.master_host_resources.ram }}']}
     installationCode="ru"
     currency="RUB"
   />
 </MDX>
-
 
 
 

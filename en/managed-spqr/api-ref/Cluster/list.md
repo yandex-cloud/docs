@@ -172,7 +172,6 @@ The maximum string length in characters is 1000. ||
             },
             "coordinator": "object"
           },
-          "logLevel": "string",
           "balancer": {
             "cpuThreshold": "number",
             "spaceThreshold": "number",
@@ -180,7 +179,8 @@ The maximum string length in characters is 1000. ||
             "maxMoveCount": "string",
             "keysPerMove": "string",
             "timeout": "string"
-          }
+          },
+          "logLevel": "string"
         },
         "backupWindowStart": {
           "hours": "integer",
@@ -374,6 +374,9 @@ PostgreSQL settings. ||
 || infra | **[InfraConfig](#yandex.cloud.mdb.spqr.v1.InfraConfig)**
 
 SPQR Infra (router+coordinator) settings. ||
+|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
+
+SPQR Balancer settings. ||
 || logLevel | **enum** (LogLevel)
 
 SPQR default log level
@@ -383,9 +386,6 @@ SPQR default log level
 - `WARNING`
 - `ERROR`
 - `FATAL` ||
-|| balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
-
-SPQR Balancer settings. ||
 |#
 
 ## RouterConfig {#yandex.cloud.mdb.spqr.v1.RouterConfig}

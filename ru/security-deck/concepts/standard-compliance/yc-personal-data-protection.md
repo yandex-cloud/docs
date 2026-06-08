@@ -13,7 +13,7 @@ description: Набор правил помогает автоматизиров
 
 #|
 || Идентификатор требования | Требование стандарта безопасности | Идентификаторы проверки в [модуле {{ cspm-name }}](../cspm.md) ||
-|| **Идентификация и аутентификация субъектов доступа и объектов доступа** (ИАФ) {.cell-align-center} | > | > ||
+|| **Идентификация и аутентификация субъектов доступа и объектов доступа** (ИАФ) {align="center"} | > | > ||
 || ИАФ.1 | Идентификация и аутентификация пользователей, являющихся работниками оператора | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings}) ||
 || ИАФ.4 | Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и (или) компрометации средств аутентификации |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
@@ -21,7 +21,7 @@ description: Набор правил помогает автоматизиров
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
-|| **Управление доступом субъектов доступа к объектам доступа** (УПД) {.cell-align-center} | > | > ||
+|| **Управление доступом субъектов доступа к объектам доступа** (УПД) {align="center"} | > | > ||
 || УПД.2 | Реализация необходимых методов управления доступом (дискреционный, мандатный, ролевой или иной метод), типов (чтение, запись, выполнение или иной тип) и правил разграничения доступа |
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
 [cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
@@ -57,7 +57,7 @@ description: Набор правил помогает автоматизиров
 || УПД.11 | Разрешение (запрет) действий пользователей, разрешенных до идентификации и аутентификации | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
 || УПД.13 | Реализация защищенного удаленного доступа субъектов доступа к объектам доступа через внешние информационно-телекоммуникационные сети | [cspm.access.serial-console](../../rules-reference/cspm.md#serial-console) ||
 || УПД.17 | Обеспечение доверенной загрузки средств вычислительной техники | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
-|| **Ограничение программной среды** (ОПС) {.cell-align-center} | > | > ||
+|| **Ограничение программной среды** (ОПС) {align="center"} | > | > ||
 || ОПС.1 | Управление запуском (обращениями) компонентов программного обеспечения, в том числе определение запускаемых компонентов, настройка параметров запуска компонентов, контроль за запуском компонентов программного обеспечения |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm)
@@ -70,7 +70,7 @@ description: Набор правил помогает автоматизиров
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry)
 ||
-|| **Регистрация событий безопасности** (РСБ) {.cell-align-center} | > | > ||
+|| **Регистрация событий безопасности** (РСБ) {align="center"} | > | > ||
 || РСБ.1 | Определение событий безопасности, подлежащих регистрации, и сроков их хранения |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
@@ -87,19 +87,19 @@ description: Набор правил помогает автоматизиров
 [cspm.s3.used-object-lock](../../rules-reference/cspm.md#used-object-lock)
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 ||
-|| **Антивирусная защита** (АВЗ) {.cell-align-center} | > | > ||
+|| **Антивирусная защита** (АВЗ) {align="center"} | > | > ||
 || АВЗ.1 | Реализация антивирусной защиты |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || АВЗ.2 | Обновление базы данных признаков вредоносных компьютерных программ (вирусов) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
-|| **Обнаружение вторжений** (СОВ) {.cell-align-center} | > | > ||
+|| **Обнаружение вторжений** (СОВ) {align="center"} | > | > ||
 || СОВ.1 | Обнаружение вторжений |
 [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf)
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
 ||
 || СОВ.2 | Обновление базы решающих правил | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
-|| **Контроль (анализ) защищенности персональных данных** (АНЗ) {.cell-align-center} | > | > ||
+|| **Контроль (анализ) защищенности персональных данных** (АНЗ) {align="center"} | > | > ||
 || АНЗ.1 | Выявление, анализ и устранение уязвимостей информационной системы |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
@@ -110,7 +110,7 @@ description: Набор правил помогает автоматизиров
 ||
 || АНЗ.4 | Контроль состава технических средств, программного обеспечения и средств защиты информации | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || АНЗ.5 | Парольная политика | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
-|| **Обеспечение целостности информационной системы и информации** (ОЦЛ) {.cell-align-center} | > | > ||
+|| **Обеспечение целостности информационной системы и информации** (ОЦЛ) {align="center"} | > | > ||
 || ОЦЛ.2 | Контроль целостности информации, содержащейся в базах данных информационной системы |
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
@@ -130,14 +130,14 @@ description: Набор правил помогает автоматизиров
 [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges)
 [cspm.access.sa-privileges](../../rules-reference/cspm.md#sa-privileges)
 ||
-|| **Обеспечение доступности персональных данных** (ОДТ) {.cell-align-center} | > | > ||
+|| **Обеспечение доступности персональных данных** (ОДТ) {align="center"} | > | > ||
 || ОДТ.4 | Периодическое резервное копирование информации на резервные машинные носители информации |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || ОДТ.5 | Обеспечение возможности восстановления информации с резервных машинных носителей информации (резервных копий) в течение установленного временного интервала |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
-|| **Защита технических средств** (ЗТС) / **Защита среды виртуализации** (ЗСВ) {.cell-align-center} | > | > ||
+|| **Защита технических средств** (ЗТС) / **Защита среды виртуализации** (ЗСВ) {align="center"} | > | > ||
 || ЗСВ.1 | Идентификация и аутентификация субъектов доступа и объектов доступа в виртуальной инфраструктуре, в том числе администраторов управления средствами виртуализации |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
@@ -158,7 +158,7 @@ description: Набор правил помогает автоматизиров
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| **Защита информационной системы, ее средств и систем связи и передачи данных** (ЗИС) {.cell-align-center} | > | > ||
+|| **Защита информационной системы, ее средств и систем связи и передачи данных** (ЗИС) {align="center"} | > | > ||
 || ЗИС.1 | Разделение в информационной системе функций по управлению (администрированию) информационной системой, управлению (администрированию) системой защиты информации, функций по обработке информации и иных функций информационной системы | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || ЗИС.3 | Обеспечение защиты информации от раскрытия, модификации и навязывания (ввода ложной информации) при ее передаче (подготовке к передаче) по каналам связи, имеющим выход за пределы контролируемой зоны |
 [cspm.crypto.certificate-validity](../../rules-reference/cspm.md#certificate-validity)
@@ -179,13 +179,13 @@ description: Набор правил помогает автоматизиров
 [cspm.trusted-ip-k8s](../../rules-reference/cspm.md#trusted-ip-k8s)
 [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security)
 ||
-|| **Выявление инцидентов и реагирование на них** (ИНЦ) {.cell-align-center} | > | > ||
+|| **Выявление инцидентов и реагирование на них** (ИНЦ) {align="center"} | > | > ||
 || ИНЦ.2 | Обнаружение, идентификация и регистрация инцидентов |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 ||
 || ИНЦ.6 | Планирование и принятие мер по предотвращению повторного возникновения инцидентов |
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| **Управление конфигурацией информационной системы и системы защиты персональных данных** (УКФ) {.cell-align-center} | > | > ||
+|| **Управление конфигурацией информационной системы и системы защиты персональных данных** (УКФ) {align="center"} | > | > ||
 || УКФ.1–УКФ.4 | Управление конфигурацией информационной системы и системы защиты персональных данных | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 |#

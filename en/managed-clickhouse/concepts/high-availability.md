@@ -17,7 +17,7 @@ A cluster with a single {{ CH }} host does not provide high availability. If the
 
 ### Cluster with two or more hosts {#two-hosts}
 
-The [Service Level Agreement (SLA)](https://yandex.ru/legal/cloud_sla_mdb/) defines a high-availability cluster as the one made up of two or more {{ CH }} hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
+The [Service Level Agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/) defines a high-availability cluster as the one made up of two or more {{ CH }} hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
 
 A cluster consisting of two or more hosts supports [replication](replication.md): {{ CH }} hosts can step in for one another as the cluster’s primary replica. Such clusters come with a dedicated [coordination service](coordination-system.md), {{ CK }} or {{ ZK }}, which manages replication and query distribution across hosts. You can select a coordination service when [creating](../operations/cluster-create.md) or [updating](../operations/update.md) a cluster. According to the SLA, the coordination service of a high-availability cluster must be deployed on separate hosts. A configuration where {{ CH }} and {{ CK }} share the hosts is not highly available.
 

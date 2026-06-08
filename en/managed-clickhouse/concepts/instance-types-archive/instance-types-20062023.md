@@ -1,6 +1,6 @@
 ---
 title: '{{ mch-name }} host classes before June 20, 2023'
-description: The host class determines the computing power allocated for each host in a {{ CH }} cluster. When you change the host class for a cluster, all existing hosts change accordingly. The available storage size does not depend on the host class.
+description: The host class determines the computing power allocated for each host in a {{ CH }} cluster. {{ mch-name }} host classes before June 20, 2023.
 ---
 
 # {{ mch-name }} host classes before June 20, 2023
@@ -8,7 +8,7 @@ description: The host class determines the computing power allocated for each ho
 The host class determines the computing power allocated for each host in a cluster. When you change the host class for a cluster, all existing hosts change accordingly.
 
 
-The host class also determines which [disk types](.././storage.md) are available:
+The host class determines the available [disk types](.././storage.md):
 
 * **s1**, **s2**, **m2**: `network-ssd`, `network-hdd`, `local-ssd`, `network-ssd-nonreplicated`.
 * **c3**, **s3**, **m3**: `network-ssd`, `network-hdd`, `network-ssd-nonreplicated`.
@@ -17,7 +17,7 @@ The host class also determines which [disk types](.././storage.md) are available
 For storage size limitations, see [Quotas and limits](../limits.md).
 
 
-The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM available for {{ CH }} to run. For more information, see [Memory management](../memory-management.md).
+The host class affects the **Max server memory usage** DBMS setting that limits the amount of RAM {{ CH }} can use. For more information, see [Memory management](../memory-management.md).
 
 ## Available host classes {#available-flavors}
 

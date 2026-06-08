@@ -18,7 +18,7 @@ keywords:
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить кластер {{ SPQR }}.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -34,7 +34,7 @@ keywords:
     1. Измените конфигурацию вычислительных ресурсов:
 
         * Для стандартного шардирования измените в блоке **{{ ui-key.yacloud.spqr.section_infra }}** конфигурацию инфраструктурных хостов.
-        * Для расширенного шардирования измените в блоке **{{ ui-key.yacloud.spqr.section_router }}** конфигурацию хостов-роутеров. Если используется координатор, в блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** измените конфигурацию хостов-координаторов.
+        * Для расширенного шардирования измените в блоке **{{ ui-key.yacloud.spqr.section_router }}** конфигурацию хостов-роутеров и конфигурацию хостов-координаторов в блоке **{{ ui-key.yacloud.spqr.section_coordinator }}**.
 
         Чтобы изменить конфигурацию вычислительных ресурсов:
 

@@ -1,34 +1,30 @@
 # Интеграция с сервисом {{ dataproc-full-name }}
 
-Вы можете использовать кластеры Apache Spark™, развернутые в сервисе {{ dataproc-full-name }}, в проектах {{ ml-platform-full-name }}. Чтобы в {{ ml-platform-name }} настроить интеграцию с сервисом {{ dataproc-name }}:
+Вы можете использовать в проектах {{ ml-platform-full-name }} кластеры {{ SPRK }}, развернутые в сервисе {{ dataproc-full-name }}. Чтобы в {{ ml-platform-name }} настроить интеграцию с сервисом {{ dataproc-name }}:
 
 1. [Подготовьте инфраструктуру](#infra).
+1. [Настройте проект {{ ml-platform-name }}](#project).
 1. [Создайте бакет](#create-bucket).
 1. [Создайте кластер {{ dataproc-name }}](#create-cluster).
-1. [Настройте проект {{ ml-platform-name }}](#project).
 1. [Запустите вычисления](#run-code).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-
-## Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-
 
 ## Перед началом работы {#before-you-begin}
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
-## Подготовьте инфраструктуру {#infra}
-
 {% include [intro](../../_includes/datasphere/infra-intro.md) %}
 
 {% include [intro](../../_includes/datasphere/federation-disclaimer.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+
+## Подготовьте инфраструктуру {#infra}
 
 ### Создайте каталог и сеть {#create-folder}
 
@@ -40,12 +36,45 @@
 
    1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например `data-folder`.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой [зоне доступности](../../overview/concepts/geo-scope.md).
+   1. Отключите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**, чтобы создать сеть и подсеть вручную.
    1. Нажмите **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+#### Создайте сеть {#create-network}
+
+Создайте сеть, в которой будет работать кластер {{ dataproc-name }}.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`, [созданный ранее](#create-folder).
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети `data-network`.
+  1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+
+{% endlist %}
+
+#### Создайте подсеть {#create-subnet}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В каталоге `data-folder` [перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Выберите облачную сеть `data-network`.
+    1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+    1. Укажите имя подсети `data-subnet`.
+    1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`.
+    1. Введите **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** подсети, например `10.1.1.0/24`.
+    1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
+
+{% endlist %}
 
 #### Создайте NAT-шлюз для доступа в интернет {#create-nat}
 
@@ -57,7 +86,7 @@
    1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
    1. Нажмите **{{ ui-key.yacloud.common.create }}** и задайте настройки шлюза:
       * Введите имя шлюза, например `nat-for-cluster`.
-      * **{{ ui-key.yacloud.vpc.gateways.field_type }}** шлюза — **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
+      * Выберите **{{ ui-key.yacloud.vpc.gateways.field_type }}** шлюза — **{{ ui-key.yacloud.vpc.gateways.value_gateway-type-egress-nat }}**.
       * Нажмите **{{ ui-key.yacloud.common.save }}**.
    1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
    1. Нажмите **{{ ui-key.yacloud.common.create }}** и введите параметры таблицы маршрутизации:
@@ -69,17 +98,17 @@
          * Нажмите **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
    1. Нажмите **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
-  Затем привяжите таблицу маршрутизации к одной из подсетей, чтобы направить трафик из нее через NAT-шлюз:
+  Затем привяжите таблицу маршрутизации к подсети `data-subnet`, чтобы направить трафик из нее через NAT-шлюз:
 
    1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-   1. В строке нужной подсети нажмите ![image](../../_assets/console-icons/ellipsis.svg).
+   1. В строке подсети `data-subnet` нажмите ![image](../../_assets/console-icons/ellipsis.svg).
    1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
    1. В открывшемся окне выберите созданную таблицу в списке.
    1. Нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт кластера {#create-sa}
+### Создайте сервисный аккаунт для кластера {{ dataproc-name }} {#create-sa}
 
 {% list tabs group=instructions %}
 
@@ -92,6 +121,7 @@
    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роли](../../iam/concepts/access-control/roles.md):
       * `dataproc.agent` — для создания и использования кластеров {{ dataproc-name }}.
       * `dataproc.provisioner` — для [автомасштабирования подкластеров](../../data-proc/concepts/autoscaling.md).
+      * `dataproc.user` — для доступа к кластерам {{ dataproc-name }} от имени [сервисного агента](../../iam/concepts/service-control.md#service-agent).
       * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 
@@ -144,13 +174,20 @@
 1. Укажите параметры:
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.default-folder }}** — `data-folder`.
    * **{{ ui-key.yc-ui-datasphere.project-page.settings.service-account }}** — `sa-for-data-proc`.
-   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — подсеть зоны доступности `{{ region-id }}-a` в каталоге `data-folder`.
-
-     {% include [subnet-create](../../_includes/subnet-create.md) %}
-
+   * **{{ ui-key.yc-ui-datasphere.project-page.settings.subnet }}** — `data-subnet`.
    * [Группу безопасности](../../vpc/concepts/security-groups.md), если они используются в вашей организации.
 
 1. Нажмите **{{ ui-key.yc-ui-datasphere.common.save }}**.
+
+### Измените настройки сообщества {#change-settings-community}
+
+Чтобы настроить подключение к кластерам {{ dataproc-name }}:
+
+1. Выберите сообщество, в котором вы [создали проект](#create-project).
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.settings-key-value }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.settings.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}**.
+1. В открывшемся окне выберите [созданный ранее](#create-sa) сервисный аккаунт и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** и выберите созданный ранее сервисный аккаунт.
 
 ## Создайте бакет {#create-bucket}
 
@@ -158,7 +195,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать бакет.
   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
@@ -181,12 +218,18 @@
    1. Нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_data-proc }}** в выпадающем списке.
    1. Введите имя кластера в поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}**. Имя кластера должно быть уникальным в рамках каталога.
    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-   1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_version }}** выберите `2.0`.
+   1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_version }}** выберите `2.1`.
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_services }}** выберите: `LIVY`, `SPARK`, `YARN` и `HDFS`.
    1. Вставьте в поле **{{ ui-key.yacloud.mdb.forms.config_field_public-keys }}** публичную часть вашего SSH-ключа.
    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите `sa-for-data-proc`.
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_zone }}** выберите `{{ region-id }}-a`.
-   1. При необходимости в поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** задайте свойства Hadoop и его компонентов, например:
+   1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_properties }}** задайте настройку для интеграции кластера с {{ ml-platform-name }}:
+
+      ```text
+      livy:livy.spark.deploy-mode : client
+      ```
+
+      При необходимости задайте свойства Hadoop и его компонентов, например:
 
       ```text
       hdfs:dfs.replication : 2
@@ -196,23 +239,15 @@
 
       {% cut "Доступные свойства в официальной документации компонентов" %}
 
-      * [Flume 1.8.0](https://flume.apache.org/releases/content/1.8.0/FlumeUserGuide.html#flume-properties)
-      * [Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/core-default.xml)
-      * [HBASE](https://hbase.apache.org/book.html#hbase_default_configurations)
-      * [HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml)
-      * [HIVE](https://cwiki.apache.org/confluence/display/Hive/Configuration+Properties)
-      * [MapReduce](https://hadoop.apache.org/docs/current/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml)
-      * [Spark](https://spark.apache.org/docs/2.2.3/configuration.html#available-properties)
-      * [SQOOP](https://sqoop.apache.org/docs/1.4.6/SqoopUserGuide.html#_additional_import_configuration_properties)
-      * [Tez 0.9.1](https://tez.apache.org/releases/0.9.1/tez-api-javadocs/configs/TezConfiguration.html)
-      * [YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-common/yarn-default.xml)
-      * [Zeppelin 0.7.3](https://zeppelin.apache.org/docs/0.7.3/install/configuration.html)
-      * [ZooKeeper 3.4.6](http://zookeeper.apache.org/doc/r3.4.6/zookeeperAdmin#sc_configuration)
+      * [Hadoop](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-common/core-default.xml)
+      * [HDFS](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-hdfs/hdfs-default.xml)
+      * [Spark](https://archive.apache.org/dist/spark/docs/3.3.2/configuration.html#available-properties)
+      * [YARN](https://hadoop.apache.org/docs/r3.3.2/hadoop-yarn/hadoop-yarn-common/yarn-default.xml)
 
       {% endcut %}
 
    1. В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите созданный бакет.
-   1. Выберите сеть для кластера.
+   1. Выберите сеть `data-network`.
    1. Включите опцию **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}**, чтобы получить доступ к [веб-интерфейсам компонентов](../../data-proc/concepts/interfaces.md) {{ dataproc-name }}.
    1. Настройте подкластеры: не больше одного главного подкластера с управляющим хостом (обозначается как **{{ ui-key.yacloud.mdb.forms.label_master-subcluster }}**) и подкластеры для хранения данных или вычислений.
 
@@ -259,20 +294,21 @@
 
    Где `#!spark --cluster <имя_кластера>` — обязательная системная команда для запуска вычислений на кластере.
 
-   Дождитесь запуска вычисления. Под ячейкой в процессе вычисления будут отображаться логи.
-
-1. Запишите данные в S3, указав имя бакета:
+1. Создайте еще одну ячейку и вставьте в нее код для записи данных в S3, указав имя бакета:
 
    ```python
-   #!spark 
+   #!spark --cluster <имя_кластера>
    data = [[1, "tiger"], [2, "lion"], [3, "snow leopard"]]
-   df = spark.createDataFrame(df, schema="id LONG, name STRING")
-   df.repartition(1).write.option("header", True).csv("s3://<имя_бакета>/")
+   df = spark.createDataFrame(data, schema="id LONG, name STRING")
+   df.repartition(1).write.option("header", True).mode("overwrite").csv("s3a://<имя_бакета>/test")
    ```
 
-1. Запустите ячейки, выбрав в меню **Run** ⟶ **Run Selected Cells** (также можно использовать сочетание клавиш **Shift** + **Enter**).
+1. Запустите все ячейки, выбрав в меню **Run** ⟶ **Run All Cells**.
+1. В открывшемся окне **{{ ui-key.yc-ui-datasphere.open-project.select-configuration }}** выберите конфигурацию ВМ и нажмите **{{ ui-key.yc-ui-datasphere.common.select }}**.
 
-После этого файл появится в бакете. Чтобы просматривать содержимое бакета в интерфейсе {{ jlab }}Lab, создайте и активируйте в проекте [коннектор S3](../../datasphere/operations/data/s3-connectors.md).
+   Дождитесь запуска вычислений. Под ячейкой в процессе вычисления будут отображаться логи.
+
+После этого файл появится в папке `test` бакета. Чтобы просматривать содержимое бакета в интерфейсе {{ jlab }}Lab, создайте и активируйте в проекте [коннектор S3](../../datasphere/operations/data/s3-connectors.md).
 
 {% include [dataproc-s3-connector](../../_includes/datasphere/data-processing-s3-connector.md) %}
 
@@ -290,8 +326,8 @@
 
 * [объекты](../../storage/operations/objects/delete-all.md) из бакета;
 * [бакет](../../storage/operations/buckets/delete.md);
-* [кластер](../../data-proc/operations/cluster-delete.md);
-* [проект](../../datasphere/operations/projects/delete.md);
+* [кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md);
+* [проект {{ ml-platform-name }}](../../datasphere/operations/projects/delete.md);
 * [подсеть](../../vpc/operations/subnet-delete.md);
 * [таблицу маршрутизации](../../vpc/operations/delete-route-table.md);
 * [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md);

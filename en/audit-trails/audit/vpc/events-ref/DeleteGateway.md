@@ -89,8 +89,12 @@ editable: false
   },
   "details": {
     "gatewayId": "string",
+    // Includes only one of the fields `gatewayName`
     "gatewayName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -263,7 +267,11 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || gatewayId | **string** ||
-|| gatewayName | **string** ||
-|| description | **string** ||
+|| gatewayName | **string**
+
+Includes only one of the fields `gatewayName`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

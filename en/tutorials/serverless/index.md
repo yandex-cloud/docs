@@ -5,7 +5,7 @@
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](video-converting-queue/index.md)
 * [{#T}](api-gw-integration.md)
-* [{#T}](serverless-url-shortener.md)
+* [{#T}](serverless-url-shortener/index.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
 * [{#T}](api-gw-websocket.md)
@@ -27,7 +27,7 @@
 * [{#T}](telegram-bot-serverless.md)
 * [{#T}](recognizer-bot.md)
 
-## Serverless ETL {#etl}
+## Serverless-based ETL {#etl}
 
 * [{#T}](data-ingestion.md)
 * [{#T}](log-ingestion.md)

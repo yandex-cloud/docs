@@ -5,7 +5,6 @@ editable: false
 # Cloud Interconnect API, gRPC: PartnerService.Get
 
 Returns the specified Partner resource.
-
 To get the list of available Partner resources, make a [List](/docs/interconnect/api-ref/grpc/Partner/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,9 @@ To get the list of available Partner resources, make a [List](/docs/interconnect
 || partner_id | **string**
 
 Required field. ID of the Partner resource to return.
-To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/grpc/Partner/list#List) request. ||
+To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/grpc/Partner/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Partner {#yandex.cloud.cic.v1.Partner}
@@ -33,7 +34,11 @@ To get the partner ID use a [PartnerService.List](/docs/interconnect/api-ref/grp
 ```json
 {
   "id": "string",
-  "region_id": "string",
+  "name": "string",
+  "url": "string",
+  "pop_ids": [
+    "string"
+  ],
   "status": "Status"
 }
 ```
@@ -45,14 +50,19 @@ A Partner resource.
 || id | **string**
 
 ID of the partner. ||
-|| region_id | **string**
+|| name | **string**
 
-ID of the region that the partner belongs to. ||
+Name of the partner. ||
+|| url | **string**
+
+Link to info about the partner. ||
+|| pop_ids[] | **string**
+
+List of pointOfPresence IDs that the partner is connected to. ||
 || status | enum **Status**
 
 Status of the partner.
 
-- `STATUS_UNSPECIFIED`
-- `UP`
-- `DOWN` ||
+- `UP`: Partner is up and operational.
+- `DOWN`: Partner is down and not operational. ||
 |#

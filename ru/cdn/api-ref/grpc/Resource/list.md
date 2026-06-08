@@ -20,6 +20,8 @@ Lists CDN resources.
 }
 ```
 
+A request to list resources.
+
 #|
 ||Field | Description ||
 || folder_id | **string**

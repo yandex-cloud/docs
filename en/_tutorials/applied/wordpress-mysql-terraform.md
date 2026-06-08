@@ -1,6 +1,6 @@
 To set up a WordPress website with a {{ MY }} cluster:
 1. [Get your cloud ready](#before-you-begin).
-1. [Create your infrastructure](#deploy).
+1. [Create the infrastructure](#deploy).
 1. [Configure Nginx web server](#configure-nginx).
 1. [Install WordPress and additional components](#install-wordpress).
 1. [Complete WordPress configuration](#configure-wordpress).
@@ -21,7 +21,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
 To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
 1. Prepare the infrastructure description files:
 
    {% list tabs group=infrastructure_description %}
@@ -39,13 +39,13 @@ To create an infrastructure using {{ TF }}:
 
         {% cut "wordpress-mysql.tf" %}
 
-        {% include [wordpress-mysql-tf-config](../../_includes/web/wordpress-mysql-tf-config.md) %}
+        {% include [wordpress-mysql-tf-config](../../_tutorials/_tutorials_includes/wordpress-mysql/wordpress-mysql-tf-config.md) %}
 
         {% endcut %}
 
    {% endlist %}
 
-   For more information about the properties of {{ TF }} resources, see the relevant {{ TF }} guides:
+   For more information about {{ TF }} resource properties, see the relevant provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).

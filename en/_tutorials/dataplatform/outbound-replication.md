@@ -1,6 +1,6 @@
 # Migrating a database from {{ mpg-name }}
 
-A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This allows you to use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters of version 10 and later. Migration across versions is also supported. For example, you can move databases from {{ PG }} ver. 11 to ver. 13.
+A {{ mpg-name }} cluster supports [logical replication](https://www.postgresql.org/docs/current/logical-replication.html). This allows you to use built-in {{ PG }} tools for migrating databases between different {{ PG }} clusters of version 10 and later. You can also migrate your databases from one {{ PG }} version to another, e.g., from {{ PG }} 15 to 17.
 
 {% note info %}
 

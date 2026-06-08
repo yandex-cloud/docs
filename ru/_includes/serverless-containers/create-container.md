@@ -60,20 +60,13 @@
      >Пример структуры конфигурационного файла:
      >
      >```hcl
-     >provider "yandex" {
-     >  token     = "<OAuth-токен>"
-     >  cloud_id  = "<идентификатор_облака>"
-     >  folder_id = "<идентификатор_каталога>"
-     >  zone      = "{{ region-id }}-a"
-     >}
-     >
      >resource "yandex_serverless_container" "test-container" {
-     >   name               = "<имя_контейнера>"
-     >   memory             = <объем_памяти>
-     >   service_account_id = "<идентификатор_сервисного_аккаунта>"
-     >   image {
-     >       url = "<URL_Docker-образа>"
-     >   }
+     >  name               = "<имя_контейнера>"
+     >  memory             = <объем_памяти>
+     >  service_account_id = "<идентификатор_сервисного_аккаунта>"
+     >  image {
+     >    url = "<URL_Docker-образа>"
+     >  }
      >}
      >```
 

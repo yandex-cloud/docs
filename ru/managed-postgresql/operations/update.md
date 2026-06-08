@@ -56,7 +56,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите нужный класс для хостов {{ PG }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -236,7 +236,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. Измените [настройки {{ PG }}](../concepts/settings-list.md), нажав кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}**.
@@ -420,7 +420,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   
   
@@ -454,7 +454,7 @@ description: Из статьи вы узнаете, как изменить на
             --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
             --maintenance-window type=<тип_технического_обслуживания>,`
                                 `day=<день_недели>,`
-                                `hour=<порядковый_номер_часового_интервала> \
+                                `hour=<час> \
             --websql-access=<разрешить_доступ_из_{{ websql-name }}> \
             --deletion-protection \
             --connection-pooling-mode=<режим_работы_менеджера_подключений> \
@@ -643,7 +643,7 @@ description: Из статьи вы узнаете, как изменить на
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<день_недели>",
-           "hour": "<порядковый_номер_часового_интервала>"
+           "hour": "<час>"
          }
        },
        "deletionProtection": <защитить_кластер_от_удаления>
@@ -698,7 +698,7 @@ description: Из статьи вы узнаете, как изменить на
        * `weeklyMaintenanceWindow` — техническое обслуживание проводится раз в неделю в указанное время:
 
          * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-         * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+         * `hour` — час по UTC: от `1` до `24`.
 
            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -780,7 +780,7 @@ description: Из статьи вы узнаете, как изменить на
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<день_недели>",
-           "hour": "<порядковый_номер_часового_интервала>"
+           "hour": "<час>"
          }
        },
        "deletion_protection": <защитить_кластер_от_удаления>
@@ -835,7 +835,7 @@ description: Из статьи вы узнаете, как изменить на
        * `weekly_maintenance_window` — техническое обслуживание проводится раз в неделю в указанное время:
 
          * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-         * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+         * `hour` — час по UTC: от `1` до `24`.
 
            > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -907,7 +907,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку ![icon-hosts.svg](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
   1. Нажмите кнопку ![icon-autofailover.svg](../../_assets/console-icons/shuffle.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.button_manual-failover }}**.
       * Чтобы переключить мастер на одну из кворумных реплик, оставьте опцию **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-switch-master_auto }}** включенной.
@@ -1021,7 +1021,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) справа в строке кластера, который вы хотите переместить.
     1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-move }}**.
     1. Выберите каталог, в который вы хотите переместить кластер.
@@ -1145,7 +1145,7 @@ description: Из статьи вы узнаете, как изменить на
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите группы безопасности для сетевого трафика кластера.
 

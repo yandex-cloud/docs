@@ -346,33 +346,25 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../certificate-manager/security/index.md).
 
 
-## {{ interconnect-full-name }} {#interconnect-roles}
+## {{ cloud-apps-full-name }} {#cloud-apps-roles}
 
-#### cic.auditor {#cic-auditor}
+#### cloudapps.auditor {#cloudapps-auditor}
 
-{% include [cic.auditor](../_roles/cic/auditor.md) %}
+{% include [cloudapps.auditor](../_roles/cloudapps/auditor.md) %}
 
-#### cic.viewer {#cic-viewer}
+#### cloudapps.viewer {#cloudapps-viewer}
 
-{% include [cic.viewer](../_roles/cic/viewer.md) %}
+{% include [cloudapps.viewer](../_roles/cloudapps/viewer.md) %}
 
-#### cic.editor {#cic-editor}
+#### cloudapps.editor {#cloudapps-editor}
 
-{% include [cic.editor](../_roles/cic/editor.md) %}
+{% include [cloudapps.editor](../_roles/cloudapps/editor.md) %}
 
-#### cic.admin {#cic-admin}
+#### cloudapps.admin {#cloudapps-admin}
 
-{% include [cic.admin](../_roles/cic/admin.md) %}
+{% include [cloudapps.admin](../_roles/cloudapps/admin.md) %}
 
-#### cic.secretViewer {#cic-secretviewer}
-
-{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
-
-#### cic.secretEditor {#cic-secreteditor}
-
-{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
-
-Подробнее см. [{#T}](../interconnect/security/index.md).
+Подробнее см. [{#T}](../cloud-apps/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -556,6 +548,35 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../functions/security/index.md).
 
 
+## {{ interconnect-full-name }} {#interconnect-roles}
+
+#### cic.auditor {#cic-auditor}
+
+{% include [cic.auditor](../_roles/cic/auditor.md) %}
+
+#### cic.viewer {#cic-viewer}
+
+{% include [cic.viewer](../_roles/cic/viewer.md) %}
+
+#### cic.editor {#cic-editor}
+
+{% include [cic.editor](../_roles/cic/editor.md) %}
+
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
+
+#### cic.secretViewer {#cic-secretviewer}
+
+{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
+
+#### cic.secretEditor {#cic-secreteditor}
+
+{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
+
+Подробнее см. [{#T}](../interconnect/security/index.md).
+
+
 ## {{ cloud-logging-full-name }} {#logging-roles}
 
 #### logging.viewer {#logging-viewer}
@@ -592,6 +613,10 @@ description: В статье приведен полный справочник 
 #### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
 
 {% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
 
 #### marketplace.product.creator {#marketplace-product-creator}
 
@@ -645,6 +670,26 @@ description: В статье приведен полный справочник 
 #### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
 
 {% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
+
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
 
 Подробнее см. [{#T}](../marketplace/security/index.md).
 
@@ -898,6 +943,10 @@ description: В статье приведен полный справочник 
 
 {% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
 
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../_roles/datalens/collections/visitor.md) %}
+
 #### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
 {% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
@@ -906,6 +955,18 @@ description: В статье приведен полный справочник 
 
 {% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
 
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedEntryBindingCreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entryBindingCreator}
+
+{% include [datalens.collections.entryBindingCreator](../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../_roles/datalens/collections/creator.md) %}
+
 #### datalens.collections.editor {#datalens-collections-editor}
 
 {% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
@@ -913,10 +974,6 @@ description: В статье приведен полный справочник 
 #### datalens.collections.admin {#datalens-collections-admin}
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
-
-#### datalens.metaReader {#datalens-metaReader}
-
-{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 #### datalens.visitor {#datalens-visitor}
 
@@ -937,6 +994,10 @@ description: В статье приведен полный справочник 
 #### datalens.instances.admin {#datalens-instances-admin}
 
 {% include [datalens-instances-admin](../_roles/datalens/instances/admin.md) %}
+
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 Подробнее см. [{#T}](../datalens/security/roles.md).
 
@@ -1106,6 +1167,10 @@ description: В статье приведен полный справочник 
 #### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
 
 {% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -2653,7 +2718,7 @@ description: В статье приведен полный справочник 
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-Подробнее см. [{#T}](../speechsense/security/index.md).
+Подробнее см. [Управление доступом в {{ speechsense-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}

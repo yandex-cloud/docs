@@ -5,7 +5,7 @@ description: This page describes the possible {{ video-player-name }} states in 
 
 # Player state
 
-You can get information about the video player state and [parameters](#player-params) using a [special object](#player-state) which contains fields with state values.
+You can follow the state and [parameters](#player-params) of the video player via a [state object](#player-state), which has fields for different state values.
 
 ## Video player parameters {#player-params}
 
@@ -118,7 +118,10 @@ A player state is an object with the following fields:
 * [playbackSpeed](#state-playbackSpeed)
 * [utcStartTime](#state-utcStartTime)
 * [seekableRange](#state-seekableRange)
-* [bufferedRanges](#state-bufferedRanges).
+* [bufferedRanges](#state-bufferedRanges)
+* [isFullscreen](#state-isFullscreen)
+* [textTracks](#state-textTracks)
+* [textTrack](#state-textTrack).
 
 #### source {#state-source}
 
@@ -226,7 +229,7 @@ The default value is `{ start: NaN, end: NaN }`.
 
 #### bufferedRanges {#state-bufferedRanges}
 
-Buffered ranges. This is an array of objects in the following format:
+Buffered ranges. Array of objects in the following format:
 
 ```javascript
 {
@@ -246,6 +249,31 @@ The default value is an empty array (`[]`).
 Fullscreen mode status. If `true`, full screen is on; if `false`, full screen is off.
 
 The default value is `false`.
+
+#### textTracks {#state-textTracks}
+
+Array of available text tracks (subtitles). Each item is an object in the following format:
+
+```javascript
+{
+    /** @type {string} Track name displayed in the interface */
+    name,
+    /** @type {string} Track ID used for changing via setTextTrack */
+    value,
+    /** @type {string} Track language in ISO 639-1 format, e.g., "ru" or "en" */
+    lang,
+}
+```
+
+The default value is an empty array (`[]`).
+
+#### textTrack {#state-textTrack}
+
+Current text track (subtitles). `null` if subtitles are disabled.
+
+The object format is similar to that of [textTracks](#state-textTracks) array items.
+
+The default value is `null`.
 
 #### See also {#see-also}
 

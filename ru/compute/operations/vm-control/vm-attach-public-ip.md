@@ -5,3 +5,9 @@
 Если у ВМ несколько [сетевых интерфейсов](../../concepts/network.md), вы можете привязать публичные IP-адреса к каждому из них.
 
 {% include [vm-attach-public-ip](../../../_includes/compute/vm-attach-public-ip.md) %}
+
+#### См. также {#see-also}
+
+* [{#T}](./vm-set-static-ip.md)
+* [{#T}](../../../vpc/operations/set-static-ip.md)
+* [{#T}](./attach-network-interface.md)

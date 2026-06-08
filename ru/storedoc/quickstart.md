@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 ## Создайте кластер {#cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
 1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mmg-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
@@ -76,4 +76,5 @@ description: Следуя данной инструкции, вы сможете
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
+* Посмотрите запись вебинара «Руководство по {{ mmg-short-name }}» на [YouTube](https://www.youtube.com/live/uTt52jcvJ98) или [{{ video-name }}](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).

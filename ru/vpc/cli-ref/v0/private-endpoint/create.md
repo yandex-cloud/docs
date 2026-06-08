@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/create
 editable: false
 ---
 
@@ -27,6 +28,9 @@ ID of the network to which the private endpoint belongs. ||
 
 Name of the network to which the private endpoint belongs. ||
 || `--object-storage` | Object storage ||
+|| `--service-name` | `string`
+
+Name of the cloud service to access through the private endpoint (e.g. yandex.cloud.storage). ||
 || `--description` | `string`
 
 Description of the private endpoint. ||
@@ -62,9 +66,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

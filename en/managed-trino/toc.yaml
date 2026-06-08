@@ -25,6 +25,8 @@ items:
             href: operations/cluster-access.md
           - name: Maintenance
             href: operations/cluster-maintenance.md
+          - name: Managing resource groups
+            href: operations/manage-resource-groups.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Catalogs
@@ -81,6 +83,8 @@ items:
         href: concepts/instance-types.md
       - name: Access management
         href: concepts/access-control.md
+      - name: Resource groups
+        href: concepts/resource-groups.md
       - name: Maintenance
         href: concepts/maintenance.md
   - name: CLI reference

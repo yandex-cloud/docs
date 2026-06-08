@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-You can configure automatic loading of dialog files and their metadata from the {{ objstorage-name }} bucket to [{{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#space) space. Supported formats are:
+You can configure automatic loading of dialog files and their metadata from the {{ objstorage-name }} bucket to [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
 
   * `MP3`, `WAV`, and `OggOpus`: For audio files.
   * `JSON`: For chat conversations.
@@ -28,14 +28,14 @@ On the diagram:
     1. Logging the file metadata and unique identifier in {{ speechsense-name }} space once the file is successfully uploaded.
 1. {{ websql-name }} provides access to the metadata DB. One database user is used for browsing, and another one for uploading files.
 
-You can set up automatic data upload for several [{{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#connection) connections at once.
+You can set up automatic data upload for several [{{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) connections at once.
 
 To automate uploading data to {{ speechsense-name }}, follow these steps:
 
 1. [Get your cloud ready](#before-you-begin).
 1. [Create an infrastructure for uploading files](#infra).
 1. [Create a {{ lockbox-name }} secret](#create-secret).
-1. [Create a {{ mpg-name }} cluster data model](#create-table).
+1. [Create a {{ mpg-full-name }} cluster data model](#create-table).
 1. [In the {{ objstorage-name }} bucket, create directories to store files and their metadata](#create-folder).
 1. [Prepare the metadata](#prepare-metadata).
 1. [Upload the files to the {{ objstorage-name }} bucket](#upload-files).
@@ -49,8 +49,6 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [before-you-begin](../../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
 ### Required paid resources {#paid-resources}
-
-The cost of resources includes:
 
 * Fee for data storage in a bucket and data operations (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
 * Cluster usage fee (see [{{ mpg-full-name }} pricing](../../../managed-postgresql/pricing.md)).
@@ -70,12 +68,12 @@ Create two service accounts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -116,15 +114,17 @@ Create two service accounts:
 
       If you will be creating a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
 
-  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
 - API {#api}
 
+  
   To create a service account, use the [create](../../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService.Create](../../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
   To assign the [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin` roles to the `deploy-sa` service account, use the [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService.SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
-  In the same way, assign the following roles to the `speechsense-sa` service account: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  In the same way, assign the following roles to the `speechsense-sa` service account: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
+
 
 {% endlist %}
 
@@ -137,13 +137,13 @@ Create an API key for the `speechsense-sa` service account.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with the service account.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense-sa` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the window that opens, select the `yc.speech-sense.use` [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) in the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
-  1. Save the ID and secret key.
+  1. Save the ID and the secret key.
 
       {% note alert %}
 
@@ -173,7 +173,9 @@ Create an API key for the `speechsense-sa` service account.
 
 - API {#api}
 
+  
   Create an API key using the [create](../../../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../../iam/api-ref/ApiKey/index.md) resource:
+
 
   ```bash
   export SERVICEACCOUNT_ID=<service_account_ID>
@@ -188,10 +190,12 @@ Create an API key for the `speechsense-sa` service account.
 
   Where:
 
+  
   * `SERVICEACCOUNT_ID`: Service account [ID](../../../iam/operations/sa/get-id.md).
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
   You can also create an API key using the [ApiKeyService.Create](../../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
+
 
 {% endlist %}      
 
@@ -220,7 +224,7 @@ Add the `speechsense-sa` service account to the {{ speechsense-name }} space.
   1. Go to your [new space](#create-space).
   1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
   1. Copy the ID of the `speechsense-sa` service account you [created earlier](#create-sa) and paste it to the search bar.
-  1. Select the `speechsense-sa` service account and specify the [{{ roles-speechsense-data-editor }}](../../../speechsense/security/index.md#speechsense-data-editor) role. This role will allow `speechsense-sa` to upload data to {{ speechsense-name }}.
+  1. Select the `speechsense-sa` service account and specify the [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) role. This role will allow `speechsense-sa` to upload data to {{ speechsense-name }}.
   1. Click **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 {% endlist %}
@@ -301,7 +305,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 {% endlist %}
 
-## Create your infrastructure {#infra}
+## Create the infrastructure {#infra}
 
 1. Clone the [yc-serverless-speechsense-workflows](https://github.com/yandex-cloud-examples/yc-serverless-speechsense-workflows) repository:
 
@@ -369,7 +373,9 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     {% endlist %}
 
+    
     In the command line, enter the [folder ID](../../../resource-manager/operations/folder/get-id.md), `speechsense-sa` as the name of the service account that will call functions and run the workflow, and [bucket name](../../../storage/concepts/bucket.md#naming).
+
 
     The script execution time is about 10-15 minutes.
 
@@ -380,28 +386,28 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Click **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `speechsense-secret`.
 
-  1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
+  1. Under **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-        1. Select the **{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}** secret type.
+        1. Select the **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}** secret type.
         
         1. Add the service account's API key:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_api_key`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the value of the `speechsense-sa` service account's API key you [created earlier](#create-key).
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_api_key`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the value of the `speechsense-sa` service account's API key you [created earlier](#create-key).
 
-        1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the {{ speechsense-name }} connection ID:
+        1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and add the {{ speechsense-name }} connection ID:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_connection_id`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the ID of the connection you [created earlier](#create-connection).
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_connection_id`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the ID of the connection you [created earlier](#create-connection).
 
-        1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and add the format for the dialog files that will be uploaded to {{ speechsense-name }}:
+        1. Click **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** and add the format for the dialog files that will be uploaded to {{ speechsense-name }}:
 
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify: `speechsense_file_format`.
-            * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the file format. Acceptable values: `mp3`, `wav`, `ogg`, and `text`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** field, specify: `speechsense_file_format`.
+            * In the **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** field, specify the file format. Acceptable values: `mp3`, `wav`, `ogg`, and `text`.
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -435,6 +441,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 - API {#api}
 
+  
   To create a secret, use the [create](../../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../../lockbox/api-ref/Secret/index.md) resource or the [SecretService.Create](../../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
 {% endlist %}
@@ -464,7 +471,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder.
-        1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Click the name of the cluster you [created earlier](#infra). By default, it is `speechsense-upload-metadata`.
         1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_explore-websql }}** tab.
         1. Click the connection name that ends with `-uploader`.
@@ -489,7 +496,7 @@ Make sure the directories are not nested one inside the other.
   To create a directory:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket you need.
     1. Click **{{ ui-key.yacloud.storage.bucket.button_create }}** and specify the directory name.
     1. Click **{{ ui-key.yacloud.storage.bucket.popup-create-folder_button_create }}**.
@@ -501,7 +508,7 @@ Make sure the directories are not nested one inside the other.
     ```bash
     yc storage s3api put-object \
       --bucket <bucket_name> \
-      --key <directory_name>/
+      --key <directory_name/
     ```
 
   Result:
@@ -635,9 +642,9 @@ If there are more than 1,000 files, do not use the management console for upload
   To upload your files:
 
     1. In the [management console]({{ link-console-main }}), select the folder.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Go to the bucket you want to upload your files to.
-    1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
+    1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
     1. Click the directory name to go to that directory.
     1. Within the directory you need, click ![image](../../../_assets/console-icons/arrow-up-from-line.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** on the top panel.
     1. In the window that opens, select the files and click **Open**.
@@ -714,7 +721,7 @@ To check on the workflow:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Click the workflow name. By default, it is `wf-speechsense-upload`.
   1. Navigate to the **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}** tab.
@@ -742,14 +749,15 @@ To check that the files were successfully uploaded into {{ speechsense-name }}:
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them.
 
+
 1. [Delete](../../../storage/operations/buckets/delete.md) objects from the {{ objstorage-name }} bucket and the bucket itself.
 1. [Delete](../../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.
 1. [Delete](../../../functions/operations/trigger/trigger-delete.md) the trigger invoking the function in {{ sf-name }}.
 1. [Delete](../../../functions/operations/function/function-delete.md) the {{ sf-name }} functions.
-1. Delete the connection to the {{ mpg-name }} cluster database:
+1. Delete the {{ mpg-name }} cluster database connection:
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete a connection from.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-mdb-proxy }}**.
     1. In the `speechsense-upload-metadata-connection` connection row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -757,7 +765,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 1. Delete the {{ sw-name }} workflow:
 
     1. In the [management console]({{ link-console-main }}), select the folder to delete a workflow from.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. In the left-hand panel, select ![GraphNode](../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to `wf-speechsense-upload` and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.

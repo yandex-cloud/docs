@@ -5,7 +5,6 @@ editable: false
 # Managed Service for MongoDB API, gRPC: BackupService.Get
 
 Returns the specified MongoDB backup.
-
 To get the list of available MongoDB backups, make a [List](/docs/managed-mongodb/api-ref/grpc/Backup/list#List) request.
 
 ## gRPC request

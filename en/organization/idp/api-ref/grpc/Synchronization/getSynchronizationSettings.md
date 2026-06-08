@@ -62,7 +62,8 @@ The maximum string length in characters is 50. ||
     }
   ],
   "created_at": "google.protobuf.Timestamp",
-  "replacement_domain": "string"
+  "replacement_domain": "string",
+  "enable_password_writeback": "bool"
 }
 ```
 
@@ -103,6 +104,9 @@ Timestamp when the settings were created. ||
 || replacement_domain | **string**
 
 Domain replacement configuration. ||
+|| enable_password_writeback | **bool**
+
+Enables password writeback feature. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}

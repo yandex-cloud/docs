@@ -25,3 +25,7 @@ description: 'Step-by-step guide for working with DNS zones and resource records
 - [{#T}](resource-record-create.md)
 - [{#T}](resource-record-update.md)
 - [{#T}](resource-record-delete.md)
+
+## DNS filters {#dns-filter}
+
+- [{#T}](filter-create.md)

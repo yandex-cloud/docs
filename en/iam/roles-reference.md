@@ -337,61 +337,7 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 
 {% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
 
-Learn more in [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
-
-
-## {{ interconnect-full-name }} {#interconnect-roles}
-
-#### cic.auditor {#cic-auditor}
-
-{% include [cic.auditor](../_roles/cic/auditor.md) %}
-
-#### cic.viewer {#cic-viewer}
-
-{% include [cic.viewer](../_roles/cic/viewer.md) %}
-
-#### cic.editor {#cic-editor}
-
-{% include [cic.editor](../_roles/cic/editor.md) %}
-
-#### cic.admin {#cic-admin}
-
-{% include [cic.admin](../_roles/cic/admin.md) %}
-
-#### cic.secretViewer {#cic-secretviewer}
-
-{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
-
-#### cic.secretEditor {#cic-secreteditor}
-
-{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
-
-For more information, see [{#T}](../interconnect/security/index.md).
-
-
-## {{ cr-full-name }} {#cloudrouter-roles}
-
-#### cloud-router.auditor {#cloudrouter-auditor}
-
-{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
-
-#### cloud-router.viewer {#cloudrouter-viewer}
-
-{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
-
-#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
-
-{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
-
-#### cloud-router.editor {#cloudrouter-editor}
-
-{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
-
-#### cloud-router.admin {#cloudrouter-admin}
-
-{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
-
-For more information, see [{#T}](../cloud-router/security/index.md).
+For more information, see [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -575,6 +521,35 @@ For more information, see [{#T}](../dns/security/index.md).
 For more information, see [{#T}](../functions/security/index.md).
 
 
+## {{ interconnect-full-name }} {#interconnect-roles}
+
+#### cic.auditor {#cic-auditor}
+
+{% include [cic.auditor](../_roles/cic/auditor.md) %}
+
+#### cic.viewer {#cic-viewer}
+
+{% include [cic.viewer](../_roles/cic/viewer.md) %}
+
+#### cic.editor {#cic-editor}
+
+{% include [cic.editor](../_roles/cic/editor.md) %}
+
+#### cic.admin {#cic-admin}
+
+{% include [cic.admin](../_roles/cic/admin.md) %}
+
+#### cic.secretViewer {#cic-secretviewer}
+
+{% include [cic.secretViewer](../_roles/cic/secretViewer.md) %}
+
+#### cic.secretEditor {#cic-secreteditor}
+
+{% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
+
+For more information, see [{#T}](../interconnect/security/index.md).
+
+
 ## {{ cloud-logging-full-name }} {#logging-roles}
 
 #### logging.viewer {#logging-viewer}
@@ -611,6 +586,10 @@ For more information, see [{#T}](../logging/security/index.md).
 #### license-manager.saasSubscriptionSupervisor {#license-manager-saasSubscriptionSupervisor}
 
 {% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
+
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
 
 #### marketplace.product.creator {#marketplace-product-creator}
 
@@ -664,6 +643,26 @@ For more information, see [{#T}](../marketplace/security/partners.md).
 #### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
 
 {% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
+
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
 
 For more information, see [{#T}](../marketplace/security/index.md).
 
@@ -753,6 +752,31 @@ For more information, see [{#T}](../postbox/security/index.md).
 {% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
 
 For more information, see [{#T}](../cloud-registry/security/index.md).
+
+
+## {{ cr-full-name }} {#cloudrouter-roles}
+
+#### cloud-router.auditor {#cloudrouter-auditor}
+
+{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
+
+#### cloud-router.viewer {#cloudrouter-viewer}
+
+{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
+
+#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
+
+#### cloud-router.editor {#cloudrouter-editor}
+
+{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
+
+#### cloud-router.admin {#cloudrouter-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+For more information, see [{#T}](../cloud-router/security/index.md).
 
 
 ## {{ video-full-name }} {#video-roles}
@@ -891,6 +915,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
 
+#### datalens.collections.visitor {#datalens-collections-visitor}
+
+{% include [datalens.collections.visitor](../_roles/datalens/collections/visitor.md) %}
+
 #### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
 
 {% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
@@ -899,6 +927,18 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
 
+#### datalens.collections.limitedEntryBindingCreator {#datalens-collections-limitedEntryBindingCreator}
+
+{% include [datalens.collections.limitedEntryBindingCreator](../_roles/datalens/collections/limitedEntryBindingCreator.md) %}
+
+#### datalens.collections.entryBindingCreator {#datalens-collections-entryBindingCreator}
+
+{% include [datalens.collections.entryBindingCreator](../_roles/datalens/collections/entryBindingCreator.md) %}
+
+#### datalens.collections.creator {#datalens-collections-creator}
+
+{% include [datalens.collections.creator](../_roles/datalens/collections/creator.md) %}
+
 #### datalens.collections.editor {#datalens-collections-editor}
 
 {% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
@@ -906,10 +946,6 @@ For more information, see [{#T}](../container-registry/security/index.md).
 #### datalens.collections.admin {#datalens-collections-admin}
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
-
-#### datalens.metaReader {#datalens-metaReader}
-
-{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 #### datalens.visitor {#datalens-visitor}
 
@@ -930,6 +966,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 #### datalens.instances.admin {#datalens-instances-admin}
 
 {% include [datalens-instances-admin](../_roles/datalens/instances/admin.md) %}
+
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
 
 For more information, see [{#T}](../datalens/security/roles.md).
 
@@ -1099,6 +1139,10 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 #### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
 
 {% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -2647,7 +2691,7 @@ Learn more in [Access management in {{ speechkit-name }}]({{ link-docs-ai }}spee
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-For more information, see [{#T}](../speechsense/security/index.md).
+For more information, see [Access management in {{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}

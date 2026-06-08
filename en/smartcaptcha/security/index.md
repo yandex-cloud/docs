@@ -1,26 +1,26 @@
 ---
 title: Access management in {{ captcha-name }}
-description: This section describes the resources you can assign a role for and roles available in {{ captcha-name }}.
+description: This section lists the resources supporting role assignment and roles available in {{ captcha-name }}.
 ---
 
 # Access management in {{ captcha-name }}
 
 In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
+* [Resources supporting role assignment](#resources).
+* [Roles available in the service](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `smart-captcha.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `smart-captcha.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
-You can assign a role for an [organization](../../organization/), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for an organization, cloud, or folder also apply to the CAPTCHAs in them.
+You can assign roles for [organizations](../../organization/), [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [folders](../../resource-manager/concepts/resources-hierarchy.md#folder). Roles assigned for organizations, clouds, and folders also apply to the CAPTCHAs within them.
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -50,14 +50,14 @@ You can assign a role for an [organization](../../organization/), [cloud](../../
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#choosing-roles}
+## Required roles {#choosing-roles}
 
-The table shows actions and minimum roles required to perform them. You can always assign a role offering more permissions than the one specified in the table. For example, you can assign `smart-captcha.editor` instead of `smart-captcha.viewer`.
+The table below maps actions to the minimum roles required to perform them. You are free to assign a role with broader permissions than the one listed in the table, e.g., `smart-captcha.editor` instead of `smart-captcha.viewer`.
 
-Action | User role
+Action | Role
 ----- | -----
-Viewing CAPTCHA information | `smart-captcha.viewer`
+Viewing CAPTCHA details | `smart-captcha.viewer`
 Creating a CAPTCHA | `smart-captcha.editor`
 Editing a CAPTCHA | `smart-captcha.editor`
 Deleting a CAPTCHA | `smart-captcha.editor`
-Managing roles of CAPTCHA users | `smart-captcha.admin`
+Managing CAPTCHA user roles | `smart-captcha.admin`

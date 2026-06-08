@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ captcha-full-name }}'
-description: This page provides reference information on the {{ TF }} provider resources and data sources supported for {{ captcha-name }}.
+description: This page lists {{ TF }} provider resources and data sources supported by {{ captcha-name }}.
 ---
 
 # {{ TF }} reference for {{ captcha-full-name }}
@@ -9,9 +9,9 @@ description: This page provides reference information on the {{ TF }} provider r
 
 ## Resources {#resources}
 
-The following {{ TF }} provider resources are supported for {{ captcha-name }}:
+{{ captcha-name }} supports the following {{ TF }} provider resources:
 
-| **{{ TF }}** resource | **{{ yandex-cloud }}** resource |
+| **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [smartcaptcha_captcha]({{ tf-provider-resources-link }}/smartcaptcha_captcha) | [Standard CAPTCHA](./concepts/validation.md#usual-captcha) |
 
@@ -19,6 +19,6 @@ The following {{ TF }} provider resources are supported for {{ captcha-name }}:
 
 {{ captcha-name }} supports the following {{ TF }} provider data sources:
 
-| **{{ TF }}** data source | **Description** |
+| **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [smartcaptcha_captcha]({{ tf-provider-datasources-link }}/smartcaptcha_captcha) | [Standard CAPTCHA](./concepts/validation.md#usual-captcha) information |
+| [smartcaptcha_captcha]({{ tf-provider-datasources-link }}/smartcaptcha_captcha) | [Standard CAPTCHA](./concepts/validation.md#usual-captcha) details |

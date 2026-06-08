@@ -67,14 +67,14 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
    1. In the window that opens, select `Specify manually` for the connection type and provide the following connection parameters:
 
-      * **Host name**: `rc1a-g1gicp3imcc0pnsg.{{ dns-zone }},rc1b-vbbl6tob599tr3oi.{{ dns-zone }},rc1d-qf1ven1igeihhbep.{{ dns-zone }}` (comma-separated).
+      * **Host name**: `rc1a-g1gicp3imcc0pnsg.mdb.yandexcloud.net,rc1b-vbbl6tob599tr3oi.mdb.yandexcloud.net,rc1d-qf1ven1igeihhbep.mdb.yandexcloud.net` (comma-separated).
       * **HTTP interface port**: `8443` (default).
       * **Username**: `datalens-marathon-2020-11-ro`.
       * **Password**: `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.
 
    1. Click **Check connection** and make sure you get a green check mark.
    1. Click **Create connection**.
-   1. Enter the connection name:`DODO Con`.
+   1. Enter the connection name: `DODO Con`.
    1. Click **Create**.
 
       ![create-connection](../../_assets/datalens/solution-09/04-create-connection.png)
@@ -260,7 +260,7 @@ To visualize order density across Russia, create a [map](../../datalens/visualiz
 
 1. Go to the `Companies: supply and demand` workbook by clicking its name in the dashboard path.
 1. In the top-right corner, click **Create** → ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboard**.
-1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to the required area.
+1. In the panel at the bottom of the page, hold down ![image](../../_assets/console-icons/chart-column.svg) **Chart** and drag it to desired position.
 
    ![add-chart](../../_assets/datalens/solution-09/23-add-chart.png)
 

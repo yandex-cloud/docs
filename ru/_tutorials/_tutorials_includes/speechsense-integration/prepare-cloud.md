@@ -9,11 +9,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}](../../../speechsense/pricing.md)).
+В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-Создайте сервисный аккаунт с [ролью](../../../speechsense/security/index.md#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту {{ speechsense-name }}.
+Создайте сервисный аккаунт с [ролью]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту {{ speechsense-name }}.
 
 {% list tabs group=instructions %}
 
@@ -22,7 +22,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `speechsense`.
+  1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts): `speechsense`.
   1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `speech-sense.data.editor`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -61,9 +61,9 @@
 
   1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
-  1. Введите название [пространства](../../../speechsense/concepts/resources-hierarchy.md#space).
+  1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-  1. [Привяжите платежный аккаунт](../../../speechsense/operations/space/link-ba.md) к пространству для оплаты {{ speechsense-name }}.
+  1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
 
       {% include [manage-ba-note](../../../_includes/speechsense/manage-ba-note.md) %}
 
@@ -79,7 +79,7 @@
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в [новое пространство](#create-space).
   1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
   1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense` и укажите роль [{{ roles-speechsense-data-editor }}](../../../speechsense/security/index.md#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
+  1. Выберите сервисный аккаунт `speechsense` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
   1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 {% endlist %}

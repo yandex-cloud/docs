@@ -15,7 +15,7 @@ items:
             href: operations/cluster-create.md
           - name: Updating cluster settings
             href: operations/update.md
-          - name: '{{ VLK }} version upgrade'
+          - name: '{{ VLK }} version update'
             href: operations/cluster-version-update.md
           - name: Working with {{ VLK }} models
             href: operations/modules.md
@@ -117,7 +117,7 @@ items:
         href: concepts/maintenance.md
       - name: '{{ VLK }} settings'
         href: concepts/settings-list.md
-      - name: Versioning policy {{ VLK }}
+      - name: '{{ VLK }} versioning policy'
         href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
@@ -357,6 +357,18 @@ items:
         items:
           - name: Overview
             href: api-ref/grpc/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/grpc/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/grpc/BackupRetentionPolicy/list.md
+              - name: ListByFolder
+                href: api-ref/grpc/BackupRetentionPolicy/listByFolder.md
+              - name: Create
+                href: api-ref/grpc/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/grpc/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview
@@ -463,6 +475,18 @@ items:
         items:
           - name: Overview
             href: api-ref/index.md
+          - name: BackupRetentionPolicy
+            items:
+              - name: Overview
+                href: api-ref/BackupRetentionPolicy/index.md
+              - name: List
+                href: api-ref/BackupRetentionPolicy/list.md
+              - name: ListByFolder
+                href: api-ref/BackupRetentionPolicy/listByFolder.md
+              - name: Create
+                href: api-ref/BackupRetentionPolicy/create.md
+              - name: Delete
+                href: api-ref/BackupRetentionPolicy/delete.md
           - name: Backup
             items:
               - name: Overview

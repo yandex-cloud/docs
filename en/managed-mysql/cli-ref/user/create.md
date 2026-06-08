@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/user/create
 editable: false
 ---
 
@@ -56,6 +57,9 @@ The maximum permitted number of simultaneous client connections per hour. ||
 || `--max-user-connections` | `int`
 
 The maximum number of simultaneous connections permitted to any given MySQL user account. ||
+|| `--deletion-protection` | `string`
+
+Protection from accidental deletion. Values: disabled, enabled, inherit, true, false ||
 |#
 
 #### Global Flags
@@ -73,9 +77,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

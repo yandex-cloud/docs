@@ -9,12 +9,11 @@ apiPlayground:
         hostGroupId:
           description: |-
             **string**
-            Required field. ID of the host group to return.
+            ID of the host group to return.
             To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
-            The maximum string length in characters is 50.
+            The length must be less than or equal to 50.
+            This field is required.
           type: string
-      required:
-        - hostGroupId
       additionalProperties: false
     query: null
     body: null
@@ -39,8 +38,8 @@ GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 
 Required field. ID of the host group to return.
 To get the host group ID, use [HostGroupService.List](/docs/compute/api-ref/HostGroup/list#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostGroup}

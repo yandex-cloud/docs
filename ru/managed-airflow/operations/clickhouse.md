@@ -15,9 +15,9 @@ description: С помощью направленного ациклическо
    * **Пароль** — `admin-password`.
 
    {% note warning %}
-   
+
    Создание базы данных с именем `default` запрещено.
-   
+
    {% endnote %}
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}, в котором будет храниться DAG-файл.
@@ -30,7 +30,7 @@ description: С помощью направленного ациклическо
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
@@ -42,9 +42,9 @@ description: С помощью направленного ациклическо
 
 [Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
    * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/ch`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}** — `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
 
       ```json
       {

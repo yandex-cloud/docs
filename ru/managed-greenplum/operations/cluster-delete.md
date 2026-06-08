@@ -1,9 +1,9 @@
 ---
-title: Как удалить кластер в {{ mgp-full-name }}
-description: Из статьи вы узнаете, как удалить кластер в {{ mgp-name }}.
+title: Как удалить кластер {{ mgp-full-name }}
+description: Из статьи вы узнаете, как удалить кластер {{ mgp-name }}.
 ---
 
-# Удаление кластера {{ GP }}
+# Удаление кластера {{ mgp-name }}
 
 ## Перед удалением кластера {#before-you-delete}
 
@@ -19,7 +19,7 @@ description: Из статьи вы узнаете, как удалить кла
 - Консоль управления {#console}
 
   1. Перейдите [на страницу каталога]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** и подтвердите удаление.
 
 - CLI {#cli}
@@ -90,5 +90,3 @@ description: Из статьи вы узнаете, как удалить кла
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

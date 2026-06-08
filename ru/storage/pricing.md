@@ -54,12 +54,6 @@ blocks:
 :::
 
 
-{% note warning %}
-
-С 20 апреля 2026 года функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md) тарифицируется.
-
-{% endnote %}
-
 
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
@@ -123,8 +117,6 @@ blocks:
 
 
 ## Примеры расчета стоимости {#price-example}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 ### Хранение данных {#prices-storage}
 
@@ -231,8 +223,6 @@ blocks:
 
 
 ## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 **Пример 1**
 

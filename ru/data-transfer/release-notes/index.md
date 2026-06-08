@@ -43,6 +43,26 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Май {#may26}
+
+#### Новые возможности и улучшения {#new-features-may26}
+
+* Поддержан новый [эндпоинт приемник {{ IBRG }}](../operations/endpoint/target/iceberg.md).
+
+* В эндпоинтах ![greenplum](../../_assets/data-transfer/icons/greenplum-icon.svg) {{ GP }} поддержана работа с СУБД [{{ CB }}](https://cloudberry.apache.org/).
+
+### Апрель {#apr26}
+
+#### Новые возможности и улучшения {#new-features-apr26}
+
+* Поддержан перенос нетабличных объектов [{{ GP }}](../operations/endpoint/source/greenplum.md) (функции, последовательности, индексы).
+
+* Поддержано сжатие на уровне формата данных для Parquet при записи в приемник [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md).
+
+
+* Поддержана запись из [{{ yds-short-name }}](../operations/endpoint/source/data-streams.md) в [{{ OS }}](../operations/endpoint/target/opensearch.md).
+
+
 ### Март {#mar26}
 
 #### Новые возможности и улучшения {#new-features-mar26}

@@ -52,11 +52,15 @@ Available scopes are listed below:
 * `yc.monium.traces.write`: To write [distributed traces](../../../monium/traces/index.md) to [{{ monium-name }}](../../../monium/index.yaml).
 * `yc.monium.telemetry.write`: To write any type of telemetry to [{{ monium-name }}](../../../monium/index.yaml) over [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol).
 * `yc.postbox.send`: To send emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
+* `yc.cloud-registry.artifacts.manage`: To view, publish, and delete artifacts from [{{ cloud-registry-full-name }}](../../../cloud-registry/index.yaml).
+* `yc.cloud-registry.artifacts.pull`: To view and download artifacts from [{{ cloud-registry-full-name }}](../../../cloud-registry/index.yaml).
+* `yc.cloud-registry.artifacts.push`: To view and publish artifacts in [{{ cloud-registry-full-name }}](../../../cloud-registry/index.yaml).
 * `yc.search-api.execute`: To send search queries to [{{ search-api-name }}]({{ link-docs-ai }}search-api/api-ref/index).
 * `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
 * `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ ai-studio-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
-* `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources](../../../speechsense/concepts/resources-hierarchy.md) via the [{{ speechsense-full-name }} API](../../../speechsense/api-ref/authentication.md).
+* `yc.serverless.workflows.execute`: To execute [workflows](../../../serverless-integrations/concepts/workflows/execution.md) via the [{{ sw-name }} API](../../../serverless-integrations/concepts/index.md#workflows).
+* `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy) via the [{{ speechsense-full-name }} API]({{ link-docs-ai }}speechsense/api-ref/authentication).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
 
@@ -90,7 +94,7 @@ The following services support authentication based on API keys:
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
-* [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
+* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/api-ref/authentication)
 * [{{ translate-full-name }}]({{ link-docs-ai }}translate/api-ref/authentication)
 * [{{ vision-full-name }}]({{ link-docs-ai }}vision/api-ref/authentication)
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).

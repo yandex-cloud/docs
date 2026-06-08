@@ -37,18 +37,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "dry_run_lifecycle_policy_result_id": "string",
-    "lifecycle_policy_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "dry_run_lifecycle_policy_result_id": "string",
-    "lifecycle_policy_id": "string",
-    "run_at": "google.protobuf.Timestamp",
-    "affected_images_count": "int64"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -76,7 +68,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[DryRunLifecyclePolicyMetadata](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -91,7 +83,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[DryRunLifecyclePolicyResult](#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -106,34 +98,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## DryRunLifecyclePolicyMetadata {#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyMetadata}
-
-#|
-||Field | Description ||
-|| dry_run_lifecycle_policy_result_id | **string**
-
-ID of the dry run result of the lifecycle policy. ||
-|| lifecycle_policy_id | **string**
-
-ID of the lifecycle policy. ||
-|#
-
-## DryRunLifecyclePolicyResult {#yandex.cloud.containerregistry.v1.DryRunLifecyclePolicyResult}
-
-#|
-||Field | Description ||
-|| dry_run_lifecycle_policy_result_id | **string**
-
-ID of the dry run result of the lifecycle policy. ||
-|| lifecycle_policy_id | **string**
-
-ID of the lifecycle policy. ||
-|| run_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Time of the getting result. ||
-|| affected_images_count | **int64**
-
-Count of affected images. ||
 |#

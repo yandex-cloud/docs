@@ -37,7 +37,7 @@ The examples for Windows were tested in the following environment:
 
 **Before connecting**:
 
-1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
     ```bash
     sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -217,9 +217,9 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
 
 ### DBeaver {#dbeaver}
 
-1. Create a new database connection:
+1. Create a new DB connection:
     1. In the **Database** menu, select **New connection**.
-    1. Select **{{ CH }}** from the database list.
+    1. Select **{{ CH }}** from the DB list.
     1. Click **Next**.
     1. Specify the connection settings on the **Main** tab:
         * **Host**: [FQDN of any {{ CH }} host](fqdn.md) or a [special FQDN](fqdn.md#auto).
@@ -233,8 +233,6 @@ From graphical IDEs, you can only connect to public cluster hosts using an SSL c
             * `sslrootcert:<path_to_saved_SSL_certificate_file>`.
 1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Done** to save the database connection settings.
-
-{% endlist %}
 
 ## Connecting to a cluster from your browser {#browser}
 

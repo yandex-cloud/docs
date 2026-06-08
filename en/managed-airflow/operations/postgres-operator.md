@@ -24,16 +24,16 @@ You can use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-serv
    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, add the `apache-airflow-providers-postgres` pip package.
 
       {% note warning %}
-      
+
       You need to install a pip package for clusters with {{ AF }} version 3.0 or higher. This package comes installed by default on clusters with {{ AF }} versions below 3.0.
-      
+
       {% endnote %}
       
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select the {{ objstorage-name }} bucket you created earlier. Your DAG file will be fetched from it.
 
 1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
@@ -45,9 +45,9 @@ You can use a [directed acyclic graph (DAG)](../concepts/index.md#about-the-serv
 
 [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) with the following parameters:
    * **{{ ui-key.yacloud.common.name }}**: `airflow/connections/pg1`.
-   * **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}**: `Custom`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_key }}**: `conn`.
-   * **{{ ui-key.yacloud.lockbox.forms.label_value }}**: Select **{{ ui-key.yacloud.lockbox.forms.value_payload-entry-value-type-text }}** and specify the following contents:
+   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: `Custom`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}**: `conn`.
+   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}**: Select **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** and specify the following contents:
 
       ```json
       {

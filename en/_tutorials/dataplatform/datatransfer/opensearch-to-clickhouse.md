@@ -4,23 +4,26 @@
 
 To transfer data:
 
-1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Set up your infrastructure](#prepare-infrastructure).
+1. [Prepare your test data](#prepare-data).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
-
-* {{ mos-name }} cluster, which includes the use of computing resources and storage size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
-* {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-
-
 ## Getting started {#before-you-begin}
 
-Set up your data delivery infrastructure:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ mos-name }} cluster: use of computing resources, storage and backup size (see [{{ mos-name }} pricing](../../../managed-opensearch/pricing.md)).
+* {{ mch-name }} cluster: use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../../managed-clickhouse/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+
+
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -141,7 +144,7 @@ Set up your data delivery infrastructure:
          --request GET 'https://<address_of_{{ OS }}_host_with_DATA_role>:{{ port-mos }}/people/_search?pretty'
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/index.md#create) for your [pre-configured](#before-you-begin) {{ mos-name }} cluster using the following settings:
 
@@ -178,7 +181,7 @@ Set up your data delivery infrastructure:
             * `source_endpoint_id`: Source endpoint ID.
             * `transfer_enabled`: Set to `1` to create a target endpoint and a transfer.
 
-        1. Validate your {{ TF }} configuration files using this command:
+        1. Make sure the {{ TF }} configuration files are correct using this command:
 
             ```bash
             terraform validate
@@ -194,7 +197,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 1. Make sure the data from the {{ mos-name }} source cluster has been transferred to the {{ mch-name }} database:
@@ -228,7 +231,7 @@ Set up your data delivery infrastructure:
 To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the source endpoint](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete other resources depending on how they were created:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

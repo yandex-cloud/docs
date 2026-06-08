@@ -21,7 +21,7 @@ description: This page covers FAQ about {{ mgp-short-name }}.
 
 {% include [update-minitoc](../../_qa/managed-greenplum/minitoc/update.md) %}
 
-### {{ GP }} clusters and hosts {#toc-cluster-hosts}
+### {{ mgp-name }} clusters and hosts {#toc-cluster-hosts}
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 
@@ -49,7 +49,7 @@ description: This page covers FAQ about {{ mgp-short-name }}.
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 
-## {{ GP }} clusters and hosts {#cluster-hosts}
+## {{ mgp-name }} clusters and hosts {#cluster-hosts}
 
 {% include [cluster-hosts](../../_qa/managed-greenplum/cluster-hosts.md) %}
 
@@ -62,3 +62,5 @@ description: This page covers FAQ about {{ mgp-short-name }}.
 {% include [monitoring](../../_qa/managed-greenplum/monitoring.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

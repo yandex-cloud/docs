@@ -10,12 +10,12 @@
 
     Чтобы получить список резервных копий кластера:
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
     Чтобы получить список всех резервных копий в каталоге:
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - CLI {#cli}
@@ -24,7 +24,7 @@
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    Чтобы получить список резервных копий кластера {{ GP }}, выполните команду:
+    Чтобы получить список резервных копий кластера {{ mgp-name }}, выполните команду:
 
     ```bash
     {{ yc-mdb-gp }} cluster list-backups <имя_или_идентификатор_кластера>
@@ -146,12 +146,12 @@
 
     Чтобы получить информацию о резервной копии существующего кластера:
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
     Чтобы получить информацию о резервной копии удаленного ранее кластера:
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
 
 - REST API {#api}
@@ -210,7 +210,7 @@
 - Консоль управления {#console}
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
 
@@ -282,7 +282,7 @@
 
 Для нового кластера необходимо задать все параметры, обязательные при создании.
 
-Если вы хотите перенести хосты кластера {{ GP }} в другую зону доступности, восстановите кластер из резервной копии. Во время восстановления из резервной копии укажите новую зону доступности. Если ваш кластер выступает в роли [эндпоинта {{ data-transfer-full-name }}](../../data-transfer/concepts/index.md#endpoint), после восстановления из резервной копии создайте заново [эндпоинт](../../data-transfer/operations/endpoint/index.md#create) и [трансфер](../../data-transfer/operations/transfer.md#create).
+Если вы хотите перенести хосты кластера {{ mgp-name }} в другую зону доступности, восстановите кластер из резервной копии. Во время восстановления из резервной копии укажите новую зону доступности. Если ваш кластер выступает в роли [эндпоинта {{ data-transfer-full-name }}](../../data-transfer/concepts/index.md#endpoint), после восстановления из резервной копии создайте заново [эндпоинт](../../data-transfer/operations/endpoint/index.md#create) и [трансфер](../../data-transfer/operations/transfer.md#create).
 
 {% note warning %}
 
@@ -305,7 +305,7 @@
     Чтобы восстановить из резервной копии существующий кластер:
 
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
     1. Задайте настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
@@ -324,7 +324,7 @@
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ GP }} либо сразу на оба.
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ mgp-name }} либо сразу на оба.
 
         Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
@@ -339,7 +339,7 @@
 
     Чтобы восстановить из резервной копии удаленный ранее кластер:
     1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.mdb.cluster.switch_backups }}**.
     1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **{{ ui-key.yacloud.common.id }}** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
     1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.forms.button_restore }}**.
@@ -359,7 +359,7 @@
         {% include [max-ram-each-process](../../_includes/mdb/mgp/max-ram-each-process.md) %}
 
     
-    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ GP }} либо сразу на оба.
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из двух видов хостов {{ mgp-name }} либо сразу на оба.
 
         Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
 
@@ -382,7 +382,7 @@
 
     Чтобы восстановить кластер из резервной копии:
 
-    1. Посмотрите описание команды CLI для восстановления кластера {{ GP }}:
+    1. Посмотрите описание команды CLI для восстановления кластера {{ mgp-name }}:
 
         ```bash
         {{ yc-mdb-gp }} cluster restore --help
@@ -419,7 +419,7 @@
         Где:
 
         * `--backup-id` — идентификатор [резервной копии](../concepts/backup.md).
-        * `--time` — момент времени, на который нужно восстановить состояние кластера {{ GP }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
+        * `--time` — момент времени, на который нужно восстановить состояние кластера {{ mgp-name }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
         * `--name` — имя кластера.
         * `--environment` — окружение:
 
@@ -503,7 +503,7 @@
           "logging": {
             "enabled": "<включить_передачу_логов>",
             "commandCenterEnabled": "<передавать_логи_Yandex_Command_Center>",
-            "greenplumEnabled": "<передавать_логи_{{ GP }}>",
+            "greenplumEnabled": "<передавать_логи_СУБД>",
             "poolerEnabled": "<передавать_логи_менеджера_подключений>",
             "folderId": "<идентификатор_каталога>"
           }
@@ -514,7 +514,7 @@
         Где:
 
         * `backupId` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
-        * `time` — момент времени, на который нужно восстановить состояние кластера {{ GP }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
+        * `time` — момент времени, на который нужно восстановить состояние кластера {{ mgp-name }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
         * `folderId` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md). По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия.
         * `name` — имя нового кластера.
         * `environment` — окружение:
@@ -554,7 +554,7 @@
 
             * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
-            * `greenplumEnabled` — передача логов {{ GP }}: `true` или `false`.
+            * `greenplumEnabled` — передача логов СУБД: `true` или `false`.
             * `poolerEnabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folderId` — идентификатор каталога, лог-группу которого нужно использовать.
             * `logGroupId` — идентификатор лог-группы, в которую будут записываться логи.
@@ -631,7 +631,7 @@
         Где:
 
         * `backup_id` — идентификатор [резервной копии](../concepts/backup.md). Его можно запросить со [списком резервных копий](#list-backups).
-        * `time` — момент времени, на который нужно восстановить состояние кластера {{ GP }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
+        * `time` — момент времени, на который нужно восстановить состояние кластера {{ mgp-name }}, в формате `yyyy-mm-ddThh:mm:ssZ`. По умолчанию кластер будет восстановлен в состояние, сохраненное в резервной копии.
         * `folder_id` — идентификатор каталога, где будет восстановлен кластер. Идентификатор можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md). По умолчанию кластер будет восстановлен в тот же каталог, где находится резервная копия.
         * `name` — имя нового кластера.
         * `environment` — окружение:
@@ -672,7 +672,7 @@
 
             * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
-            * `greenplum_enabled` — передача логов {{ GP }}: `true` или `false`.
+            * `greenplum_enabled` — передача логов СУБД: `true` или `false`.
             * `pooler_enabled` — передача логов [менеджера подключений](../concepts/pooling.md): `true` или `false`.
             * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
             * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
@@ -698,5 +698,3 @@
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

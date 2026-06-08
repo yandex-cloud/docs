@@ -1,1 +1,0 @@
-[Add the service account to the namespace](../../../speechsense/operations/space/add-user-to-space.md) with the `{{ roles-speechsense-data-editor }}` role. This will allow the service account to upload data to {{ speechsense-name }}.

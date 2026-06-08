@@ -19,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет изменен диск.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Измените имя и описание диска.
@@ -77,7 +77,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится диск.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+  1. Перейдите в сервис **{{ compute-name }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) напротив нужного диска и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Увеличьте размер диска.
@@ -217,6 +217,16 @@ description: Следуя данной инструкции, вы сможете
      ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
      ```
 
+  1. Убедитесь, что установлен пакет `growpart`:
+
+     ```bash
+     # Debian/Ubuntu
+     sudo apt-get install -y cloud-utils
+
+     # RHEL/CentOS/AlmaLinux
+     sudo yum install -y cloud-utils-growpart
+     ```
+
   1. Посмотрите, какие диски подключены к ВМ:
 
      ```bash
@@ -240,7 +250,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note info %}
 
-     Пропустите этот шаг, если вы хотите увеличить корневой раздел.
+     Пропустите этот шаг, если вы хотите увеличить корневой раздел. Корневой раздел (`/`) нельзя размонтировать на работающей ВМ, поэтому `e2fsck` для него недоступен. Используйте `growpart` и `resize2fs` напрямую без предварительной проверки.
 
      {% endnote %}
 
@@ -332,6 +342,16 @@ description: Следуя данной инструкции, вы сможете
      ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
      ```
 
+  1. Убедитесь, что установлен пакет `growpart`:
+
+     ```bash
+     # Debian/Ubuntu
+     sudo apt-get install -y cloud-utils
+
+     # RHEL/CentOS/AlmaLinux
+     sudo yum install -y cloud-utils-growpart
+     ```
+
   1. Посмотрите, какие диски подключены к ВМ:
 
      ```bash
@@ -405,6 +425,55 @@ description: Следуя данной инструкции, вы сможете
      NAME   MAJ:MIN RM SIZE RO TYPE MOUNTPOINTS
      vdb    252:16   0  64G  0 disk
      └─vdb1 252:17   0  64G  0 part /data
+     ```
+
+- LVM
+
+  Если диск использует LVM, расширьте физический том, логический том и файловую систему.
+
+  1. [Подключитесь](../../operations/vm-connect/ssh.md) к ВМ по [SSH](../../../glossary/ssh-keygen.md):
+
+     ```bash
+     ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
+     ```
+
+  1. Посмотрите текущую конфигурацию LVM:
+
+     ```bash
+     sudo pvs && sudo vgs && sudo lvs
+     ```
+
+  1. Расширьте физический том до нового размера диска:
+
+     ```bash
+     sudo pvresize /dev/vdb
+     ```
+
+  1. Расширьте логический том на все доступное пространство:
+
+     ```bash
+     sudo lvextend -l +100%FREE /dev/<имя_группы>/<имя_тома>
+     ```
+
+  1. Расширьте файловую систему на логическом томе. Команда зависит от типа файловой системы:
+
+     * Для ext4:
+
+       ```bash
+       sudo resize2fs /dev/<имя_группы>/<имя_тома>
+       ```
+
+     * Для xfs:
+
+       ```bash
+       sudo xfs_growfs /dev/<имя_группы>/<имя_тома>
+       ```
+
+  1. Убедитесь, что логический том и файловая система увеличились:
+
+     ```bash
+     sudo lvs
+     df -h
      ```
 
 {% endlist %}

@@ -20,7 +20,7 @@ description: Следуя этой инструкции, вы создадите
 - Консоль управления {#console}
 
   1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Нажмите на имя нужного кластера.
   1. На панели слева выберите ![image](../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.trino.title_catalogs }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.trino.catalogs.create_action }}**.
@@ -179,7 +179,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **База данных** — имя БД в кластере {{ CH }}.
@@ -209,7 +209,7 @@ description: Следуя этой инструкции, вы создадите
 
       Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.   
 
     * `--connection-manager-database` — имя БД в кластере {{ CH }}.
@@ -249,7 +249,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -300,7 +300,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -357,7 +357,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ CH }}.
@@ -667,6 +667,367 @@ description: Следуя этой инструкции, вы создадите
     * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек см. в [официальной документации]({{ tr.docs }}/connector/delta-lake.html).
 
     Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+### Коннектор {{ GP }}/Cloudberry {{ preview-stage }} {#gp-clouberry}
+
+{% include [connection-type](../../_includes/managed-trino/connection-type.md) %}
+
+Для использования [параллельного чтения данных](../concepts/greenplum-connector.md#parallel-reading) назначьте пользователю {{ GP }}, от имени которого будет происходить подключение, привилегии на чтение таблицы `pg_catalog.gp_segment_configuration`:
+
+```sql
+GRANT SELECT ON pg_catalog.gp_segment_configuration TO <имя_пользователя_{{ GP }}>;
+```
+
+Для использования [чтения данных напрямую с сегментов](../concepts/greenplum-connector.md#gpfdist-reading) по протоколу GPFDIST назначьте пользователю {{ GP }} права на создание внешних таблиц:
+
+```sql
+ALTER ROLE <имя_пользователя_{{ GP }}> CREATEEXTTABLE (type='writable');
+```
+
+{% note warning %}
+
+Данные, передающиеся по протоколу GPFDIST между кластерами {{ mtr-name }} и {{ mgp-name }}, не шифруются. Чтобы обеспечить безопасное подключение, [настройте группы безопасности кластеров](connect.md#security-groups-for-greenplum).
+
+{% endnote %}
+
+Подробнее о работе коннектора читайте в разделе [Коннектор {{ GP }}/Cloudberry](../concepts/greenplum-connector.md).
+
+#### Подключение {{ connection-manager-name }} {#gp-clouberry-connection-manager}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **Идентификатор подключения** — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+
+        {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+    * **База данных** — имя БД в кластере {{ GP }}.
+    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create greenplum <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера_{{ TR }}> \
+      --connection-manager-connection-id <идентификатор_подключения> \
+      --connection-manager-database <имя_БД> \
+      --connection-manager-connection-properties <список_настроек_клиента_{{ GP }}> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--connection-manager-connection-id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+
+        {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+    * `--connection-manager-database` — имя БД в кластере {{ GP }}.
+    * `--connection-manager-connection-properties` — список настроек клиента {{ GP }} в формате `ключ=значение`.
+
+        {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      greenplum = {
+        connection_manager = {
+          connection_id = "<идентификатор_подключения>"
+          database      = "<имя_БД>"
+          connection_properties = {
+            <список_настроек_клиента_{{ GP }}>
+          }
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database` — имя БД в кластере {{ GP }}.
+        * `connection_properties` — список настроек клиента {{ GP }} в формате `"ключ" = "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера_{{ TR }}>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "greenplum": {
+                        "connection": {
+                          "connectionManager": {
+                            "connectionId": "<идентификатор_подключения>",
+                            "database": "<имя_БД>",
+                            "connectionProperties": {
+                              <список_настроек_клиента_{{ GP }}>
+                            }
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `connectionManager` — настройки {{ connection-manager-name }}:
+
+        * `connectionId` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database` — имя БД в кластере {{ GP }}.
+        * `connectionProperties` — список настроек клиента {{ GP }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера_{{ TR }}>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "greenplum": {
+                    "connection": {
+                      "connection_manager": {
+                        "connection_id": "<идентификатор_подключения>",
+                        "database": "<имя_БД>",
+                        "connection_properties": {
+                          <список_настроек_клиента_{{ GP }}>
+                        }
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `connection_manager` — настройки {{ connection-manager-name }}:
+
+        * `connection_id` — идентификатор подключения к кластеру {{ GP }} в {{ connection-manager-name }}.
+
+            {% include [get-connection-id](../../_includes/managed-trino/get-connection-id.md) %}
+
+        * `database` — имя БД в кластере {{ GP }}.
+        * `connection_properties` — список настроек клиента {{ GP }} в формате `"ключ": "значение"`.
+
+            {% include [client-parameters-pg](../../_includes/managed-trino/client-parameters-pg.md) %}
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+{% endlist %}
+
+#### Ручная настройка {#gp-cloudberry-on-premise}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    * **URL** — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * **Имя пользователя** — имя пользователя для подключения к БД {{ GP }}.
+    * **Пароль** — пароль пользователя для подключения к БД {{ GP }}.
+    * **Дополнительные настройки** — в формате `ключ:значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- CLI {#cli}
+
+    Пример команды:
+
+    ```bash
+    {{ yc-mdb-tr }} catalog create greenplum <имя_каталога_{{ TR }}> \
+      --cluster-id <идентификатор_кластера_{{ TR }}> \
+      --on-premise-connection-url <URL_для_подключения> \
+      --on-premise-user-name <имя_пользователя> \
+      --on-premise-password <пароль_пользователя> \
+      --additional-properties <список_дополнительных_настроек>
+    ```
+
+    Где:
+
+    * `--cluster-id` — идентификатор кластера, в котором создается каталог {{ TR }}. Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters).
+    * `--on-premise-connection-url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+    * `--on-premise-user-name` — имя пользователя для подключения к БД {{ GP }}.
+    * `--on-premise-password` — пароль пользователя для подключения к БД {{ GP }}.
+    * `--additional-properties` — дополнительные настройки в формате `ключ=значение`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- {{ TF }} {#tf}
+
+    Пример конфигурации:
+
+    ```hcl
+    resource "yandex_trino_catalog" "<имя_каталога_{{ TR }}>" {
+      ...
+      greenplum = {
+        on_premise = {
+          connection_url = "<URL_для_подключения>"
+          user_name      = "<имя_пользователя>"
+          password       = "<пароль_пользователя>"
+        }
+        additional_properties = {
+          <список_дополнительных_настроек>
+        }
+      }
+    }
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ GP }}.
+        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ" = "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+- REST API {#api}
+
+    Пример команды:
+
+    ```bash
+    curl \
+        --request POST \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --header "Content-Type: application/json" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера_{{ TR }}>/catalogs' \
+        --data '{
+                  "catalog": {
+                    "name": "<имя_каталога_{{ TR }}>",
+                    "connector": {
+                      "greenplum": {
+                        "connection": {
+                          "onPremise": {
+                            "connectionUrl": "<URL_для_подключения>",
+                            "userName": "<имя_пользователя>",
+                            "password": "<пароль_пользователя>"
+                          }
+                        },
+                        "additionalProperties": {
+                          <список_дополнительных_настроек>
+                        }
+                      }
+                    }
+                  }
+                }'
+    ```
+
+    Где:
+
+    * `onPremise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connectionUrl` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `userName` — имя пользователя для подключения к БД {{ GP }}.
+        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+
+    * `additionalProperties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- gRPC API {#grpc-api}
+
+    Пример команды:
+
+    ```bash
+    grpcurl \
+        -format json \
+        -import-path ~/cloudapi/ \
+        -import-path ~/cloudapi/third_party/googleapis/ \
+        -proto ~/cloudapi/yandex/cloud/trino/v1/catalog_service.proto \
+        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+        -d '{
+              "cluster_id": "<идентификатор_кластера_{{ TR }}>",
+              "catalog": {
+                "name": "<имя_каталога_{{ TR }}>",
+                "connector": {
+                  "greenplum": {
+                    "connection": {
+                      "on_premise": {
+                        "connection_url": "<URL_для_подключения>",
+                        "user_name": "<имя_пользователя>",
+                        "password": "<пароль_пользователя>"
+                      }
+                    },
+                    "additional_properties": {
+                      <список_дополнительных_настроек>
+                    }
+                  }
+                }
+              }
+            }' \
+        {{ api-host-trino }}:{{ port-https }} \
+        yandex.cloud.trino.v1.CatalogService.Create
+    ```
+
+    Где:
+
+    * `on_premise` — настройки для подключения к пользовательской инсталляции:
+
+        * `connection_url` — URL для подключения к БД {{ GP }} в формате `jdbc:postgresql://<адрес_хоста>:<порт>/<имя_БД>`.
+        * `user_name` — имя пользователя для подключения к БД {{ GP }}.
+        * `password` — пароль пользователя для подключения к БД {{ GP }}.
+
+    * `additional_properties` — список дополнительных настроек в формате `"ключ": "значение"`. Список доступных настроек представлен в разделе [Коннектор {{ GP }}](../concepts/greenplum-connector.md#settings).
+
+    Идентификатор кластера {{ TR }} можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 {% endlist %}
 
@@ -1274,7 +1635,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **База данных** — имя БД в кластере {{ PG }}.
@@ -1300,7 +1661,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-database` — имя БД в кластере {{ PG }}.
@@ -1340,7 +1701,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1391,7 +1752,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1419,7 +1780,7 @@ description: Следуя этой инструкции, вы создадите
               "catalog": {
                 "name": "<имя_каталога_{{ TR }}>",
                 "connector": {
-                  "postgesql": {
+                  "postgresql": {
                     "connection": {
                       "connection_manager": {
                         "connection_id": "<идентификатор_подключения>",
@@ -1448,7 +1809,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `database` — имя БД в кластере {{ PG }}.
@@ -1538,7 +1899,7 @@ description: Следуя этой инструкции, вы создадите
                   "catalog": {
                     "name": "<имя_каталога_{{ TR }}>",
                     "connector": {
-                      "postgesql": {
+                      "postgresql": {
                         "connection": {
                           "onPremise": {
                             "connectionUrl": "<URL_для_подключения>",
@@ -1630,7 +1991,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * **Свойства подключения** — параметры подключения {{ MY }} в формате `ключ: значение`.
@@ -1658,7 +2019,7 @@ description: Следуя этой инструкции, вы создадите
 
         Чтобы узнать идентификатор подключения:
         1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
         1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
     * `--connection-manager-connection-properties` — список настроек подключения {{ MY }} в формате `ключ=значение`.
@@ -1696,7 +2057,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ" = "значение"`.
@@ -1745,7 +2106,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connectionProperties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.
@@ -1800,7 +2161,7 @@ description: Следуя этой инструкции, вы создадите
 
             Чтобы узнать идентификатор подключения:
             1. В консоли управления перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
-            1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+            1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
             1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.connection-manager.label_connections }}**.
 
         * `connection_properties` — список настроек подключения {{ MY }} в формате `"ключ": "значение"`.

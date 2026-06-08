@@ -26,8 +26,7 @@ Retrieves the list of registry artifact resources in the specified registry.
 || registry_id | **string**
 
 ID of the registry artifact to list repositories in.
-
-To get the registry ID use a [ArtifactService.List](/docs/cloud-registry/api-ref/grpc/LifecyclePolicy/list#List) request.
+To get the registry ID use a [RegistryService.List](/docs/cloud-registry/api-ref/grpc/Registry/list#List) request.
 
 The maximum string length in characters is 50. ||
 || path | **string**
@@ -62,7 +61,47 @@ The maximum string length in characters is 100. ||
       "kind": "Kind",
       "status": "Status",
       "created_at": "google.protobuf.Timestamp",
-      "modified_at": "google.protobuf.Timestamp"
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
+      "modified_by": "string",
+      "properties": "map<string, string>",
+      "content": {
+        // Includes only one of the fields `docker`
+        "docker": {
+          // Includes only one of the fields `image_manifest`, `manifest_list`
+          "image_manifest": {
+            "config": {
+              "digest": "string",
+              "size": "int64"
+            },
+            "layers": [
+              {
+                "digest": "string",
+                "size": "int64"
+              }
+            ]
+          },
+          "manifest_list": {
+            "manifests": [
+              {
+                "manifest_descriptor": {
+                  "digest": "string",
+                  "size": "int64"
+                },
+                "platform": {
+                  "architecture": "string",
+                  "os": "string",
+                  "os_version": "string",
+                  "variant": "string"
+                }
+              }
+            ]
+          },
+          // end of the list of possible fields
+          "manifest_digest": "string"
+        }
+        // end of the list of possible fields
+      }
     }
   ],
   "next_page_token": "string"
@@ -112,11 +151,131 @@ Output only. Status of the artifact.
 
 - `CREATING`: Artifact status is being created.
 - `ACTIVE`: Artifact status is ready to use.
-- `DELETING`: Artifact status is being deleted. ||
+- `DELETING`: Artifact status is being deleted.
+- `DELETED`: Artifact status is deleted. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| created_by | **string**
+
+Output only. ID of the user or service account who created the artifact. ||
 || modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Output only. Modification timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| modified_by | **string**
+
+Output only. ID of the user or service account who last modified the artifact. ||
+|| properties | **object** (map<**string**, **string**>)
+
+Key-value properties associated with the artifact. ||
+|| content | **[Content](#yandex.cloud.cloudregistry.v1.Content)**
+
+Content of the artifact. ||
+|#
+
+## Content {#yandex.cloud.cloudregistry.v1.Content}
+
+Content of the artifact, specific to its type.
+
+#|
+||Field | Description ||
+|| docker | **[DockerContent](#yandex.cloud.cloudregistry.v1.DockerContent)**
+
+Docker-specific content.
+
+Includes only one of the fields `docker`. ||
+|#
+
+## DockerContent {#yandex.cloud.cloudregistry.v1.DockerContent}
+
+Docker-specific content of the artifact.
+
+#|
+||Field | Description ||
+|| image_manifest | **[ImageManifest](#yandex.cloud.cloudregistry.v1.ImageManifest)**
+
+Single-platform image manifest.
+
+Includes only one of the fields `image_manifest`, `manifest_list`. ||
+|| manifest_list | **[ManifestList](#yandex.cloud.cloudregistry.v1.ManifestList)**
+
+Multi-platform manifest list.
+
+Includes only one of the fields `image_manifest`, `manifest_list`. ||
+|| manifest_digest | **string**
+
+Digest of the manifest. ||
+|#
+
+## ImageManifest {#yandex.cloud.cloudregistry.v1.ImageManifest}
+
+Image manifest describing a single-platform Docker image.
+
+#|
+||Field | Description ||
+|| config | **[Descriptor](#yandex.cloud.cloudregistry.v1.Descriptor)**
+
+Descriptor of the image configuration. ||
+|| layers[] | **[Descriptor](#yandex.cloud.cloudregistry.v1.Descriptor)**
+
+Descriptors of the image layers. ||
+|#
+
+## Descriptor {#yandex.cloud.cloudregistry.v1.Descriptor}
+
+Descriptor of a content blob (config, layer, or manifest).
+
+#|
+||Field | Description ||
+|| digest | **string**
+
+Digest of the content. ||
+|| size | **int64**
+
+Size of the content in bytes. ||
+|#
+
+## ManifestList {#yandex.cloud.cloudregistry.v1.ManifestList}
+
+Manifest list describing a multi-platform Docker image.
+
+#|
+||Field | Description ||
+|| manifests[] | **[PlatformManifest](#yandex.cloud.cloudregistry.v1.PlatformManifest)**
+
+List of platform-specific manifests. ||
+|#
+
+## PlatformManifest {#yandex.cloud.cloudregistry.v1.PlatformManifest}
+
+Platform-specific manifest entry within a manifest list.
+
+#|
+||Field | Description ||
+|| manifest_descriptor | **[Descriptor](#yandex.cloud.cloudregistry.v1.Descriptor)**
+
+Descriptor of the platform-specific manifest. ||
+|| platform | **[Platform](#yandex.cloud.cloudregistry.v1.Platform)**
+
+Platform this manifest targets. ||
+|#
+
+## Platform {#yandex.cloud.cloudregistry.v1.Platform}
+
+Platform describes the target OS and architecture of an image.
+
+#|
+||Field | Description ||
+|| architecture | **string**
+
+CPU architecture. ||
+|| os | **string**
+
+Operating system. ||
+|| os_version | **string**
+
+OS version. ||
+|| variant | **string**
+
+CPU variant. ||
 |#

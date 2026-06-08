@@ -8,8 +8,8 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   To move a [cloud network](../concepts/network.md) to a different folder:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cloud network.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.common.move }}**.
   1. In the window that opens, select the destination folder.
   1. Click **{{ ui-key.yacloud.common.move }}**.
@@ -136,3 +136,4 @@ Move a cloud network from a different folder. Specify the network ID and the sou
   ```
 
 {% endlist %}
+

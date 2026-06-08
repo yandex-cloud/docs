@@ -484,28 +484,14 @@ The number of elements must be greater than 0. ||
 - `DIRECT`
 - `COMPLEX_KEY_DIRECT`
 - `IP_TRIE` ||
-|| sizeInCells | **string** (int64)
-
-The minimum value is 0. ||
+|| sizeInCells | **string** (int64) ||
 || allowReadExpiredKeys | **boolean** ||
-|| maxUpdateQueueSize | **string** (int64)
-
-The minimum value is 0. ||
-|| updateQueuePushTimeoutMilliseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| queryWaitTimeoutMilliseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| maxThreadsForUpdates | **string** (int64)
-
-The minimum value is 0. ||
-|| initialArraySize | **string** (int64)
-
-The minimum value is 0. ||
-|| maxArraySize | **string** (int64)
-
-The minimum value is 0. ||
+|| maxUpdateQueueSize | **string** (int64) ||
+|| updateQueuePushTimeoutMilliseconds | **string** (int64) ||
+|| queryWaitTimeoutMilliseconds | **string** (int64) ||
+|| maxThreadsForUpdates | **string** (int64) ||
+|| initialArraySize | **string** (int64) ||
+|| maxArraySize | **string** (int64) ||
 || accessToKeyFromAttributes | **boolean** ||
 |#
 
@@ -540,9 +526,7 @@ The minimum value is 0. ||
 ||Field | Description ||
 || db | **string** ||
 || table | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || replicas[] | **[Replica](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.ExternalDictionary.MysqlSource.Replica)** ||
@@ -559,12 +543,8 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| priority | **string** (int64)
-
-The minimum value is 0. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| priority | **string** (int64) ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 |#
@@ -578,9 +558,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || where | **string** ||
@@ -596,9 +574,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || host | **string**
 
 The maximum string length in characters is 253. ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || options | **string** ||
@@ -611,9 +587,7 @@ Acceptable values are 0 to 65535, inclusive. ||
 || db | **string** ||
 || table | **string** ||
 || hosts[] | **string** ||
-|| port | **string** (int64)
-
-Acceptable values are 0 to 65535, inclusive. ||
+|| port | **string** (int64) ||
 || user | **string** ||
 || password | **string** ||
 || invalidateQuery | **string** ||

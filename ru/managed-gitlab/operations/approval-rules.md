@@ -3,9 +3,9 @@ title: Как настроить правила ревью кода
 description: Следуя данной инструкции, вы сможете настроить правила ревью кода.
 ---
 
-# Настройка правил ревью кода
+# Настройка правил ревью кода в {{ mgl-full-name }}
 
-{{ mgl-name }} позволяет гибко настраивать обязательные правила ревью кода, прежде чем код может быть добавлен в целевую ветку проекта. Подробнее о механизме работы правил см. в разделе [Правила ревью кода](../concepts/approval-rules.md).
+{{ mgl-name }} позволяет гибко настраивать обязательные правила ревью кода, прежде чем код может быть добавлен в целевую ветку проекта. Подробнее о механизме работы правил см. в разделе [Правила ревью кода](../concepts/approval-rules.md). Примеры конфигурации для типовых сценариев см. в разделе [{#T}](../concepts/approval-rules-scenarios.md).
 
 Перед началом работы [создайте служебный аккаунт](create-user.md#create) с правами администратора и [добавьте его в {{ GL }}-проект](create-user.md#add-to-project). Назначьте аккаунту [роль]({{ gl.docs }}/ee/user/permissions.html) `Maintainer` или `Owner`: пользователям с другими ролями не хватит прав для настройки правил ревью. Далее войдите в инстанс {{ GL }} и настройте правила ревью через служебный аккаунт.
 
@@ -65,7 +65,7 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите кнопку **Save changes**.
 1. Включите правила ревью кода в инстансе {{ mgl-name }}:
     1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [инстанс {{ GL }}](../concepts/index.md#instance).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
     1. Выберите инстанс и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** в верхней части страницы.
     1. В поле **{{ ui-key.yacloud.gitlab.field_approval-rules }}** выберите нужную [конфигурацию](../concepts/approval-rules.md#packages) правил ревью кода.
 

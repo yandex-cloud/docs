@@ -29,6 +29,8 @@ For more information, see [{#T}](../../security/overview.md).
 
 ## Static website hosting {#hosting}
 
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -108,7 +110,9 @@ For more information, see [{#T}](../../security/overview.md).
 
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
 
-  1. Create the required resources:
+        {% include [static-site-error-index](../../../_includes/storage/static-site-error-index.md) %}
+
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -116,17 +120,21 @@ For more information, see [{#T}](../../security/overview.md).
 
 - API {#api}
 
-  To set up static website hosting, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
+  To set up hosting for a static website, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.
 
 {% endlist %}
 
 ## Redirects for all requests {#redirects}
 
+{% include [redirects](../../../_includes/storage/redirects.md) %}
+
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -231,7 +239,7 @@ For more information, see [{#T}](../../security/overview.md).
 
      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -253,7 +261,7 @@ For more information, see [{#T}](../../security/overview.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -417,7 +425,7 @@ For more information, see [{#T}](../../security/overview.md).
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -431,8 +439,9 @@ For more information, see [{#T}](../../security/overview.md).
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-#### See also {#see-also}
+### See also {#see-also}
 
+* [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](own-domain.md)
 * [{#T}](multiple-domains/index.md)
 * [{#T}](certificate.md)

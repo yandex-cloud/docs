@@ -1,7 +1,7 @@
 # Fetching data from {{ RMQ }} to {{ mch-full-name }}
 
 
-You can supply data from {{ RMQ }} to a {{ mch-name }} cluster in real time. {{ mch-name }} will automatically insert the data routed into particular exchange points of the specified {{ RMQ }} queues into a [{{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/) table.
+You can stream data from {{ RMQ }} to a {{ mch-name }} cluster in real time. {{ mch-name }} will automatically ingest data from exchanges of [specified {{ RMQ }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/rabbitmq) queues using its {{ RMQ }} table engine as an intermediate listener, before inserting it into a permanent storage table.
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
@@ -116,7 +116,7 @@ The support cost for this solution includes:
 
 1. Install `clickhouse-client` to connect to the database in your {{ mch-name }} cluster.
 
-    1. Add the {{ CH }} [DEB repository]({{ ch.docs }}/getting-started/install/#install-from-deb-packages):
+    1. Add the {{ CH }} [DEB repository]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages):
 
         ```bash
         sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -150,12 +150,12 @@ The support cost for this solution includes:
     Add the `clickhouse.config.rabbitmq` block containing {{ RMQ }} username and password to the cluster configuration:
 
     ```hcl
-    resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+    resource "yandex_mdb_clickhouse_cluster_v2" "clickhouse-cluster" {
       ...
-      clickhouse {
+      clickhouse = {
         ...
-        config {
-          rabbitmq {
+        config = {
+          rabbitmq = {
             username = "<username>"
             password = "<password>"
           }
@@ -190,7 +190,7 @@ This data will be transmitted as {{ RMQ }} messages. Each message will contain a
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-For table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) that parses rows from {{ RMQ }} messages into the required column values.
+For table inserts, the {{ mch-name }} cluster will use the [JSONEachRow format]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow) that parses rows from {{ RMQ }} messages into the required column values.
 
 In the {{ mch-name }} cluster, create a table to store data incoming from {{ RMQ }}:
 
@@ -311,7 +311,7 @@ To retrieve all data from the `db1.cars_view` materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM db1.cars_view;

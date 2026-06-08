@@ -33,7 +33,7 @@ The maximum string length in characters is 50. ||
 
 List of stream IDs to retrieve.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 |#
 
 ## BatchGetStreamsResponse {#yandex.cloud.video.v1.BatchGetStreamsResponse}

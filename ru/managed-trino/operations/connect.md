@@ -41,78 +41,9 @@ keywords:
 
     Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого утилиты.
 
-### Группы безопасности для работы с {{ mgp-full-name }} {#security-groups-for-greenplum}
+### Группы безопасности для работы с {{ GP }} {#security-groups-for-greenplum}
 
-Для подключения к кластеру {{ GP }} коннектор {{ TR }} использует протокол GPFDIST:
-
-* Координаторы и воркеры {{ TR }} выполняют запросы к мастеру {{ GP }} через TCP-порт {{ port-mgp }}.
-* Сегменты {{ GP }} передают данные на воркеры {{ TR }} через TCP-порт GPFDIST из диапазона 30078–30085.
-
-Данные, передающиеся по протоколу GPFDIST между кластерами {{ GP }} и {{ TR }}, не шифруются. Чтобы обеспечить безопасное подключение, настройте группы безопасности [на стороне {{ mgp-name }}](#configuring-security-groups-greenplum) и (опционально) [на стороне {{ mtr-name }}](#configuring-security-groups-trino).
-
-#### Настройка на стороне {{ mgp-name }} {#configuring-security-groups-greenplum}
-
-{% list tabs group=traffic %}
-
-- Входящий трафик {#incoming}
-
-    * Правило для трафика внутри кластера {{ GP }}:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
-
-    * Правило для подключения из кластера {{ TR }}:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ TR }}.
-
-- Исходящий трафик {#outgoing}
-
-    * Правило для трафика внутри кластера {{ GP }}:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
-
-    * Правило для подключения к кластеру {{ TR }}:
-
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30078-30085`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ TR }}.
-
-{% endlist %}
-
-#### Настройка на стороне {{ mtr-name }} {#configuring-security-groups-trino}
-
-Правила групп безопасности на стороне {{ TR }} настраиваются зеркально правилам на стороне {{ GP }}. Настройка правил для кластера {{ TR }} является опциональной, но позволяет дополнительно обезопасить кластер.
-
-{% list tabs group=traffic %}
-
-- Входящий трафик {#incoming}
-
-    Правило для приема данных от сегментов {{ GP }}:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30078-30085`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
-
-- Исходящий трафик {#outgoing}
-
-    Правило для подключения к мастеру {{ GP }}:
-
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
-
-{% endlist %}
+{% include [trino-greenplum-security-groups](../../_includes/managed-trino/greenplum-security-groups.md) %}
 
 ## Инструменты командной строки {#cli-tools}
 
@@ -173,7 +104,7 @@ keywords:
 ## WebSQL {#websql}
 
 1. Перейдите на [страницу каталога]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Откройте ваш кластер {{ mtr-name }}.
 1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.

@@ -24,6 +24,11 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+* Added the `performance_diagnostics` object to the cluster configuration for setting up diagnostic data collection.
+* Fixed a critical mismatch in [host class](concepts/instance-types.md) enumeration.
+
 ## March 2026 {#mar-2026}
 
 * Now you can use self-signed certificates. To enable the feature, contact support.
@@ -57,7 +62,7 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 * {{ CK }} is now available to all {{ mch-name }} users and used by default in new clusters. In addition, now you can create separate hosts with {{ CK }} in your cluster. To learn more about {{ CK }}, see [Replication](concepts/replication.md#ck).
 * Added the `managed-clickhouse.restorer` role for restoring clusters from backups. To learn more, see [Access management](security.md#managed-clickhouse-restorer).
-* Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+* Removed **Kafka topics**, the DBMS setting that allowed configuring topic-level authentication parameters for [{{ KF }} integration]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 * New {{ CH }} versions are out: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09), and [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
 
 ## October 2025 {#oct-2025}
@@ -108,44 +113,44 @@ The new {{ CH }} version is out: [24.8 LTS](https://clickhouse.com/blog/clickhou
 
 ## July 2024 {#jul-2024}
 
-* The new {{ CH }} version is out: [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* The new {{ CH }} version is out: [24.6]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-246-2024-07-01).
 * You can now automatically convert non-replicated tables to [replicated](./concepts/replication.md#replicated-tables) ones when [adding {{ ZK }} hosts](./operations/zk-hosts.md). This streamlines migration to a fault-tolerant configuration for single-host clusters.
 * Now you can delete [backups](./concepts/backup.md) manually.
 
 ## June 2024 {#jun-2024}
 
-The new {{ CH }} version is out: [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
+The new {{ CH }} version is out: [24.5]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-245-2024-05-30).
 
 ## May 2024 {#may-2024}
 
-The new {{ CH }} version is out: [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+The new {{ CH }} version is out: [24.4]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-244-2024-04-30).
 
 ## April 2024 {#apr-2024}
 
-The new {{ CH }} version is out: [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+The new {{ CH }} version is out: [24.3 LTS]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
 
 ## March 2024 {#mar-2024}
 
-* The new {{ CH }} version is out: [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
+* The new {{ CH }} version is out: [24.2]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-242-2024-02-29).
 * Now you can create or delete multiple hosts within a single operation. This will help speed up adding or deleting cluster hosts in bulk.
 * Doubled the [limit](./concepts/limits.md#mch-limits) on the size of `network-ssd-nonreplicated` drives from 8 TB to 16 TB. Now you can expand your cluster without adding any more shards.
 
 ## February 2024 {#feb-2024}
 
-* New {{ CH }} versions are out: [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312), and [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
+* New {{ CH }} versions are out: [23.9]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#239), [23.10]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2310), [23.11]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2311), [23.12]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2312), and [24.1]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-241-2024-01-30).
 * Now you can [restart cluster hosts](./operations/hosts.md#restart). In most cases, users do not need to restart hosts. This is an emergency troubleshooting tool in case of memory leaks or unresponsive internal DBMS processes.
 
 ## Q2 2023 {#q2-2023}
 
-New {{ CH }} versions are out: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+New {{ CH }} versions are out: [23.4]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-234-2023-04-26) and [23.5]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-235-2023-06-08).
 
 ## Q1 2023 {#q1-2023}
 
-The new {{ CH }} version is out: [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+The new {{ CH }} version is out: [23.3]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
 
 ## Q4 2022 {#q4-2022}
 
-* New {{ CH }} versions are out: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) and [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
+* New {{ CH }} versions are out: [22.10]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-2210-2022-10-25) and [22.11]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-2211-2022-11-17).
 * You can now create {{ ZK }} hosts with [non-replicated SSD storage](concepts/storage.md).
 * You can now set up {{ ZK }} hosts when restoring a cluster from a backup.
 * You can now set up hybrid storage when restoring a cluster from a backup.
@@ -174,7 +179,7 @@ The new {{ CH }} version is out: [23.3](https://clickhouse.com/docs/en/whats-new
 
 ## Q2 2022 {#q2-2022}
 
-* The new {{ CH }} version is out: 22.5 (see the [changelog](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
+* The new {{ CH }} version is out: 22.5 (see the [changelog]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-225-2022-05-19)).
 * Added support for `SYSTEM UNFREEZE`. This query completely clears your cloud storage of the cluster backup, including table data that may take up storage space after deletion. For more information, check [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Reduced the time to restore a cluster from a backup.
 * Fixed the bug that led to deletion of pre-configured topic access passwords when editing the {{ KF }} topic connection list.

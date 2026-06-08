@@ -5,6 +5,28 @@ description: This page covers questions and answers about {{ objstorage-name }}.
 
 # FAQ about {{ objstorage-name }}
 
+* [What is {{ objstorage-full-name }}?](#qa-what-is)
+* [What can I do with {{ objstorage-full-name }}?](#qa-usecases)
+* [How do I get started with {{ objstorage-full-name }}?](#qa-quickstart)
+* [What data formats can I store?](#qa-data-types)
+* [How can I leave feedback on {{ objstorage-full-name }}?](#qa-feedback)
+* [How do I contact support?](#qa-support-channels)
+* [How much data can I store?](#qa-storage-volume)
+* [How can I delete multiple objects at a time?](#qa-delete-multiple-objects)
+* [A service account cannot access a bucket, why is that?](#sa-bucket-access)
+* [What does {{ yandex-cloud }} do with the data I store in {{ objstorage-full-name }}?](#qa-data-use-by-platform)
+* [Does Yandex use {{ objstorage-name }} to store its own data?](#qa-usage-by-yandex)
+* [What data consistency model does {{ objstorage-full-name }} use?](#qa-consistency)
+* [What AWS S3 features are supported in {{ objstorage-full-name }}?](#qa-s3-support)
+* [Where is my data stored?](#qa-where)
+* [How is my data protected in {{ objstorage-full-name }}?](#qa-data-security)
+* [How do you guarantee the performance of {{ objstorage-full-name }}?](#qa-timings)
+* [How do I add my own domain to an {{ objstorage-name }} bucket?](#domain-bucket)
+* [Why did I lose access to the bucket after creating/updating a bucket policy?](#qa-lost-access)
+* [How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network?](#qa-from-vpc)
+* [Do objects uploaded to a bucket get scanned for sensitive data and malicious code?](#anti-malware)
+* [How do I fix an incorrect MIME type of objects when uploading them to a bucket?](#qa-mime-type)
+
 #### What is {{ objstorage-full-name }}? {#qa-what-is}
 
 {{ objstorage-full-name }} is a universal scalable solution for data storage. It is equally effective for high-load services requiring reliable and fast access to data as well as for projects that do not need any complex storage infrastructure.
@@ -39,7 +61,7 @@ Use the feedback form in the [support center]({{ link-console-support }}).
 
 
 
-#### How do I contact support? {qa-support-channels}
+#### How do I contact support? {#qa-support-channels}
 
 
 
@@ -156,3 +178,83 @@ The possible causes include:
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}
 
 For resources hosted in a {{ vpc-short-name }} cloud network and having no public IP address or internet access, you can [set up a connection](../tutorials/routing/storage-vpc-access.md) to {{ objstorage-name }} via an [API endpoint](../api-design-guide/concepts/endpoints.md). The FQDN of the endpoint will be translated to a public IP address using DNS.
+
+
+#### Do objects uploaded to a bucket get scanned for sensitive data and malicious code? {#anti-malware}
+
+{{ objstorage-name }} does not scan uploaded objects for sensitive data or malicious code.
+
+Implement your own malicious code checks before uploading objects to a bucket.
+
+To discover sensitive data in a bucket, use [Data Security Posture Management ({{ dspm-name }}) in {{ sd-full-name }}](../security-deck/concepts/dspm.md).
+
+
+#### How do I fix an incorrect MIME type of objects when uploading them to a bucket? {#qa-mime-type}
+
+If the bucket is used for [website hosting](./concepts/hosting.md), an incorrect object [MIME type](https://en.wikipedia.org/wiki/Media_type) may cause website errors, such as unrendering images or failing scripts.
+
+In such cases, the developer console of your browser shows invalid MIME type errors for objects uploaded from the bucket.
+
+Depending on the method of uploading objects to the bucket, the [Content-Type](./s3/api-ref/common-request-headers.md) header may be set automatically, but not always correctly, e.g., to `text/plain` instead of `text/css`, or to the default `binary/octet-stream`.
+
+To avoid errors, explicitly set the `Content-Type` header when uploading objects to the bucket:
+
+{% list tabs %}
+
+- AWS CLI
+
+  ```bash
+  aws s3 cp \
+    <local_file_path> \
+    s3://<bucket_name>/ \
+    --no-guess-mime-type \
+    --content-type "application/javascript" \
+    --endpoint-url=https://{{ s3-storage-host }}
+  ```
+
+- s3cmd
+
+  ```bash
+  s3cmd put \
+    --no-guess-mime-type \
+    --no-mime-magic \
+    --mime-type="application/javascript" \
+    <local_file_path> \
+    s3://<bucket_name>/
+  ```
+
+{% endlist %}
+
+You can also change the `Content-Type` header for already uploaded objects. Here is an example:
+
+{% list tabs %}
+
+- AWS CLI
+
+  ```bash
+  aws s3 cp \
+    s3://<bucket_name>/ \
+    s3://<bucket_name>/ \
+    --exclude '*' \
+    --include '*.js' \
+    --no-guess-mime-type \
+    --content-type="application/javascript" \
+    --metadata-directive="REPLACE" \
+    --recursive \
+    --endpoint-url=https://{{ s3-storage-host }}
+    ```
+
+- s3cmd
+
+  ```bash
+  s3cmd modify \
+    --recursive \
+    --exclude '*' \
+    --include '*.js' \
+    --no-guess-mime-type \
+    --no-mime-magic \
+    --mime-type="application/javascript" \
+    s3://<bucket_name>/
+  ```
+
+{% endlist %}

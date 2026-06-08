@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/
 editable: false
 ---
 
@@ -24,11 +25,11 @@ Syntax:
 
 - [yc certificate-manager](certificate-manager/cli-ref/index.md) — Manage Certificate Manager resources
 
-- [yc cic](cic/cli-ref/index.md) — [PREVIEW] Manage Yandex Cloud Interconnect resources
+- [yc cic](cic/cli-ref/index.md) — Manage Interconnect resources
 
 - [yc cloud-registry](cloud-registry/cli-ref/index.md) — [PREVIEW] Manage CloudRegistry resources
 
-- [yc cloudrouter](cloudrouter/cli-ref/index.md) — [PREVIEW] Manage Yandex Cloud Router resources
+- [yc cloudrouter](cloudrouter/cli-ref/index.md) — Manage Cloud Router resources
 
 - [yc components](components/cli-ref/index.md) — Manage installed components
 

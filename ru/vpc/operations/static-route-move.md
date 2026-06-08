@@ -9,7 +9,7 @@
   Чтобы переместить [таблицу маршрутизации](../concepts/routing.md) в другой каталог:
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится таблица маршрутизации.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке таблицы, которую требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог назначения.

@@ -28,7 +28,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
 
 - CLI {#cli}
@@ -114,7 +114,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера.
   1. Выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
@@ -307,7 +307,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/database/).
+  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
 
 {% endlist %}
 
@@ -318,7 +318,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_databases }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
@@ -413,7 +413,7 @@ description: Следуя данной инструкции, вы сможете
       DROP DATABASE <имя_БД>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 

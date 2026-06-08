@@ -1,6 +1,6 @@
 # Изменение настроек PXF
 
-Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ GP }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
+Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ mgp-name }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
 
 {% list tabs group=instructions %}
 
@@ -9,7 +9,7 @@
     Чтобы изменить настройки PXF:
 
     1. Перейдите [на страницу каталога]({{ link-console-main }}).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Нажмите на имя нужного кластера и выберите на панели слева ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.greenplum.cluster.pxf.action_edit-settings }}** в верхней части страницы.
     1. Измените настройки:
@@ -83,7 +83,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ GP }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
     1. В описании кластера, в блоке `pxf_config`, задайте настройки PXF:
 
