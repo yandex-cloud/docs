@@ -1,6 +1,39 @@
 ---
-title: 'Документация {{ yandex-cloud }} в AI-инструментах: настройка MCP-сервера'
-description: Из этой статьи вы узнаете, как настроить интеграцию официальной документации {{ yandex-cloud }} с AI‑ассистентами через MCP-сервер для Cursor, Zoo Code, OpenAI Codex, Claude Code.
+title: MCP-сервер документации для AI-ассистентов, агентов и IDE
+description: 'Настройте MCP-сервер для подключения документации {{ yandex-cloud }} к AI-ассистентам, агентам и IDE: Cursor, Claude Code, OpenAI Codex, Zoo Code и другим MCP-клиентам.'
+keywords:
+  - ИИ-агент
+  - AI-агент
+  - AI-ассистент
+  - LLM
+  - нейросеть
+  - vibe coding
+  - документация в IDE
+  - актуальная документация для ИИ
+  - Markdown документация Yandex Cloud
+  - md-doc
+  - MCP-сервер документации Yandex Cloud
+  - Yandex Cloud Documentation MCP Server
+  - MCP документация Yandex Cloud
+  - документация Yandex Cloud в AI-инструментах
+  - документация Yandex Cloud для нейросетей
+  - как подключить документацию Yandex Cloud к Cursor
+  - как подключить документацию Yandex Cloud к Claude Code
+  - как подключить документацию Yandex Cloud к Codex
+  - настройка MCP-сервера Yandex Cloud
+  - mcpServers конфигурация Yandex Cloud
+  - подключить документацию Yandex Cloud к AI-ассистент
+  - Yandex Cloud docs MCP Cursor
+  - Yandex Cloud documentation MCP Claude Code
+  - Yandex Cloud MCP OpenAI Codex
+  - MCP сервер Yandex Cloud SourceCraft Code Assistant
+  - Zoo Code Yandex Cloud MCP
+  - documentation_generative_search
+  - docs.mcp.cloud.yandex.net
+  - Streamable HTTP MCP
+  - генеративный поиск по документации
+  - Model Context Protocol Yandex Cloud
+  - MCP сервер без авторизации
 ---
 
 # Документация {{ yandex-cloud }} в AI‑инструментах

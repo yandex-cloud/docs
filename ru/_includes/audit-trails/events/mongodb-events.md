@@ -11,10 +11,12 @@
 `EnableClusterSharding` | Включение шардирования для кластера
 `MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
 `ResetupHosts` | Ресинхронизация хоста
 `RestartHosts` | Перезагрузка хоста
+`RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
+`StartCluster` | Запуск кластера
 `StepdownHosts` | Смена мастера хоста
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру

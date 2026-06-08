@@ -52,7 +52,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети `my-1c-network`.
   1. Включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -457,7 +457,7 @@
         - Консоль управления {#console}
 
           * В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-          * [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+          * Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * В открывшемся окне выберите созданный ранее кластер `1c-pg`.
           * В меню слева выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
           * В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1b-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер баз данных** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }} port=6432`.

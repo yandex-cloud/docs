@@ -1,9 +1,10 @@
 ---
-title: Построение таблицы на основе API Connector
+title: Создание таблицы через API
 description: Следуя данной инструкции, вы сможете построить таблицу на основе API Connector в Editor.
 ---
 
-# Построение таблицы на основе API Connector
+# Создание таблицы через API
+
 
 Следуя данной инструкции, вы построите в Editor таблицу на основе подключения API Connector.
 
@@ -13,6 +14,9 @@ description: Следуя данной инструкции, вы сможете
 
 
 {% include [before-you-begin](../../../../_tutorials/_tutorials_includes/before-you-begin-datalens.md) %}
+
+
+
 
 
 ## Создайте воркбук {#create-workbook}
@@ -129,3 +133,5 @@ description: Следуя данной инструкции, вы сможете
    ![image.png](../../../../_assets/datalens/editor/quick-start-3.png)
 
 1. Чтобы сохранить чарт, в правом верхнем углу нажмите **Сохранить** и введите название чарта.
+
+

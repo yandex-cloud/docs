@@ -37,7 +37,7 @@
 
 1. [Создайте кластер **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
 1. Откройте [консоль управления]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
+1. Перейдите в сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
 1. Выберите созданный кластер и на вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера.
 1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
 

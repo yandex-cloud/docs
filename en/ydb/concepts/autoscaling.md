@@ -1,3 +1,8 @@
+---
+title: Autoscaling in {{ ydb-name }}
+description: In dedicated mode in {{ ydb-name }}, you can use autoscaling of computing resources.
+---
+
 # Autoscaling
 
 {% note info %}

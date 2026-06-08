@@ -240,4 +240,5 @@ events: {
 
 ## Примеры {#examples}
 
+
 Примеры на [демонстрационном дашборде](https://datalens.yandex/2aztx9jtm06ko?tab=Az) на вкладке Advanced.

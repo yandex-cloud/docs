@@ -18,7 +18,7 @@ Click an ID to see how the maintenance job affects cluster availability. Look up
 
 ## Getting maintenance-related cluster logs {#maintenance-logs}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click the ID of the maintenance job you need.
   1. Click **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
@@ -33,7 +33,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
 
   To reschedule maintenance for a new date and time:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** status.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
@@ -153,7 +153,7 @@ If necessary, you can run a maintenance job with the **{{ ui-key.yacloud.mdb.mai
 
   To run a scheduled cluster maintenance job immediately:
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the maintenance job you need.
   1. In the drop-down menu, select ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
@@ -250,12 +250,12 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
 - Management console {#console}
 
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** tab.
   1. Click ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
   1. In the window that opens:
      * To allow maintenance at any time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}**, which is also the default option.
-     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and hour in UTC.
+     * To allow weekly maintenance at a specific time, select **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** and specify the weekday and UTC time interval.
 
 - CLI {#cli}
 
@@ -275,7 +275,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
       {{ yc-mdb-pg }} cluster update <cluster_name_or_ID> \
          --maintenance-window type=<maintenance_type>,`
                              `day=<day_of_week>,`
-                             `hour=<hour>
+                             `hour=<sequence_number_of_hour_interval>
       ```
 
       Where `type` is the maintenance type:
@@ -325,7 +325,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -337,13 +337,15 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
        Here, we provide only one setting.
 
-     * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenanceWindow`, provide one of the two values:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-       * `anytime`: Maintenance can be scheduled for any time.
-       * `weeklyMaintenanceWindow`: Maintenance can only be scheduled for a specific day of week and hour:
+       * `anytime`: Maintenance takes place at any time.
+       * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
-         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+           
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -375,7 +377,7 @@ When you select a new maintenance window, any scheduled maintenance that does no
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -389,13 +391,15 @@ When you select a new maintenance window, any scheduled maintenance that does no
 
        Here, we provide only one setting.
 
-     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, including for stopped clusters. In `maintenance_window`, provide one of the two values:
+     * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Provide one of these two parameters:
 
-       * `anytime`: Maintenance can be scheduled for any time.
-       * `weekly_maintenance_window`: Maintenance can only be scheduled for a specific day of week and hour:
+       * `anytime`: Maintenance takes place at any time.
+       * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
-         * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
-         * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
+         * `day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+         * `hour`: Sequence number of UTC hour interval, from `1` to `24`.
+           
+           > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

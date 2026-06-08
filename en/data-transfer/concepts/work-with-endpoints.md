@@ -15,12 +15,12 @@ The source supports `MATERIALIZED VIEW` objects but handles them as regular tabl
 
 If replication is enabled on a {{ CH }} target, the engines for recreating tables are selected depending on the source type:
 
-* When transferring data from row-oriented database management systems, the [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) and [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/) engines are used.
-* When transferring data from {{ CH }}, the [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) engines are used.
+* When transferring data from row-oriented database management systems, the [ReplicatedReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) and [ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree) engines are used.
+* When transferring data from {{ CH }}, the [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) engines are used.
 
 ## {{ GP }} {#greenplum}
 
-Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{ data-transfer-full-name }} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [pg_dump]({{ gp.docs.broadcom }}/5/greenplum-database/utility_guide-client_utilities-pg_dump.html).
+Transfers _from {{ GP }} to {{ GP }}_ and _from {{ GP }} to {{ PG }}_ do not support moving a schema in the current {{ data-transfer-full-name }} version. If there are user-defined table data types in these transfers, create these data types in the target database manually before starting a transfer. To manually transfer a schema, use [pg_dump]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-pg_dump.html).
 
 The source treats `FOREIGN TABLE` and `EXTERNAL TABLE` as regular views and handles them using the general algorithm for `VIEW` objects.
 

@@ -5,7 +5,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
       1. Выберите кластер `joomla-pg-cluster` и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
       1. Наведите указатель мыши на поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** в строке с  каждым из хостов и нажмите значок ![Copy](../../../_assets/console-icons/copy.svg), чтобы скопировать FQDN хоста. Сохраните скопированные значения — они понадобятся позднее.
 

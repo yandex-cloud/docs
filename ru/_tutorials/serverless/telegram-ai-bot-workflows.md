@@ -61,7 +61,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета.
   1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -130,7 +130,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
   1. Укажите максимальный размер бакета `5 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -207,7 +207,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта `sa-workflows`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте [роли](../../iam/roles-reference.md):
@@ -467,7 +467,7 @@ steps:
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
   1. Выберите способ `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}`.
@@ -540,7 +540,7 @@ steps:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [рабочий процесс](../../serverless-integrations/concepts/workflows/workflow.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите нужный рабочий процесс.
   1. Включите опцию **{{ ui-key.yacloud.serverless-workflows.label_public-access }}**.
@@ -596,7 +596,7 @@ steps:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
   1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
 

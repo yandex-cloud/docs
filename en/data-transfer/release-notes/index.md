@@ -43,6 +43,18 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### April {#apr26}
+
+#### New features and improvements {#new-features-apr26}
+
+* Added support for transfer of non-table [{{ GP }}](../operations/endpoint/source/greenplum.md) objects (functions, sequences, indexes).
+
+* Added support for compression at the data format level for Parquet when writing to an [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target.
+
+
+* Added support for writing from [{{ yds-short-name }}](../operations/endpoint/source/data-streams.md) to [{{ OS }}](../operations/endpoint/target/opensearch.md).
+
+
 ### March {#mar26}
 
 #### New features and improvements {#new-features-mar26}

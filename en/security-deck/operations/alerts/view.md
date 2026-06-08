@@ -108,4 +108,10 @@ description: In this section, you will learn how to view alerts in {{ sd-full-na
 
       {% endlist %}
 
+      {% note tip %}
+
+      You can [create an exception](./work.md#create-exception) on the {{ kspm-name }} and {{ cspm-name }} alerts page.
+
+      {% endnote %}
+
 {% endlist %}

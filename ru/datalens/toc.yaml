@@ -750,7 +750,7 @@ items:
                 href: charts/editor/quickstart/from-dataset.md
               - name: Создание таблицы на основе SQL-запроса
                 href: charts/editor/quickstart/from-database.md
-              - name: Создание таблицы на основе API Connector
+              - name: Создание таблицы через API
                 href: charts/editor/quickstart/from-api-connector.md
           - name: Нейроаналитик в Editor
             href: charts/editor/code-helper.md
@@ -775,7 +775,7 @@ items:
               - name: Таблица
                 href: charts/editor/widgets/table.md
               - name: График (Gravity UI Charts)
-                href: charts/editor/widgets/chart.md
+                href: charts/editor/widgets/gravity-ui.md
               - name: Markdown
                 href: charts/editor/widgets/markdown.md
               - name: Advanced-чарт

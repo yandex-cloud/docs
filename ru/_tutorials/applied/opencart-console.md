@@ -25,7 +25,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
   1. Нажмите кнопку **Создать виртуальную машину**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenCart` и выберите публичный образ [OpenCart](/marketplace/products/yc/opencart-3).
@@ -118,6 +118,6 @@
 1. Если вы использовали БД {{ MY }}, то [удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md) (в примере кластер БД создается с именем `opencart`).
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
 1. Перейдите на вкладку **IP-адреса**.
 1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.

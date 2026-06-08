@@ -54,13 +54,13 @@
   1. Посмотрите описание команды [CLI](../../../cli) для изменения настроек инстанса {{ mgl-name }}:
 
       ```bash
-      {{ yc-mdb-gl }} instance update --help
+      {{ yc-gl }} instance update --help
       ```
 
   1. Измените настройки инстанса {{ GL }} (в примере приведены не все доступные параметры):
 
       ```bash
-      {{ yc-mdb-gl }} instance update <имя_или_идентификатор_инстанса> \
+      {{ yc-gl }} instance update <имя_или_идентификатор_инстанса> \
         --new-name <новое_имя_инстанса> \
         --resource-preset-id <класс_хостов> \
         --disk-size <размер_диска_ГБ> \
@@ -174,7 +174,7 @@
       {{ TF }} обновит все требуемые ресурсы. Проверить изменение ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/):
 
       ```bash
-      {{ yc-mdb-gl }} instance list
+      {{ yc-gl }} instance list
       ```
 
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/gitlab_instance).

@@ -54,7 +54,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
   1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
@@ -121,7 +121,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
   1. Выберите приложение **Ghost CMS High Availability** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Задайте параметры приложения:
@@ -220,7 +220,7 @@
 1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакета {{ objstorage-name }}, созданного при установке приложения.
 1. Удалите установленное приложение Ghost CMS High Availability:
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. Найдите установленное приложение Ghost CMS High Availability в списке.
     1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **{{ ui-key.yacloud.common.delete }}**.
     1. Подтвердите удаление приложения.

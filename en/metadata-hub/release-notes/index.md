@@ -58,6 +58,14 @@ Configure an MCP server for {{ data-catalog-name }} and connect AI agents to acc
 ## 2026 {#2026}
 
 
+### April {#apr26}
+
+* Implemented [lineage](../operations/data-catalog/analysis-metadata.md) tools for tracing data from a database to a dashboard.
+
+* The metadata catalog now supports comparing different versions of schemas and descriptions.
+
+* Added the ability to view the current status of a data source in links. For example, you can spot {{ data-transfer-name }} errors and detect data delivery issues faster.
+
 ### March {#mar26}
 
 Supported a new data source, [{{ datalens-name }}](../../datalens/index.yaml), which is a business analytics tool for visualizing your data. Now you can [set up ingestions](../operations/data-catalog/create-ingestion.md) from {{ datalens-name }} and [analyze links](../quickstart/data-analyst-quickstart.md) between datasets.

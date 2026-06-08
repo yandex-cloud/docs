@@ -4,16 +4,36 @@ description: Следуя данной инструкции, вы сможете
 ---
 # Посмотреть детализацию использования сервисов
 
-Вы можете посмотреть сведения об использовании сервисов {{ yandex-cloud }} в виде графиков и таблицы. Для этого:
+Вы можете посмотреть сведения об использовании сервисов {{ yandex-cloud }} в виде графиков и таблицы в сервисе {{ billing-name }} или потребление за 30 дней в консоли управления.
+
+{% note info %}
+
+{% include [view-required-roles](../_includes/view-required-roles.md) %}
+
+{% include [console-access-note](../_includes/console-access-roles.md) %}
+
+{% endnote %}
+
+Чтобы просмотреть детализацию:
 
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
-  
+
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
   1. Выберите глубину детализации.
+
+- Консоль управления {#console}
+
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, для которого необходимо проверить потребление.
+    1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
+    1. В открывшемся виджете отобразится потребление за последние 30 дней для облака и выбранного каталога.
+
+        {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+    1. Чтобы перейти к детализации в виде графиков и таблицы в сервисе {{ billing-name }}, нажмите **{{ ui-key.yacloud_billing_account.billing-widget.details }}**.
+    1. Выберите глубину детализации.
 
 {% endlist %}
 
@@ -142,7 +162,6 @@ description: Следуя данной инструкции, вы сможете
 {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Сумма, соответствующая объему потребленных ресурсов без учета скидки.
 {{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Размер скидки в валюте договора (без учета НДС или иных налогов и сборов). Скидка за резервируемое потребление применяется и отображается сразу в момент потребления ресурсов.
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Итоговая сумма с учетом скидки, соответствующая объему потребленных ресурсов.
-
 
 
 ## Отображение резервируемого потребления {#cvos}

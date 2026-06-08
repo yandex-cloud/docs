@@ -44,7 +44,7 @@
     - Консоль управления {#console}
 
        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
        1. Задайте имя сети: `ya-network`.
        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
