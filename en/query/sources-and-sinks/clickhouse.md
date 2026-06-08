@@ -1,77 +1,77 @@
 # Working with {{ mch-name }} databases
 
-This section provides the basic information about working with [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse).
+This section covers the basics of working with [{{ mch-name }}](https://yandex.cloud/en/services/managed-clickhouse).
 
-To work with a {{ mch-name }} database, follow these steps:
-1. Create a [connection](../concepts/glossary.md#connection) containing your database connection credentials.
-1. [Run a query](#query) to the database.
+To start working with a {{ mch-name }} database, follow these steps:
+1. Create a [connection](../concepts/glossary.md#connection) containing your database access credentials.
+1. [Run a query](#query) against the database {#query}
 
-Example of a query for reading data from {{ mch-name }}:
+An example of a query that reads data from {{ mch-name }}:
 
 ```sql
 SELECT * FROM clickhouse_mdb_connection.my_table
 ```
 
 Where:
-* `clickhouse_mdb_connection`: Name of the DB connection you created.
-* `my_table`: Name of the table in the database.
+* `clickhouse_mdb_connection`: Your database connection name.
+* `my_table`: Database table name.
 
 
 ## Setting up a connection {#create_connection}
 
 To create a connection to {{ mch-name }}:
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a connection.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. In the left-hand panel, go to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your connection.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. In the left-hand panel, navigate to the **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}** tab.
 1. Click ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
-1. Specify the connection parameters:
+1. Specify the connection settings:
 
    1. Under **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
 
-      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: Name of the connection to {{ mch-name }}.
+      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}**: {{ mch-name }} connection name.
       * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}**: `{{ ui-key.yql.yq-connection.action_clickhouse }}`.
    1. Under **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
       * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}**: Select an existing {{ mch-name }} cluster or create a new one.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md), or create a new one with the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role to connect to `{{ mch-name }}` clusters.
+      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}**: Select an existing {{ mch-name }} [service account](../../iam/concepts/users/service-accounts.md) or create a new one. Assign it the [`{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer) role allowing it to connect to `{{ mch-name }}` clusters.
 
         {% include [service accounts role](../../_includes/query/service-accounts-role.md) %}
 
       * **{{ ui-key.yql.yq-connection-info.database.label }}**: Select the database you will use when working with the {{ CH }} cluster.
-      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username to use when connecting to {{ CH }} databases.
-      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: User password to use when connecting to {{ CH }} databases.
+      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**: Username you will use to connect to {{ CH }} databases.
+      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**: Password you will use to connect to {{ CH }} databases.
 
 
 1. Click **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
-You need a service account to detect {{ mch-name }} cluster connection points inside {{ yandex-cloud }}. You need a separate login/password pair to access data.
+A service account is necessary to detect {{ mch-name }} cluster connection endpoints inside {{ yandex-cloud }}. To access data, you need a separate username and password.
 
 {% note warning %}
 
-First, allow network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in the settings of the database to which you are connecting.
+First, grant network access from {{ yq-full-name }} to {{ mch-name }} clusters. To do this, enable **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** in your target database settings.
 
 {% endnote %}
 
 
 ## Query syntax {#query}
-Here is the SQL query format used to access {{ CH }}:
+{{ CH }} uses the following SQL syntax:
 
 ```sql
 SELECT * FROM <connection>.<table_name>
 ```
 
 Where:
-* `<connection>`: Name of the DB connection you created.
-* `<table_name>`: Name of the table in the database.
+* `<connection>`: Your database connection name.
+* `<table_name>`: Database table name.
 
 ## Limitations {#limits}
 
-Some limitations apply when working with {{ CH }} clusters.
+Working with {{ CH }} clusters comes with certain limitations.
 
-The following restrictions apply:
+The following limitations apply:
 1. {% include [!](_includes/supported_requests.md) %}
-1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the ranges of acceptable values for types used in {{ ydb-short-name }} for date and time operations (`Date`, `Datetime`, and `Timestamp`) are often not wide enough to cover the values of the relevant {{ CH }} types (`Date`, `Date32`, `Datetime`, and `Datetime64`).
-Therefore, {{ yq-short-name }} returns date and time values read from {{ CH }} as plain strings (type `Utf8` for regular columns or `Optional<Utf8>` for [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
+1. {{ yq-short-name }} uses the {{ ydb-full-name }} [type system]({{ ydb.docs }}/yql/reference/types/primitive). However, the valid value ranges for {{ ydb-short-name }} date and time types, i.e., `Date`, `Datetime`, and `Timestamp`, are often too narrow to accommodate the values of the corresponding {{ CH }} types, i.e., `Date`, `Date32`, `Datetime`, and `Datetime64`. 
+As a result, when reading date and time values from {{ CH }}, {{ yq-short-name }} returns them as plain strings (type `Utf8` for regular columns or `Optional<Utf8>` for [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) columns) in [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html) format.
 
 ## Filter pushdown {#predicate_pushdown}
 
@@ -98,13 +98,13 @@ Supported data types for filter pushdown:
 
 ## Supported data types {#supported_types}
 
-In {{ CH }}, columns cannot physically contain the `NULL` value by default; however, the user can create a table with columns of optional or [nullable](https://clickhouse.com/docs/en/sql-reference/data-types/nullable) types. The column types {{ yq-full-name }} displays when extracting data from the external {{ CH }} source will depend on whether the {{ CH }} table uses primitive or optional types.
+By default, columns in {{ CH }} cannot physically contain `NULL` values. However, you can create a table with columns of optional or [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) types. The column types displayed by {{ yq-full-name }} when extracting data from an external {{ CH }} source will depend on whether the {{ CH }} table uses primitive or optional types.
 
-The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other data types except those listed are not supported.
+The tables below show type mapping between {{ CH }} and {{ yq-full-name }}. Only the data types listed are supported.
 
 ### Primitive data types {#supported_types_default}
 
-| Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
+| {{ CH }} data type | {{ yq-full-name }} data type | Notes |
 | :---: | :----: | :--- |
 | `Bool` | `Bool` | |
 | `Int8` | `Int8` | |
@@ -122,11 +122,11 @@ The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other d
 | `DateTime` | `Utf8` | |
 | `DateTime64` | `Utf8` | |
 | `String` | `String` | |
-| `FixedString` | `String` | Null `FixedString` bytes are transferred to `String` without changes. |
+| `FixedString` | `String` | Null `FixedString` bytes are transferred to `String` unchanged. |
 
 ### Optional data types {#supported_types_nullable}
 
-| Data type {{ CH }} | Data type {{ yq-full-name }} | Notes |
+| {{ CH }} data type | {{ yq-full-name }} data type | Notes |
 | :---: | :----: | :--- |
 | `Nullable(Bool)` | `Optional<Bool>` | |
 | `Nullable(Int8)` | `Optional<Int8>` | |
@@ -144,6 +144,6 @@ The tables below show how {{ CH }} and {{ yq-full-name }} types map. All other d
 | `Nullable(DateTime)` | `Optional<Utf8>` | |
 | `Nullable(DateTime64)` | `Optional<Utf8>` | |
 | `Nullable(String)` | `Optional<String>` | |
-| `Nullable(FixedString)` | `Optional<String>` | Null `FixedString` bytes are transferred to `String` without changes. |
+| `Nullable(FixedString)` | `Optional<String>` | Null `FixedString` bytes are transferred to `String` unchanged. |
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

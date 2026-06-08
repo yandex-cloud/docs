@@ -161,7 +161,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
      * Optionally, set a [background for your widget](#widget-background).
 
-   - Title {#header}
+   - Header {#header}
 
      * Enter the header text.
      * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.

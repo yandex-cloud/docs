@@ -243,7 +243,7 @@ items:
         href: concepts/sql-limits.md
       - name: Upgrading the {{ PG }} major version
         href: concepts/upgrade.md
-      - name: Versioning policy {{ PG }}
+      - name: '{{ PG }} versioning policy'
         href: concepts/update-policy.md
   - name: Access management
     href: security/index.md

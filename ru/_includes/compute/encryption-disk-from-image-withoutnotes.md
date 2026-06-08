@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать зашифрованный диск.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+1. Перейдите в сервис **{{ compute-name }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
 1. Введите имя диска.

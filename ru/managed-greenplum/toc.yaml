@@ -197,6 +197,8 @@ items:
         href: concepts/vacuum.md
       - name: Настройки СУБД
         href: concepts/settings-list.md
+      - name: Отличия {{ CB }} от {{ GP }}
+        href: concepts/cloudberry-vs-greenplum/breaking-changes.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

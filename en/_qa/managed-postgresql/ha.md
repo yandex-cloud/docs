@@ -70,6 +70,7 @@ No, {{ mpg-name }} does not support multi-master configuration.
 
 For more details on high availability cluster configuration, see [{#T}](../../architecture/fault-tolerance.md#mdb-ha).
 
+
 #### How to configure load balancing so that all read requests are redirected to replicas? {#balancing-replicas}
 
 As {{ mpg-name }} does not provide load balancing, you need to configure it in your application backend. To send read requests to replicas, your application must first identify the master and replica hosts, e.g., by using `libpq`. For more information, see [this {{ PG }} article](https://www.postgresql.org/docs/current/libpq-connect.html#LIBPQ-CONNECT-TARGET-SESSION-ATTRS).

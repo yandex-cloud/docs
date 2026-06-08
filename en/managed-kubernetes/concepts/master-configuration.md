@@ -12,7 +12,7 @@ Use the table to select the minimum master configuration based on your cluster p
 The selected configuration sets the minimum resource values for the master. If [master autoscaling](./autoscale.md#master-autoscaler) is enabled in the cluster, the selected configuration is used as the lower scaling boundary.
 
 #|
-|| **Cluster parameters** {.cell-align-top-center} | > | > | **Estimated master requirements** {.cell-align-top-center} | > | **Recommended master configuration** {.cell-align-top-center} | > | > ||
+|| **Cluster parameters** {align="center"} | > | > | **Estimated master requirements** {align="center"} | > | **Recommended master configuration** {align="center"} | > | > ||
 || **CNI** | **Nodes** | **Maximum pods** | **vCPU** | **RAM** | **Standard** | **CPU Optimized** | **Memory Optimized** ||
 || Calico | 128 | 8&nbsp;192 | 3 vCPU | 12 GB | 4 vCPU, 16 GB RAM (s-c4-m16) | 8 vCPU, 16 GB RAM (c-c8-m16) | 4 vCPU, 32 GB RAM (m-c4-m32) ||
 || Calico | 128 | 14&nbsp;080 | 6 vCPU | 21 GB | 8 vCPU, 32 GB RAM (s-c8-m32) | 16 vCPU, 32 GB RAM (c-c16-m32) | 8 vCPU, 64 GB RAM (m-c8-m64) ||

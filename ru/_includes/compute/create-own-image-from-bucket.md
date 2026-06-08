@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.button_upload }}** и в открывшемся окне:
 

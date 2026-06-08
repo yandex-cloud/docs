@@ -22,7 +22,7 @@
 
 Перед тем, как создавать ВМ:
 1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-1. Убедитесь, что в выбранном каталоге есть [сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet), к которой можно подключить ВМ. Для этого на странице каталога [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
+1. Убедитесь, что в выбранном каталоге есть [сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet), к которой можно подключить ВМ. Для этого на странице каталога Перейдите в сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
@@ -36,7 +36,7 @@
 Создайте ВМ, на которой будут установлены тестовое приложение, набор необходимых для его работы компонентов и веб-сервер:
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts).
@@ -270,7 +270,7 @@
 
 Чтоб легко переносить созданное приложение и конфигурацию веб-сервера на создаваемые с помощью CI ВМ, нужно сделать снимок диска тестовой ВМ.
 1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Найдите ВМ `ci-tutorial-test-app` и выберите ее.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
 1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
@@ -284,7 +284,7 @@
 Один из способов настроить CI в {{ yandex-cloud }} — воспользоваться публичным образом с предустановленной системой {{ GL }}. В {{ GL }} входит набор инструментов для управления репозиториями Git и средства для настройки CI.
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [{{ GL }}](/marketplace/products/yc/gitlab).
@@ -319,7 +319,7 @@
 ## Настройте {{ GL }} {#configure-gitlab}
 
 Чтобы настроить {{ GL }} и подготовить процесс CI, создайте новый проект и введите параметры для аутентификации в CI:
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**. 
+1. Перейдите в сервис **{{ compute-name }}**. 
 1. Выберите созданную ВМ и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Получите пароль администратора {{ GL }} с помощью команды ВМ:
@@ -513,7 +513,7 @@
 
 Чтобы проверить созданную ВМ:
 1. Откройте консоль управления {{ yandex-cloud }}.
-1. В каталоге, где создавались ВМ, [перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. В каталоге, где создавались ВМ, Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Если все было настроено верно, в списке ВМ должна появиться новая ВМ с именем вида `ci-tutorial-test-app-1543910277`.
 1. Выберите созданную ВМ и скопируйте публичный IP-адрес созданной ВМ.
 1. В браузере откройте ссылку вида:

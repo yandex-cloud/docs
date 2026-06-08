@@ -927,7 +927,6 @@ default:
   yc-mdb-af: yc managed-airflow
   yc-mdb-ch: yc managed-clickhouse
   yc-mdb-es: yc managed-elasticsearch
-  yc-mdb-gl: yc managed-gitlab
   yc-mdb-gp: yc managed-greenplum
   yc-mdb-kf: yc managed-kafka
   yc-mdb-mg: yc managed-mongodb
@@ -3650,6 +3649,10 @@ default:
         label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds: All clouds and folders
         value_empty_service_instances: All workspaces
+      billing-widget:
+        activate_promocode: Activate promo code
+        details: Details
+        grant: Grants
       cloud-billing-account:
         label_card-add: Add card
       create-account:

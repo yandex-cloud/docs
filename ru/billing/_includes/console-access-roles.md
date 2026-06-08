@@ -1,0 +1,1 @@
+Для доступа к консоли управления необходима [роль](../../resource-manager/security/index.md#resource-manager-clouds-member) `resource-manager.clouds.member` или выше на [облако](../../resource-manager/operations/cloud/set-access-bindings.md).

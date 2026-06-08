@@ -3,7 +3,7 @@ title: Managing exceptions to the {{ cspm-name }} module's security control rule
 description: In this section, you will learn how to create, modify, and delete exceptions to rules in the {{ sd-full-name }} {{ cspm-name }} module.
 ---
 
-# Managing exceptions to the {{ cspm-name }} module's security control rules
+# Managing exceptions to {{ cspm-name }} security control rules
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
@@ -75,6 +75,8 @@ To create a new exception for the {{ cspm-name }} module's security control rule
 {% endlist %}
 
 After the next infrastructure check is completed, the new exception will be displayed on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page, on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** tab, under **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.header_caption_cspm_9dTJt }}**. The frequency of checks is 8 hours.
+
+You can also create an exception on the alert page. For more information, see [{#T}](../alerts/work.md#create-exception).
 
 ## Deleting an exception {#delete-exception}
 

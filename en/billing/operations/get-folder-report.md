@@ -28,7 +28,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 1. If you do not have any [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) yet, [create one](../../resource-manager/operations/folder/create.md). In the folder name, specify the project or client to use the folder.
 
 1. [Create a bucket](../../storage/operations/buckets/create.md) in {{ objstorage-full-name }}. {{ yandex-cloud }} will save the files with details to this bucket. You can save your details in multiple buckets.
-
+   
     {% note alert %}
     
     {% include [billing-partner-bucket-alert](../../_includes/billing-partner-bucket-alert.md) %}
@@ -87,12 +87,12 @@ You can get a CSV file with your general or per-resource spending details. You c
 
           - New account
 
-              1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, click **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
+              1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, click **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount }}**.
               1. Enter a name for the service account.
               1. Click **{{ ui-key.yacloud_org.common.save }}**.
-
+          
           {% endlist %}
-
+    
       {% note info %}
 
        One service account can handle multiple regular exports. However, [roles](#before-you-begin) must be assigned separately for each encrypted bucket and KMS key.
@@ -222,7 +222,7 @@ The table contains the following columns:
 * `label.user_labels.<label_name>`: Labels added to the resources. For information about how to manage labels, see [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale`: Language of each exported line. This field's value determines the `sku_name` column language. The possible values are `en` and `ru`.
 * `updated_at`: Date and time of the last line update in [Unix Timestamp](https://www.unixtimestamp.com) format.
-* `exported_at`: Date and time when the line was added to the details file.
+* `exported_at`: Date and time when the line was added to the details file in [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601) format, e.g., `2025-03-03T23:41:19Z`.
 
 {% cut "Deprecated parameters" %}
 

@@ -57,15 +57,20 @@ _Transfer_ is the process of transmitting data between the source and target ser
 
 If subnets are specified for endpoints, these subnets must be hosted in the same [availability zone](../../overview/concepts/geo-scope.md). Otherwise, activating the transfer with such endpoints will result in an error.
 
-### Worker {#worker}
 
-_Worker_ is a utility process that starts a data transfer. A separate VM is allocated for each worker. You can specify which computing resources to use for this virtual machine:
+
+## Transfer computing resources {#runtime}
+
+For [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage, you can configure the amount of computing resources in the **Runtime environment** section.
+
+For {{ dt-type-copy-repl }} transfers, resources for the copy and replication stages are specified independently. The following configurations are available:
 
 {% include [vm-computing-resources](../../_includes/data-transfer/vm-computing-resources.md) %}
 
-During [parallel copying](sharded.md) or parallel replication (for the {{ DS }}, {{ ydb-short-name }}, and {{ KF }} sources), the user selects the number of workers to run at the same time.
+Resource configurations affect the performance of _workers_, i.e., utility processes responsible for initiating data migration within a transfer. For each worker, a dedicated VM is provisioned.{#worker}
 
-vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker. You can also change the worker configuration in the [transfer settings](../operations/transfer.md#update) for [billable](../pricing.md) source-target pairs at the [GA](../../overview/concepts/launch-stages.md) stage.
+vCPU count and RAM size impact the [cost of {{ data-transfer-name }} resources](../pricing.md). To optimize usage and data transfer costs, we recommend using workers efficiently by reducing their number and increasing the load on each worker.
+
 
 ### Transfer types {#transfer-type}
 

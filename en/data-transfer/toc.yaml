@@ -17,6 +17,10 @@ items:
             href: operations/endpoint/index.md
           - name: Migrating endpoints to a different availability zone
             href: operations/endpoint/migration-to-an-availability-zone.md
+          - name: Apache Iceberg®
+            items:
+              - name: Target
+                href: operations/endpoint/target/iceberg.md
           - name: Apache Kafka®
             items:
               - name: Source
@@ -127,7 +131,7 @@ items:
         items:
           - name: '{{ PG }} cluster'
             href: tutorials/managed-postgresql.md
-          - name: Migrating a {{ mpg-name }} cluster to another version
+          - name: Migrating a {{ mpg-name }} cluster to a different version
             href: tutorials/postgresql-versions.md
           - name: Data in {{ MY }}
             href: tutorials/managed-mysql.md

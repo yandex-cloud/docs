@@ -15,4 +15,14 @@ To use the `billing.accounts.accountant` role, you need to assign it for a billi
 {% endcut %}
 
 
+{% cut "On the Yandex Cloud partner portal, users with this role can:" %}
+
+* View assigned [specializations](../../../partner/specializations/index.md).
+* View the history of crediting [referral program](../../../partner/program/referral.md) bonuses.
+* View the status of settlements with the [referrer company](../../../partner/terms.md#referral-partner).
+* View the list of referral links.
+* View [rebate credit](../../../partner/terms.md#rebate) history.
+
+{% endcut %}
+
 This role includes the `billing.accounts.viewer` permissions.

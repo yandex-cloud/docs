@@ -38,8 +38,6 @@ Pricing for provisioned resources is based on the allocated throughput limit per
 
 ### Cost calculation examples {#price-example}
 
-{% include [pricies-difference](../_includes/prices-difference.md) %}
-
 Let’s assume a single-shard stream receives two messages per second (50 KB each). The record retention period is 12 hours.
 
 The cost of data processing per month (for a 31-day month) will be:

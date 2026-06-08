@@ -84,7 +84,6 @@ To get the database connection credentials:
 
 Select the authentication mode:
 
-* [OAuth token](../../iam/concepts/authorization/oauth-token.md): Allows you to run commands only under a [{{ yandex-cloud }} account](../../iam/concepts/users/accounts.md#passport). The token is valid for 1 year. This mode is not recommended for production environments.
 * [IAM token](../../iam/concepts/authorization/iam-token.md): Recommended for performing one-time operations under a [{{ yandex-cloud }} account](../../iam/concepts/users/accounts.md#passport) or a [federated account](../../iam/concepts/users/accounts.md#saml-federation). The maximum lifetime of an IAM token is 12 hours.
 * [Authorized access key](../../iam/concepts/authorization/key.md): Recommended for running {{ ydb-short-name }} CLI commands from outside {{ yandex-cloud }} under a [service account](../../iam/concepts/index.md#sa).
 * [Metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md): Most secure and efficient mode used for running commands on VMs inside {{ yandex-cloud }}. [{{ sf-full-name }}](../../functions/) supports it as well.
@@ -92,42 +91,6 @@ Select the authentication mode:
 Set up the mode you selected:
 
 {% list tabs %}
-
-- OAuth token
-
-  Get an OAuth token by sending a [request]({{ link-cloud-oauth }}) and save it to a file. In your {{ ydb-short-name }} CLI commands, provide the path to this file in the `--yc-token-file` parameter.
-
-  To skip this step every time you run a command, save the OAuth token value to the `YC_TOKEN` environment variable or [set up a {{ ydb-short-name }} CLI profile]({{ ydb.docs }}/reference/ydb-cli/profile/create).
-
-  Check the connection by requesting user information:
-
-  ```bash
-  {{ ydb.cli }} \
-    --endpoint <endpoint> \
-    --database <name> \
-    --yc-token-file <path> \
-    discovery whoami
-  ```
-
-  * `--endpoint`: Database endpoint.
-  * `--database`: Path to the database.
-  * `--yc-token-file`: Path to the OAuth token file.
-
-  >Here is a command example:
-  >
-  >```bash
-  >{{ ydb.cli }} \
-  >  --endpoint {{ ydb.ep-serverless }} \
-  >  --database {{ ydb.path-serverless }} \
-  >  --yc-token-file oauth-token.txt \
-  >  discovery whoami
-  >```
-  >
-  >Result:
-  >
-  >```text
-  >User SID: aje6o75au36h********@as
-  >```
 
 - IAM token
 

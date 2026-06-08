@@ -60,6 +60,7 @@ module.exports = {
 
 ## Примеры {#gravity-charts-examples}
 
+
 * [Столбчатая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Столбчатая%20диаграмма)
 * [Линейчатая диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Линейчатая%20диаграмма)
 * [Линейная диаграмма](https://datalens.yandex/nvkfwnekf9xy9?tab=Gy9#Линейная%20диаграмма)

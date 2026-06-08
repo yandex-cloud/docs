@@ -42,7 +42,7 @@
 ## Создайте БД для хранения данных {{ tracker-short-name }} {#database-create}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите параметры кластера:
     * {{ ui-key.yacloud.mdb.forms.section_base }}:
@@ -107,7 +107,7 @@
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python`.

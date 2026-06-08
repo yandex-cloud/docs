@@ -127,7 +127,7 @@
 ## Запустите тест {#run-test}
 
 1. Откройте [консоль управления]({{ link-console-main }}).
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. В параметре **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`.
 1. В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.

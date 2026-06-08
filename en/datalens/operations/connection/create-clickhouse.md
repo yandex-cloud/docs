@@ -3,11 +3,11 @@ title: How to create a {{ CH }} connection in {{ datalens-full-name }}
 description: Follow this guide to create a connection to {{ CH }} in {{ datalens-full-name }}.
 ---
 
-# Creating a {{ CH }} connection in {{ datalens-full-name }}
+# Creating a connection to {{ CH }} from {{ datalens-full-name }}
 
 {% note info %}
 
-All data queries must be made with the [join_use_nulls]({{ ch.docs }}/operations/settings/settings/#join_use_nulls) flag enabled. See [Specifics of using a connection to {{ CH }}](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
+All data queries must be made with the [join_use_nulls]({{ ch.docs }}{{ lang }}/operations/settings/settings#join_use_nulls) flag enabled. See [Specifics of using a connection to {{ CH }}](#ch-connection-specify) if you are using views or subqueries with the JOIN section in {{ datalens-short-name }}.
 
 {% endnote %}
 
@@ -82,7 +82,7 @@ To create a {{ CH }} connection:
 1. Click **Create connection**.
 
 
-1. Select the [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
+1. Select a [workbook](../../workbooks-collections/index.md) to save your connection to or create a new one. If using legacy folder navigation, select a folder to save the connection to. Click **Create**.
 
 
 1. Enter a name for the connection and click **Create**.
@@ -122,7 +122,7 @@ CREATE VIEW ... (
 
 You should also enable this option for raw-sql subqueries that are used as a data source in your dataset.
 
-To avoid errors when using views with the JOIN section in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}/sql-reference/data-types/nullable/#data_type-nullable).
+To avoid errors when using views with the JOIN section in {{ datalens-short-name }}, re-create all views and set `join_use_nulls = 1`. This fills in empty cells with `NULL` values and converts the type of the relevant fields to [Nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable#data_type-nullable).
 
 {% include [clickhouse-disclaimer](../../../_includes/clickhouse-disclaimer.md) %}
 

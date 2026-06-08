@@ -7,7 +7,11 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы настроить для ресурса разрешенные HTTP-методы запросов от клиентов:
 
+{% note info %}
+
 {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 

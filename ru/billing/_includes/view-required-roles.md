@@ -1,0 +1,1 @@
+Просмотр доступен пользователям с [ролью](../security/index.md#billing-accounts-viewer) `billing.accounts.viewer` или выше на платежном аккаунте.

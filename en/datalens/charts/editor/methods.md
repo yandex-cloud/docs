@@ -1531,11 +1531,12 @@ Where:
 
   [Prepare](./tabs.md#prepare) tab contents:
 
+
   ```js
   Editor.setChartsInsights([
       {
           title: 'markdown',
-          message: 'Use [markdown](https://datalens.yandex-team.ru/docs/editor/widgets/markdown/)',
+          message: 'Use [markdown](https://yandex.cloud/en/docs/datalens/charts/editor/widgets/markdown)',
           level: 'critical',
           locator: '1'
       },
@@ -1560,6 +1561,7 @@ Where:
   ]);
   ```
 
+
 - Result
 
   ![screenshot](../../../_assets/datalens/editor/notifications.png)
@@ -1579,7 +1581,7 @@ Specifies structured chart data. It is used for the following two tasks:
 
 #### Supported chart types {#set-raw-data-charts}
 
-[Advanced chart](./widgets/advanced.md)
+[Advanced chart](./widgets/advanced.md).
 
 #### Arguments {#set-raw-data-args}
 

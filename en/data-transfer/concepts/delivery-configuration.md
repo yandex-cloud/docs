@@ -34,7 +34,7 @@ In this case, the **Exactly-once** strategy is implemented for DMBS-level data i
 
 {% note tip %}
 
-To perform background deduplication in the {{ CH }} consumer database, you can use the [ReplacingMergeTree engine](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree) that deduplicates data by sort key when merging data chunks. However, this engine does not guarantee that there are no duplicates on the consumer side at each point in time.
+To perform background deduplication in the {{ CH }} consumer database, you can use the [ReplacingMergeTree engine]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree) that deduplicates data by sort key when merging data chunks. However, this engine does not guarantee that there are no duplicates on the consumer side at each point in time.
 
 {% endnote %}
 

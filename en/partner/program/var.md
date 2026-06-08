@@ -1,3 +1,8 @@
+---
+title: '{{ yandex-cloud }} partner program terms and conditions.'
+description: Participation, partner bonus/discount, and procedure for exiting the program.
+---
+
 # Partner program
 
 _The partner program_ is a program where a partner company resells {{ yandex-cloud }} services and earns a partner [bonus](#premium).

@@ -83,7 +83,7 @@ To create a {{ mgl-name }} instance, you need the [{{ roles-vpc-user }}](../../.
      {{ TF }} will create all the required resources. You can check the new resources using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
      ```bash
-     {{ yc-mdb-gl }} instance list
+     {{ yc-gl }} instance list
      ```
 
 - API {#api}

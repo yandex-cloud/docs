@@ -13,7 +13,7 @@ keywords:
 # Recommendations on fault tolerance in {{ yandex-cloud }}
 
 Fault tolerance is the capability of a system to continue its operation in case of any fault in one or multiple components. 
-Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Here is an example: 50% loss of network packages during transmission via communication circuits is a partial fault.
+Faults can be either total or partial. A partial fault is intermediate between a fully operational state and a total fault, manifested by a partial rather than full loss of the system’s capacity to perform its functions. Example: 50% loss of network packages during transmission via communication circuits is a partial fault.
 
 Below are recommendations on designing a fault-tolerant infrastructure in {{ yandex-cloud }}.
 
@@ -34,6 +34,7 @@ Here are the possible fault types regarding which this document provides recover
 1. Short partial fault of API services.
 
 To build fault-tolerant services in {{ yandex-cloud }}, factor in the platform’s architectural specifications: availability zones and nuances of cloud tools for building fault-tolerant systems.
+
 
 ## Resource placement {#resource-placement}
 
@@ -79,6 +80,7 @@ Also, note that the automatic mechanism of availability checks may not be trigge
 To minimize fault handling time, especially in case of API faults, it is essential to make sure each zone has enough computing resources. If one availability zone fails, this will allow you to use the capacity of the remaining operational zones to support the estimated load. We recommend you to have at least a 50% reserve above the estimated load for resources in each zone (see the diagram below).
 ![image](../_assets/architecture/fault-tolerance-parameters.svg)
 
+
 ## Tools for ensuring fault tolerance {#ha-tools}
 
 * Load balancers: 
@@ -107,11 +109,14 @@ The central tool for building fault-tolerant solutions in {{ yandex-cloud }} is 
 
 We recommend checking the targets for readiness frequently enough with an interval of under three seconds. The health check trigger thresholds must be strictly greater than 1. To avoid increased load on targets, the health checks must not require much resources to generate a response. Example of poor practice: requesting the website root page for a health check. Example of good practice: using a separate URI to check connections to the targets of interest (e.g., databases) and overall operability. 
 
+
 Here is an [example](../tutorials/web/load-balancer-website/) of creating a fault-tolerant website with load balancing using {{ network-load-balancer-name }} between two availability zones with fault protection in one zone.
+
 
 ### {{ alb-name }} {#alb}
 
 [{{ alb-name }}](../application-load-balancer/) is a smarter yet more costly balancing tool. At the architecture level, the service is a {{ network-load-balancer-name }} that distributes network traffic between [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs acting as [reverse proxies](https://en.wikipedia.org/wiki/Reverse_proxy) which, in turn, distribute traffic further between the customer’s targets. Unlike {{ network-load-balancer-name }} with only VM network interfaces for targets, {{ alb-name }} can distribute traffic to any private IP addresses, e.g., IP addresses outside of the cloud network, IP addresses of {{ network-load-balancer-name }} listeners, etc.
+
 
 To handle situations with partial availability zone faults, with {{ alb-name }}, you can manually stop delivering customer traffic to the compromised zone.
 
@@ -121,21 +126,30 @@ For reliable operation of the fault tolerance mechanisms, {{ alb-name }} has to 
 
 To minimize delays during request processing, locality aware routing should be employed: a request reaching a resource unit in an availability zone must be processed in the same availability zone. To do this, set the [locality_aware_routing_percent](../application-load-balancer/concepts/backend-group.md#locality) parameter for the [backend group](../application-load-balancer/concepts/backend-group.md) to 100%. This will prioritize traffic delivery to the current availability zone while still keeping it possible to send requests to other availability zones if no targets are available. We do not recommend enabling **Strict localization**, as it stops the processing of requests ending up in the availability zone without any targets available. 
 
+
 The recommendations for {{ alb-name }} target availability checks are the same as for {{ network-load-balancer-name }}.
 
 You can give {{ alb-name }} extra resilience to faults related to malicious activities by connecting to it such web application protection services as [{{ sws-name }}](../smartwebsecurity/), [ARL](../smartwebsecurity/concepts/arl.md), [WAF](../smartwebsecurity/concepts/waf.md), and [{{ captcha-name }}](../smartcaptcha/).
+
 
 Here is an [example](../tutorials/web/application-load-balancer-website/index.md) of creating a fault-tolerant website with load balancing using {{ alb-name }} between three availability zones with fault protection in one zone.
 
 {% include [alb-ig-zonal-inc](../_includes/application-load-balancer/alb-ig-zonal-inc.md) %}
 
+
 ## Fault tolerance of platform services {#platform-services-ha}
+
 
 Placement of platform service hosts in different availability zones is the key method of achieving fault tolerance.
 
+
 ### High availability managed databases (MDB) {#mdb-ha}
 
-According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements.
+
+According to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements. Some MDB services are subject to special SLAs:
+
+* [{{ mkf-name }}]({{ link-sla-kafka }}).
+* [{{ mgp-name }}]({{ link-sla-greenplum }}).
 
 {% note warning %}
 
@@ -143,10 +157,11 @@ High-performance environments with demanding requirements for fault recovery spe
 
 {% endnote %}
 
-In case the DB master fails, the automatic mechanism of the service initiates switching to another host. In certain cases, the automatic mechanism of the DB service cannot initiate master switching during a fault. In this case, you must switch manually, e.g., using the `yc` command. Here is an example for a {{ PG }} cluster: 
+
+In case the DB master fails, the automatic mechanism of the service initiates switching to another host. In certain cases, the automatic mechanism of the DB service cannot initiate master switching during a fault. In this case, you must switch manually, e.g., using the `yc` command. Here is an example for a {{ PG }} cluster:
 
 ```bash
-   yc managed-postgresql cluster start-failover <cluster_name> --host <host_name>
+yc managed-postgresql cluster start-failover <cluster_name> --host <host_name>
 ```
 
 To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect/fqdn.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect/fqdn.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
@@ -155,9 +170,12 @@ Currently, {{ yandex-cloud }} does not have a service automatically balancing re
 
 ### {{ managed-k8s-name }} fault tolerance {#mk8s-ha}
 
+
 Under the [SLA](https://yandex.ru/legal/cloud_sla_kb/), {{ k8s }} clusters are only deemed fault-tolerant if they use a `master with fault tolerance settings in three availability zones (one host per zone)`.
 
+
 For maximum fault tolerance, use multiple clusters with traffic balancing. In addition to fault tolerance, this configuration allows you to update cluster versions without interruptions, implement locality-aware traffic routing, and run A/B testing.
+
 
 To build a fault-tolerant infrastructure in a single-cluster configuration, beyond the cluster itself, you need to:
    * Host cluster worker nodes in multiple availability zones.
@@ -172,11 +190,14 @@ To minimize the impact of cluster node faults, you need to ensure even load dist
    * `topologySpreadConstraints`: To ditribute pods among availability zones.
    * `podAntiAffinity`: To prevent placement of pods on a single node.
 
-To reduce service down time during cluster updates, you need to set `podDisruptionBudget` policies.
+
+To reduce service downtime during cluster updates, you should set up `podDisruptionBudget` policies.
 
 ## Autoscaling tools {#auto-scaling}
 
+
 In case one of the availability zones fails, you need to redistribute the load among the other zones. If you are using `cold reserve (active-passive)` fault tolerance, you can reduce recovery time by ensuring resource autoscaling.
+
 
 The central scaling tool in {{ yandex-cloud }} is an [instance group](../compute/concepts/instance-groups/). An instance group includes:
 
@@ -184,9 +205,10 @@ The central scaling tool in {{ yandex-cloud }} is an [instance group](../compute
    * Scaling policy (manual or automatic)
    * Scaling mechanism
 
-Here is an [example](../tutorials/infrastructure-management/vm-autoscale/) of deploying an instance group with an autoscaling policy for managing extra load.
+Here is an [example](../tutorials/infrastructure-management/vm-autoscale/) of deploying an instance group with an autoscaling policy in response to overload.
 
 For autoscaling, you can use any {{ yandex-cloud }} {{ monitoring-name }} parameter in addition to the basic parameter (CPU load).
+
 
 Recommendations on ensuring tolerance against zone faults:
    1. Use a separate instance group for each availability zone. Avoid using the same instance group to create instances in different availability zones: this may complicate their management if one of the zones fails.
@@ -206,6 +228,7 @@ When designing a fault-tolerant cloud infrastructure, keep in mind that if one o
 
 See also the [description of instance groups during a zonal incident and our mitigation guidelines](../compute/concepts/instance-groups/zonal-inc/overview.md).
 
+
 ## Fault tolerance of client services {#client-service-ha}
 
 To ensure fault tolerance and quick fault handling in {{ managed-k8s-name }} applications:
@@ -215,6 +238,7 @@ To ensure fault tolerance and quick fault handling in {{ managed-k8s-name }} app
    1. Set up correct health checks.
    1. Apply a retry policy to the provider’s services.
    1. Configure autoscaling of cluster worker nodes for automatic redistribution of resources in case of an unexpected load spike or failure of one of the availability zones.
+
 
 ## How to shift load away from an availability zone {#traffic-shifting}
 
@@ -242,9 +266,10 @@ We are introducing the `NLB Zonal Shift` mechanism to better respond to partial 
 After an application is successfully tested for fault tolerance, you can tag the relevant NLB with a special flag. This flag will enable {{ yandex-cloud }} support to shift traffic away from the load balancer in response to partial failures in one of its availability zones not captured by regular [target health checks](../network-load-balancer/concepts/health-check.md), e.g., due to external communication circuit issues.
 
 To tag an NLB with a zone shift flag, run this YC CLI command:
+
 ```bash
 yc load-balancer network-load-balancer update <nlb-id> --allow-zonal-shift
-``` 
+```
 
 
 ## Monitoring and escalation {#monitoring-escalation}
@@ -262,7 +287,10 @@ Any fault tolerance solutions require regular testing in various fault scenarios
 
 ## See also {#see-also}
 
-* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md).
-* [{#T}](../managed-postgresql/concepts/high-availability.md).
-* [{#T}](../managed-mysql/concepts/high-availability.md).
-* [{#T}](../managed-opensearch/concepts/high-availability.md).
+* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)
+* [{#T}](../managed-clickhouse/concepts/high-availability.md)
+* [{#T}](../managed-greenplum/concepts/high-availability.md)
+* [{#T}](../managed-kafka/concepts/ha-cluster.md)
+* [{#T}](../managed-postgresql/concepts/high-availability.md)
+* [{#T}](../managed-mysql/concepts/high-availability.md)
+* [{#T}](../managed-opensearch/concepts/high-availability.md)

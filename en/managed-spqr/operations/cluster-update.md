@@ -18,7 +18,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to update a {{ SPQR }} cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -34,7 +34,7 @@ After creating a cluster, you can edit its basic and advanced settings.
     1. Update the computing resource configuration:
 
         * For standard sharding, update the infrastructure host configuration under **{{ ui-key.yacloud.spqr.section_infra }}**.
-        * For advanced sharding, update the router host configuration under **{{ ui-key.yacloud.spqr.section_router }}**. If employing a coordinator, update the coordinator host configuration under **{{ ui-key.yacloud.spqr.section_coordinator }}**.
+        * For advanced sharding, update the router host configuration under **{{ ui-key.yacloud.spqr.section_router }}** and the configuration of coordinator hosts under **{{ ui-key.yacloud.spqr.section_coordinator }}**.
 
         To update your computing resource configuration:
 
@@ -139,7 +139,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
         {% endnote %}
 
@@ -211,7 +211,7 @@ After creating a cluster, you can edit its basic and advanced settings.
      * `maintenanceWindow`: Maintenance window settings:
 
         * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
+        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
   1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -341,7 +341,7 @@ After creating a cluster, you can edit its basic and advanced settings.
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
         {% endnote %}
 
@@ -391,7 +391,7 @@ After creating a cluster, you can edit its basic and advanced settings.
              * `router`: Router configuration:
 
                * `show_notice_messages`: Show information notifications, `true` or `false`.
-               * `time_quantiles`: Array of time quantiles for displaying statistics. The following values ​​are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
+               * `time_quantiles`: Array of time quantiles for displaying statistics. The following values are used by default: `0.5`, `0.75`, `0.9`, `0.95`, `0.99`, `0.999`, `0.9999`.
                * `default_route_behavior`: Router's multishard request execution policy. Possible values: `BLOCK` or `ALLOW`.
                * `prefer_same_availability_zone`: Enable priority routing of read requests to the router's availability zone, `true` or `false`.
 
@@ -413,7 +413,7 @@ After creating a cluster, you can edit its basic and advanced settings.
      * `maintenance_window`: Maintenance window settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. Allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The valid values range from `1` to `24`.
 
   1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

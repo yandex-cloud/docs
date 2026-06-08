@@ -148,7 +148,7 @@ To disable read-only mode:
         }
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -308,7 +308,7 @@ To disable read-only mode:
                                    `emergency-usage-threshold=<immediate_expansion_percentage>
         ```
 
-        If you have configured storage scaling during a maintenance window, set the maintenance schedule.
+        If you have configured storage scaling during a maintenance window, [set the maintenance schedule](cluster-maintenance.md#set-maintenance-window).
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
         
@@ -330,9 +330,9 @@ To disable read-only mode:
         
         {% endnote %}
     
-    1. If you specified `planned_usage_threshold`, configure the [maintenance schedule](cluster-maintenance.md#set-maintenance-window).
+    1. If `planned_usage_threshold` is set, [configure the maintenance schedule](cluster-maintenance.md#set-maintenance-window).
     
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -370,7 +370,7 @@ To disable read-only mode:
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<day_of_week>",
-                     "hour": "<hour>"
+                     "hour": "<sequence_number_of_hour_interval>"
                    }
                  }
                }'
@@ -392,10 +392,12 @@ To disable read-only mode:
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following parameters:
+     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
+       * `weeklyMaintenanceWindow.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+       * `weeklyMaintenanceWindow.hour`: Sequence number of UTC hour interval, from `1` to `24`.
+           
+         > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
@@ -437,7 +439,7 @@ To disable read-only mode:
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<day_of_week>",
-                 "hour": "<hour>"
+                 "hour": "<sequence_number_of_hour_interval>"
                }
              }
            }' \
@@ -457,10 +459,12 @@ To disable read-only mode:
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following parameters:
+     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following:
 
-       * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
+       * `weekly_maintenance_window.day`: Day of week, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+       * `weekly_maintenance_window.hour`: Sequence number of UTC hour interval, from `1` to `24`.
+           
+         > For example, `1` stands for the interval from `00:00` to `01:00`, and `5`, from `04:00` to `05:00`.
 
      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 

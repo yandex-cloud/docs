@@ -11,6 +11,9 @@
 `BookmarkTagsCreate` | Создание тегов для избранного
 `BookmarkTagsDelete` | Удаление тегов для избранного
 `BookmarkUpdate` | Обновление тегов для страницы в избранном
+`ChangeOrganizationDomain` | Изменение домена организации
+`ChangeOrganizationMetrika` | Изменение [счетчика Яндекс Метрики](https://yandex.ru/support/wiki/ru/add-metrika) организации
+`ChangeOrganizationSettings` | Изменение настроек организации
 `ClusterMove` | Перемещение кластера страниц
 `CommentCreate` | Создание комментария
 `CommentDelete` | Удаление комментария

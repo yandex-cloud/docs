@@ -42,12 +42,6 @@ blocks:
 :::
 
 
-{% note warning %}
-
-Starting April 20, 2026, [object metadata export (S3 Inventory)](concepts/s3-inventory.md) will become a paid feature.
-
-{% endnote %}
-
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 

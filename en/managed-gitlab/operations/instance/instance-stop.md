@@ -23,7 +23,7 @@ While your instance is idle, you only pay for the stored instance data and the s
   To stop a {{ GL }} instance, run this command:
 
   ```bash
-  {{ yc-mdb-gl }} instance stop <instance_name_or_ID>
+  {{ yc-gl }} instance stop <instance_name_or_ID>
   ```
 
   You can [request](instance-list.md#list) the instance ID or name with the list of instances in the folder.
@@ -78,7 +78,7 @@ You can restart **Stopped** instances.
   To start a {{ GL }} instance, run this command:
 
   ```bash
-  {{ yc-mdb-gl }} instance start <instance_name_or_ID>
+  {{ yc-gl }} instance start <instance_name_or_ID>
   ```
 
   You can [request](instance-list.md#list) the instance ID or name with the list of instances in the folder.

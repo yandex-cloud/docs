@@ -1,3 +1,8 @@
+---
+title: Working with {{ yq-full-name }} via the {{ ydb-short-name }} SDK
+description: Authentication, connection, running queries, and getting results.
+---
+
 # SDK
 
 {{ yq-full-name }} is based on [{{ ydb-short-name }} external tables]({{ ydb.docs }}/concepts/datamodel/external_table), hence, you need the [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/) to work with the service.

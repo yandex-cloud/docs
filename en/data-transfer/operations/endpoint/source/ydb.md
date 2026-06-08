@@ -94,7 +94,6 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
     The data is copied at the metadata level, which does not take much time. However, the copied tables are fully counted towards the {{ ydb-name }} disk quota.
     **Therefore, by running a transfer with the sharded snapshot option on you may deplete your disk quota for the source database. So make sure your database has enough disk quota left before you run a transfer.**
 
-
     {% endnote %}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**: Enable to speed up the transfer with the help of a sharded snapshot.

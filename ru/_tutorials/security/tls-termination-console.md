@@ -33,7 +33,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** сети: `mysite-network`.
   1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -52,7 +52,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Откройте вкладку ![map-pin](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -69,7 +69,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Откройте вкладку ![shield](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
@@ -116,7 +116,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите пункт **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. Укажите **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** сертификата: `mysite-cert`.
   1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**. Загрузите **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** с вашим сертификатом или укажите его **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** и нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
@@ -135,7 +135,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `mysite-ig`.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
@@ -189,7 +189,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `my-site-bg`.
   1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
@@ -214,7 +214,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `mysite-router`.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
@@ -234,7 +234,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
   1. В открывшемся меню выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. Укажите **{{ ui-key.yacloud.common.name }}** балансировщика: `mysite-alb`.
@@ -268,7 +268,7 @@
 - Консоль управления {#console}
 
   1. Откройте [консоль управления]({{ link-console-main }}).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Скопируйте IP-адрес созданного балансировщика.
   1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
   1. Создайте или измените [A-запись](../../dns/concepts/resource-record.md#a) для `my-site.com` таким образом, чтобы она указывала на скопированный IP-адрес:
@@ -284,7 +284,7 @@
       Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
           1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
           1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `tls-termination-dns`.

@@ -1,3 +1,8 @@
+---
+title: Autoscaling in {{ managed-k8s-name }}
+description: Autoscaling in {{ managed-k8s-name }} allows you to resize a node group, change the number of pods and the amount of resources allocated to each one.
+---
+
 # Autoscaling
 
 Autoscaling is a way of changing the size of a [node group](./index.md#node-group), number of pods, or the amount of resources allocated to each pod based on resource requests for [pods](./index.md#pod) running on this group's nodes.

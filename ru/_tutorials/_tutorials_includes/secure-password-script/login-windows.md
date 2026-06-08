@@ -1,7 +1,7 @@
 Чтобы проверить, что данные из секрета были успешно использованы для создания пользователей, авторизуйтесь в ОС виртуальной машины:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит виртуальная машина.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Выберите виртуальную машину `win-test`.
 1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 1. В блоке **{{ ui-key.yacloud.compute.instance.switch_console }}** выберите `COM2` и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**. В командной строке отобразится приглашение ввода команд:

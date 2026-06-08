@@ -382,8 +382,6 @@ items:
         href: concepts/network-policy.md
       - name: Autoscaling
         href: concepts/autoscale.md
-      - name: Recommended master configurations
-        href: concepts/master-configuration.md
       - name: Audit policy
         href: concepts/audit-policy.md
       - name: External cluster nodes
@@ -392,6 +390,8 @@ items:
         href: concepts/limits.md
       - name: Recommendations on using {{ managed-k8s-name }}
         href: concepts/usage-recommendations.md
+      - name: Recommended master configurations
+        href: concepts/master-configuration.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

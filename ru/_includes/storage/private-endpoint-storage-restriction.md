@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ objstorage-name }}**.
+  1. Перейдите в сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. В блоке **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}** активируйте опцию **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.
@@ -71,7 +71,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы настроили сервисное подключение {{ vpc-short-name }}.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ objstorage-name }}**.
+  1. Перейдите в сервис **{{ objstorage-name }}**.
   1. Выберите бакет в списке.
   1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. В блоке **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_label-strict-mode_2ttnd }}** деактивируйте опцию **{{ ui-key.yacloud.storage.form.BucketSettingsFormSection.field_description-strict-mode_9cpMe }}**.

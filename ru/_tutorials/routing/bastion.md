@@ -53,7 +53,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `external-bastion-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -79,7 +79,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. Задайте имя сети: `internal-bastion-network`.
   1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -109,7 +109,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `external-bastion-network`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `external-bastion-network`.
   1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `secure-bastion-sg`.
@@ -134,7 +134,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `internal-bastion-network`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** и выберите сеть `internal-bastion-network`.
   1. В меню слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. Задайте имя группы безопасности: `internal-bastion-sg`.
@@ -168,7 +168,7 @@
 - Консоль управления {#console}  
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором вы создаете инфраструктуру для бастионного хоста.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.

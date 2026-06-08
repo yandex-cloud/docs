@@ -1,6 +1,11 @@
+---
+title: Batch processing in {{ yq-full-name }}
+description: Batch processing in {{ yq-name }}. Aspects of working with data in {{ objstorage-full-name }} with use cases.
+---
+
 # Batch processing
 
-Batch processing is a technology for processing data that involves preparing aggregated information based on large arrays of data. This type of data analysis is traditional and is used for processing data stored, for example, in a DBMS.
+Batch processing is a data processing technology that aggregates information based on large arrays of data. This type of data analysis is traditional and is used for processing data stored, for example, in a DBMS.
 
 Data volumes increase with time but that does not mean all data is accessed often. So, rarely used data is usually transferred to storage systems like {{ objstorage-full-name }} which are much more cost-effective than DBMS.
 

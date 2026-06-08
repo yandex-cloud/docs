@@ -93,7 +93,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете `<бакет_для_выходных_данных_PySpark_задания>` в папке `warehouse` появилась БД `database_1`. Теперь данные из созданной БД хранятся в бакете {{ objstorage-name }} в формате JSON.

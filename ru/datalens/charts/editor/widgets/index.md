@@ -7,8 +7,9 @@ description: Из статьи вы узнаете, какие типы визу
 
 В Editor доступно несколько типов визуализации, для отрисовки которых используются разные библиотеки:
 
+
 * [Таблица](./table.md)
-* [График (Gravity UI Charts)](./chart.md)
+* [График (Gravity UI Charts)](./gravity-ui.md)
 * [Markdown](./markdown.md)
 * [Advanced-чарт](./advanced.md)
 * [Селектор](./controls.md)

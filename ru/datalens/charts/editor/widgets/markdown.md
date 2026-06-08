@@ -13,9 +13,8 @@ description: Из статьи вы узнаете про виджет Advanced-
 
 ## Доступные элементы разметки {#about-markdown}
 
-- [Общая информация](#common-markdown)
-- [JavaScript](#javascript)
-- [Базовые сведения о Markdown](#about-markdown)
+- [Структура на вкладке Prepare](#prepare)
+- [Разметка Markdown](#about-markdown)
     - [Заголовки](#headers)
     - [Начертания](#text-styles)
     - [Цвет текста](#text-color)
@@ -32,6 +31,43 @@ description: Из статьи вы узнаете про виджет Advanced-
     - [Эмодзи](#emoji)
     - [Диаграммы Mermaid](#mermaid)
     - [Всплывающие подсказки](#term)
+
+## Структура на вкладке Prepare {#prepare}
+
+В результате выполнения вкладки **Prepare** должны быть экспортированы данные для отрисовки Markdown.
+
+### Доступные методы {#available-methods}
+
+* **`Editor.getParams()`** — возвращает объект с нормализованными параметрами.
+
+* **`Editor.getLoadedData()`** — возвращает объект с данными, запрошенными на вкладке **Sources**.
+
+
+
+### Пример {#example}
+
+```js
+// формируем текст
+
+const inline = 'Для вставки кода внутри предложений нужно заключать этот код в апострофы'
+                + '`<html class="ie no-js">`.';
+
+const text = `
+# Заголовок h1
+## Заголовок h2
+### Заголовок h3
+#### Заголовок h4
+
+${inline}
+`;
+
+// экспортируем данные для отрисовки
+module.exports = {
+    markdown: text
+};
+```
+
+## Разметка Markdown {#about-markdown}
 
 ### Заголовки {#headers}
 
@@ -415,6 +451,7 @@ description: Из статьи вы узнаете про виджет Advanced-
 
 {% endlist %}
 
+
 ### Ссылки {#links}
 
 Синтаксис Markdown для встроенной ссылки состоит из `[текста ссылки] и `(URL-адреса)` :
@@ -532,14 +569,7 @@ graph TD;
 
 ## Примеры {#examples}
 
+
 * [Markdown чарт с параметризацией](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20с%20параметрами)
 * [Диаграммы и блок-схемы Mermaid](https://datalens.yandex/nvkfwnekf9xy9?tab=x6v#Markdown%20чарт%20c%20Mermaid-диаграммами)
 
-```mermaid
-
-[*term_key]: Определение термина, которое может включать в себя _базовую_ разметку:
-* списки;
-* ссылки;
-* картинки и т.д.
-
-```

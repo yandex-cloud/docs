@@ -1,3 +1,8 @@
+---
+title: Messages in {{ message-queue-full-name }}
+description: Message states, field composition, and an example of message structure in {{ message-queue-name }}.
+---
+
 # Messages
 
 Messages are sent through queues and can contain plain text in the body. Messages are received by consumers that delete them from the queue after processing.

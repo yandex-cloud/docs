@@ -66,7 +66,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
     Чтобы настроить источник аутентификации {{ org-full-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите нужные значения настроек:

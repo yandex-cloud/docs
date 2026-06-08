@@ -49,7 +49,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Укажите имя сервисного аккаунта: `s2s-vpn-sa`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли:
@@ -125,7 +125,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `s2s-vpn-network`.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -164,7 +164,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите `{{ region-id }}-b` и нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
@@ -232,7 +232,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.cloud-apps.label_marketplace }}**.
   1. В поле **Поиск продуктов** введите `strongswan`, выберите **strongSwan S2S VPN** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. В открывшемся окне укажите:
@@ -262,7 +262,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. В строке автоматически созданной подсети `ipsec-sgw-...` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** и выберите автоматически созданную таблицу `ipsec-sgw-...`.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
@@ -343,7 +343,7 @@
 
 * Удалите приложение strongSwan S2S VPN:
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
     1. В строке с приложением нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
         Вместе с приложением удалятся все связанные с ним ресурсы.

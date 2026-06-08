@@ -62,7 +62,7 @@ The filter parameters will be added to the chart URL after `?`. When providing m
 
 #### See also: {#see-also}
 
-* [{#T}](../security/private-embedded-objects.md)
+* [{#T}](../security/private-embedded-objects.md).
 
 
 

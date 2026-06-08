@@ -15,6 +15,16 @@
 
 ## Просмотр полученных грантов {#how-to-view}
 
+Просмотр полученных грантов доступен в сервисе {{ billing-name }} или в виджете консоли управления.
+
+{% note info %}
+
+{% include [view-required-roles](../_includes/view-required-roles.md) %}
+
+{% include [console-access-note](../_includes/console-access-roles.md) %}
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
@@ -23,6 +33,15 @@
   1. Выберите платежный аккаунт из списка.
   1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}** нажмите ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
   1. На странице **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** на вкладке **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** отобразится информация обо всех полученных грантах.
+
+- Консоль управления {#console}
+
+    1. Откройте [консоль управления]({{ link-console-main }}).
+    1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
+
+    В открывшемся виджете отобразится информация об активных грантах. Для просмотра информации обо всех грантах, нажмите **{{ ui-key.yacloud_billing_account.billing-widget.grant }}** ![image](../../_assets/console-icons/arrow-up-right-from-square.svg).
+
+    {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
 
 {% endlist %}
 

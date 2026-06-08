@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет храниться телеметрия.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
 1. Введите имя сервисного аккаунта, например `monium-sa`.
 1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и добавьте [роль](../../monium/security/index.md#monium-telemetry-writer) `monium.telemetry.writer`.

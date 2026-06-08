@@ -9,8 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 {{ yandex-cloud }} оставляет за собой право автоматически списать средства с привязанной карты в течение текущего отчетного периода, если баланс вашего лицевого счета превысит установленный размер порога оплаты.
 
- 
-{% include [initial_payment](../../_includes/billing/initial-payment-amount.md) %} 
+{% include [initial_payment](../../_includes/billing/initial-payment-amount.md) %}
 
 Способ пополнения лицевого счета зависит от вашего юридического статуса.
 
@@ -19,6 +18,14 @@ description: Следуя данной инструкции, вы сможете
 Цикл оплаты выполняется автоматически для [физических лиц](../payment/billing-cycle-individual.md), а также для [организаций и ИП](../payment/billing-cycle-business.md), если к платежному аккаунту привязана банковская карта.
 
 {% endnote %}
+
+Пополнить счет можно в сервисе {{ billing-name }} или в виджете консоли управления.
+
+Пополнение счета доступно пользователям со следующими ролями:
+
+* `billing.accounts.owner` на [платежном аккаунте](../security/index.md#set-role) для пополнения лицевого счета с помощью банковской карты.
+* `billing.accounts.editor` или выше на [платежном аккаунте](../security/index.md#set-role) для пополнения лицевого счета с помощью лицевого счета.
+* `resource-manager.clouds.member` или выше на [облако](../../resource-manager/operations/cloud/set-access-bindings.md) для пополнения лицевого счета из консоли управления.
 
 ## Физическим лицам {#individuals}
 
@@ -32,17 +39,17 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите платежный аккаунт.
   1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
   1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
-  1. Выберите [способ пополнения баланса](../payment/payment-methods-individual.md):
-     * СБП (Система быстрых платежей):
-        1. Нажмите кнопку **Оплатить СБП**.
-        1. Отсканируйте QR-код с помощью мобильного приложения вашего банка и подтвердите платеж.
+  1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
-        {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
+- Консоль управления {#console}
 
-     * Банковская карта, привязанная к [Яндекс ID](../../iam/concepts/users/accounts.md#passport).  
-     * Добавить карту:
-        1. Введите данные карты.
-        1. Нажмите кнопку **Оплатить**.
+    1. Откройте [консоль управления]({{ link-console-main }}).
+    1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
+    1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+
+        {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+    1. В открывшемся окне введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**.
+    1. {% include [individual_payment_methods](../_includes/individual-payment-methods.md) %}
 
 {% endlist %}
 
@@ -62,47 +69,22 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы пополнить лицевой счет:
 
-1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-1. Выберите платежный аккаунт.
-1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Эта кнопка доступна только после [перехода на платное потребление](activate-commercial.md).
-1. Выберите способ оплаты:
+{% list tabs group=instructions %}
 
-  {% list tabs group=payments %}
+- {{ billing-interface }} {#billing}
 
-   - Банковский перевод {#transfer}
+    1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+    1. Выберите платежный аккаунт.
+    1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Эта кнопка доступна только после [перехода на платное потребление](activate-commercial.md).
+    1. {% include [business_payment_methods](../_includes/business-payment-methods.md) %}
+  
+- Консоль управления {#console}
 
-     Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.popup-refill_button_company-action }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
+  1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Эта кнопка доступна только после [перехода на платное потребление](activate-commercial.md).
 
-     Система сформирует счет для оплаты. Распечатайте счет и используйте его для оплаты в отделении банка или через систему клиент-банк.
+      {% include [hide-private-data](../_includes/billing-widget-hide-private-data.md) %}
+  1. {% include [business_payment_methods](../_includes/business-payment-methods.md) %}
 
-     Перед проведением оплаты убедитесь, что в платежном поручении корректно указаны:
-     * сумма платежа;
-     * банковские реквизиты ООО «Яндекс.Облако» для Российской Федерации (РФ), ТОО «Облачные Сервисы Казахстан» для Республики Казахстан (РК), Iron Hive doo Beograd (Serbia) или Direct Cursus Technology L.L.C. (Dubai) для нерезидентов Российской Федерации и Республики Казахстан;
-
-       {% include [legal-entity-nonresidents](../../_includes/billing/legal-entity-nonresidents.md) %}
-
-     * ИНН вашей организации или ИП;
-     * [номер лицевого счета](../concepts/personal-account.md#id) в назначении платежа;
-     * [номер договора](../concepts/contract.md) в назначении платежа.
-
-     [Сроки зачисления средств](../payment/payment-methods-business.md#limits) зависят от банка, проводящего платеж.
-
-     {% include [payment-bill-note](../_includes/payment-bill-note.md) %}
-
-  - Банковская карта {#card}
-
-    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Затем введите данные карты и нажмите кнопку **Оплатить**.
-
-    {% include [payment-card-types](../../_includes/billing/payment-card-types-business.md) %}
-
-    Платеж происходит в режиме реального времени и зачисляется в течение 15 минут.
-
-  - СБП (Система быстрых платежей) {#sbp}
-
-    {% include [payment-sbp-info](../../_includes/billing/payment-sbp-info.md) %}
-
-    Введите сумму платежа и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-overview.button_refill }}**. Выберите способ пополнения баланса через СБП и нажмите кнопку **Оплатить СБП**.
-    
-    Отсканируйте QR-код с помощью приложения вашего банка и подтвердите платеж.
-    
-  {% endlist %}
+{% endlist %}

@@ -10,7 +10,7 @@
 
      ```
      provider "yandex" {
-         token     = "<OAuth_or_static_key_of_service_account>"
+         token     = "<service_account_static_key>"
          folder_id = "<folder_ID>"
          zone      = "{{ region-id }}-a"
        }
@@ -29,7 +29,7 @@
 
      ```
      provider "yandex" {
-         token     = "<OAuth_or_static_key_of_service_account>"
+         token     = "<service_account_static_key>"
          folder_id = "<folder_ID>"
          zone      = "{{ region-id }}-a"
        }
@@ -49,7 +49,7 @@
 
      ```
      provider "yandex" {
-         token     = "<OAuth_or_static_key_of_service_account>"
+         token     = "<service_account_static_key>"
          folder_id = "<folder_ID>"
          zone      = "{{ region-id }}-a"
        }
@@ -88,23 +88,23 @@
      * `access_key`: ID of the service account's static access key for the queue. If it is not specified in the queue configuration, the ID from the provider configuration is used.
      * `secret_key`: Secret part of the static access key. If no secret key is set in the queue configuration, the key from the provider configuration is used.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
      
   1. Make sure the configuration files are correct.
      
-     1. In the command line, navigate to the directory where you created the configuration file.
+     1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using this command:
         ```
         terraform plan
         ```
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out. 
+     If the configuration is correct, the terminal will display a list of the resources and their settings. Otherwise, {{ TF }} will show any detected errors. 
         
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
         ```
         terraform apply
         ```
      1. Confirm creating the resources.
      
-     This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}). To delete the resources you created, run the `terraform destroy` command.
+     This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}). To delete the resources you created, run the `terraform destroy` command.

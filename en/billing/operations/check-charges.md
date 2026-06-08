@@ -27,9 +27,15 @@ By default, usage details show the cost of consumed resources. Details in consum
 
 {% list tabs group=details %}
 
-- For clouds {#clouds}
+- Workspaces {#instances}
 
-  You can view usage details for one or more clouds. The selected clouds have a mark next to their name. By default, all the linked clouds are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.accounts.column_cloud }}** list, deselect the clouds you need no information about. To exclude {{ datalens-full-name }}, {{ tracker-full-name }}, or {{ ml-platform-name }} usage info from details, deselect **Consumption outside cloud** at the bottom of the cloud list. To get details for selected clouds by specific product or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
+  You can view the usage details for one or more clouds, [workspaces](../../organization/concepts/organization.md#service-management), and additional agreements, e.g., adjustments and [CVoS](../concepts/cvos.md).
+  
+  By default, the displayed information covers all clouds, workspaces, and additional agreements associated with your billing account. To filter this view, select the specific clouds, services, and additional agreements in the **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_service_instances }}** list.
+  
+  Linked workspaces are displayed in [**{{ billing-name }}**]({{ link-console-billing }}) on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}**.
+
+  To get usage details for selected clouds, workspaces, and additional agreements, filtered by specific products or labels, click **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** or **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, enter the values, and click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
@@ -39,25 +45,25 @@ By default, usage details show the cost of consumed resources. Details in consum
 
   {% endnote %}
 
-- For folders {#folders}
+- Сloud folders {#folders}
 
   You can view usage details for one or more folders. The selected folders have a mark next to their name. By default, all the folders of the selected cloud are marked. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}** list, deselect the folders you need no information about. To get details for selected folders by specific product or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the products and labels to include in the report.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-- For services {#services}
+- Services {#services}
 
   You can view usage details for one or more services in different clouds. You can also view usage details for one or more services in different folders of the selected cloud. By default, all services in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, in the **{{ ui-key.yacloud_billing.billing.account.detail.label_service }}**, **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}**, or **{{ ui-key.yacloud_billing.billing.accounts.column_cloud }}** list, deselect the elements you need no information about. To get details for selected services by specific cloud, folder, or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-- For products {#products}
+- Products {#products}
 
   You can view usage details for one or more products in different clouds. You can also view usage details for one or more products in different folders of the selected cloud. By default, all products in all clouds are selected. The selected elements have a mark next to their name. To only view usage details for some of them, click **{{ ui-key.yacloud_billing.billing.account.detail.label_product }}** and deselect the products and services you need no information about. Click **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**. To get details for selected products by specific cloud, folder, or label, click **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** and specify the objects to include in the report.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-- By labels {#labels}
+- Labels {#labels}
 
   You can view usage details by [service resource labels](../../resource-manager/concepts/labels.md). You can [add a label](../../resource-manager/operations/manage-labels.md) to a resource and then specify the label name in the **Label key** list. If there are usage details available for the selected label, the chart will display information starting from the date the label was created. Below the chart, the table will show all values corresponding to the selected label.
   You can also view details by a specific value of the label you select for one or more products in different folders of the selected cloud:
@@ -69,7 +75,7 @@ By default, usage details show the cost of consumed resources. Details in consum
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
-- By periods {#periods}
+- Periods {#periods}
   
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 

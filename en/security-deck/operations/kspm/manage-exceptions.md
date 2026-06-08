@@ -22,7 +22,7 @@ To view the list of exceptions from the {{ k8s }} security control rules applica
   1. At the top of the window, select the [workspace](../../concepts/workspace.md) for which you want to view the info on control rule exceptions.
   1. On the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page that opens, go to the **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** tab.
 
-      The list of exceptions for the {{ k8s }} rules is provided under **{{ kspm-name }}** and contains the following fields:
+      The list of exceptions for the {{ k8s }} rules is provided under **{{ kspm-full-name }}** and contains the following fields:
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_caption }}**: Reason for exception.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}**: Active or inactive.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_rules }}**: List of rules subject to exception.
@@ -43,7 +43,7 @@ To create a new exception for the {{ k8s }} control rules:
   1. In the left-hand panel, select ![file-text](../../../_assets/console-icons/file-text.svg) **{{ ui-key.yacloud_org.app.security.control_rules_rWmUV }}**.
   1. At the top of the window, select the [workspace](../../concepts/workspace.md) in which you want to create an exception from the control rules.
   1. On the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page that opens, go to the **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** tab.
-  1. In the top-right corner, click **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select `{{ kspm-name }}`. On the page that opens:
+  1. In the top-right corner, click **{{ ui-key.yacloud_org.security.controls.ControlsExceptionsPage.action_create }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select `{{ kspm-full-name }}`. On the page that opens:
       1. Under **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}**, specify the resources you want to exclude when checking the {{ k8s }} control rules:
 
           * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}`: To exclude all resources controlled in the [workspace](../../concepts/workspace.md).
@@ -61,7 +61,7 @@ To create a new exception for the {{ k8s }} control rules:
               * Click **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.
       1. Optionally, under **{{ ui-key.yacloud_org.security.workspaces.section-title_9BLTm }}**, use a namespace to specify the objects to exclude from the check:
           * Enable **{{ ui-key.yacloud_org.security.workspaces.namespace-checkbox_85krx }}**.
-          * Enter the object name from the namespace. The naming requirements are as follows:
+          * Enter the object name from the namespace. Follow these naming requirements:
               
             {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -73,7 +73,9 @@ To create a new exception for the {{ k8s }} control rules:
 
 {% endlist %}
 
-The new exception will now be displayed under **{{ kspm-name }}** on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** tab of the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page.
+The new exception will now be displayed under **{{ kspm-full-name }}** on the **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** tab of the **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** page.
+
+You can also create an exception on the alert page. For more information, see [{#T}](../alerts/work.md#create-exception).
 
 ## Deleting an exception {#delete-exception}
 

@@ -399,7 +399,7 @@ Create test applications and Ingress resource:
 
      * `ingress.alb.yc.io/balancing-panic-threshold`: [Panic mode](../../application-load-balancer/concepts/backend-group.md#panic-mode) threshold. The mode will be activated if the percentage of healthy endpoints drops below the specified threshold. The default value is `0`, which means the panic mode will never be activated.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its availability zone. The remaining traffic is split equally between other zones. The default value is `0`. [More on locality-aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing`: Percentage of incoming traffic the load balancer forwards to backends from its [availability zone](../../overview/concepts/geo-scope.md). The remaining traffic is split equally between the other zones. The default value is `0`. [More on locality-aware routing](../../application-load-balancer/concepts/backend-group.md#locality).
 
      * `ingress.alb.yc.io/autoscale-max-size`: Maximum total number of resource units. By default, it is unlimited. Make sure this value is no less than the number of load balancer availability zones multiplied by the minimum number of resource units per zone. Learn more about the autoscaling settings [here](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
@@ -815,7 +815,7 @@ If you specified a name for the Ingress resource group settings in the `ingress.
 
 ## Make sure the applications are accessible via the L7 load balancer {#verify-setup}
 
-1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your {{ alb-name }}. If you are using ExternalDNS with the {{ dns-full-name }} plugin, this record will be created automatically.
+1. If you have no [ExternalDNS with the {{ dns-name }} plugin](/marketplace/products/yc/externaldns) installed, [add an A record to your domain zone](../../dns/operations/resource-record-create.md). In the **{{ ui-key.yacloud.dns.label_records }}** field, specify the public IP address of your L7 {{ alb-name }}. If you are using ExternalDNS with the {{ dns-full-name }} plugin, this record will be created automatically.
 1. Test the load balancer:
 
    {% list tabs %}

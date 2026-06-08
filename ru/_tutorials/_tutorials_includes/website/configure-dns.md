@@ -2,7 +2,7 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
   1. Задайте настройки зоны DNS:
      * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
