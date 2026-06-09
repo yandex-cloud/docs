@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Ошибка в запросе к объекту
+# [Yandex DataLens] Ошибка в запросе к объекту
 
 `ERR.DS_API.US.BAD_REQUEST`
 

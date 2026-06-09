@@ -14,7 +14,7 @@
 
 {% note warning %}
 
-Перед созданием связи убедитесь, что поле, по которому фильтрует селектор, присутствует в датасете, по которому построен чарт. Подробнее см. раздел [{#T}](../concepts/data-join.md).
+Перед созданием связи убедитесь, что поле, по которому фильтрует селектор, присутствует в датасете, по которому построен чарт. Подробнее см. раздел [Объединение данных Yandex DataLens](../concepts/data-join.md).
 
 {% endnote %}
 
@@ -52,9 +52,9 @@
 Чтобы поделиться дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 
 * [Добавьте](../security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](connections.md#uploading-data-logs-api) данные в кластер [{{ mch-short-name }}](../../managed-clickhouse/index.md) и используйте подключение к БД {{ CH }} в качестве источника. С тарифами сервиса {{ mch-short-name }} можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
+* [Выгрузите](connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
 
 
 
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

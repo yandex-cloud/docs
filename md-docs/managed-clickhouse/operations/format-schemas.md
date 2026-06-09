@@ -1,24 +1,24 @@
-# Управление схемами формата данных в {{ mch-name }}
+# Управление схемами формата данных в Managed Service for ClickHouse®
 
-{{ mch-name }} позволяет вставлять (`INSERT`) и выводить (`SELECT`) данные в различных форматах. Большинство таких форматов — _самоописываемые_, то есть они уже содержат в себе _схему формата_ данных, описывающую допустимые типы данных, их порядок и представление в этом формате. Это позволяет, например, сразу делать вставку из файла. 
+Managed Service for ClickHouse® позволяет вставлять (`INSERT`) и выводить (`SELECT`) данные в различных форматах. Большинство таких форматов — _самоописываемые_, то есть они уже содержат в себе _схему формата_ данных, описывающую допустимые типы данных, их порядок и представление в этом формате. Это позволяет, например, сразу делать вставку из файла. 
 
 {% note info %}
 
-_Схема формата_ данных (format schema) описывает формат ввода или вывода данных, в то время как _схема данных_ (data scheme) описывает структуру и устройство баз данных и таблиц {{ CH }}, которые хранят эти данные. Эти понятия не являются взаимозаменяемыми.
+_Схема формата_ данных (format schema) описывает формат ввода или вывода данных, в то время как _схема данных_ (data scheme) описывает структуру и устройство баз данных и таблиц ClickHouse®, которые хранят эти данные. Эти понятия не являются взаимозаменяемыми.
 
 {% endnote %}
 
-Форматы данных [Cap'n Proto](https://capnproto.org/) и [Protobuf](https://developers.google.com/protocol-buffers/) (включая [ProtobufSingle]({{ ch.docs }}{{ lang }}/interfaces/formats#protobufsingle)) не содержат в себе схему формата — данные представляются в бинарном виде без какой-либо информации о структуре. Перед началом работы с данными в этих форматах (например, перед вставкой в таблицу) необходимо подключить схему формата данных к кластеру {{ mch-name }}. Это позволит правильно интерпретировать количество, порядок и тип значений при работе с бинарными данными.
+Форматы данных [Cap'n Proto](https://capnproto.org/) и [Protobuf](https://developers.google.com/protocol-buffers/) (включая [ProtobufSingle](https://clickhouse.com/docs/ru/interfaces/formats#protobufsingle)) не содержат в себе схему формата — данные представляются в бинарном виде без какой-либо информации о структуре. Перед началом работы с данными в этих форматах (например, перед вставкой в таблицу) необходимо подключить схему формата данных к кластеру Managed Service for ClickHouse®. Это позволит правильно интерпретировать количество, порядок и тип значений при работе с бинарными данными.
 
-Вы можете подключить к кластеру {{ mch-name }} одну или несколько таких схем формата и использовать их для ввода и вывода требуемых данных в соответствующих форматах.
+Вы можете подключить к кластеру Managed Service for ClickHouse® одну или несколько таких схем формата и использовать их для ввода и вывода требуемых данных в соответствующих форматах.
 
 {% note warning %}
 
-Чтобы использовать подключенные схемы формата, вставку данных в {{ mch-name }} следует производить с помощью [HTTP-интерфейса]({{ ch.docs }}{{ lang }}/interfaces/http), т. к. в этом случае сериализация и десериализация данных производится на стороне сервера с использованием подключенных схем.
+Чтобы использовать подключенные схемы формата, вставку данных в Managed Service for ClickHouse® следует производить с помощью [HTTP-интерфейса](https://clickhouse.com/docs/ru/interfaces/http), т. к. в этом случае сериализация и десериализация данных производится на стороне сервера с использованием подключенных схем.
 
 {% endnote %}
 
-Подробнее о форматах данных см. [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats).
+Подробнее о форматах данных см. [в документации ClickHouse®](https://clickhouse.com/docs/ru/interfaces/formats).
 
 Примеры работы с форматами Cap'n Proto и Protobuf при вставке данных в кластер приведены в разделе [Добавление данных в кластер](../tutorials/insert.md).
 
@@ -28,20 +28,20 @@ _Схема формата_ данных (format schema) описывает фо
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список схем формата данных в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} format-schema list --cluster-name="<имя_кластера>"
+  yc managed-clickhouse format-schema list --cluster-name="<имя_кластера>"
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -54,13 +54,13 @@ _Схема формата_ данных (format schema) описывает фо
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [FormatSchema.List](../api-ref/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [FormatSchema.List](../api-ref/FormatSchema/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -82,7 +82,7 @@ _Схема формата_ данных (format schema) описывает фо
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [FormatSchemaService.List](../api-ref/grpc/FormatSchema/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [FormatSchemaService.List](../api-ref/grpc/FormatSchema/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -94,7 +94,7 @@ _Схема формата_ данных (format schema) описывает фо
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
         ```
 
@@ -110,14 +110,14 @@ _Схема формата_ данных (format schema) описывает фо
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить детальную информацию о схеме формата данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} format-schema get "<имя_схемы_формата>" \
+  yc managed-clickhouse format-schema get "<имя_схемы_формата>" \
     --cluster-name="<имя_кластера>"
   ```
 
@@ -131,13 +131,13 @@ _Схема формата_ данных (format schema) описывает фо
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [FormatSchema.Get](../api-ref/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [FormatSchema.Get](../api-ref/FormatSchema/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
@@ -159,7 +159,7 @@ _Схема формата_ данных (format schema) описывает фо
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [FormatSchemaService.Get](../api-ref/grpc/FormatSchema/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [FormatSchemaService.Get](../api-ref/grpc/FormatSchema/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -172,7 +172,7 @@ _Схема формата_ данных (format schema) описывает фо
                     "cluster_id": "<идентификатор_кластера>",
                     "format_schema_name": "<название_схемы>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Get
         ```
 
@@ -182,19 +182,19 @@ _Схема формата_ данных (format schema) описывает фо
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
 
 ## Создать схему формата данных {#add-format-schema}
 
 ### Перед подключением схемы формата данных {#prereq}
 
-{{ mch-name }} работает только со схемами формата данных, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение. Перед подключением схемы к кластеру:
+Managed Service for ClickHouse® работает только со схемами формата данных, которые загружены в Yandex Object Storage и к которым предоставлен доступ на чтение. Перед подключением схемы к кластеру:
 
 1. Подготовьте файл со схемой формата (см. документацию [Cap'n Proto](https://capnproto.org/language.html) и [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru)).
 
 
-1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
-1. [Загрузите](../../storage/operations/objects/upload.md) файл со схемой формата данных в {{ objstorage-full-name }}.
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+1. [Загрузите](../../storage/operations/objects/upload.md) файл со схемой формата данных в Yandex Object Storage.
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью сервисного аккаунта вы настроите доступ к файлу схемы.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
@@ -207,16 +207,16 @@ _{{ CH }} является зарегистрированным товарным
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
-    1. В диалоговом окне **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** заполните форму, указав в поле **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** полученную ранее ссылку на файл со схемой формата.
-    1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+    1. Нажмите кнопку **Создать схему**.
+    1. В диалоговом окне **Добавление схемы** заполните форму, указав в поле **URL** полученную ранее ссылку на файл со схемой формата.
+    1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -224,7 +224,7 @@ _{{ CH }} является зарегистрированным товарным
   - для формата **Cap'n Proto**:
 
     ```bash
-    {{ yc-mdb-ch }} format-schema create "<имя_схемы_формата>" \
+    yc managed-clickhouse format-schema create "<имя_схемы_формата>" \
       --cluster-name="<имя_кластера>" \
       --type="capnproto" \
       --uri="<ссылка_на_файл_в_Object_Storage>"
@@ -233,7 +233,7 @@ _{{ CH }} является зарегистрированным товарным
   - для формата **Protobuf**:
 
     ```bash
-    {{ yc-mdb-ch }} format-schema create "<имя_схемы_формата>" \
+    yc managed-clickhouse format-schema create "<имя_схемы_формата>" \
       --cluster-name="<имя_кластера>" \
       --type="protobuf" \
       --uri="<ссылка_на_файл_в_Object_Storage>"
@@ -242,13 +242,13 @@ _{{ CH }} является зарегистрированным товарным
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте к описанию кластера {{ mch-name }} блок `format_schema`:
+    1. Добавьте к описанию кластера Managed Service for ClickHouse® блок `format_schema`:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -265,14 +265,14 @@ _{{ CH }} является зарегистрированным товарным
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -294,11 +294,11 @@ _{{ CH }} является зарегистрированным товарным
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -334,7 +334,7 @@ _{{ CH }} является зарегистрированным товарным
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [FormatSchema.Create](../api-ref/FormatSchema/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [FormatSchema.Create](../api-ref/FormatSchema/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
@@ -353,7 +353,7 @@ _{{ CH }} является зарегистрированным товарным
 
         * `formatSchemaName` — имя схемы;
         * `type` — тип схемы: `FORMAT_SCHEMA_TYPE_CAPNPROTO` или `FORMAT_SCHEMA_TYPE_PROTOBUF`;
-        * `uri` — ссылка на файл со схемой в {{ objstorage-name }}.
+        * `uri` — ссылка на файл со схемой в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -374,7 +374,7 @@ _{{ CH }} является зарегистрированным товарным
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [FormatSchemaService.Create](../api-ref/grpc/FormatSchema/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [FormatSchemaService.Create](../api-ref/grpc/FormatSchema/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -389,7 +389,7 @@ _{{ CH }} является зарегистрированным товарным
                     "type": "<тип_схемы>",
                     "uri": "<ссылка_на_файл>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Create
         ```
 
@@ -397,7 +397,7 @@ _{{ CH }} является зарегистрированным товарным
 
         * `format_schema_name` — имя схемы;
         * `type` — тип схемы: `FORMAT_SCHEMA_TYPE_CAPNPROTO` или `FORMAT_SCHEMA_TYPE_PROTOBUF`;
-        * `uri` — ссылка на файл со схемой в {{ objstorage-name }}.
+        * `uri` — ссылка на файл со схемой в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -407,35 +407,35 @@ _{{ CH }} является зарегистрированным товарным
 
 ## Изменить схему формата данных {#update-format-schema}
 
-{{ mch-name }} не отслеживает изменения в файле со схемой формата данных, который находится в бакете {{ objstorage-full-name }}.
+Managed Service for ClickHouse® не отслеживает изменения в файле со схемой формата данных, который находится в бакете Yandex Object Storage.
 
 Чтобы актуализировать содержимое схемы, которая уже подключена к кластеру:
 
 
-1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в {{ objstorage-full-name }}.
+1. [Загрузите файл](../../storage/operations/objects/upload.md) с актуальной схемой формата данных в Yandex Object Storage.
 1. [Получите ссылку](s3-access.md#get-link-to-object) на этот файл.
-1. Измените параметры схемы формата данных, подключенной к {{ mch-name }}, передав новую ссылку на файл со схемой формата.
+1. Измените параметры схемы формата данных, подключенной к Managed Service for ClickHouse®, передав новую ссылку на файл со схемой формата.
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+    1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы изменить ссылку на файл в объектном хранилище со схемой формата данных, выполнив команду:
 
     ```bash
-    {{ yc-mdb-ch }} format-schema update "<имя_схемы_данных>" \
+    yc managed-clickhouse format-schema update "<имя_схемы_данных>" \
       --cluster-name="<имя_кластера>" \
       --uri="<новая_ссылка_на_файл_в_Object_Storage>"
     ```
@@ -443,13 +443,13 @@ _{{ CH }} является зарегистрированным товарным
     Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `format_schema`:
+    1. Измените в описании кластера Managed Service for ClickHouse® значение параметра `uri` в блоке `format_schema`:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -464,14 +464,14 @@ _{{ CH }} является зарегистрированным товарным
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -493,11 +493,11 @@ _{{ CH }} является зарегистрированным товарным
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+        Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
         
         * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
         * изменение — 90 минут;
@@ -533,7 +533,7 @@ _{{ CH }} является зарегистрированным товарным
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [FormatSchema.Update](../api-ref/FormatSchema/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [FormatSchema.Update](../api-ref/FormatSchema/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -559,7 +559,7 @@ _{{ CH }} является зарегистрированным товарным
 
             В данном случае указан только один параметр: `uri`.
 
-        * `uri` — ссылка на новый файл со схемой в {{ objstorage-name }}.
+        * `uri` — ссылка на новый файл со схемой в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -580,7 +580,7 @@ _{{ CH }} является зарегистрированным товарным
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [FormatSchemaService.Update](../api-ref/grpc/FormatSchema/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [FormatSchemaService.Update](../api-ref/grpc/FormatSchema/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -618,7 +618,7 @@ _{{ CH }} является зарегистрированным товарным
                     },
                     "uri": "<ссылка_на_файл>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Update
         ```
 
@@ -629,7 +629,7 @@ _{{ CH }} является зарегистрированным товарным
 
             В данном случае указан только один параметр: `uri`.
 
-        * `uri` — ссылка на новый файл с моделью в {{ objstorage-name }}.
+        * `uri` — ссылка на новый файл с моделью в Object Storage.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -642,7 +642,7 @@ _{{ CH }} является зарегистрированным товарным
 {% note info %}
 
 
-После отключения схемы формата данных соответствующий объект остается в бакете {{ objstorage-full-name }}. Если этот объект со схемой формата больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
+После отключения схемы формата данных соответствующий объект остается в бакете Yandex Object Storage. Если этот объект со схемой формата больше не нужен, его можно [удалить](../../storage/operations/objects/delete.md).
 
 
 {% endnote %}
@@ -651,45 +651,45 @@ _{{ CH }} является зарегистрированным товарным
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}**.
-   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. Нажмите на имя нужного кластера и выберите вкладку **Схемы формата данных**.
+   1. Выберите нужную схему, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы отключить схему формата данных, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} format-schema delete "<имя_схемы_формата>" \
+  yc managed-clickhouse format-schema delete "<имя_схемы_формата>" \
     --cluster-name="<имя_кластера>"
   ```
 
   Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Удалите из описания кластера {{ mch-name }} блок описания нужной схемы формата данных `format_schema`.
+    1. Удалите из описания кластера Managed Service for ClickHouse® блок описания нужной схемы формата данных `format_schema`.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -711,11 +711,11 @@ _{{ CH }} является зарегистрированным товарным
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -751,13 +751,13 @@ _{{ CH }} является зарегистрированным товарным
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [FormatSchema.Delete](../api-ref/FormatSchema/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [FormatSchema.Delete](../api-ref/FormatSchema/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/formatSchemas/<название_схемы>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), название схемы — со [списком схем](#list-format-schemas) в кластере.
@@ -779,7 +779,7 @@ _{{ CH }} является зарегистрированным товарным
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [FormatSchemaService.Delete](../api-ref/grpc/FormatSchema/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [FormatSchemaService.Delete](../api-ref/grpc/FormatSchema/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -792,7 +792,7 @@ _{{ CH }} является зарегистрированным товарным
                     "cluster_id": "<идентификатор_кластера>",
                     "format_schema_name": "<название_схемы>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.Delete
         ```
 

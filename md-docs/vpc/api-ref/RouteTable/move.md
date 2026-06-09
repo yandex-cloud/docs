@@ -5,7 +5,7 @@ Move route table to another folder.
 ## HTTP request
 
 ```
-POST https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}:move
+POST https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}:move
 ```
 
 ## Path parameters

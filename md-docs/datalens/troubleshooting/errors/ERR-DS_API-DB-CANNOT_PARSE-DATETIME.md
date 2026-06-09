@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Cannot parse datetime
+# [Yandex DataLens] Cannot parse datetime
 
 `ERR.DS_API.DB.CANNOT_PARSE.DATETIME`
 

@@ -7,7 +7,7 @@ Scheduled destruction can be cancelled with the [SymmetricKeyService.CancelVersi
 ## HTTP request
 
 ```
-POST https://{{ api-host-kms }}/kms/v1/keys/{keyId}:scheduleVersionDestruction
+POST https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}:scheduleVersionDestruction
 ```
 
 ## Path parameters

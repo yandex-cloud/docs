@@ -5,7 +5,7 @@ Returns chain and private key of the specified certificate.
 ## HTTP request
 
 ```
-GET https://{{ api-host-certmanager-certcontent }}/certificate-manager/v1/certificates/{certificateId}:getContent
+GET https://data.certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/{certificateId}:getContent
 ```
 
 ## Path parameters

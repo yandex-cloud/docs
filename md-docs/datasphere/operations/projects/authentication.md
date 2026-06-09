@@ -1,6 +1,6 @@
-# Аутентификация в {{ ds-jobs }}
+# Аутентификация в DataSphere Jobs
 
-Для работы с {{ ds-jobs }} вам необходимо аутентифицироваться от имени пользовательского аккаунта.
+Для работы с DataSphere Jobs вам необходимо аутентифицироваться от имени пользовательского аккаунта.
 
 {% list tabs group=authentication %}
 
@@ -13,13 +13,13 @@
 
        OAuth-токен сохранится в конфигурации профиля и аутентификация будет происходить автоматически.
 
-     * С помощью [{{ ds-cli }}](../../concepts/jobs/cli.md) и опции `-t`, например:
+     * С помощью [DataSphere CLI](../../concepts/jobs/cli.md) и опции `-t`, например:
 
        ```bash
        datasphere -t <OAuth_токен> project job list -p <идентификатор_проекта>
        ```
 
-       Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} и нажмите **{{ ui-key.yc-ui-datasphere.common.id }}** ![alt](../../../_assets/console-icons/copy.svg).
+       Чтобы скопировать идентификатор проекта, выберите нужный проект на [главной странице](https://datasphere.yandex.cloud) DataSphere и нажмите **ID** ![alt](../../../_assets/console-icons/copy.svg).
 
        В этом случае OAuth-токен придется указывать в каждой команде.
 

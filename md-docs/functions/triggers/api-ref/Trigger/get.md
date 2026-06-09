@@ -7,7 +7,7 @@ To get the list of all available triggers, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
+GET https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}
 ```
 
 ## Path parameters

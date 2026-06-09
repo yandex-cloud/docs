@@ -5,7 +5,7 @@ Deletes the specified artifact.
 ## HTTP request
 
 ```
-DELETE https://registry.{{ api-host }}/cloud-registry/v1/artifacts/{artifactId}
+DELETE https://registry.api.cloud.yandex.net/cloud-registry/v1/artifacts/{artifactId}
 ```
 
 ## Path parameters

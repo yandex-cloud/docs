@@ -1,29 +1,29 @@
-# Обновление версии {{ AF }} и Python
+# Обновление версии Apache Airflow™ и Python
 
 Со списком поддерживаемых версий можно ознакомиться в разделе [Версионирование](../concepts/versions.md).
 
-При обновлении версий в {{ maf-name }} вы можете изменить:
+При обновлении версий в Managed Service for Apache Airflow™ вы можете изменить:
 
-* Версию Python на любую поддерживаемую для текущей версии {{ AF }}.
-* Версию {{ AF }} на следующую поддерживаемую в рамках одной ветки — `2.X` или `3.X`.
+* Версию Python на любую поддерживаемую для текущей версии Apache Airflow™.
+* Версию Apache Airflow™ на следующую поддерживаемую в рамках одной ветки — `2.X` или `3.X`.
 
-    Обновление {{ AF }} версий `2.X` до `3.X` недоступно. Чтобы перейти на версию `3.X`, [создайте новый кластер](cluster-create.md) и подключите к нему хранилище DAG-файлов старого кластера.
+    Обновление Apache Airflow™ версий `2.X` до `3.X` недоступно. Чтобы перейти на версию `3.X`, [создайте новый кластер](cluster-create.md) и подключите к нему хранилище DAG-файлов старого кластера.
 
-В сервисе недоступно одновременное обновление версии {{ AF }} и Python, так как пользовательские зависимости могут перестать работать на более новых версиях Python.
+В сервисе недоступно одновременное обновление версии Apache Airflow™ и Python, так как пользовательские зависимости могут перестать работать на более новых версиях Python.
 
-Например, чтобы обновить кластер с {{ AF }} `2.8` и Python `3.8` до {{ AF }} `2.10` и Python `3.12`:
+Например, чтобы обновить кластер с Apache Airflow™ `2.8` и Python `3.8` до Apache Airflow™ `2.10` и Python `3.12`:
 
 1. Обновите версию Python до `3.10` и проверьте работоспособность кластера с учетом используемых зависимостей.
-1. Обновите версию {{ AF }} до `2.10` и проверьте работоспособность кластера после миграции БД.
+1. Обновите версию Apache Airflow™ до `2.10` и проверьте работоспособность кластера после миграции БД.
 1. Обновите версию Python до `3.12` и снова проверьте работоспособность используемых зависимостей.
 
 Об обновлениях в рамках одной версии и обслуживании хостов читайте в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
 {% note alert %}
 
-Перед обновлением убедитесь, что это не нарушит работу ваших приложений — изучите [историю изменений {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) и [Python](https://www.python.org/downloads/).
+Перед обновлением убедитесь, что это не нарушит работу ваших приложений — изучите [историю изменений Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/release_notes.html) и [Python](https://www.python.org/downloads/).
 
-После обновления версии {{ AF }} вернуть кластер к предыдущей версии невозможно.
+После обновления версии Apache Airflow™ вернуть кластер к предыдущей версии невозможно.
 
 {% endnote %}
 
@@ -31,53 +31,53 @@
 
 - Консоль управления {#console}
 
-    Чтобы обновить версию {{ AF }} или Python:
+    Чтобы обновить версию Apache Airflow™ или Python:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
-    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите нужную версию {{ AF }} и Python.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;Apache&nbsp;Airflow™**.
+    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
+    1. В поле **Версия** выберите нужную версию Apache Airflow™ и Python.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы обновить версию {{ AF }} или Python:
+    Чтобы обновить версию Apache Airflow™ или Python:
 
-    1. Получите список ваших кластеров {{ maf-name }}:
+    1. Получите список ваших кластеров Managed Service for Apache Airflow™:
 
         ```bash
-        {{ yc-mdb-af }} cluster list
+        yc managed-airflow cluster list
         ```
 
     1. Получите информацию о нужном кластере и проверьте версии в свойствах `config.airflow_version` и `config.python_version`:
 
         ```bash
-        {{ yc-mdb-af }} cluster get <имя_или_идентификатор_кластера>
+        yc managed-airflow cluster get <имя_или_идентификатор_кластера>
         ```
 
-    1. Чтобы обновить версию {{ AF }}, выполните команду:
+    1. Чтобы обновить версию Apache Airflow™, выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-airflow cluster update <имя_или_идентификатор_кластера> \
           --airflow-version=<номер_новой_версии>
         ```
 
     1. Чтобы обновить версию Python, выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-airflow cluster update <имя_или_идентификатор_кластера> \
           --python-version=<номер_новой_версии>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    Чтобы обновить версию {{ AF }} или Python:
+    Чтобы обновить версию Apache Airflow™ или Python:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
@@ -93,14 +93,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -122,11 +122,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-maf }}).
+    Подробнее в [документации провайдера Terraform](../../terraform/resources/airflow_cluster.md).
 
 - REST API {#api}
 
-    Чтобы обновить версию {{ AF }} или Python:
+    Чтобы обновить версию Apache Airflow™ или Python:
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -134,7 +134,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}.
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/).
 
         {% note warning %}
         
@@ -142,14 +142,14 @@
         
         {% endnote %}
 
-        * Чтобы обновить версию {{ AF }}, выполните запрос:
+        * Чтобы обновить версию Apache Airflow™, выполните запрос:
 
             ```bash
             curl \
                 --request PATCH \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<идентификатор_кластера>' \
+                --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<идентификатор_кластера>' \
                 --data '{
                           "updateMask": "airflowVersion",
                           "airflowVersion": "<версия_Apache_Airflow™>"
@@ -160,7 +160,7 @@
 
             * `updateMask` — перечень изменяемых параметров. Укажите только параметр `airflowVersion`.
 
-            * `airflowVersion` — версия {{ AF }}, до которой нужно обновиться.
+            * `airflowVersion` — версия Apache Airflow™, до которой нужно обновиться.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -171,7 +171,7 @@
                 --request PATCH \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://{{ api-host-airflow }}/managed-airflow/v1/clusters/<идентификатор_кластера>' \
+                --url 'https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/<идентификатор_кластера>' \
                 --data '{
                           "updateMask": "pythonVersion",
                           "pythonVersion": "<версия_Python>"
@@ -190,7 +190,7 @@
 
 - gRPC API {#grpc-api}
 
-    Чтобы обновить версию {{ AF }} или Python:
+    Чтобы обновить версию Apache Airflow™ или Python:
 
     1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
 
@@ -206,7 +206,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -229,7 +229,7 @@
         
         {% endnote %}
 
-        * Чтобы обновить версию {{ AF }}, выполните запрос:
+        * Чтобы обновить версию Apache Airflow™, выполните запрос:
 
             ```bash
             grpcurl \
@@ -247,7 +247,7 @@
                       },
                       "airflow_version": "<версия_Apache_Airflow™>"
                     }' \
-                {{ api-host-airflow }}:{{ port-https }} \
+                airflow.api.cloud.yandex.net:443 \
                 yandex.cloud.airflow.v1.ClusterService.Update
             ```
 
@@ -255,7 +255,7 @@
 
             * `update_mask` — перечень изменяемых параметров. Укажите только параметр `airflow_version`.
 
-            * `airflow_version` — версия {{ AF }}, до которой нужно обновиться.
+            * `airflow_version` — версия Apache Airflow™, до которой нужно обновиться.
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -277,7 +277,7 @@
                       },
                       "python_version": "<версия_Python>"
                     }' \
-                {{ api-host-airflow }}:{{ port-https }} \
+                airflow.api.cloud.yandex.net:443 \
                 yandex.cloud.airflow.v1.ClusterService.Update
             ```
 
@@ -295,7 +295,7 @@
 
 ## Примеры {#examples}
 
-Допустим, нужно обновить версию {{ AF }} с `2.10` до `2.11`, а версию Python — с `3.10` до `3.12`.
+Допустим, нужно обновить версию Apache Airflow™ с `2.10` до `2.11`, а версию Python — с `3.10` до `3.12`.
 
 {% list tabs group=instructions %}
 
@@ -304,7 +304,7 @@
     1. Чтобы получить список кластеров и узнать их идентификаторы и имена, выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster list
+        yc managed-airflow cluster list
         ```
 
         ```text
@@ -318,7 +318,7 @@
     1. Чтобы получить информацию о кластере с именем `airflow411`, выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster get airflow411
+        yc managed-airflow cluster get airflow411
         ```
 
         Результат:
@@ -332,10 +332,10 @@
           python-version: "3.10"
         ```
 
-    1. Для обновления версии {{ AF }} до `2.11` выполните команду:
+    1. Для обновления версии Apache Airflow™ до `2.11` выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster update airflow411 \
+        yc managed-airflow cluster update airflow411 \
           --airflow-version=2.11
         ```
 
@@ -344,13 +344,13 @@
     1. Для обновления версии Python до `3.12` выполните команду:
 
         ```bash
-        {{ yc-mdb-af }} cluster update airflow411 \
+        yc managed-airflow cluster update airflow411 \
           --python-version=3.12
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
     1. В описании кластера укажите в поле `airflow_version` значение `2.11`:
 
         ```hcl
@@ -387,5 +387,5 @@
 
 #### См. также {#see-also}
 
-* [Версионирование в {{ maf-name }}](../concepts/versions.md)
-* [Политика работы с версиями {{ AF }}](../concepts/update-policy.md)
+* [Версионирование в Managed Service for Apache Airflow™](../concepts/versions.md)
+* [Политика работы с версиями Apache Airflow™](../concepts/update-policy.md)

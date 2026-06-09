@@ -1,10 +1,10 @@
 # Поля и аннотации ресурса NetworkPolicy
 
-Ресурс `NetworkPolicy` используется для подключения к сервисам, опубликованным через {{ network-load-balancer-name }}, с определенных IP-адресов.
+Ресурс `NetworkPolicy` используется для подключения к сервисам, опубликованным через Network Load Balancer, с определенных IP-адресов.
 
-`NetworkPolicy` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
+`NetworkPolicy` — стандартный ресурс Kubernetes. В этом справочнике описаны поля и аннотации ресурса, которые поддерживают Network Load Balancer для Managed Service for Kubernetes. Полный справочник ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/policy-resources/network-policy-v1/).
 
-Подробнее о сетевых политиках см. в разделе [{#T}](../concepts/network-policy.md).
+Подробнее о сетевых политиках см. в разделе [Сетевые политики кластера Kubernetes](../concepts/network-policy.md).
 
 ## NetworkPolicy {#network-policy}
 
@@ -82,7 +82,7 @@ ingress:
 || `podSelector`   | `LabelSelector` | **Обязательное**
 Правила фильтрации [подов](../concepts/index.md#pod).
 
-См. [документацию {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
+См. [документацию Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/common-definitions/label-selector/#LabelSelector)
 ||
 
 || `policyTypes`    | `[]Policy`      | **Обязательное**
@@ -121,6 +121,6 @@ ipBlock:
 || `cidr`      | `string`       | **Обязательное**
 Диапазон IP-адресов, с которых разрешен доступ к балансировщику.
 
-Диапазоны `198.18.235.0/24` и `198.18.248.0/24` указываются всегда, так как они [зарезервированы {{ network-load-balancer-name }}](../../network-load-balancer/concepts/health-check.md#target-statuses) для проверки состояния узлов
+Диапазоны `198.18.235.0/24` и `198.18.248.0/24` указываются всегда, так как они [зарезервированы Network Load Balancer](../../network-load-balancer/concepts/health-check.md#target-statuses) для проверки состояния узлов
 ||
 |#

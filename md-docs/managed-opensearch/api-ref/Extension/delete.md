@@ -5,7 +5,7 @@ Deletes the specified extension.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/extensions/{extensionId}
+DELETE https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/extensions/{extensionId}
 ```
 
 ## Path parameters

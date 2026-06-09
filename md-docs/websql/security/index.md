@@ -1,4 +1,4 @@
-# Управление доступом в {{ websql-name }}
+# Управление доступом в WebSQL
 
 
 В этом разделе вы узнаете:
@@ -9,10 +9,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `websql.admin` или одна из следующих ролей:
 
@@ -26,15 +26,15 @@
 
 Роль можно назначить на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-Кроме того, в [интерфейсе {{ websql-name }}]({{ websql-link }}) роли можно назначать на опубликованные [сохраненные запросы](../concepts/index.md#saved-queries) и [запросы из истории](../concepts/index.md#query-log).
+Кроме того, в [интерфейсе WebSQL](https://websql.yandex.cloud) роли можно назначать на опубликованные [сохраненные запросы](../concepts/index.md#saved-queries) и [запросы из истории](../concepts/index.md#query-log).
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-Для управления правами доступа к запросам вы можете использовать роли сервиса {{ websql-full-name }} (_сервисные роли_) и роли {{ yandex-cloud }} (_примитивные роли_).
+Для управления правами доступа к запросам вы можете использовать роли сервиса Yandex WebSQL (_сервисные роли_) и роли Yandex Cloud (_примитивные роли_).
 
 ### Сервисные роли {#service-roles}
 
-Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе {{ websql-name }}.
+Ниже перечислены все роли, которые учитываются при проверке прав доступа в сервисе WebSQL.
 
 ```mermaid
 flowchart BT
@@ -132,13 +132,13 @@ flowchart BT
 
 #### websql.auditor {#websql-auditor}
 
-Роль `websql.auditor` позволяет просматривать метаданные всех опубликованных запросов в сервисе {{ websql-name }} и информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним.
+Роль `websql.auditor` позволяет просматривать метаданные всех опубликованных запросов в сервисе WebSQL и информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним.
 
 Включает разрешения, предоставляемые  ролями `websql.savedQueries.auditor` и `websql.executedQueries.auditor`.
 
 #### websql.viewer {#websql-viewer}
 
-Роль `websql.viewer` позволяет просматривать информацию обо всех опубликованных запросах в сервисе {{ websql-name }} и назначенных правах доступа к ним.
+Роль `websql.viewer` позволяет просматривать информацию обо всех опубликованных запросах в сервисе WebSQL и назначенных правах доступа к ним.
 
 Пользователи с этой ролью могут:
 * просматривать информацию об опубликованных сохраненных запросах и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
@@ -148,7 +148,7 @@ flowchart BT
 
 #### websql.user {#websql-user}
 
-Роль `websql.user` позволяет просматривать информацию об опубликованных запросах в сервисе {{ websql-name }}, а также создавать, изменять и удалять приватные запросы.
+Роль `websql.user` позволяет просматривать информацию об опубликованных запросах в сервисе WebSQL, а также создавать, изменять и удалять приватные запросы.
 
 Пользователи с этой ролью могут:
 * просматривать информацию об опубликованных сохраненных запросах и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
@@ -160,7 +160,7 @@ flowchart BT
 
 #### websql.editor {#websql-editor}
 
-Роль `websql.editor` позволяет управлять опубликованными и приватными запросами в сервисе {{ websql-name }}.
+Роль `websql.editor` позволяет управлять опубликованными и приватными запросами в сервисе WebSQL.
 
 Пользователи с этой ролью могут:
 * просматривать информацию об опубликованных сохраненных запросах и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также изменять и удалять опубликованные сохраненные запросы;
@@ -186,46 +186,46 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
 
-#### {{ roles-auditor }} {#auditor}
+#### auditor {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
+* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### {{ roles-viewer }} {#viewer}
+#### viewer {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
 
-#### {{ roles-editor }} {#editor}
+#### editor {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### {{ roles-admin }} {#admin}
+#### admin {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#required-roles}
 
@@ -234,53 +234,53 @@ flowchart BT
 Действие | Необходимые роли
 ----- | -----
 **Просмотр запросов** |
-Просмотр информации о подключениях | `{{ roles-connection-manager-viewer }}` на организацию, облако, каталог или подключение
-Просмотр информации о подключениях {{ PG }} | `{{ roles.mpg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ MY }} | `{{ roles.mmy.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ CH }} | `{{ roles.mch.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ VLK }} | `{{ roles.mrd.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ SD }} | `{{ roles.mmg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ GP }} | `{{ roles.mgp.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях | `connection-manager.viewer` на организацию, облако, каталог или подключение
+Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях MySQL® | `managed-mysql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях ClickHouse® | `managed-clickhouse.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
 Просмотр метаданных опубликованных запросов | `websql.auditor` на организацию, облако или каталог
 Просмотр опубликованных запросов | `websql.viewer` на организацию, облако или каталог
 **Просмотр и выполнение запросов** |
-Использование подключения к БД | `{{ roles-connection-manager-user }}` на организацию, облако, каталог или подключение
-Просмотр информации о подключениях {{ PG }} | `{{ roles.mpg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ MY }} | `{{ roles.mmy.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ CH }} | `{{ roles.mch.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ VLK }} | `{{ roles.mrd.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ SD }} | `{{ roles.mmg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ GP }} | `{{ roles.mgp.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Использование подключения к БД | `connection-manager.user` на организацию, облако, каталог или подключение
+Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях MySQL® | `managed-mysql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях ClickHouse® | `managed-clickhouse.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение запросов | `websql.user` на организацию, облако или каталог
-Выполнение запросов [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
 **Просмотр, выполнение и публикация запросов** |
-Использование подключения к БД | `{{ roles-connection-manager-user }}` на организацию, облако, каталог или подключение
-Просмотр информации о подключениях {{ PG }} | `{{ roles.mpg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ MY }} | `{{ roles.mmy.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ CH }} | `{{ roles.mch.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ VLK }} | `{{ roles.mrd.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ SD }} | `{{ roles.mmg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ GP }} | `{{ roles.mgp.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Использование подключения к БД | `connection-manager.user` на организацию, облако, каталог или подключение
+Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях MySQL® | `managed-mysql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях ClickHouse® | `managed-clickhouse.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение, публикация и редактирование запросов | `websql.editor` на организацию, облако или каталог
-Выполнение запросов [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
 **Управление запросами** |
-Использование подключения к БД | `{{ roles-connection-manager-user }}` на организацию, облако, каталог или подключение
-Просмотр информации о подключениях {{ PG }} | `{{ roles.mpg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ MY }} | `{{ roles.mmy.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ CH }} | `{{ roles.mch.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ VLK }} | `{{ roles.mrd.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ SD }} | `{{ roles.mmg.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях {{ GP }} | `{{ roles.mgp.viewer }}` на организацию, облако или каталог
-Просмотр информации о подключениях [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
+Использование подключения к БД | `connection-manager.user` на организацию, облако, каталог или подключение
+Просмотр информации о подключениях PostgreSQL | `managed-postgresql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях MySQL® | `managed-mysql.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях ClickHouse® | `managed-clickhouse.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Valkey™ | `managed-redis.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Yandex StoreDoc | `managed-mongodb.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях Greenplum® | `managed-greenplum.viewer` на организацию, облако или каталог
+Просмотр информации о подключениях [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.viewer` на организацию, облако или каталог
 Выполнение, публикация, редактирование запросов и управление правами доступа к ним | `websql.admin` на организацию, облако или каталог
-Выполнение запросов [{{ mtr-full-name }}](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
+Выполнение запросов [Yandex Managed Service for Trino](../../managed-trino/concepts/index.md) (сервис находится на стадии [Preview](../../overview/concepts/launch-stages.md)) | `managed-trino.user` на организацию, облако или каталог
 
 ## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

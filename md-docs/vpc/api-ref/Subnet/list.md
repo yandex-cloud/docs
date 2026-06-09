@@ -5,7 +5,7 @@ Retrieves the list of Subnet resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/subnets
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets
 ```
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListSubnetsRequest}

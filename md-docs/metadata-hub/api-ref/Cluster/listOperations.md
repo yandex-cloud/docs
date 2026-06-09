@@ -5,7 +5,7 @@ Retrieves the list of Operation resources for the specified Hive Metastore Clust
 ## HTTP request
 
 ```
-GET https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}/operations
+GET https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

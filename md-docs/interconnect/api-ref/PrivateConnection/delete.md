@@ -6,7 +6,7 @@ Method starts an asynchronous operation that can be cancelled while it is in pro
 ## HTTP request
 
 ```
-DELETE https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+DELETE https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}
 ```
 
 ## Path parameters

@@ -1,12 +1,12 @@
-# Работа с базами данных {{ mch-name }}
+# Работа с базами данных Managed Service for ClickHouse®
 
-В этом разделе описана основная информация про работу с [{{ mch-name }}](https://yandex.cloud/ru/services/managed-clickhouse).
+В этом разделе описана основная информация про работу с [Managed Service for ClickHouse®](https://yandex.cloud/ru/services/managed-clickhouse).
 
-Для работы с базой данных {{ mch-name }} необходимо выполнить следующие шаги:
+Для работы с базой данных Managed Service for ClickHouse® необходимо выполнить следующие шаги:
 1. Создать [соединение](../concepts/glossary.md#connection), содержащее реквизиты для подключения к базе данных.
 1. [Выполнить запрос](#query) к базе данных.
 
-Пример запроса, выполняющего чтение данных из {{ mch-name }}:
+Пример запроса, выполняющего чтение данных из Managed Service for ClickHouse®:
 
 ```sql
 SELECT * FROM clickhouse_mdb_connection.my_table
@@ -19,42 +19,42 @@ SELECT * FROM clickhouse_mdb_connection.my_table
 
 ## Настройка соединения {#create_connection}
 
-Чтобы создать соединение с {{ mch-name }}:
+Чтобы создать соединение с Managed Service for ClickHouse®:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
+1. Перейдите в сервис **Yandex Query**.
+1. На панели слева перейдите на вкладку **Соединения**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
 1. Укажите параметры соединения:
 
-   1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
+   1. В блоке **Общие параметры**:
 
-      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ mch-name }}.
-      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.action_clickhouse }}`.
-   1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
-      * **{{ ui-key.yql.yq-connection-form.cluster.input-label }}** — выберите существующий кластер {{ mch-name }} или создайте новый.
-      * **{{ ui-key.yql.yq-connection-form.service-account.input-label }}** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ mch-name }} или создайте новый с [ролью `{{ roles.mch.viewer }}`](../../managed-clickhouse/security.md#managed-clickhouse-viewer), от имени которого будет выполняться подключение к кластерам `{{ mch-name }}`.
+      * **Имя** — название соединения с Managed Service for ClickHouse®.
+      * **Тип** — `Managed Service for ClickHouse`.
+   1. В блоке **Параметры типа соединения**:
+      * **Кластер** — выберите существующий кластер Managed Service for ClickHouse® или создайте новый.
+      * **Сервисный аккаунт** — выберите существующий [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Managed Service for ClickHouse® или создайте новый с [ролью `managed-clickhouse.viewer`](../../managed-clickhouse/security.md#managed-clickhouse-viewer), от имени которого будет выполняться подключение к кластерам `Managed Service for ClickHouse®`.
 
         Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-      * **{{ ui-key.yql.yq-connection-info.database.label }}**  — выберите базу данных, которая будет использоваться при работе с кластером {{ CH }}.
-      * **{{ ui-key.yql.yq-connection-form.login.input-label }}**  — имя пользователя, которое будет использоваться для подключения к базам данных {{ CH }}.
-      * **{{ ui-key.yql.yq-connection-form.password.input-label }}**  — пароль пользователя, который будет использоваться для подключения к базам данных {{ CH }}.
+      * **База данных**  — выберите базу данных, которая будет использоваться при работе с кластером ClickHouse®.
+      * **Логин**  — имя пользователя, которое будет использоваться для подключения к базам данных ClickHouse®.
+      * **Пароль**  — пароль пользователя, который будет использоваться для подключения к базам данных ClickHouse®.
 
 
-1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+1. Нажмите кнопку **Создать**.
 
-Сервисный аккаунт необходим для обнаружения точек подключения к кластерам {{ mch-name }} внутри {{ yandex-cloud }}, для работы с данными логин и пароль пользователя задаются отдельно.
+Сервисный аккаунт необходим для обнаружения точек подключения к кластерам Managed Service for ClickHouse® внутри Yandex Cloud, для работы с данными логин и пароль пользователя задаются отдельно.
 
 {% note warning %}
 
-Необходимо предварительно разрешить сетевой доступ от {{ yq-full-name }} до кластеров {{ mch-name }}. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}**.
+Необходимо предварительно разрешить сетевой доступ от Yandex Query до кластеров Managed Service for ClickHouse®. Для этого в настройках базы данных, к которой осуществляется подключение, установите пункт **Доступ из Yandex Query**.
 
 {% endnote %}
 
 
 ## Синтаксис запросов {#query}
-Для работы с {{ CH }} используется следующая форма SQL-запроса:
+Для работы с ClickHouse® используется следующая форма SQL-запроса:
 
 ```sql
 SELECT * FROM <соединение>.<имя_таблицы>
@@ -66,16 +66,16 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Ограничения {#limits}
 
-При работе с кластерами {{ CH }} существует ряд ограничений.
+При работе с кластерами ClickHouse® существует ряд ограничений.
 
 Ограничения:
-1. Внешние источники доступны только для чтения данных через запросы `SELECT`. Запросы, модифицирующие таблицы во внешних источниках, сервисом {{ yq-full-name }} в настоящее время не поддерживаются.
-1. В {{ yq-short-name }} используется [система типов]({{ ydb.docs }}/yql/reference/types/primitive) {{ ydb-full-name }}. Однако диапазоны допустимых значений для типов, использующихся в {{ ydb-short-name }} при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов {{ CH }} (`Date`, `Date32`, `Datetime`, `Datetime64`). 
-В связи с этим значения даты и времени, прочитанные из {{ CH }}, возвращаются {{ yq-short-name }} как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
+1. Внешние источники доступны только для чтения данных через запросы `SELECT`. Запросы, модифицирующие таблицы во внешних источниках, сервисом Yandex Query в настоящее время не поддерживаются.
+1. В YQ используется [система типов](https://ydb.tech/docs/ru//yql/reference/types/primitive) Yandex Managed Service for YDB. Однако диапазоны допустимых значений для типов, использующихся в YDB при работе с датой и временем (`Date`, `Datetime`, `Timestamp`), зачастую оказываются недостаточно широкими для того, чтобы вместить значения соответствующих типов ClickHouse® (`Date`, `Date32`, `Datetime`, `Datetime64`). 
+В связи с этим значения даты и времени, прочитанные из ClickHouse®, возвращаются YQ как обычные строки (тип `Utf8` для обычных колонок или тип `Optional<Utf8>` для [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) колонок) в формате [ISO-8601](https://www.iso.org/iso-8601-date-and-time-format.html).
 
 ## Пушдаун фильтров {#predicate_pushdown}
 
-{{ yq-full-name }} умеет передавать обработку частей запросов в систему-источник данных. Это означает, что фильтрующие выражения передаются сквозь {{ yq-full-name }} непосредственно в базу данных для обработки, обычно это условия запросов, указанных в `WHERE`. Такой способ обработки называется `пушдаун фильтров`.
+Yandex Query умеет передавать обработку частей запросов в систему-источник данных. Это означает, что фильтрующие выражения передаются сквозь Yandex Query непосредственно в базу данных для обработки, обычно это условия запросов, указанных в `WHERE`. Такой способ обработки называется `пушдаун фильтров`.
 
 Пушдаун фильтров возможен при использовании:
 
@@ -85,11 +85,11 @@ SELECT * FROM <соединение>.<имя_таблицы>
 |Логических условий `OR`, `NOT`, `AND` и круглых скобок для управления приоритетом вычислений. |`WHERE column1 IS NULL OR (column2 IS NOT NULL AND column3 > 10)`.|
 |Операторов сравнения `=`, `==`, `!=`, `<>`, `>`, `<`, `>=`, `<=` с другими колонками или константами.|`WHERE column1 > column2 OR column3 <= 10`, `WHERE column1 + column2 > 10`, `WHERE column1 = (10 + 10)`|
 
-При использовании других видов фильтров пушдаун на источник не выполняется: фильтрация строк внешней таблицы будет выполнена на стороне федеративной {{ yq-full-name }}, что означает, что {{ yq-full-name }} выполнит полное чтение (full scan) внешней таблицы в момент обработки запроса.
+При использовании других видов фильтров пушдаун на источник не выполняется: фильтрация строк внешней таблицы будет выполнена на стороне федеративной Yandex Query, что означает, что Yandex Query выполнит полное чтение (full scan) внешней таблицы в момент обработки запроса.
 
 Поддерживаемые типы данных для пушдауна фильтров:
 
-|Тип данных {{ yq-full-name }}|
+|Тип данных Yandex Query|
 |----|
 |`Bool`|
 |`Int8`|
@@ -106,13 +106,13 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ## Поддерживаемые типы данных {#supported_types}
 
-По умолчанию в {{ CH }} колонки физически не могут содержать значение `NULL`, однако пользователь имеет возможность создать таблицу с колонками опциональных, или [nullable]({{ ch.docs }}{{ lang }}/sql-reference/data-types/nullable) типов. Типы колонок, отображаемые {{ yq-full-name }} при извлечении данных из внешнего источника {{ CH }}, будут зависеть от того, используются ли в таблице {{ CH }} примитивные или опциональные типы. 
+По умолчанию в ClickHouse® колонки физически не могут содержать значение `NULL`, однако пользователь имеет возможность создать таблицу с колонками опциональных, или [nullable](https://clickhouse.com/docs/ru/sql-reference/data-types/nullable) типов. Типы колонок, отображаемые Yandex Query при извлечении данных из внешнего источника ClickHouse®, будут зависеть от того, используются ли в таблице ClickHouse® примитивные или опциональные типы. 
 
-Ниже приведены таблицы соответствия типов {{ CH }} и {{ yq-full-name }}. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
+Ниже приведены таблицы соответствия типов ClickHouse® и Yandex Query. Все остальные типы данных, за исключением перечисленных, не поддерживаются.
 
 ### Примитивные типы данных {#supported_types_default}
 
-| Тип данных {{ CH }} | Тип данных {{ yq-full-name }} | Примечания |
+| Тип данных ClickHouse® | Тип данных Yandex Query | Примечания |
 | :---: | :----: | :--- |
 | `Bool` | `Bool` | |
 | `Int8` | `Int8` | |
@@ -134,7 +134,7 @@ SELECT * FROM <соединение>.<имя_таблицы>
 
 ### Опциональные типы данных {#supported_types_nullable}
 
-| Тип данных {{ CH }} | Тип данных {{ yq-full-name }} | Примечания |
+| Тип данных ClickHouse® | Тип данных Yandex Query | Примечания |
 | :---: | :----: | :--- |
 | `Nullable(Bool)` | `Optional<Bool>` | |
 | `Nullable(Int8)` | `Optional<Int8>` | |
@@ -154,4 +154,4 @@ SELECT * FROM <соединение>.<имя_таблицы>
 | `Nullable(String)` | `Optional<String>` | |
 | `Nullable(FixedString)` | `Optional<String>` | Нулевые байты `FixedString` переносятся в `String` без изменений. |
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

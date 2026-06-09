@@ -5,7 +5,7 @@ Creates a Redis user in the specified cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/users
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters

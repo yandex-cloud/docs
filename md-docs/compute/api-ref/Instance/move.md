@@ -8,7 +8,7 @@ that have been recorded to the source folder prior to moving will be retained.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:move
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:move
 ```
 
 ## Path parameters

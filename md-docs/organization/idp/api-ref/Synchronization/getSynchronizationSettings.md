@@ -5,7 +5,7 @@ Returns synchronization settings for a subject container.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/synchronization-settings/{subjectContainerId}
 ```
 
 ## Path parameters

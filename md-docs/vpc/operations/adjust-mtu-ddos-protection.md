@@ -1,14 +1,14 @@
 # Настроить MTU при включении защиты от DDoS-атак
 
-При включении защиты [{{ ddos-protection-full-name }}](enable-ddos-protection.md) рекомендуется задавать значение MTU равным `1450` байт.
+При включении защиты [Yandex DDoS Protection](enable-ddos-protection.md) рекомендуется задавать значение MTU равным `1450` байт.
 
 {% note alert %}
 
-Если вы включите {{ ddos-protection-name }} и оставите значение MTU по умолчанию, возможны потери сетевого трафика.
+Если вы включите DDoS Protection и оставите значение MTU по умолчанию, возможны потери сетевого трафика.
 
 {% endnote %}
 
-Подробнее о параметрах MTU и MSS в {{ yandex-cloud }} читайте в разделе [{#T}](../concepts/mtu-mss.md).
+Подробнее о параметрах MTU и MSS в Yandex Cloud читайте в разделе [MTU и TCP MSS](../concepts/mtu-mss.md).
 
 ## Настроить MTU {#set-mtu}
 
@@ -33,7 +33,7 @@
    ss -i | grep mss
    ```
 
-### На рабочих узлах кластера {{ managed-k8s-name }} {#managed-kubernetes}
+### На рабочих узлах кластера Managed Service for Kubernetes {#managed-kubernetes}
 
 1. Создайте YAML-манифест DaemonSet следующего содержания:
 
@@ -61,7 +61,7 @@
          hostNetwork: true
          containers:
          - name: mtu-fix
-           image: {{ registry }}/yc/mk8s-openssl:stable
+           image: cr.yandex/yc/mk8s-openssl:stable
            command:
              - bash
              - -c
@@ -87,7 +87,7 @@
     
    Сохраните его в файл с любым именем, например `ds-mtu-fix.yml`.
 
-1. Примените созданный манифест в кластере {{ managed-k8s-name }}:
+1. Примените созданный манифест в кластере Managed Service for Kubernetes:
 
    ```bash
    kubectl -f ds-mtu-fix.yml
@@ -130,7 +130,7 @@
 
    Сохраните его в файл с любым именем, например `cilium-mtu.yaml`.
 
-1. Примените манифест в кластере {{ managed-k8s-name }}:
+1. Примените манифест в кластере Managed Service for Kubernetes:
 
    ```bash
    kubectl apply -f cilium-mtu.yaml

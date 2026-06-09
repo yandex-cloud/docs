@@ -6,7 +6,7 @@ Actions change the stream line's state without modifying its configuration.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/streamLines/{streamLineId}:performAction
+POST https://video.api.cloud.yandex.net/video/v1/streamLines/{streamLineId}:performAction
 ```
 
 ## Path parameters

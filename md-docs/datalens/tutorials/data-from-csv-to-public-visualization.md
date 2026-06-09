@@ -7,7 +7,7 @@
 
 {% cut "Создать папку" %}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![](../../_assets/console-icons/folders.svg) **Все объекты** или ![](../../_assets/console-icons/folder-house.svg) **Личная папка**.
 1. В правом верхнем углу нажмите **Создать** → **Папку**.
 1. Введите название папки.
@@ -17,7 +17,7 @@
 
 {% endnote %}
 
-В {{ datalens-short-name }} вы можете предоставлять [публичный доступ](../concepts/datalens-public.md) к созданным чартам и дашбордам.
+В DataLens вы можете предоставлять [публичный доступ](../concepts/datalens-public.md) к созданным чартам и дашбордам.
 
 {% note warning %}
 
@@ -25,11 +25,11 @@
 
 {% endnote %}
 
-В этом руководстве с помощью {{ datalens-short-name }} будут визуализированы и опубликованы показатели населения на карте районов Москвы.
+В этом руководстве с помощью DataLens будут визуализированы и опубликованы показатели населения на карте районов Москвы.
 
 В качестве исходных данных будет использоваться файл `Moscow Population 2018.csv` с информацией о населении и площади Москвы на 2018 год. [Скачайте](https://storage.yandexcloud.net/doc-files/Moscow%20Population%202018.csv) его перед прохождением руководства. Источник — [список районов и поселений Москвы](https://ru.wikipedia.org/wiki/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_%D1%80%D0%B0%D0%B9%D0%BE%D0%BD%D0%BE%D0%B2_%D0%B8_%D0%BF%D0%BE%D1%81%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9_%D0%9C%D0%BE%D1%81%D0%BA%D0%B2%D1%8B).
 
-Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
 
 1. [Создайте воркбук](#create-workbook).
 1. [Создайте подключение](#create-connection).
@@ -40,30 +40,30 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с {{ datalens-short-name }}:
+Чтобы начать работать с DataLens:
 
 
 {% list tabs group=datalens_user %}
 
 - Новый пользователь {#new}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
-- Уже использую {{ yandex-cloud }} {#already}
+- Уже использую Yandex Cloud {#already}
 
-  1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
+  1. Откройте [главную страницу](https://datalens.ru/promo) DataLens.
   1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
-     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.
+     * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **DataLens**.
 
        {% note info %}
 
-       Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
+       Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
 
        {% endnote %}
 
@@ -71,12 +71,12 @@
 
 {% endlist %}
 
-Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram.
+Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram.
 
 
 ## Создайте воркбук {#create-workbook}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. В правом верхнем углу нажмите **Создать** → **Создать воркбук**.
 1. Введите название [воркбука](../workbooks-collections/index.md) — `Практические руководства`.

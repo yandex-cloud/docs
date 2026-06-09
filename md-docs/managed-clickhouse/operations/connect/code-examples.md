@@ -1,9 +1,9 @@
-# Примеры кода для подключения к кластеру {{ CH }}
+# Примеры кода для подключения к кластеру ClickHouse®
 
 
-Вы можете подключаться к хостам кластера {{ CH }} в публичном доступе только с использованием [SSL-сертификатов](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификаты `{{ crt-local-file-root }}` и `{{ crt-local-file-int }}`:
+Вы можете подключаться к хостам кластера ClickHouse® в публичном доступе только с использованием [SSL-сертификатов](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификаты `RootCA.crt` и `IntermediateCA.crt`:
 
-* расположены в директории `{{ crt-local-dir }}` — для Ubuntu;
+* расположены в директории `/usr/local/share/ca-certificates/Yandex/` — для Ubuntu;
 * импортированы в хранилище доверенных корневых сертификатов — для Windows.
 
 Подключение без использования SSL-сертификатов поддерживается только для хостов, находящихся не в публичном доступе. В этом случае трафик внутри виртуальной сети при подключении к БД шифроваться не будет.
@@ -11,13 +11,13 @@
 При необходимости перед подключением [настройте группы безопасности](index.md#configure-security-groups) кластера.
 
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ CH }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия ClickHouse®.
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
 Примеры для Linux проверялись в следующем окружении:
 
-* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
+* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 * Python: `3.8.2`; pip3: `20.0.2`.
 * PHP: `7.4.3`.
@@ -58,7 +58,7 @@ sudo apt update && sudo apt install --yes golang git
 
     func main() {
 
-        const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+        const DB_HOST = "<FQDN_любого_хоста_ClickHouse®>"
         const DB_NAME = "<имя_БД>"
         const DB_USER = "<имя_пользователя_БД>"
         const DB_PASS = "<пароль_пользователя_БД>"
@@ -107,12 +107,12 @@ sudo apt update && sudo apt install --yes golang git
 
     func main() {
 
-        const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+        const DB_HOST = "<FQDN_любого_хоста_ClickHouse®>"
         const DB_NAME = "<имя_БД>"
         const DB_USER = "<имя_пользователя_БД>"
         const DB_PASS = "<пароль_пользователя_БД>"
 
-        const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}"
+        const CACERT = "/usr/local/share/ca-certificates/Yandex/RootCA.crt"
 
         caCert, err := ioutil.ReadFile(CACERT)
         if err != nil {
@@ -277,7 +277,7 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String DB_HOST    = "<FQDN_любого_хоста_{{ CH }}>";
+        String DB_HOST    = "<FQDN_любого_хоста_ClickHouse®>";
         String DB_NAME    = "<имя_БД>";
         String DB_USER    = "<имя_пользователя_БД>";
         String DB_PASS    = "<пароль_пользователя_БД>";
@@ -310,12 +310,12 @@ go run connect.go
 
     public class App {
       public static void main(String[] args) {
-        String DB_HOST    = "<FQDN_любого_хоста_{{ CH }}>";
+        String DB_HOST    = "<FQDN_любого_хоста_ClickHouse®>";
         String DB_NAME    = "<имя_БД>";
         String DB_USER    = "<имя_пользователя_БД>";
         String DB_PASS    = "<пароль_пользователя_БД>";
 
-        String CACERT     = "{{ crt-local-dir }}{{ crt-local-file-root }}";
+        String CACERT     = "/usr/local/share/ca-certificates/Yandex/RootCA.crt";
 
         String DB_URL = String.format("jdbc:clickhouse://%s:8443/%s?ssl=1&sslmode=strict&sslrootcert=%s", DB_HOST, DB_NAME, CACERT);
 
@@ -365,7 +365,7 @@ npm install querystring
     const querystring = require('querystring');
     const fs = require('fs');
 
-    const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>";
+    const DB_HOST = "<FQDN_любого_хоста_ClickHouse®>";
     const DB_NAME = "<имя_БД>";
     const DB_USER = "<имя_пользователя_БД>";
     const DB_PASS = "<пароль_пользователя_БД>";
@@ -405,12 +405,12 @@ npm install querystring
     const querystring = require('querystring');
     const fs = require('fs');
 
-    const DB_HOST = "<FQDN_любого_хоста_{{ CH }}>";
+    const DB_HOST = "<FQDN_любого_хоста_ClickHouse®>";
     const DB_NAME = "<имя_БД>";
     const DB_USER = "<имя_пользователя_БД>";
     const DB_PASS = "<пароль_пользователя_БД>";
 
-    const CACERT = "{{ crt-local-dir }}{{ crt-local-file-root }}";
+    const CACERT = "/usr/local/share/ca-certificates/Yandex/RootCA.crt";
 
     const options = {
         'method': 'GET',
@@ -478,7 +478,7 @@ node app.js
     sudo mkdir --parents /usr/local/lib64 && sudo cp driver/*.so /usr/local/lib64/
     ```
 
-1. Зарегистрируйте драйвер {{ CH }} ODBC, добавив следующие строки в файл `odbcinst.ini` ([файл-пример](https://github.com/ClickHouse/clickhouse-odbc/blob/master/packaging/odbcinst.ini.sample)):
+1. Зарегистрируйте драйвер ClickHouse® ODBC, добавив следующие строки в файл `odbcinst.ini` ([файл-пример](https://github.com/ClickHouse/clickhouse-odbc/blob/master/packaging/odbcinst.ini.sample)):
 
    {% cut "/etc/odbcinst.ini" %}
 
@@ -512,7 +512,7 @@ node app.js
     ```ini
     [ClickHouse]
     Driver = ClickHouse ODBC Driver (Unicode)
-    Server = <FQDN_любого_хоста_{{ CH }}>
+    Server = <FQDN_любого_хоста_ClickHouse®>
     Database = <имя_БД>
     UID = <имя_пользователя_БД>
     PWD = <пароль_пользователя_БД>
@@ -528,14 +528,14 @@ node app.js
     ```ini
     [ClickHouse]
     Driver = ClickHouse ODBC Driver (Unicode)
-    Server = <FQDN_любого_хоста_{{ CH }}>
+    Server = <FQDN_любого_хоста_ClickHouse®>
     Database = <имя_БД>
     UID = <имя_пользователя_БД>
     PWD = <пароль_пользователя_БД>
     Port = 8443
     Proto = https
     SSLMode = allow
-    CertificateFile = {{ crt-local-dir }}{{ crt-local-file-root }}
+    CertificateFile = /usr/local/share/ca-certificates/Yandex/RootCA.crt
     CALocation = /etc/ssl/certs/ca-certificates.crt
     ```
 
@@ -556,16 +556,16 @@ isql -v ClickHouse
 1. [Установите драйвер clickhouse-odbc](https://github.com/ClickHouse/clickhouse-odbc#installation) подходящей разрядности. Например, если вы используете 32-разрядное приложение для подключения через ODBC, установите драйвер такой же разрядности.
 1. [Запустите приложение <q>Администратор источника данных ODBC</q>](https://learn.microsoft.com/ru-ru/sql/database-engine/configure-windows/open-the-odbc-data-source-administrator).
 1. На вкладке **Пользовательские DSN** нажмите кнопку **Добавить...**
-1. Выберите драйвер {{ CH }} с подходящей кодировкой и нажмите кнопку **Готово**.
-1. Укажите параметры подключения к кластеру {{ CH }}:
+1. Выберите драйвер ClickHouse® с подходящей кодировкой и нажмите кнопку **Готово**.
+1. Укажите параметры подключения к кластеру ClickHouse®:
 
    {% list tabs group=connection %}
 
     - Подключение без SSL {#without-ssl}
 
         * **Name** — имя подключения.
-        * **Host** — [FQDN любого хоста {{ CH }}](fqdn.md).
-        * **Port** — `{{ port-mch-http }}`.
+        * **Host** — [FQDN любого хоста ClickHouse®](fqdn.md).
+        * **Port** — `8443`.
         * **Database** — имя БД.
         * **User** — имя пользователя БД.
         * **Password** — пароль пользователя БД.
@@ -573,8 +573,8 @@ isql -v ClickHouse
     - Подключение с SSL {#with-ssl}
 
         * **Name** — имя подключения.
-        * **Host** — [FQDN любого хоста {{ CH }}](fqdn.md).
-        * **Port** — `{{ port-mch-http }}`.
+        * **Host** — [FQDN любого хоста ClickHouse®](fqdn.md).
+        * **Port** — `8443`.
         * **Database** — имя БД.
         * **SSLMode** — `allow`.
         * **User** — имя пользователя БД.
@@ -583,7 +583,7 @@ isql -v ClickHouse
    {% endlist %}
 
 1. Нажмите кнопку **Ok**.
-1. Подключитесь к кластеру {{ CH }} с помощью ODBC, например через приложение Microsoft Excel.
+1. Подключитесь к кластеру ClickHouse® с помощью ODBC, например через приложение Microsoft Excel.
 
 ## PHP {#php}
 
@@ -617,7 +617,7 @@ isql -v ClickHouse
 
     ```php
     <?php
-        $host = '<FQDN_любого_хоста_{{ CH }}>';
+        $host = '<FQDN_любого_хоста_ClickHouse®>';
         $db = '<имя_БД>';
         $query = 'SELECT version()';
 
@@ -648,7 +648,7 @@ isql -v ClickHouse
 
     ```php
     <?php
-        $host = '<FQDN_любого_хоста_{{ CH }}>';
+        $host = '<FQDN_любого_хоста_ClickHouse®>';
         $db = '<имя_БД>';
         $query = 'SELECT version()';
 
@@ -658,7 +658,7 @@ isql -v ClickHouse
         ];
 
         $ssl = [
-            'cafile' => '{{ crt-local-dir }}{{ crt-local-file-root }}',
+            'cafile' => '/usr/local/share/ca-certificates/Yandex/RootCA.crt',
             'verify_peer' => true,
         ];
 
@@ -707,7 +707,7 @@ pip3 install clickhouse-driver
     ```python
     from clickhouse_driver import Client
 
-    client = Client(host='<FQDN_любого_хоста_{{ CH }}>',
+    client = Client(host='<FQDN_любого_хоста_ClickHouse®>',
                     user='<имя_пользователя_БД>',
                     password='<пароль_пользователя_БД>',
                     port=9000)
@@ -723,13 +723,13 @@ pip3 install clickhouse-driver
     ```python
     from clickhouse_driver import Client
 
-    client = Client(host='<FQDN_любого_хоста_{{ CH }}>',
+    client = Client(host='<FQDN_любого_хоста_ClickHouse®>',
                     user='<имя_пользователя_БД>',
                     password='<пароль_пользователя_БД>',
                     port=9440,
                     secure=True,
                     verify=True,
-                    ca_certs='{{ crt-local-dir }}{{ crt-local-file-root }}')
+                    ca_certs='/usr/local/share/ca-certificates/Yandex/RootCA.crt')
 
     print(client.execute('SELECT version()'))
     ```
@@ -764,7 +764,7 @@ pip3 install requests
     import requests
 
     response = requests.get(
-        'http://{0}:8123'.format('<FQDN_любого_хоста_{{ CH }}>'),
+        'http://{0}:8123'.format('<FQDN_любого_хоста_ClickHouse®>'),
         params={
             'query': 'SELECT version()',
         },
@@ -786,11 +786,11 @@ pip3 install requests
     import requests
 
     response = requests.get(
-        'https://{0}:8443'.format('<FQDN_любого_хоста_{{ CH }}>'),
+        'https://{0}:8443'.format('<FQDN_любого_хоста_ClickHouse®>'),
         params={
             'query': 'SELECT version()',
         },
-        verify='{{ crt-local-dir }}{{ crt-local-file-root }}',
+        verify='/usr/local/share/ca-certificates/Yandex/RootCA.crt',
         headers={
             'X-ClickHouse-User': '<имя_пользователя_БД>',
             'X-ClickHouse-Key': '<пароль_пользователя_БД>',
@@ -829,7 +829,7 @@ sudo apt update && sudo apt install --yes ruby
     require "net/http"
     require "uri"
 
-    DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+    DB_HOST = "<FQDN_любого_хоста_ClickHouse®>"
     DB_NAME = "<имя_БД>"
     DB_USER = "<имя_пользователя_БД>"
     DB_PASS = "<пароль_пользователя_БД>"
@@ -860,7 +860,7 @@ sudo apt update && sudo apt install --yes ruby
     require "openssl"
     require "uri"
 
-    DB_HOST = "<FQDN_любого_хоста_{{ CH }}>"
+    DB_HOST = "<FQDN_любого_хоста_ClickHouse®>"
     DB_NAME = "<имя_БД>"
     DB_USER = "<имя_пользователя_БД>"
     DB_PASS = "<пароль_пользователя_БД>"
@@ -876,7 +876,7 @@ sudo apt update && sudo apt install --yes ruby
     req.add_field("X-ClickHouse-Key", DB_PASS)
 
     conn = Net::HTTP.new(uri.host, uri.port)
-    conn.ca_file = "{{ crt-local-dir }}{{ crt-local-file-root }}"
+    conn.ca_file = "/usr/local/share/ca-certificates/Yandex/RootCA.crt"
     conn.use_ssl = true
     conn.verify_mode = OpenSSL::SSL::VERIFY_PEER
 
@@ -894,4 +894,4 @@ sudo apt update && sudo apt install --yes ruby
 ruby connect.rb
 ```
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

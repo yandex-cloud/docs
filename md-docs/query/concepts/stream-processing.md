@@ -69,7 +69,7 @@ GROUP BY HOP(`date`, "PT24H", "PT24H", "PT1H")
 
 При обработке потоковые данные часто расширяют дополнительной информацией. Такую информацию называют справочной, а сам процесс добавления данных - обогащением.
 
-{{ yq-full-name }} может использовать хранимые в {{ objstorage-full-name }} данные для обогащения. Обогащение выполняется за счет SQL-конструкции `JOIN`. 
+Yandex Query может использовать хранимые в Yandex Object Storage данные для обогащения. Обогащение выполняется за счет SQL-конструкции `JOIN`. 
 
 {% note warning %}
 
@@ -121,5 +121,5 @@ INNER JOIN $host_dictionary AS host_dictionary
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/cloud-logging.md).
-* [{#T}](../tutorials/debezium.md).
+* [Обработка логов Yandex Cloud Logging](../tutorials/cloud-logging.md).
+* [Обработка потока изменений Debezium](../tutorials/debezium.md).

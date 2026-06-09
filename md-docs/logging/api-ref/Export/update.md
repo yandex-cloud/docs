@@ -5,7 +5,7 @@ Updates the specified export.
 ## HTTP request
 
 ```
-PATCH https://logging.{{ api-host }}/logging/v1/exports/{exportId}
+PATCH https://logging.api.cloud.yandex.net/logging/v1/exports/{exportId}
 ```
 
 ## Path parameters

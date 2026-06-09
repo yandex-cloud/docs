@@ -11,15 +11,15 @@
 
   Чтобы изменить трейл:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, см. в разделе [{#T}](../concepts/trail.md#trail-settings).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
+  1. Перейдите в сервис **Audit Trails**.
+  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Измените параметры трейла. Список настроек трейла, которые можно изменить, см. в разделе [Настройки трейла](../concepts/trail.md#trail-settings).
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -87,7 +87,7 @@
     * `--description` — описание трейла. Необязательный параметр.
     * `--labels` — список [меток](../../resource-manager/concepts/labels.md). Необязательный параметр. Можно указать одну или несколько меток через запятую в формате `<ключ1>=<значение1>,<ключ2>=<значение2>`.
     * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта.
-    * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета {{ objstorage-full-name }}, в который будут загружаться аудитные логи.
+    * `--destination-bucket` — [имя](../../storage/concepts/bucket.md#naming) бакета Yandex Object Storage, в который будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-log-group-id`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
     * `--destination-bucket-object-prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
@@ -98,15 +98,15 @@
         
         {% endnote %}
     
-    * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, в которую будут загружаться аудитные логи.
+    * `--destination-log-group-id` — идентификатор [лог-группы](../../logging/concepts/log-group.md) Yandex Cloud Logging, в которую будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-yds-stream` и `--destination-eventrouter-connector-id`.
-    * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}, в который будут загружаться аудитные логи.
+    * `--destination-yds-stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams, в который будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-eventrouter-connector-id`.
-    * `--destination-yds-database-id` — идентификатор базы данных {{ ydb-short-name }}, которая используется потоком данных {{ yds-name }}.
-    * `--destination-yds-codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
-    * `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины {{ er-name }} с типом источника `{{ at-name }}`, в которую будут загружаться аудитные логи.
+    * `--destination-yds-database-id` — идентификатор базы данных YDB, которая используется потоком данных Data Streams.
+    * `--destination-yds-codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+    * `--destination-eventrouter-connector-id` — идентификатор [коннектора](../../serverless-integrations/concepts/eventrouter/connector.md) шины EventRouter с типом источника `Audit Trails`, в которую будут загружаться аудитные логи.
     
         С этим параметром нельзя использовать параметры `--destination-bucket`, `--destination-log-group-id` и `--destination-yds-stream`.
     * `--filter-all-folder-id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, для всех ресурсов которого будут регистрироваться события уровня конфигурации.
@@ -127,20 +127,20 @@
 
   {% endcut %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Чтобы изменить трейл, созданный с помощью {{ TF }}, откройте файл конфигурации {{ TF }} и измените фрагмент с описанием трейла:
+  1. Чтобы изменить трейл, созданный с помощью Terraform, откройте файл конфигурации Terraform и измените фрагмент с описанием трейла:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -238,10 +238,10 @@
       
       {% endnote %}
       
-      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
+      * `logging_destination` — загружать логи в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
       
           * `log_group_id` — [идентификатор лог-группы](../../logging/operations/get-group.md), в которую трейл будет сохранять аудитные логи.
-      * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) {{ objstorage-full-name }}:
+      * `storage_destination` — загружать логи в [бакет](../../storage/concepts/bucket.md) Yandex Object Storage:
       
           * `bucket_name` — имя бакета, куда трейл будет сохранять аудитные логи.
           * `object_prefix` — [префикс](../../storage/concepts/object.md#folder), который будет присвоен объектам с аудитными логами в бакете. Необязательный параметр, участвует в [полном имени](../concepts/format.md#log-file-name) файла аудитного лога.
@@ -252,11 +252,11 @@
               
               {% endnote %}
       
-      * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-full-name }}:
+      * `data_stream_destination` — загружать логи в [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) Yandex Data Streams:
       
           * `stream_name` — имя потока данных, в который трейл будет сохранять аудитные логи.
-          * `database_id` — идентификатор базы данных {{ ydb-full-name }}, которая используется потоком данных {{ yds-name }}.
-          * `codec` — метод сжатия событий при записи в поток данных {{ yds-name }}. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
+          * `database_id` — идентификатор базы данных Yandex Managed Service for YDB, которая используется потоком данных Data Streams.
+          * `codec` — метод сжатия событий при записи в поток данных Data Streams. Возможные значения: `RAW` (без сжатия, по умолчанию), `GZIP`, `ZSTD`. Включайте сжатие, если ожидается поток событий более 1 МБ/с.
 
       * `filtering_policy` — настройки политики фильтрации, которая определяет, какие события будут собираться и попадут в аудитные логи. Политика состоит из набора фильтров, которые относятся к разным уровням событий. Содержит объекты `management_events_filter` и `data_events_filters`.
       
@@ -276,7 +276,7 @@
               * `included_events` — собирать только указанные события. Необязательный параметр. Если не указать, то будут собираться все события. Вместо `included_events` можно указать `excluded_events` — собирать все события, кроме указанных. Эти параметры — взаимоисключающие.
                   Полный перечень событий можно получить в [справочнике событий уровня сервисов](../concepts/events-data-plane.md).
 
-      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/audit_trails_trail).
+      Более подробную информацию о параметрах ресурса `yandex_audit_trails_trail` в Terraform см. в [документации провайдера](../../terraform/resources/audit_trails_trail.md).
 
   1. Создайте ресурсы:
 
@@ -299,7 +299,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -308,7 +308,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
      ```bash
      yc audit-trails trail get <имя_трейла>
@@ -330,9 +330,9 @@
 
   Чтобы удалить трейл:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится трейл.
+  1. Перейдите в сервис **Audit Trails**.
+  1. В строке с нужным трейлом нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}
@@ -345,13 +345,13 @@
 
   Чтобы узнать имена и идентификаторы доступных трейлов, воспользуйтесь [инструкцией](get-list.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы удалить трейл, созданный с помощью {{ TF }}:
+  Чтобы удалить трейл, созданный с помощью Terraform:
 
-  1. Откройте файл конфигурации {{ TF }} и удалите секцию с описанием трейла.
+  1. Откройте файл конфигурации Terraform и удалите секцию с описанием трейла.
 
-      Пример описания трейла в конфигурации {{ TF }}:
+      Пример описания трейла в конфигурации Terraform:
 
       ```hcl
       resource "yandex_audit_trails_trail" "basic_trail" {
@@ -428,7 +428,7 @@
       }
       ```
 
-  1. В командной строке перейдите в папку, где расположен файл конфигурации {{ TF }}.
+  1. В командной строке перейдите в папку, где расположен файл конфигурации Terraform.
   1. Проверьте конфигурацию командой:
 
      ```bash
@@ -446,7 +446,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
   1. Примените изменения конфигурации:
 
      ```bash

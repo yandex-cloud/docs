@@ -6,7 +6,7 @@ To get the list of available PublicConnection resources, make a [List](list.md#L
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/publicConnections/{publicConnectionId}
+GET https://cic.api.cloud.yandex.net/cic/v1/publicConnections/{publicConnectionId}
 ```
 
 ## Path parameters

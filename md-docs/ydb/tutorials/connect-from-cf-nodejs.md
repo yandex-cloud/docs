@@ -1,4 +1,4 @@
-# Подключение к базе данных {{ ydb-name }} из функции {{ sf-full-name }} на Node.js
+# Подключение к базе данных Managed Service for YDB из функции Yandex Cloud Functions на Node.js
 
 {% note info %}
 
@@ -6,18 +6,18 @@
 
 {% endnote %}
 
-Вы создадите [функцию](../../functions/concepts/function.md) с [приложением на Node.js]({{ ydb.docs }}/reference/ydb-sdk/example/example-nodejs), которое выполняет простой запрос к базе данных [{{ ydb-short-name }}](https://ydb.tech/). Развертывание приложения осуществляется с помощью Bash-скриптов, для компиляции используется команда `tcs`.
+Вы создадите [функцию](../../functions/concepts/function.md) с [приложением на Node.js](https://ydb.tech/docs/ru//reference/ydb-sdk/example/example-nodejs), которое выполняет простой запрос к базе данных [YDB](https://ydb.tech/). Развертывание приложения осуществляется с помощью Bash-скриптов, для компиляции используется команда `tcs`.
 
-Функция с привязанным [сервисным аккаунтом](../../iam/concepts/users/service-accounts.md) авторизуется в {{ ydb-short-name }} через сервис метаданных.
+Функция с привязанным [сервисным аккаунтом](../../iam/concepts/users/service-accounts.md) авторизуется в YDB через сервис метаданных.
 
-Приложение создает драйвер подключения к БД {{ ydb-short-name }}, сессию, транзакцию и выполняет запрос, используя библиотеку `ydb`. Эта библиотека устанавливается как [зависимость](../../functions/lang/nodejs/dependencies.md) при создании [версии функции](../../functions/concepts/function.md#version). Параметры подключения к БД передаются в приложение через переменные окружения.
+Приложение создает драйвер подключения к БД YDB, сессию, транзакцию и выполняет запрос, используя библиотеку `ydb`. Эта библиотека устанавливается как [зависимость](../../functions/lang/nodejs/dependencies.md) при создании [версии функции](../../functions/concepts/function.md#version). Параметры подключения к БД передаются в приложение через переменные окружения.
 
-Чтобы настроить подключение к БД {{ ydb-short-name }}:
+Чтобы настроить подключение к БД YDB:
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте окружение](#prepare-environment).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте авторизованный ключ](#create-key).
-1. [Создайте БД {{ ydb-short-name }}](#create-database).
+1. [Создайте БД YDB](#create-database).
 1. [Создайте функцию](#create-function).
 1. [Протестируйте функцию](#test-function).
 
@@ -25,19 +25,19 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для этого сценария входит:
-* Плата за использование функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-* Плата за выполнение запросов к БД (см. [тарифы {{ ydb-full-name }}](../pricing/serverless.md)).
+* Плата за использование функции (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Плата за выполнение запросов к БД (см. [тарифы Yandex Managed Service for YDB](../pricing/serverless.md)).
 
 ## Подготовьте окружение {#prepare-environment}
 
@@ -47,7 +47,7 @@
    git clone https://github.com/yandex-cloud-examples/yc-ydb-connect-from-serverless-function.git
    ```
 
-1. Установите и инициализируйте [интерфейс командной строки {{ yandex-cloud }}](../../cli/quickstart.md).
+1. Установите и инициализируйте [интерфейс командной строки Yandex Cloud](../../cli/quickstart.md).
 1. Перейдите в корневую директорию проекта:
 
    ```bash
@@ -91,12 +91,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта: `sa-function`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `{{ roles-editor }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Добавить роль** и выберите `editor`.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
@@ -138,12 +138,12 @@
 
   Подробнее о командах см. в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/index.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
 
@@ -153,7 +153,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -162,7 +162,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -184,12 +184,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `sa-function`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
-  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
+  1. Нажмите кнопку **Создать новый ключ** на верхней панели.
+  1. Выберите пункт **Создать авторизованный ключ**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание [авторизованного ключа](../../iam/concepts/authorization/key.md), чтобы потом было проще найти его в консоли управления.
   1. Сохраните открытую и закрытую части авторизованного ключа в файл `yc-ydb-connect-from-serverless-function/service_account_key_file.json`:
@@ -215,7 +215,7 @@
 
   В случае успеха в файл `service_account_key_file.json` будет записан закрытая часть авторизованного ключа (`privateKey`) и идентификатор открытой части (`id`).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Опишите в конфигурационном файле параметры авторизованного ключа:
 
@@ -226,7 +226,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в директорию, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -235,7 +235,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -251,27 +251,27 @@
 
 {% endlist %}
 
-## Создайте БД {{ ydb-short-name }} {#create-database}
+## Создайте БД YDB {#create-database}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;YDB**.
+  1. Нажмите кнопку **Создать базу данных**.
   1. Введите имя БД. Требования к имени:
 
      * длина — от 3 до 63 символов;
      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
      * первый символ — буква, последний — не дефис.
 
-  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите опцию `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
+  1. В блоке **Тип базы данных** выберите опцию `Serverless`.
+  1. Нажмите кнопку **Создать базу данных**.
 
      Дождитесь запуска БД. В процессе создания БД будет иметь статус `Provisioning`. Когда БД станет готова к использованию, статус сменится на `Running`.
   1. Нажмите на имя созданной БД.
-  1. Сохраните значение поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из блока **{{ ui-key.yacloud.ydb.overview.section_connection }}**. Оно понадобится на следующем шаге.
+  1. Сохраните значение поля **Эндпоинт** из блока **Соединение**. Оно понадобится на следующем шаге.
 
 {% endlist %}
 
@@ -290,8 +290,8 @@
    ```
 
 1. Отредактируйте файл `.env`:
-   * `ENDPOINT` — первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`). Например, `{{ ydb.ep-serverless }}`.
-   * `DATABASE` — вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+   * `ENDPOINT` — первая часть сохраненного ранее значения поля **Эндпоинт** (часть до вхождения `/?database=`). Например, `grpcs://ydb.serverless.yandexcloud.net:2135`.
+   * `DATABASE` — вторая часть сохраненного ранее значения поля **Эндпоинт** (часть после вхождения `/?database=`). Например, `/ru-central1/r1gra875baom********/g5n22e7ejfr1********`.
    * `FUNCTION_NAME` — имя функции: `func-test-ydb`.
    * `FOLDER_ID` — идентификатор каталога.
    * `SERVICE_ACCOUNT_ID` — идентификатор сервисного аккаунта `sa-function`.
@@ -343,7 +343,7 @@
          - $latest
    log_group_id: lmnoivbe341g********
    environment:
-         DATABASE: /{{ region-id }}/b1gia87mbaom********/etnilt3o6v9e********
+         DATABASE: /ru-central1/b1gia87mbaom********/etnilt3o6v9e********
          ENDPOINT: grpcs://ydb.serverless.yandexcloud.net:2135
    log_options:
          folder_id: pqrs81qpemb********
@@ -355,11 +355,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция.
+  1. Перейдите в сервис **Cloud Functions**.
   1. Выберите функцию `func-test-ydb`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}** нажмите на ссылку.
+  1. Перейдите на вкладку **Обзор**.
+  1. В поле **Ссылка для вызова** нажмите на ссылку.
   1. В адресной строке браузера добавьте в ссылке параметр `api_key`, например `?api_key=b95`:
 
       ```http request

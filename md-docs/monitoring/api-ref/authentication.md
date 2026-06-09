@@ -1,6 +1,6 @@
-# Аутентификация в API {{ yandex-cloud }}
+# Аутентификация в API Yandex Cloud
 
-Для выполнения операций через [API](../../glossary/rest-api.md) можно использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../iam/concepts/authorization/api-key.md). Любой из этих способов аутентификации подходит для работы с [{{ prometheus-name }}](../operations/prometheus/index.md).
+Для выполнения операций через [API](../../glossary/rest-api.md) можно использовать [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../iam/concepts/authorization/api-key.md). Любой из этих способов аутентификации подходит для работы с [Prometheus](../operations/prometheus/index.md).
 
 ## IAM-токен {#iam-token}
 
@@ -13,7 +13,7 @@ _IAM-токен_ — уникальная последовательность 
 * [Инструкция](../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 * [Инструкция](../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -27,11 +27,11 @@ Authorization: Bearer ${IAM_TOKEN}
 
 ## API-ключ {#api-key}
 
-_API-ключ_ — секретный ключ, используемый только для упрощенной аутентификации [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) в API {{ yandex-cloud }}.
+_API-ключ_ — секретный ключ, используемый только для упрощенной аутентификации [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) в API Yandex Cloud.
 
 [Инструкция](../../iam/operations/authentication/manage-api-keys.md) по получению API-ключа для сервисного аккаунта.
 
-Полученный API-ключ указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
+Полученный API-ключ указывайте при обращении к ресурсам Yandex Cloud через API. Передайте API-ключ в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Api-Key <API-ключ>
@@ -51,4 +51,4 @@ Authorization: Api-Key ${API_KEY}
 
 #### См. также {#see-also}
 
-[{#T}](../../iam/concepts/users/accounts.md)
+[Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)

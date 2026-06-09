@@ -62,7 +62,7 @@ Yandex Query — интерактивный, полностью управляе
 
  - [Форматы данных и алгоритмы сжатия](sources-and-sinks/formats.md)
 
-### Работа с {{ objstorage-full-name }}
+### Работа с Yandex Object Storage
 
  - [Чтение данных с помощью соединений](sources-and-sinks/object-storage.md)
 
@@ -78,55 +78,55 @@ Yandex Query — интерактивный, полностью управляе
 
  - [Запись данных](sources-and-sinks/data-streams-write.md)
 
-### Работа с {{ monitoring-full-name }}
+### Работа с Yandex Monitoring
 
  - [Чтение данных с помощью соединений](sources-and-sinks/monitoring.md)
 
  - [Запись данных](sources-and-sinks/monitoring-write.md)
 
- - [Работа с базами данных {{ mch-name }}](sources-and-sinks/clickhouse.md)
+ - [Работа с базами данных Managed Service for ClickHouse®](sources-and-sinks/clickhouse.md)
 
- - [Работа с базами данных {{ mgp-name }}](sources-and-sinks/greenplum.md)
+ - [Работа с базами данных Yandex MPP Analytics for PostgreSQL](sources-and-sinks/greenplum.md)
 
- - [Работа с базами данных {{ mmy-name }}](sources-and-sinks/mysql.md)
+ - [Работа с базами данных Managed Service for MySQL®](sources-and-sinks/mysql.md)
 
- - [Работа с базами данных {{ mpg-name }}](sources-and-sinks/postgresql.md)
+ - [Работа с базами данных Managed Service for PostgreSQL](sources-and-sinks/postgresql.md)
 
- - [Работа с базами данных {{ ydb-name }}](sources-and-sinks/ydb.md)
+ - [Работа с базами данных Managed Service for YDB](sources-and-sinks/ydb.md)
 
- - [Чтение данных из таблиц {{ yq-iceberg-name }}](sources-and-sinks/iceberg.md)
+ - [Чтение данных из таблиц Iceberg](sources-and-sinks/iceberg.md)
 
 ## Практические руководства
 
  - [Все руководства](tutorials/index.md)
 
- - [Обработка логов {{ cloud-logging-name }}](tutorials/cloud-logging.md)
+ - [Обработка логов Cloud Logging](tutorials/cloud-logging.md)
 
  - [Обработка потока изменений Debezium](tutorials/debezium.md)
 
- - [Визуализация данных из {{ objstorage-name }} в {{ datalens-name }}](tutorials/datalens.md)
+ - [Визуализация данных из Object Storage в DataLens](tutorials/datalens.md)
 
- - [Обработка аудитных логов {{ at-name }}](tutorials/audit-trails.md)
+ - [Обработка аудитных логов Audit Trails](tutorials/audit-trails.md)
 
- - [Обработка файлов детализации в сервисе {{ billing-name }}](tutorials/billing.md)
+ - [Обработка файлов детализации в сервисе Yandex Cloud Billing](tutorials/billing.md)
 
- - [Анализ данных с помощью {{ jlab }}](tutorials/jupyter.md)
+ - [Анализ данных с помощью Jupyter](tutorials/jupyter.md)
 
- - [Автоматизация задач с помощью {{ maf-short-name }}](tutorials/airflow-auto-tasks.md)
+ - [Автоматизация задач с помощью Managed Service for Apache Airflow™](tutorials/airflow-auto-tasks.md)
 
- - [Анализ данных с помощью {{ yq-name }}](tutorials/yq.md)
+ - [Анализ данных с помощью Query](tutorials/yq.md)
 
- - [Работа с данными в {{ objstorage-name }}](tutorials/yq-storage.md)
+ - [Работа с данными в Object Storage](tutorials/yq-storage.md)
 
- - [Работа с данными в {{ mch-name }}](tutorials/yq-clickhouse.md)
+ - [Работа с данными в Managed Service for ClickHouse®](tutorials/yq-clickhouse.md)
 
- - [Работа с данными в {{ mpg-name }}](tutorials/yq-postgre.md)
+ - [Работа с данными в Managed Service for PostgreSQL](tutorials/yq-postgre.md)
 
  - [Федеративные запросы к данным](tutorials/yq-federative-queries.md)
 
- - [Поиск событий {{ yandex-cloud }} в {{ yq-name }}](tutorials/search-events-query.md)
+ - [Поиск событий Yandex Cloud в Query](tutorials/search-events-query.md)
 
-### Поставка данных из {{ forms-full-name }} в {{ datalens-full-name }} с использованием {{ sf-full-name }} и {{ yq-full-name }}
+### Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query
 
  - [Обзор](tutorials/forms-and-datalens-integration/index.md)
 
@@ -158,7 +158,7 @@ Yandex Query — интерактивный, полностью управляе
 
 ## Справочник
 
- - [{{ TF }}](tf-ref.md)
+ - [Terraform](tf-ref.md)
 
  - [SDK](SDK/SDK.md)
 
@@ -184,11 +184,11 @@ Yandex Query — интерактивный, полностью управляе
 
  - [Соответствие YQL и Json-типов](api/yql-json-conversion-rules.md)
 
- - [{{ AF }}](airflow/operator.md)
+ - [Apache Airflow™](airflow/operator.md)
 
  - [Интеграции](integrations.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Вопросы и ответы](qa/index.md)
 

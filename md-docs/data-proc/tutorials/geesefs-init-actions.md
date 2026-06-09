@@ -1,11 +1,11 @@
-# Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-name }}
+# Монтирование бакетов Yandex Object Storage к файловой системе хостов Yandex Data Processing
 
-# Монтирование бакетов {{ objstorage-full-name }} к файловой системе хостов {{ dataproc-full-name }}
+# Монтирование бакетов Yandex Object Storage к файловой системе хостов Yandex Data Processing
 
 
-В сервисе {{ dataproc-full-name }} вы можете использовать для настройки хостов [скрипты инициализации](../concepts/init-action.md) (initialization actions).
+В сервисе Yandex Data Processing вы можете использовать для настройки хостов [скрипты инициализации](../concepts/init-action.md) (initialization actions).
 
-С их помощью можно автоматизировать установку и настройку программы [GeeseFS](../../storage/tools/geesefs.md), позволяющей хостам кластера {{ dataproc-full-name }} монтировать бакеты {{ objstorage-full-name }} через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
+С их помощью можно автоматизировать установку и настройку программы [GeeseFS](../../storage/tools/geesefs.md), позволяющей хостам кластера Yandex Data Processing монтировать бакеты Yandex Object Storage через [FUSE](https://ru.wikipedia.org/wiki/FUSE_(модуль_ядра)).
 
 Чтобы настроить GeeseFS:
 
@@ -20,10 +20,10 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ dataproc-name }} (см. [тарифы {{ dataproc-name }}](../pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер Yandex Data Processing (см. [тарифы Yandex Data Processing](../pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -36,7 +36,7 @@
 
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-  1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-name }}.
+  1. [Создайте бакет](../../storage/operations/buckets/create.md) Object Storage.
 
   1. Предоставьте сервисному аккаунту доступ на чтение из бакета. Для этого воспользуйтесь одним из способов:
 
@@ -48,11 +48,11 @@
 
           Сервисный аккаунт получит доступ на чтение ко всем бакетам в каталоге.
 
-  1. Создайте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой будет создан кластер {{ dataproc-name }}.
+  1. Создайте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой будет создан кластер Yandex Data Processing.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -65,30 +65,30 @@
       * [подсеть](../../vpc/concepts/network.md#subnet);
       * [таблица маршрутизации](../../vpc/concepts/routing.md#rt-vpc);
       * [NAT-шлюз](../../vpc/concepts/gateways.md);
-      * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ dataproc-name }};
-      * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролями, которые требуются для работы с бакетом {{ objstorage-name }} и кластером {{ dataproc-name }};
-      * [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для управления бакетом {{ objstorage-name }};
-      * [бакет {{ objstorage-name }}](../../storage/concepts/bucket.md);
-      * [кластер {{ dataproc-name }}](../concepts/index.md).
+      * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Yandex Data Processing;
+      * [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролями, которые требуются для работы с бакетом Object Storage и кластером Yandex Data Processing;
+      * [статический ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта для управления бакетом Object Storage;
+      * [бакет Object Storage](../../storage/concepts/bucket.md);
+      * [кластер Yandex Data Processing](../concepts/index.md).
 
   1. Укажите в файле `data-processing-init-actions-geesefs.tf` значения параметров:
 
-      * `dp_network_name` — имя сети для кластера {{ dataproc-name }};
-      * `dp_subnet_name` — имя подсети для кластера {{ dataproc-name }};
-      * `dp_sg_name` — имя группы безопасности для кластера {{ dataproc-name }};
-      * `dp_sa_folder_id` — идентификатор каталога, в котором будет создана инфраструктура и кластер {{ dataproc-name }};
-      * `dp_sa_name` — имя сервисного аккаунта для кластера {{ dataproc-name }} и бакета {{ objstorage-name }};
-      * `dp_bucket_name` — имя бакета {{ objstorage-name }};
-      * `dataproc_name` — имя кластера {{ dataproc-name }};
-      * `ssh-path` — путь к файлу публичного SSH-ключа для кластера {{ dataproc-name }}.
+      * `dp_network_name` — имя сети для кластера Yandex Data Processing;
+      * `dp_subnet_name` — имя подсети для кластера Yandex Data Processing;
+      * `dp_sg_name` — имя группы безопасности для кластера Yandex Data Processing;
+      * `dp_sa_folder_id` — идентификатор каталога, в котором будет создана инфраструктура и кластер Yandex Data Processing;
+      * `dp_sa_name` — имя сервисного аккаунта для кластера Yandex Data Processing и бакета Object Storage;
+      * `dp_bucket_name` — имя бакета Object Storage;
+      * `dataproc_name` — имя кластера Yandex Data Processing;
+      * `ssh-path` — путь к файлу публичного SSH-ключа для кластера Yandex Data Processing.
 
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Создайте необходимую инфраструктуру:
 
@@ -110,13 +110,13 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 ## Подготовьте скрипт инициализации {#prepare-init-scripts}
 
-1. Создайте файл скрипта инициализации `geesefs_mount.sh`, принимающий два позиционных аргумента — имя бакета {{ objstorage-name }} и директорию в файловой системе хоста, куда он должен быть смонтирован.
+1. Создайте файл скрипта инициализации `geesefs_mount.sh`, принимающий два позиционных аргумента — имя бакета Object Storage и директорию в файловой системе хоста, куда он должен быть смонтирован.
 
     ```bash
     #!/bin/bash
@@ -141,7 +141,7 @@
     ${BOOT_SCRIPT}
     ```
 
-1. [Загрузите](../../storage/operations/objects/upload.md) файл `geesefs_mount.sh` в созданный ранее бакет {{ objstorage-name }}.
+1. [Загрузите](../../storage/operations/objects/upload.md) файл `geesefs_mount.sh` в созданный ранее бакет Object Storage.
 
 ## Создайте кластер, использующий скрипт инициализации {#create-cluster}
 
@@ -149,46 +149,46 @@
 
 - Вручную {#manual}
 
-  [Создайте кластер {{ dataproc-name }}](../operations/cluster-create.md) со следующими параметрами:
+  [Создайте кластер Yandex Data Processing](../operations/cluster-create.md) со следующими параметрами:
 
-  * В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию `2.0`.
-  * В поле **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** выберите сервисный аккаунт, [созданный ранее](#before-you-begin).
-  * В поле **{{ ui-key.yacloud.mdb.forms.config_field_initialization-action }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_add-initialization-action }}** и задайте параметры скрипта:
+  * В поле **Версия** выберите версию `2.0`.
+  * В поле **Сервисный аккаунт** выберите сервисный аккаунт, [созданный ранее](#before-you-begin).
+  * В поле **Пользовательские скрипты** нажмите кнопку **Добавить** и задайте параметры скрипта:
 
-      * В поле **{{ ui-key.yacloud.mdb.forms.field_initialization-action-uri }}** укажите путь к файлу скрипта в бакете, например:
+      * В поле **URI** укажите путь к файлу скрипта в бакете, например:
 
           ```http
           s3a://<имя_бакета>/geesefs_mount.sh
           ```
 
-      * В поле **{{ ui-key.yacloud.mdb.forms.field_initialization-action-args }}** укажите имя [созданного ранее](#before-you-begin) бакета и точку монтирования `/mnt/test`. Аргументы указываются на отдельных строках:
+      * В поле **Аргументы** укажите имя [созданного ранее](#before-you-begin) бакета и точку монтирования `/mnt/test`. Аргументы указываются на отдельных строках:
 
           ```text
           <имя_бакета>
           /mnt/test
           ```
 
-  * В поле **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** выберите бакет, [созданный ранее](#before-you-begin).
+  * В поле **Имя бакета** выберите бакет, [созданный ранее](#before-you-begin).
 
-  * В меню **{{ ui-key.yacloud.mdb.forms.section_subclusters }}** включите в настройках опцию **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}**.
+  * В меню **Подкластеры** включите в настройках опцию **Публичный доступ**.
 
       {% note info %}
       
-      Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+      Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
       
       {% endnote %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В файле `data-processing-init-actions-geesefs.tf` укажите значение переменной `create_cluster` = `1`.
 
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Создайте необходимую инфраструктуру:
 
@@ -210,7 +210,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -240,12 +240,12 @@
 
 - Вручную {#manual}
 
-  1. [Удалите кластер {{ dataproc-name }}](../operations/cluster-delete.md).
+  1. [Удалите кластер Yandex Data Processing](../operations/cluster-delete.md).
   1. Если для доступа к хостам кластера использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
-  1. [Удалите бакет](../../storage/operations/buckets/delete.md) {{ objstorage-name }}.
+  1. [Удалите бакет](../../storage/operations/buckets/delete.md) Object Storage.
   1. [Удалите сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В терминале перейдите в рабочую директорию с конфигурационным файлом `data-processing-init-actions-geesefs.tf`.
   1. Удалите ресурсы с помощью команды:

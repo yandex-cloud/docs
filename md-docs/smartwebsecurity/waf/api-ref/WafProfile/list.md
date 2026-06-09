@@ -5,7 +5,7 @@ Retrieves the list of WafProfile resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafProfiles
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafProfiles
 ```
 
 ## Query parameters {#yandex.cloud.smartwebsecurity.v1.waf.ListWafProfilesRequest}

@@ -5,7 +5,7 @@ Creates a cluster in the specified folder.
 ## HTTP request
 
 ```
-POST https://dataproc.{{ api-host }}/dataproc/v1/clusters
+POST https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.dataproc.v1.CreateClusterRequest}

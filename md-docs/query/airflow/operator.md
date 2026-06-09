@@ -1,16 +1,16 @@
-# {{ AF }}
+# Apache Airflow™
 
-Для работы под управлением [{{ AF }}](https://airflow.apache.org) {{ yq-full-name }} предоставляет пакет [apache-airflow-providers-yandex](https://pypi.org/project/apache-airflow-providers-yandex/). [Задания {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/index.html) представляют собой приложения на языке Python, состоящие из набора [операторов {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) и их [зависимостей](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html), определяющих порядок выполнения. Для выполнения запросов к {{ yq-full-name }} в составе пакета содержится оператор {{ AF }} [`YQExecuteQueryOperator`](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/_api/airflow/providers/yandex/operators/yq/index.html).
+Для работы под управлением [Apache Airflow™](https://airflow.apache.org) Yandex Query предоставляет пакет [apache-airflow-providers-yandex](https://pypi.org/project/apache-airflow-providers-yandex/). [Задания Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/index.html) представляют собой приложения на языке Python, состоящие из набора [операторов Apache Airflow™](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/operators.html) и их [зависимостей](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html), определяющих порядок выполнения. Для выполнения запросов к Yandex Query в составе пакета содержится оператор Apache Airflow™ [`YQExecuteQueryOperator`](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/_api/airflow/providers/yandex/operators/yq/index.html).
 
-Для выполнения запросов к {{ yq-full-name }} необходимо инициализировать `YQExecuteQueryOperator` оператор с помощью аргументов, указанных ниже.
+Для выполнения запросов к Yandex Query необходимо инициализировать `YQExecuteQueryOperator` оператор с помощью аргументов, указанных ниже.
 
 Обязательные аргументы:
-* `name` — название задания {{ AF }}.
-* `sql` — текст [SQL-запроса](../concepts/glossary.md#query), который необходимо выполнить в {{ yq-full-name }}.
+* `name` — название задания Apache Airflow™.
+* `sql` — текст [SQL-запроса](../concepts/glossary.md#query), который необходимо выполнить в Yandex Query.
 
 Опциональные аргументы:
-* `folder_id` — каталог, где будет исполняться запрос. Если не указан, то совпадает с каталогом {{ maf-name }}.
-* `yandex_conn_id` — идентификатор подключения с типом `yandexcloud`, содержащий параметры соединения с {{ yandex-cloud }}. Если не указан, то используется соединение с именем `yandexcloud_default`. Соединение `yandexcloud_default` предустанавливается в составе {{ maf-short-name }}, отдельно его заводить не нужно.
+* `folder_id` — каталог, где будет исполняться запрос. Если не указан, то совпадает с каталогом Managed Service for Apache Airflow™.
+* `yandex_conn_id` — идентификатор подключения с типом `yandexcloud`, содержащий параметры соединения с Yandex Cloud. Если не указан, то используется соединение с именем `yandexcloud_default`. Соединение `yandexcloud_default` предустанавливается в составе Managed Service for Apache Airflow™, отдельно его заводить не нужно.
 
 Пример:
 
@@ -18,7 +18,7 @@
 yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, world!'")
 ```
 
-В данном примере создается задание {{ AF }} с идентификатором `yq_operator`, которое выполняет запрос `SELECT 'Hello, world!'`. Полный пример запуска запроса в {{ yq-full-name }} из {{ maf-short-name }} находится в разделе [{#T}](../tutorials/airflow-auto-tasks.md).
+В данном примере создается задание Apache Airflow™ с идентификатором `yq_operator`, которое выполняет запрос `SELECT 'Hello, world!'`. Полный пример запуска запроса в Yandex Query из Managed Service for Apache Airflow™ находится в разделе [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](../tutorials/airflow-auto-tasks.md).
 
 ## Возвращаемые значения {#ret_values}
 
@@ -95,4 +95,4 @@ yq_operator = YQExecuteQueryOperator(task_id="yq_operator", sql="SELECT 'Hello, 
 
 #### См. также {#see-also}
 
-* [{#T}](../tutorials/airflow-auto-tasks.md).
+* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](../tutorials/airflow-auto-tasks.md).

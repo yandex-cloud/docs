@@ -5,7 +5,7 @@ Lists operations for the specified PrivateConnection.
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}/operations
+GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}/operations
 ```
 
 ## Path parameters

@@ -7,7 +7,7 @@ To get the list of available registries, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}
+GET https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}
 ```
 
 ## Path parameters

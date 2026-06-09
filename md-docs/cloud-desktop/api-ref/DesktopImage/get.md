@@ -5,7 +5,7 @@ Returns the specified desktop image.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images/{imageId}
 ```
 
 ## Path parameters

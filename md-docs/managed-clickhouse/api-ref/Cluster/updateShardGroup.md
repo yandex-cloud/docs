@@ -5,7 +5,7 @@ Updates the specified shard group.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shardGroups/{shardGroupName}
 ```
 
 ## Path parameters

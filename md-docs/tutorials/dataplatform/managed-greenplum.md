@@ -1,57 +1,57 @@
-# Миграция данных из стороннего кластера {{ GP }} или {{ PG }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
+# Миграция данных из стороннего кластера Greenplum® или PostgreSQL в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer
 
-Вы можете перенести вашу базу данных из стороннего кластера {{ GP }} или {{ PG }} в {{ mgp-name }} с помощью сервиса {{ data-transfer-full-name }}. Этот способ позволяет:
+Вы можете перенести вашу базу данных из стороннего кластера Greenplum® или PostgreSQL в Yandex MPP Analytics for PostgreSQL с помощью сервиса Yandex Data Transfer. Этот способ позволяет:
 
 * перенести базу без остановки обслуживания пользователей;
-* мигрировать со старых версий {{ GP }} на более новые;
-* обойтись без создания промежуточной [виртуальной машины](../../glossary/vm.md) или разрешения доступа к вашему кластеру-приемнику {{ mpg-name }} из интернета.
+* мигрировать со старых версий Greenplum® на более новые;
+* обойтись без создания промежуточной [виртуальной машины](../../glossary/vm.md) или разрешения доступа к вашему кластеру-приемнику Managed Service for PostgreSQL из интернета.
 
-Подробнее в разделе [{#T}](../../data-transfer/concepts/use-cases.md).
+Подробнее в разделе [Какие задачи решает сервис Yandex Data Transfer](../../data-transfer/concepts/use-cases.md).
 
 {% note info %}
 
-{{ data-transfer-name }} позволяет перенести состояние базы-источника на приемник {{ mgp-name }} без поддержания ее в актуальном состоянии (тип трансфера [_{{ dt-type-copy }}_](../../data-transfer/concepts/transfer-lifecycle.md#copy)). Изменения, произошедшие на источнике после завершения трансфера, перенесены не будут.
+Data Transfer позволяет перенести состояние базы-источника на приемник Yandex MPP Analytics for PostgreSQL без поддержания ее в актуальном состоянии (тип трансфера [_**Копирование**_](../../data-transfer/concepts/transfer-lifecycle.md#copy)). Изменения, произошедшие на источнике после завершения трансфера, перенесены не будут.
 
 {% endnote %}
 
-Чтобы перенести базу данных, нужно непосредственно перенести данные, закрыть старую базу данных на запись и переключить нагрузку на кластер БД в {{ yandex-cloud }}.
+Чтобы перенести базу данных, нужно непосредственно перенести данные, закрыть старую базу данных на запись и переключить нагрузку на кластер БД в Yandex Cloud.
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-[Создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md), вычислительная мощность и размер хранилища которого соответствуют среде, в которой развернута мигрируемая база данных.
+[Создайте кластер-приемник Greenplum®](../../managed-greenplum/operations/cluster-create.md), вычислительная мощность и размер хранилища которого соответствуют среде, в которой развернута мигрируемая база данных.
 
 Имя базы в кластере-приемнике должно совпадать с именем базы-источника.
 
 ## Перенос данных {#data-transfer}
 
 1. Подготовьте кластер-источник:
-    * [{{ GP }}](../../data-transfer/operations/prepare.md#source-gp)
-    * [{{ PG }}](../../data-transfer/operations/prepare.md#source-pg)
+    * [Greenplum®](../../data-transfer/operations/prepare.md#source-gp)
+    * [PostgreSQL](../../data-transfer/operations/prepare.md#source-pg)
 1. [Подготовьте кластер-приемник](../../data-transfer/operations/prepare.md#target-gp).
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum` или `PostgreSQL`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.on_premise.title }}`.
+    * **Тип базы данных** — `Greenplum` или `PostgreSQL`.
+    * **Параметры эндпоинта** → **Настройки подключения** — `Пользовательская инсталляция`.
 
         Укажите параметры подключения к кластеру-источнику.
 
 1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create) со следующими параметрами:
 
-    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Greenplum`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GreenplumConnectionType.mdb_cluster_id.title }}`.
+    * **Тип базы данных** — `Greenplum`.
+    * **Параметры эндпоинта** → **Настройки подключения** — `Кластер`.
 
         Укажите идентификатор кластера-приемника.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _{{ dt-type-copy }}_, использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа _**Копирование**_, использующий созданные эндпоинты.
 1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate).
-1. Дождитесь перехода трансфера в статус {{ dt-status-finished }}.
+1. Дождитесь перехода трансфера в статус **Завершен**.
 
     Подробнее о статусах трансфера в разделе [Жизненный цикл трансфера](../../data-transfer/concepts/transfer-lifecycle.md#statuses).
 

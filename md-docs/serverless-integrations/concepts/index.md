@@ -1,8 +1,8 @@
-# Обзор сервиса {{ si-name }}
+# Обзор сервиса Serverless Integrations
 
-{{ si-full-name }} — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в {{ yandex-cloud }}.
+Yandex Serverless Integrations — это сервис для настройки интеграций и управления ими с помощью serverless-технологий в Yandex Cloud.
 
-{{ si-name }} позволяет:
+Serverless Integrations позволяет:
 * разрабатывать микросервисные архитектуры без необходимости конфигурировать виртуальные машины;
 * создавать и автоматизировать рабочие процессы для реагирования на инциденты безопасности;
 * автоматизировать бизнес-операции;
@@ -11,26 +11,26 @@
 
 ## Доступные функциональности {#instruments}
 
-### {{ sw-name }} {#workflows}
+### Workflows {#workflows}
 
 {% note info %}
 
-{{ sw-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+Workflows находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
 Выстраивайте и автоматизируйте рабочие процессы при помощи декларативной спецификации Yandex Workflows Language (YaWL).
 
-### {{ er-name }} {#eventrouter}
+### EventRouter {#eventrouter}
 
 {% note info %}
 
-{{ er-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+EventRouter находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
-Настраивайте обмен событиями между вашими сервисами и сервисами {{ yandex-cloud }} с возможностью их фильтрации, трансформации и маршрутизации.
+Настраивайте обмен событиями между вашими сервисами и сервисами Yandex Cloud с возможностью их фильтрации, трансформации и маршрутизации.
 
-### {{ api-gw-name }} {#api-gateway}
+### API Gateway {#api-gateway}
 
-Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами {{ yandex-cloud }}. Подробнее см. [документацию {{ api-gw-name }}](../../api-gateway/index.md).
+Создавайте API-шлюзы, которые поддерживают [спецификацию OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification) и набор расширений для взаимодействия с сервисами Yandex Cloud. Подробнее см. [документацию API Gateway](../../api-gateway/index.md).

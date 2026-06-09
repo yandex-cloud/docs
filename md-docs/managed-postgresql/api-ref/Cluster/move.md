@@ -5,7 +5,7 @@ Moves the specified PostgreSQL cluster to the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}:move
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}:move
 ```
 
 ## Path parameters

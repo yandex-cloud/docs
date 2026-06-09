@@ -1,8 +1,8 @@
-# Дообучение моделей в {{ ml-platform-name }} Notebooks
+# Дообучение моделей в DataSphere Notebooks
 
-Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ ai-studio-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/index.md).
+Вы можете [дообучать](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/tuning/index) языковые модели Yandex AI Studio, чтобы они лучше понимали специфику ваших задач, через API или AI SDK. Дообучение удобно запускать в ноутбуках [Yandex DataSphere](../../datasphere/index.md).
 
-В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации]({{ link-docs-ai }}ai-studio/sdk/index).
+В этом руководстве вы дообучите модель в DataSphere с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации](https://aistudio.yandex.ru/docs/ru/ai-studio/sdk/index).
 
 Чтобы дообучить модель:
 
@@ -15,28 +15,28 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
+Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../../datasphere/concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
 1. [Создайте сообщество](../../datasphere/operations/community/create.md).
-1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
+1. [Привяжите платежный аккаунт](../../datasphere/operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для дообучения модели входит:
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за [генерацию текста]({{ link-docs-ai }}ai-studio/pricing) моделью.
+* плата за использование [вычислительных ресурсов DataSphere](../../datasphere/pricing.md);
+* плата за [генерацию текста](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
 
-Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
+Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
 
 {% endnote %}
 
@@ -46,24 +46,24 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**Создать каталог**.
    1. Введите имя каталога, например `data-folder`.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
+### Создайте сервисный аккаунт для проекта DataSphere {#create-sa}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `gpt-user`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роль `ai.languageModels.user`.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -75,9 +75,9 @@
 
 - Консоль управления {#console}
 
-  1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-  1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
-  1. Выберите аккаунт `gpt-user` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
+  1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+  1. На вкладке **Участники** нажмите **Добавить участника**.
+  1. Выберите аккаунт `gpt-user` и нажмите **Добавить**.
 
 {% endlist %}
 
@@ -89,12 +89,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. В открывшемся списке выберите сервисный аккаунт `gpt-user`.
-  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
+  1. Нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ.
 
 {% endlist %}
@@ -103,26 +103,26 @@
 
 Чтобы получить API-ключ и идентификатор каталога из ноутбука, создайте [секреты](../../datasphere/concepts/secrets.md) с идентификаторами ключа и каталога.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `API_KEY`.
-1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте идентификатор ключа.
-1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![secret](../../_assets/console-icons/shield-check.svg)**Секрет**.
+1. Нажмите **Создать**.
+1. В поле **Имя** задайте имя секрета — `API_KEY`.
+1. В поле **Значение** вставьте идентификатор ключа.
+1. Нажмите **Создать**.
 1. Создайте еще один секрет `FOLDER_ID` с идентификатором каталога.
 
 ## Дообучите модель {#fine-tuning}
 
-Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения]({{ link-docs-ai }}ai-studio/concepts/resources/dataset#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука DataSphere. [Данные для дообучения](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/resources/dataset#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 
-   <a href="{{ link-datasphere-main }}/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning/main/LoRA-train-YandexGPT.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
-     alt="Открыть в {{ ml-platform-name }}"/></a>
+   <a href="https://datasphere.yandex.cloud/import-ipynb?path=https://raw.githubusercontent.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning/main/LoRA-train-YandexGPT.ipynb"><img src="https://storage.yandexcloud.net/datasphere-assets/datasphere_badge_v2_ru.svg" 
+     alt="Открыть в DataSphere"/></a>
 
 1. Скачайте файл `generations.jsonlines` из репозитория на [GitHub](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и поместите его рядом с ноутбуком.
 
-1. Установите {{ ml-platform-name }} SDK, запустив код в ячейке ноутбука:
+1. Установите DataSphere SDK, запустив код в ячейке ноутбука:
 
    ```python
    %pip install yandex-ai-studio-sdk --upgrade
@@ -141,7 +141,7 @@
    import zipfile   
    ```
 
-1. Загрузите [TensorBoard](https://www.tensorflow.org/tensorboard?hl={{ lang }}). Он понадобится, чтобы посмотреть метрики дообучения:
+1. Загрузите [TensorBoard](https://www.tensorflow.org/tensorboard?hl=ru). Он понадобится, чтобы посмотреть метрики дообучения:
 
    ```python
    def download_tensorboard(url):
@@ -187,7 +187,7 @@
    print(f'Новый датасет {dataset=} \n')
    ```
 
-1. Выберите базовую модель, которую хотите дообучить, и запустите дообучение. В примере — {{ gpt-lite }}:
+1. Выберите базовую модель, которую хотите дообучить, и запустите дообучение. В примере — YandexGPT Lite:
 
    ```python
    base_model = sdk.models.completions('yandexgpt-lite')

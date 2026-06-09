@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервер.
+  1. Перейдите в сервис **BareMetal**.
   1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
   1. В окне KVM-консоли в верхнем меню выберите **Media** → **Virtual Media Wizard...** или нажмите на значок с изображением CD-диска. В открывшемся окне:
 
@@ -182,8 +182,8 @@
 
 #### См. также {#see-also}
 
-* [{#T}](reset-password.md)
-* [{#T}](add-new-ssh-key.md)
-* [{#T}](restore-grub.md)
-* [{#T}](switch-raid-member.md)
-* [{#T}](../image-upload.md)
+* [Сбросить пароль root-пользователя на сервере](reset-password.md)
+* [Добавить новый SSH-ключ пользователя](add-new-ssh-key.md)
+* [Восстановить загрузчик ОС](restore-grub.md)
+* [Заменить диск в RAID-массиве](switch-raid-member.md)
+* [Загрузить собственный образ операционной системы](../image-upload.md)

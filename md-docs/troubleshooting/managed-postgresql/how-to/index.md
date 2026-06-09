@@ -1,4 +1,4 @@
-## Примеры конфигураций и сценариев {{ mpg-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Managed Service for PostgreSQL {#configuration-examples}
 
 * [Как работает параметр `Conn limit`](conn-limit-parameter.md)
 * [Как включить логирование SQL-запросов](sql-queries-logging.md)

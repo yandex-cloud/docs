@@ -38,4 +38,4 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/deploy-app-container.md)
+* [Запуск контейнерного приложения в Yandex Serverless Containers](../../tutorials/deploy-app-container.md)

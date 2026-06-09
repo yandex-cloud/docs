@@ -112,6 +112,6 @@ PPTP | PPTP работает быстро, потому что не защища
 
 ## Полезные материалы
 
-* [{#T}](../tutorials/routing/ipsec/index.md)
-* [{#T}](../tutorials/routing/openvpn.md)
-* [{#T}](../tutorials/routing/usergate-proxy.md)
+* [Организация сетевой связности между облачными и удаленными ресурсами с помощью IPsec-шлюзов](../tutorials/routing/ipsec/index.md)
+* [Соединение с облачной сетью при помощи OpenVPN](../tutorials/routing/openvpn.md)
+* [Создание и настройка шлюза UserGate в режиме прокси-сервера](../tutorials/routing/usergate-proxy.md)

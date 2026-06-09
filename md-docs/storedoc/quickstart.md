@@ -1,4 +1,4 @@
-# Как начать работать с {{ mmg-name }}
+# Как начать работать с Yandex StoreDoc
 
 Чтобы начать работу с сервисом:
 
@@ -10,13 +10,13 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 
 1. Если у вас еще нет каталога, создайте его:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../_assets/resource-manager/create-folder-1.png)
    
@@ -27,12 +27,12 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mmg.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [vpc.user](../vpc/security/index.md#vpc-user) и роль [managed-mongodb.editor или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
 
     {% note info %}
     
@@ -40,9 +40,9 @@
     
     {% endnote %}
 
-1. Подключаться к кластерам БД можно как изнутри, так и извне {{ yandex-cloud }}:
+1. Подключаться к кластерам БД можно как изнутри, так и извне Yandex Cloud:
 
-   * Чтобы подключиться изнутри {{ yandex-cloud }}, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
+   * Чтобы подключиться изнутри Yandex Cloud, создайте виртуальную машину в той же облачной сети, что и кластер БД (на основе [Linux](../compute/quickstart/quick-create-linux.md)).
 
    * Чтобы подключиться к кластеру из интернета, запросите публичный доступ к хостам при создании кластера.
 
@@ -54,7 +54,7 @@
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
 
-1. Установите {{ MG }} Shell:
+1. Установите MongoDB Shell:
 
    ```bash
    cd ~/ && \
@@ -65,11 +65,11 @@
 
 ## Создайте кластер {#cluster-create}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-1. Задайте параметры кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
-1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mmg-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер БД.
+1. Перейдите в сервис **Yandex StoreDoc**.
+1. Нажмите кнопку **Создать кластер**.
+1. Задайте параметры кластера и нажмите кнопку **Создать кластер**. Процесс подробно рассмотрен в разделе [Создание кластера](operations/cluster-create.md).
+1. Дождитесь, когда кластер будет готов к работе: его статус на панели Yandex StoreDoc сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
 
 ## Подключитесь к БД {#connect}
@@ -84,7 +84,7 @@
    
       ```bash
       mkdir -p ~/.mongodb && \
-      wget "{{ crt-web-path }}" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document ~/.mongodb/root.crt && \
       chmod 0644 ~/.mongodb/root.crt
       ```
@@ -94,7 +94,7 @@
    - Windows (PowerShell) {#windows}
    
       ```powershell
-      mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt {{ crt-web-path }}
+      mkdir $HOME\.mongodb; curl.exe -o $HOME\.mongodb\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
       ```
    
       Сертификат будет сохранен в файле `$HOME\.mongodb\root.crt`.
@@ -103,13 +103,13 @@
    
    {% endlist %}
 
-1. Подключитесь к кластеру с помощью {{ MG }} CLI:
+1. Подключитесь к кластеру с помощью MongoDB CLI:
 
    ```bash
    mongo --norc \
          --ssl \
          --sslCAFile ~/.mongodb/root.crt \
-         --host '<FQDN_хоста_1_Yandex_StoreDoc>:{{ port-mmg }},...,<FQDN_хоста_N_Yandex_StoreDoc>:{{ port-mmg }}' \
+         --host '<FQDN_хоста_1_Yandex_StoreDoc>:27018,...,<FQDN_хоста_N_Yandex_StoreDoc>:27018' \
          --username <имя_пользователя_БД> \
          --password <пароль_пользователя_БД> \
          <имя_БД>
@@ -122,5 +122,5 @@
 
 * Изучите [концепции сервиса](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) и [подключении к БД](operations/connect/index.md).
-* Посмотрите запись вебинара «Руководство по {{ mmg-short-name }}» на [YouTube](https://www.youtube.com/live/uTt52jcvJ98) или [{{ video-name }}](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
+* Посмотрите запись вебинара «Руководство по Yandex StoreDoc» на [YouTube](https://www.youtube.com/live/uTt52jcvJ98) или [Cloud Video](https://runtime.strm.yandex.ru/player/episode/vple7zg5c6ekr4mgkoqf).
 * Ознакомьтесь с [вопросами и ответами](qa/general.md).

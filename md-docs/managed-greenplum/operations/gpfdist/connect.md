@@ -1,24 +1,24 @@
 # Подключение к внешнему файловому серверу
 
-[{{ GP }} Parallel File Server]({{ gp.docs.broadcom }}7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера {{ mgp-name }} и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
+[Greenplum® Parallel File Server](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum7/greenplum-database/utility_guide-ref-gpfdist.html) (`gpfdist`) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Она установлена на всех хостах-сегментах кластера Yandex MPP Analytics for PostgreSQL и обеспечивает параллельную загрузку данных, распределяя их между сегментами равномерно или согласно заданному [ключу дистрибуции](../../concepts/sharding.md#distribution-key). Это повышает производительность при работе с большими объемами внешних данных.
 
 Утилита `gpfdist` может работать с любыми текстовыми файлами, которые содержат разделители, а также со сжатыми файлами gzip и bzip2.
 
 Для чтения или записи файлов на внешнем сервере:
-1. [Установите и запустите](#run-gpfdist) `gpfdist` в составе пакета {{ GP }} Loader или {{ GP }} Database на удаленном сервере, где находятся нужные файлы.
-1. В кластере {{ mgp-name }} [создайте внешнюю таблицу](#create-gpfdist-table), которая будет ссылаться на эти файлы.
+1. [Установите и запустите](#run-gpfdist) `gpfdist` в составе пакета Greenplum® Loader или Greenplum® Database на удаленном сервере, где находятся нужные файлы.
+1. В кластере Yandex MPP Analytics for PostgreSQL [создайте внешнюю таблицу](#create-gpfdist-table), которая будет ссылаться на эти файлы.
 
 ## Запуск gpfdist {#run-gpfdist}
 
 
 {% note info %}
 
-Скачивание и использование продуктов с сайта VMware не входит в [условия использования {{ mgp-full-name }}]({{ link-cloud-terms-of-use }}) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
+Скачивание и использование продуктов с сайта VMware не входит в [условия использования Yandex MPP Analytics for PostgreSQL](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и является предметом отдельного регулирования между клиентом и VMware. Яндекс не несет ответственности за взаимоотношения клиента и VMware, вытекающие из использования клиентом продуктов или услуг VMware.
 
 {% endnote %}
 
 
-1. Скачайте и установите пакет {{ GP }} Loader с [сайта VMware]({{ gp.docs.broadcom }}/7/greenplum-database/client_tool_guides-installing.html) или пакет {{ GP }} Database из бакета {{ objstorage-full-name }} по [инструкции](../greenplum-db.md).
+1. Скачайте и установите пакет Greenplum® Loader с [сайта VMware](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/client_tool_guides-installing.html) или пакет Greenplum® Database из бакета Yandex Object Storage по [инструкции](../greenplum-db.md).
 
 1. Запустите утилиту `gpfdist`:
 
@@ -39,7 +39,7 @@
     gpfdist -d /var/load_files2 -p 8082 -l /home/gpadmin/log2 &
     ```
 
-1. Проверьте, что файлы в указанной директории доступны на указанном порту из {{ yandex-cloud }}. Для этого выполните команду с ВМ в {{ yandex-cloud }}:
+1. Проверьте, что файлы в указанной директории доступны на указанном порту из Yandex Cloud. Для этого выполните команду с ВМ в Yandex Cloud:
 
     ```bash
     wget http://hostname:port/filename
@@ -58,7 +58,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 Где:
 
-* `<имя_таблицы>` — имя внешней таблицы, которая будет создана в кластере {{ mgp-name }}.
+* `<имя_таблицы>` — имя внешней таблицы, которая будет создана в кластере Yandex MPP Analytics for PostgreSQL.
 * `<имя_столбца>` — имя столбца таблицы.
 * `<тип_данных>` — тип данных столбца таблицы.
 * `<путь_к_файлу_на_удаленном_сервере>` — адрес сервера, на котором запущен `gpfdist`, порт для подключения и путь к файлу. Вы можете указать конкретный файл или задать маску с помощью символа звездочки (\*).

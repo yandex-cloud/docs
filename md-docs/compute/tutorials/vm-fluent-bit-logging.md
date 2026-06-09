@@ -1,6 +1,6 @@
-# Передача логов с ВМ в {{ cloud-logging-full-name }}
+# Передача логов с ВМ в Yandex Cloud Logging
 
-Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../concepts/vm.md) в сервис [{{ cloud-logging-full-name }}](../../logging/index.md). Для передачи логов используется модуль [Fluent Bit plugin for {{ cloud-logging-full-name }}](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
+Обработчик логов [Fluent Bit](https://fluentbit.io/) позволяет транслировать логи с [виртуальных машин](../concepts/vm.md) в сервис [Yandex Cloud Logging](../../logging/index.md). Для передачи логов используется модуль [Fluent Bit plugin for Yandex Cloud Logging](https://github.com/yandex-cloud/fluent-bit-plugin-yandex).
 
 Чтобы настроить передачу логов:
 
@@ -11,7 +11,7 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `logging.writer` на каталог.
-1. [Создайте ВМ](../operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts). В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, который создали на предыдущем шаге.
+1. [Создайте ВМ](../operations/vm-create/create-linux-vm.md) из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts). В блоке **Доступ** укажите сервисный аккаунт, который создали на предыдущем шаге.
 1. [Подключитесь к ВМ](../operations/vm-connect/ssh.md#vm-connect) по [SSH](../../glossary/ssh-keygen.md).
 1. Установите на ВМ пакеты для разработки:
 
@@ -24,7 +24,7 @@
       * **python3-pip** — менеджер пакетов Python (pip) для создания сервиса systemd, генерирующего логи.
       * **python3-venv** — модуль для создания виртуальных окружений Python.
       * **python3-systemd** — Python-библиотека для взаимодействия с systemd.
-      * **git** — система контроля версий для загрузки с GitHub исходных кодов плагина Fluent Bit for {{ cloud-logging-full-name }}.
+      * **git** — система контроля версий для загрузки с GitHub исходных кодов плагина Fluent Bit for Yandex Cloud Logging.
       * **build-essential** — компиляторы и инструменты для сборки ПО.
       * **pkg-config** — утилита для получения флагов компиляции и линковки библиотек.
       * **libsystemd-dev** — заголовочные файлы и библиотеки для разработки под systemd.
@@ -324,17 +324,17 @@
 
     1. Проверьте логи в консоли управления:
 
-       1. Откройте [консоль управления]({{ link-console-main }}).
+       1. Откройте [консоль управления](https://console.yandex.cloud).
        1. Перейдите в каталог, указанный в `folder_id`.
-       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+       1. Перейдите в сервис **Cloud Logging**.
        1. Откройте лог-группу по умолчанию `default`.
-       1. На вкладке **{{ ui-key.yacloud.common.logs }}** настройте фильтры:
+       1. На вкладке **Логи** настройте фильтры:
           - `resource_type=logtest` для просмотра логов тестового сервиса.
           - `timestamp > now()-1h` для просмотра логов за последний час.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

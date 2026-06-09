@@ -1,34 +1,34 @@
-# Пошаговые инструкции для {{ sf-name }}
+# Пошаговые инструкции для Cloud Functions
 
-* [{#T}](function-sa.md)
-* [{#T}](database-connection.md)
+* [Получение IAM-токена сервисного аккаунта с помощью функции](function-sa.md)
+* [Подключение к управляемым БД из функции](database-connection.md)
 
 ## Получение информации о функции {#function-info}
 
-* [{#T}](function/function-list.md)
-* [{#T}](function/version-list.md)
-* [{#T}](function/function-info.md)
-* [{#T}](function/version-info.md)
+* [Получить список функций](function/function-list.md)
+* [Получить список версий функции](function/version-list.md)
+* [Получить информацию о функции](function/function-info.md)
+* [Получить информацию о версии функции](function/version-info.md)
 * [Настроить параметры сервиса метаданных](function/metadata-options.md)
 
 ## Управление правами доступа к функции {#function-access-rights}
 
-* [{#T}](function/function-public.md)
-* [{#T}](function/function-private.md)
-* [{#T}](function/role-list.md)
-* [{#T}](function/role-add.md)
-* [{#T}](function/role-revoke.md)
+* [Сделать функцию публичной](function/function-public.md)
+* [Сделать функцию приватной](function/function-private.md)
+* [Посмотреть роли, назначенные на функцию](function/role-list.md)
+* [Назначить роли на функцию](function/role-add.md)
+* [Отозвать роли, назначенные на функцию](function/role-revoke.md)
 
 ## Создание функции {#create-function}
 
-* [{#T}](function/function-create.md)
-* [{#T}](function/version-manage.md)
+* [Создать функцию](function/function-create.md)
+* [Создать версию функции](function/version-manage.md)
 
 ## Вызов функции {#function-invoke}
 
-* [{#T}](function/function-invoke.md)
-* [{#T}](function/function-invoke-async.md)
-* [{#T}](function/auth.md)
+* [Вызвать функцию](function/function-invoke.md)
+* [Вызвать функцию асинхронно](function/function-invoke-async.md)
+* [Аутентифицироваться при вызове приватной функции через HTTPS](function/auth.md)
 
 ## Управление функцией {#function-manage}
 
@@ -38,12 +38,12 @@
 * [Добавить настройки масштабирования](function/scaling-settings-add.md)
 * [Удалить настройки масштабирования](function/scaling-settings-delete.md)
 * [Добавить переменные окружения](function/environment-variables-add.md)
-* [{#T}](function/network-add.md)
-* [{#T}](function/lockbox-secret-transmit.md)
+* [Указать облачную сеть, в которой будет исполняться функция](function/network-add.md)
+* [Передать секреты Yandex Lockbox в функцию](function/lockbox-secret-transmit.md)
 * [Выделить память для директории /tmp](function/allocate-memory-tmp.md)
 * [Смонтировать бакеты](function/mount-bucket.md)
 * [Смонтировать эфемерный диск](function/mount-ephemeral-disk.md)
-* [{#T}](function/concurrency.md)
+* [Задать количество одновременных вызовов экземпляра функции](function/concurrency.md)
 * [Добавить тег](function/tag-add.md)
 * [Удалить тег](function/tag-delete.md)
 * [Добавить метку](function/label-add.md)
@@ -52,9 +52,9 @@
 * [Посмотреть графики мониторинга](function/function-monitoring.md)
 * [Посмотреть логи](function/function-logs.md)
 * [Записать логи в журнал выполнения](function/logs-write.md)
-* [{#T}](function/migration.md)
-* [{#T}](function/version-delete.md)
-* [{#T}](function/function-delete.md)
+* [Миграция функций в зону ru-central1-d](function/migration.md)
+* [Удалить версию функции](function/version-delete.md)
+* [Удалить функцию](function/function-delete.md)
 
 
 ## Получение информации о триггере {#trigger-info}
@@ -65,14 +65,14 @@
 ## Создание триггера {#trigger-create}
 
 * [Создать таймер](trigger/timer-create.md)
-* [Создать триггер для {{ message-queue-name }}](trigger/ymq-trigger-create.md)
-* [Создать триггер для {{ objstorage-name }}](trigger/os-trigger-create.md)
-* [Создать триггер для {{ container-registry-name }}](trigger/cr-trigger-create.md)
-* [Создать триггер для {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
-* [Создать триггер для {{ iot-name }} (устройство)](trigger/iot-core-trigger-create.md)
-* [Создать триггер для {{ iot-name }} (брокер)](trigger/iot-core-trigger-broker-create.md)
+* [Создать триггер для Message Queue](trigger/ymq-trigger-create.md)
+* [Создать триггер для Object Storage](trigger/os-trigger-create.md)
+* [Создать триггер для Container Registry](trigger/cr-trigger-create.md)
+* [Создать триггер для Cloud Logging](trigger/cloud-logging-trigger-create.md)
+* [Создать триггер для Yandex IoT Core (устройство)](trigger/iot-core-trigger-create.md)
+* [Создать триггер для Yandex IoT Core (брокер)](trigger/iot-core-trigger-broker-create.md)
 * [Создать триггер для бюджетов](trigger/budget-trigger-create.md)
-* [Создать триггер для {{ yds-name }}](trigger/data-streams-trigger-create.md)
+* [Создать триггер для Data Streams](trigger/data-streams-trigger-create.md)
 * [Создать триггер для почты](trigger/mail-trigger-create.md)
 
 ## Управление триггером {#trigger-manage}
@@ -87,4 +87,4 @@
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](operation-logs.md)
+* [Просмотр операций с ресурсами сервиса Cloud Functions](operation-logs.md)

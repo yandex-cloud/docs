@@ -1,6 +1,6 @@
-# Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин {{ compute-name }} в интеграции с {{ objstorage-full-name }} с помощью {{ TF }}
+# Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage с помощью Terraform
 
-В этом руководстве вы подключите [бакет](../../../storage/concepts/bucket.md) {{ objstorage-name }} к решению Nextcloud, развернутому на [виртуальной машине](../../concepts/vm.md) {{ compute-name }} с базой данных в [кластере](../../../managed-mysql/concepts/index.md) {{ mmy-full-name }}. Для обеспечения отказоустойчивости и избыточности создаваемой под Nextcloud инфраструктуры вы масштабируете Nextcloud на [группу виртуальных машин](../../concepts/instance-groups/index.md) с распределением нагрузки при помощи [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}. В отказоустойчивой конфигурации Nextcloud будет доступен по доменному имени, для которого в {{ certificate-manager-full-name }} будет выпущен [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md).
+В этом руководстве вы подключите [бакет](../../../storage/concepts/bucket.md) Object Storage к решению Nextcloud, развернутому на [виртуальной машине](../../concepts/vm.md) Compute Cloud с базой данных в [кластере](../../../managed-mysql/concepts/index.md) Yandex Managed Service for MySQL®. Для обеспечения отказоустойчивости и избыточности создаваемой под Nextcloud инфраструктуры вы масштабируете Nextcloud на [группу виртуальных машин](../../concepts/instance-groups/index.md) с распределением нагрузки при помощи [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer. В отказоустойчивой конфигурации Nextcloud будет доступен по доменному имени, для которого в Yandex Certificate Manager будет выпущен [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md).
 
 {% note info %}
 
@@ -13,13 +13,13 @@
 ![integrate-nextcloud](../../../_assets/tutorials/integrate-nextcloud/integrate-nextcloud.svg)
 
 Где:
-* `example.com` — ваш домен, для которого в {{ certificate-manager-full-name }} выпущен [сертификат](../../../certificate-manager/concepts/managed-certificate.md) и который подключен к [L7-балансировщику](../../../application-load-balancer/concepts/application-load-balancer.md) нагрузки.
+* `example.com` — ваш домен, для которого в Yandex Certificate Manager выпущен [сертификат](../../../certificate-manager/concepts/managed-certificate.md) и который подключен к [L7-балансировщику](../../../application-load-balancer/concepts/application-load-balancer.md) нагрузки.
 * `nextcloud-alb` — L7-балансировщик, который равномерно распределяет входящий трафик от пользователей между хостами группы виртуальных машин.
 * `nextcloud-instance-group` — [группа виртуальных машин](../../concepts/instance-groups/index.md), в которую входят хосты с развернутым решением Nextcloud.
-* `nextcloud-db-cluster` — [кластер](../../../managed-mysql/concepts/index.md) {{ mmy-full-name }}, в котором расположена служебная база данных Nextcloud.
-* `my-nextcloud-bucket` — [бакет](../../../storage/concepts/bucket.md) {{ objstorage-full-name }}, подключенный к решению Nextcloud.
+* `nextcloud-db-cluster` — [кластер](../../../managed-mysql/concepts/index.md) Yandex Managed Service for MySQL®, в котором расположена служебная база данных Nextcloud.
+* `my-nextcloud-bucket` — [бакет](../../../storage/concepts/bucket.md) Yandex Object Storage, подключенный к решению Nextcloud.
 
-Чтобы развернуть Nextcloud в {{ yandex-cloud }} с интеграцией бакета {{ objstorage-name }}:
+Чтобы развернуть Nextcloud в Yandex Cloud с интеграцией бакета Object Storage:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Разверните Nextcloud в базовой конфигурации](#the-basic-variant):
@@ -35,39 +35,39 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../pricing.md));
-* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в {{ objstorage-name }} и [операции](../../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
-* плата за использование управляемой БД {{ MY }} (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md));
-* при использовании {{ dns-full-name }} плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-name }}](../../../dns/pricing.md));
-* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) (см. [тарифы {{ alb-full-name }}](../../../application-load-balancer/pricing.md));
-* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы {{ cloud-logging-full-name }}](../../../logging/pricing.md)).
+* плата за [диски](../../concepts/disk.md), [снимки дисков](../../concepts/snapshot.md) и постоянно запущенные [ВМ](../../concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) и [NAT-шлюзов](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage и [операции](../../../storage/operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../../storage/pricing.md));
+* плата за использование управляемой БД MySQL® (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md));
+* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Cloud DNS](../../../dns/pricing.md));
+* при использовании балансировщика нагрузки плата за количество ресурсных единиц [L7-балансировщика](../../../application-load-balancer/concepts/application-load-balancer.md) (см. [тарифы Yandex Application Load Balancer](../../../application-load-balancer/pricing.md));
+* при использовании [лог-группы](../../../logging/concepts/log-group.md) для записи логов балансировщика плата за запись и хранение данных (см. [тарифы Yandex Cloud Logging](../../../logging/pricing.md)).
 
 ## Разверните Nextcloud в базовой конфигурации {#the-basic-variant}
 
-Базовая конфигурация Nextcloud будет развернута на одной виртуальной машине, при этом служебная база данных Nextcloud будет создана в кластере {{ mmy-name }} с одним хостом.
+Базовая конфигурация Nextcloud будет развернута на одной виртуальной машине, при этом служебная база данных Nextcloud будет создана в кластере Managed Service for MySQL® с одним хостом.
 
 ### Создайте инфраструктуру для базовой конфигурации {#create-basic-infrastructure}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры с помощью {{ TF }}:
-1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры с помощью Terraform:
+1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -122,7 +122,7 @@
               locals {
                 sa_name             = "nextcloud-sa"
                 network_name        = "nextcloud-network"
-                subnet_a_name       = "nextcloud-subnet-{{ region-id }}-a"
+                subnet_a_name       = "nextcloud-subnet-ru-central1-a"
                 subnet-a-cidr       = "192.168.11.0/24"
                 sg_name             = "nextcloud-sg"
                 gw_name             = "nextcloud-gateway"
@@ -177,7 +177,7 @@
               
               resource "yandex_vpc_subnet" "nextcloud-subnet-a" {
                 name           = local.subnet_a_name
-                zone           = "{{ region-id }}-a"
+                zone           = "ru-central1-a"
                 network_id     = yandex_vpc_network.nextcloud-network.id
                 v4_cidr_blocks = [local.subnet-a-cidr]
                 route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
@@ -267,7 +267,7 @@
               
               resource "yandex_compute_disk" "boot-disk" {
                 type     = "network-ssd"
-                zone     = "{{ region-id }}-a"
+                zone     = "ru-central1-a"
                 size     = "24"
                 image_id = local.vm_image_id
               }
@@ -277,7 +277,7 @@
               resource "yandex_compute_instance" "nextcloud-vm" {
                 name        = local.vm_name
                 platform_id = "standard-v2"
-                zone        = "{{ region-id }}-a"
+                zone        = "ru-central1-a"
               
                 resources {
                   cores  = "2"
@@ -315,7 +315,7 @@
                 }
               
                 host {
-                  zone      = "{{ region-id }}-a"
+                  zone      = "ru-central1-a"
                   subnet_id = yandex_vpc_subnet.nextcloud-subnet-a.id
                 }
               
@@ -376,30 +376,30 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) — [yandex_vpc_gateway]({{ tf-provider-resources-link }}/vpc_gateway).
-    * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table]({{ tf-provider-resources-link }}/vpc_route_table).
-    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
-    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
-    * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket).
-    * [Диск](../../concepts/disk.md) виртуальной машины — [yandex_compute_disk]({{ tf-provider-resources-link }}/compute_disk).
-    * [Виртуальная машина](../../concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [Кластер {{ mmy-name }}](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
-    * База данных {{ MY }} — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
-    * Пользователь базы данных {{ MY }} — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [NAT-шлюз](../../../vpc/concepts/gateways.md#nat-gateway) — [yandex_vpc_gateway](../../../terraform/resources/vpc_gateway.md).
+    * [Таблица маршрутизации](../../../vpc/concepts/routing.md#rt-vpc) — [yandex_vpc_route_table](../../../terraform/resources/vpc_route_table.md).
+    * [Подсеть](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
+    * [Группа безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
+    * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
+    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../terraform/resources/iam_service_account_static_access_key.md).
+    * [Бакет](../../../storage/concepts/bucket.md) — [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md).
+    * [Диск](../../concepts/disk.md) виртуальной машины — [yandex_compute_disk](../../../terraform/resources/compute_disk.md).
+    * [Виртуальная машина](../../concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
+    * [Кластер Managed Service for MySQL®](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster](../../../terraform/resources/mdb_mysql_cluster.md).
+    * База данных MySQL® — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md).
+    * Пользователь базы данных MySQL® — [yandex_mdb_mysql_user](../../../terraform/resources/mdb_mysql_user.md).
 
 1. В файле `nextcloud-integrate-storage.auto.tfvars` задайте значения пользовательских переменных:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
-    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [{#T}](../../operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с публичным SSH-ключом. Подробнее см. [Создание пары ключей SSH](../../operations/vm-connect/ssh.md#creating-ssh-keys).
     * `bucket_name` — имя бакета в соответствии с [правилами именования](../../../storage/concepts/bucket.md#naming).
-    * `db_password` — пароль пользователя базы данных {{ MY }}.
+    * `db_password` — пароль пользователя базы данных MySQL®.
     * `domain_name` — имя домена, на котором будет размещен экземпляр Nextcloud.
 
-        Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}` в личном кабинете вашего регистратора.
+        Чтобы получить доступ к именам из публичной зоны, вам нужно делегировать домен. Укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net` в личном кабинете вашего регистратора.
 
         {% note info %}
 
@@ -428,7 +428,7 @@
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -439,7 +439,7 @@
 
 В результате в выбранном каталоге будет создана вся инфраструктура, необходимая для развертывания Nextcloud в базовой конфигурации.
 
-{{ TF }} выведет на экран идентификатор созданного [статического ключа доступа](../../../iam/concepts/authorization/access-key.md). Это значение понадобится позднее при настройке интеграции Nextcloud с {{ objstorage-name }}. При настройке вам также понадобится секретный ключ. Чтобы получить его, в терминале выполните команду:
+Terraform выведет на экран идентификатор созданного [статического ключа доступа](../../../iam/concepts/authorization/access-key.md). Это значение понадобится позднее при настройке интеграции Nextcloud с Object Storage. При настройке вам также понадобится секретный ключ. Чтобы получить его, в терминале выполните команду:
 
 ```bash
 terraform output Secret_key
@@ -459,7 +459,7 @@ terraform output Secret_key
         ssh yc-user@<IP-адрес_ВМ>
         ```
 
-        Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления]({{ link-console-main }}) на странице с информацией о ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+        Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления](https://console.yandex.cloud) на странице с информацией о ВМ в блоке **Сеть** в поле **Публичный IPv4-адрес**.
     1. Обновите версии пакетов, установленные на ВМ:
        
        ```bash
@@ -548,23 +548,23 @@ terraform output Secret_key
        http://<публичный_IP-адрес_ВМ>
        ```
        
-       Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления]({{ link-console-main }}) на странице с информацией о ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+       Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления](https://console.yandex.cloud) на странице с информацией о ВМ в блоке **Сеть** в поле **Публичный IPv4-адрес**.
     1. В открывшейся форме **Create an admin account**:
 
         1. В полях **New admin account name** и **New admin password** задайте учетные данные администратора Nextcloud, которые вы будете использовать для входа в систему.
-        1. В поле **Database account** введите `user` — имя пользователя БД, созданного в кластере {{ MY }}.
+        1. В поле **Database account** введите `user` — имя пользователя БД, созданного в кластере MySQL®.
         1. В поле **Database password** введите пароль пользователя БД, который вы задали в файле `nextcloud-integrate-storage.auto.tfvars`.
-        1. В поле **Database name** введите `nextcloud` — имя БД, созданной в кластере {{ MY }}.
-        1. В поле **Database host** укажите [FQDN](../../../glossary/fqdn.md) [текущего хост-мастера](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) кластера {{ MY }} и порт в формате:
+        1. В поле **Database name** введите `nextcloud` — имя БД, созданной в кластере MySQL®.
+        1. В поле **Database host** укажите [FQDN](../../../glossary/fqdn.md) [текущего хост-мастера](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master) кластера MySQL® и порт в формате:
 
             ```text
-            c-<идентификатор_кластера>.rw.{{ dns-zone }}:3306
+            c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:3306
             ```
 
-            Узнать идентификатор кластера вы можете в [консоли управления]({{ link-console-main }}) на странице с информацией о кластере в поле **{{ ui-key.yacloud.common.id }}**.
+            Узнать идентификатор кластера вы можете в [консоли управления](https://console.yandex.cloud) на странице с информацией о кластере в поле **Идентификатор**.
         1. Нажмите кнопку **Install**.
 
-            Начнется развертывание базы данных Nextcloud в кластере {{ MY }}. Дождитесь завершения этого процесса.
+            Начнется развертывание базы данных Nextcloud в кластере MySQL®. Дождитесь завершения этого процесса.
     1. После завершения установки в открывшемся окне с рекомендованными приложениями нажмите кнопку **Skip**. Вы сможете вернуться к установке необходимых приложений позднее.
     1. Закройте открывшееся окно с информацией об обновлениях в текущей версии Nextcloud.
     1. Откройте меню управления приложениями. Для этого в правом верхнем углу экрана нажмите на значок пользователя и в открывшемся контекстном меню выберите ![plus](../../../_assets/console-icons/plus.svg) **Apps**.
@@ -573,14 +573,14 @@ terraform output Secret_key
        
        При необходимости для подтверждения действия во всплывающем окне введите ваш пароль администратора Nextcloud.
     1. Откройте основное меню настроек. Для этого в правом верхнем углу экрана нажмите на значок пользователя и в открывшемся контекстном меню выберите ![admin-icon](../../../_assets/tutorials/integrate-nextcloud/admin-icon.svg) **Administration settings**.
-    1. В открывшемся окне на панели слева в блоке **Administration** выберите ![app-dark-icon](../../../_assets/tutorials/integrate-nextcloud/app-dark-icon.svg) **External storage** и в открывшемся окне в блоке **External storage** задайте настройки интеграции с {{ objstorage-name }}:
+    1. В открывшемся окне на панели слева в блоке **Administration** выберите ![app-dark-icon](../../../_assets/tutorials/integrate-nextcloud/app-dark-icon.svg) **External storage** и в открывшемся окне в блоке **External storage** задайте настройки интеграции с Object Storage:
        
        1. В секции **External storage** выберите `Amazon S3`.
        1. В секции **Authentication** выберите `Access key`.
        1. В секции **Configuration**:
        
            * В поле **Bucket** укажите имя созданного ранее бакета. Например: `my-nextcloud-bucket`.
-           * В поле **Hostname** укажите `{{ s3-storage-host }}`.
+           * В поле **Hostname** укажите `storage.yandexcloud.net`.
            * В поле **Port** укажите `443`.
            * В поле **Access key** вставьте полученный ранее идентификатор статического ключа доступа.
            * В поле **Secret key** вставьте полученный ранее секретный ключ статического ключа доступа.
@@ -591,7 +591,7 @@ terraform output Secret_key
 
 ### Протестируйте работу решения в базовой конфигурации {#test-simple}
 
-Чтобы проверить работу интеграции {{ objstorage-full-name }} с Nextcloud на одном хосте:
+Чтобы проверить работу интеграции Yandex Object Storage с Nextcloud на одном хосте:
 
 1. На вашем локальном компьютере откройте браузер и в адресной строке введите публичный IPv4-адрес виртуальной машины, на которой развернут Nextcloud:
 
@@ -605,13 +605,13 @@ terraform output Secret_key
 1. Выберите файл на локальном компьютере и загрузите его в хранилище.
 
     Загруженный файл отобразится в хранилище `AmazonS3` Nextcloud.
-1. В сервисе {{ objstorage-full-name }} [убедитесь](../../../storage/operations/objects/list.md), что файл был загружен в бакет.
+1. В сервисе Yandex Object Storage [убедитесь](../../../storage/operations/objects/list.md), что файл был загружен в бакет.
 
 На этом завершено развертывание базовой конфигурации Nextcloud. Теперь вы можете перейти к развертыванию отказоустойчивой конфигурации.
 
 ## Разверните Nextcloud в отказоустойчивой конфигурации {#the-redundant-variant}
 
-Отказоустойчивая конфигурация Nextcloud будет развернута в группе из трех виртуальных машин, при этом нагрузка на хосты Nextcloud будет распределяться с помощью L7-балансировщика {{ alb-full-name }}. Служебная база данных будет расположена в кластере {{ MY }}, состоящем из трех хостов. Хосты группы ВМ, балансировщика и кластера {{ MY }} будут равномерно распределены по трем [зонам доступности](../../../overview/concepts/geo-scope.md). Nextcloud будет доступен по доменному имени, для которого в {{ certificate-manager-name }} будет выпущен TLS-сертификат.
+Отказоустойчивая конфигурация Nextcloud будет развернута в группе из трех виртуальных машин, при этом нагрузка на хосты Nextcloud будет распределяться с помощью L7-балансировщика Yandex Application Load Balancer. Служебная база данных будет расположена в кластере MySQL®, состоящем из трех хостов. Хосты группы ВМ, балансировщика и кластера MySQL® будут равномерно распределены по трем [зонам доступности](../../../overview/concepts/geo-scope.md). Nextcloud будет доступен по доменному имени, для которого в Certificate Manager будет выпущен TLS-сертификат.
 
 ### Донастройте Nextcloud {#tune-nextcloud}
 
@@ -713,9 +713,9 @@ terraform output Secret_key
           locals {
             sa_name             = "nextcloud-sa"
             network_name        = "nextcloud-network"
-            subnet_a_name       = "nextcloud-subnet-{{ region-id }}-a"
-            subnet_b_name       = "nextcloud-subnet-{{ region-id }}-b"
-            subnet_d_name       = "nextcloud-subnet-{{ region-id }}-d"
+            subnet_a_name       = "nextcloud-subnet-ru-central1-a"
+            subnet_b_name       = "nextcloud-subnet-ru-central1-b"
+            subnet_d_name       = "nextcloud-subnet-ru-central1-d"
             subnet-a-cidr       = "192.168.11.0/24"
             subnet-b-cidr       = "192.168.12.0/24"
             subnet-d-cidr       = "192.168.13.0/24"
@@ -783,7 +783,7 @@ terraform output Secret_key
           
           resource "yandex_vpc_subnet" "nextcloud-subnet-a" {
             name           = local.subnet_a_name
-            zone           = "{{ region-id }}-a"
+            zone           = "ru-central1-a"
             network_id     = yandex_vpc_network.nextcloud-network.id
             v4_cidr_blocks = [local.subnet-a-cidr]
             route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
@@ -791,7 +791,7 @@ terraform output Secret_key
           
           resource "yandex_vpc_subnet" "nextcloud-subnet-b" {
             name           = local.subnet_b_name
-            zone           = "{{ region-id }}-b"
+            zone           = "ru-central1-b"
             network_id     = yandex_vpc_network.nextcloud-network.id
             v4_cidr_blocks = [local.subnet-b-cidr]
             route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
@@ -799,7 +799,7 @@ terraform output Secret_key
           
           resource "yandex_vpc_subnet" "nextcloud-subnet-d" {
             name           = local.subnet_d_name
-            zone           = "{{ region-id }}-d"
+            zone           = "ru-central1-d"
             network_id     = yandex_vpc_network.nextcloud-network.id
             v4_cidr_blocks = [local.subnet-d-cidr]
             route_table_id = yandex_vpc_route_table.nextcloud-rt-table.id
@@ -889,7 +889,7 @@ terraform output Secret_key
           
           resource "yandex_compute_disk" "boot-disk" {
             type     = "network-ssd"
-            zone     = "{{ region-id }}-a"
+            zone     = "ru-central1-a"
             size     = "24"
             image_id = local.vm_image_id
           }
@@ -899,7 +899,7 @@ terraform output Secret_key
           resource "yandex_compute_instance" "nextcloud-vm" {
             name        = local.vm_name
             platform_id = "standard-v2"
-            zone        = "{{ region-id }}-a"
+            zone        = "ru-central1-a"
           
             resources {
               cores  = "2"
@@ -937,17 +937,17 @@ terraform output Secret_key
             }
           
             host {
-              zone      = "{{ region-id }}-a"
+              zone      = "ru-central1-a"
               subnet_id = yandex_vpc_subnet.nextcloud-subnet-a.id
             }
           
             host {
-              zone      = "{{ region-id }}-b"
+              zone      = "ru-central1-b"
               subnet_id = yandex_vpc_subnet.nextcloud-subnet-b.id
             }
           
             host {
-              zone      = "{{ region-id }}-d"
+              zone      = "ru-central1-d"
               subnet_id = yandex_vpc_subnet.nextcloud-subnet-d.id
             }
           
@@ -1060,7 +1060,7 @@ terraform output Secret_key
             }
           
             allocation_policy {
-              zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"]
+              zones = ["ru-central1-a","ru-central1-b","ru-central1-d"]
             }
           
             deploy_policy {
@@ -1130,15 +1130,15 @@ terraform output Secret_key
           
             allocation_policy {
               location {
-                zone_id   = "{{ region-id }}-a"
+                zone_id   = "ru-central1-a"
                 subnet_id = yandex_vpc_subnet.nextcloud-subnet-a.id
               }
               location {
-                zone_id   = "{{ region-id }}-b"
+                zone_id   = "ru-central1-b"
                 subnet_id = yandex_vpc_subnet.nextcloud-subnet-b.id
               }
               location {
-                zone_id   = "{{ region-id }}-d"
+                zone_id   = "ru-central1-d"
                 subnet_id = yandex_vpc_subnet.nextcloud-subnet-d.id
               }
             }
@@ -1181,16 +1181,16 @@ terraform output Secret_key
 
     {% endlist %}
 
-    Более подробную информацию о параметрах добавляемых ресурсов в {{ TF }} см. в документации провайдера:
-    * [Снимок диска](../../concepts/snapshot.md) — [yandex_compute_snapshot]({{ tf-provider-resources-link }}/compute_snapshot).
-    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
-    * [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate]({{ tf-provider-resources-link }}/cm_certificate).
-    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
-    * [Группа виртуальных машин](../../concepts/instance-groups/index.md) — [yandex_compute_instance_group]({{ tf-provider-resources-link }}/compute_instance_group).
-    * [Группа бэкендов](../../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group]({{ tf-provider-resources-link }}/alb_backend_group).
-    * [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md) — [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router).
-    * [Виртуальный хост](../../../application-load-balancer/concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host).
-    * [L7-балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer]({{ tf-provider-resources-link }}/alb_load_balancer).
+    Более подробную информацию о параметрах добавляемых ресурсов в Terraform см. в документации провайдера:
+    * [Снимок диска](../../concepts/snapshot.md) — [yandex_compute_snapshot](../../../terraform/resources/compute_snapshot.md).
+    * [DNS-зона](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
+    * [TLS-сертификат](../../../certificate-manager/concepts/managed-certificate.md) — [yandex_cm_certificate](../../../terraform/resources/cm_certificate.md).
+    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
+    * [Группа виртуальных машин](../../concepts/instance-groups/index.md) — [yandex_compute_instance_group](../../../terraform/resources/compute_instance_group.md).
+    * [Группа бэкендов](../../../application-load-balancer/concepts/backend-group.md) — [yandex_alb_backend_group](../../../terraform/resources/alb_backend_group.md).
+    * [HTTP-роутер](../../../application-load-balancer/concepts/http-router.md) — [yandex_alb_http_router](../../../terraform/resources/alb_http_router.md).
+    * [Виртуальный хост](../../../application-load-balancer/concepts/http-router.md#virtual-host) — [yandex_alb_virtual_host](../../../terraform/resources/alb_virtual_host.md).
+    * [L7-балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) — [yandex_alb_load_balancer](../../../terraform/resources/alb_load_balancer.md).
 
 1. Создайте ресурсы:
 
@@ -1213,7 +1213,7 @@ terraform output Secret_key
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -1226,7 +1226,7 @@ terraform output Secret_key
 
 ### Протестируйте работу решения в отказоустойчивой конфигурации {#test-redundant}
 
-Чтобы проверить работу интеграции {{ objstorage-full-name }} с Nextcloud в отказоустойчивой конфигурации:
+Чтобы проверить работу интеграции Yandex Object Storage с Nextcloud в отказоустойчивой конфигурации:
 
 1. На вашем локальном компьютере откройте браузер и в адресной строке введите имя вашего домена, например:
 
@@ -1239,7 +1239,7 @@ terraform output Secret_key
 1. Убедитесь, что вы видите загруженный на предыдущем этапе проверки файл.
 1. Скачайте загруженный ранее файл. Для этого в строке с именем файла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![arrow-down](../../../_assets/console-icons/arrow-down.svg) **Download**.
 1. Удалите файл. Для этого в строке с именем файла нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Delete file**.
-1. В сервисе {{ objstorage-full-name }} [убедитесь](../../../storage/operations/objects/list.md), что файл был удален из бакета.
+1. В сервисе Yandex Object Storage [убедитесь](../../../storage/operations/objects/list.md), что файл был удален из бакета.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
@@ -1273,7 +1273,7 @@ terraform output Secret_key
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -1284,5 +1284,5 @@ terraform output Secret_key
 
 #### См. также {#see-also}
 
-* [{#T}](coi-based.md)
-* [{#T}](fault-tolerant.md)
+* [Развертывание Nextcloud на виртуальной машине Compute Cloud из образа Container Optimized Image в интеграции с Yandex Object Storage](coi-based.md)
+* [Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Compute Cloud в интеграции с Yandex Object Storage](fault-tolerant.md)

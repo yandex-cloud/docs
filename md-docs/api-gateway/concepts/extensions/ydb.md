@@ -1,12 +1,12 @@
 # Расширение x-yc-apigateway-integration:cloud_ydb
 
-Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных {{ ydb-full-name }}. Чтобы взаимодействовать с {{ ydb-short-name }}, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB.
+Расширение `x-yc-apigateway-integration:cloud_ydb` позволяет выполнять операции с [документными таблицами](../../../ydb/concepts/dynamodb-tables.md) в базе данных Yandex Managed Service for YDB. Чтобы взаимодействовать с YDB, используется [Document API](../../../ydb/docapi/api-ref/index.md), который совместим с Amazon DynamoDB.
 
 Добавить расширение в спецификацию можно с помощью [конструктора спецификаций](../../operations/spec-constructor/index.md).
 
 ## Поддерживаемые операции
 
-Операция | Поддерживаемые параметры | Что вернет {{ api-gw-name }} в формате JSON,<br/>если операция выполнится успешно
+Операция | Поддерживаемые параметры | Что вернет API Gateway в формате JSON,<br/>если операция выполнится успешно
 ----|----|-----
 [PutItem](../../../ydb/docapi/api-ref/actions/putItem.md) | `table_name` | Элемент, сохраненный в таблице
 [GetItem](../../../ydb/docapi/api-ref/actions/getItem.md) | `table_name`<br/>`key` | Элемент, прочитанный из таблицы
@@ -20,7 +20,7 @@
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Обязательный | Подстановка<br/>параметров | Описание
 ----|----|-----|----|----
@@ -46,7 +46,7 @@ info:
   title: Movies API
   version: 1.0.0
 servers:
-  - url: https://{{ api-host-apigw }}
+  - url: https://d5dm1lba80md********.i9******.apigw.yandexcloud.net
 paths:
   /movies:
     get:
@@ -54,7 +54,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: Scan
-        database: /{{ region-id }}/b3g1emj917**********/etn1f5fa8f**********
+        database: /ru-central1/b3g1emj917**********/etn1f5fa8f**********
         table_name: movie
         limit: '{limit}'
         exclusive_start_key: '{"id": "{from}"}'
@@ -97,7 +97,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: PutItem
-        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
       operationId: createMovie
       requestBody:
@@ -126,7 +126,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: DeleteItem
-        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: deleteMovieById
@@ -157,7 +157,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: GetItem
-        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: getMovieById
@@ -188,7 +188,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: UpdateItem
-        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
         table_name: movie
         key: '{"id": "{movieId}"}'
       operationId: updateMovieById
@@ -251,7 +251,7 @@ x-yc-apigateway:
 
 Если вы используете таблицы с несколькими первичными ключами, то опишите в спецификации каждый из них, а в запросе укажите значения обеих колонок с ключами. В примере ниже показан запрос к таблице `staff`. В ней содержится информация о сотрудниках компании и ключ, состоящий из двух колонок: `FirstName` и `LastName`.
 
-Пример спецификации {{ api-gw-name }}:
+Пример спецификации API Gateway:
 
 ```yaml
 openapi: 3.0.0
@@ -259,7 +259,7 @@ info:
   title: Staff API
   version: 1.0.0
 servers:
-  - url: https://{{ api-host-apigw }}
+  - url: https://d5dm1lba80md********.i9******.apigw.yandexcloud.net
 paths:
   /staff:
     get:
@@ -267,7 +267,7 @@ paths:
       x-yc-apigateway-integration:
         type: cloud_ydb
         action: GetItem
-        database: /{{ region-id }}/b1g1emj927**********/etn1f4fa4f**********
+        database: /ru-central1/b1g1emj927**********/etn1f4fa4f**********
         table_name: staff
         key: '{"FirstName": "{FirstName}", "LastName": "{LastName}"}'
       operationId: getStaffMemberById
@@ -318,7 +318,7 @@ x-yc-apigateway:
 curl \
   --request GET \
   --header "Authorization: Bearer `yc iam create-token`" \
-  "https://{{ api-host-apigw }}/staff?FirstName=Ivan&LastName=Ivanov"
+  "https://d5dm1lba80md********.i9******.apigw.yandexcloud.net/staff?FirstName=Ivan&LastName=Ivanov"
 ```
 
 Где:

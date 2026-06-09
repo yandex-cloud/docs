@@ -1,6 +1,6 @@
 # Диски и файловые хранилища
 
-Для работы с данными к [виртуальным машинам](vm.md) можно подключать следующие ресурсы {{ compute-name }}:
+Для работы с данными к [виртуальным машинам](vm.md) можно подключать следующие ресурсы Compute Cloud:
 
 | Ресурс | Описание |
 | ----- | ----- |
@@ -13,5 +13,5 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/ha-regional-glusterfs.md)
-* [{#T}](../tutorials/ha-regional-glusterfs-high-performance.md)
+* [Развертывание параллельной файловой системы GlusterFS в высокодоступном режиме](../tutorials/ha-regional-glusterfs.md)
+* [Развертывание параллельной файловой системы GlusterFS в высокопроизводительном режиме](../tutorials/ha-regional-glusterfs-high-performance.md)

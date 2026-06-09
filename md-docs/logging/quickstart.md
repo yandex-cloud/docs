@@ -1,12 +1,12 @@
-# Начало работы с {{ cloud-logging-name }}
+# Начало работы с Cloud Logging
 
 В этой инструкции вы добавите записи в [лог-группу](concepts/log-group.md), а после посмотрите их.
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать в {{ yandex-cloud }}:
-1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+Чтобы начать работать в Yandex Cloud:
+1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 
 ## Добавьте записи в лог-группу
@@ -15,7 +15,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -75,14 +75,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится лог-группа.
+  1. Перейдите в сервис **Cloud Logging**.
   1. Нажмите на строку с лог-группой, записи в которой хотите посмотреть.
   1. На открывшейся странице отобразятся записи.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -139,7 +139,7 @@
 
 - SDK {#sdk}
 
-  Читать записи в {{ cloud-logging-name }} можно с помощью [{{ yandex-cloud }} SDK](../overview/sdk/quickstart.md), реализованного для различных языков. Ниже приведены примеры использования Python SDK. Вы можете работать с кодом в своей инфраструктуре или в [{{ sf-full-name }}](../functions/index.md).
+  Читать записи в Cloud Logging можно с помощью [Yandex Cloud SDK](../overview/sdk/quickstart.md), реализованного для различных языков. Ниже приведены примеры использования Python SDK. Вы можете работать с кодом в своей инфраструктуре или в [Yandex Cloud Functions](../functions/index.md).
 
   **Локально**
 
@@ -165,9 +165,9 @@
 
   Где:
   * `log_group_id` — идентификатор [лог-группы](concepts/log-group.md).
-  * `resource_ids` — идентификатор ресурса, например [кластера](../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-name }}.
+  * `resource_ids` — идентификатор ресурса, например [кластера](../managed-kubernetes/concepts/index.md#kubernetes-cluster) Managed Service for Kubernetes.
 
-  **{{ sf-full-name }}**
+  **Yandex Cloud Functions**
 
   ```python
   import yandexcloud
@@ -187,14 +187,14 @@
 
   Где:
   * `log_group_id` — идентификатор [лог-группы](concepts/log-group.md).
-  * `resource_ids` — идентификатор ресурса, например [кластера](../managed-kubernetes/concepts/index.md#kubernetes-cluster) {{ managed-k8s-name }}.
+  * `resource_ids` — идентификатор ресурса, например [кластера](../managed-kubernetes/concepts/index.md#kubernetes-cluster) Managed Service for Kubernetes.
 
   Параметры функции:
 
-  * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `python38`.
-  * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-  * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`.
-  * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 МБ`.
+  * **Среда выполнения**: `python38`.
+  * **Точка входа**: `index.handler`.
+  * **Таймаут**: `3`.
+  * **Память**: `128 МБ`.
 
 - API {#api}
 
@@ -255,7 +255,7 @@
         -import-path ~/cloudapi/ \
         -import-path ~/cloudapi/third_party/googleapis/ \
         -proto ~/cloudapi/yandex/cloud/logging/v1/log_reading_service.proto \
-        {{ logging-endpoint-reader }}:443 \
+        reader.logging.yandexcloud.net:443 \
         yandex.cloud.logging.v1.LogReadingService/Read
       ```
 

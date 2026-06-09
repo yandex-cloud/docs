@@ -5,7 +5,7 @@ Moves the specified MongoDB cluster to the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:move
+POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:move
 ```
 
 ## Path parameters

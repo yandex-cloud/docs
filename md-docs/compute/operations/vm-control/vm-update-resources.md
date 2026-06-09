@@ -1,7 +1,7 @@
 # Изменить вычислительные ресурсы виртуальной машины
 
 
-После создания ВМ вы можете изменить ее вычислительные ресурсы. Как изменить имя, описание и метки ВМ читайте в разделе [{#T}](vm-update.md).
+После создания ВМ вы можете изменить ее вычислительные ресурсы. Как изменить имя, описание и метки ВМ читайте в разделе [Изменить виртуальную машину](vm-update.md).
 
 {% note warning %}
 
@@ -30,26 +30,26 @@
 
   Чтобы изменить vCPU и RAM ВМ:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** измените [конфигурацию](../../concepts/performance-levels.md) ВМ. Для этого:
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы** измените [конфигурацию](../../concepts/performance-levels.md) ВМ. Для этого:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
+      * Перейдите на вкладку **Своя конфигурация**.
       * Выберите [платформу](../../concepts/vm-platforms.md).
       * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
       * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.start }}** в правом верхнем углу.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **Запустить** в правом верхнем углу.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -70,8 +70,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -122,7 +122,7 @@
 
 Вы также можете [установить драйверы](../vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно.
 
-{{ compute-name }} проверяет работоспособность и рекомендует устанавливать только [LTS версии драйверов](https://docs.nvidia.com/datacenter/tesla/drivers/releases.json).
+Compute Cloud проверяет работоспособность и рекомендует устанавливать только [LTS версии драйверов](https://docs.nvidia.com/datacenter/tesla/drivers/releases.json).
 
 {% endnote %}
 
@@ -134,32 +134,32 @@
 
   Чтобы изменить количество GPU на ВМ:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы**:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}**.
+      * Перейдите на вкладку **GPU**.
       * Выберите одну из [платформ](../../concepts/vm-platforms.md#gpu-platforms):
 
-          * {{ v100-broadwell }}
-          * {{ v100-cascade-lake }}
-          * {{ a100-epyc }}
-          * {{ t4-ice-lake }}
-          * {{ t4i-ice-lake }}
+          * Intel Broadwell with NVIDIA® Tesla® V100
+          * Intel Cascade Lake with NVIDIA® Tesla® V100
+          * AMD EPYC™ with NVIDIA® Ampere® A100
+          * Intel Ice Lake with NVIDIA® Tesla® T4
+          * Intel Ice Lake with T4i
 
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -180,8 +180,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -210,7 +210,7 @@
 
       После выполнения данной команды изменятся следующие характеристики ВМ:
 
-      * **Платформа** — на {{ t4-ice-lake }}.
+      * **Платформа** — на Intel Ice Lake with NVIDIA® Tesla® T4.
       * **vCPU** — на 8.
       * **RAM** — на 32 ГБ.
       * **GPU** — на 1.
@@ -235,7 +235,7 @@
 
 Вы также можете [установить драйверы](../vm-operate/install-nvidia-drivers.md) на другой стандартный образ самостоятельно.
 
-{{ compute-name }} проверяет работоспособность и рекомендует устанавливать только [LTS версии драйверов](https://docs.nvidia.com/datacenter/tesla/drivers/releases.json).
+Compute Cloud проверяет работоспособность и рекомендует устанавливать только [LTS версии драйверов](https://docs.nvidia.com/datacenter/tesla/drivers/releases.json).
 
 {% endnote %}
 
@@ -245,32 +245,32 @@
 
   Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите, пока ВМ перейдет в статус `Stopped`, и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы**:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-gpu }}**.
+      * Перейдите на вкладку **GPU**.
       * Выберите одну из [платформ](../../concepts/vm-platforms.md#gpu-platforms):
 
-          * {{ v100-broadwell }}
-          * {{ v100-cascade-lake }}
-          * {{ a100-epyc }}
-          * {{ t4-ice-lake }}
-          * {{ t4i-ice-lake }}
+          * Intel Broadwell with NVIDIA® Tesla® V100
+          * Intel Cascade Lake with NVIDIA® Tesla® V100
+          * AMD EPYC™ with NVIDIA® Ampere® A100
+          * Intel Ice Lake with NVIDIA® Tesla® T4
+          * Intel Ice Lake with T4i
 
       * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -291,8 +291,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -348,15 +348,15 @@
 
   Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
   1. Нажмите на имя нужной ВМ.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instance.stop-dialog.button_stop }}**.
-  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** откройте вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
-  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.common.start }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_start }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы** откройте вкладку **Своя конфигурация** и включите опцию **Программное ускорение сети**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
 
 {% endlist %}

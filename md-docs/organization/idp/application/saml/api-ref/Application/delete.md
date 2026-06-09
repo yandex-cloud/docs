@@ -5,7 +5,7 @@ Deletes the specified SAML application.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}
 ```
 
 ## Path parameters

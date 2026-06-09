@@ -7,7 +7,7 @@
 Чтобы воспользоваться примерами в этом разделе:
 
 1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
-1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вас есть роль `{{ roles-monitoring-editor }}` или выше.
+1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вас есть роль `monitoring.editor` или выше.
 1. Получите IAM-токен:
 
    * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
@@ -44,7 +44,7 @@
       --header "Content-Type: application/json" \
       --header "Authorization: Bearer ${IAM_TOKEN}" \
       --data '@body.json' \
-      'https://monitoring.{{ api-host }}/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
+      'https://monitoring.api.cloud.yandex.net/monitoring/v2/data/write?folderId=aoe6vrq0g3sv********&service=custom' > output.json
     ```
 
     Пример ответа на запрос:

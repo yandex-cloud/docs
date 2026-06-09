@@ -5,7 +5,7 @@ Delete backup for the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}/backups/{backupId}
 ```
 
 ## Path parameters

@@ -1,14 +1,14 @@
-# Общие вопросы про {{ maf-name }}
+# Общие вопросы про Managed Service for Apache Airflow™
 
 ### Как исправить ошибку про пересечение диапазонов IP-адресов при создании кластера? {#ip-addresses}
 
-Во время создания кластера {{ maf-name }} вы можете получить ошибку:
+Во время создания кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
 
 ```text
-user subnet overlaps with service network range {{ airflow-service-address }}, see documentation for details
+user subnet overlaps with service network range 10.248.0.0/13, see documentation for details
 ```
 
-Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `{{ airflow-service-address }}` служебной подсети. В ней {{ yandex-cloud }} управляет компонентами кластера {{ maf-name }}.
+Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `10.248.0.0/13` служебной подсети. В ней Yandex Cloud управляет компонентами кластера Managed Service for Apache Airflow™.
 
 Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера см. в разделе [Сеть](../concepts/network.md#subnet-requirements).
 
@@ -25,11 +25,11 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 Ошибка возникает, если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт.
 
 **Решение**
-[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 ### Как исправить ошибку `No module named 'airflow.providers.postgres.operators'`? {#airflow-provider-postgres-operators}
 
-При работе с кластером {{ mpg-name }} из кластера {{ maf-name }} вы можете получить ошибку:
+При работе с кластером Managed Service for PostgreSQL из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
 
 ```bash
 Broken DAG: [/opt/airflow/dags/postgre.py] Traceback (most recent call last):
@@ -47,22 +47,22 @@ ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
 
 ### Как исправить ошибку `AirflowException: Unknown hook type "postgres"`? {#airflow-provider-postgres-operators-2}
 
-При работе с кластером {{ mpg-name }} из кластера {{ maf-name }} вы можете получить ошибку:
+При работе с кластером Managed Service for PostgreSQL из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
 
 ```bash
 Task failed with exception: source="task"
 AirflowException: Unknown hook type "postgres"
 ```
 
-По умолчанию в кластерах {{ maf-name }} с версией {{ AF }} выше 3.0 не установлен провайдер `apache-airflow-providers-postgres`.
+По умолчанию в кластерах Managed Service for Apache Airflow™ с версией Apache Airflow™ выше 3.0 не установлен провайдер `apache-airflow-providers-postgres`.
 
 **Решение**:
 
-При создании или изменении кластера {{ maf-name }} в блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `apache-airflow-providers-postgres`.
+При создании или изменении кластера Managed Service for Apache Airflow™ в блоке **Зависимости** добавьте pip-пакет `apache-airflow-providers-postgres`.
 
 ### Как исправить ошибку `No module named 'airflow_clickhouse_plugin'`? {#airflow-clickhouse-plugin}
 
-При работе с кластером {{ mch-name }} из кластера {{ maf-name }} вы можете получить ошибку:
+При работе с кластером Managed Service for ClickHouse® из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
 
 ```bash
 Traceback (most recent call last):
@@ -72,15 +72,15 @@ Traceback (most recent call last):
 ModuleNotFoundError: No module named 'airflow_clickhouse_plugin'
 ```
 
-По умолчанию в {{ maf-name }} не установлен плагин `airflow-clickhouse-plugin`.
+По умолчанию в Managed Service for Apache Airflow™ не установлен плагин `airflow-clickhouse-plugin`.
 
 **Решение**:
 
-При создании или изменении кластера {{ maf-name }} в блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `airflow-clickhouse-plugin`.
+При создании или изменении кластера Managed Service for Apache Airflow™ в блоке **Зависимости** добавьте pip-пакет `airflow-clickhouse-plugin`.
 
 ### Как исправить ошибку `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]`? {#airflow-clickhouse-ssl}
 
-При попытке подключения к кластеру {{ mch-name }} из кластера {{ maf-name }} вы можете получить ошибку:
+При попытке подключения к кластеру Managed Service for ClickHouse® из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
 
 ```bash
 SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1123)

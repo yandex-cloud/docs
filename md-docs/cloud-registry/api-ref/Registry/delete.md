@@ -5,7 +5,7 @@ Deletes the specified registry.
 ## HTTP request
 
 ```
-DELETE https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
+DELETE https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}
 ```
 
 ## Path parameters

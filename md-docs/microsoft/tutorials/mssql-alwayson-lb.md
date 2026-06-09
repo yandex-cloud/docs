@@ -3,13 +3,13 @@
 
 {% note warning %}
 
-В {{ yandex-cloud }} продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [{#T}](../byol.md).
+В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [Использование своей лицензии для продуктов Microsoft](../byol.md).
 
 {% endnote %}
 
 
 
-Сценарий описывает развертывание в {{ yandex-cloud }} группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть путем настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover]({{ ms.docs }}/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
+Сценарий описывает развертывание в Yandex Cloud группы доступности Always On с балансировкой нагрузки между узлами с помощью внутреннего сетевого балансировщика. Несколько подсетей будут объединены в одну общую подсеть путем настройки сетевых интерфейсов. Благодаря этому не потребуется использование [Multisubnet Failover](https://docs.microsoft.com/ru-ru/sql/sql-server/failover-clusters/windows/sql-server-multi-subnet-clustering-sql-server?view=sql-server-ver15). Основной IP-адрес будет назначаться реплике, в которую ведется запись. У этой же реплики будет открыт порт, на который балансировщик будет направлять трафик. Поскольку порт, указанный для подключения к балансировщику, становится недоступным, для приема трафика будет использоваться дополнительный нестандартный порт.
 
 Чтобы создать и настроить группу доступности Always On с внутренним сетевым балансировщиком:
 
@@ -23,11 +23,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -41,11 +41,11 @@
 
 В стоимость поддержки группы доступности входят:
 
-* плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование сетевого балансировщика (см. [тарифы {{ network-load-balancer-full-name }}](../../network-load-balancer/pricing.md));
-* плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование сетевого балансировщика (см. [тарифы Yandex Network Load Balancer](../../network-load-balancer/pricing.md));
+* плата за использование динамического или статического публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
-Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в {{ yandex-cloud }}.
+Вы можете воспользоваться [перемещением лицензий](../../compute/qa/licensing.md) и использовать собственную лицензию SQL Server в Yandex Cloud.
 
 ## Создайте сетевую инфраструктуру {#prepare-network}
 
@@ -57,15 +57,15 @@
 
     - Консоль управления {#console}
 
-       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**
+       1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана облачная сеть.
+       1. Перейдите в сервис **Virtual Private Cloud**.
+       1. Нажмите кнопку **Создать сеть**
        1. Задайте имя сети: `ya-network`.
-       1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+       1. Нажмите кнопку **Создать сеть**.
 
     - Bash {#bash}
       
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -75,7 +75,7 @@
 
     - PowerShell {#powershell}
 
-      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки {{ yandex-cloud }}, чтобы использовать команды CLI в PowerShell. 
+      [Установите](../../cli/operations/install-cli.md) интерфейс командной строки Yandex Cloud, чтобы использовать команды CLI в PowerShell. 
 
       ```
       yc vpc network create --name ya-network
@@ -94,26 +94,26 @@
 
     - Консоль управления {#console}
 
-      1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсети.
+      1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсети.
       1. Выберите сеть `ya-network`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg)**Добавить подсеть**.
-      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+      1. Заполните форму: введите имя подсети `ya-sqlserver-rc1a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
       1. Введите CIDR подсети: IP-адрес и маску подсети: `192.168.1.0/28`.
       1. Нажмите кнопку **Создать подсеть**.
 
       Повторите шаги для подсетей со следующими именами и CIDR:
 
-      * `ya-sqlserver-rc1b` в зоне доступности `{{ region-id }}-b` — `192.168.1.16/28`;
-      * `ya-sqlserver-rc1d` в зоне доступности `{{ region-id }}-d` — `192.168.1.32/28`;
-      * `ya-ilb-rc1a` в зоне доступности `{{ region-id }}-a` — `192.168.1.48/28`;
-      * `ya-ad-rc1a` в зоне доступности `{{ region-id }}-a` — `10.0.0.0/28`.
+      * `ya-sqlserver-rc1b` в зоне доступности `ru-central1-b` — `192.168.1.16/28`;
+      * `ya-sqlserver-rc1d` в зоне доступности `ru-central1-d` — `192.168.1.32/28`;
+      * `ya-ilb-rc1a` в зоне доступности `ru-central1-a` — `192.168.1.48/28`;
+      * `ya-ad-rc1a` в зоне доступности `ru-central1-a` — `10.0.0.0/28`.
 
     - Bash {#bash}
 
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1a \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --range 192.168.1.0/28 \
          --network-name ya-network
       ```
@@ -121,7 +121,7 @@
       ```
       yc vpc subnet create \
         --name ya-sqlserver-rc1b \
-        --zone {{ region-id }}-b \
+        --zone ru-central1-b \
         --range 192.168.1.16/28 \
         --network-name ya-network
       ```
@@ -129,7 +129,7 @@
       ```
       yc vpc subnet create \
          --name ya-sqlserver-rc1d \
-         --zone {{ region-id }}-d \
+         --zone ru-central1-d \
          --range 192.168.1.32/28 \
          --network-name ya-network
       ```
@@ -137,7 +137,7 @@
       ```
       yc vpc subnet create \
          --name ya-ilb-rc1a \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --range 192.168.1.48/28 \
          --network-name ya-network
       ```
@@ -145,7 +145,7 @@
       ```
       yc vpc subnet create \
         --name ya-ad-rc1a \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --range 10.0.0.0/28 \
         --network-name ya-network
       ```
@@ -155,7 +155,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1a `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --range 192.168.1.0/28 `
          --network-name ya-network
       ```
@@ -163,7 +163,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1b `
-         --zone {{ region-id }}-b `
+         --zone ru-central1-b `
          --range 192.168.1.16/28 `
          --network-name ya-network
       ```
@@ -171,7 +171,7 @@
       ```
       yc vpc subnet create `
          --name ya-sqlserver-rc1d `
-         --zone {{ region-id }}-d `
+         --zone ru-central1-d `
          --range 192.168.1.32/28 `
          --network-name ya-network
       ```
@@ -179,7 +179,7 @@
       ```
       yc vpc subnet create `
          --name ya-ilb-rc1a `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --range 192.168.1.48/28 `
          --network-name ya-network
       ```
@@ -187,7 +187,7 @@
       ```
       yc vpc subnet create `
          --name ya-ad-rc1a `
-         --zone {{ region-id }}-a `
+         --zone ru-central1-a `
          --range 10.0.0.0/28 `
          --network-name ya-network
       ```
@@ -304,7 +304,7 @@
 
 ### Подготовьте образы Windows Server {#prepare-images}
 
-Перед созданием ВМ подготовьте свой образ Windows Server, чтобы использовать его в {{ yandex-cloud }} со своей собственной лицензией.
+Перед созданием ВМ подготовьте свой образ Windows Server, чтобы использовать его в Yandex Cloud со своей собственной лицензией.
 
 
 ### Создайте файл с учетными данными администратора {#prepare-admin-credentials}
@@ -354,15 +354,15 @@
 
 Указанный пароль используется только для тестирования. Используйте собственный сложный пароль при развертывании кластера для работы в продуктовом окружении.
 
-Пароль должен соответствовать [требованиям к сложности]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-Подробные рекомендации по защите Active Directory читайте [на сайте разработчика]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Подробные рекомендации по защите Active Directory читайте [на сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 {% endnote %}
 
 ### Создайте виртуальные машины {#create-group-vms}
 
-ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью {{ yandex-cloud }} CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
+ВМ нужно создавать на [выделенных хостах](../../compute/concepts/dedicated-host.md). Получить идентификатор выделенного хоста можно с помощью Yandex Cloud CLI, выполнив команду `yc compute host-group list-hosts` (подробнее о команде см. в [справочнике](../../cli/cli-ref/compute/cli-ref/host-group/list-hosts.md)).
 
 #### Создайте ВМ для бастионного хоста {#create-jump-server}
 
@@ -376,7 +376,7 @@
   yc compute instance create \
      --name ya-jump1 \
      --hostname ya-jump1 \
-     --zone {{ region-id }}-a \
+     --zone ru-central1-a \
      --memory 4 \
      --cores 2 \
      --metadata-from-file user-data=setpass \
@@ -390,11 +390,11 @@
 
   {% note info %}
   
-  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
   
   Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
   
-  Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+  Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
   
   {% endnote %}
 
@@ -404,7 +404,7 @@
   yc compute instance create `
      --name ya-jump1 `
      --hostname ya-jump1 `
-     --zone {{ region-id }}-a `
+     --zone ru-central1-a `
      --memory 4 `
      --cores 2 `
      --metadata-from-file user-data=setpass `
@@ -418,11 +418,11 @@
 
   {% note info %}
   
-  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
   
   Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
   
-  Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+  Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
   
   {% endnote %}
 
@@ -438,7 +438,7 @@
   yc compute instance create \
      --name ya-ad \
      --hostname ya-ad \
-     --zone {{ region-id }}-a \
+     --zone ru-central1-a \
      --memory 6 \
      --cores 2 \
      --metadata-from-file user-data=setpass \
@@ -456,7 +456,7 @@
   yc compute instance create `
      --name ya-ad `
      --hostname ya-ad `
-     --zone {{ region-id }}-a `
+     --zone ru-central1-a `
      --memory 6 `
      --cores 2 `
      --metadata-from-file user-data=setpass `
@@ -483,7 +483,7 @@
   yc compute instance create \
      --name ya-mssql1 \
      --hostname ya-mssql1 \
-     --zone {{ region-id }}-a \
+     --zone ru-central1-a \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -501,7 +501,7 @@
   yc compute instance create \
      --name ya-mssql2 \
      --hostname ya-mssql2 \
-     --zone {{ region-id }}-b \
+     --zone ru-central1-b \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -519,7 +519,7 @@
   yc compute instance create \
      --name ya-mssql3 \
      --hostname ya-mssql3 \
-     --zone {{ region-id }}-d \
+     --zone ru-central1-d \
      --memory 16 \
      --cores 4 \
      --metadata-from-file user-data=setpass \
@@ -539,7 +539,7 @@
   yc compute instance create `
      --name ya-mssql1 `
      --hostname ya-mssql1 `
-     --zone {{ region-id }}-a `
+     --zone ru-central1-a `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -557,7 +557,7 @@
   yc compute instance create `
      --name ya-mssql2 `
      --hostname ya-mssql2 `
-     --zone {{ region-id }}-b `
+     --zone ru-central1-b `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -575,7 +575,7 @@
   yc compute instance create `
      --name ya-mssql3 `
      --hostname ya-mssql3 `
-     --zone {{ region-id }}-d `
+     --zone ru-central1-d `
      --memory 16 `
      --cores 4 `
      --metadata-from-file user-data=setpass `
@@ -639,12 +639,12 @@
     - PowerShell {#powershell}
 
        ```
-       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}'
-       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site '{{ region-id }}'
-       New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site '{{ region-id }}'
-       New-ADReplicationSubnet -Name '192.168.1.16/28' -Site '{{ region-id }}'
-       New-ADReplicationSubnet -Name '192.168.1.32/28' -Site '{{ region-id }}'
-       New-ADReplicationSubnet -Name '192.168.1.48/28' -Site '{{ region-id }}'
+       Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1'
+       New-ADReplicationSubnet -Name '10.0.0.0/28'  -Site 'ru-central1'
+       New-ADReplicationSubnet -Name '192.168.1.0/28'  -Site 'ru-central1'
+       New-ADReplicationSubnet -Name '192.168.1.16/28' -Site 'ru-central1'
+       New-ADReplicationSubnet -Name '192.168.1.32/28' -Site 'ru-central1'
+       New-ADReplicationSubnet -Name '192.168.1.48/28' -Site 'ru-central1'
        ```
 
     {% endlist %}

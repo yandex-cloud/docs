@@ -2,7 +2,7 @@
 
 Yandex Container Registry — сервис для хранения и распространения Docker-образов.
 
-Container Registry предоставляет надежное и независимое от внешних блокировок хранилище. Docker-образы в {{ container-registry-name }} размещаются в тех же <a href="../overview/concepts/geo-scope.md">дата-центрах</a> Yandex Cloud, в которых размещена остальная облачная инфраструктура, что обеспечивает высокую скорость работы с образами и отсутствие затрат на внешний трафик.
+Container Registry предоставляет надежное и независимое от внешних блокировок хранилище. Docker-образы в Container Registry размещаются в тех же <a href="../overview/concepts/geo-scope.md">дата-центрах</a> Yandex Cloud, в которых размещена остальная облачная инфраструктура, что обеспечивает высокую скорость работы с образами и отсутствие затрат на внешний трафик.
 
 Container Registry предоставляет встроенный <a href="concepts/vulnerability-scanner.md">сканер уязвимостей</a>, с помощью которого можно сканировать Docker-образы как в момент их загрузки в реестр, так и позднее по расписанию, а также гибко управлять результатами сканирования.
 
@@ -18,7 +18,7 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Установить и настроить Docker](operations/configure-docker.md)
 
- - [Аутентифицироваться в {{ container-registry-name }}](operations/authentication.md)
+ - [Аутентифицироваться в Container Registry](operations/authentication.md)
 
 ### Управление Docker-образом
 
@@ -86,7 +86,7 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Отозвать роль](operations/roles/revoke.md)
 
- - [{{ cos-full-name }}](../cos/index.md)
+ - [Yandex Container Solution](../cos/index.md)
 
 ## Практические руководства
 
@@ -98,7 +98,7 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Консоль управления, CLI и API](tutorials/run-docker-on-vm/console.md)
 
- - [{{ TF }}](tutorials/run-docker-on-vm/terraform.md)
+ - [Terraform](tutorials/run-docker-on-vm/terraform.md)
 
 ### Автоматическое сканирование Docker-образа при загрузке
 
@@ -106,35 +106,35 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Консоль управления, CLI и API](tutorials/image-auto-scan/console.md)
 
- - [{{ TF }}](tutorials/image-auto-scan/terraform.md)
+ - [Terraform](tutorials/image-auto-scan/terraform.md)
 
- - [Подпись и проверка Docker-образов в {{ managed-k8s-name }}](tutorials/sign-cr-with-cosign.md)
+ - [Подпись и проверка Docker-образов в Managed Service for Kubernetes](tutorials/sign-cr-with-cosign.md)
 
- - [Сканирование уязвимостей при непрерывном развертывании приложений {{ managed-k8s-name }} с помощью {{ GL }}](tutorials/cr-scanner-with-k8s-and-gitlab.md)
+ - [Сканирование уязвимостей при непрерывном развертывании приложений Managed Service for Kubernetes с помощью GitLab](tutorials/cr-scanner-with-k8s-and-gitlab.md)
 
- - [Непрерывное развертывание контейнеризованных приложений с помощью {{ GL }}](tutorials/gitlab-containers.md)
+ - [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](tutorials/gitlab-containers.md)
 
- - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
- - [Хранение Docker-образов из проектов {{ mgl-full-name }}](tutorials/image-storage.md)
+ - [Хранение Docker-образов из проектов Yandex Managed Service for GitLab](tutorials/image-storage.md)
 
- - [Подключение к {{ container-registry-name }} из {{ vpc-short-name }}](tutorials/vpc-cr-access.md)
+ - [Подключение к Container Registry из VPC](tutorials/vpc-cr-access.md)
 
- - [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](tutorials/fault-tolerance.md)
+ - [Настройка отказоустойчивой архитектуры в Yandex Cloud](tutorials/fault-tolerance.md)
 
  - [Запуск внешних агентов для нагрузочного тестирования](tutorials/loadtesting-external-agent.md)
 
- - [Запуск контейнерного приложения в {{ serverless-containers-full-name }}](tutorials/deploy-app-container.md)
+ - [Запуск контейнерного приложения в Yandex Serverless Containers](tutorials/deploy-app-container.md)
 
  - [Развертывание gRPC-сервиса на основе Docker-образа](tutorials/grpc-node.md)
 
- - [Развертывание сервиса в {{ ml-platform-name }} на основе Docker-образа](tutorials/node-from-docker.md)
+ - [Развертывание сервиса в DataSphere на основе Docker-образа](tutorials/node-from-docker.md)
 
- - [Развертывание сервиса в {{ ml-platform-name }} на основе Docker-образа с FastAPI](tutorials/node-from-docker-fast-api.md)
+ - [Развертывание сервиса в DataSphere на основе Docker-образа с FastAPI](tutorials/node-from-docker-fast-api.md)
 
- - [Настройка подключения к {{ mpg-name }} из контейнера {{ serverless-containers-name }}](tutorials/container-pg-connect.md)
+ - [Настройка подключения к Managed Service for PostgreSQL из контейнера Serverless Containers](tutorials/container-pg-connect.md)
 
- - [Интеграция с {{ container-registry-name }}](tutorials/container-registry.md)
+ - [Интеграция с Container Registry](tutorials/container-registry.md)
 
 ## Концепции
 
@@ -152,7 +152,7 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Сканер уязвимостей](concepts/vulnerability-scanner.md)
 
- - [Триггер {{ sf-name }}](concepts/trigger.md)
+ - [Триггер Cloud Functions](concepts/trigger.md)
 
  - [Резервное копирование](concepts/backup.md)
 
@@ -498,7 +498,7 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [set-access-bindings](cli-ref/v0/repository/set-access-bindings.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -740,9 +740,9 @@ Container Registry предоставляет встроенный <a href="conc
 
  - [Delete](api-ref/ScanPolicy/delete.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Решение проблем](error/index.md)
 

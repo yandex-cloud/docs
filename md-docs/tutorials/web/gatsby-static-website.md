@@ -1,14 +1,14 @@
-# Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-full-name }}
+# Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage
 
-С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе [{{ objstorage-name }}](../../storage/index.md) и настроите доступ к нему по протоколу HTTPS с помощью сервиса [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
+С помощью этого руководства вы разместите свой статический сайт, созданный на фреймворке [Gatsby](https://www.gatsbyjs.com/docs), в сервисе [Object Storage](../../storage/index.md) и настроите доступ к нему по протоколу HTTPS с помощью сервиса [Yandex Certificate Manager](../../certificate-manager/index.md).
 
-Чтобы создать и разместить статический сайт в {{ objstorage-name }}:
+Чтобы создать и разместить статический сайт в Object Storage:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Зарегистрируйте доменное имя](#register-domain).
-1. [Создайте и настройте бакет {{ objstorage-name }}](#create-and-configure-bucket).
+1. [Создайте и настройте бакет Object Storage](#create-and-configure-bucket).
 1. [Привяжите доменное имя к бакету](#bind-domain).
-1. [Добавьте TLS-сертификат в {{ certificate-manager-full-name }}](#issue-certificate).
+1. [Добавьте TLS-сертификат в Yandex Certificate Manager](#issue-certificate).
 1. [Настройте доступ к бакету по HTTPS](#configure-https).
 1. [Создайте сайт локально](#create-local-site).
 1. [Загрузите сайт в бакет](#upload-site).
@@ -18,11 +18,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -34,13 +34,13 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за использование публичной DNS-зоны и за публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md));
-* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* плата за использование публичной DNS-зоны и за публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../dns/pricing.md));
+* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../storage/pricing.md)).
 
 ## Зарегистрируйте доменное имя {#register-domain}
 
 1. В личном кабинете вашего регистратора доменных имен зарегистрируйте доменное имя, например `gatsbytest.ru`.
-1. Чтобы получить доступ к именам из публичной зоны, делегируйте домен. Для этого в настройках домена укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
+1. Чтобы получить доступ к именам из публичной зоны, делегируйте домен. Для этого в настройках домена укажите адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
 
     Делегирование происходит не сразу. Серверы интернет-провайдеров обновляют записи до 24 часов.
     Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
@@ -52,11 +52,11 @@
     Результат:
 
     ```text
-    ns2.{{ dns-ns-host-sld }}.
-    ns1.{{ dns-ns-host-sld }}.
+    ns2.yandexcloud.net.
+    ns1.yandexcloud.net.
     ```
 
-## Создайте и настройте бакет {{ objstorage-name }} {#create-and-configure-bucket}
+## Создайте и настройте бакет Object Storage {#create-and-configure-bucket}
 
 Чтобы разместить статический сайт в облаке, [создайте](../../storage/operations/buckets/create.md) бакет и [настройте](../../storage/operations/hosting/setup.md#hosting) его.
 
@@ -64,25 +64,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
+  1. Перейдите в сервис **Object Storage**.
+  1. Справа вверху нажмите кнопку **Создать бакет**.
+  1. В поле **Имя** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
+  1. В поле **Макс. размер** укажите `1 ГБ`.
   1. Выберите тип [доступа](../../storage/concepts/bucket.md#bucket-access) **Публичный** для всех операций.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Нажмите кнопку **Создать бакет**.
   1. На странице со списком бакетов выберите созданный бакет.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. Выберите `{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}`.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу главной страницы сайта. Для сайта из шаблона Gatsby укажите `index.html`.
-  1. (Опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу, который будет отображаться при ошибках `4xx`. Для сайта из шаблона Gatsby укажите `404.html`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Перейдите на вкладку **Веб-сайт**.
+  1. Выберите `Хостинг`.
+  1. В поле **Главная страница** укажите абсолютный путь к файлу главной страницы сайта. Для сайта из шаблона Gatsby укажите `index.html`.
+  1. (Опционально) В поле **Страница ошибки** укажите абсолютный путь к файлу, который будет отображаться при ошибках `4xx`. Для сайта из шаблона Gatsby укажите `404.html`.
+  1. Нажмите кнопку **Сохранить**.
 
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. Создайте бакет:
 
@@ -151,7 +151,7 @@
 
       ```bash
       aws s3api create-bucket \
-        --endpoint-url https://{{ s3-storage-host }} \
+        --endpoint-url https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --acl public-read
       ```
@@ -170,7 +170,7 @@
 
       ```bash
       aws s3api put-bucket-website \
-        --endpoint-url https://{{ s3-storage-host }} \
+        --endpoint-url https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --website-configuration '{
           "IndexDocument": {
@@ -204,20 +204,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в созданный ранее бакет.
-  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и выберите доменную зону, которая соответствует имени бакета, например `gatsbytest.ru.` (с точкой в конце). Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в созданный ранее бакет.
+  1. На панели слева выберите ![image](../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Перейдите на вкладку **Веб-сайт**.
+  1. В блоке **Домены в Cloud DNS** нажмите кнопку **Создать запись**.
+  1. В открывшемся окне нажмите кнопку **Создать зону** и выберите доменную зону, которая соответствует имени бакета, например `gatsbytest.ru.` (с точкой в конце). Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **Создать**.
 
       Дождитесь создания записи.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  1. Создайте публичную зону DNS `gatsbytest-ru-zone` в {{ dns-full-name }}:
+  1. Создайте публичную зону DNS `gatsbytest-ru-zone` в Yandex Cloud DNS:
 
       ```bash
       yc dns zone create \
@@ -246,7 +246,7 @@
       ```bash
       yc dns zone add-records \
         --name gatsbytest-ru-zone \
-        --record "@ 600 ANAME <имя_домена>.{{ s3-web-host }}"
+        --record "@ 600 ANAME <имя_домена>.website.yandexcloud.net"
       ```
 
       Результат:
@@ -269,7 +269,7 @@
 
 {% endlist %}
 
-## Добавьте TLS-сертификат в {{ certificate-manager-full-name }} {#issue-certificate}
+## Добавьте TLS-сертификат в Yandex Certificate Manager {#issue-certificate}
 
 Чтобы настроить доступ к сайту по защищенному протоколу, получите TLS-сертификат и настройте доступ к бакету по HTTPS.
 
@@ -277,29 +277,29 @@
 
 - Консоль управления {#console}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
+  1. Добавьте в сервис Certificate Manager [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать сертификат.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-      1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
-      1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите имя создаваемого сертификата. Например: `gatsbytestcert`.
-      1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена, например `gatsbytest.ru`.
-      1. Выберите [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md) `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
-      1. Нажмите **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать сертификат.
+      1. Перейдите в сервис **Certificate Manager**.
+      1. Нажмите **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
+      1. В открывшемся окне в поле **Имя** укажите имя создаваемого сертификата. Например: `gatsbytestcert`.
+      1. В поле **Домены** укажите имя вашего домена, например `gatsbytest.ru`.
+      1. Выберите [тип проверки прав на домен](../../certificate-manager/concepts/challenges.md) `DNS`.
+      1. Нажмите **Создать**.
 
           В списке сертификатов появится новый сертификат со статусом `Validating`. Этот статус означает, что запрос на выпуск сертификата от Let's Encrypt® создан, и для его успешной обработки вам необходимо пройти [процедуру проверки прав на домен](../../certificate-manager/operations/managed/cert-validate.md).
 
   1. Для успешного выпуска сертификата пройдите проверку прав на домен:
 
       1. В списке сертификатов выберите `gatsbytestcert`.
-      1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** выберите `CNAME-запись`.
-      1. Нажмите **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}** и в открывшемся окне нажмите **{{ ui-key.yacloud.common.create }}**.
+      1. В открывшемся окне в блоке **Проверка прав на домены** выберите `CNAME-запись`.
+      1. Нажмите **Создать запись** и в открывшемся окне нажмите **Создать**.
 
       Проверка прав на домен может занять от нескольких минут до нескольких дней — дождитесь ее успешного завершения. В результате сертификат будет выпущен и перейдет в статус `Issued`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
+  1. Добавьте в сервис Certificate Manager [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Выполните команду:
 
@@ -432,7 +432,7 @@
 
 - API {#api}
 
-  1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
+  1. Добавьте в сервис Certificate Manager [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом.
 
       Чтобы добавить сертификат, воспользуйтесь методом REST API [requestNew](../../certificate-manager/api-ref/Certificate/requestNew.md) для ресурса [Certificate](../../certificate-manager/api-ref/Certificate/index.md) или вызовом gRPC API [CertificateService/RequestNew](../../certificate-manager/api-ref/grpc/Certificate/requestNew.md).
 
@@ -455,17 +455,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ objstorage-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
-  1. На панели слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_empty-action }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_source }}** выберите **{{ ui-key.yacloud.storage.bucket.https.value_method-certificate-manager }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.https.field_certificate }}** выберите сертификат в появившемся списке.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.https.button_save }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **Безопасность**.
+  1. Перейдите на вкладку **HTTPS**.
+  1. Нажмите кнопку **Настроить**.
+  1. В поле **Источник** выберите **Certificate Manager**.
+  1. В поле **Сертификат** выберите сертификат в появившемся списке.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Выполните команду:
 
@@ -478,7 +478,7 @@
   Где:
 
   * `--name` — имя бакета, в данном примере это `gatsbytest.ru`;
-  * `--certificate-id` — идентификатор сертификата в {{ certificate-manager-name }}.
+  * `--certificate-id` — идентификатор сертификата в Certificate Manager.
 
   Результат:
 
@@ -489,7 +489,7 @@
 
 - API {#api}
 
-  Чтобы привязать к бакету TLS-сертификат {{ certificate-manager-name }}, воспользуйтесь методом REST API [setHTTPSConfig](../../storage/api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../storage/api-ref/grpc/Bucket/setHTTPSConfig.md).
+  Чтобы привязать к бакету TLS-сертификат Certificate Manager, воспользуйтесь методом REST API [setHTTPSConfig](../../storage/api-ref/Bucket/setHTTPSConfig.md) для ресурса [Bucket](../../storage/api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/SetHTTPSConfig](../../storage/api-ref/grpc/Bucket/setHTTPSConfig.md).
 
 {% endlist %}
 
@@ -550,8 +550,8 @@
           resolve: 'gatsby-plugin-s3',
           options: {
             bucketName: '<имя_бакета>',
-            region: '{{ region-id }}',
-            customAwsEndpointHostname: '{{ s3-storage-host }}'
+            region: 'ru-central1',
+            customAwsEndpointHostname: 'storage.yandexcloud.net'
           }
         },
         ...

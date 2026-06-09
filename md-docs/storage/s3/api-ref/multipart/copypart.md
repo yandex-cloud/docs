@@ -2,7 +2,7 @@
 
 Копирует часть объекта.
 
-Имеет такую же функциональность, как и [{#T}](uploadpart.md), только данные передаются не в теле запроса, а копируются из существующего объекта.
+Имеет такую же функциональность, как и [Object Storage API, REST совместимый с Amazon S3: UploadPart](uploadpart.md), только данные передаются не в теле запроса, а копируются из существующего объекта.
 
 Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
 
@@ -17,14 +17,14 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 Параметр | Описание
 ----- | -----
 `bucket` | Имя результирующего бакета.
-`key` | Ключ результирующего объекта. Идентификатор, под которым объект сохраняется в {{ objstorage-name }}.
+`key` | Ключ результирующего объекта. Идентификатор, под которым объект сохраняется в Object Storage.
 
 ### Query параметры {#request-parameters}
 
 Параметр | Описание
 ----- | -----
 `partNumber` | Идентификатор, который вы присвоили загружаемой части.
-`uploadId` | Идентификатор составной загрузки, который {{ objstorage-name }} вернул при [инициализации](startupload.md).
+`uploadId` | Идентификатор составной загрузки, который Object Storage вернул при [инициализации](startupload.md).
 
 
 ### Заголовки {#request-headers}
@@ -36,7 +36,7 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 Заголовок | Описание
 --- | ---
 `X-Amz-Copy-Source` | Имя бакета и ключ объекта, данные которого будут копироваться, разделенные символом `/`.<br/><br/>Например, `X-Amz-Copy-Source: /source_bucket/sourceObject`.
-`X-Amz-Copy-Source-Range` | Диапазон байт для копирования из исходного объекта. Например, если указать `X-Amz-Copy-Source-Range:bytes=10-36`, то {{ objstorage-name }} скопирует с 10-го по 36-й байт исходного объекта.
+`X-Amz-Copy-Source-Range` | Диапазон байт для копирования из исходного объекта. Например, если указать `X-Amz-Copy-Source-Range:bytes=10-36`, то Object Storage скопирует с 10-го по 36-й байт исходного объекта.
 
 Заголовок `Content-MD5` обязателен, если в бакете настроены [блокировки версий объектов по умолчанию](../../../concepts/object-lock.md#default).
 
@@ -46,10 +46,10 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 Заголовок | Описание
 ----- | -----
-`X-Amz-Copy-Source-If-Match` | Условие для копирования объекта.<br/><br/>Если `ETag` объекта равен заданному в заголовке, то объект копируется.<br/><br/>Если условие не выполнено, то {{ objstorage-name }} вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Unmodified-Since`.
-`X-Amz-Copy-Source-If-None-Match` | Условие для копирования объекта.<br/><br/>Если `ETag` объекта не равен заданному в заголовке, то объект копируется.<br/><br/>Если условие не выполнено, то {{ objstorage-name }} вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Modified-Since`.
-`X-Amz-Copy-Source-If-Unmodified-Since` | Условие для копирования объекта.<br/><br/>Объект копируется, если он не изменялся с указанного времени.<br/><br/>Если условие не выполнено, то {{ objstorage-name }} вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Match`.
-`X-Amz-Copy-Source-If-Modified-Since` | Условие для копирования объекта.<br/><br/>Объект копируется, если он изменился с указанного времени.<br/><br/>Если условие не выполнено, то {{ objstorage-name }} вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-None-Match`.
+`X-Amz-Copy-Source-If-Match` | Условие для копирования объекта.<br/><br/>Если `ETag` объекта равен заданному в заголовке, то объект копируется.<br/><br/>Если условие не выполнено, то Object Storage вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Unmodified-Since`.
+`X-Amz-Copy-Source-If-None-Match` | Условие для копирования объекта.<br/><br/>Если `ETag` объекта не равен заданному в заголовке, то объект копируется.<br/><br/>Если условие не выполнено, то Object Storage вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Modified-Since`.
+`X-Amz-Copy-Source-If-Unmodified-Since` | Условие для копирования объекта.<br/><br/>Объект копируется, если он не изменялся с указанного времени.<br/><br/>Если условие не выполнено, то Object Storage вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-Match`.
+`X-Amz-Copy-Source-If-Modified-Since` | Условие для копирования объекта.<br/><br/>Объект копируется, если он изменился с указанного времени.<br/><br/>Если условие не выполнено, то Object Storage вернет ошибку 412.<br/><br/>Можно использовать вместе с заголовком `X-Amz-Copy-Source-If-None-Match`.
 
 
 ## Ответ {#response}
@@ -61,9 +61,9 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
-Дополнительно, {{ objstorage-name }} может вернуть ошибки, описанные в таблице ниже.
+Дополнительно, Object Storage может вернуть ошибки, описанные в таблице ниже.
 
 Ошибка | Описание | HTTP-код
 ----- | ----- | -----
@@ -88,13 +88,13 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/multipart.md)
+* [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
-* [{#T}](../../../operations/objects/copy.md#copy-single-object)
+* [Копирование одного объекта](../../../operations/objects/copy.md#copy-single-object)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

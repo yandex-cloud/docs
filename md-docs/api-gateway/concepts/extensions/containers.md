@@ -8,7 +8,7 @@
 
 ## Поддерживаемые параметры {#parameters}
 
-В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса {{ api-gw-short-name }}. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+В таблице ниже перечислены параметры, специфичные для API-шлюза сервиса API Gateway. Описание остальных параметров читайте в [спецификации OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
 
 Параметр | Тип | Описание
 ----|----|----
@@ -63,4 +63,4 @@ paths:
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/deploy-app-container.md)
+* [Запуск контейнерного приложения в Yandex Serverless Containers](../../tutorials/deploy-app-container.md)

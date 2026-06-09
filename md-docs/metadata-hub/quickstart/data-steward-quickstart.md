@@ -10,19 +10,19 @@
 
 
 
-Работая с {{ data-catalog-full-name }} в роли управляющего метаданными, вы можете собирать и систематизировать метаданные об объектах {{ yandex-cloud }} и связях между ними.
+Работая с Yandex Data Catalog в роли управляющего метаданными, вы можете собирать и систематизировать метаданные об объектах Yandex Cloud и связях между ними.
 
-{{ data-catalog-name }} поддерживает получение метаданных из следующих сервисов:
+Data Catalog поддерживает получение метаданных из следующих сервисов:
 
-* {{ PG }};
-* {{ MY }};
-* {{ CH }};
-* {{ SD }}/{{ MG }};
-* {{ OS }};
-* {{ GP }};
-* {{ data-transfer-full-name }};
-* {{ websql-name }};
-* {{ datalens-name }}.
+* PostgreSQL;
+* MySQL®;
+* ClickHouse®;
+* Yandex StoreDoc/MongoDB;
+* OpenSearch;
+* Greenplum®;
+* Yandex Data Transfer;
+* WebSQL;
+* DataLens.
 
 Чтобы начать работу с сервисом:
 
@@ -37,17 +37,17 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы, объем хранилища и резервных копий кластера {{ mpg-full-name }} (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за вычислительные ресурсы, объем хранилища и резервных копий кластера Yandex Managed Service for PostgreSQL (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 
 1. Если у вас еще нет каталога ресурсов, создайте его:
 
-   1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+   1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    1. Справа от названия облака нажмите ![image](../../_assets/console-icons/ellipsis.svg).
-   1. Выберите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. Выберите ![image](../../_assets/console-icons/plus.svg) **Создать каталог**.
    
       ![create-folder1](../../_assets/resource-manager/create-folder-1.png)
    
@@ -58,15 +58,15 @@
        * первый символ — буква, последний — не дефис.
    
    1. (Опционально) Введите описание каталога.
-   1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+   1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+   1. Нажмите кнопку **Создать**.
    
       ![create-folder2](../../_assets/resource-manager/create-folder-2.png)
 
-1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роли на каталог ресурсов:
+1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли на каталог ресурсов:
 
     * `data-catalog.dataSteward` — чтобы создавать ресурсы Data Catalog и управлять ими;
-    * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
+    * [vpc.user](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера.
 
     {% note info %}
     
@@ -74,7 +74,7 @@
     
     {% endnote %}
 
-1. [Создайте кластер](../../managed-postgresql/operations/cluster-create.md#create-cluster) {{ mpg-name }}, из которого будут поставляться данные в качестве тестовой нагрузки.
+1. [Создайте кластер](../../managed-postgresql/operations/cluster-create.md#create-cluster) Managed Service for PostgreSQL, из которого будут поставляться данные в качестве тестовой нагрузки.
 
 ## Создайте каталог метаданных {#create-catalog}
 
@@ -82,21 +82,21 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [подготовленный ранее](#before-you-begin) каталог ресурсов.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.action_create-catalog }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** каталога метаданных.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** каталога метаданных.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [подготовленный ранее](#before-you-begin) каталог ресурсов.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите сервис ![image](../../_assets/console-icons/folder-magnifier.svg) **Data Catalog**.
+  1. Нажмите кнопку **Cоздать каталог**.
+  1. Задайте **Имя** каталога метаданных.
+  1. Задайте **Описание** каталога метаданных.
+  1. Нажмите кнопку **Создать**.
 
     {% note info %}
     
     При создании каталога метаданных опция **AI-разметка метаданных** включена по умолчанию.
     
-    Когда опция включена, AI-ассистент предлагает описания, [домены](../concepts/data-catalog.md#domains-and-subdomains), [классификации и теги](../concepts/data-catalog.md#classifications-and-tags), [глоссарии и термины](../concepts/data-catalog.md#glossaries-and-terms), а также размечает с их помощью ваши метаданные. Предложения ассистента можно подтвердить, отредактировать или отклонить. Для этого наведите курсор на значок **{{ ui-key.yacloud.data-catalog.label_ai-label }}** рядом с предложением ассистента и выберите нужное действие.
+    Когда опция включена, AI-ассистент предлагает описания, [домены](../concepts/data-catalog.md#domains-and-subdomains), [классификации и теги](../concepts/data-catalog.md#classifications-and-tags), [глоссарии и термины](../concepts/data-catalog.md#glossaries-and-terms), а также размечает с их помощью ваши метаданные. Предложения ассистента можно подтвердить, отредактировать или отклонить. Для этого наведите курсор на значок **AI** рядом с предложением ассистента и выберите нужное действие.
     
-    После создания каталога AI-разметкой можно управлять на странице **{{ ui-key.yacloud.common.overview }}** или при [изменении](../operations/data-catalog/update-catalog.md) каталога.
+    После создания каталога AI-разметкой можно управлять на странице **Обзор** или при [изменении](../operations/data-catalog/update-catalog.md) каталога.
     
     {% endnote %}
 
@@ -108,30 +108,30 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **{{ ui-key.yacloud.data-catalog.label_sources }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-source-button }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** источника.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** источника.
-  1. Выберите **{{ ui-key.yacloud.data-catalog.label_source-database-type }}** — **PostgreSQL**.
-  1. В блоке **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.title }}** задайте параметры:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/cloud-arrow-up-in.svg) **Источники данных** и нажмите кнопку **Создать источник данных**.
+  1. Задайте **Имя** источника.
+  1. Задайте **Описание** источника.
+  1. Выберите **Тип источника данных** — **PostgreSQL**.
+  1. В блоке **Источник PostgreSQL** задайте параметры:
 
-     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.folder_id.title }}** — каталог ресурсов, в котором создан кластер {{ mpg-name }}.
-     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.connection_types.title }}** — **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.managed.title }}**.
-     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.cluster_id.title }}** — созданный ранее кластер {{ mpg-name }}.
-     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ConnectionType.ManagedConnection.connection_id.title }}** — подключение к созданному ранее кластеру {{ mpg-name }} в сервисе {{ connection-manager-full-name }}.
-     * **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.database_name.title }}** в созданном ранее кластере {{ mpg-name }}.
-     * (Опционально) **{{ ui-key.data-catalog.console.form.postgresql_source_create.PostgreSQLSourceCreate.ingest_all.title }}** — включите опцию, если необходимо выгружать данные из всех баз данных.
+     * **ID папки** — каталог ресурсов, в котором создан кластер Managed Service for PostgreSQL.
+     * **Тип инсталляции** — **Кластер Managed Service for PostgreSQL**.
+     * **Кластер управляемой БД** — созданный ранее кластер Managed Service for PostgreSQL.
+     * **ID подключения** — подключение к созданному ранее кластеру Managed Service for PostgreSQL в сервисе Yandex Connection Manager.
+     * **Имя базы данных** в созданном ранее кластере Managed Service for PostgreSQL.
+     * (Опционально) **Выгружать из всех баз данных** — включите опцию, если необходимо выгружать данные из всех баз данных.
      * **Идентификатор сети** — укажите идентификатор сети.
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. 
-  1. После этого вам откроется страница со списком источников в каталоге метаданных. В строке с только что созданным источником будет отображаться сообщение **{{ ui-key.yacloud.data-catalog.label_empty-ingestion-count-short }}**.
-  1. Наведите курсор на это сообщение и в отобразившемся окне нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-ingestion-action }}**. 
-  1. Задайте **{{ ui-key.yacloud.common.name }}** загрузки.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** загрузки.  
-  1. В поле **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.cron.title }}** выберите **{{ ui-key.data-catalog.console.form.cron.Cron.day.title }}**.
-  1. В полях **{{ ui-key.data-catalog.console.form.cron.HoursInterval.start.title }}** и **{{ ui-key.data-catalog.console.form.cron.HoursInterval.end.title }}** задайте время работы загрузки.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**. 
+  1. После этого вам откроется страница со списком источников в каталоге метаданных. В строке с только что созданным источником будет отображаться сообщение **Нет загрузки**.
+  1. Наведите курсор на это сообщение и в отобразившемся окне нажмите кнопку **Создать загрузку**. 
+  1. Задайте **Имя** загрузки.
+  1. Задайте **Описание** загрузки.  
+  1. В поле **Расписание** выберите **Каждый день**.
+  1. В полях **Время начала** и **Время окончания** задайте время работы загрузки.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -141,16 +141,16 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
 
-     В открывшемся списке отобразятся метаданные, полученные из созданного ранее кластера {{ mpg-name }}.
+     В открывшемся списке отобразятся метаданные, полученные из созданного ранее кластера Managed Service for PostgreSQL.
 
 {% endlist %}
 
 {% note tip %}
 
-Загруженные из источника метаданные также отобразятся на вкладке **{{ ui-key.yacloud.data-catalog.label_source-data-tab }}** в этом источнике.
+Загруженные из источника метаданные также отобразятся на вкладке **Выгруженные данные** в этом источнике.
 
 {% endnote %}
 
@@ -162,11 +162,11 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-classification-action }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** классификации.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** классификации.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **Теги и классификации** и нажмите кнопку **Создать классификацию**.
+  1. Задайте **Имя** классификации.
+  1. Задайте **Описание** классификации.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -176,12 +176,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **{{ ui-key.yacloud.data-catalog.label_tags-and-classification }}** и откройте [созданную ранее](#create-classification) классификацию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-tag-action }}**.
-  1. В открывшемся окне задайте **{{ ui-key.yacloud.common.name }}** тега.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** тега.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/tag.svg) **Теги и классификации** и откройте [созданную ранее](#create-classification) классификацию.
+  1. Нажмите кнопку **Создать тег**.
+  1. В открывшемся окне задайте **Имя** тега.
+  1. Задайте **Описание** тега.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -193,12 +193,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-domain-action }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** домена. 
-  1. Задайте **{{ ui-key.yacloud.common.description }}** домена.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **Домены** и нажмите кнопку **Создать домен**.
+  1. Задайте **Имя** домена. 
+  1. Задайте **Описание** домена.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -208,13 +208,13 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **{{ ui-key.yacloud.data-catalog.label_domains }}** и выберите [созданный ранее](#create-domain) домен.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_add-subdomain-action }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** поддомена. 
-  1. Задайте **{{ ui-key.yacloud.common.description }}** поддомена.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/globe.svg) **Домены** и выберите [созданный ранее](#create-domain) домен.
+  1. Нажмите кнопку **Добавить поддомен**.
+  1. Задайте **Имя** поддомена. 
+  1. Задайте **Описание** поддомена.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -226,12 +226,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** и нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-glossary-action }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** глоссария.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** глоссария.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **Термины и глоссарии** и нажмите кнопку **Создать глоссарий**.
+  1. Задайте **Имя** глоссария.
+  1. Задайте **Описание** глоссария.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -241,15 +241,15 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **{{ ui-key.yacloud.data-catalog.label_terms-and-glossaries }}** и выберите [созданный ранее](#create-glossary) глоссарий.
-  1. Нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_create-term-action }}**.
-  1. Задайте **{{ ui-key.yacloud.common.name }}** термина.
-  1. Задайте **{{ ui-key.yacloud.common.description }}** термина.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/book.svg) **Термины и глоссарии** и выберите [созданный ранее](#create-glossary) глоссарий.
+  1. Нажмите кнопку **Создать термин**.
+  1. Задайте **Имя** термина.
+  1. Задайте **Описание** термина.
   1. Укажите синонимы для термина.
   1. Добавьте один или несколько [созданных ранее](#create-tags) тегов.
   1. Добавьте связанные термины.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -259,9 +259,9 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
-  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
-  1. В строке с выбранным набором данных нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.data-catalog.action_set-domain }}**, **{{ ui-key.yacloud.data-catalog.label_add-tags }}** или **{{ ui-key.yacloud.data-catalog.label_add-terms }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [созданный ранее](#create-catalog) каталог метаданных.
+  1. Перейдите на вкладку ![image](../../_assets/console-icons/database-magnifier.svg) **Поиск по метаданным**.
+  1. В строке с выбранным набором данных нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Присвоить домен**, **Изменить теги** или **Изменить термины**.
   1. В открывшемся окне выберите объект в иерархии доменов, тегов или терминов. При необходимости воспользуйтесь поиском.
   1. Добавьте выбранные объекты.
 

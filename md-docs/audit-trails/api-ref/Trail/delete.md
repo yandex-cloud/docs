@@ -5,7 +5,7 @@ Deletes the specified trail.
 ## HTTP request
 
 ```
-DELETE https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
+DELETE https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{trailId}
 ```
 
 ## Path parameters

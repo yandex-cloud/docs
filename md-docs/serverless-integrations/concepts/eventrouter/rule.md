@@ -10,14 +10,14 @@ _Фильтр_ — выражение в [формате jq](https://jqlang.gith
 
 _Приемник_ — это получатель события. Поддерживаемые приемники:
 
-* [WebSocket-соединения](../../../api-gateway/concepts/extensions/websocket.md), подключенные к API-шлюзу {{ api-gw-name }};
-* [функции](../../../functions/concepts/function.md) {{ sf-name }};
-* [лог-группы](../../../logging/concepts/log-group.md) {{ cloud-logging-name }};
-* [потоки данных](../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }};
-* [очереди](../../../message-queue/concepts/queue.md) {{ message-queue-name }};
-* [контейнеры](../../../serverless-containers/concepts/container.md) {{ serverless-containers-name }};
-* [рабочие процессы](../workflows/workflow.md) {{ sw-name }}.
+* [WebSocket-соединения](../../../api-gateway/concepts/extensions/websocket.md), подключенные к API-шлюзу API Gateway;
+* [функции](../../../functions/concepts/function.md) Cloud Functions;
+* [лог-группы](../../../logging/concepts/log-group.md) Cloud Logging;
+* [потоки данных](../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams;
+* [очереди](../../../message-queue/concepts/queue.md) Message Queue;
+* [контейнеры](../../../serverless-containers/concepts/container.md) Serverless Containers;
+* [рабочие процессы](../workflows/workflow.md) Workflows.
 
-{{ er-name }} поддерживает гарантию доставки `At least once`. Если временно невозможно доставить или получить подтверждение о доставке, {{ er-name }} будет повторно пытаться отправить событие до истечения времени жизни события. Количество повторных попыток и максимальное время жизни события задаются в настройках приемника. Событие, которое не удалось обработать, перемещается в указанную клиентом очередь Dead Letter Queue.
+EventRouter поддерживает гарантию доставки `At least once`. Если временно невозможно доставить или получить подтверждение о доставке, EventRouter будет повторно пытаться отправить событие до истечения времени жизни события. Количество повторных попыток и максимальное время жизни события задаются в настройках приемника. Событие, которое не удалось обработать, перемещается в указанную клиентом очередь Dead Letter Queue.
 
-В целях оптимизации {{ er-name }} позволяет задать настройки группирования событий для некоторых типов приемников. В приемнике может быть задан jq-шаблон, в соответствии с которым события преобразовываются перед отправкой в приемник.
+В целях оптимизации EventRouter позволяет задать настройки группирования событий для некоторых типов приемников. В приемнике может быть задан jq-шаблон, в соответствии с которым события преобразовываются перед отправкой в приемник.

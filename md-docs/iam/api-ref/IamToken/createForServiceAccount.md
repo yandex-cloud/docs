@@ -5,7 +5,7 @@ Create an IAM token for service account.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/tokens:createForServiceAccount
+POST https://iam.api.cloud.yandex.net/iam/v1/tokens:createForServiceAccount
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateIamTokenForServiceAccountRequest}

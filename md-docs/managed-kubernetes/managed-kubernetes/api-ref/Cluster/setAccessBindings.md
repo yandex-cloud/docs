@@ -5,7 +5,7 @@ Sets cluster's access bindings
 ## HTTP request
 
 ```
-POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{resourceId}:setAccessBindings
+POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

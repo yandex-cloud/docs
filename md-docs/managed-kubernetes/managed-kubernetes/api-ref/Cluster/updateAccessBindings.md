@@ -5,7 +5,7 @@ Updates cluster's access bindings
 ## HTTP request
 
 ```
-PATCH https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

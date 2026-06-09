@@ -5,7 +5,7 @@ Updates the specified host group.
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
 ```
 
 ## Path parameters

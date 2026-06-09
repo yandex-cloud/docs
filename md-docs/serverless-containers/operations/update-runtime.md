@@ -4,12 +4,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится контейнер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится контейнер.
+  1. Перейдите в сервис **Serverless Containers**.
   1. Выберите контейнер, для которого хотите изменить [режим работы](../concepts/container.md#runtime).
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-  1. В открывшемся окне в блоке **{{ ui-key.yacloud.serverless-containers.section_general }}** выберите режим работы — `{{ ui-key.yacloud.serverless-containers.label_runtime-http-server }}` или `{{ ui-key.yacloud.serverless-containers.label_runtime-task-execution }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**. Будет создана новая ревизия контейнера с выбранным режимом работы.
+  1. Перейдите на вкладку **Редактор**.
+  1. В открывшемся окне в блоке **Базовые параметры** выберите режим работы — `HTTP-сервер` или `Выполнение команд`.
+  1. Нажмите кнопку **Создать ревизию**. Будет создана новая ревизия контейнера с выбранным режимом работы.
 
 - CLI {#cli}
 
@@ -25,7 +25,7 @@
 
   Где:
   * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
-  * `--image` — URL Docker-образа из {{ container-registry-full-name }}.
+  * `--image` — URL Docker-образа из Yandex Container Registry.
   * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание Docker-образа.
   * `--runtime` — режим работы контейнера. Возможные значения: `http`, `task`. Значение по умолчанию: `http`.
 

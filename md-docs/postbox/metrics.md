@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ postbox-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Yandex Cloud Postbox, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик {{ postbox-name }}:
+Общие метки для всех метрик Yandex Cloud Postbox:
 
 Метка | Значение
 ----|----

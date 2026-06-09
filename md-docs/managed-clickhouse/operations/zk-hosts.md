@@ -1,19 +1,19 @@
-# Управление хостами {{ ZK }}
+# Управление хостами ZooKeeper
 
 
-{{ ZK }} — это сервис, который обеспечивает координацию и распределение запросов между хостами {{ CH }} для [репликации данных](../concepts/replication.md). Для обеспечения репликации в кластере {{ mch-name }} должно быть [три или пять хостов {{ ZK }}](../qa/cluster-settings.md#zookeeper-hosts-number). Такой кластер будет отказоустойчивым.
+ZooKeeper — это сервис, который обеспечивает координацию и распределение запросов между хостами ClickHouse® для [репликации данных](../concepts/replication.md). Для обеспечения репликации в кластере Managed Service for ClickHouse® должно быть [три или пять хостов ZooKeeper](../qa/cluster-settings.md#zookeeper-hosts-number). Такой кластер будет отказоустойчивым.
 
-Если вы создаете кластер с двумя или более хостами {{ CH }} на шард, в кластер автоматически добавятся три хоста {{ ZK }}. При создании вы можете настроить только их конфигурацию. Если вы создали кластер из одного хоста или нескольких однохостовых шардов, хосты {{ ZK }} можно добавить позднее.
+Если вы создаете кластер с двумя или более хостами ClickHouse® на шард, в кластер автоматически добавятся три хоста ZooKeeper. При создании вы можете настроить только их конфигурацию. Если вы создали кластер из одного хоста или нескольких однохостовых шардов, хосты ZooKeeper можно добавить позднее.
 
-Подробнее о работе хостов {{ ZK }} читайте в разделе [{#T}](../concepts/coordination-system.md#zk).
+Подробнее о работе хостов ZooKeeper читайте в разделе [ZooKeeper](../concepts/coordination-system.md#zk).
 
-Вы можете выполнить следующие действия над хостами {{ ZK }}:
+Вы можете выполнить следующие действия над хостами ZooKeeper:
 
 * [получить список хостов в кластере](#list-hosts);
-* [добавить хосты {{ ZK }}](#add-zk);
-* [изменить настройки хостов {{ ZK}}](#update-zk-settings);
+* [добавить хосты ZooKeeper](#add-zk);
+* [изменить настройки хостов ZooKeeper](#update-zk-settings);
 * [перезагрузить хост](#restart);
-* [перенести хосты {{ ZK }} в другую зону доступности](host-migration.md#zookeeper-hosts);
+* [перенести хосты ZooKeeper в другую зону доступности](host-migration.md#zookeeper-hosts);
 * [удалить хост](#delete-zk-host).
 
 ## Получить список хостов в кластере {#list-hosts}
@@ -24,20 +24,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} host list \
+  yc managed-clickhouse host list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -45,8 +45,8 @@
   +----------------------------+--------------+---------+--------+---------------+
   |            NAME            |  CLUSTER ID  |  ROLE   | HEALTH |    ZONE ID    |
   +----------------------------+--------------+---------+--------+---------------+
-  | rc1b...{{ dns-zone }} | c9qp71dk1... | MASTER  | ALIVE  | {{ region-id }}-b |
-  | rc1a...{{ dns-zone }} | c9qp71dk1... | REPLICA | ALIVE  | {{ region-id }}-a |
+  | rc1b...mdb.yandexcloud.net | c9qp71dk1... | MASTER  | ALIVE  | ru-central1-b |
+  | rc1a...mdb.yandexcloud.net | c9qp71dk1... | REPLICA | ALIVE  | ru-central1-a |
   +----------------------------+--------------+---------+--------+---------------+
   ```
 
@@ -60,13 +60,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -89,7 +89,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -101,7 +101,7 @@
             -d '{
                     "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.ListHosts
         ```
 
@@ -112,11 +112,11 @@
 {% endlist %}
 
 
-## Добавить хосты {{ ZK }} {#add-zk}
+## Добавить хосты ZooKeeper {#add-zk}
 
 {% note info %}
 
-В [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d` недоступно использование платформы Intel Broadwell.
+В [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d` недоступно использование платформы Intel Broadwell.
 
 {% endnote %}
 
@@ -124,14 +124,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. Справа сверху нажмите **Настроить сервис координации**.
   1. Укажите [класс хостов](../concepts/instance-types.md).
   1. Задайте настройки хранилища.
-  1. При необходимости измените настройки хостов {{ ZK }}. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
-  1. Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+  1. При необходимости измените настройки хостов ZooKeeper. Чтобы это сделать, наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/pencil.svg).
+  1. Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **Преобразовать нереплицируемые таблицы**. Нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
      {% note warning %}
 
@@ -139,33 +139,33 @@
 
      {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы добавить в кластер хосты {{ ZK }}:
-  1. Посмотрите описание команды CLI для добавления хостов {{ ZK }}:
+  Чтобы добавить в кластер хосты ZooKeeper:
+  1. Посмотрите описание команды CLI для добавления хостов ZooKeeper:
 
      ```bash
-     {{ yc-mdb-ch }} cluster add-zookeeper --help
+     yc managed-clickhouse cluster add-zookeeper --help
      ```
 
   1. Запустите операцию с характеристиками хостов по умолчанию:
 
      ```bash
-     {{ yc-mdb-ch }} cluster add-zookeeper <имя_кластера> \
-        --host zone-id={{ region-id }}-d,subnet-name=default-d \
-        --host zone-id={{ region-id }}-a,subnet-name=default-a \
-        --host zone-id={{ region-id }}-b,subnet-name=default-b
+     yc managed-clickhouse cluster add-zookeeper <имя_кластера> \
+        --host zone-id=ru-central1-d,subnet-name=default-d \
+        --host zone-id=ru-central1-a,subnet-name=default-a \
+        --host zone-id=ru-central1-b,subnet-name=default-b
      ```
 
-     Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: {{ mch-name }} автоматически распределит хосты по этим подсетям.
+     Если в сети, в которой расположен кластер, ровно 3 подсети, по одной в каждой зоне доступности, то явно указывать подсети для хостов необязательно: Managed Service for ClickHouse® автоматически распределит хосты по этим подсетям.
 
-     Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), добавьте в команду параметр `--convert-tables-to-replicated`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+     Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), добавьте в команду параметр `--convert-tables-to-replicated`. Нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
 
      {% note warning %}
 
@@ -176,17 +176,17 @@
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Чтобы добавить в кластер хосты {{ ZK }}:
+  Чтобы добавить в кластер хосты ZooKeeper:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -197,39 +197,39 @@
        name = "<имя_сети>"
      }
 
-     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-a>" {
-       name           = "<имя_подсети_в_зоне_{{ region-id }}-a>"
-       zone           = "{{ region-id }}-a"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_ru-central1-a>" {
+       name           = "<имя_подсети_в_зоне_ru-central1-a>"
+       zone           = "ru-central1-a"
        network_id     = yandex_vpc_network.<имя_сети>.id
-       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-a>" ]
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_ru-central1-a>" ]
      }
 
-     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-b>" {
-       name           = "<имя_подсети_в_зоне_{{ region-id }}-b>"
-       zone           = "{{ region-id }}-b"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_ru-central1-b>" {
+       name           = "<имя_подсети_в_зоне_ru-central1-b>"
+       zone           = "ru-central1-b"
        network_id     = yandex_vpc_network.<имя_сети>.id
-       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-b>" ]
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_ru-central1-b>" ]
      }
 
-     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_{{ region-id }}-d>" {
-       name           = "<имя_подсети_в_зоне_{{ region-id }}-d>"
-       zone           = "{{ region-id }}-d"
+     resource "yandex_vpc_subnet" "<имя_подсети_в_зоне_ru-central1-d>" {
+       name           = "<имя_подсети_в_зоне_ru-central1-d>"
+       zone           = "ru-central1-d"
        network_id     = yandex_vpc_network.<имя_сети>.id
-       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-d>" ]
+       v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_ru-central1-d>" ]
      }
      ```
       
-  1. Добавьте к описанию кластера {{ CH }}:
+  1. Добавьте к описанию кластера ClickHouse®:
       
-     * блок `zookeeper` с конфигурацией {{ ZK }};
-     * не менее трех хостов {{ ZK }} в блок `hosts`.
+     * блок `zookeeper` с конфигурацией ZooKeeper;
+     * не менее трех хостов ZooKeeper в блок `hosts`.
       
-     Три хоста {{ ZK }} должны быть размещены в разных зонах доступности.
+     Три хоста ZooKeeper должны быть размещены в разных зонах доступности.
       
-     Требования к хостам {{ ZK }}:
+     Требования к хостам ZooKeeper:
 
      * Минимальный класс хоста — `b1.medium`.
-     * Тип диска — `{{ disk-type-example }}`.
+     * Тип диска — `network-ssd`.
      * Минимальный размер хранилища — 10 гигабайт.
 
      Пример конфигурационного файла:
@@ -240,7 +240,7 @@
        zookeeper = {
          resources = {
            resource_preset_id = "<класс_хостов>"
-           disk_type_id       = "{{ disk-type-example }}"
+           disk_type_id       = "network-ssd"
            disk_size          = <размер_хранилища_ГБ>
          }
        }
@@ -249,18 +249,18 @@
          ...
          <имя_хоста_1> = {
            type      = "ZOOKEEPER"
-           zone      = "{{ region-id }}-a"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
+           zone      = "ru-central1-a"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_ru-central1-a>.id
          }
          <имя_хоста_2> = {
            type      = "ZOOKEEPER"
-           zone      = "{{ region-id }}-b"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-b>.id
+           zone      = "ru-central1-b"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_ru-central1-b>.id
          }
          <имя_хоста_3> = {
            type      = "ZOOKEEPER"
-           zone      = "{{ region-id }}-d"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-d>.id
+           zone      = "ru-central1-d"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_ru-central1-d>.id
          }
        }
      }
@@ -270,14 +270,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -299,11 +299,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -339,7 +339,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.AddZookeeper](../api-ref/Cluster/addZookeeper.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.AddZookeeper](../api-ref/Cluster/addZookeeper.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
   
       ```bash
       curl \
@@ -369,19 +369,19 @@
   
       Где:
   
-      * `resources` — набор ресурсов для хостов {{ ZK }}:
+      * `resources` — набор ресурсов для хостов ZooKeeper:
   
         * `resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md);
         * `diskSize` — размер диска в байтах;
         * `diskTypeId` — [тип диска](../concepts/storage.md).
   
-      * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}. Элемент массива имеет следующую структуру:
+      * `hostSpecs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста ZooKeeper. Элемент массива имеет следующую структуру:
   
         * `type` — тип хоста `ZOOKEEPER`;
         * `zoneId` — зона доступности;
         * `subnetId` — идентификатор подсети.
   
-      * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+      * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
   
         {% note warning %}
   
@@ -408,7 +408,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.AddZookeeper](../api-ref/grpc/Cluster/addZookeeper.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
   
        ```bash
        grpcurl \
@@ -436,19 +436,19 @@
                ],
                "convert_tables_to_replicated": true
              }' \
-         {{ api-host-mdb }}:{{ port-https }} \
+         mdb.api.cloud.yandex.net:443 \
          yandex.cloud.mdb.clickhouse.v1.ClusterService.AddZookeeper
        ```
   
       Где:
   
-      * `resources` — набор ресурсов для хостов {{ ZK }}:
+      * `resources` — набор ресурсов для хостов ZooKeeper:
   
         * `resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md);
         * `disk_size` — размер диска в байтах;
         * `disk_type_id` — [тип диска](../concepts/storage.md).
   
-      * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста {{ ZK }}.
+      * `host_specs` — массив, содержащий настройки создаваемых хостов. Один элемент массива содержит настройки для одного хоста, в кластере должно быть минимум три хоста ZooKeeper.
   
         Элемент массива имеет следующую структуру:
   
@@ -456,7 +456,7 @@
         * `zone_id` — зона доступности;
         * `subnet_id` — идентификатор подсети.
   
-      * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
+      * `convert_tables_to_replicated` — преобразование нереплицируемых таблиц в [реплицируемые](../concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication).
   
         {% note warning %}
   
@@ -470,57 +470,57 @@
 
 {% endlist %}
 
-## Изменить настройки хостов {{ ZK }} {#update-zk-settings}
+## Изменить настройки хостов ZooKeeper {#update-zk-settings}
 
-После создания хостов {{ ZK }} вы можете изменить их [класс](../concepts/instance-types.md), размер хранилища и [тип диска](../concepts/storage.md).
+После создания хостов ZooKeeper вы можете изменить их [класс](../concepts/instance-types.md), размер хранилища и [тип диска](../concepts/storage.md).
 
 Рекомендуется изменять класс хостов только во время отсутствия рабочей нагрузки на кластер.
 
-Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
+Минимальное количество ядер для одного хоста ZooKeeper зависит от суммарного количества ядер хостов ClickHouse®. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}** выберите платформу, тип виртуальной машины и нужный класс хоста {{ ZK }}.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}** задайте размер хранилища и тип диска для хостов {{ ZK }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+  1. В блоке **Класс хоста ZooKeeper** выберите платформу, тип виртуальной машины и нужный класс хоста ZooKeeper.
+  1. В блоке **Размер хранилища ZooKeeper** задайте размер хранилища и тип диска для хостов ZooKeeper.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить конфигурацию хостов {{ ZK }}:
+  Чтобы изменить конфигурацию хостов ZooKeeper:
 
   1. Посмотрите описание команды CLI для изменения кластера:
 
      ```bash
-     {{ yc-mdb-ch }} cluster update --help
+     yc managed-clickhouse cluster update --help
      ```
 
   1. Запросите список доступных классов хостов (в колонке `ZONE IDS` указаны зоны доступности, в которых можно выбрать соответствующий класс):
 
      ```bash
-     {{ yc-mdb-ch }} resource-preset list
+     yc managed-clickhouse resource-preset list
 
      +-----------+--------------------------------+-------+----------+
      |    ID     |            ZONE IDS            | CORES |  MEMORY  |
      +-----------+--------------------------------+-------+----------+
-     | s1.micro  | {{ region-id }}-a, {{ region-id }}-b,  |     2 | 8.0 GB   |
-     |           | {{ region-id }}-d                  |       |          |
+     | s1.micro  | ru-central1-a, ru-central1-b,  |     2 | 8.0 GB   |
+     |           | ru-central1-d                  |       |          |
      | ...                                                           |
      +-----------+--------------------------------+-------+----------+
      ```
 
-  1. В команде изменения кластера передайте новый класс хоста {{ ZK }}, тип диска и размер хранилища:
+  1. В команде изменения кластера передайте новый класс хоста ZooKeeper, тип диска и размер хранилища:
 
      ```bash
-     {{ yc-mdb-ch }} cluster update <имя_или_идентификатор_кластера> \
+     yc managed-clickhouse cluster update <имя_или_идентификатор_кластера> \
         --zookepeer-resource-preset=<класс_хостов> \
         --zookeeper-disk-size=<размер_хранилища_ГБ> \
         --zookeeper-disk-type=<тип_диска>
@@ -529,23 +529,23 @@
      Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Чтобы изменить настройки хостов {{ ZK }}:
+  Чтобы изменить настройки хостов ZooKeeper:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. В блоке с конфигурацией {{ ZK }} укажите новый класс хоста, тип диска и размер хранилища.
+  1. В блоке с конфигурацией ZooKeeper укажите новый класс хоста, тип диска и размер хранилища.
 
-     Требования к хостам {{ ZK }}:
+     Требования к хостам ZooKeeper:
      * Минимальный класс хоста — `b1.medium`.
      * Минимальный размер хранилища — 10 гигабайт.
 
@@ -565,14 +565,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -594,11 +594,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
   * изменение — 90 минут;
@@ -636,20 +636,20 @@
 
   1. Запросите список доступных классов хостов:
 
-      1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+      1. Воспользуйтесь методом [ResourcePreset.List](../api-ref/ResourcePreset/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
           ```bash
           curl \
               --request GET \
               --header "Authorization: Bearer $IAM_TOKEN" \
-              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets'
+              --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/resourcePresets'
           ```
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/ResourcePreset/list.md#responses).
 
   1. Измените класс хостов, тип диска и размер хранилища:
 
-      1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+      1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
           {% note warning %}
           
@@ -662,7 +662,7 @@
               --request PATCH \
               --header "Authorization: Bearer $IAM_TOKEN" \
               --header "Content-Type: application/json" \
-              --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+              --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
               --data '{
                         "updateMask": "configSpec.zookeeper.resources.resourcePresetId,configSpec.zookeeper.resources.diskTypeId,configSpec.zookeeper.resources.diskSize",
                         "configSpec": {
@@ -682,9 +682,9 @@
           * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
 
               Укажите нужные параметры:
-              * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов {{ ZK }}.
-              * `configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска для хостов {{ ZK }}.
-              * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища {{ ZK }}.
+              * `configSpec.zookeeper.resources.resourcePresetId` — если нужно изменить класс хостов ZooKeeper.
+              * `configSpec.zookeeper.resources.diskTypeId` — если нужно изменить тип диска для хостов ZooKeeper.
+              * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища ZooKeeper.
 
           * `configSpec.zookeeper.resources.resourcePresetId` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `configSpec.zookeeper.resources.diskTypeId` — [тип диска](../concepts/storage.md).
@@ -712,7 +712,7 @@
 
   1. Запросите список доступных классов хостов:
 
-      1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [ResourcePresetService.List](../api-ref/grpc/ResourcePreset/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
           ```bash
           grpcurl \
@@ -721,7 +721,7 @@
               -import-path ~/cloudapi/third_party/googleapis/ \
               -proto ~/cloudapi/yandex/cloud/mdb/clickhouse/v1/resource_preset_service.proto \
               -rpc-header "Authorization: Bearer $IAM_TOKEN" \
-              {{ api-host-mdb }}:{{ port-https }} \
+              mdb.api.cloud.yandex.net:443 \
               yandex.cloud.mdb.clickhouse.v1.ResourcePresetService.List
           ```
 
@@ -729,7 +729,7 @@
 
   1. Измените класс хостов, тип диска и размер хранилища:
 
-      1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
           {% note warning %}
           
@@ -778,7 +778,7 @@
                       }
                     }
                   }' \
-              {{ api-host-mdb }}:{{ port-https }} \
+              mdb.api.cloud.yandex.net:443 \
               yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
           ```
 
@@ -787,9 +787,9 @@
           * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
 
               Укажите нужные параметры:
-              * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов {{ ZK }}.
-              * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска для хостов {{ ZK }}.
-              * `config_spec.zookeeper.resources.disk_size` — если нужно изменить размер хранилища {{ ZK }}.
+              * `config_spec.zookeeper.resources.resource_preset_id` — если нужно изменить класс хостов ZooKeeper.
+              * `config_spec.zookeeper.resources.disk_type_id` — если нужно изменить тип диска для хостов ZooKeeper.
+              * `config_spec.zookeeper.resources.disk_size` — если нужно изменить размер хранилища ZooKeeper.
 
           * `config_spec.zookeeper.resources.resource_preset_id` — идентификатор [класса хостов](../concepts/instance-types.md).
           * `config_spec.zookeeper.resources.disk_type_id` — [тип диска](../concepts/storage.md).
@@ -801,7 +801,7 @@
 
 {% endlist %}
 
-## Перезагрузить хост {{ ZK }} {#restart}
+## Перезагрузить хост ZooKeeper {#restart}
 
 # Перезагрузить хост
 
@@ -810,7 +810,7 @@
 * перерасход ресурсов;
 * утечка памяти;
 * взаимоблокировка (deadlock) между запросами;
-* зависание операций и внутренних процессов {{ CH }}.
+* зависание операций и внутренних процессов ClickHouse®.
 
 {% list tabs group=instructions %}
 
@@ -818,23 +818,23 @@
 
   Чтобы перезагрузить один хост:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}**.
-    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+    1. В строке нужного хоста нажмите на значок ![icon](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Перезагрузить**.
+    1. В открывшемся окне включите опцию **Я перезагружаю хост** и нажмите кнопку **Подтвердить**.
 
   Чтобы перезагрузить несколько хостов сразу:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
-    1. Выберите хосты, которые хотите перезагрузить, и нажмите **{{ ui-key.yacloud.mdb.cluster.hosts.action_restart-host }}** в нижней части экрана.
-    1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+    1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+    1. Выберите хосты, которые хотите перезагрузить, и нажмите **Перезагрузить** в нижней части экрана.
+    1. В открывшемся окне нажмите кнопку **Подтвердить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -843,7 +843,7 @@
   Команда для перезагрузки одного хоста выглядит так:
 
   ```bash
-  {{ yc-mdb-ch }} host restart <имя_хоста> \
+  yc managed-clickhouse host restart <имя_хоста> \
      --cluster-name=<имя_кластера>
   ```
 
@@ -857,14 +857,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.RestartHosts](../api-ref/Cluster/restartHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:restartHosts' \
             --data '{
                       "hostNames": [
                         <перечень_имен_хостов>
@@ -894,7 +894,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.RestartHosts](../api-ref/grpc/Cluster/restartHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -909,7 +909,7 @@
                       <перечень_имен_хостов>
                     ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.RestartHosts
         ```
 
@@ -923,15 +923,15 @@
 
 ## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
 
-Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), добавьте хосты {{ ZK }} с включенным преобразованием таблиц.
+Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication), добавьте хосты ZooKeeper с включенным преобразованием таблиц.
 
-Подробнее читайте в разделе [Добавить хосты {{ ZK }}](#add-zk) и в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/development/architecture#replication).
+Подробнее читайте в разделе [Добавить хосты ZooKeeper](#add-zk) и в [документации ClickHouse®](https://clickhouse.com/docs/ru/development/architecture#replication).
 
-## Удалить хост {{ ZK }} {#delete-zk-host}
+## Удалить хост ZooKeeper {#delete-zk-host}
 
 {% note warning %}
 
-Если в кластере уже созданы хосты {{ ZK }}, то удалить их полностью невозможно — в кластере всегда будет минимум три хоста {{ ZK }}.
+Если в кластере уже созданы хосты ZooKeeper, то удалить их полностью невозможно — в кластере всегда будет минимум три хоста ZooKeeper.
 
 {% endnote %}
 
@@ -939,53 +939,53 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
   1. Наведите курсор на строку нужного хоста и нажмите на значок ![image](../../_assets/console-icons/xmark.svg).
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-ch }} hosts delete <имя_хоста> \
+  yc managed-clickhouse hosts delete <имя_хоста> \
     --cluster-name=<имя_кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+   [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
    
-   {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+   Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
    
-   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+   Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-   Чтобы удалить хост {{ ZK }}:
+   Чтобы удалить хост ZooKeeper:
 
-   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-   1. Удалите хост с типом `{{ ZK }}` из блока `hosts`.
+   1. Удалите хост с типом `ZooKeeper` из блока `hosts`.
    1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
    1. Введите слово `yes` и нажмите **Enter**.
 
@@ -1007,11 +1007,11 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
    {% note warning "Ограничения по времени" %}
    
-   Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+   Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
    
    * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
    * изменение — 90 минут;
@@ -1047,14 +1047,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
   
-  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
   
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
           --data '{
                     "hostNames": [
                       <перечень_имен_хостов>
@@ -1084,7 +1084,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
   
-  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
   
       ```bash
       grpcurl \
@@ -1099,7 +1099,7 @@
                     <перечень_имен_хостов>
                   ]
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.clickhouse.v1.ClusterService.DeleteHosts
       ```
   
@@ -1111,4 +1111,4 @@
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

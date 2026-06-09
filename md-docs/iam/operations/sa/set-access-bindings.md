@@ -1,6 +1,6 @@
 # Настройка прав доступа к сервисному аккаунту
 
-Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [{#T}](assign-role-for-sa.md).
+Этот раздел про назначение [роли](../../concepts/access-control/roles.md) на [сервисный аккаунт](../../concepts/users/service-accounts.md) как на ресурс. Чтобы выдать роль сервисному аккаунту на другой ресурс, воспользуйтесь инструкцией [Назначение роли сервисному аккаунту](assign-role-for-sa.md).
 
 {% note info %}
 
@@ -14,20 +14,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-    1. В окне **{{ ui-key.yacloud_components.acl.label.title }}** нажмите кнопку **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
+    1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+    1. В списке сервисов выберите **Identity and Access Management**.
+    1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
+    1. Перейдите на вкладку **Права доступа**.
+    1. Нажмите кнопку **Назначить роли**.
+    1. В окне **Выдача доступа** нажмите кнопку **Выбрать пользователя**.
     1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
+    1. Нажмите кнопку **Добавить роль**.
     1. Выберите роль.
-    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -96,12 +96,12 @@
           --subject userAccount:gfei8n54hmfh********
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     
     
-    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+    Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
     1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
 
@@ -121,7 +121,7 @@
        }
        ```
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+       Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_iam_binding.md).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -132,7 +132,7 @@
           terraform plan
           ```
 
-       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
 
     1. Разверните облачные ресурсы.
 
@@ -144,7 +144,7 @@
 
        1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+       После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить создание ресурса можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
 
        ```
        yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
@@ -159,7 +159,7 @@
         ```bash
         curl \
           --header "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+          https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
         ```
 
         Результат:
@@ -183,7 +183,7 @@
         ```bash
         curl \
           --header "Authorization: Bearer <IAM-токен>" \
-          https://iam.{{ api-host }}/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
+          https://iam.api.cloud.yandex.net/iam/v1/yandexPassportUserAccounts:byLogin?login=test-user
         ```
 
         Результат:
@@ -214,7 +214,7 @@
                      "id": "gfei8n54hmfh********",
                      "type": "userAccount"
          }}}]}' \
-         https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+         https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
         ```
 
 {% endlist %}
@@ -230,7 +230,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     Команда `add-access-binding` позволяет добавить только одну роль. Вы можете назначить несколько ролей с помощью команды `set-access-binding`.
 
@@ -254,14 +254,14 @@
           --access-binding role=viewer,subject=userAccount:helj89sfj80a********
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы назначить несколько ролей на сервисный аккаунт, созданный с помощью {{ TF }}:
+  Чтобы назначить несколько ролей на сервисный аккаунт, созданный с помощью Terraform:
 
   1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
 
@@ -276,7 +276,7 @@
 
        * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
-     {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью {{ TF }}" %}
+     {% cut "Пример назначения нескольких ролей на сервисный аккаунт с помощью Terraform" %}
 
      ```hcl
      ...
@@ -299,7 +299,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_iam_binding.md).
  
   1. Проверьте конфигурацию командой:
      ```
@@ -317,7 +317,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -326,7 +326,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
@@ -359,7 +359,7 @@
                   "id": "helj89sfj80a********",
                   "type": "userAccount"
       }}}]}' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
     ```
 
     Вы также можете назначать роли с помощью метода REST API [setAccessBindings](../../api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../api-ref/grpc/ServiceAccount/setAccessBindings.md).
@@ -383,7 +383,7 @@
           "roleId": "viewer",
           "subject": { "id": "helj89sfj80a********", "type": "userAccount" }
       }]}' \
-      https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
+      https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2********:setAccessBindings
     ```
 
 {% endlist %}
@@ -396,7 +396,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Узнайте ID сервисного аккаунта `test-sa`, которому вы хотите назначить роль. Чтобы узнать ID, получите список доступных сервисных аккаунтов:
 
@@ -423,14 +423,14 @@
         --subject serviceAccount:ajebqtreob2d********
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы разрешить сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`, созданным при помощи {{ TF }}:
+  Чтобы разрешить сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot`, созданным при помощи Terraform:
 
     1. Добавьте в конфигурационный файл параметры ресурса и укажите роль пользователей для доступа к сервисному аккаунту:
 
@@ -438,7 +438,7 @@
        * `role` — назначаемая роль. Обязательный параметр.
        * `members` — список пользователей и сервисных аккаунтов, которым назначается роль. Указывается в виде `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`. Обязательный параметр.
 
-     {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью {{ TF }}" %}
+     {% cut "Пример разрешения сервисному аккаунту `test-sa` управлять сервисным аккаунтом `my-robot` с помощью Terraform" %}
 
      ```hcl
      ...
@@ -454,7 +454,7 @@
 
      {% endcut %}
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_iam_binding).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_iam_binding.md).
 
   1. Проверьте конфигурацию командой:
      ```
@@ -472,7 +472,7 @@
      terraform plan
      ```
 
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Примените изменения конфигурации:
      ```
@@ -481,7 +481,7 @@
 
   1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-     Проверить изменение каталога можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
+     Проверить изменение каталога можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
 
      ```
      yc resource-manager service-account list-access-bindings <имя_или_идентификатор_сервисного_аккаунта>
@@ -494,7 +494,7 @@
       ```bash
       curl \
         --header "Authorization: Bearer <IAM-токен>" \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
+        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=b1gvmob95yys********
       ```
 
       Результат:
@@ -535,11 +535,11 @@
                     "id": "ajebqtreob2d********",
                     "type": "serviceAccount"
         }}}]}' \
-        https://iam.{{ api-host }}/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
+        https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts/aje6o61dvog2********:updateAccessBindings
       ```
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [{#T}](impersonate-sa.md)
+* [Использование имперсонации](impersonate-sa.md)

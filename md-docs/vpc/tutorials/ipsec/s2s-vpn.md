@@ -1,7 +1,7 @@
-# Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
+# Развертывание S2S VPN с помощью strongSwan в Yandex Cloud
 
 
-В этом руководстве вы развернете защищенное site‑to‑site (S2S) VPN‑соединение между облачной инфраструктурой в {{ yandex-cloud }} и удаленной площадкой с помощью IPsec‑шлюза на базе [strongSwan](https://www.strongswan.org/). Для этого будет использоваться приложение [strongSwan S2S VPN](https://yandex.cloud/ru/marketplace/products/yc/ipsec-sgw) из каталога [{{ cloud-apps-full-name }}](https://yandex.cloud/ru/services/cloud-apps/). Приложение автоматизирует развертывание и базовую настройку IPsec‑туннеля, позволяя:
+В этом руководстве вы развернете защищенное site‑to‑site (S2S) VPN‑соединение между облачной инфраструктурой в Yandex Cloud и удаленной площадкой с помощью IPsec‑шлюза на базе [strongSwan](https://www.strongswan.org/). Для этого будет использоваться приложение [strongSwan S2S VPN](https://yandex.cloud/ru/marketplace/products/yc/ipsec-sgw) из каталога [Yandex Cloud Apps](https://yandex.cloud/ru/services/cloud-apps/). Приложение автоматизирует развертывание и базовую настройку IPsec‑туннеля, позволяя:
 
 * быстро создать защищенный канал поверх публичного интернета;
 * обеспечить шифрование трафика между подсетями;
@@ -9,7 +9,7 @@
 
 {% note info %}
 
-Готовое приложение автоматизирует развертывание инфраструктуры в {{ yandex-cloud }}.
+Готовое приложение автоматизирует развертывание инфраструктуры в Yandex Cloud.
 
 При использовании strongSwan S2S VPN на удаленной площадке (в вашем локальном ЦОД, филиале или другом облаке) необходима настройка вручную.
 
@@ -31,18 +31,18 @@
 
 В стоимость развертывания инфраструктуры для данного решения входят:
 
-* Плата за постоянно запущенную виртуальную машину (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
-* Плата за использование статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../pricing.md)).
-* Плата за исходящий трафик (см. [тарифы {{ vpc-full-name }}](../../pricing.md))
+* Плата за постоянно запущенную виртуальную машину (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
+* Плата за использование статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../pricing.md)).
+* Плата за исходящий трафик (см. [тарифы Yandex Virtual Private Cloud](../../pricing.md))
 
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -55,20 +55,20 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
   1. Укажите имя сервисного аккаунта: `s2s-vpn-sa`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли:
+  1. Нажмите **Добавить роль** и выберите роли:
       * `resource-manager.admin`
       * `iam.admin`
       * `compute.admin`
       * `vpc.admin`.
 
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -131,13 +131,13 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `s2s-vpn-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Справа сверху нажмите **Создать сеть**.
+  1. В поле **Имя** укажите `s2s-vpn-network`.
+  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
+  1. Нажмите **Создать сеть**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Выполните команду:
 
@@ -170,9 +170,9 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}** и нажмите **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите `{{ region-id }}-b` и нажмите **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса** и нажмите **Зарезервировать публичный IP-адрес**.
+  1. В открывшемся окне в поле **Зона доступности** выберите `ru-central1-b` и нажмите **Зарезервировать**.
 
 {% endlist %}
 
@@ -183,7 +183,7 @@
 
 {% note info %}
 
-В публичных образах Linux, предоставляемых {{ yandex-cloud }}, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+В публичных образах Linux, предоставляемых Yandex Cloud, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
 
 {% endnote %}
 
@@ -252,7 +252,7 @@
 
 ### Установите приложение {#install-app}
 
-В результате установки приложения будут автоматически созданы ресурсы {{ yandex-cloud }}:
+В результате установки приложения будут автоматически созданы ресурсы Yandex Cloud:
 
 * [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md);
 * [подсеть](../../concepts/network.md#subnet);
@@ -265,16 +265,16 @@
 
 [Убедитесь](../../../quota-manager/operations/read-quotas.md), что в целевом облаке не израсходованы квоты:
 
-* **{{ ui-key.yacloud_billing.iam.cloud.quotas.label_quota-name-iam.serviceAccounts.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.subnets.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.externalStaticAddresses.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.routeTables.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.staticRoutes.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-vpc.securityGroups.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instances.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.disks.count }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.ssdDisks.size }}**
-* **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-compute.instanceMemory.size }}**
+* **Количество сервисных аккаунтов**
+* **Количество подсетей**
+* **Количество статических публичных IP-адресов**
+* **Количество таблиц маршрутизации**
+* **Количество статических маршрутов**
+* **Количество групп безопасности**
+* **Количество виртуальных машин**
+* **Количество дисков**
+* **Общий объём SSD-дисков**
+* **Общий объём RAM виртуальных машин**
 
 Если какая-либо квота израсходована, создайте запрос на расширение квоты и дождитесь его исполнения.
 
@@ -284,16 +284,16 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.cloud-apps.label_marketplace }}**.
-  1. В поле **Поиск продуктов** введите `strongswan`, выберите **strongSwan S2S VPN** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. Перейдите в сервис **Cloud Apps**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/shopping-cart.svg) **Магазин приложений**.
+  1. В поле **Поиск продуктов** введите `strongswan`, выберите **strongSwan S2S VPN** и нажмите **Использовать**.
   1. В открывшемся окне укажите:
 
       * **Имя** — `s2s-vpn`.
       * **Сервисный аккаунт** — `s2s-vpn-sa`.
       * **Сеть VPC** — `s2s-vpn-network`.
       * **CIDR новой подсети** — `10.130.0.0/24`.
-      * **Зона новой подсети** — `{{ region-id }}-b`.
+      * **Зона новой подсети** — `ru-central1-b`.
       * **IP-адрес удалённого шлюза** — IP-адрес удаленного VPN-шлюза, который будет добавлен в конфигурацию strongSwan.
       * **CIDR удаленных подсетей** — список подсетей в виде перечисления CIDR через запятую, которые будут автоматически добавлены в таблицу маршрутизации.
       * **Ключ SSH** — содержимое открытого SSH-ключа, созданного [ранее](#create-ssh-keys).
@@ -314,12 +314,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. В строке автоматически созданной подсети `ipsec-sgw-...` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}** и выберите автоматически созданную таблицу `ipsec-sgw-...`.
-  1. Нажмите **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/nodes-right.svg) **Подсети**.
+  1. В строке автоматически созданной подсети `ipsec-sgw-...` нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Привязать таблицу маршрутизации** и выберите автоматически созданную таблицу `ipsec-sgw-...`.
+  1. Нажмите **Привязать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   Выполните команду:
 
@@ -334,9 +334,9 @@
   id: e9b6n3jj3gh6********
   folder_id: b1g681qpemb4********
   created_at: "2024-05-19T13:24:58Z"
-  name: ipsec-sgw-{{ region-id }}-b
+  name: ipsec-sgw-ru-central1-b
   network_id: enppoggov6ub********
-  zone_id: {{ region-id }}-b
+  zone_id: ru-central1-b
   v4_cidr_blocks:
     - 10.1.0.0/16
   route_table_id: enp4v8foko6s********
@@ -378,7 +378,7 @@
 
     {% note tip %}
 
-    В случае совпадения IP-диапазонов в {{ yandex-cloud }} и удаленной сети может потребоваться использование Source NAT. Для этого выполните команду:
+    В случае совпадения IP-диапазонов в Yandex Cloud и удаленной сети может потребоваться использование Source NAT. Для этого выполните команду:
 
     ```bash
     iptables \
@@ -399,8 +399,8 @@
 
 * Удалите приложение strongSwan S2S VPN:
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
-    1. В строке с приложением нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
+    1. Перейдите в сервис **Cloud Apps**.
+    1. В строке с приложением нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Удалить** и подтвердите удаление.
 
         Вместе с приложением удалятся все связанные с ним ресурсы.
 

@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ mmy-name }}
+# Пошаговые инструкции для Managed Service for MySQL®
 
 ## Кластеры {#clusters}
 
@@ -10,7 +10,7 @@
 * [Миграция хостов кластера в другую зону доступности](host-migration.md)
 * [Управление резервными копиями](cluster-backups.md)
 * [Управление доступом к кластеру](cluster-access.md)
-* [{#T}](cluster-version-update.md)
+* [Обновление версии MySQL®](cluster-version-update.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Подключение {#connect}
@@ -22,10 +22,10 @@
 
 ## Базы данных {#databases}
 
-* [{#T}](web-sql-query.md)
+* [SQL-запросы в Yandex WebSQL](web-sql-query.md)
 * [Управление базами данных](databases.md)
 
-## Пользователи {{ MY }} {#users}
+## Пользователи MySQL® {#users}
 
 * [Управление пользователями](cluster-users.md)
 * [Управление правами пользователей](grant.md)
@@ -35,4 +35,4 @@
 * [Просмотр логов кластера](cluster-logs.md)
 * [Диагностика производительности](performance-diagnostics.md)
 * [Мониторинг состояния кластера и хостов](monitoring.md)
-* [{#T}](datalens-connect.md)
+* [Подключение к кластеру MySQL® из DataLens](datalens-connect.md)

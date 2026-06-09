@@ -182,8 +182,8 @@ Yandex Cloud Notification Service — сервис для мультиканал
 
  - [Publish](api-ref/publish.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Логи {{ cloud-logging-name }}](concepts/logging.md)
+ - [Логи Cloud Logging](concepts/logging.md)
 
  - [История изменений](release-notes.md)

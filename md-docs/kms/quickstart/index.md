@@ -1,14 +1,14 @@
-# Как начать работать с {{ kms-name }}
+# Как начать работать с Key Management Service
 
-В этой инструкции вы создадите свой первый [ключ](../concepts/index.md), а также зашифруете и расшифруете текст с помощью сервиса {{ kms-short-name }}. 
+В этой инструкции вы создадите свой первый [ключ](../concepts/index.md), а также зашифруете и расшифруете текст с помощью сервиса KMS. 
 
 ## Подготовка к работе {#before-you-begin}
 
-Чтобы начать работать с {{ kms-name }}:
+Чтобы начать работать с Key Management Service:
 
-1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
-1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `owner` или `editor` на нужное облако.
+1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. [Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль `owner` или `editor` на нужное облако.
 
     {% note info %}
     
@@ -16,7 +16,7 @@
     
     {% endnote %}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 ## Создайте ключ симметричного шифрования {#create-key}
 
@@ -25,15 +25,15 @@
 - Консоль управления {#console}
     
     Создайте ключ симметричного шифрования: 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-    1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте параметры ключа:
-       * В поле **{{ ui-key.yacloud.common.name }}** укажите `my-first-key`.
-       * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** укажите `AES-256`.
-       * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** оставьте значение `{{ ui-key.yacloud.kms.symmetric-key.form.value_no-rotation }}`.
-       * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-    1. Нажмите на строку с именем ключа и убедитесь, что в блоке **{{ ui-key.yacloud.kms.symmetric-key.overview.label_title-versions }}** есть первая версия ключа.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать ключ.
+    1. Перейдите в сервис **Key Management Service**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
+    1. Нажмите кнопку **Создать ключ** и задайте параметры ключа:
+       * В поле **Имя** укажите `my-first-key`.
+       * В поле **Алгоритм шифрования** укажите `AES-256`.
+       * В поле **Период ротации, дни** оставьте значение `Нет ротации`.
+       * Нажмите кнопку **Создать**.
+    1. Нажмите на строку с именем ключа и убедитесь, что в блоке **Версии** есть первая версия ключа.
 
 {% endlist %}
 
@@ -49,9 +49,9 @@
     
     1. Запишите секретный текст в файл `plaintext.txt`.
     1. Из консоли управления скопируйте идентификатор ключа, созданного ранее.
-        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором был создан ключ.
-        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
-        1. В открывшемся окне скопируйте ключ из поля **{{ ui-key.yacloud.common.id }}**.
+        1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором был создан ключ.
+        1. Перейдите в сервис **Key Management Service**.
+        1. В открывшемся окне скопируйте ключ из поля **Идентификатор**.
     1. Зашифруйте текст:
     
        ```

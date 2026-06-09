@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) {{ sf-name }} или [контейнер](../../serverless-containers/concepts/container.md) {{ serverless-containers-name }} при отправке данных в поток. Подробнее о [триггере для {{ yds-name }}](../../functions/operations/trigger/data-streams-trigger-create.md).
+Вы можете создать триггер, который будет запускать [функцию](../../functions/concepts/function.md) Cloud Functions или [контейнер](../../serverless-containers/concepts/container.md) Serverless Containers при отправке данных в поток. Подробнее о [триггере для Data Streams](../../functions/operations/trigger/data-streams-trigger-create.md).
 
 {% endnote %}
 
@@ -19,10 +19,10 @@
 
    {% endnote %}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится поток данных.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится поток данных.
+1. Перейдите в сервис **Data Streams**.
 1. Выберите поток данных.
-1. Нажмите **{{ ui-key.yacloud.data-streams.button_connect }}** и перейдите на вкладку **Logstash**.
+1. Нажмите **Подключиться** и перейдите на вкладку **Logstash**.
 1. Скопируйте пример файла конфигурации и вставьте его в файл `/usr/share/logstash/bin/mypipeline.conf`.
 
    Пример файла конфигурации:
@@ -36,7 +36,7 @@
    output {
      stdout { codec => rubydebug}
      kinesis {
-       stream_name => "/{{ region-id }}/aoegtvhtp8ob********/cc8004q4lbo6********/test"
+       stream_name => "/ru-central1/aoegtvhtp8ob********/cc8004q4lbo6********/test"
        region => "ru-central-1"
        verify_certificate => false
        codec => json_lines
@@ -69,7 +69,7 @@
      --data '{"user_id":"user1", "score": 100}'
    ```
 
-   Если настройка выполнена успешно, в консоли работы Logstash появится сообщение о получении данных и отправке их в {{ yds-name }} по протоколу AWS Kinesis Data Streams:
+   Если настройка выполнена успешно, в консоли работы Logstash появится сообщение о получении данных и отправке их в Data Streams по протоколу AWS Kinesis Data Streams:
 
    ```text
    {
@@ -87,7 +87,7 @@
      "host" => "127.0.0.1",
      "json" => "message"
    }
-   Stage 1 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
-   Stage 2 Triggers: { stream: '/{{ region-id }}/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
+   Stage 1 Triggers: { stream: '/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 0, UserRecords: 0, KinesisRecords: 0 }
+   Stage 2 Triggers: { stream: '/ru-central1/aoeu1kuk2dht********/cc8029jgtuab********/logstash_stream', manual: 0, count: 0, size: 0, matches: 0, timed: 1, KinesisRecords: 1, PutRecords: 1 }
    (test) Average Processing Time: 723 ms
    ```

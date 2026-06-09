@@ -1,97 +1,97 @@
-# Передача данных в эндпоинт-приемник {{ objstorage-full-name }}
+# Передача данных в эндпоинт-приемник Yandex Object Storage
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные в хранилище {{ objstorage-full-name }} и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса Yandex Data Transfer вы можете переносить данные в хранилище Yandex Object Storage и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Настройте один из поддерживаемых источников данных](#supported-sources).
-1. [Настройте эндпоинт-приемник](#endpoint-settings) в {{ data-transfer-full-name }}.
+1. [Настройте эндпоинт-приемник](#endpoint-settings) в Yandex Data Transfer.
 1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с хранилищем и [контролируйте трансфер](../../monitoring.md).
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
 
-## Сценарии передачи данных в {{ objstorage-full-name }} {#scenarios}
+## Сценарии передачи данных в Yandex Object Storage {#scenarios}
 
 1. Поставка данных — процесс доставки произвольных данных в целевые хранилища. Процесс поставки включает извлечение данных из очереди и их десериализацию с последующей трансформацией данных в формат целевого хранилища.
     
-    * [Поставка данных из {{ DS }} в {{ objstorage-name }}](../../../tutorials/yds-to-objstorage.md).   
+    * [Поставка данных из YDS в Object Storage](../../../tutorials/yds-to-objstorage.md).   
 
-1. Загрузка данных в масштабируемое хранилище {{ objstorage-name }} позволяет удешевить хранение и облегчает обмен данных с контрагентами.
+1. Загрузка данных в масштабируемое хранилище Object Storage позволяет удешевить хранение и облегчает обмен данных с контрагентами.
     
-    * [Загрузка данных из {{ MY }} в {{ objstorage-name }}](../../../tutorials/mmy-objs-migration.md);
-    * [Загрузка данных из {{ PG }} в {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md);
-    * [Загрузка данных из {{ OS }} в {{ objstorage-name }}](../../../tutorials/opensearch-to-object-storage.md);
-    * [Загрузка данных из {{ ydb-name }} в {{ objstorage-name }}](../../../tutorials/ydb-to-object-storage.md).
+    * [Загрузка данных из MySQL® в Object Storage](../../../tutorials/mmy-objs-migration.md);
+    * [Загрузка данных из PostgreSQL в Object Storage](../../../tutorials/mpg-to-objstorage.md);
+    * [Загрузка данных из OpenSearch в Object Storage](../../../tutorials/opensearch-to-object-storage.md);
+    * [Загрузка данных из Managed Service for YDB в Object Storage](../../../tutorials/ydb-to-object-storage.md).
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в Yandex Data Transfer читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
 Настройте один из поддерживаемых источников данных:
 
-* [{{ PG }}](../source/postgresql.md);
-* [{{ MY }}](../source/mysql.md);
-* [{{ MG }}](../source/mongodb.md);
-* [{{ KF }}](../source/kafka.md);
-* [{{ AB }}](../../../transfer-matrix.md#airbyte);
-* [{{ DS }}](../source/data-streams.md);
+* [PostgreSQL](../source/postgresql.md);
+* [MySQL®](../source/mysql.md);
+* [MongoDB](../source/mongodb.md);
+* [Apache Kafka®](../source/kafka.md);
+* [Airbyte®](../../../transfer-matrix.md#airbyte);
+* [YDS](../source/data-streams.md);
 * [Oracle](../source/oracle.md);
-* [{{ ydb-name }}](../source/ydb.md);
-* [{{ OS }}](../source/opensearch.md).
+* [Managed Service for YDB](../source/ydb.md);
+* [OpenSearch](../source/opensearch.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 {% note warning %}
 
-{{ objstorage-name }} поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, он не должен использоваться для поставки данных в {{ objstorage-name }}, иначе трансфер завершится с [ошибкой](#update-not-supported).
+Object Storage поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, он не должен использоваться для поставки данных в Object Storage, иначе трансфер завершится с [ошибкой](#update-not-supported).
 
 {% endnote %}
 
-## Настройка эндпоинта-приемника {{ objstorage-name }} {#endpoint-settings}
+## Настройка эндпоинта-приемника Object Storage {#endpoint-settings}
 
 При [создании](../index.md#create) или [изменении](../index.md#update) эндпоинта вы можете задать:
 
-* [Настройки конфигурации](#bucket-config) для бакета {{ objstorage-full-name }} или пользовательского S3-совместимого хранилища.
+* [Настройки конфигурации](#bucket-config) для бакета Yandex Object Storage или пользовательского S3-совместимого хранилища.
 * [Дополнительные параметры](#additional-settings).
 
 ### Настройки конфигурации бакета {#bucket-config}
 
 {% list tabs group=instructions %}
 
-- Бакет {{ objstorage-full-name }} {#obj-storage}
+- Бакет Yandex Object Storage {#obj-storage}
 
     
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя [бакета](../../../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, от имени которого сервис {{ data-transfer-name }} будет подключаться к бакету.
+    * **Бакет** — имя [бакета](../../../../storage/concepts/bucket.md), в который будут загружаться данные из источника.
+    * **Сервисный аккаунт** — [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md) с ролью `storage.uploader`, от имени которого сервис Data Transfer будет подключаться к бакету.
 
 
 - Пользовательское S3-совместимое хранилище {#s3-storage}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — имя бакета.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_access_key_id.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageEventSource.SQS.aws_secret_access_key.title }}** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
-    * (Опционально) **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.endpoint.title }}** — эндпоинт для службы, совместимой с Amazon S3. Оставьте поле пустым для использования Amazon.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.region.title }}** — регион для отправки запросов.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.use_ssl.title }}** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.verify_ssl_cert.title }}** — разрешить самоподписанные сертификаты.
+    * **Бакет** — имя бакета.
+    * **Идентификатор статического ключа** и **Содержимое статического ключа** — [идентификатор и содержимое ключа AWS](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) для доступа к частному бакету.
+    * (Опционально) **Эндпоинт** — эндпоинт для службы, совместимой с Amazon S3. Оставьте поле пустым для использования Amazon.
+    * **Регион** — регион для отправки запросов.
+    * **Использовать SSL** — выберите, если удаленный сервер использует безопасное соединение SSL/TLS.
+    * **Проверять SSL-сертификат** — разрешить самоподписанные сертификаты.
 
 {% endlist %}
 
 ### Дополнительные настройки {#additional-settings}
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — формат, в котором данные будут записаны в бакет: `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`, `PARQUET` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_RAW.title }}`. Подробнее читайте в разделе [{#T}](../../../concepts/serializer.md#serializer-s3).
+* **Выходной формат** — формат, в котором данные будут записаны в бакет: `JSON`, `CSV`, `PARQUET` или `Сырые данные`. Подробнее читайте в разделе [Сериализация при поставке в Object Storage](../../../concepts/serializer.md#serializer-s3).
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.any_as_string.title }}** — преобразование комплексных значений в строки для выходного формата `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}`.
+* **Преобразовать комплексные значения в строки** — преобразование комплексных значений в строки для выходного формата `JSON`.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — сжатие выходных данных, `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.GZIP.title }}` или `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageCodecUI.UNCOMPRESSED.title }}`.
+* **Формат сжатия** — сжатие выходных данных, `Gzip` или `Без сжатия`.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_size.title }}** — размер файлов, на которые разделены данные.
+* **Размер буфера** — размер файлов, на которые разделены данные.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.buffer_interval.title }}** — интервал, спустя который файл будет записан, вне зависимости от его размера.
+* **Интервал записи** — интервал, спустя который файл будет записан, вне зависимости от его размера.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — имя папки объекта. Поддерживает шаблон раскладки данных по дате. Пример: `2006/01/02/<имя_папки>`.
+* **Имя папки** — имя папки объекта. Поддерживает шаблон раскладки данных по дате. Пример: `2006/01/02/<имя_папки>`.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_timezone.title }}** — часовой пояс, по времени которого раскладываются файлы. Влияет только на раскладывание файлов по папкам в бакете, но не влияет на данные внутри файлов.
+* **Часовой пояс** — часовой пояс, по времени которого раскладываются файлы. Влияет только на раскладывание файлов по папкам в бакете, но не влияет на данные внутри файлов.
 
-* **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout_column.title }}** — имя колонки для указания логического времени для данных. Значение по умолчанию — системное время записи. Время при записи данных в приемник преобразуется в UTC. Это поведение нельзя изменить.
+* **Колонка со временем** — имя колонки для указания логического времени для данных. Значение по умолчанию — системное время записи. Время при записи данных в приемник преобразуется в UTC. Это поведение нельзя изменить.
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 
@@ -107,6 +107,6 @@
 Push failed: kind: update not supported
 ```
 
-{{ objstorage-name }} поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, трансфер завершится с ошибкой.
+Object Storage поддерживает только вставку новых данных, но не поддерживает их обновление. Если в источнике происходит обновление данных, трансфер завершится с ошибкой.
 
-**Решение**: используйте источники, которые поддерживают только вставку данных, или выберите вместо {{ objstorage-name }} другой приемник.
+**Решение**: используйте источники, которые поддерживают только вставку данных, или выберите вместо Object Storage другой приемник.

@@ -5,7 +5,7 @@ Revokes permission from the specified PostgreSQL user.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}:revokePermission
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}:revokePermission
 ```
 
 ## Path parameters

@@ -1,8 +1,8 @@
-# Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}
+# Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging
 
-# Передача логов кластера {{ mgp-full-name }} в {{ cloud-logging-full-name }}
+# Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging
 
-Вы можете настроить регулярный сбор логов о работе кластера {{ mgp-name }}. Логи поставляются в [лог-группу](../concepts/log-group.md) в сервисе {{ cloud-logging-name }}. Можно выбрать лог-группу одного из двух типов:
+Вы можете настроить регулярный сбор логов о работе кластера Yandex MPP Analytics for PostgreSQL. Логи поставляются в [лог-группу](../concepts/log-group.md) в сервисе Cloud Logging. Можно выбрать лог-группу одного из двух типов:
 
 * [лог-группа, которая используется по умолчанию в каталоге кластера](#default);
 * [пользовательская лог-группа](#custom).
@@ -13,38 +13,38 @@
 
 ## Передача данных в лог-группу по умолчанию {#default}
 
-1. Создайте кластер {{ mgp-name }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
+1. Создайте кластер Yandex MPP Analytics for PostgreSQL с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
 
    {% list tabs group=instructions %}
 
    * Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
+      1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+      1. Нажмите кнопку **Создать кластер**.
       1. Введите имя кластера.
-      1. Выберите версию СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      1. Выберите версию СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+      1. В блоке **Сетевые настройки** выберите:
 
          * Облачную сеть.
          * Группу безопасности.
          * Зону доступности и подсеть.
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_user }}** укажите реквизиты пользователя-администратора:
+      1. В блоке **Пользователь** укажите реквизиты пользователя-администратора:
 
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
+         * **Имя пользователя** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+         * **Пароль** — длина от 8 до 128 символов.
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      1. В блоке **Дополнительные настройки**:
 
          * Выберите сервисный аккаунт с ролью `logging.writer`.
-         * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-         * Чтобы логи записывались в лог-группу по умолчанию, выберите значение **{{ ui-key.yacloud.common.folder }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+         * Включите опцию **Запись логов**.
+         * Чтобы логи записывались в лог-группу по умолчанию, выберите значение **Каталог** в поле **Назначение**.
          * Выберите каталог, лог-группу которого нужно использовать.
-         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+         * Включите опции **Логи Greenplum** и **Логи командного центра**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **Настройки СУБД**.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите кнопку **Создать**.
 
    * CLI {#cli}
 
@@ -74,7 +74,7 @@
 
       Где:
 
-      * `--greenplum-version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      * `--greenplum-version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -88,11 +88,11 @@
 
           Логи командного центра передаются полностью, изменить уровень логирования нельзя.
 
-      * `--log-folder-id` — идентификатор каталога, в котором создан кластер {{ mgp-name }}.
+      * `--log-folder-id` — идентификатор каталога, в котором создан кластер Yandex MPP Analytics for PostgreSQL.
 
-   * {{ TF }} {#tf}
+   * Terraform {#tf}
 
-      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
       1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
       1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -144,7 +144,7 @@
 
           Где:
 
-          * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+          * `version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -160,13 +160,13 @@
 
           * `folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
 
-      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
           ```bash
           terraform validate
           ```
 
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Создайте необходимую инфраструктуру:
 
@@ -215,7 +215,7 @@
 
       Где:
 
-      * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      * `version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -240,7 +240,7 @@
    * Консоль управления {#console}
 
       1. В консоли управления перейдите в нужный каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. Перейдите в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `default`.
 
       На открывшейся странице отобразятся записи.
@@ -292,38 +292,38 @@
 ## Передача данных в пользовательскую лог-группу {#custom}
 
 1. [Создайте лог-группу](../operations/create-group.md) `my-log-group`.
-1. Создайте кластер {{ mgp-name }} с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
+1. Создайте кластер Yandex MPP Analytics for PostgreSQL с включенными настройками логирования и [созданным ранее](#before-you-begin) сервисным аккаунтом:
 
    {% list tabs group=instructions %}
 
    * Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер.
+      1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+      1. Нажмите кнопку **Создать кластер**.
       1. Введите имя кластера.
-      1. Выберите версию СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      1. Выберите версию СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+      1. В блоке **Сетевые настройки** выберите:
 
          * Облачную сеть.
          * Группу безопасности.
          * Зону доступности и подсеть.
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_user }}** укажите реквизиты пользователя-администратора:
+      1. В блоке **Пользователь** укажите реквизиты пользователя-администратора:
 
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
-         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
+         * **Имя пользователя** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+         * **Пароль** — длина от 8 до 128 символов.
 
-      1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
+      1. В блоке **Дополнительные настройки**:
 
          * Выберите сервисный аккаунт с ролью `logging.writer`.
-         * Включите опцию **{{ ui-key.yacloud.logging.field_logging }}**.
-         * Чтобы логи записывались в пользовательскую лог-группу, выберите значение **{{ ui-key.yacloud.logging.label_loggroup }}** в поле **{{ ui-key.yacloud.logging.label_destination }}**.
+         * Включите опцию **Запись логов**.
+         * Чтобы логи записывались в пользовательскую лог-группу, выберите значение **Лог-группа** в поле **Назначение**.
          * Выберите лог-группу `my-log-group`.
-         * Включите опции **{{ ui-key.yacloud.greenplum.LoggingSection.greenplum_pN6jU }}** и **{{ ui-key.yacloud.greenplum.LoggingSection.commandCenter_e9fKV }}**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+         * Включите опции **Логи Greenplum** и **Логи командного центра**. Уровень логирования можно задать с помощью параметра [Log min messages](../../managed-greenplum/concepts/settings-list.md#setting-log-min-messages) в блоке **Настройки СУБД**.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите кнопку **Создать**.
 
    * CLI {#cli}
 
@@ -353,7 +353,7 @@
 
       Где:
 
-      * `--greenplum-version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      * `--greenplum-version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
       * `--service-account` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -369,9 +369,9 @@
 
       * `--log-group-id` — идентификатор лог-группы, в которую будут записываться логи.
 
-   * {{ TF }} {#tf}
+   * Terraform {#tf}
 
-      1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+      1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
       1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
       1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
       1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -423,7 +423,7 @@
 
           Где:
 
-          * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+          * `version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
           * `service_account_id` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -439,13 +439,13 @@
 
           * `log_group_id` — идентификатор лог-группы, в которую будут записываться логи.
 
-      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+      1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
           ```bash
           terraform validate
           ```
 
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Создайте необходимую инфраструктуру:
 
@@ -494,7 +494,7 @@
 
       Где:
 
-      * `version` — версия СУБД ({{ GP }} или {{ CB }}). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
+      * `version` — версия СУБД (Greenplum® или Apache Cloudberry™). Подробнее о [доступных версиях СУБД](../../managed-greenplum/concepts/overview.md).
 
       * `serviceAccountId` — идентификатор [созданного ранее](#before-you-begin) сервисного аккаунта.
 
@@ -518,8 +518,8 @@
 
    * Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+      1. Перейдите в сервис **Cloud Logging**.
       1. Нажмите на строку с лог-группой `my-log-group`.
 
       На открывшейся странице отобразятся записи.

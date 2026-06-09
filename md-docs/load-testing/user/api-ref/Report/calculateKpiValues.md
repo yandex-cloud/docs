@@ -5,7 +5,7 @@ Returns a list of KPI values for tests matching the specified filter.
 ## HTTP request
 
 ```
-POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/reports/calculateKpiValues
+POST https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/reports/calculateKpiValues
 ```
 
 ## Body parameters {#yandex.cloud.loadtesting.api.v1.CalculateReportKpiValuesRequest}

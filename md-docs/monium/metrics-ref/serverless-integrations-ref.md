@@ -1,13 +1,13 @@
-# Метрики {{ si-full-name }}
+# Метрики Yandex Serverless Integrations
 
-В этом разделе описаны метрики сервиса [{{ si-name }}](../../serverless-integrations/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Serverless Integrations](../../serverless-integrations/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
 
-## Метрики {{ sw-full-name }} {#workflows}
+## Метрики Yandex Workflows {#workflows}
 
-Общая метка для всех метрик {{ sw-name }}: `workflow` — идентификатор рабочего процесса.
+Общая метка для всех метрик Workflows: `workflow` — идентификатор рабочего процесса.
 
 Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
 --- | ---
@@ -28,9 +28,9 @@
 `workflow_time_milliseconds_sum`<br>`DGAUGE`, миллисекунды | Суммарное время выполнения всех рабочих процессов.
 
 
-## Метрики {{ er-full-name }} {#eventrouter}
+## Метрики Yandex EventRouter {#eventrouter}
 
-Все метрики {{ er-name }} имеют общую метку `bus` — идентификатор [шины](../../serverless-integrations/concepts/eventrouter/bus.md).
+Все метрики EventRouter имеют общую метку `bus` — идентификатор [шины](../../serverless-integrations/concepts/eventrouter/bus.md).
 
 
 ### Метрики шин {#er-buses}

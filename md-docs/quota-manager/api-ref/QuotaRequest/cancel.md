@@ -5,7 +5,7 @@ Cancels quotas in the specified quota request.
 ## HTTP request
 
 ```
-POST https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}/cancel
+POST https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/{quotaRequestId}/cancel
 ```
 
 ## Path parameters

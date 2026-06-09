@@ -5,7 +5,7 @@ Deletes the specified ClickHouse Backup.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-clickhouse/v1/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/backups/{backupId}
 ```
 
 ## Path parameters

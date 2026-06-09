@@ -1,72 +1,72 @@
-# Подключение к {{ mpg-full-name }}
+# Подключение к Yandex Managed Service for PostgreSQL
 
-С помощью [направленного ациклического графа (DAG)](../concepts/index.md#about-the-service) можно настроить подключение к БД в кластере {{ mpg-full-name }}. Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
+С помощью [направленного ациклического графа (DAG)](../concepts/index.md#about-the-service) можно настроить подключение к БД в кластере Yandex Managed Service for PostgreSQL. Данные для подключения к БД хранятся в Yandex Lockbox и автоматически подставляются в граф.
 
 {% note tip %}
 
-В кластерах с версией {{ AF }} ниже 3.0 по умолчанию используется провайдер `apache-airflow-providers-postgres` версии 5.13.1. Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее см. в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
+В кластерах с версией Apache Airflow™ ниже 3.0 по умолчанию используется провайдер `apache-airflow-providers-postgres` версии 5.13.1. Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее см. в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
 
 {% endnote %}
 
 ## Перед началом работы {#before-begin}
 
-1. [Создайте кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) с параметрами:
+1. [Создайте кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md#create-cluster) с параметрами:
    * **Имя БД** — `db1`;
    * **Имя пользователя** — `user1`;
    * **Пароль** — `user1-password`.
 
-1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}, в котором будет храниться DAG-файл.
+1. [Создайте бакет](../../storage/operations/buckets/create.md) Yandex Object Storage, в котором будет храниться DAG-файл.
 
-1. [Настройте кластер {{ maf-name }}](cluster-update.md):
+1. [Настройте кластер Managed Service for Apache Airflow™](cluster-update.md):
 
-   1. Включите опцию **{{ ui-key.yacloud.airflow.field_lockbox }}**, которая позволяет использовать секреты в сервисе [{{ lockbox-full-name }}](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) {{ AF }}.
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `apache-airflow-providers-postgres`.
+   1. Включите опцию **Использовать Lockbox Secret Backend**, которая позволяет использовать секреты в сервисе [Yandex Lockbox](../../lockbox/concepts/index.md) для [хранения конфигурационных данных, переменных и параметров подключений](../concepts/impersonation.md#lockbox-integration) Apache Airflow™.
+   1. В блоке **Зависимости** добавьте pip-пакет `apache-airflow-providers-postgres`.
 
       {% note warning %}
 
-      Установка pip-пакета необходима для кластеров с версией {{ AF }} 3.0 и выше. В кластерах с версией {{ AF }} ниже 3.0 pip-пакет установлен по умолчанию.
+      Установка pip-пакета необходима для кластеров с версией Apache Airflow™ 3.0 и выше. В кластерах с версией Apache Airflow™ ниже 3.0 pip-пакет установлен по умолчанию.
 
       {% endnote %}
       
-   1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет {{ objstorage-name }}. Из него будет загружен DAG-файл.
+   1. В блоке **Хранилище DAG-файлов** выберите созданный ранее бакет Object Storage. Из него будет загружен DAG-файл.
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
    {% note info %}
 
-   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
+   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
    {% endnote %}
 
-## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
+## Создайте секрет Yandex Lockbox {#create-lockbox-secret}
 
-Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+Для корректной работы кластера Apache Airflow™ секрет в Yandex Lockbox должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
    * `<тип_артефакта>` — определяет, какие данные будут храниться в секрете. Возможные значения:
      * `connections` — подключения;
      * `variables` — переменные;
      * `config` — данные конфигурации.
-   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в {{ AF }}.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в Apache Airflow™.
 
-[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
-   * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/pg1`.
-   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `conn`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+[Создайте секрет Yandex Lockbox](../../lockbox/operations/secret-create.md) с параметрами:
+   * **Имя** — `airflow/connections/pg1`.
+   * **Тип секрета** — `Пользовательский`.
+   * **Ключ** — `conn`.
+   * **Значение** — выберите **Текст** и укажите следующее содержимое:
 
       ```json
       {
         "conn_type": "postgres",
-        "host": "<FQDN_хоста_кластера_{{ PG }}>",
-        "port": {{ port-mpg }},
+        "host": "<FQDN_хоста_кластера_PostgreSQL>",
+        "port": 6432,
         "schema": "db1",
         "login": "user1",
         "password": "user1-password"
       }
       ```
 
-Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, читайте в разделе [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
+Подробнее о том, как узнать FQDN хоста кластера PostgreSQL, читайте в разделе [FQDN хостов PostgreSQL](../../managed-postgresql/operations/connect/fqdn.md).
 
-В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
+В секрете будут сохранены данные для подключения к БД в кластере Managed Service for PostgreSQL.
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -74,7 +74,7 @@
 
    {% list tabs group=instructions %}
    
-   - Версия {{ AF }} ниже 3.0 {#version-2}
+   - Версия Apache Airflow™ ниже 3.0 {#version-2}
    
      ```python
      from airflow import DAG
@@ -92,7 +92,7 @@
          )
      ```
    
-   - Версия {{ AF }} 3.0 и выше {#version-3}
+   - Версия Apache Airflow™ 3.0 и выше {#version-3}
    
      ```python
      from airflow import DAG
@@ -113,7 +113,7 @@
    {% endlist %}
 
 1. Загрузите DAG-файл `postgres_operator.py` в созданный ранее бакет.
-1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **Dags** появился новый граф `postgres_operator`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -122,11 +122,11 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе {{ AF }}:
+Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
 
 {% list tabs group=instructions %}
    
-- Версия {{ AF }} ниже 3.0 {#version-2}
+- Версия Apache Airflow™ ниже 3.0 {#version-2}
 
   1. В разделе **Dags** нажмите на граф `postgres_operator`.
   1. Перейдите в раздел **Graph**.
@@ -134,7 +134,7 @@
   1. Перейдите в раздел **Logs**.
   1. Убедитесь, что в логах есть строка `Rows affected: 1`. Это значит, что запрос выполнен успешно.
 
-- Версия {{ AF }} 3.0 и выше {#version-3}
+- Версия Apache Airflow™ 3.0 и выше {#version-3}
 
   1. В разделе **Dags** нажмите на граф `postgres_operator`.
   1. Перейдите в раздел **Tasks**.
@@ -148,5 +148,5 @@
 
 ## Решение возможных проблем {#troubleshooting}
 
-* [{#T}](../qa/index.md#airflow-provider-postgres-operators)
-* [{#T}](../qa/index.md#airflow-provider-postgres-operators-2)
+* [Как исправить ошибку `No module named 'airflow.providers.postgres.operators'`?](../qa/index.md#airflow-provider-postgres-operators)
+* [Как исправить ошибку `AirflowException: Unknown hook type "postgres"`?](../qa/index.md#airflow-provider-postgres-operators-2)

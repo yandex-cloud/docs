@@ -5,7 +5,7 @@ Sets access bindings for the specified sink.
 ## HTTP request
 
 ```
-POST https://logging.{{ api-host }}/logging/v1/sinks/{resourceId}:setAccessBindings
+POST https://logging.api.cloud.yandex.net/logging/v1/sinks/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

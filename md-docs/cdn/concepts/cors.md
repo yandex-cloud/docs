@@ -1,6 +1,6 @@
-# CORS в {{ cdn-name }}
+# CORS в Cloud CDN
 
-{{ cdn-full-name }} поддерживает [кросс-доменные запросы](../../glossary/cors.md) по механизму CORS (cross-origin resource sharing).
+Yandex Cloud CDN поддерживает [кросс-доменные запросы](../../glossary/cors.md) по механизму CORS (cross-origin resource sharing).
 
 В настройках ресурса вы можете:
 
@@ -12,7 +12,7 @@
 
 {% note info %}
 
-Чтобы кросс-доменные запросы работали корректно, дополнительно настройте CORS на источнике, если источник поддерживает этот механизм. Например, настройка CORS потребуется для [бакетов {{ objstorage-name }}](../../storage/operations/buckets/cors.md).
+Чтобы кросс-доменные запросы работали корректно, дополнительно настройте CORS на источнике, если источник поддерживает этот механизм. Например, настройка CORS потребуется для [бакетов Object Storage](../../storage/operations/buckets/cors.md).
 
 {% endnote %}
 

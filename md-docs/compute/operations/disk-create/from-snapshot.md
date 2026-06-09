@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Восстановить загрузочный диск существующей ВМ из снимка или образа невозможно. Но вы можете создать новую ВМ, чтобы восстановить загрузочный диск из снимка. Для восстановления загрузочного диска на существующей ВМ, используйте сервис [{{ backup-full-name }}](../../../backup/index.md).
+Восстановить загрузочный диск существующей ВМ из снимка или образа невозможно. Но вы можете создать новую ВМ, чтобы восстановить загрузочный диск из снимка. Для восстановления загрузочного диска на существующей ВМ, используйте сервис [Yandex Cloud Backup](../../../backup/index.md).
 
 {% endnote %}
 
@@ -12,10 +12,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать диск.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать диск.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. Нажмите кнопку **Создать диск**.
   1. Введите имя диска. Требования к имени:
 
       * длина — от 3 до 63 символов;
@@ -24,12 +24,12 @@
 
   1. Если требуется, укажите произвольное текстовое описание диска.
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться диск.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в появившемся списке выберите нужный снимок. При необходимости воспользуйтесь фильтром.
+  1. В поле **Наполнение** выберите `Снимок` и в появившемся списке выберите нужный снимок. При необходимости воспользуйтесь фильтром.
   1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), [размер диска](../../concepts/disk.md#maximum-disk-size), а также [размер блока](../../concepts/disk.md#maximum-disk-size).
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}**:
+  1. (Опционально) В блоке **Шифрование**:
      
-       * Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**.
-       * В поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../../kms/concepts/key.md), созданный ранее. Чтобы [создать](../../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+       * Выберите опцию **Зашифрованный диск**.
+       * В поле **Ключ KMS** выберите [ключ](../../../kms/concepts/key.md), созданный ранее. Чтобы [создать](../../../kms/operations/key.md#create) новый ключ, нажмите кнопку **Создать**.
      
        Для создания зашифрованного диска нужна [роль](../../../kms/security/index.md#kms-keys-user) `kms.keys.user` или выше.
      
@@ -52,22 +52,22 @@
       
       Для нереплицируемых SSD и сверхбыстрых сетевых хранилищ с тремя репликами (SSD) момент времени, когда фиксируется содержимое диска, не детерминирован.
       
-      Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [{{ backup-full-name }}](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
+      Для снимков с локальных дисков на [выделенных хостах](../../concepts/dedicated-host.md) используйте сервис [Yandex Cloud Backup](../../../backup/index.md) (поддерживает ОС Ubuntu, CentOS, CentOS Stream и Windows Server).
 
       При создании диска для него можно выбрать только одно расписание снимков. После создания диска вы сможете добавить к нему еще несколько расписаний по [инструкции](../disk-control/configure-schedule.md#add-schedule).
-  1. (Опционально) Разверните блок **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** и в поле **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** выберите нужное [поколение](../../concepts/hardware-generations.md#configurations) виртуализированного оборудования, которое будет закреплено за создаваемым диском:
+  1. (Опционально) Разверните блок **Дополнительно** и в поле **Поколение оборудования** выберите нужное [поколение](../../concepts/hardware-generations.md#configurations) виртуализированного оборудования, которое будет закреплено за создаваемым диском:
 
-      * `{{ ui-key.yacloud.compute.hardware-gen1-v2-title_eSmBa }}` — поколение `Gen 1.2`.
-      * `{{ ui-key.yacloud.compute.hardware-gen2-title_a2Gfq }}` — поколение `Gen 2`.
-      * `{{ ui-key.yacloud.compute.hardware-gen1-v1-title_oK6qE }}` — поколение `Gen 1.1`.
+      * `Gen 1.2 (MBR, BIOS)` — поколение `Gen 1.2`.
+      * `Gen 2 (GPT, UEFI)` — поколение `Gen 2`.
+      * `Gen 1.1 (MBR, BIOS)` — поколение `Gen 1.1`.
 
       Если вы не зададите поколение оборудования, по умолчанию за диском будет закреплено то же поколение, что и за исходным снимком.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
+  1. Нажмите кнопку **Создать диск**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -142,7 +142,7 @@
       name: second-disk
       description: my second disk via yc
       type_id: network-hdd
-      zone_id: {{ region-id }}-a
+      zone_id: ru-central1-a
       size: "21474836480"
       block_size: "4096"
       product_ids:
@@ -160,7 +160,7 @@
   1. Получите список дисков в каталоге по умолчанию:
 
       ```bash
-      {{ yc-compute }} disk list
+      yc compute disk list
       ```
       
       Результат:
@@ -169,8 +169,8 @@
       +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
       |          ID          |     NAME     |    SIZE     |       ZONE        | STATUS |     INSTANCE IDS     | PLACEMENT GROUP | DESCRIPTION |
       +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 |   {{ region-id }}-a   | READY  | a7lcvu28njbh******** |                 |             |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 |   {{ region-id }}-a   | READY  |                      |                 |             |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 |   ru-central1-a   | READY  | a7lcvu28njbh******** |                 |             |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 |   ru-central1-a   | READY  |                      |                 |             |
       +----------------------+--------------+-------------+-------------------+--------+----------------------+-----------------+-------------+
       ```
 
@@ -189,7 +189,7 @@
         name: first-disk
         description: my first disk
         type_id: network-hdd
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -205,7 +205,7 @@
         created_at: "2025-06-23T06:32:26Z"
         name: second-disk
         type_id: network-ssd
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         size: "21474836480"
         block_size: "4096"
         product_ids:
@@ -220,12 +220,12 @@
             pci_topology: PCI_TOPOLOGY_V1
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_disk`.
 
@@ -273,7 +273,7 @@
 
           {% endnote %}
 
-      Более подробную информацию о ресурсе `yandex_compute_disk` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_disk).
+      Более подробную информацию о ресурсе `yandex_compute_disk` см. в [документации провайдера](../../../terraform/resources/compute_disk.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -284,7 +284,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -296,7 +296,7 @@
 
      1. Подтвердите создание ресурсов.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -313,5 +313,5 @@
 * [Создать ВМ с дисками из снимков](../vm-create/create-from-snapshots.md)
 * [Подключить диск к ВМ и смонтировать разделы](../vm-control/vm-attach-disk.md)
 * [Создать расписание снимков](../snapshot-control/create-schedule.md)
-* [Шифрование в {{ compute-name }}](../../concepts/encryption.md)
-* [{#T}](../../../backup/concepts/index.md)
+* [Шифрование в Compute Cloud](../../concepts/encryption.md)
+* [Обзор сервиса Yandex Cloud Backup](../../../backup/concepts/index.md)

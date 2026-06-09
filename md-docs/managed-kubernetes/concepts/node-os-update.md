@@ -1,6 +1,6 @@
 # Обновление операционной системы в группе узлов
 
-Начиная с {{ k8s }} версии 1.30 во всех [релизных каналах](release-channels-and-updates.md) операционная система узлов кластера {{ managed-k8s-name }} изменилась с Ubuntu 20.04 на Ubuntu 22.04.
+Начиная с Kubernetes версии 1.30 во всех [релизных каналах](release-channels-and-updates.md) операционная система узлов кластера Managed Service for Kubernetes изменилась с Ubuntu 20.04 на Ubuntu 22.04.
 
 При [обновлении групп узлов](../operations/node-group/node-group-update.md) в этих кластерах новые узлы автоматически создаются из [образа](../../compute/concepts/image.md) виртуальной машины с Ubuntu 22.04.
 
@@ -20,7 +20,7 @@
 * Обновите драйвер до версии `550.144.03` или выше.
 * Используйте предварительно скомпилированные драйверы. Для этого при установке GPU Operator задайте настройку `--driver.usePrecompiled=true`.
 
-Подробнее об использовании GPU с пользовательской версией драйвера см. в разделе [{#T}](../tutorials/driverless-gpu.md).
+Подробнее об использовании GPU с пользовательской версией драйвера см. в разделе [Использование групп узлов с GPU без предустановленных драйверов](../tutorials/driverless-gpu.md).
 
 {% note warning %}
 
@@ -30,9 +30,9 @@
 
 ## Подготовка к миграции {#prepare-to-migration}
 
-Перед миграцией кластера {{ k8s }} на новую версию ОС протестируйте обновление на новом кластере:
+Перед миграцией кластера Kubernetes на новую версию ОС протестируйте обновление на новом кластере:
 
-1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
+1. [Создайте кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md) в кластере.
 1. В созданном кластере протестируйте работу ваших приложений, у которых могут быть зависимости от версии ОС.
 

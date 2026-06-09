@@ -1,4 +1,4 @@
-# Синхронизировать пользователей и группы с {{ microsoft-idp.ad-full }}
+# Синхронизировать пользователей и группы с Microsoft Active Directory
 
 
 {% note info %}
@@ -7,15 +7,15 @@
 
 {% endnote %}
 
-Если для управления пользователями ваша компания использует [{{ microsoft-idp.ad-full }}](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к {{ yandex-cloud }}, вам не нужно вручную создавать в {{ yandex-cloud }} учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync.md) с {{ org-full-name }} пользователей и групп, созданных в вашем каталоге {{ microsoft-idp.ad-short }}.
+Если для управления пользователями ваша компания использует [Microsoft Active Directory](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/active-directory-domain-services) и вы хотите организовать для ваших пользователей доступ к Yandex Cloud, вам не нужно вручную создавать в Yandex Cloud учетные записи для ваших пользователей. Вместо этого вы можете настроить [синхронизацию](../concepts/ad-sync.md) с Yandex Identity Hub пользователей и групп, созданных в вашем каталоге Active Directory.
 
-## Подготовьте к синхронизации организацию {{ org-full-name }} {#prepare-org}
+## Подготовьте к синхронизации организацию Yandex Identity Hub {#prepare-org}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
-1. [Создайте](user-pools/create-userpool.md) пул пользователей в {{ org-full-name }} и [привяжите](user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) {{ microsoft-idp.ad-short }}.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud).
+1. [Создайте](user-pools/create-userpool.md) пул пользователей в Yandex Identity Hub и [привяжите](user-pools/add-domain.md#userpool) к нему [домен](../concepts/domains.md), идентичный домену, который используется на [контроллере домена](https://ru.wikipedia.org/wiki/Контроллер_домена) Active Directory.
 
-    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync.md#sync-agent) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее см. в разделе [{#T}](../concepts/ad-sync.md#agent-config).
+    Привязывать ваш собственный домен к [пулу пользователей](../concepts/user-pools.md) не обязательно. Вместо этого вы можете привязать другой домен или выбрать домен по умолчанию. Но в этом случае в конфигурации [агента синхронизации](../concepts/ad-sync.md#sync-agent) потребуется настроить подстановку домена в параметре `replacement_domain`. Подробнее см. в разделе [Конфигурация агента](../concepts/ad-sync.md#agent-config).
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) ему следующие роли на [организацию](../concepts/organization.md), в которой находится нужный пул пользователей:
 
     * [`organization-manager.userpools.syncAgent`](../security/index.md#organization-manager-userpools-syncAgent);
@@ -23,23 +23,23 @@
     * [`organization-manager.groups.externalCreator`](../security/index.md#organization-manager-groups-externalCreator);
     * [`organization-manager.groups.externalConverter`](../security/index.md#organization-manager-groups-externalConverter).
     
-    Если вы планируете выгружать логи работы агента синхронизации в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}, дополнительно назначьте сервисному аккаунту [роль](../../logging/security/index.md#logging-writer) `logging.writer` на соответствующую лог-группу или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором она расположена.
+    Если вы планируете выгружать логи работы агента синхронизации в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging, дополнительно назначьте сервисному аккаунту [роль](../../logging/security/index.md#logging-writer) `logging.writer` на соответствующую лог-группу или [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором она расположена.
 1. (Опционально) [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) и сохраните [авторизованный ключ](../../iam/concepts/authorization/key.md) для вашего [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
     {% note warning %}
     
-    Авторизованный ключ не нужен, если агент синхронизации устанавливается на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}, к которой подключен сервисный аккаунт с необходимыми правами доступа.
+    Авторизованный ключ не нужен, если агент синхронизации устанавливается на [виртуальную машину](../../compute/concepts/vm.md) Yandex Compute Cloud, к которой подключен сервисный аккаунт с необходимыми правами доступа.
     
     {% endnote %}
 
-## Подготовьте контроллер домена {{ microsoft-idp.ad-short }} {#dc-setup}
+## Подготовьте контроллер домена Active Directory {#dc-setup}
 
 1. Создайте пользователя домена, от имени которого агент будет выполнять синхронизацию.
 1. Выдайте этому пользователю следующие разрешения:
 
     * `Replicating Directory Changes`;
     * `Replicating Directory Changes All`.
-1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент {{ ad-sync-agent }}:
+1. На контроллере домена откройте сетевые порты для входящего трафика, поступающего с IP-адреса сервера, на котором установлен агент Identity Hub AD Sync Agent:
 
     * `389 (TCP)` — для [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/);
     * `636 (TCP)` — для [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority);
@@ -53,15 +53,15 @@
 
 Вы можете установить [агент](../concepts/ad-sync.md#sync-agent) синхронизации на любой сервер под управлением ОС [Linux](https://ru.wikipedia.org/wiki/Linux) или [Windows](https://ru.wikipedia.org/wiki/Windows).
 
-Если вы устанавливаете агент синхронизации на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}, [подключите](../../compute/operations/vm-control/vm-connect-sa.md) к этой виртуальной машине созданный [ранее](#prepare-org) сервисный аккаунт.
+Если вы устанавливаете агент синхронизации на [виртуальную машину](../../compute/concepts/vm.md) Yandex Compute Cloud, [подключите](../../compute/operations/vm-control/vm-connect-sa.md) к этой виртуальной машине созданный [ранее](#prepare-org) сервисный аккаунт.
 
 Прежде, чем приступать к синхронизации, откройте на сервере, где вы будете запускать агент, следующие сетевые порты для входящего и исходящего сетевого трафика:
 
-* Для обращения к API {{ yandex-cloud }}:
+* Для обращения к API Yandex Cloud:
 
     * `443` — для [HTTPS](https://ru.wikipedia.org/wiki/HTTPS);
 
-* Для обращения к контроллеру домена {{ microsoft-idp.ad-short }}:
+* Для обращения к контроллеру домена Active Directory:
 
     * `389 (TCP)` — для [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/);
     * `636 (TCP)` — для [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority);
@@ -69,7 +69,7 @@
     * `49152:65535 (TCP)` — диапазон портов для MSRPC dynamic;
     * `53 (TCP/UDP)` и `88 (TCP/UDP)` — для [Kerberos](https://ru.wikipedia.org/wiki/Kerberos).
 
-Если для аутентификации на стороне {{ microsoft-idp.ad-short }} вы планируете использовать протокол [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), самостоятельно установите на сервер компоненты, необходимые для работы этого протокола, и создайте файл `keytab` с ключами шифрования.
+Если для аутентификации на стороне Active Directory вы планируете использовать протокол [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), самостоятельно установите на сервер компоненты, необходимые для работы этого протокола, и создайте файл `keytab` с ключами шифрования.
 
 {% note info %}
 
@@ -85,10 +85,10 @@
 
   В терминале Linux:
 
-  1. Чтобы установить агент {{ ad-sync-agent }}, выполните команду:
+  1. Чтобы установить агент Identity Hub AD Sync Agent, выполните команду:
 
       ```bash
-      curl {{ ad-sync-agent-linuxlink }} | bash
+      curl https://storage.yandexcloud.net/yc-identityhub-sync/install.sh | bash
       ```
 
       Результат:
@@ -101,7 +101,7 @@
       To check service status: sudo systemctl status yc-identityhub-sync-agent
       yc-identityhub-sync-agent is installed to /usr/bin/yc-identityhub-sync-agent
       ```
-  1. (Опционально) Если для аутентификации агента в API {{ yandex-cloud }} вы будете использовать авторизованный ключ сервисного аккаунта, скопируйте на ваш сервер файл с сохраненным ранее авторизованным ключом.
+  1. (Опционально) Если для аутентификации агента в API Yandex Cloud вы будете использовать авторизованный ключ сервисного аккаунта, скопируйте на ваш сервер файл с сохраненным ранее авторизованным ключом.
 
       Для этого вы можете воспользоваться командой `scp` или любым другим подходящим инструментом.
   1. В любом текстовом редакторе откройте [YAML](https://yaml.org/)-файл с конфигурацией агента синхронизации. В примере ниже используется редактор `nano`:
@@ -109,7 +109,7 @@
       ```bash
       nano /etc/yc-identityhub-sync-agent/config.yaml
       ```
-  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от типа аутентификации, используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
+  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от типа аутентификации, используемого агентом на стороне Active Directory, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
 
       {% list tabs group=authentication %}
 
@@ -123,19 +123,19 @@
         replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
         working_directory: "<путь_к_рабочей_директории_агента>"
         
-        # {{ yandex-cloud }} authentication settings
+        # Yandex Cloud authentication settings
         
         # Use the cloud_credentials_file_path parameter for authentication via an authorized key.
         # If you want the agent to authenticate via IAM tokens, remove the cloud_credentials_file_path line.
         cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
         
         # Enable the use_metadata_service parameter for authentication via IAM tokens
-        # (only available when the agent is installed on a {{ compute-name }} VM).
+        # (only available when the agent is installed on a Compute Cloud VM).
         # If `true`, the cloud_credentials_file_path parameter will be ignored.
         use_metadata_service: true|false
         
         # Enable the Dry Run mode.
-        # If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
+        # If `true`, no changes will be applied to users or groups in Yandex Identity Hub.
         # Instead, all pending operations will be saved to the current log file location.
         dry_run:
           enabled: true|false
@@ -209,7 +209,7 @@
 
         Где:
 
-        * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в {{ org-full-name }}.
+        * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
         * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
         
             Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
@@ -220,7 +220,7 @@
             * `/etc/yc-identityhub-sync-agent/` (для Linux);
             * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (для Windows).
         
-        * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в {{ yandex-cloud }}. Необязательный параметр: используется только при аутентификации агента в API {{ yandex-cloud }} с помощью авторизованного ключа.
+        * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в Yandex Cloud. Необязательный параметр: используется только при аутентификации агента в API Yandex Cloud с помощью авторизованного ключа.
         
             Примеры значений:
         
@@ -235,21 +235,21 @@
         
             {% endnote %}
         
-        * `use_metadata_service` — параметр, управляющий аутентификацией агента в API {{ yandex-cloud }} с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
+        * `use_metadata_service` — параметр, управляющий аутентификацией агента в API Yandex Cloud с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
         
             Возможные значения:
         
-            * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API {{ yandex-cloud }}. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
+            * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API Yandex Cloud. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
         
-                Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине {{ compute-full-name }}, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
-            * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API {{ yandex-cloud }} будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+                Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине Yandex Compute Cloud, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
+            * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
         * `dry_run` — настройки [тестового запуска](../concepts/ad-sync.md#dry-run) агента (dry run):
         
-            * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп {{ org-full-name }}. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
-            * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп {{ org-full-name }}.
+            * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
+            * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп Yandex Identity Hub.
 
-        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
-        * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }}:
+        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
+        * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне Active Directory:
         
             {% note warning %}
         
@@ -257,12 +257,12 @@
         
             {% endnote %}
         
-            * `host` — домен или IP-адрес контроллера домена {{ microsoft-idp.ad-short }}. В зависимости от используемого протокола указываются схема и номер порта:
+            * `host` — домен или IP-адрес контроллера домена Active Directory. В зависимости от используемого протокола указываются схема и номер порта:
         
                 * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
                 * при использовании `LDAP` — схема `ldap://` и порт `389`.
-            * `username` — имя пользователя домена {{ microsoft-idp.ad-short }}, которому [назначены](#dc-setup) права на выполнение репликации данных.
-            * `password` — пароль пользователя домена {{ microsoft-idp.ad-short }}.
+            * `username` — имя пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+            * `password` — пароль пользователя домена Active Directory.
             * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
         
                 Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
@@ -298,7 +298,7 @@
                 * `maxbackups` — максимальное количество файлов с логами, которые агент будет хранить. При превышении максимального количества файлов наиболее старый файл будет удален.
         
                 Необязательный параметр. Если настройки в разделе `file` не заданы, события не будут сохраняться в файлы.
-            * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}:
+            * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging:
         
                 * `log_group_id` — идентификатор лог-группы, в которую будут выгружаться логи работы агента синхронизации.
                 
@@ -318,50 +318,50 @@
         
                 {% note info %}
         
-                Периодичность выполнения синхронизации паролей и состояний пользователей в {{ microsoft-idp.ad-short }} составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
+                Периодичность выполнения синхронизации паролей и состояний пользователей в Active Directory составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
         
                 {% endnote %}
         
-            * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула {{ org-full-name }} при совпадении его логина с логином пользователя {{ microsoft-idp.ad-short }}, которого требуется синхронизировать. Возможные значения:
+            * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула Yandex Identity Hub при совпадении его логина с логином пользователя Active Directory, которого требуется синхронизировать. Возможные значения:
         
-                * `true` — агент синхронизации будет изменять существующих пользователей {{ org-full-name }}, приводя их в соответствие с учетной записью в {{ microsoft-idp.ad-short }}.
-                * `false` — агент синхронизации не будет изменять существующих пользователей {{ org-full-name }}. При обнаружении совпадения логинов пользователя в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-            * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей {{ org-full-name }} при совпадении ее имени с именем группы в {{ microsoft-idp.ad-short }}, которую требуется синхронизировать. Возможные значения:
+                * `true` — агент синхронизации будет изменять существующих пользователей Yandex Identity Hub, приводя их в соответствие с учетной записью в Active Directory.
+                * `false` — агент синхронизации не будет изменять существующих пользователей Yandex Identity Hub. При обнаружении совпадения логинов пользователя в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+            * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей Yandex Identity Hub при совпадении ее имени с именем группы в Active Directory, которую требуется синхронизировать. Возможные значения:
         
-                * `true` — агент синхронизации будет изменять существующие группы пользователей {{ org-full-name }}, приводя их в соответствие с группами в {{ microsoft-idp.ad-short }}.
-                * `false` — агент синхронизации не будет изменять существующие группы пользователей {{ org-full-name }}. При обнаружении совпадения имен групп в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-            * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей {{ org-full-name }}, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.{{ dns-ns-host-sld }}`.
+                * `true` — агент синхронизации будет изменять существующие группы пользователей Yandex Identity Hub, приводя их в соответствие с группами в Active Directory.
+                * `false` — агент синхронизации не будет изменять существующие группы пользователей Yandex Identity Hub. При обнаружении совпадения имен групп в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+            * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей Yandex Identity Hub, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.yandexcloud.net`.
         
-                Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена {{ microsoft-idp.ad-short }}.
+                Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена Active Directory.
             * `user_attribute_mapping` — настройки сопоставления атрибутов пользователя:
         
-                * `source` — имя атрибута пользователя, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+                * `source` — имя атрибута пользователя, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
         
                     Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-                * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+                * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
                 * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
         
                     * `direct` — настроить сопоставление атрибутов.
                     * `empty` — отключить синхронизацию атрибута.
         
-                Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
+                Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
             * `group_attribute_mapping` — настройки сопоставления атрибутов групп пользователей:
         
-                * `source` — имя атрибута групп пользователей, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+                * `source` — имя атрибута групп пользователей, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
         
                     Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-                * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+                * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
                 * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
         
                     * `direct` — настроить сопоставление атрибутов.
                     * `empty` — отключить синхронизацию атрибута.
         
-                Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
-            * `filter` — настройки фильтрации синхронизируемых объектов на стороне {{ microsoft-idp.ad-short }}:
+                Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
+            * `filter` — настройки фильтрации синхронизируемых объектов на стороне Active Directory:
         
-                * `domain` — имя домена на контроллере домена {{ microsoft-idp.ad-short }}, в котором агент будет синхронизировать пользователей и группы.
-                * `organization_units` — список Organization Units (OU) в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей и группы.
-                * `groups` — список групп пользователей в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
+                * `domain` — имя домена на контроллере домена Active Directory, в котором агент будет синхронизировать пользователей и группы.
+                * `organization_units` — список Organization Units (OU) в каталоге Active Directory, в которых агент будет синхронизировать пользователей и группы.
+                * `groups` — список групп пользователей в каталоге Active Directory, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
         
                     {% note info %}
         
@@ -369,15 +369,15 @@
         
                     {% endnote %}
         
-                Если не настроить фильтрацию синхронизируемых объектов, агент {{ ad-sync-agent }} попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге {{ microsoft-idp.ad-short }}.
-            * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне {{ yandex-cloud }}, если соответствующие пользователи на стороне {{ microsoft-idp.ad-short }} были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
+                Если не настроить фильтрацию синхронизируемых объектов, агент Identity Hub AD Sync Agent попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге Active Directory.
+            * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне Yandex Cloud, если соответствующие пользователи на стороне Active Directory были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
         
-                * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне {{ org-full-name }}. Действие по умолчанию.
-                * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне {{ org-full-name }}.
+                * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне Yandex Identity Hub. Действие по умолчанию.
+                * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне Yandex Identity Hub.
         
             {% note info %}
         
-            Если в процессе синхронизации выясняется, что на стороне {{ microsoft-idp.ad-short }} группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне {{ org-full-name }} такая группа удаляется.
+            Если в процессе синхронизации выясняется, что на стороне Active Directory группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне Yandex Identity Hub такая группа удаляется.
         
             {% endnote %}
 
@@ -397,19 +397,19 @@
         replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
         working_directory: "<путь_к_рабочей_директории_агента>"
         
-        # {{ yandex-cloud }} authentication settings
+        # Yandex Cloud authentication settings
         
         # Use the cloud_credentials_file_path parameter for authentication via an authorized key.
         # If you want the agent to authenticate via IAM tokens, remove the cloud_credentials_file_path line.
         cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
         
         # Enable the use_metadata_service parameter for authentication via IAM tokens
-        # (only available when the agent is installed on a {{ compute-name }} VM).
+        # (only available when the agent is installed on a Compute Cloud VM).
         # If `true`, the cloud_credentials_file_path parameter will be ignored.
         use_metadata_service: true|false
         
         # Enable the Dry Run mode.
-        # If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
+        # If `true`, no changes will be applied to users or groups in Yandex Identity Hub.
         # Instead, all pending operations will be saved to the current log file location.
         dry_run:
           enabled: true|false
@@ -488,7 +488,7 @@
 
         Где:
 
-        * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в {{ org-full-name }}.
+        * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
         * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
         
             Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
@@ -499,7 +499,7 @@
             * `/etc/yc-identityhub-sync-agent/` (для Linux);
             * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (для Windows).
         
-        * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в {{ yandex-cloud }}. Необязательный параметр: используется только при аутентификации агента в API {{ yandex-cloud }} с помощью авторизованного ключа.
+        * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в Yandex Cloud. Необязательный параметр: используется только при аутентификации агента в API Yandex Cloud с помощью авторизованного ключа.
         
             Примеры значений:
         
@@ -514,21 +514,21 @@
         
             {% endnote %}
         
-        * `use_metadata_service` — параметр, управляющий аутентификацией агента в API {{ yandex-cloud }} с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
+        * `use_metadata_service` — параметр, управляющий аутентификацией агента в API Yandex Cloud с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
         
             Возможные значения:
         
-            * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API {{ yandex-cloud }}. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
+            * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API Yandex Cloud. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
         
-                Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине {{ compute-full-name }}, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
-            * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API {{ yandex-cloud }} будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+                Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине Yandex Compute Cloud, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
+            * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
         * `dry_run` — настройки [тестового запуска](../concepts/ad-sync.md#dry-run) агента (dry run):
         
-            * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп {{ org-full-name }}. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
-            * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп {{ org-full-name }}.
+            * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
+            * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп Yandex Identity Hub.
 
-        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} с использованием Kerberos.
-        * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }} с использованием Kerberos:
+        * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory с использованием Kerberos.
+        * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне Active Directory с использованием Kerberos:
         
             {% note warning %}
         
@@ -536,7 +536,7 @@
         
             {% endnote %}
         
-            * `host` — домен или IP-адрес контроллера домена {{ microsoft-idp.ad-short }}. В зависимости от используемого протокола указываются схема и номер порта:
+            * `host` — домен или IP-адрес контроллера домена Active Directory. В зависимости от используемого протокола указываются схема и номер порта:
         
                 * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
                 * при использовании `LDAP` — схема `ldap://` и порт `389`.
@@ -547,11 +547,11 @@
         
                 * `false` — ошибки валидации сертификата не будут игнорироваться. Значение по умолчанию.
                 * `true` — агент синхронизации будет игнорировать ошибки валидации сертификата. Может быть полезно при настройке и тестировании синхронизации. Не рекомендуется использовать в рабочем режиме.
-            * `use_kerberos` — параметр, указывающий на необходимость использовать протокол Kerberos для аутентификации пользователя на стороне {{ microsoft-idp.ad-short }}.
-        * `kerberos` — настройки протокола Kerberos для аутентификации на стороне {{ microsoft-idp.ad-short }}:
+            * `use_kerberos` — параметр, указывающий на необходимость использовать протокол Kerberos для аутентификации пользователя на стороне Active Directory.
+        * `kerberos` — настройки протокола Kerberos для аутентификации на стороне Active Directory:
         
             * `keytab_path` — путь к файлу `keytab` с ключами шифрования.
-            * `principal` — [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) пользовательского аккаунта для подключения к {{ microsoft-idp.ad-short }}.
+            * `principal` — [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) пользовательского аккаунта для подключения к Active Directory.
             * `krb5_config_path` — путь к файлу конфигурации Kerberos. Необязательный параметр. По умолчанию используется путь `/etc/krb5.conf` или значение, заданное в переменной окружения `KRB5_CONFIG`.
             * `disable_pa_fx_fast: true` — параметр, управляющий режимом [FAST](https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831747(v=ws.11)#kerberos-armoring-flexible-authentication-secure-tunneling-fast).
 
@@ -582,7 +582,7 @@
                 * `maxbackups` — максимальное количество файлов с логами, которые агент будет хранить. При превышении максимального количества файлов наиболее старый файл будет удален.
         
                 Необязательный параметр. Если настройки в разделе `file` не заданы, события не будут сохраняться в файлы.
-            * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}:
+            * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging:
         
                 * `log_group_id` — идентификатор лог-группы, в которую будут выгружаться логи работы агента синхронизации.
                 
@@ -602,50 +602,50 @@
         
                 {% note info %}
         
-                Периодичность выполнения синхронизации паролей и состояний пользователей в {{ microsoft-idp.ad-short }} составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
+                Периодичность выполнения синхронизации паролей и состояний пользователей в Active Directory составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
         
                 {% endnote %}
         
-            * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула {{ org-full-name }} при совпадении его логина с логином пользователя {{ microsoft-idp.ad-short }}, которого требуется синхронизировать. Возможные значения:
+            * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула Yandex Identity Hub при совпадении его логина с логином пользователя Active Directory, которого требуется синхронизировать. Возможные значения:
         
-                * `true` — агент синхронизации будет изменять существующих пользователей {{ org-full-name }}, приводя их в соответствие с учетной записью в {{ microsoft-idp.ad-short }}.
-                * `false` — агент синхронизации не будет изменять существующих пользователей {{ org-full-name }}. При обнаружении совпадения логинов пользователя в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-            * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей {{ org-full-name }} при совпадении ее имени с именем группы в {{ microsoft-idp.ad-short }}, которую требуется синхронизировать. Возможные значения:
+                * `true` — агент синхронизации будет изменять существующих пользователей Yandex Identity Hub, приводя их в соответствие с учетной записью в Active Directory.
+                * `false` — агент синхронизации не будет изменять существующих пользователей Yandex Identity Hub. При обнаружении совпадения логинов пользователя в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+            * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей Yandex Identity Hub при совпадении ее имени с именем группы в Active Directory, которую требуется синхронизировать. Возможные значения:
         
-                * `true` — агент синхронизации будет изменять существующие группы пользователей {{ org-full-name }}, приводя их в соответствие с группами в {{ microsoft-idp.ad-short }}.
-                * `false` — агент синхронизации не будет изменять существующие группы пользователей {{ org-full-name }}. При обнаружении совпадения имен групп в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-            * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей {{ org-full-name }}, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.{{ dns-ns-host-sld }}`.
+                * `true` — агент синхронизации будет изменять существующие группы пользователей Yandex Identity Hub, приводя их в соответствие с группами в Active Directory.
+                * `false` — агент синхронизации не будет изменять существующие группы пользователей Yandex Identity Hub. При обнаружении совпадения имен групп в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+            * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей Yandex Identity Hub, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.yandexcloud.net`.
         
-                Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена {{ microsoft-idp.ad-short }}.
+                Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена Active Directory.
             * `user_attribute_mapping` — настройки сопоставления атрибутов пользователя:
         
-                * `source` — имя атрибута пользователя, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+                * `source` — имя атрибута пользователя, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
         
                     Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-                * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+                * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
                 * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
         
                     * `direct` — настроить сопоставление атрибутов.
                     * `empty` — отключить синхронизацию атрибута.
         
-                Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
+                Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
             * `group_attribute_mapping` — настройки сопоставления атрибутов групп пользователей:
         
-                * `source` — имя атрибута групп пользователей, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+                * `source` — имя атрибута групп пользователей, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
         
                     Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-                * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+                * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
                 * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
         
                     * `direct` — настроить сопоставление атрибутов.
                     * `empty` — отключить синхронизацию атрибута.
         
-                Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
-            * `filter` — настройки фильтрации синхронизируемых объектов на стороне {{ microsoft-idp.ad-short }}:
+                Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
+            * `filter` — настройки фильтрации синхронизируемых объектов на стороне Active Directory:
         
-                * `domain` — имя домена на контроллере домена {{ microsoft-idp.ad-short }}, в котором агент будет синхронизировать пользователей и группы.
-                * `organization_units` — список Organization Units (OU) в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей и группы.
-                * `groups` — список групп пользователей в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
+                * `domain` — имя домена на контроллере домена Active Directory, в котором агент будет синхронизировать пользователей и группы.
+                * `organization_units` — список Organization Units (OU) в каталоге Active Directory, в которых агент будет синхронизировать пользователей и группы.
+                * `groups` — список групп пользователей в каталоге Active Directory, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
         
                     {% note info %}
         
@@ -653,21 +653,21 @@
         
                     {% endnote %}
         
-                Если не настроить фильтрацию синхронизируемых объектов, агент {{ ad-sync-agent }} попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге {{ microsoft-idp.ad-short }}.
-            * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне {{ yandex-cloud }}, если соответствующие пользователи на стороне {{ microsoft-idp.ad-short }} были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
+                Если не настроить фильтрацию синхронизируемых объектов, агент Identity Hub AD Sync Agent попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге Active Directory.
+            * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне Yandex Cloud, если соответствующие пользователи на стороне Active Directory были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
         
-                * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне {{ org-full-name }}. Действие по умолчанию.
-                * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне {{ org-full-name }}.
+                * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне Yandex Identity Hub. Действие по умолчанию.
+                * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне Yandex Identity Hub.
         
             {% note info %}
         
-            Если в процессе синхронизации выясняется, что на стороне {{ microsoft-idp.ad-short }} группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне {{ org-full-name }} такая группа удаляется.
+            Если в процессе синхронизации выясняется, что на стороне Active Directory группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне Yandex Identity Hub такая группа удаляется.
         
             {% endnote %}
 
       {% endlist %}
 
-  1. Запустите сервис агента {{ ad-sync-agent }}, чтобы начать процесс синхронизации:
+  1. Запустите сервис агента Identity Hub AD Sync Agent, чтобы начать процесс синхронизации:
 
       ```bash
       sudo systemctl start yc-identityhub-sync-agent
@@ -678,7 +678,7 @@
       sudo cat /etc/yc-identityhub-sync-agent/identity_hub.log
       ```
 
-      Результат синхронизации вы также можете посмотреть в интерфейсе сервиса [{{ org-full-name }}]({{ link-org-cloud-center }}) — в выбранном пуле пользователей должны создаться новые пользователи и группы, полученные из {{ microsoft-idp.ad-short }}.
+      Результат синхронизации вы также можете посмотреть в интерфейсе сервиса [Yandex Identity Hub](https://center.yandex.cloud/organization) — в выбранном пуле пользователей должны создаться новые пользователи и группы, полученные из Active Directory.
 
   1. Чтобы остановить синхронизацию, остановите запущенный процесс агента синхронизации:
 
@@ -692,10 +692,10 @@
 
   В терминале PowerShell:
 
-  1. Чтобы установить агент {{ ad-sync-agent }}, выполните команду:
+  1. Чтобы установить агент Identity Hub AD Sync Agent, выполните команду:
 
       ```bash
-      iex (New-Object System.Net.WebClient).DownloadString('{{ ad-sync-agent-windowslink }}')
+      iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yc-identityhub-sync/install.ps1')
       ```
 
       Результат:
@@ -723,19 +723,19 @@
       replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
       working_directory: "<путь_к_рабочей_директории_агента>"
       
-      # {{ yandex-cloud }} authentication settings
+      # Yandex Cloud authentication settings
       
       # Use the cloud_credentials_file_path parameter for authentication via an authorized key.
       # If you want the agent to authenticate via IAM tokens, remove the cloud_credentials_file_path line.
       cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
       
       # Enable the use_metadata_service parameter for authentication via IAM tokens
-      # (only available when the agent is installed on a {{ compute-name }} VM).
+      # (only available when the agent is installed on a Compute Cloud VM).
       # If `true`, the cloud_credentials_file_path parameter will be ignored.
       use_metadata_service: true|false
       
       # Enable the Dry Run mode.
-      # If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
+      # If `true`, no changes will be applied to users or groups in Yandex Identity Hub.
       # Instead, all pending operations will be saved to the current log file location.
       dry_run:
         enabled: true|false
@@ -809,7 +809,7 @@
 
       Где:
 
-      * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в {{ org-full-name }}.
+      * `userpool_id` — идентификатор [пула пользователей](../concepts/user-pools.md) в Yandex Identity Hub.
       * `replication_tokens_path` — путь к директории, в которой сохраняются токены с информацией о текущем прогрессе процессов [полной синхронизации](../concepts/ad-sync.md#full-sync). Необязательный параметр.
       
           Если параметр не задан, токены сохраняются в рабочей директории агента, указанной в параметре `working_directory`, или, если рабочая директория не задана, — в директории, в которой расположен исполняемый файл агента.
@@ -820,7 +820,7 @@
           * `/etc/yc-identityhub-sync-agent/` (для Linux);
           * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (для Windows).
       
-      * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в {{ yandex-cloud }}. Необязательный параметр: используется только при аутентификации агента в API {{ yandex-cloud }} с помощью авторизованного ключа.
+      * `cloud_credentials_file_path` — путь к файлу, содержащему [авторизованный ключ](../../iam/concepts/authorization/key.md) сервисного аккаунта в Yandex Cloud. Необязательный параметр: используется только при аутентификации агента в API Yandex Cloud с помощью авторизованного ключа.
       
           Примеры значений:
       
@@ -835,21 +835,21 @@
       
           {% endnote %}
       
-      * `use_metadata_service` — параметр, управляющий аутентификацией агента в API {{ yandex-cloud }} с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
+      * `use_metadata_service` — параметр, управляющий аутентификацией агента в API Yandex Cloud с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) и позволяющий агенту получать IAM-токены через [сервис метаданных](../../compute/concepts/vm-metadata.md) ВМ.
       
           Возможные значения:
       
-          * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API {{ yandex-cloud }}. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
+          * `true` — агент синхронизации будет получать IAM-токены сервисного аккаунта через сервис метаданных виртуальной машины и использовать их для аутентификации в API Yandex Cloud. Значение параметра `cloud_credentials_file_path` при этом будет игнорироваться.
       
-              Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине {{ compute-full-name }}, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
-          * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API {{ yandex-cloud }} будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+              Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине Yandex Compute Cloud, к которой подключен сервисный аккаунт с [необходимыми](../concepts/ad-sync.md#yc-setup) правами доступа.
+          * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API Yandex Cloud будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
       * `dry_run` — настройки [тестового запуска](../concepts/ad-sync.md#dry-run) агента (dry run):
       
-          * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп {{ org-full-name }}. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
-          * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп {{ org-full-name }}.
+          * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп Yandex Identity Hub. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../concepts/ad-sync.md#logging) его работы.
+          * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп Yandex Identity Hub.
 
-      * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
-      * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }}:
+      * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне Active Directory [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
+      * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне Active Directory:
       
           {% note warning %}
       
@@ -857,12 +857,12 @@
       
           {% endnote %}
       
-          * `host` — домен или IP-адрес контроллера домена {{ microsoft-idp.ad-short }}. В зависимости от используемого протокола указываются схема и номер порта:
+          * `host` — домен или IP-адрес контроллера домена Active Directory. В зависимости от используемого протокола указываются схема и номер порта:
       
               * при использовании `LDAPS` — схема `ldaps://` и порт `636`;
               * при использовании `LDAP` — схема `ldap://` и порт `389`.
-          * `username` — имя пользователя домена {{ microsoft-idp.ad-short }}, которому [назначены](#dc-setup) права на выполнение репликации данных.
-          * `password` — пароль пользователя домена {{ microsoft-idp.ad-short }}.
+          * `username` — имя пользователя домена Active Directory, которому [назначены](#dc-setup) права на выполнение репликации данных.
+          * `password` — пароль пользователя домена Active Directory.
           * `certificate_path` — путь к файлу с сертификатом открытого ключа, необходимым для расшифрования трафика от контроллера домена. Обязательный параметр при использовании протокола `LDAPS`.
       
               Если в параметре `working_directory` задан путь к рабочей директории, вместо пути к файлу сертификата достаточно указать имя этого файла.
@@ -898,7 +898,7 @@
               * `maxbackups` — максимальное количество файлов с логами, которые агент будет хранить. При превышении максимального количества файлов наиболее старый файл будет удален.
       
               Необязательный параметр. Если настройки в разделе `file` не заданы, события не будут сохраняться в файлы.
-          * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}:
+          * `cloud_logger` — настройки сохранения логов в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging:
       
               * `log_group_id` — идентификатор лог-группы, в которую будут выгружаться логи работы агента синхронизации.
               
@@ -918,50 +918,50 @@
       
               {% note info %}
       
-              Периодичность выполнения синхронизации паролей и состояний пользователей в {{ microsoft-idp.ad-short }} составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
+              Периодичность выполнения синхронизации паролей и состояний пользователей в Active Directory составляет несколько секунд, является константой и не зависит от значения, заданного в параметре `interval`.
       
               {% endnote %}
       
-          * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула {{ org-full-name }} при совпадении его логина с логином пользователя {{ microsoft-idp.ad-short }}, которого требуется синхронизировать. Возможные значения:
+          * `allow_to_capture_users` — параметр, позволяющий изменять существующего пользователя пула Yandex Identity Hub при совпадении его логина с логином пользователя Active Directory, которого требуется синхронизировать. Возможные значения:
       
-              * `true` — агент синхронизации будет изменять существующих пользователей {{ org-full-name }}, приводя их в соответствие с учетной записью в {{ microsoft-idp.ad-short }}.
-              * `false` — агент синхронизации не будет изменять существующих пользователей {{ org-full-name }}. При обнаружении совпадения логинов пользователя в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-          * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей {{ org-full-name }} при совпадении ее имени с именем группы в {{ microsoft-idp.ad-short }}, которую требуется синхронизировать. Возможные значения:
+              * `true` — агент синхронизации будет изменять существующих пользователей Yandex Identity Hub, приводя их в соответствие с учетной записью в Active Directory.
+              * `false` — агент синхронизации не будет изменять существующих пользователей Yandex Identity Hub. При обнаружении совпадения логинов пользователя в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+          * `allow_to_capture_groups` — параметр, позволяющий изменять существующую группу пользователей Yandex Identity Hub при совпадении ее имени с именем группы в Active Directory, которую требуется синхронизировать. Возможные значения:
       
-              * `true` — агент синхронизации будет изменять существующие группы пользователей {{ org-full-name }}, приводя их в соответствие с группами в {{ microsoft-idp.ad-short }}.
-              * `false` — агент синхронизации не будет изменять существующие группы пользователей {{ org-full-name }}. При обнаружении совпадения имен групп в пуле и в {{ microsoft-idp.ad-short }} процесс синхронизации выдаст ошибку.
-          * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей {{ org-full-name }}, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.{{ dns-ns-host-sld }}`.
+              * `true` — агент синхронизации будет изменять существующие группы пользователей Yandex Identity Hub, приводя их в соответствие с группами в Active Directory.
+              * `false` — агент синхронизации не будет изменять существующие группы пользователей Yandex Identity Hub. При обнаружении совпадения имен групп в пуле и в Active Directory процесс синхронизации выдаст ошибку.
+          * `replacement_domain` — [домен](../concepts/domains.md), привязанный к пулу пользователей Yandex Identity Hub, в котором находятся синхронизируемые пользователи и группы. Например: `newdomain.idp.yandexcloud.net`.
       
-              Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена {{ microsoft-idp.ad-short }}.
+              Необязательный параметр. Значение параметра `replacement_domain` требуется задавать только в том случае, если имя домена, привязанного к пулу пользователей, отличается от имени домена на контроллере домена Active Directory.
           * `user_attribute_mapping` — настройки сопоставления атрибутов пользователя:
       
-              * `source` — имя атрибута пользователя, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+              * `source` — имя атрибута пользователя, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
       
                   Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-              * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+              * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
               * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
       
                   * `direct` — настроить сопоставление атрибутов.
                   * `empty` — отключить синхронизацию атрибута.
       
-              Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
+              Необязательный параметр. Значение параметра `user_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов пользователя, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
           * `group_attribute_mapping` — настройки сопоставления атрибутов групп пользователей:
       
-              * `source` — имя атрибута групп пользователей, получаемое из {{ microsoft-idp.ad-short }} и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
+              * `source` — имя атрибута групп пользователей, получаемое из Active Directory и отличное от имени, [заданного по умолчанию](../concepts/ad-sync.md#sync-objects).
       
                   Если вы хотите отключить синхронизацию атрибута, оставьте значение пустым: `source: ""`.
-              * `target` — имя атрибута на стороне {{ yandex-cloud }}, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [{#T}](../concepts/ad-sync.md#sync-objects).
+              * `target` — имя атрибута на стороне Yandex Cloud, с которым настраивается сопоставление (или для которого отключается синхронизация). Список доступных значений смотрите в таблице **Атрибуты групп пользователей** в разделе [Объекты синхронизации](../concepts/ad-sync.md#sync-objects).
               * `type` — выбор действия в отношении указанного атрибута. Возможные значения:
       
                   * `direct` — настроить сопоставление атрибутов.
                   * `empty` — отключить синхронизацию атрибута.
       
-              Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для {{ microsoft-idp.ad-short }}, или отключить синхронизацию отдельных атрибутов.
-          * `filter` — настройки фильтрации синхронизируемых объектов на стороне {{ microsoft-idp.ad-short }}:
+              Необязательный параметр. Значение параметра `group_attribute_mapping` необходимо задавать только в том случае, если требуется настроить сопоставление имен атрибутов групп пользователей, отличных от заданных по умолчанию для Active Directory, или отключить синхронизацию отдельных атрибутов.
+          * `filter` — настройки фильтрации синхронизируемых объектов на стороне Active Directory:
       
-              * `domain` — имя домена на контроллере домена {{ microsoft-idp.ad-short }}, в котором агент будет синхронизировать пользователей и группы.
-              * `organization_units` — список Organization Units (OU) в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей и группы.
-              * `groups` — список групп пользователей в каталоге {{ microsoft-idp.ad-short }}, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
+              * `domain` — имя домена на контроллере домена Active Directory, в котором агент будет синхронизировать пользователей и группы.
+              * `organization_units` — список Organization Units (OU) в каталоге Active Directory, в которых агент будет синхронизировать пользователей и группы.
+              * `groups` — список групп пользователей в каталоге Active Directory, в которых агент будет синхронизировать пользователей. Вы можете указать одну или несколько групп, при этом фильтр по нескольким группам будет применяться с логикой `ИЛИ`.
       
                   {% note info %}
       
@@ -969,15 +969,15 @@
       
                   {% endnote %}
       
-              Если не настроить фильтрацию синхронизируемых объектов, агент {{ ad-sync-agent }} попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге {{ microsoft-idp.ad-short }}.
-          * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне {{ yandex-cloud }}, если соответствующие пользователи на стороне {{ microsoft-idp.ad-short }} были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
+              Если не настроить фильтрацию синхронизируемых объектов, агент Identity Hub AD Sync Agent попытается синхронизировать все [доступные объекты](../concepts/ad-sync.md#sync-objects) в каталоге Active Directory.
+          * `remove_user_behavior` — позволяет управлять действием в отношении пользователей на стороне Yandex Cloud, если соответствующие пользователи на стороне Active Directory были удалены или перестали удовлетворять условиям, заданным в параметрах `sync_settings.filter` (например, они были перенесены в другой Organization Unit). Необязательный параметр. Возможные значения:
       
-              * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне {{ org-full-name }}. Действие по умолчанию.
-              * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне {{ org-full-name }}.
+              * `remove` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, удаляются на стороне Yandex Identity Hub. Действие по умолчанию.
+              * `block` — пользователи, удаленные или переставшие удовлетворять условиям фильтра, деактивируются на стороне Yandex Identity Hub.
       
           {% note info %}
       
-          Если в процессе синхронизации выясняется, что на стороне {{ microsoft-idp.ad-short }} группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне {{ org-full-name }} такая группа удаляется.
+          Если в процессе синхронизации выясняется, что на стороне Active Directory группа пользователей была удалена или перестала удовлетворять заданным фильтрам (например, она была перенесена в другой Organization Unit), то на стороне Yandex Identity Hub такая группа удаляется.
       
           {% endnote %}
 
@@ -992,7 +992,7 @@
       cat C:\ProgramData\YcIdentityHubSyncAgent\identity_hub.log
       ```
 
-      Результат синхронизации вы также можете посмотреть в интерфейсе сервиса [{{ org-full-name }}]({{ link-org-cloud-center }}) — в выбранном пуле пользователей должны создаться новые пользователи и группы, полученные из {{ microsoft-idp.ad-short }}.
+      Результат синхронизации вы также можете посмотреть в интерфейсе сервиса [Yandex Identity Hub](https://center.yandex.cloud/organization) — в выбранном пуле пользователей должны создаться новые пользователи и группы, полученные из Active Directory.
 
   1. Чтобы остановить процесс синхронизации, остановите созданную службу:
 
@@ -1006,7 +1006,7 @@
 
 ## Протестируйте изменения в конфигурации агента {#dry-run}
 
-Агент {{ ad-sync-agent }} можно запустить в [тестовом режиме](../concepts/ad-sync.md#dry-run) (dry run). Этот режим позволяет убедиться в корректности вносимых в конфигурацию агента изменений прежде чем применять эти изменения в рабочем режиме.
+Агент Identity Hub AD Sync Agent можно запустить в [тестовом режиме](../concepts/ad-sync.md#dry-run) (dry run). Этот режим позволяет убедиться в корректности вносимых в конфигурацию агента изменений прежде чем применять эти изменения в рабочем режиме.
 
 Чтобы запустить агент в режиме dry run:
 
@@ -1035,7 +1035,7 @@
         --config /etc/yc-identityhub-sync-agent/config.yaml
       ```
 
-      В результате в [логах](../concepts/ad-sync.md#logging) агента будут сохранены изменения, которые должны быть внесены в данные пользователей и групп {{ org-full-name }} в связи с изменениями, внесенными в конфигурацию агента.
+      В результате в [логах](../concepts/ad-sync.md#logging) агента будут сохранены изменения, которые должны быть внесены в данные пользователей и групп Yandex Identity Hub в связи с изменениями, внесенными в конфигурацию агента.
       
       Например:
       
@@ -1053,7 +1053,7 @@
       2026-04-22T06:46:35.504Z	info	synchronization/sync_process.go:542	Would synchronize Memberships. Change type: Delete. Successful: 0. Failed: 0
       ```
       
-      Из приведенного примера видно, что после запуска синхронизации в {{ org-full-name }}:
+      Из приведенного примера видно, что после запуска синхронизации в Yandex Identity Hub:
       
       * будет создано 10 новых пользователей;
       * будет удалено 2 пользователя;
@@ -1064,7 +1064,7 @@
   1. Если все сохраненные в файл логов изменения являются ожидаемыми, а операции не содержат ошибок, значит, внесенные в конфигурацию агента изменения корректны, и агент можно запускать в рабочем режиме:
 
       1. Отключите режим dry run, заменив в файле конфигурации в секции `dry_run` значение поля на `enabled: false`.
-      1. В терминале Linux запустите сервис агента {{ ad-sync-agent }}, чтобы начать процесс синхронизации:
+      1. В терминале Linux запустите сервис агента Identity Hub AD Sync Agent, чтобы начать процесс синхронизации:
 
           ```bash
           sudo systemctl start yc-identityhub-sync-agent
@@ -1093,7 +1093,7 @@
         --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml
       ```
 
-      В результате в [логах](../concepts/ad-sync.md#logging) агента будут сохранены изменения, которые должны быть внесены в данные пользователей и групп {{ org-full-name }} в связи с изменениями, внесенными в конфигурацию агента.
+      В результате в [логах](../concepts/ad-sync.md#logging) агента будут сохранены изменения, которые должны быть внесены в данные пользователей и групп Yandex Identity Hub в связи с изменениями, внесенными в конфигурацию агента.
       
       Например:
       
@@ -1111,7 +1111,7 @@
       2026-04-22T06:46:35.504Z	info	synchronization/sync_process.go:542	Would synchronize Memberships. Change type: Delete. Successful: 0. Failed: 0
       ```
       
-      Из приведенного примера видно, что после запуска синхронизации в {{ org-full-name }}:
+      Из приведенного примера видно, что после запуска синхронизации в Yandex Identity Hub:
       
       * будет создано 10 новых пользователей;
       * будет удалено 2 пользователя;
@@ -1122,7 +1122,7 @@
   1. Если все сохраненные в файл логов изменения являются ожидаемыми, а операции не содержат ошибок, значит, внесенные в конфигурацию агента изменения корректны, и агент можно запускать в рабочем режиме:
 
       1. Отключите режим dry run, заменив в файле конфигурации в секции `dry_run` значение поля на `enabled: false`.
-      1. В терминале PowerShell запустите службу агента {{ ad-sync-agent }}, чтобы начать процесс синхронизации:
+      1. В терминале PowerShell запустите службу агента Identity Hub AD Sync Agent, чтобы начать процесс синхронизации:
 
           ```powershell
           Start-Service yc-identityhub-sync-agent
@@ -1132,4 +1132,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../concepts/ad-sync.md)
+* [Синхронизация пользователей и групп с Microsoft Active Directory](../concepts/ad-sync.md)

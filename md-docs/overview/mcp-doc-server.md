@@ -1,21 +1,21 @@
-# Документация {{ yandex-cloud }} в AI‑инструментах
+# Документация Yandex Cloud в AI‑инструментах
 
 ## Документация в Markdown {#doc-markdown}
 
-{{ yandex-cloud }} предоставляет всю документацию в формате Markdown для использования в качестве контекста AI‑инструментов в IDE, таких как [Cursor](https://cursor.com), Visual Studio Code с [GitHub Copilot](https://docs.github.com/ru/copilot), [Continue](https://www.continue.dev/), [Cline](https://cline.bot/) и других ассистентов. Это помогает модели отвечать с учетом актуальной информации, использовать правильные названия сервисов, параметры CLI и API, а также примеры конфигурации.
+Yandex Cloud предоставляет всю документацию в формате Markdown для использования в качестве контекста AI‑инструментов в IDE, таких как [Cursor](https://cursor.com), Visual Studio Code с [GitHub Copilot](https://docs.github.com/ru/copilot), [Continue](https://www.continue.dev/), [Cline](https://cline.bot/) и других ассистентов. Это помогает модели отвечать с учетом актуальной информации, использовать правильные названия сервисов, параметры CLI и API, а также примеры конфигурации.
 
 Документация в формате Markdown доступна по адресу:
 [https://md-docs.website.yandexcloud.net/](https://md-docs.website.yandexcloud.net/)
 
-## MCP-сервер поиска по документации {{ yandex-cloud }} {#yc-docs-search-mcp}
+## MCP-сервер поиска по документации Yandex Cloud {#yc-docs-search-mcp}
 
-[{{ yandex-cloud }} Documentation MCP-сервер](https://sourcecraft.dev/yandex-cloud/mcp/browse/servers/documentation-mcp-server/README.md) обеспечивает доступ в реальном времени к официальной документации {{ yandex-cloud }} с помощью генеративного поиска. Сервер предоставляет AI‑ассистентам инструмент `documentation_generative_search`.
+[Yandex Cloud Documentation MCP-сервер](https://sourcecraft.dev/yandex-cloud/mcp/browse/servers/documentation-mcp-server/README.md) обеспечивает доступ в реальном времени к официальной документации Yandex Cloud с помощью генеративного поиска. Сервер предоставляет AI‑ассистентам инструмент `documentation_generative_search`.
 
 Вы можете добавить MCP-сервер в любую IDE, поддерживающую протокол MCP. Для работы сервера не требуется авторизация или токены.
 
 ### Подключение {#connect}
 
-{{ yandex-cloud }} Documentation MCP-сервер доступен через транспорт Streamable HTTP по адресу:
+Yandex Cloud Documentation MCP-сервер доступен через транспорт Streamable HTTP по адресу:
 
 ```text
 https://docs.mcp.cloud.yandex.net/mcp
@@ -47,16 +47,16 @@ https://docs.mcp.cloud.yandex.net/mcp
 
 {% list tabs %}
 
-- {{ ca-full-name }}
+- SourceCraft Code Assistant
 
-  {{ ca-full-name }} поддерживает два уровня конфигурации: глобальный и проектный. Для удаленных серверов {{ ca-name }} использует транспорт Streamable HTTP, где поле `type` должно быть задано как `streamable-http`. Подробнее в [документации {{ ca-name }}]({{ link-src-docs }}/code-assistant/operations/agent/mcp/overview).
+  SourceCraft Code Assistant поддерживает два уровня конфигурации: глобальный и проектный. Для удаленных серверов Code Assistant использует транспорт Streamable HTTP, где поле `type` должно быть задано как `streamable-http`. Подробнее в [документации Code Assistant](https://sourcecraft.dev/portal/docs/ru/code-assistant/operations/agent/mcp/overview).
 
-  Вы можете редактировать как глобальные, так и проектные файлы конфигурации MCP прямо из меню настроек MCP в {{ ca-name }}:
+  Вы можете редактировать как глобальные, так и проектные файлы конфигурации MCP прямо из меню настроек MCP в Code Assistant:
   
   1. Нажмите ![image](../_assets/console-icons/ellipsis.svg) в верхней панели чата и выберите MCP-серверы.
   1. Выберите соответствующую опцию:
       * ![image](../_assets/console-icons/pencil.svg) **Edit Global MCP** — открывает глобальный файл `mcp_settings.json`.
-      * ![image](../_assets/console-icons/pencil.svg) **Edit Project MCP** — открывает проектный файл `.codeassistant/mcp.json`. Если этот файл отсутствует, {{ ca-name }} создаст его автоматически.
+      * ![image](../_assets/console-icons/pencil.svg) **Edit Project MCP** — открывает проектный файл `.codeassistant/mcp.json`. Если этот файл отсутствует, Code Assistant создаст его автоматически.
 
   1. Добавьте конфигурацию в файл:
 
@@ -290,15 +290,15 @@ https://docs.mcp.cloud.yandex.net/mcp
 
 ## Проверка работы {#testing}
 
-После подключения попросите AI‑ассистента найти информацию в документации {{ yandex-cloud }}. 
+После подключения попросите AI‑ассистента найти информацию в документации Yandex Cloud. 
 
 Примеры запросов:
 
-> Используй документацию {{ yandex-cloud }} и расскажи, как установить YC CLI.
+> Используй документацию Yandex Cloud и расскажи, как установить YC CLI.
 
-> Найди в документации {{ yandex-cloud }}, как настроить {{ TF }} provider.
+> Найди в документации Yandex Cloud, как настроить Terraform provider.
 
-Если подключение работает, AI‑ассистент сможет вызвать инструмент MCP-сервера `documentation_generative_search` и вернуть ответ на основе документации {{ yandex-cloud }}.
+Если подключение работает, AI‑ассистент сможет вызвать инструмент MCP-сервера `documentation_generative_search` и вернуть ответ на основе документации Yandex Cloud.
 
 ## Внешние инструменты {#external-tools}
 
@@ -306,4 +306,4 @@ https://docs.mcp.cloud.yandex.net/mcp
 
 [Context7](https://github.com/upstash/context7) — это MCP-сервер, разработанный компанией Upstash. Он предоставляет AI-ассистентам и редакторам кода актуальную документацию и примеры кода, специфичные для текущей версии библиотек.
 
-Для работы с документацией {{ yandex-cloud }} используйте [репозиторий](https://context7.com/yandex-cloud/docs) Context7. Подробнее о настройке в [инструкции](https://github.com/upstash/context7#installation).
+Для работы с документацией Yandex Cloud используйте [репозиторий](https://context7.com/yandex-cloud/docs) Context7. Подробнее о настройке в [инструкции](https://github.com/upstash/context7#installation).

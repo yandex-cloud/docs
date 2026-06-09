@@ -6,7 +6,7 @@ To get the list of available PrivateConnection resources, make a [List](list.md#
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
+GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}
 ```
 
 ## Path parameters

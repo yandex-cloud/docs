@@ -1,26 +1,26 @@
-# Создание кластера {{ mgp-name }}
+# Создание кластера Yandex MPP Analytics for PostgreSQL
 
 
-[Кластер](../../glossary/cluster.md) {{ mgp-name }} состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
+[Кластер](../../glossary/cluster.md) Yandex MPP Analytics for PostgreSQL состоит из хостов-мастеров, которые принимают запросы от клиента, и хостов-сегментов, обеспечивающих обработку и хранение данных.
 
-Подробнее см. в разделе [{#T}](../concepts/index.md).
+Подробнее см. в разделе [Взаимосвязь ресурсов в Yandex MPP Analytics for PostgreSQL](../concepts/index.md).
 
 
 ## Создать кластер {#create-cluster}
 
 
-Для создания кластера {{ mgp-name }} нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию {{ iam-name }}](../../iam/operations/roles/grant.md).
+Для создания кластера Yandex MPP Analytics for PostgreSQL нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль [managed-greenplum.editor или выше](../security/index.md#roles-list). О том, как назначить роль, см. [документацию Identity and Access Management](../../iam/operations/roles/grant.md).
 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    Чтобы создать кластер {{ mgp-name }}:
+    Чтобы создать кластер Yandex MPP Analytics for PostgreSQL:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер баз данных.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать кластер баз данных.
+    1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+    1. Нажмите кнопку **Создать кластер**.
     1. Введите имя кластера. Оно должно быть уникальным в рамках каталога.
     1. (Опционально) Введите описание кластера.
     1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
@@ -29,22 +29,22 @@
     1. Выберите версию СУБД.
 
     
-    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из видов хостов {{ mgp-name }} либо сразу на оба.
+    1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, выберите группы [выделенных хостов](../../compute/concepts/dedicated-host.md). Можно назначить группы на один из видов хостов Yandex MPP Analytics for PostgreSQL либо сразу на оба.
 
-        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе Yandex Compute Cloud.
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host) и [наценки {{ mgp-name }}](../pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите:
+    1. В блоке **Сетевые настройки** выберите:
 
         * [Облачную сеть](../../vpc/concepts/network.md#network) для размещения кластера.
 
         * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
-        * [Зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet) для размещения кластера. Чтобы создать новую подсеть, нажмите **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** в списке подсетей.
+        * [Зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet) для размещения кластера. Чтобы создать новую подсеть, нажмите **Создать подсеть** в списке подсетей.
 
            {% note warning %}
            
@@ -52,17 +52,17 @@
            
            {% endnote %}
 
-           Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
+           Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
         
-        * Опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, чтобы подключаться к кластеру из интернета.
+        * Опцию **Публичный доступ**, чтобы подключаться к кластеру из интернета.
 
 
-    1. (Опционально) Включите опцию **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+    1. (Опционально) Включите опцию **Гибридное хранилище**.
 
         Она включает [гибридное хранилище](../concepts/hybrid-storage.md). Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
-        Когда гибридное хранилище включено, с помощью [расширения {{ YZ }}](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
+        Когда гибридное хранилище включено, с помощью [расширения Yezzey](extensions/yezzey.md) можно переместить часть [таблиц AO и AOCO](../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот.
         
         Холодное хранилище удобно, если данные таблиц нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
@@ -76,74 +76,74 @@
 
     1. Укажите реквизиты пользователя-администратора. Это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли](../concepts/cluster-users.md).
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+        * **Имя пользователя** — может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
             {% note info %}
             
-            Имена `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` зарезервированы для собственных нужд {{ mgp-name }}. Создавать пользователей с этими именами нельзя.
+            Имена `admin`, `gpadmin`, [mdb_admin](../concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` зарезервированы для собственных нужд Yandex MPP Analytics for PostgreSQL. Создавать пользователей с этими именами нельзя.
             
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — длина от 8 до 128 символов.
+        * **Пароль** — длина от 8 до 128 символов.
 
     1. При необходимости задайте дополнительные настройки кластера:
 
-        * **{{ ui-key.yacloud.mdb.forms.backup-window-start }}** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
-        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки времени [технического обслуживания](../concepts/maintenance.md):
+        * **Начало резервного копирования (UTC)** — промежуток времени, в течение которого начинается резервное копирование кластера. Время указывается по UTC в 24-часовом формате. По умолчанию — `22:00 - 23:00` UTC.
+        * **Обслуживание** — настройки времени [технического обслуживания](../concepts/maintenance.md):
 
-            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **По расписанию** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
             
             Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
 
         
-        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — выберите существующий сервисный аккаунт для доступа к сервисам {{ yandex-cloud }} или создайте новый.
-        * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование операций в кластере. За хранение логов взимается плата в соответствии с тарифами {{ cloud-logging-full-name }}. Для записи логов [назначьте](../../iam/operations/sa/assign-role-for-sa.md) выбранному сервисному аккаунту роль `logging.writer`.
+        * **Сервисный аккаунт** — выберите существующий сервисный аккаунт для доступа к сервисам Yandex Cloud или создайте новый.
+        * **Запись логов** — опция включает логирование операций в кластере. За хранение логов взимается плата в соответствии с тарифами Yandex Cloud Logging. Для записи логов [назначьте](../../iam/operations/sa/assign-role-for-sa.md) выбранному сервисному аккаунту роль `logging.writer`.
 
           Если вы включили опцию, настройте параметры логирования:
 
           * Укажите место записи логов:
 
-             * **{{ ui-key.yacloud.common.folder }}** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
-             * **{{ ui-key.yacloud.logging.label_group }}** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
+             * **Каталог** — логи будут записываться в лог-группу по умолчанию выбранного каталога.
+             * **Группа** — логи будут записываться в новую или выбранную из списка [лог-группу](../../logging/concepts/log-group.md).
 
           * Выберите, какие логи записывать:
 
              * **Логи командного центра** — опция включает запись логов [командного центра](../concepts/command-center.md).
-             * **Логи Greenplum** — опция включает запись логов СУБД. Уровень логирования можно задать с помощью параметра [Log min messages](../concepts/settings-list.md#setting-log-min-messages) в блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**.
+             * **Логи Greenplum** — опция включает запись логов СУБД. Уровень логирования можно задать с помощью параметра [Log min messages](../concepts/settings-list.md#setting-log-min-messages) в блоке **Настройки СУБД**.
 
 
         
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}** — опция разрешает анализировать данные из кластера в сервисе [{{ datalens-full-name }}](../../datalens/concepts/index.md).
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-yandex-query_ru }}** — опция разрешает выполнять YQL-запросы из сервиса [{{ yq-full-name }}](../../query/concepts/index.md) к управляемой базе данных {{ mgp-name }}.
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-websql-service }}** — опция разрешает отправлять запросы к базам данных в кластере с помощью сервиса [{{ websql-full-name }}](../../websql/index.md).
+        * **Доступ из DataLens** — опция разрешает анализировать данные из кластера в сервисе [Yandex DataLens](../../datalens/concepts/index.md).
+        * **Доступ из Yandex Query** — опция разрешает выполнять YQL-запросы из сервиса [Yandex Query](../../query/concepts/index.md) к управляемой базе данных Yandex MPP Analytics for PostgreSQL.
+        * **Доступ из WebSQL** — опция разрешает отправлять запросы к базам данных в кластере с помощью сервиса [Yandex WebSQL](../../websql/index.md).
 
 
 
-        * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — управляет защитой кластера от непреднамеренного удаления.
+        * **Защита от удаления** — управляет защитой кластера от непреднамеренного удаления.
 
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
 
-    1. (Опционально) Задайте режим работы и параметры [менеджера подключений](../concepts/pooling.md) в блоке **{{ ui-key.yacloud.mdb.forms.section_pooler }}**:
+    1. (Опционально) Задайте режим работы и параметры [менеджера подключений](../concepts/pooling.md) в блоке **Менеджер подключений**:
 
-        * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_mode }}** — `SESSION` (сессионный) или `TRANSACTION` (транзакционный, по умолчанию).
-        * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_size }}** — количество клиентских соединений. По умолчанию — `0` (не ограничено).
-        * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_client-idle-timeout }}** — время неактивности клиентского соединения в секундах, после которого соединение разрывается. По умолчанию — `28800`.
-        * **{{ ui-key.yacloud.mdb.forms.label_greenplum_pool_idle-in-transaction-timeout }}** — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается. По умолчанию — `0` (не ограничено).
+        * **Режим** — `SESSION` (сессионный) или `TRANSACTION` (транзакционный, по умолчанию).
+        * **Размер** — количество клиентских соединений. По умолчанию — `0` (не ограничено).
+        * **Тайм-аут ожидания клиента** — время неактивности клиентского соединения в секундах, после которого соединение разрывается. По умолчанию — `28800`.
+        * **Тайм-аут простоя в транзакции** — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается. По умолчанию — `0` (не ограничено).
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.greenplum.section_background-activities }}** измените параметры [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops):
+    1. (Опционально) В блоке **Управление фоновыми процессами** измените параметры [регламентных операций технического обслуживания](../concepts/maintenance.md#regular-ops):
 
-        * **{{ ui-key.yacloud.greenplum.label-start-time }}** — время, в которое начнется выполнение операции `VACUUM`. По умолчанию — `19:00 UTC`. После завершения операции `VACUUM` запустится операция `ANALYZE`.
-        * **{{ ui-key.yacloud.greenplum.label-vacuum-timeout }}** — максимальная длительность выполнения операции `VACUUM`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
-        * **{{ ui-key.yacloud.greenplum.label-analyze-timeout }}** — максимальная длительность выполнения операции `ANALYZE`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `ANALYZE` будет принудительно завершена.
+        * **Время старта (UTC)** — время, в которое начнется выполнение операции `VACUUM`. По умолчанию — `19:00 UTC`. После завершения операции `VACUUM` запустится операция `ANALYZE`.
+        * **Таймаут VACUUM** — максимальная длительность выполнения операции `VACUUM`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `VACUUM` будет принудительно завершена.
+        * **Таймаут ANALYZE** — максимальная длительность выполнения операции `ANALYZE`, в секундах. Возможные значения: от `7200` до `86399`, по умолчанию — `36000`. Когда указанное время истечет, операция `ANALYZE` будет принудительно завершена.
         
         Суммарная длительность операций `VACUUM` и `ANALYZE` не может превышать 24 часа.
 
-    1. Укажите параметры хостов-мастеров на вкладке **{{ ui-key.yacloud.greenplum.section_resource-master }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#master).
+    1. Укажите параметры хостов-мастеров на вкладке **Master**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#master).
 
-        * [{{ ui-key.yacloud.mdb.forms.section_resource }}](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
+        * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-мастеры кластера.
 
-        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
+        * В блоке **Хранилище** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
 
           {% note warning %}
           
@@ -153,15 +153,15 @@
           
           {% endnote %}
 
-    1. Укажите параметры хостов-сегментов на вкладке **{{ ui-key.yacloud.greenplum.section_resource-segment }}**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#segment).
+    1. Укажите параметры хостов-сегментов на вкладке **Segment**. Рекомендуемую конфигурацию см. в разделе [Расчет конфигурации кластера](../concepts/calculate-specs.md#segment).
 
         * Количество хостов-сегментов.
         * [Количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * [Класс хоста](../concepts/instance-types.md) — определяет технические характеристики виртуальных машин, на которых будут развернуты хосты-сегменты кластера.
-        * В блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
+        * В блоке **Хранилище** выберите [тип диска](../concepts/storage.md) и укажите его размер. Доступные типы диска [зависят](../concepts/storage.md) от выбранного класса хостов.
 
            {% note warning %}
            
@@ -175,15 +175,15 @@
 
     1. При необходимости задайте [настройки СУБД уровня кластера](../concepts/settings-list.md#dbms-cluster-settings).
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы создать кластер {{ mgp-name }}:
+    Чтобы создать кластер Yandex MPP Analytics for PostgreSQL:
 
     
     1. Проверьте, есть ли в каталоге подсети для хостов кластера:
@@ -192,20 +192,20 @@
         yc vpc subnet list
         ```
 
-        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе {{ vpc-short-name }}.
+        Если ни одной подсети в каталоге нет, [создайте нужные подсети](../../vpc/operations/subnet-create.md) в сервисе VPC.
 
 
     1. Посмотрите описание команды CLI для создания кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create --help
+        yc managed-greenplum cluster create --help
         ```
 
     1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
         
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            --greenplum-version=<версия_СУБД> \
            --environment=<окружение> \
            --network-name=<имя_сети> \
@@ -232,7 +232,7 @@
 
         Где:
 
-        * `--greenplum-version` — версия СУБД: {{ versions-gp.cli.str }}, {{ versions-cb.cli.str }}.
+        * `--greenplum-version` — версия СУБД: 6.28 или 6.29, Cloudberry 2.
         * `--environment` — окружение:
             * `PRODUCTION` — для стабильных версий ваших приложений.
             * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
@@ -242,7 +242,7 @@
         * `--master-config` и `--segment-config` — конфигурация хостов-мастеров и хостов-сегментов:
             * `resource-id` — [класс хоста](../concepts/instance-types.md).
 
-                Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+                Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
             * `disk-size` — объем хранилища в гигабайтах.
             * `disk-type` — [тип диска](../concepts/storage.md):
@@ -262,7 +262,7 @@
     1. Чтобы задать время начала резервного копирования, передайте нужное значение в формате `HH:MM:SS` в параметре `--backup-window-start`:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            ...
            --backup-window-start=<время_начала_резервного_копирования>
         ```
@@ -271,25 +271,25 @@
     1. (Опционально) Чтобы создать кластер, размещенный на группах [выделенных хостов](../../compute/concepts/dedicated-host.md), укажите через запятую их идентификаторы в параметрах `--master-host-group-ids` и `--segment-host-group-ids`:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            ...
            --master-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров> \
            --segment-host-group-ids=<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>
         ```
 
-        Вы можете назначить группы на один из видов хостов {{ mgp-name }} либо сразу на оба.
+        Вы можете назначить группы на один из видов хостов Yandex MPP Analytics for PostgreSQL либо сразу на оба.
 
-        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+        Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе Yandex Compute Cloud.
 
         Эту настройку нельзя изменить после создания кластера. 
         
-        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host) и [наценки {{ mgp-name }}](../pricing/index.md#dedicated-hosts).
+        При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
 
     1. Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window` при создании кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            ...
            --maintenance-window type=<тип_технического_обслуживания>,`
                                `day=<день_недели>,`
@@ -309,26 +309,26 @@
     1. Чтобы разрешить доступ к кластеру из разных сервисов, передайте значение `true` в соответствующих параметрах при создании кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            ...
-           --datalens-access=<разрешить_доступ_из_{{ datalens-name }}> \
+           --datalens-access=<разрешить_доступ_из_DataLens> \
            --yandexquery-access=<разрешить_доступ_из_Yandex_Query> \
-           --websql-access=<разрешить_доступ_из_{{ websql-name }}>
+           --websql-access=<разрешить_доступ_из_WebSQL>
         ```
 
         Доступные сервисы:
 
-        * `--datalens-access` — [{{ datalens-full-name }}](../../datalens/concepts/index.md);
-        * `--yandexquery-access` — [{{ yq-full-name }}](../../query/concepts/index.md);
-        * `--websql-access` — [{{ websql-full-name }}](../../websql/concepts/index.md).
+        * `--datalens-access` — [Yandex DataLens](../../datalens/concepts/index.md);
+        * `--yandexquery-access` — [Yandex Query](../../query/concepts/index.md);
+        * `--websql-access` — [Yandex WebSQL](../../websql/concepts/index.md).
 
 
 
     
-    1. Чтобы включить [передачу логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md), укажите параметры при создании кластера:
+    1. Чтобы включить [передачу логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md), укажите параметры при создании кластера:
 
         ```bash
-        {{ yc-mdb-gp }} cluster create <имя_кластера> \
+        yc managed-greenplum cluster create <имя_кластера> \
            ...
            --service-account <идентификатор_сервисного_аккаунта> \
            --log-enabled \
@@ -351,25 +351,25 @@
             Укажите только одну из настроек: `--log-folder-id` либо `--log-group-id`.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
 
-  Чтобы создать кластер {{ mgp-name }}:
+  Чтобы создать кластер Yandex MPP Analytics for PostgreSQL:
 
-  1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы {{ TF }} с планом инфраструктуры. Если такой директории нет — создайте ее.
+  1. В командной строке перейдите в каталог, в котором будут расположены конфигурационные файлы Terraform с планом инфраструктуры. Если такой директории нет — создайте ее.
 
   
-  1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Создайте конфигурационный файл с описанием [облачной сети](../../vpc/concepts/network.md#network) и [подсетей](../../vpc/concepts/network.md#subnet).
 
@@ -380,11 +380,11 @@
       Пример структуры конфигурационного файла, в котором описывается облачная сеть с одной подсетью:
 
       ```hcl
-      resource "yandex_vpc_network" "<имя_сети_в_{{ TF }}>" { name = "<имя_сети>" }
-      resource "yandex_vpc_subnet" "<имя_подсети_в_{{ TF }}>" {
+      resource "yandex_vpc_network" "<имя_сети_в_Terraform>" { name = "<имя_сети>" }
+      resource "yandex_vpc_subnet" "<имя_подсети_в_Terraform>" {
         name           = "<имя_подсети>"
         zone           = "<зона_доступности>"
-        network_id     = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        network_id     = yandex_vpc_network.<имя_сети_в_Terraform>.id
         v4_cidr_blocks = ["<подсеть>"]
       }
       ```
@@ -396,12 +396,12 @@
 
       
       ```hcl
-      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_Terraform>" {
         name                = "<имя_кластера>"
         environment         = "<окружение>"
-        network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
+        network_id          = yandex_vpc_network.<имя_сети_в_Terraform>.id
         zone                = "<зона_доступности>"
-        subnet_id           = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+        subnet_id           = yandex_vpc_subnet.<имя_подсети_в_Terraform>.id
         assign_public_ip    = <разрешить_публичный_доступ_к_хостам_кластера>
         deletion_protection = <защитить_кластер_от_удаления>
         version             = "<версия_СУБД>"
@@ -424,7 +424,7 @@
         }
 
         access {
-          data_lens    = <разрешить_доступ_из_{{ datalens-name }}>
+          data_lens    = <разрешить_доступ_из_DataLens>
           yandex_query = <разрешить_доступ_из_Yandex_Query>
         }
 
@@ -453,22 +453,22 @@
       * `segment_host_count` — количество хостов-сегментов: от 2 до 32.
       * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-          Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+          Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
       
-      * `access.data_lens` — доступ к кластеру из сервиса [{{ datalens-full-name }}](../../datalens/concepts/index.md): `true` или `false`.
+      * `access.data_lens` — доступ к кластеру из сервиса [Yandex DataLens](../../datalens/concepts/index.md): `true` или `false`.
 
-      * `access.yandex_query` — доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+      * `access.yandex_query` — доступ к кластеру из сервиса [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mgp }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/mdb_greenplum_cluster.md).
 
   
   1. (Опционально) Чтобы разместить хосты-мастеры или хосты-сегменты на выделенных хостах, укажите группы [выделенных хостов](../../compute/concepts/dedicated-host.md):
 
       ```hcl
-      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_Terraform>" {
         ...
         master_host_group_ids = [<идентификаторы_групп_выделенных_хостов_для_хостов-мастеров>]
         segment_host_group_ids = [<идентификаторы_групп_выделенных_хостов_для_хостов-сегментов>]
@@ -476,18 +476,18 @@
       }
       ```
 
-      Вы можете назначить группы на один из двух видов хостов {{ mgp-name }} либо сразу на оба.
+      Вы можете назначить группы на один из двух видов хостов Yandex MPP Analytics for PostgreSQL либо сразу на оба.
 
-      Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+      Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе Yandex Compute Cloud.
 
       Эту настройку нельзя изменить после создания кластера. 
       
-      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host) и [наценки {{ mgp-name }}](../pricing/index.md#dedicated-hosts).
+      При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
-  1. Чтобы включить [передачу логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md), укажите параметры:
+  1. Чтобы включить [передачу логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md), укажите параметры:
 
       ```hcl
-      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_{{ TF }}>" {
+      resource "yandex_mdb_greenplum_cluster" "<имя_кластера_в_Terraform>" {
         ...
         service_account_id="<идентификатор_сервисного_аккаунта>"
         logging {
@@ -515,16 +515,16 @@
               Укажите только одну из настроек: `folder_id` либо `log_group_id`.
 
 
-  1. Проверьте корректность файлов конфигурации {{ TF }}:
+  1. Проверьте корректность файлов конфигурации Terraform:
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Создайте кластер:
 
@@ -546,7 +546,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 - REST API {#api}
 
@@ -567,7 +567,7 @@
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "dataLens": <разрешить_доступ_из_DataLens>,
               "yandexQuery": <разрешить_доступ_из_Yandex_Query>
             },
             "zoneId": "<зона_доступности>",
@@ -642,10 +642,10 @@
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
+            * `access` — настройки доступа к кластеру из следующих сервисов Yandex Cloud:
 
-                * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.md): `true` или `false`.
-                * `yandexQuery` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+                * `dataLens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
+                * `yandexQuery` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -663,7 +663,7 @@
         * `segmentHostCount` — количество хостов-сегментов: от `2` до `32`.
         * `segmentInHost` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `userName` — имя пользователя.
         * `userPassword` — пароль пользователя.
@@ -684,7 +684,7 @@
             * `clientIdleTimeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `idleInTransactionTimeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloudStorage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение Yezzey](https://github.com/yezzey-gp/yezzey/) от Yandex Cloud. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в холодное хранилище Yandex Object Storage. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
@@ -699,14 +699,14 @@
         
         * `masterHostGroupIds` и `segmentHostGroupIds` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
 
-            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе Yandex Compute Cloud.
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host) и [наценки {{ mgp-name }}](../pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
-        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+        * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):
 
             * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `commandCenterEnabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
@@ -718,14 +718,14 @@
                 Укажите только одну из настроек: `folderId` либо `logGroupId`.
 
 
-    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-greenplum/v1/clusters' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters' \
             --data "@body.json"
         ```
 
@@ -758,7 +758,7 @@
           "config": {
             "version": "<версия_СУБД>",
             "access": {
-              "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
+              "data_lens": <разрешить_доступ_из_DataLens>,
               "yandex_query": <разрешить_доступ_из_Yandex_Query>
             },
             "zone_id": "<зона_доступности>",
@@ -833,10 +833,10 @@
             * `version` — версия СУБД.
 
             
-            * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+            * `access` — настройки доступа кластера к следующим сервисам Yandex Cloud:
 
-                * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.md): `true` или `false`.
-                * `yandex_query` — [{{ yq-full-name }}](../../query/concepts/index.md): `true` или `false`.
+                * `data_lens` — [Yandex DataLens](../../datalens/index.md): `true` или `false`.
+                * `yandex_query` — [Yandex Query](../../query/concepts/index.md): `true` или `false`.
 
 
 
@@ -857,7 +857,7 @@
         * `segment_host_count` — количество хостов-сегментов: от `2` до `32`.
         * `segment_in_host` — [количество сегментов на хост](../concepts/index.md). Максимальное значение этого параметра зависит от класса хостов.
 
-            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс {{ mgp-name }}. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
+            Класс хостов-сегментов и количество сегментов на хост [влияют](../concepts/instance-types.md#select-class-segment-hosts) на максимальный объем памяти, выделенный на каждый серверный процесс Yandex MPP Analytics for PostgreSQL. Если выбран класс хостов с небольшим объемом оперативной памяти и указано большое число сегментов, то может возникнуть [ошибка](../qa/cluster-hosts.md#memory-limit).
 
         * `user_name` — имя пользователя.
         * `user_password` — пароль пользователя.
@@ -878,7 +878,7 @@
             * `client_idle_timeout` — время неактивности клиентского соединения в секундах, после которого соединение разрывается.
             * `idle_in_transaction_timeout` — время неактивности клиентского соединения с открытой транзакцией в секундах, после которого соединение разрывается.
 
-        * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение {{ YZ }}](https://github.com/yezzey-gp/yezzey/) от {{ yandex-cloud }}. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера {{ mgp-name }} в холодное хранилище {{ objstorage-full-name }}. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
+        * `cloud_storage.enable` — использование гибридного хранилища. Установите значение `true`, чтобы включить в кластере [расширение Yezzey](https://github.com/yezzey-gp/yezzey/) от Yandex Cloud. Оно применяется, чтобы [выгрузить таблицы AO и AOCO](../tutorials/yezzey.md) с дисков кластера Yandex MPP Analytics for PostgreSQL в холодное хранилище Yandex Object Storage. Так данные хранятся в служебном бакете в сжатом и зашифрованном виде. Это [более экономичный способ хранения](../../storage/pricing.md).
 
             Гибридное хранилище нельзя отключить после сохранения настроек кластера.
 
@@ -893,14 +893,14 @@
         
         * `master_host_group_ids` и `segment_host_group_ids` — (опционально) идентификаторы групп [выделенных хостов](../../compute/concepts/dedicated-host.md) для хостов-мастеров и хостов-сегментов.
 
-            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе {{ compute-full-name }}.
+            Группа выделенных хостов должна быть предварительно [создана](../../compute/operations/dedicated-host/create-host-group.md) в сервисе Yandex Compute Cloud.
 
             Эту настройку нельзя изменить после создания кластера. 
             
-            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы {{ compute-full-name }}](../../compute/pricing.md#prices-dedicated-host) и [наценки {{ mgp-name }}](../pricing/index.md#dedicated-hosts).
+            При использовании выделенных хостов стоимость использования кластера складывается из цены за [вычислительные ресурсы Yandex Compute Cloud](../../compute/pricing.md#prices-dedicated-host) и [наценки Yandex MPP Analytics for PostgreSQL](../pricing/index.md#dedicated-hosts).
 
         * `service_account_id` — идентификатор сервисного аккаунта.
-        * `logging` — настройки [передачи логов в сервис {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md):
+        * `logging` — настройки [передачи логов в сервис Yandex Cloud Logging](mgp-to-cloud-logging.md):
 
             * `enabled` — управляет механизмом передачи логов: `true` или `false`. Для работы параметров, отвечающих за передачу конкретных логов, передайте значение `true`.
             * `command_center_enabled` — передача логов [командного центра](../concepts/command-center.md): `true` или `false`.
@@ -912,7 +912,7 @@
                 Укажите только одну из настроек: `folder_id` либо `log_group_id`.
 
 
-    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -922,7 +922,7 @@
             -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.greenplum.v1.ClusterService.Create \
             < body.json
         ```
@@ -933,15 +933,15 @@
 
 ## Создать копию кластера {#duplicate}
 
-Вы можете создать кластер {{ mgp-name }}, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера {{ mgp-name }} импортируется в {{ TF }}. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер {{ mgp-name }} обладает множеством настроек и нужно создать похожий на него кластер.
+Вы можете создать кластер Yandex MPP Analytics for PostgreSQL, который будет обладать настройками созданного ранее кластера. Для этого конфигурация исходного кластера Yandex MPP Analytics for PostgreSQL импортируется в Terraform. В результате вы можете либо создать идентичную копию, либо взять за основу импортированную конфигурацию и внести в нее изменения. Использовать импорт удобно, если исходный кластер Yandex MPP Analytics for PostgreSQL обладает множеством настроек и нужно создать похожий на него кластер.
 
-Чтобы создать копию кластера {{ mgp-name }}:
+Чтобы создать копию кластера Yandex MPP Analytics for PostgreSQL:
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -952,7 +952,7 @@
         resource "yandex_mdb_greenplum_cluster" "old" { }
         ```
 
-    1. Запишите идентификатор первоначального кластера {{ mgp-name }} в переменную окружения:
+    1. Запишите идентификатор первоначального кластера Yandex MPP Analytics for PostgreSQL в переменную окружения:
 
         ```bash
         export GREENPLUM_CLUSTER_ID=<идентификатор_кластера>
@@ -960,7 +960,7 @@
 
         Идентификатор можно запросить вместе со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-    1. Импортируйте настройки первоначального кластера {{ mgp-name }} в конфигурацию {{ TF }}:
+    1. Импортируйте настройки первоначального кластера Yandex MPP Analytics for PostgreSQL в конфигурацию Terraform:
 
         ```bash
         terraform import yandex_mdb_greenplum_cluster.old ${GREENPLUM_CLUSTER_ID}
@@ -988,13 +988,13 @@
 
     1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }}:
+    1. Проверьте корректность файлов конфигурации Terraform:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -1016,7 +1016,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -1028,13 +1028,13 @@
 
 - CLI {#cli}
 
-    Создайте кластер {{ mgp-name }} с тестовыми характеристиками:
+    Создайте кластер Yandex MPP Analytics for PostgreSQL с тестовыми характеристиками:
 
     
     * С именем `gp-cluster`.
-    * Версии `{{ versions-gp.cli.latest }}`.
+    * Версии `6.29`.
     * В окружении `PRODUCTION`.
-    * В сети `{{ network-name }}`.
+    * В сети `default`.
     * С пользователем `user1`.
     * С паролем `user1user1`.
     * С хостами-мастерами и хостами-сегментами:
@@ -1042,9 +1042,9 @@
         * Класса `s2.medium`.
         * С хранилищем на локальных SSD-дисках (`local-ssd`) объемом 100 ГБ.
 
-    * В зоне доступности `{{ region-id }}-a`, в подсети `{{ subnet-id }}`.
+    * В зоне доступности `ru-central1-a`, в подсети `b0rcctk2rvtr********`.
     * С публичным доступом к хостам.
-    * В группе безопасности `{{ security-group }}`.
+    * В группе безопасности `enp6saqnq4ie********`.
     * С защитой от непреднамеренного удаления.
 
 
@@ -1052,11 +1052,11 @@
 
     
     ```bash
-    {{ yc-mdb-gp }} cluster create \
+    yc managed-greenplum cluster create \
        --name=gp-cluster \
-       --greenplum-version={{ versions-gp.cli.latest }} \
+       --greenplum-version=6.29 \
        --environment=PRODUCTION \
-       --network-name={{ network-name }} \
+       --network-name=default \
        --user-name=user1 \
        --user-password=user1user1 \
        --master-config resource-id=s2.medium,`
@@ -1065,10 +1065,10 @@
        --segment-config resource-id=s2.medium,`
                        `disk-size=100,`
                        `disk-type=local-ssd \
-       --zone-id={{ region-id }}-a \
-       --subnet-id={{ subnet-id }} \
+       --zone-id=ru-central1-a \
+       --subnet-id=b0rcctk2rvtr******** \
        --assign-public-ip=true \
-       --security-group-ids={{ security-group }} \
+       --security-group-ids=enp6saqnq4ie******** \
        --deletion-protection
     ```
 

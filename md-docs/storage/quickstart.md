@@ -1,8 +1,8 @@
-# Как начать работать с {{ objstorage-full-name }}
+# Как начать работать с Yandex Object Storage
 
-В этом разделе вы научитесь работать с сервисом с помощью консоли управления {{ yandex-cloud }}. Инструкцию о работе с AWS CLI см. в документе [{#T}](quickstart/quickstart-aws-cli.md).
+В этом разделе вы научитесь работать с сервисом с помощью консоли управления Yandex Cloud. Инструкцию о работе с AWS CLI см. в документе [Как начать работать с AWS CLI в Yandex Object Storage](quickstart/quickstart-aws-cli.md).
 
-Чтобы начать работать с {{ objstorage-name }}:
+Чтобы начать работать с Object Storage:
 
 1. [Создайте бакет](#the-first-bucket) для хранения данных.
 1. [Загрузите файл в бакет](#upload-files).
@@ -11,9 +11,9 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud [роль](../iam/roles-reference.md#editor) `editor` или выше. Роль должна быть назначена на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете работать, или на [облако](../resource-manager/concepts/resources-hierarchy.md#cloud), которому принадлежит этот каталог.
 
     {% note info %}
     
@@ -24,18 +24,18 @@
 
 ## Создание первого бакета {#the-first-bucket}
 
-Чтобы создать первый бакет в {{ objstorage-name }}:
+Чтобы создать первый бакет в Object Storage:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-1. Нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![bucket](../_assets/storage/bucket.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+1. Нажмите **Создать ресурс** и выберите ![bucket](../_assets/storage/bucket.svg) **Бакет**.
 1. Введите имя бакета.
 
-    Имя бакета должно быть уникальным для всего {{ objstorage-name }}. Это имя используется как часть URL для доступа к данным и его будут видеть ваши пользователи.
+    Имя бакета должно быть уникальным для всего Object Storage. Это имя используется как часть URL для доступа к данным и его будут видеть ваши пользователи.
 1. При необходимости ограничьте максимальный размер бакета.
 
-    Размер `0` означает отсутствие ограничений и аналогичен включенной опции **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+    Размер `0` означает отсутствие ограничений и аналогичен включенной опции **Без ограничения**.
 
-1. Чтобы загруженные файлы всегда были доступны извне {{ yandex-cloud }}, вы можете настроить публичный [тип доступа](concepts/bucket.md#bucket-access). 
+1. Чтобы загруженные файлы всегда были доступны извне Yandex Cloud, вы можете настроить публичный [тип доступа](concepts/bucket.md#bucket-access). 
 
     {% note warning %}
     
@@ -49,36 +49,36 @@
     * _Стандартное хранилище_ предназначено для активной работы с объектами.
     * _Холодное хранилище_ предназначено для длительного хранения объектов с редкими запросами на чтение.
     * _Ледяное хранилище_ предназначено для хранения объектов от года с очень редкими запросами на чтение.
-1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+1. Нажмите **Создать бакет**.
 
 ## Загрузка файлов в бакет {#upload-files}
 
 Чтобы загрузить объект в бакет:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Object Storage**.
 1. Нажмите на имя необходимого бакета.
-1. Чтобы загрузить объекты в бакет, перетащите файлы на экран с бакетом или нажмите ![bucket](../_assets/storage/upload.svg) **{{ ui-key.yacloud.storage.bucket.button_upload }}** и подтвердите загрузку файлов.
+1. Чтобы загрузить объекты в бакет, перетащите файлы на экран с бакетом или нажмите ![bucket](../_assets/storage/upload.svg) **Загрузить** и подтвердите загрузку файлов.
 
 ## Получение ссылки на скачивание файла {#get-link}
 
 Чтобы получить ссылку на загруженный объект:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Object Storage**.
 1. Нажмите на имя необходимого бакета.
 1. Нажмите на имя объекта.
-1. Нажмите ![link](../_assets/storage/link.svg) **{{ ui-key.yacloud.storage.file.button_generate }}** в правом верхнем углу.
-1. Для бакета с ограниченным доступом укажите **{{ ui-key.yacloud.storage.file.label_lifetime }}** ссылки в часах или днях (максимум 30 дней).
-1. Нажмите **{{ ui-key.yacloud.storage.file.button_generate }}**.
+1. Нажмите ![link](../_assets/storage/link.svg) **Получить ссылку** в правом верхнем углу.
+1. Для бакета с ограниченным доступом укажите **Время жизни** ссылки в часах или днях (максимум 30 дней).
+1. Нажмите **Получить ссылку**.
 1. Скопируйте полученную ссылку.
 
 Полученной ссылкой вы можете поделиться или использовать ее в своем сервисе для доступа к файлу.
 
-Операции с бакетами и объектами вы можете выполнять не только в консоли управления {{ yandex-cloud }}, но и с помощью [других инструментов](tools/index.md).
+Операции с бакетами и объектами вы можете выполнять не только в консоли управления Yandex Cloud, но и с помощью [других инструментов](tools/index.md).
 
 
 ## См. также {#see-also}
 
-* [{#T}](quickstart/quickstart-aws-cli.md)
-* [Как начать работать с AWS S3 API в {{ objstorage-full-name }}](s3/s3-api-quickstart.md)
+* [Как начать работать с AWS CLI в Yandex Object Storage](quickstart/quickstart-aws-cli.md)
+* [Как начать работать с AWS S3 API в Yandex Object Storage](s3/s3-api-quickstart.md)

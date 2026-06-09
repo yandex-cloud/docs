@@ -21,7 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
    
      {% endnote %}
    
@@ -56,7 +56,7 @@
     ```xml
     <repository>
         <id>local</id>
-        <url>{{ cloud-registry }}/maven/<идентификатор_реестра></url>
+        <url>registry.yandexcloud.net/maven/<идентификатор_реестра></url>
     </repository>
     ```
 

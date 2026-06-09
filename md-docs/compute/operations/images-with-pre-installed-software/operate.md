@@ -2,7 +2,7 @@
 
 ## Подключение к виртуальной машине {#ways-to-connect}
 
-Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по {{ oslogin }}](../vm-connect/os-login.md) или с помощью [серийной консоли](../../concepts/serial-console.md).
+Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по OS Login](../vm-connect/os-login.md) или с помощью [серийной консоли](../../concepts/serial-console.md).
 
 ### Подключение по SSH {#connect}
 
@@ -10,7 +10,7 @@
 
 {% note info %}
 
-В публичных образах Linux, предоставляемых {{ yandex-cloud }}, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+В публичных образах Linux, предоставляемых Yandex Cloud, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
 
 {% endnote %}
 
@@ -20,12 +20,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../vm-create/create-linux-vm.md) ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** нажмите **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
-  1. В открывшемся окне выберите `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` и нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../vm-create/create-linux-vm.md) ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите **Создать виртуальную машину**.
+  1. В блоке **Доступ** нажмите **Добавить ключ**.
+  1. В открывшемся окне выберите `Сгенерировать ключ` и нажмите **Добавить**.
   
       При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
   
@@ -101,21 +101,21 @@
 
 После того как ВМ будет запущена (в статусе `RUNNING`), вы можете подключиться к ней по протоколу SSH. Для этого используйте утилиту `ssh` в Linux, macOS и Windows 10/11 или программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) в Windows 7/8.
 
-Для подключения необходимо указать адрес ВМ. Это может быть ее [IP-адрес](../../../vpc/concepts/address.md) или [FQDN](../../../vpc/concepts/address.md#fqdn). Доступ по FQDN возможен из другой ВМ {{ yandex-cloud }}, если она подключена к той же [виртуальной сети](../../../vpc/concepts/network.md#network). IP-адрес для подключения можно узнать в [консоли управления]({{ link-console-main }}) на странице ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}**.
+Для подключения необходимо указать адрес ВМ. Это может быть ее [IP-адрес](../../../vpc/concepts/address.md) или [FQDN](../../../vpc/concepts/address.md#fqdn). Доступ по FQDN возможен из другой ВМ Yandex Cloud, если она подключена к той же [виртуальной сети](../../../vpc/concepts/network.md#network). IP-адрес для подключения можно узнать в [консоли управления](https://console.yandex.cloud) на странице ВМ в блоке **Сеть**.
 
-### Подключение по {{ oslogin }} {#os-login-connect}
+### Подключение по OS Login {#os-login-connect}
 
-[{{ oslogin }}](../../../organization/concepts/os-login.md) используется для предоставления пользователям доступа к ВМ по SSH c помощью {{ iam-short-name }}. Для доступа к ВМ по {{ oslogin }} необходимо [включить](../../../organization/operations/os-login-access.md) доступ по {{ oslogin }} на уровне организации.
+[OS Login](../../../organization/concepts/os-login.md) используется для предоставления пользователям доступа к ВМ по SSH c помощью IAM. Для доступа к ВМ по OS Login необходимо [включить](../../../organization/operations/os-login-access.md) доступ по OS Login на уровне организации.
 
-Для подключения к ВМ по {{ oslogin }} у пользователя должна быть роль `compute.osLogin` или `compute.osAdminLogin`, а также [роль](../../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` и выше на каталог, в котором размещена виртуальная машина. Виртуальная машина должна поддерживать {{ oslogin }} на уровне операционной системы. Вы можете [создать](../vm-connect/os-login-create-vm.md) новую виртуальную машину с поддержкой {{ oslogin }} или [настроить](../vm-connect/enable-os-login.md) доступ по {{ oslogin }} для существующей ВМ.
+Для подключения к ВМ по OS Login у пользователя должна быть роль `compute.osLogin` или `compute.osAdminLogin`, а также [роль](../../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` и выше на каталог, в котором размещена виртуальная машина. Виртуальная машина должна поддерживать OS Login на уровне операционной системы. Вы можете [создать](../vm-connect/os-login-create-vm.md) новую виртуальную машину с поддержкой OS Login или [настроить](../vm-connect/enable-os-login.md) доступ по OS Login для существующей ВМ.
 
-Чтобы подключиться к виртуальной машине по {{ oslogin }}, нужно указать имя или идентификатор этой ВМ.
+Чтобы подключиться к виртуальной машине по OS Login, нужно указать имя или идентификатор этой ВМ.
 
-К ВМ с включенным доступом по {{ oslogin }} нельзя подключиться с SSH-ключом при помощи стандартного [SSH-клиента](../vm-connect/ssh.md#vm-connect).
+К ВМ с включенным доступом по OS Login нельзя подключиться с SSH-ключом при помощи стандартного [SSH-клиента](../vm-connect/ssh.md#vm-connect).
 
 ## Пароли к предустановленному ПО {#logins-passwords}
 
-В {{ marketplace-name }} кроме дистрибутивов операционных систем, доступны публичные образы с предустановленным программным обеспечением. Чтобы получить пароли для настройки предустановленного ПО в таких образах:
+В Cloud Marketplace кроме дистрибутивов операционных систем, доступны публичные образы с предустановленным программным обеспечением. Чтобы получить пароли для настройки предустановленного ПО в таких образах:
 
 1. Подключитесь к ВМ.
 
@@ -131,7 +131,7 @@
 
 Чтобы использовать [SSL](../../../glossary/ssl-certificate.md), сгенерируйте SSL-сертификат и настройте веб-сервер для работы с ним.
 
-Для [создания](../../../certificate-manager/operations/managed/cert-create.md) SSL-сертификата можно воспользоваться сервисом [{{ certificate-manager-full-name }}](../../../certificate-manager/index.md). Сертификат можно [экспортировать](../../../certificate-manager/operations/managed/cert-get-content.md) и использовать на веб-сервере.
+Для [создания](../../../certificate-manager/operations/managed/cert-create.md) SSL-сертификата можно воспользоваться сервисом [Yandex Certificate Manager](../../../certificate-manager/index.md). Сертификат можно [экспортировать](../../../certificate-manager/operations/managed/cert-get-content.md) и использовать на веб-сервере.
 
 ## Фильтрация сетевого трафика {#network-filter}
 

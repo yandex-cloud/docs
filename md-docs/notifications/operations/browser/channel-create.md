@@ -4,16 +4,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Нажмите **{{ ui-key.yacloud.cns.action_create-channel }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.cns.type_web }}**.
-  1. (Опционально) В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.
-     1. В списке **{{ ui-key.yacloud.cns.field_logging-folder }}** выберите каталог, в котором будет расположена [лог-группа](../../../logging/concepts/log-group.md).
-     1. В поле **{{ ui-key.yacloud.cns.field_log-group }}** выберите существующую лог-группу или создайте новую.
-  1. Введите имя канала уведомления. Имя канала должно быть уникальным в {{ cns-name }}.
-  1. (Опционально) Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cns.button_add-description }}** и введите описание для канала уведомлений.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать канал уведомлений.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Нажмите **Создать канал уведомлений**.
+  1. Выберите вкладку **Push-уведомления в браузере**.
+  1. (Опционально) В разделе **Логирование** включите **Запись логов**.
+     1. В списке **Каталог** выберите каталог, в котором будет расположена [лог-группа](../../../logging/concepts/log-group.md).
+     1. В поле **Лог-группа** выберите существующую лог-группу или создайте новую.
+  1. Введите имя канала уведомления. Имя канала должно быть уникальным в Cloud Notification Service.
+  1. (Опционально) Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить описание** и введите описание для канала уведомлений.
+  1. Нажмите **Создать**.
 
 - AWS CLI {#aws-cli}
 
@@ -86,7 +86,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-application.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
+  Воспользуйтесь методом HTTP API [create](../../api-ref/create-platform-application.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
 
 {% endlist %}
 

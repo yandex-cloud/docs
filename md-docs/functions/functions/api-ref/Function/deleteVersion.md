@@ -7,7 +7,7 @@ NOTE: old untagged function versions are deleted automatically.
 ## HTTP request
 
 ```
-DELETE https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}
+DELETE https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}
 ```
 
 ## Path parameters

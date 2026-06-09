@@ -1,6 +1,6 @@
-# Руководства по работе с Terraform в {{ yandex-cloud }}
+# Руководства по работе с Terraform в Yandex Cloud
 
-* [{#T}](terraform-data-sources.md)
-* [{#T}](terraform-modules.md)
-* [{#T}](terraform-state-lock.md)
-* [{#T}](terraform-state-storage.md)
+* [Источники данных Terraform](terraform-data-sources.md)
+* [Использование модулей Yandex Cloud в Terraform](terraform-modules.md)
+* [Блокировка состояний Terraform с помощью Yandex Managed Service for YDB](terraform-state-lock.md)
+* [Загрузка состояний Terraform в Yandex Object Storage](terraform-state-storage.md)

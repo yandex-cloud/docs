@@ -5,7 +5,7 @@ Activates shared dataset for project
 ## HTTP request
 
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v2/dataset/activate
+POST https://datasphere.api.cloud.yandex.net/datasphere/v2/dataset/activate
 ```
 
 ## Body parameters {#yandex.cloud.datasphere.v2.ActivateDatasetRequest}

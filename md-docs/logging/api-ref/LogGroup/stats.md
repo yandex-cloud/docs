@@ -5,7 +5,7 @@ Returns stats for the specified log group.
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}/stats
+GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}/stats
 ```
 
 ## Path parameters

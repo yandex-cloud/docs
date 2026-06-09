@@ -4,7 +4,7 @@
 Чтобы избежать проблем с операциями записи в базу данных, воспользуйтесь одним из способов:
 
 
-* [Настройте алерты в {{ monitoring-full-name }}](#set-alert), чтобы отслеживать степень заполнения хранилища.
+* [Настройте алерты в Yandex Monitoring](#set-alert), чтобы отслеживать степень заполнения хранилища.
 
 
 * [Выведите кластер из режима read-only вручную](#read-only-solutions) и освободите место в хранилище, удалив часть данных.
@@ -12,30 +12,30 @@
 * [Настройте автоматическое увеличение размера хранилища](#disk-size-autoscale).
 
 
-## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
+## Настроить алерты в Yandex Monitoring {#set-alert}
 
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Выберите сервисный дашборд **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
+1. Перейдите в сервис **Monitoring**.
+1. Выберите сервисный дашборд **Managed Service for PostgreSQL**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
-    1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
+    1. **Метрики** — задайте параметры метрики:
 
         * облако;
         * каталог;
-        * сервис **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**;
-        * идентификатор кластера {{ mpg-name }};
+        * сервис **Managed Service for PostgreSQL**;
+        * идентификатор кластера Managed Service for PostgreSQL;
 
             Идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
         * метка `disk.free_bytes`.
 
-    1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` для процента заполнения свободного дискового пространства, при котором сработает алерт:
+    1. **Условия срабатывания** — задайте условие `Меньше или равно` для процента заполнения свободного дискового пространства, при котором сработает алерт:
 
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
-        * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95% от размера хранилища).
-        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
+        * **Функция агрегации** — `Минимум` (минимальное значение метрики за период).
+        * **Warning** — `90` (90% от размера хранилища).
+        * **Alarm** — `95` (95% от размера хранилища).
+        * **Окно вычисления** — желаемый период, с которым будет обновляться значение метрики.
 
     1. Добавьте созданный ранее канал уведомлений.
 
@@ -44,7 +44,7 @@
 
 {% note alert %}
 
-Не допускайте, чтобы во время выполнения указанных ниже действий свободное дисковое пространство уменьшилось до нуля. Поскольку предохранительный механизм отключен, {{ PG }} в этом случае аварийно завершит работу, а кластер станет неработоспособным.
+Не допускайте, чтобы во время выполнения указанных ниже действий свободное дисковое пространство уменьшилось до нуля. Поскольку предохранительный механизм отключен, PostgreSQL в этом случае аварийно завершит работу, а кластер станет неработоспособным.
 
 {% endnote %}
 
@@ -75,11 +75,11 @@
 
 {% note info %}
 
-Некоторые настройки {{ PG }} [зависят от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
+Некоторые настройки PostgreSQL [зависят от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 Когда размер хранилища изменяется, хосты кластера обновляются по одному в случайном порядке. Если во время обновления потребуется перезагрузка хоста, он станет недоступным на это время.
 
@@ -97,18 +97,18 @@
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+    1. В блоке **Размер хранилища**:
 
         * Выберите [тип диска](../concepts/storage.md).
         * Укажите нужный размер диска.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -117,28 +117,28 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster update --help
+        yc managed-postgresql cluster update --help
         ```
 
     1. Укажите [тип диска](../concepts/storage.md) и нужный размер хранилища в команде изменения кластера (размер хранилища должен быть не меньше, чем значение `disk_size` в свойствах кластера):
 
         ```bash
-        {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+        yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
             --disk-type <тип_диска> \
             --disk-size <размер_хранилища_ГБ>
         ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     Чтобы изменить тип диска и увеличить размер хранилища для кластера:
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-    1. Измените в описании кластера {{ mpg-name }} значения атрибутов `disk_type_id` и `disk_size` в блоке `config.resources`:
+    1. Измените в описании кластера Managed Service for PostgreSQL значения атрибутов `disk_type_id` и `disk_size` в блоке `config.resources`:
 
         ```hcl
         resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -155,14 +155,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -186,7 +186,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -221,7 +221,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -234,7 +234,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "configSpec.resources.diskTypeId,configSpec.resources.diskSize",
                  "configSpec": {
@@ -274,7 +274,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -319,7 +319,7 @@
                }
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -342,11 +342,11 @@
 
 {% note info %}
 
-Некоторые настройки {{ PG }} [зависят от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
+Некоторые настройки PostgreSQL [зависят от размера хранилища](../concepts/settings-list.md#settings-instance-dependent).
 
 {% endnote %}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
 
 Когда размер хранилища изменяется, хосты кластера обновляются по одному в случайном порядке. Если во время обновления потребуется перезагрузка хоста, он станет недоступным на это время.
 
@@ -364,11 +364,11 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ mpg-name }}**.
-    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**:
+    1. Перейдите в сервис **Managed Service for PostgreSQL**.
+    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. В блоке **Автоматическое увеличение размера хранилища**:
 
-        1. В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** задайте процент заполнения хранилища, при превышении которого хранилище будет увеличено. Можно задать правила для увеличения:
+        1. В поле **Увеличивать размер** задайте процент заполнения хранилища, при превышении которого хранилище будет увеличено. Можно задать правила для увеличения:
 
             * в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window);
             * незамедлительно.
@@ -377,13 +377,13 @@
 
             Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
 
-        1. В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
+        1. В поле **Максимальный размер хранилища** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -392,7 +392,7 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-pg }} cluster update --help
+        yc managed-postgresql cluster update --help
         ```
 
     1. Укажите максимальный размер хранилища и условия для его увеличения в команде изменения кластера.
@@ -400,7 +400,7 @@
         Максимальный размер хранилища должен быть больше, чем значение `disk_size` в свойствах кластера. Процент для незамедлительного увеличения хранилища должен быть больше процента для увеличения в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window).
 
         ```bash
-        {{ yc-mdb-pg }} cluster update <идентификатор_или_имя_кластера> \
+        yc managed-postgresql cluster update <идентификатор_или_имя_кластера> \
             --disk-size-autoscaling disk-size-limit=<максимальный_размер_хранилища_в_байтах>,`
                                    `planned-usage-threshold=<процент_для_планового_увеличения>,`
                                    `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
@@ -410,13 +410,13 @@
 
         Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
         
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Добавьте в блок `config` блок `disk_size_autoscaling`:
 
@@ -458,14 +458,14 @@
     
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -489,7 +489,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -524,7 +524,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -537,7 +537,7 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "configSpec.diskSizeAutoscaling,maintenanceWindow",
                  "configSpec": {
@@ -617,7 +617,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -669,7 +669,7 @@
                }
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -725,7 +725,7 @@
 * Для локальных SSD-дисков:
 
     * В кластере на платформе **Intel Broadwell** или **Intel Cascade Lake** — на 100 ГБ.
-    * В кластере на платформе **Intel Ice Lake** или **AMD Zen 4** — на {{ local-ssd-v3-step }}.
+    * В кластере на платформе **Intel Ice Lake** или **AMD Zen 4** — на 368 ГБ.
 
 
 Если порог срабатывания достигнут повторно, размер хранилища будет автоматически увеличиваться, пока не достигнет заданного максимума. После этого вы можете задать новый максимальный размер хранилища вручную.

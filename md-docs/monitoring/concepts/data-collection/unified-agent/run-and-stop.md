@@ -1,8 +1,8 @@
-# Запуск и остановка {{ unified-agent-full-name }}
+# Запуск и остановка Yandex Unified Agent
 
 ## Запуск {#run}
 
-[Установите](installation.md#setup) {{ unified-agent-full-name }} и запустите его одним из способов:
+[Установите](installation.md#setup) Yandex Unified Agent и запустите его одним из способов:
 
 {% list tabs group=unified_agent %}
 
@@ -19,7 +19,7 @@
     -v /proc:/ua_proc \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs81qpemb4******** \
-    {{ registry }}/yc/unified-agent
+    cr.yandex/yc/unified-agent
   ```
 
   Где `FOLDER_ID` – идентификатор каталога, куда будут записываться метрики.
@@ -42,25 +42,25 @@
     --entrypoint="" \
     -e PROC_DIRECTORY=/ua_proc \
     -e FOLDER_ID=a1bs81qpemb4******** \
-    {{ registry }}/yc/unified-agent
+    cr.yandex/yc/unified-agent
   ```
 
   По умолчанию в конфигурационном файле агента в секции [status](services.md#status) указан `host: null`. Учитывайте это, если используете собственный конфигурационный файл.
 
   {% note warning %}
 
-  Для мониторинга дополнительных дисков, подключенных к хосту, передайте пути к их точкам монтирования при помощи параметра `-v` команды `docker run`. Подробнее читайте в разделе [{#T}](inputs.md#linux_metrics_input).
+  Для мониторинга дополнительных дисков, подключенных к хосту, передайте пути к их точкам монтирования при помощи параметра `-v` команды `docker run`. Подробнее читайте в разделе [Вход linux_metrics](inputs.md#linux_metrics_input).
 
   {% endnote %}
 
-  Подробнее про конфигурацию агента читайте в разделе [{#T}](configuration.md).
+  Подробнее про конфигурацию агента читайте в разделе [Конфигурирование](configuration.md).
 
 - deb-пакет {#deb}
 
-  Отредактируйте файл конфигурации `/etc/yandex/unified_agent/config.yml`, например, настроив агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](configuration.md).
+  Отредактируйте файл конфигурации `/etc/yandex/unified_agent/config.yml`, например, настроив агент для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [Конфигурирование](configuration.md).
 
 
-  Чтобы убедиться, что {{ unified-agent-short-name }} успешно установлен и запущен, выполните команду:
+  Чтобы убедиться, что Unified Agent успешно установлен и запущен, выполните команду:
   
   ```bash
   systemctl status unified-agent
@@ -82,7 +82,7 @@
 
 - Бинарный файл {#binary}
 
-  Создайте файл конфигурации, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [{#T}](configuration.md).
+  Создайте файл конфигурации, например, с настройками для [поставки системных метрик Linux](../../../operations/unified-agent/linux_metrics.md). Подробнее про конфигурацию агента читайте в разделе [Конфигурирование](configuration.md).
 
 
   Чтобы запустить агент, выполните команду:
@@ -93,11 +93,11 @@
 
 - При создании ВМ {#vm}
 
-  После разворачивания ВМ {{ unified-agent-short-name }} запустится автоматически и начнет передавать базовые метрики ВМ в сервис {{ monitoring-full-name }}.
+  После разворачивания ВМ Unified Agent запустится автоматически и начнет передавать базовые метрики ВМ в сервис Yandex Monitoring.
 
   Обновление и поддержка агента выполняется самостоятельно.
 
-  Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yc/unified_agent/config.yml`. Вы можете [настроить](configuration.md) поставку собственных метрик или [логов в {{ cloud-logging-name }}](outputs.md#yc_logs_output).
+  Агент устанавливается с файлом конфигурации по умолчанию, который находится в `/etc/yc/unified_agent/config.yml`. Вы можете [настроить](configuration.md) поставку собственных метрик или [логов в Cloud Logging](outputs.md#yc_logs_output).
 
   В файле конфигурации настроена отправка [базовых метрик виртуальной машины](inputs.md#linux_metrics_input) и [метрик здоровья агента](inputs.md#agent_metrics_input). Отправка метрик [тарифицируется](../../../pricing.md).
 
@@ -113,7 +113,7 @@
 
 ## Остановка {#stop}
 
-Остановите {{ unified-agent-short-name }} одним из способов:
+Остановите Unified Agent одним из способов:
 
 {% list tabs group=unified_agent %}
 
@@ -169,12 +169,12 @@
 
 {% endlist %}
 
-Для завершения работы {{ unified-agent-short-name }} может потребоваться некоторое время на допоставку накопленных данных. Обычно это занимает до 2 секунд.
+Для завершения работы Unified Agent может потребоваться некоторое время на допоставку накопленных данных. Обычно это занимает до 2 секунд.
 
 
-## Параметры запуска Docker-контейнера с {{ unified-agent-short-name }} {#configure-docker}
+## Параметры запуска Docker-контейнера с Unified Agent {#configure-docker}
 
-Если вы устанавливаете {{ unified-agent-short-name }} при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
+Если вы устанавливаете Unified Agent при помощи Docker, вы можете сконфигурировать агент с помощью переменных окружения. Так вам не потребуется редактировать файл конфигурации, расположенный в `/etc/yandex/unified_agent/config.yml`. Список переменных окружения перечислен в таблице ниже.
 
 Переменная окружения | Значение по умолчанию | Описание
 -------------------- | --------------------- | --------
@@ -188,6 +188,6 @@
 
 #### Что дальше {#what-is-next}
 
-- [Изучите концепции {{ unified-agent-short-name }}](index.md)
-- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](best-practices.md)
+- [Изучите концепции Unified Agent](index.md)
+- [Узнайте подробнее о конфигурировании Unified Agent](configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](best-practices.md)

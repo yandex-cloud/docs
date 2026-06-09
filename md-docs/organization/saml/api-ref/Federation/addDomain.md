@@ -5,7 +5,7 @@ Adds a domain to the specified federation.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains
 ```
 
 ## Path parameters

@@ -1,21 +1,19 @@
-# Архитектурные решения
 
-Архитектурные решения и рекомендации для реализации пользовательских сценариев в Yandex Cloud.
 
 # Архитектурные решения
 
 ## Отказоустойчивость
 
- - [Рекомендации по отказоустойчивости в {{ yandex-cloud }}](fault-tolerance.md)
+ - [Рекомендации по отказоустойчивости в Yandex Cloud](fault-tolerance.md)
 
- - [Развертывание веб-приложения в отказоустойчивой конфигурации в {{ yandex-cloud }}](app-in-k8s.md)
+ - [Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud](app-in-k8s.md)
 
-### Тестирование отказоустойчивости в {{ yandex-cloud }}
+### Тестирование отказоустойчивости в Yandex Cloud
 
- - [Тестирование инфраструктуры на основе {{ alb-name }}](testing-zone-failure-for-alb.md)
+ - [Тестирование инфраструктуры на основе Application Load Balancer](testing-zone-failure-for-alb.md)
 
- - [Тестирование инфраструктуры на основе {{ network-load-balancer-name }}](testing-zone-failure.md)
+ - [Тестирование инфраструктуры на основе Network Load Balancer](testing-zone-failure.md)
 
 ## MLOps
 
- - [Управление MLOps в {{ mgl-name }}](mlops-in-managed-gitlab.md)
+ - [Управление MLOps в Managed Service for GitLab](mlops-in-managed-gitlab.md)

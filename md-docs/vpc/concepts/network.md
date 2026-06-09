@@ -4,7 +4,7 @@
 
 _Облачная сеть_ — это аналог традиционной локальной сети в дата-центре. Облачные сети [создаются](../operations/network-create.md) в каталогах и используются для передачи информации между облачными ресурсами и связи ресурсов с интернетом.
 
-Для виртуальных машин {{ compute-full-name }} и хостов баз данных доступ из интернета и в интернет открыт через [публичные IP-адреса](address.md#public-addresses).
+Для виртуальных машин Yandex Compute Cloud и хостов баз данных доступ из интернета и в интернет открыт через [публичные IP-адреса](address.md#public-addresses).
 
 Управлять трафиком в облачных сетях и подсетях можно с помощью [групп безопасности](security-groups.md). Они содержат правила, которые определяют протоколы и IP-адреса для приема и отправки трафика.
 
@@ -37,9 +37,9 @@ _Подсеть_ — это диапазон IP-адресов в облачно
 
 * [группы виртуальных машин](../../compute/concepts/instance-groups/index.md);
 * [виртуальные машины](../../compute/concepts/vm.md);
-* кластеры [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster);
-* [группы узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group);
-* узлы {{ managed-k8s-name }};
+* кластеры [Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster);
+* [группы узлов Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#node-group);
+* узлы Managed Service for Kubernetes;
 * [облачные сети](#network);
 * [подсети](#subnet);
 * [таблицы маршрутизации](routing.md).
@@ -48,11 +48,11 @@ _Подсеть_ — это диапазон IP-адресов в облачно
 
 #### См. также {#see-also} 
 
-* [{#T}](software-accelerated-network.md)
+* [Программно ускоренная сеть в Virtual Private Cloud](software-accelerated-network.md)
 
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/web-service.md)
-* [{#T}](../tutorials/nat-instance/index.md)
-* [{#T}](../tutorials/dhcp-options.md)
+* [Архитектура и защита базового интернет-сервиса](../tutorials/web-service.md)
+* [Маршрутизация через NAT-инстанс](../tutorials/nat-instance/index.md)
+* [Настройки DHCP для работы с корпоративным DNS-сервером](../tutorials/dhcp-options.md)

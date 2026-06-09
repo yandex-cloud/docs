@@ -1,7 +1,7 @@
 # Как создать бота в Telegram с помощью Serverless в консоли управления
 
 
-Чтобы [создать бота в Telegram](index.md) с помощью Serverless в консоли управления {{ yandex-cloud }}:
+Чтобы [создать бота в Telegram](index.md) с помощью Serverless в консоли управления Yandex Cloud:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте ресурсы](#create-resources).
@@ -17,11 +17,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,15 +29,15 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры Telegram-бота входят:
-* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../pricing.md));
-* плата за [хранение данных](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [операции](../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md));
-* плата за количество запросов к созданному [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../../api-gateway/pricing.md)).
+* плата за вызовы [функции](../../concepts/function.md), вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../pricing.md));
+* плата за [хранение данных](../../../storage/concepts/bucket.md) в Object Storage, [операции](../../../storage/operations/index.md) с ними и исходящий трафик (см. [тарифы Object Storage](../../../storage/pricing.md));
+* плата за количество запросов к созданному [API-шлюзу](../../../api-gateway/concepts/index.md) и исходящий трафик (см. [тарифы Yandex API Gateway](../../../api-gateway/pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}
 
 1. [Скачайте](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless/browse/sayhello.png?rev=main) изображение для бота.
-1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли `{{ roles-editor }}` и `{{ roles-functions-invoker }}` на ваш каталог.
+1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роли `editor` и `functions.functionInvoker` на ваш каталог.
 
 
 ## Зарегистрируйте Telegram-бота {#create-bot}
@@ -64,28 +64,28 @@
 
 ## Опубликуйте изображение для бота {#image-publish}
 
-Чтобы бот отправлял изображение в ответ на сообщения пользователя, создайте бакет в {{ objstorage-name }} и загрузите в него файл `sayhello.png` из сохраненного архива.
+Чтобы бот отправлял изображение в ответ на сообщения пользователя, создайте бакет в Object Storage и загрузите в него файл `sayhello.png` из сохраненного архива.
 
 
-### Создайте бакет в {{ objstorage-name }} {#create-bucket}
+### Создайте бакет в Object Storage {#create-bucket}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../../storage/concepts/bucket.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать [бакет](../../../storage/concepts/bucket.md).
+  1. Перейдите в сервис **Object Storage**.
+  1. Нажмите кнопку **Создать бакет**.
   1. На странице создания бакета:
 
       1. Введите имя бакета. Сохраните имя бакета, оно потребуется в дальнейшем.
       1. Укажите настройки бакета:
 
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** — `1 {{ ui-key.yacloud_portal.common.units.label_gigabyte }}`;
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** — `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`;
-          * **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** — `{{ ui-key.yacloud.storage.value_standard }}`.
+          * **Макс. размер** — `1 ГБ`;
+          * **Чтение объектов** — `Для всех`;
+          * **Класс хранилища** — `Стандартное`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+      1. Нажмите кнопку **Создать бакет**.
 
 {% endlist %}
 
@@ -96,12 +96,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ранее созданный бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ранее созданный бакет.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите ранее созданный бакет.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
+  1. Нажмите **Загрузить**.
   1. В появившемся окне выберите файл `sayhello.png` из сохраненного архива. Консоль управления отобразит файл, выбранный для загрузки.
-  1. Нажмите **{{ ui-key.yacloud.storage.button_upload }}**.
+  1. Нажмите **Загрузить**.
 
 {% endlist %}
 
@@ -112,11 +112,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ранее созданный бакет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится ранее созданный бакет.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите ранее созданный бакет.
   1. Выберите файл `sayhello.png`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.file.button_generate }}**.
+  1. Нажмите кнопку **Получить ссылку**.
   1. Проверьте доступность изображения по ссылке в браузере.
 
 {% endlist %}
@@ -130,11 +130,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать API-шлюз.
+  1. Перейдите в сервис **API Gateway**.
+  1. Нажмите кнопку **Создать API-шлюз**.
   1. Введите имя шлюза — `for-serverless-hello-telegram-bot`.
-  1. Очистите содержимое поля **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** и вставьте в него следующий код:
+  1. Очистите содержимое поля **Спецификация** и вставьте в него следующий код:
 
       ```yaml
       openapi: 3.0.0
@@ -157,8 +157,8 @@
       * `bucket` — имя бакета;
       * `service_account_id` — [идентификатор сервисного аккаунта](../../../iam/operations/sa/get-id.md), созданного ранее при [подготовке ресурсов](#create-resources).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Выберите созданный API-шлюз. Сохраните значение поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**, оно потребуется при создании функции.
+  1. Нажмите кнопку **Создать**.
+  1. Выберите созданный API-шлюз. Сохраните значение поля **Служебный домен**, оно потребуется при создании функции.
 
 {% endlist %}
 
@@ -171,13 +171,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать функцию.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать функцию.
+  1. Перейдите в сервис **Cloud Functions**.
+  1. Нажмите кнопку **Создать функцию**.
   1. Введите имя функции — `fshtb-function`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `Node.js` и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен_API-шлюза>` укажите служебный домен API-шлюза.
+  1. Нажмите кнопку **Создать**.
+  1. В блоке **Редактор** выберите среду выполнения `Node.js` и нажмите **Продолжить**.
+  1. В блоке **Код функции** очистите содержимое файла `index.js` и вставьте в него следующий код. Вместо `<домен_API-шлюза>` укажите служебный домен API-шлюза.
 
       ```javascript
       const { Telegraf } = require('telegraf');
@@ -201,7 +201,7 @@
       };
       ```
 
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}** создайте файл `package.json` и вставьте в него следующий код:
+  1. В блоке **Код функции** создайте файл `package.json` и вставьте в него следующий код:
 
       ```json
       {
@@ -222,13 +222,13 @@
 
   1. Укажите следующие параметры:
 
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `nodejs22`;
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handler`;
-      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
+      * **Среда выполнения** — `nodejs22`;
+      * **Точка входа** — `index.handler`;
+      * **Таймаут** — `5`.
 
-  1. Добавьте переменную окружения `BOT_TOKEN`. В поле **{{ ui-key.yacloud.common.value }}** укажите токен Telegram-бота.
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
-  1. Убедитесь, что функция [публичная](../../operations/function/function-public.md). Для этого на странице **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}**, в разделе **{{ ui-key.yacloud.common.section-base }}**, переведите переключатель **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}** в активное состояние.
+  1. Добавьте переменную окружения `BOT_TOKEN`. В поле **Значение** укажите токен Telegram-бота.
+  1. Нажмите **Сохранить изменения**.
+  1. Убедитесь, что функция [публичная](../../operations/function/function-public.md). Для этого на странице **Обзор**, в разделе **Общая информация**, переведите переключатель **Публичная функция** в активное состояние.
   1. Сохраните идентификатор вашей функции, он потребуется в дальнейшем.
 
 {% endlist %}
@@ -242,8 +242,8 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. Перейдите в сервис **API Gateway**.
       1. Выберите API-шлюз `for-serverless-hello-telegram-bot`.
       1. Измените спецификацию API-шлюза — после имеющихся строчек кода добавьте секцию `fshtb-function`:
 
@@ -258,7 +258,7 @@
          
          Где `function_id` — идентификатор функции `fshtb-function`.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.form.button_update-gateway }}**.
+      1. Нажмите кнопку **Сохранить**.
 
     {% endlist %}
 
@@ -349,4 +349,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Как создать бота в Telegram с помощью Serverless и Terraform](terraform.md)

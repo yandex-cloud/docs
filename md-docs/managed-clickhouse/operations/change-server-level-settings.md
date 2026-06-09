@@ -1,21 +1,21 @@
-# Изменение настроек {{ CH }} на уровне сервера
+# Изменение настроек ClickHouse® на уровне сервера
 
-Вы можете задать [настройки {{ CH }} на уровне сервера]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
+Вы можете задать [настройки ClickHouse® на уровне сервера](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере Managed Service for ClickHouse®. Указать настройки можно несколькими способами:
 
-  * С помощью [интерфейсов {{ yandex-cloud }}](#yandex-cloud-interfaces). Так можно задать только настройки {{ CH }}, доступные в {{ yandex-cloud }}.
+  * С помощью [интерфейсов Yandex Cloud](#yandex-cloud-interfaces). Так можно задать только настройки ClickHouse®, доступные в Yandex Cloud.
   * С помощью [SQL-запросов](#sql-queries). Так задаются настройки для таблиц MergeTree. Вы можете:
 
     * задать настройки при [создании таблицы](#set-settings-for-new-table);
     * [задать настройки](#change-settings-of-existing-table) существующей таблицы;
     * [вернуть значения по умолчанию](#reset-table-settings) для настроек существующей таблицы.
 
-## Задать настройки {{ CH }} через интерфейсы {{ yandex-cloud }} {#yandex-cloud-interfaces}
+## Задать настройки ClickHouse® через интерфейсы Yandex Cloud {#yandex-cloud-interfaces}
 
-Изменение некоторых [настроек сервера](../concepts/settings-list.md#server-level-settings) приводит к перезапуску серверов {{ CH }} на хостах кластера.
+Изменение некоторых [настроек сервера](../concepts/settings-list.md#server-level-settings) приводит к перезапуску серверов ClickHouse® на хостах кластера.
 
 {% note info %}
 
-Значение настройки [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. Managed Service for ClickHouse® выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов ClickHouse®. Чтобы изменить значение настройки, [измените класс хостов ClickHouse®](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -23,52 +23,52 @@
 
 - Консоль управления {#console}
 
-   Чтобы задать настройки {{ CH }}:
+   Чтобы задать настройки ClickHouse®:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
-   1. Задайте [настройки {{ CH }}](../concepts/settings-list.md#server-level-settings).
-   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+   1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+   1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+   1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
+   1. Задайте [настройки ClickHouse®](../concepts/settings-list.md#server-level-settings).
+   1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-   Чтобы задать настройки {{ CH }}:
+   Чтобы задать настройки ClickHouse®:
 
    1. Посмотрите полный список настроек, установленных для кластера:
 
       ```bash
-      {{ yc-mdb-ch }} cluster get <имя_или_идентификатор_кластера> --full
+      yc managed-clickhouse cluster get <имя_или_идентификатор_кластера> --full
       ```
 
    1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update-config --help
+      yc managed-clickhouse cluster update-config --help
       ```
 
    1. Установите нужные значения параметров:
 
       ```bash
-      {{ yc-mdb-ch }} cluster update-config <имя_или_идентификатор_кластера> \
+      yc managed-clickhouse cluster update-config <имя_или_идентификатор_кластера> \
          --set <имя_параметра_1>=<значение_1>,...
       ```
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-   Чтобы задать настройки {{ CH }}:
+   Чтобы задать настройки ClickHouse®:
 
-   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+   1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-   1. В описании кластера {{ mch-name }}, в блоке `clickhouse.config`, измените значения параметров:
+   1. В описании кластера Managed Service for ClickHouse®, в блоке `clickhouse.config`, измените значения параметров:
 
       ```hcl
       resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -91,7 +91,7 @@
             }
 
             rabbit_mq = {
-              # Настройки получения данных из {{ RMQ }}
+              # Настройки получения данных из RabbitMQ
               username = "<имя_пользователя>"
               password = "<пароль>"
             }
@@ -126,14 +126,14 @@
 
    1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
    1. Подтвердите изменение ресурсов.
 
@@ -155,11 +155,11 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
+   Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
 
    {% note warning "Ограничения по времени" %}
    
-   Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
+   Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
    
    * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
    * изменение — 90 минут;
@@ -195,7 +195,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+   1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       {% note warning %}
       
@@ -208,7 +208,7 @@
          --request PATCH \
          --header "Authorization: Bearer $IAM_TOKEN" \
          --header "Content-Type: application/json" \
-         --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+         --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
          --data '{
                     "updateMask": "configSpec.clickhouse.config.<настройка_1>,...,configSpec.clickhouse.config.<настройка_N>",
                     "configSpec": {
@@ -227,7 +227,7 @@
       Где:
 
       * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
-      * `configSpec.clickhouse.config` — настройки {{ CH }} на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `configSpec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -248,7 +248,7 @@
       ```
       
       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-   1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+   1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       {% note warning %}
       
@@ -299,14 +299,14 @@
                    }
                 }
              }' \
-         {{ api-host-mdb }}:{{ port-https }} \
+         mdb.api.cloud.yandex.net:443 \
          yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
       ```
 
       Где:
 
       * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
-      * `config_spec.clickhouse.config` — настройки {{ CH }} на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
+      * `config_spec.clickhouse.config` — настройки ClickHouse® на уровне сервера. Возможные параметры и их значения см. в [описании метода](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -358,7 +358,7 @@
             <название_настройки> = <значение_настройки>;
          ```
 
-         Пример запроса для настроек [merge_with_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
+         Пример запроса для настроек [merge_with_ttl_timeout](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout](https://clickhouse.com/docs/ru/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
 
          ```sql
          CREATE TABLE <имя_таблицы>
@@ -372,7 +372,7 @@
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      Подробнее о создании таблиц MergeTree см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      Подробнее о создании таблиц MergeTree см. в [документации ClickHouse®](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 
@@ -408,4 +408,4 @@
 
    {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

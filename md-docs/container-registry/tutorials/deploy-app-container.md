@@ -1,9 +1,9 @@
-# Запуск контейнерного приложения в {{ serverless-containers-full-name }}
+# Запуск контейнерного приложения в Yandex Serverless Containers
 
 
-С помощью этого руководства вы сможете развернуть контейнер с приложением в сервисе [{{ serverless-containers-name }}](../../serverless-containers/index.md) для администрирования СУБД {{ MG }}.
+С помощью этого руководства вы сможете развернуть контейнер с приложением в сервисе [Serverless Containers](../../serverless-containers/index.md) для администрирования СУБД MongoDB.
 
-СУБД развернута на виртуальной машине [{{ compute-full-name }}](../../compute/index.md), контейнер с приложением хранится в реестре [{{ container-registry-full-name }}](../index.md), чувствительные данные зашифрованы с помощью [{{ lockbox-full-name }}](../../lockbox/index.md), а безопасный доступ к приложению реализован через API-шлюз [{{ api-gw-full-name }}](../../api-gateway/index.md). Вся инфраструктура контейнерного приложения располагается в одном каталоге.
+СУБД развернута на виртуальной машине [Yandex Compute Cloud](../../compute/index.md), контейнер с приложением хранится в реестре [Yandex Container Registry](../index.md), чувствительные данные зашифрованы с помощью [Yandex Lockbox](../../lockbox/index.md), а безопасный доступ к приложению реализован через API-шлюз [Yandex API Gateway](../../api-gateway/index.md). Вся инфраструктура контейнерного приложения располагается в одном каталоге.
 
 Чтобы развернуть контейнерное приложение:
 
@@ -11,12 +11,12 @@
 1. [Создайте сервисный аккаунт](#sa-create).
 1. [Создайте облачную сеть и подсеть](#create-network).
 1. [Настройте группу безопасности](#configure-sg).
-1. [Создайте виртуальную машину {{ compute-name }} с {{ MG }}](#create-vm).
-1. [Создайте секрет {{ lockbox-name }} и версию](#secret-create).
-1. [Создайте реестр {{ container-registry-name }}](#create-registry).
-1. [Загрузите Docker-образ в {{ container-registry-name }}](#push-image).
-1. [Создайте контейнер {{ serverless-containers-name }}](#create-container).
-1. [Создайте API-шлюз {{ api-gw-name }}](#create-api-gw).
+1. [Создайте виртуальную машину Compute Cloud с MongoDB](#create-vm).
+1. [Создайте секрет Yandex Lockbox и версию](#secret-create).
+1. [Создайте реестр Container Registry](#create-registry).
+1. [Загрузите Docker-образ в Container Registry](#push-image).
+1. [Создайте контейнер Serverless Containers](#create-container).
+1. [Создайте API-шлюз API Gateway](#create-api-gw).
 1. [Проверьте работу приложения](#check-app).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -24,11 +24,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -37,12 +37,12 @@
 
 В стоимость поддержки приложения входит:
 
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за хранение секретов (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
-* плата за хранение Docker-образа (см. [тарифы {{ container-registry-full-name }}](../pricing.md));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../../serverless-containers/pricing.md));
-* плата за запросы к API-шлюзу (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
-* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
+* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за хранение секретов (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
+* плата за хранение Docker-образа (см. [тарифы Yandex Container Registry](../pricing.md));
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../../serverless-containers/pricing.md));
+* плата за запросы к API-шлюзу (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
+* плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
 
 
 ## Создайте сервисный аккаунт {#sa-create}
@@ -53,16 +53,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будет размещаться инфраструктура контейнерного приложения.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будет размещаться инфраструктура контейнерного приложения.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя сервисного аккаунта — `mongo-express`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роли](../../load-testing/security/index.md#roles-list) `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}` и `{{ roles-serverless-containers-invoker }}`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роли](../../load-testing/security/index.md#roles-list) `container-registry.images.puller`, `lockbox.payloadViewer` и `serverless-containers.containerInvoker`.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -81,19 +81,19 @@
       name: mongo-express
       ```
 
-  1.  Назначьте сервисному аккаунту роли `{{ roles-cr-puller }}`, `{{ roles-lockbox-payloadviewer }}` и `{{ roles-serverless-containers-invoker }}` на каталог, в котором будет размещаться контейнер:
+  1.  Назначьте сервисному аккаунту роли `container-registry.images.puller`, `lockbox.payloadViewer` и `serverless-containers.containerInvoker` на каталог, в котором будет размещаться контейнер:
 
       ```bash
       yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
-        --role {{ roles-cr-puller }} \
+        --role container-registry.images.puller \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
 
       yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
-        --role {{ roles-lockbox-payloadviewer }} \
+        --role lockbox.payloadViewer \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
 
       yc resource-manager folder add-access-binding <имя_или_идентификатор_каталога> \
-        --role {{ roles-serverless-containers-invoker }} \
+        --role serverless-containers.containerInvoker \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -146,19 +146,19 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `mongo-express-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `mongo-express-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `mongo-express-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
-  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Нажмите **Создать сеть**.
+  1. В поле **Имя** укажите `mongo-express-network`.
+  1. В поле **Дополнительно** выберите опцию **Создать подсети**.
+  1. Нажмите **Создать сеть**.
+  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. Нажмите **Создать подсеть**.
+  1. В поле **Имя** укажите `mongo-express-subnet-ru-central1-b`.
+  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Сеть** выберите облачную сеть `mongo-express-network`.
+  1. В поле **CIDR** укажите `192.168.1.0/24`.
+  1. Нажмите **Создать подсеть**.
 
 - CLI {#cli}
 
@@ -185,8 +185,8 @@
 
       ```bash
       yc vpc subnet create \
-         --name mongo-express-subnet-{{ region-id }}-b \
-         --zone {{ region-id }}-b \
+         --name mongo-express-subnet-ru-central1-b \
+         --zone ru-central1-b \
          --network-id <идентификатор_сети> \
          --range 192.168.1.0/24
       ```
@@ -231,18 +231,18 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
-  1. Напротив группы безопасности, созданной по умолчанию для сети `mongo-express-network`, нажмите ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}** и создайте правило по таблице:
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**.
+  1. Напротив группы безопасности, созданной по умолчанию для сети `mongo-express-network`, нажмите ![image](../../_assets/options.svg) и выберите ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В блоке **Правила** перейдите на вкладку **Исходящий трафик**.
+  1. Нажмите **Добавить правило** и создайте правило по таблице:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Назначение /<br/>Источник | CIDR блоки |
       | --- | --- | --- | --- | --- | --- |
-      | `Входящий` | `any` | `27017` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Входящий` | `any` | `27017` | `Любой` | `CIDR` | `0.0.0.0/0` |
 
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -300,7 +300,7 @@
 {% endlist %}
 
 
-## Создайте виртуальную машину с {{ MG }} {#create-vm}
+## Создайте виртуальную машину с MongoDB {#create-vm}
 
 Рекомендуем использовать [ВМ](../../compute/concepts/vm.md) в минимальной конфигурации.
 
@@ -308,11 +308,11 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска**:
 
-      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** и нажмите **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
-      1. В открывшемся окне перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и укажите спецификацию Docker-контейнера:
+      1. Перейдите на вкладку **Container Solution** и нажмите **Настроить**.
+      1. В открывшемся окне перейдите на вкладку **Docker-compose** и укажите спецификацию Docker-контейнера:
 
           ```yaml
           version: '3.1'
@@ -330,37 +330,37 @@
 
           В значении параметра `MONGO_INITDB_ROOT_PASSWORD` задайте пароль, который будет использоваться для доступа к БД. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/). Сохраните пароль, он понадобится вам на следующих шагах.
 
-      1. Нажмите **{{ ui-key.yacloud.common.apply }}**.
+      1. Нажмите **Применить**.
 
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `mongo-express-subnet-{{ region-id }}-b`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **Подсеть** выберите подсеть `mongo-express-subnet-ru-central1-b`.
+      * В поле **Публичный IP-адрес** выберите `Автоматически`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mongo-vm`.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `mongo-vm`.
+  1. Нажмите **Создать ВМ**.
 
   Дождитесь перехода ВМ в статус `Running` и сохраните ее публичный IP-адрес — он потребуется для подключения к БД.
 
@@ -391,8 +391,8 @@
       yc compute instance create-with-container \
         --docker-compose-file docker-spec.yaml \
         --name mongo-vm \
-        --zone {{ region-id }}-b \
-        --network-interface subnet-name=mongo-express-subnet-{{ region-id }}-b,nat-ip-version=ipv4 \
+        --zone ru-central1-b \
+        --network-interface subnet-name=mongo-express-subnet-ru-central1-b,nat-ip-version=ipv4 \
         --ssh-key <путь_к_файлу_открытого_ключа> \
         --create-boot-disk size=30
       ```
@@ -419,27 +419,27 @@
 {% endlist %}
 
 
-## Создайте секрет {{ lockbox-name }} {#secret-create}
+## Создайте секрет Yandex Lockbox {#secret-create}
 
-В [секрете {{ lockbox-name }}](../../lockbox/concepts/secret.md) в зашифрованном виде будут храниться данные для аутентификации.
+В [секрете Yandex Lockbox](../../lockbox/concepts/secret.md) в зашифрованном виде будут храниться данные для аутентификации.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета — `mongodb-creds`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `login`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите логин пользователя БД — `mongo_db_user`.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите **Создать секрет**.
+  1. В поле **Имя** введите имя секрета — `mongodb-creds`.
+  1. В поле **Ключ** введите `login`.
+  1. В поле **Значение** введите логин пользователя БД — `mongo_db_user`.
 
-  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}** и укажите второй секрет:
+  1. Нажмите **Добавить ключ/значение** и укажите второй секрет:
 
-      * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `password`.
-      * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите пароль для доступа к БД — значение `MONGO_INITDB_ROOT_PASSWORD` из [спецификации Docker-контейнера](#create-vm).
+      * В поле **Ключ** введите `password`.
+      * В поле **Значение** введите пароль для доступа к БД — значение `MONGO_INITDB_ROOT_PASSWORD` из [спецификации Docker-контейнера](#create-vm).
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
@@ -482,19 +482,19 @@
 {% endlist %}
 
 
-## Создайте реестр {{ container-registry-name }} {#create-registry}
+## Создайте реестр Container Registry {#create-registry}
 
-В [реестре](../concepts/registry.md) {{ container-registry-name }} будет храниться Docker-образ приложения `mongo-express`.
+В [реестре](../concepts/registry.md) Container Registry будет храниться Docker-образ приложения `mongo-express`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Нажмите **{{ ui-key.yacloud.cr.overview.button_create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Container Registry**.
+  1. Нажмите **Создать реестр**.
   1. Задайте имя реестра `app-registry`.
-  1. Нажмите **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+  1. Нажмите **Создать реестр**.
 
 - CLI {#cli}
 
@@ -549,7 +549,7 @@
     docker.io/library/mongo-express:latest
     ```
 
-1. [Аутентифицируйтесь](../operations/authentication.md) в {{ container-registry-name }} с помощью Docker Credential helper:
+1. [Аутентифицируйтесь](../operations/authentication.md) в Container Registry с помощью Docker Credential helper:
 
     {% list tabs group=instructions %}
 
@@ -572,7 +572,7 @@
       1. Проверьте, что Docker сконфигурирован — в конфигурационном файле `${HOME}/.docker/config.json` должна появиться строка:
 
           ```json
-          "{{ registry }}": "yc"
+          "cr.yandex": "yc"
           ```
 
       Docker готов к использованию.
@@ -585,23 +585,23 @@
 
     - CLI {#cli}
 
-      1. Присвойте загруженному образу `mongo-express` URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
+      1. Присвойте загруженному образу `mongo-express` URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`:
 
           ```bash
           docker tag mongo-express \
-          {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
+          cr.yandex/<идентификатор_реестра>/mongo-express:mongo-tag
           ```
 
       1. Загрузите образ `mongo-express` в реестр:
 
           ```bash
-          docker push {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag
+          docker push cr.yandex/<идентификатор_реестра>/mongo-express:mongo-tag
           ```
 
           Результат:
 
           ```text
-          \The push refers to repository [{{ registry }}/crpbr3qaut47********/mongo-express]
+          \The push refers to repository [cr.yandex/crpbr3qaut47********/mongo-express]
           7c550ce9591d: Pushed
           ...
           aedc3bda2944: Pushed
@@ -611,43 +611,43 @@
     {% endlist %}
 
 
-## Создайте контейнер {{ serverless-containers-name }} {#create-container}
+## Создайте контейнер Serverless Containers {#create-container}
 
-Чтобы запустить приложение в {{ yandex-cloud }}, создайте [контейнер](../../serverless-containers/concepts/container.md) и его [ревизию](../../serverless-containers/concepts/container.md#revision).
+Чтобы запустить приложение в Yandex Cloud, создайте [контейнер](../../serverless-containers/concepts/container.md) и его [ревизию](../../serverless-containers/concepts/container.md#revision).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-  1. Нажмите **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Serverless Containers**.
+  1. Нажмите **Создать контейнер**.
   1. Введите имя контейнера `mongo-express-container`.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
+  1. Нажмите **Создать**.
+  1. Перейдите на вкладку **Редактор**.
 
-      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_resources }}** укажите объем RAM — `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      1. В блоке **Ресурсы** укажите объем RAM — `1024 МБ`.
+      1. В блоке **Параметры образа**:
 
-          1. В поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** укажите URL Docker-образа, загруженного [ранее](#push-image).
-          1. В поле **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
+          1. В поле **URL образа** укажите URL Docker-образа, загруженного [ранее](#push-image).
+          1. В поле **Переменные окружения** добавьте переменные:
 
               * `ME_CONFIG_BASICAUTH_USERNAME` — оставьте значение пустым.
               * `ME_CONFIG_BASICAUTH_PASSWORD` — оставьте значение пустым.
               * `VCAP_APP_PORT` — укажите порт `8080`.
               * `ME_CONFIG_MONGODB_SERVER` — укажите публичный адрес ВМ, полученный [ранее](#create-vm).
 
-          1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите секреты:
+          1. В поле **Секреты Lockbox** укажите секреты:
 
               * `ME_CONFIG_MONGODB_AUTH_USERNAME` — укажите секрет с ключом `login`.
               * `ME_CONFIG_MONGODB_AUTH_PASSWORD` — укажите секрет с ключом `password`.
 
-        1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
+        1. В блоке **Настройки**:
 
-            1. В поле **{{ ui-key.yacloud.serverless-containers.label_service-account }}** укажите `mongo-express`.
-            1. В поле **{{ ui-key.yacloud.serverless-containers.label_timeout }}** укажите `15`.
+            1. В поле **Сервисный аккаунт** укажите `mongo-express`.
+            1. В поле **Таймаут** укажите `15`.
 
-  1. Нажмите **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
+  1. Нажмите **Создать ревизию**.
 
 - CLI {#cli}
 
@@ -664,7 +664,7 @@
       folder_id: b1gqvft7kjk3********
       created_at: "2023-02-08T10:34:06.601Z"
       name: mongo-express-container
-      url: https://bba3fva6ka5g********.{{ serverless-containers-host }}/
+      url: https://bba3fva6ka5g********.containers.yandexcloud.net/
       status: ACTIVE
       ```
 
@@ -675,7 +675,7 @@
         --container-name mongo-express-container \
         --cores 1 \
         --memory 1GB \
-        --image {{ registry }}/<идентификатор_реестра>/mongo-express:mongo-tag \
+        --image cr.yandex/<идентификатор_реестра>/mongo-express:mongo-tag \
         --environment ME_CONFIG_BASICAUTH=false \
         --environment VCAP_APP_PORT=8080 \
         --environment ME_CONFIG_MONGODB_SERVER=<публичный_адрес_ВМ> \
@@ -707,7 +707,7 @@
       container_id: bbai45hrl5et********
       created_at: "2025-06-14T10:18:06.791Z"
       image:
-        image_url: {{ registry }}/crpbr3qaut47********/mongo-express:mongo-tag
+        image_url: cr.yandex/crpbr3qaut47********/mongo-express:mongo-tag
         image_digest: sha256:c641....
         environment:
           ME_CONFIG_BASICAUTH: "false"
@@ -744,7 +744,7 @@
 {% endlist %}
 
 
-## Создайте API-шлюз {{ api-gw-name }} {#create-api-gw}
+## Создайте API-шлюз API Gateway {#create-api-gw}
 
 Создайте [API-шлюз](../../api-gateway/concepts/index.md) с расширением `x-yc-apigateway-integration:serverless_containers`.
 
@@ -752,11 +752,11 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите название API-шлюза — `mongo-express-gw`.
-  1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **API Gateway**.
+  1. Нажмите **Создать API-шлюз**.
+  1. В поле **Имя** введите название API-шлюза — `mongo-express-gw`.
+  1. В блок **Спецификация** добавьте спецификацию:
 
       ```yaml
       openapi: 3.0.0
@@ -786,8 +786,8 @@
       * `container_id` — идентификатор контейнера `mongo-express-container`.
       * `service_account_id` — идентификатор сервисного аккаунта `mongo-express`.
 
-  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Откройте созданный API-шлюз и скопируйте ссылку из поля **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
+  1. Нажмите **Создать**.
+  1. Откройте созданный API-шлюз и скопируйте ссылку из поля **Служебный домен**.
 
 - CLI {#cli}
 
@@ -828,7 +828,7 @@
   1. Укажите параметры и создайте API-шлюз с помощью команды:
 
       ```bash
-      {{ yc-serverless }} api-gateway create \
+      yc serverless api-gateway create \
           --name mongo-express-gw \
           --spec=<путь_к_файлу_спецификации>
       ```
@@ -859,7 +859,7 @@
 
 ## Проверьте работу приложения {#check-app}
 
-Перейдите по ссылке вида `d5d63uh1h26g********.********.apigw.yandexcloud.net`, полученной на предыдущем шаге. Откроется административная панель {{ MG }}.
+Перейдите по ссылке вида `d5d63uh1h26g********.********.apigw.yandexcloud.net`, полученной на предыдущем шаге. Откроется административная панель MongoDB.
 
 
 ## Как удалить созданные ресурсы {#clear-out}

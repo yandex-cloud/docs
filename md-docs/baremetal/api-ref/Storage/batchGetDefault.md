@@ -5,7 +5,7 @@ Returns the default storages for the specified configurations.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/storages/default:batchGet
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/storages/default:batchGet
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.BatchGetDefaultStoragesRequest}

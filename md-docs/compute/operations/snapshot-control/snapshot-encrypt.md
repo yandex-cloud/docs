@@ -12,13 +12,13 @@
 
 - Консоль управления {#console}
 
-  1. [Создайте](../../../kms/operations/key.md#create) ключ шифрования {{ kms-full-name }}. Подробнее см. [{#T}](../../concepts/encryption.md).
+  1. [Создайте](../../../kms/operations/key.md#create) ключ шифрования Yandex Key Management Service. Подробнее см. [Шифрование в Compute Cloud](../../concepts/encryption.md).
   1. Создайте зашифрованный диск из снимка, который вы хотите зашифровать:
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен исходный снимок.
-      1. Перейдите в сервис **{{ compute-name }}**.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **{{ ui-key.yacloud.compute.disks.label_title }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен исходный снимок.
+      1. Перейдите в сервис **Compute Cloud**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+      1. Нажмите кнопку **Создать диск**.
       1. Введите имя диска.
 
           * длина — от 3 до 63 символов;
@@ -26,10 +26,10 @@
           * первый символ — буква, последний — не дефис.
 
       1. Задайте параметры диска: [тип диска](../../concepts/disk.md#disks_types), а также [размер блока](../../concepts/disk.md#maximum-disk-size) и [размер диска](../../concepts/disk.md#maximum-disk-size).
-      1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` и в списке ниже отметьте снимок, который создали ранее. Для поиска снимка воспользуйтесь фильтром.
-      1. В блоке **{{ ui-key.yacloud.compute.disk-form.section_encryption }}** включите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}** и в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../../kms/concepts/key.md), созданный ранее.
+      1. В поле **Наполнение** выберите `Снимок` и в списке ниже отметьте снимок, который создали ранее. Для поиска снимка воспользуйтесь фильтром.
+      1. В блоке **Шифрование** включите опцию **Зашифрованный диск** и в поле **Ключ KMS** выберите [ключ](../../../kms/concepts/key.md), созданный ранее.
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**.
+      1. Нажмите кнопку **Создать диск**.
 
       После создания диск перейдет в статус `Creating`. Дождитесь, когда диск перейдет в статус `Ready`, прежде чем его использовать.
 
@@ -39,11 +39,11 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Создайте ключ шифрования {{ kms-full-name }}:
+  1. Создайте ключ шифрования Yandex Key Management Service:
 
       ```bash
       yc kms symmetric-key create \
@@ -53,7 +53,7 @@
         --deletion-protection
       ```
 
-      Где `--name` — имя создаваемого ключа {{ kms-name }}.
+      Где `--name` — имя создаваемого ключа Key Management Service.
 
       Результат:
 
@@ -112,7 +112,7 @@
       created_at: "2025-05-20T17:39:01Z"
       name: fromcliencrypted
       type_id: network-hdd
-      zone_id: {{ region-id }}-a
+      zone_id: ru-central1-a
       size: "21474836480"
       block_size: "4096"
       status: READY
@@ -139,8 +139,8 @@
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       |          ID          |     NAME     |    SIZE     |     ZONE      | STATUS |     INSTANCE IDS     |       DESCRIPTION       |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
-      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | {{ region-id }}-a | READY  | a7lcvu28njbh******** |                         |
-      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | {{ region-id }}-a | READY  |                      |                         |
+      | a7lqgbt0bb9s******** | first-disk   | 20401094656 | ru-central1-a | READY  | a7lcvu28njbh******** |                         |
+      | a7lv5j5hm1p1******** | second-disk  | 21474836480 | ru-central1-a | READY  |                      |                         |
       +----------------------+--------------+-------------+---------------+--------+----------------------+-------------------------+
       ```
 
@@ -188,24 +188,24 @@
       done (7s)
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы зашифровать диск с помощью {{ TF }}:
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+  Чтобы зашифровать диск с помощью Terraform:
+  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
       ```hcl
-      # Создание ключа {{ kms-full-name }}
+      # Создание ключа Yandex Key Management Service
 
       resource "yandex_kms_symmetric_key" "my-key" {
         name                = "encrypt-key"
@@ -222,7 +222,7 @@
       resource "yandex_compute_disk" "encrypted-disk" {
         name        = "new-encrypted-disk"
         type        = "network-hdd"
-        zone        = "{{ region-id }}-a"
+        zone        = "ru-central1-a"
         size        = 20
         block_size  = 4096
         snapshot_id = "<идентификатор_незашифрованного_снимка>"
@@ -242,7 +242,7 @@
       * `snapshot_id` — идентификатор незашифрованного снимка.
       * `name` — имя создаваемого зашифрованного снимка.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_snapshot).
+      Более подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера](../../../terraform/resources/compute_snapshot.md).
 
   1. Создайте ресурсы:
 
@@ -265,7 +265,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -282,7 +282,7 @@
 
 - API {#api}
 
-  1. Создайте ключ шифрования {{ kms-full-name }} с помощью метода REST API [create](../../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../../kms/api-ref/grpc/SymmetricKey/create.md).
+  1. Создайте ключ шифрования Yandex Key Management Service с помощью метода REST API [create](../../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../../kms/api-ref/grpc/SymmetricKey/create.md).
 
   1. Создайте зашифрованный диск из снимка, используя метод REST API [create](../../api-ref/Disk/create.md) для ресурса [Disk](../../api-ref/Disk/index.md) или вызов gRPC API [DiskService/Create](../../api-ref/grpc/Disk/create.md).
 
@@ -301,6 +301,6 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/encryption.md)
-* [{#T}](../disk-control/disk-encrypt.md)
-* [{#T}](../image-control/encrypt.md)
+* [Шифрование в Compute Cloud](../../concepts/encryption.md)
+* [Зашифровать диск](../disk-control/disk-encrypt.md)
+* [Зашифровать образ](../image-control/encrypt.md)

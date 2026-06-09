@@ -1,17 +1,17 @@
-# Поиск событий {{ yandex-cloud }} в {{ cloud-logging-full-name }}
+# Поиск событий Yandex Cloud в Yandex Cloud Logging
 
-# Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}
+# Поиск событий Yandex Cloud в Cloud Logging
 
 ## Кто удалил каталог {#delete-folder}
 
 Поиск по идентификатору:
 
 ```json
-json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
+json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_id="<идентификатор_каталога>"
 ```
 Поиск по названию:
 ```json
-json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
+json_payload.event_type="yandex.cloud.audit.resourcemanager.DeleteFolder" and json_payload.details.folder_name="<имя_каталога>"
 ```
 
 ## Кто создал/остановил/перезапустил/удалил виртуальную машину {#vm-manage}
@@ -19,7 +19,7 @@ json_payload.event_type="{{ at-event-prefix }}.audit.resourcemanager.DeleteFolde
 Поиск по идентификатору [виртуальной машины](../../../glossary/vm.md):
 
 ```json
-json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (json_payload.event_type="{{ at-event-prefix }}.audit.compute.CreateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.UpdateInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.DeleteInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StartInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.StopInstance" or json_payload.event_type="{{ at-event-prefix }}.audit.compute.RestartInstance")
+json_payload.details.instance_id="<идентификатор_виртуальной_машины>" and (json_payload.event_type="yandex.cloud.audit.compute.CreateInstance" or json_payload.event_type="yandex.cloud.audit.compute.UpdateInstance" or json_payload.event_type="yandex.cloud.audit.compute.DeleteInstance" or json_payload.event_type="yandex.cloud.audit.compute.StartInstance" or json_payload.event_type="yandex.cloud.audit.compute.StopInstance" or json_payload.event_type="yandex.cloud.audit.compute.RestartInstance")
 ```
 
 ## Какие действия совершал конкретный пользователь за период времени {#user-actions}
@@ -61,10 +61,10 @@ json_payload.event_status = ERROR and json_payload.error.code = 7
 
 ## Что дальше {#whats-next}
 
-Ознакомьтесь с примерами событий в [{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
+Ознакомьтесь с примерами событий в [Yandex Cloud Security Solution Library](https://github.com/yandex-cloud/yc-solution-library-for-security/blob/master/auditlogs/_use_cases_and_searches/Use-casesANDsearches_RU.pdf).
 
 {% note info %}
 
-[{{ yandex-cloud }} Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в {{ yandex-cloud }}, собранных в публичном репозитории на GitHub.
+[Yandex Cloud Security Solution Library](https://github.com/yandex-cloud-examples/yc-security-solutions-library) — это набор примеров и рекомендаций по построению безопасной инфраструктуры в Yandex Cloud, собранных в публичном репозитории на GitHub.
 
 {% endnote %}

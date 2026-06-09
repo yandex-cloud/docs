@@ -1,6 +1,6 @@
 # Пошаговые инструкции
 
-## {{ iam-name }} {#iam}
+## Identity and Access Management {#iam}
 
 * [Создать пользователя](iam/create-user.md)
 * [Создать группу пользователей](iam/create-group.md)
@@ -24,7 +24,7 @@
 
 ## Брокер сообщений {#broker}
 
-* [Создать кластер {{ KF }}](kafka/create-cluster.md)
+* [Создать кластер Apache Kafka®](kafka/create-cluster.md)
 * [Создать топик](kafka/create-topic.md)
 * [Создать пользователя](kafka/create-user.md)
 * [Подключиться к кластеру](kafka/connect-to-kafka.md)
@@ -45,11 +45,11 @@
 * [Создать канал уведомлений](monitoring/alerts-create-contact-point.md)
 * [Создать правило алертинга](monitoring/alerts-create-rule.md)
 
-## {{ datalens-name }} {#datalens}
+## DataLens {#datalens}
 
 * [Установить образы](datalens/install-images.md)
-* [Включить {{ datalens-name }}](datalens/configure.md)
-* [Отключить {{ datalens-name }}](datalens/disable.md)
+* [Включить DataLens](datalens/configure.md)
+* [Отключить DataLens](datalens/disable.md)
 
 ## Политики {#policies}
 
@@ -57,7 +57,7 @@
 * [Деактивировать политику](policy-manager/apply-mute.md)
 * [Удалить пресет с политиками](policy-manager/delete-preset.md)
 
-## {{ speechsense-name }} {#speechsense}
+## SpeechSense {#speechsense}
 
 * [Загрузить образы](speechsense/install-images.md)
 * [Настроить и активировать](speechsense/configure.md)

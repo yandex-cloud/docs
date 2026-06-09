@@ -3,13 +3,13 @@
 
 {% note warning %}
 
-В {{ yandex-cloud }} продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [{#T}](../../microsoft/byol.md).
+В Yandex Cloud продукты Microsoft можно использовать только с вашими собственными лицензиями и только на выделенных хостах. Подробнее см. [Использование своей лицензии для продуктов Microsoft](../../microsoft/byol.md).
 
 {% endnote %}
 
 
 
-В сценарии приводится пример развертывания Active Directory в {{ yandex-cloud }}.
+В сценарии приводится пример развертывания Active Directory в Yandex Cloud.
 
 Чтобы развернуть инфраструктуру Active Directory:
 1. [Подготовьте облако к работе](#before-you-begin).
@@ -25,11 +25,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -42,9 +42,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инсталляции Active Directory входят:
-* Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических или статических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамических или статических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте облачную сеть и подсети {#create-network}
 
@@ -56,14 +56,14 @@
    - Консоль управления {#console}
 
      Чтобы создать облачную сеть:
-     1. Откройте раздел **{{ vpc-name }}** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать облачную сеть.
+     1. Откройте раздел **Virtual Private Cloud** в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется создать облачную сеть.
      1. Нажмите кнопку **Создать сеть.**
      1. Задайте имя сети: `ad-network`.
      1. Нажмите кнопку **Создать сеть**.
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -82,16 +82,16 @@
    - Консоль управления {#console}
 
        Чтобы создать подсеть:
-       1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
+       1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
        1. Нажмите на имя облачной сети.
        1. Нажмите кнопку **Добавить подсеть**.
-       1. Заполните форму: введите имя подсети `ad-subnet-a`, выберите зону доступности `{{ region-id }}-a` из выпадающего списка.
+       1. Заполните форму: введите имя подсети `ad-subnet-a`, выберите зону доступности `ru-central1-a` из выпадающего списка.
        1. Введите CIDR подсети: IP-адрес и маску подсети `10.1.0.0/16`.
        1. Нажмите кнопку **Создать подсеть**.
 
        Повторите шаги еще для двух подсетей:
-       * Название: `ad-subnet-b`. Зона доступности: `{{ region-id }}-b`. CIDR: `10.2.0.0/16`.
-       * Название: `ad-subnet-d`. Зона доступности: `{{ region-id }}-d`. CIDR: `10.3.0.0/16`.
+       * Название: `ad-subnet-b`. Зона доступности: `ru-central1-b`. CIDR: `10.2.0.0/16`.
+       * Название: `ad-subnet-d`. Зона доступности: `ru-central1-d`. CIDR: `10.3.0.0/16`.
 
    - CLI {#cli}
 
@@ -100,19 +100,19 @@
        ```bash
        yc vpc subnet create \
          --name ad-subnet-a \
-         --zone {{ region-id }}-a \
+         --zone ru-central1-a \
          --network-name ad-network \
          --range 10.1.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-b \
-         --zone {{ region-id }}-b \
+         --zone ru-central1-b \
          --network-name ad-network \
          --range 10.2.0.0/16
 
        yc vpc subnet create \
          --name ad-subnet-d \
-         --zone {{ region-id }}-d \
+         --zone ru-central1-d \
          --network-name ad-network \
          --range 10.3.0.0/16
        ```
@@ -130,9 +130,9 @@
 Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertTo-SecureString "<ваш пароль>" -AsPlainText -Force)
 ```
 
-Пароль должен соответствовать [требованиям к сложности]({{ ms.docs }}/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
+Пароль должен соответствовать [требованиям к сложности](https://docs.microsoft.com/ru-ru/windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#справочник).
 
-Подробные рекомендации по защите Active Directory читайте на [сайте разработчика]({{ ms.docs }}/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
+Подробные рекомендации по защите Active Directory читайте на [сайте разработчика](https://docs.microsoft.com/ru-ru/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory).
 
 ## Создайте ВМ для Active Directory {#ad-vm}
 
@@ -142,32 +142,32 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. В блоке **Образ загрузочного диска**:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
-      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
-      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+      * Перейдите на вкладку **Пользовательский**.
+      * Нажмите кнопку **Выбрать** и в открывшемся окне выберите **Создать**.
+      * В поле **Наполнение** выберите `Образ` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+      * (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **Добавить диск**.
 
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. В блоке **Расположение** выберите зону доступности `ru-central1-a`.
+  1. В блоке **Диски и файловые хранилища** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 ГБ`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `4`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `8 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** укажите:
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `4`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `8 ГБ`.
+  1. В блоке **Сетевые настройки** укажите:
 
-      * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — `ad-subnet-a`.
-      * **{{ ui-key.yacloud.component.compute.network-select.field_external }}** — `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-      * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}`.
+      * **Подсеть** — `ad-subnet-a`.
+      * **Публичный IP-адрес** — `Без адреса`.
+      * Разверните блок **Дополнительно** и в поле **Внутренний IPv4 адрес** выберите `Вручную`.
       * В появившемся поле для ввода укажите `10.1.0.3`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ad-vm-a`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `ad-vm-a`.
+  1. Нажмите кнопку **Создать ВМ**.
 
   Дождитесь, когда статус ВМ сменится на `Running`, и сбросьте пароль:
   
@@ -177,7 +177,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
   1. Нажмите кнопку **Сгенерировать пароль**.
   1. Сохраните **Новый пароль**. После закрытия окна он будет недоступен.
 
-  Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `{{ region-id }}-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний IP-адрес `10.2.0.3`.
+  Повторите шаги для ВМ с именем `ad-vm-b` в зоне доступности `ru-central1-b`, подключите ее к подсети `ad-subnet-b` и вручную укажите внутренний IP-адрес `10.2.0.3`.
 
 - CLI {#cli}
 
@@ -187,7 +187,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-a \
     --memory 8 \
     --cores 4 \
-    --zone {{ region-id }}-a \
+    --zone ru-central1-a \
     --network-interface subnet-name=ad-subnet-a,ipv4-address=10.1.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -197,7 +197,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname ad-vm-b \
     --memory 8 \
     --cores 4 \
-    --zone {{ region-id }}-b \
+    --zone ru-central1-b \
     --network-interface subnet-name=ad-subnet-b,ipv4-address=10.2.0.3 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -205,11 +205,11 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
   {% note info %}
   
-  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+  Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
   
   Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
   
-  Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+  Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
   
   {% endnote %}
 
@@ -223,30 +223,30 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска**:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}**.
-      * Нажмите кнопку **{{ ui-key.yacloud.common.select }}** и в открывшемся окне выберите **{{ ui-key.yacloud.common.create }}**.
-      * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
-      * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+      * Перейдите на вкладку **Пользовательский**.
+      * Нажмите кнопку **Выбрать** и в открывшемся окне выберите **Создать**.
+      * В поле **Наполнение** выберите `Образ` и в списке ниже выберите образ **Windows Server 2022 Datacenter**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+      * (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+      * Нажмите кнопку **Добавить диск**.
   
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите зону доступности `{{ region-id }}-d`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного диска `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую платформу, количество vCPU и объем RAM:
+  1. В блоке **Расположение** выберите зону доступности `ru-central1-d`.
+  1. В блоке **Диски и файловые хранилища** задайте размер загрузочного диска `50 ГБ`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую платформу, количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `100%`.
+      * **RAM** — `4 ГБ`.
+  1. В блоке **Сетевые настройки**:
   
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите подсеть `ad-subnet-d`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **Подсеть** выберите подсеть `ad-subnet-d`.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `jump-server-vm`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `jump-server-vm`.
+  1. Нажмите кнопку **Создать ВМ**.
 
   Дождитесь, когда статус ВМ сменится на `Running`, и сбросьте пароль:
   
@@ -264,7 +264,7 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
     --hostname jump-server-vm \
     --memory 4 \
     --cores 2 \
-    --zone {{ region-id }}-d \
+    --zone ru-central1-d \
     --network-interface subnet-name=ad-subnet-d,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=windows-2022-dc-gvlk \
     --metadata-from-file user-data=setpass
@@ -306,34 +306,34 @@ Get-LocalUser | Where-Object SID -like *-500 | Set-LocalUser -Password (ConvertT
    Затем введите пароль и подтвердите его.
 
    Windows перезапустится автоматически. Снова подключитесь к `ad-vm-a` и откройте PowerShell.
-1. Переименуйте сайт по умолчанию в `{{ region-id }}-a`:
+1. Переименуйте сайт по умолчанию в `ru-central1-a`:
 
    ```powershell
-   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName '{{ region-id }}-a'
+   Get-ADReplicationSite 'Default-First-Site-Name' | Rename-ADObject -NewName 'ru-central1-a'
    ```
 
 1. Создайте еще два сайта для других зон доступности:
 
    ```powershell
-   New-ADReplicationSite '{{ region-id }}-b'
-   New-ADReplicationSite '{{ region-id }}-d'
+   New-ADReplicationSite 'ru-central1-b'
+   New-ADReplicationSite 'ru-central1-d'
    ```
 
 1. Создайте подсети и привяжите их к сайтам:
 
    ```powershell
-   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site '{{ region-id }}-a'
-   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site '{{ region-id }}-b'
-   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site '{{ region-id }}-d'
+   New-ADReplicationSubnet -Name '10.1.0.0/16' -Site 'ru-central1-a'
+   New-ADReplicationSubnet -Name '10.2.0.0/16' -Site 'ru-central1-b'
+   New-ADReplicationSubnet -Name '10.3.0.0/16' -Site 'ru-central1-d'
    ```
 
 1. Переименуйте сайт-линк и настройте репликацию:
 
    ```powershell
    Get-ADReplicationSiteLink 'DEFAULTIPSITELINK' | `
-       Set-ADReplicationSiteLink -SitesIncluded @{Add='{{ region-id }}-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
+       Set-ADReplicationSiteLink -SitesIncluded @{Add='ru-central1-b'} -ReplicationFrequencyInMinutes 15 -PassThru | `
        Set-ADObject -Replace @{options = $($_.options -bor 1)} -PassThru | `
-       Rename-ADObject -NewName '{{ region-id }}'
+       Rename-ADObject -NewName 'ru-central1'
    ```
 
 1. Укажите сервер переадресации DNS:

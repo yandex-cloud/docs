@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-В {{ sws-name }} есть [предустановленные списки](../concepts/lists.md#yc-rules) ненадежных (черных) IP-адресов. Они помогают оптимизировать проверку трафика и блокировать запросы от небезопасных или сомнительных адресов. Также вы можете добавить [пользовательские списки](../concepts/lists.md#user-rules) черных адресов.
+В Smart Web Security есть [предустановленные списки](../concepts/lists.md#yc-rules) ненадежных (черных) IP-адресов. Они помогают оптимизировать проверку трафика и блокировать запросы от небезопасных или сомнительных адресов. Также вы можете добавить [пользовательские списки](../concepts/lists.md#user-rules) черных адресов.
 
 ## Настройте правило для блокировки черных адресов {#black-list-rule}
 
@@ -14,17 +14,17 @@
 
 - Консоль управления {#console}
 
-  1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** и выберите нужный профиль.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/shield.svg) **Профили безопасности** и выберите нужный профиль.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. Введите имя правила, например `block-by-list`.
-  1. Задайте **{{ ui-key.yacloud.smart-web-security.overview.column_priority }}** выше, чем у правил Smart Protection. Например, `9100`.
-  1. Включите опцию **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }}**.
+  1. Задайте **Приоритет** выше, чем у правил Smart Protection. Например, `9100`.
+  1. Включите опцию **Только логирование**.
   1. Укажите параметры правила:
   
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_type }}** — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}` или `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-captcha }}`.
+     * **Тип** — `Базовое`.
+     * **Действие** — `Запретить` или `Показать капчу`.
      * **Трафик** — `При условии`.
-     * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`.
+     * **Условия** — `IP`.
      * **Условия на IP** — `IP принадлежит списку`.
      * **IP принадлежит списку** — добавьте [предустановленные списки](../concepts/lists.md#yc-rules) для фильтрации или свои списки черных адресов. Запросы с этих адресов будут блокироваться.
 
@@ -33,12 +33,12 @@
      Рекомендуем сразу добавить предустановленные списки: `is_ddoser`, `is_tor` и `is_anonimous`.
 
      {% endnote %}
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **Добавить**.
 
 {% endlist %}
 
 ### См. также {#see-also}
 
-* [{#T}](list-create.md)
-* [{#T}](profile-create.md)
-* [{#T}](rule-add.md)
+* [Управление списками адресов](list-create.md)
+* [Создать профиль безопасности](profile-create.md)
+* [Добавить правило в профиль безопасности](rule-add.md)

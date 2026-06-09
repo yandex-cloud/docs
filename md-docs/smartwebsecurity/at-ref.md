@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ sws-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В Audit Trails для Yandex Smart Web Security поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.smartwebsecurity.<имя_события>
+yandex.cloud.audit.smartwebsecurity.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}

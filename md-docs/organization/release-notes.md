@@ -1,4 +1,4 @@
-# История изменений в {{ org-full-name }}
+# История изменений в Yandex Identity Hub
 
 
 ## Май 2026 {#may-2026}
@@ -51,11 +51,11 @@
 
 * Реализован портал [Мой аккаунт](concepts/my-account.md) для управления учетной записью пользователя.
 
-* Добавлены тарифы для {{ org-full-name }}.
+* Добавлены тарифы для Yandex Identity Hub.
 * Добавлено [управление](operations/applications/saml-create.md) SAML-приложениями.
 * Добавлено [управление](operations/user-pools/manage-domain.md) доменами.
 * Добавлена возможность [деактивации](operations/user-pools/deactivate-user.md) федеративных пользователей.
-* Добавлена функциональность [синхронизации пользователей и групп с {{ microsoft-idp.ad-short }}](operations/sync-ad.md).
+* Добавлена функциональность [синхронизации пользователей и групп с Active Directory](operations/sync-ad.md).
 
 
 ## Октябрь 2025 {#october-2025}
@@ -73,52 +73,52 @@
 
 ## III квартал 2025 {#q3-2025}
 
-* Добавлены команды для управления доменами SAML-федераций с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/index.md) и [API](saml/api-ref/Federation/index.md). {{ tag-cli }} {{ tag-api }}
-* Вернули [настройку](operations/federation-group-mapping.md) прав доступа к ресурсам {{ yandex-cloud }} с помощью сопоставления групп федеративных пользователей. {{ tag-con }} {{ tag-tf }}
-* [Добавлена](operations/enable-2fa-access.md) возможность требовать включения двухфакторной аутентификации для всех пользователей организации с аккаунтом на Яндексе. {{ tag-con }}
+* Добавлены команды для управления доменами SAML-федераций с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/index.md) и [API](saml/api-ref/Federation/index.md). <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* Вернули [настройку](operations/federation-group-mapping.md) прав доступа к ресурсам Yandex Cloud с помощью сопоставления групп федеративных пользователей. <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code>
+* [Добавлена](operations/enable-2fa-access.md) возможность требовать включения двухфакторной аутентификации для всех пользователей организации с аккаунтом на Яндексе. <code><b><small>Консоль управления</small></b></code>
 
 
-* Реализована концепция управления [пулами пользователей](concepts/user-pools.md) в организации. {{ tag-con }} {{ tag-cli }}
-* В CLI и API добавлены группы команд для управления [пулами пользователей](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/index.md) и [локальными пользователями](../cli/cli-ref/organization-manager/cli-ref/idp/user/index.md). {{ tag-cli }} {{ tag-api }}
-* Реализована возможность [активировать пользователей](operations/user-pools/activate-user.md), которые ранее были деактивированы, с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reactivate.md) и [API](idp/api-ref/User/reactivate.md). {{ tag-con }} {{ tag-cli }} {{ tag-api }}
+* Реализована концепция управления [пулами пользователей](concepts/user-pools.md) в организации. <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code>
+* В CLI и API добавлены группы команд для управления [пулами пользователей](../cli/cli-ref/organization-manager/cli-ref/idp/userpool/index.md) и [локальными пользователями](../cli/cli-ref/organization-manager/cli-ref/idp/user/index.md). <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* Реализована возможность [активировать пользователей](operations/user-pools/activate-user.md), которые ранее были деактивированы, с помощью [CLI](../cli/cli-ref/organization-manager/cli-ref/idp/user/reactivate.md) и [API](idp/api-ref/User/reactivate.md). <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 
 
 ## II квартал 2025 {#q2-2025}
 
-* Сервис {{ org-full-name }} вышел в [Public Preview](../overview/concepts/launch-stages.md).
-* Включена возможность использования [Refresh-токенов](../iam/concepts/authorization/refresh-token.md#token-enabling) в {{ yandex-cloud }} CLI. {{ tag-cli }}
+* Сервис Yandex Identity Hub вышел в [Public Preview](../overview/concepts/launch-stages.md).
+* Включена возможность использования [Refresh-токенов](../iam/concepts/authorization/refresh-token.md#token-enabling) в Yandex Cloud CLI. <code><b><small>CLI</small></b></code>
 
 ## I квартал 2025 {#q1-2025}
 
-* [Обновлено](operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). {{ tag-con }}
+* [Обновлено](operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). <code><b><small>Консоль управления</small></b></code>
 
 
 ## IV квартал 2024 {#q4-2024}
 
-* [Добавлено](operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). {{ tag-con }}
-* Появился скрипт сборки пакетов [{{ oslogin }}](concepts/os-login.md) в ВМ с Ubuntu 24.04.
+* [Добавлено](operations/hide-user-info.md) управление видимостью пользователей в [организации](concepts/organization.md). <code><b><small>Консоль управления</small></b></code>
+* Появился скрипт сборки пакетов [OS Login](concepts/os-login.md) в ВМ с Ubuntu 24.04.
 * [Добавлена](../iam/roles-reference.md#organization-manager-passportUserAdmin) роль `organization-manager.passportUserAdmin` для управления [пользователями](concepts/membership.md) организации с [аккаунтами на Яндексе](https://yandex.ru/id/about).
-* В [{{ at-full-name }}](../audit-trails/index.md) [добавлены](../audit-trails/concepts/events.md#organization) события управления группами федеративных пользователей: `CreateGroupMapping`, `DeleteGroupMapping` и `UpdateGroupMapping`.
-* Реализована возможность отправки пользователям уведомления об истекающих сроках действия SAML-сертификатов {{ yandex-cloud }}.
+* В [Yandex Audit Trails](../audit-trails/index.md) [добавлены](../audit-trails/concepts/events.md#organization) события управления группами федеративных пользователей: `CreateGroupMapping`, `DeleteGroupMapping` и `UpdateGroupMapping`.
+* Реализована возможность отправки пользователям уведомления об истекающих сроках действия SAML-сертификатов Yandex Cloud.
 
 
 ## III квартал 2024 {#q3-2024}
 
-* Реализована возможность отправлять уведомления внутри организации. {{ tag-con }}
-* Добавлен скрипт для удаления пакетов {{ oslogin }} с виртуальной машины.
-* Добавлено отображение даты последней аутентификации сервисного аккаунта и федеративных пользователей. {{ tag-con }} {{ tag-cli }} {{ tag-api }}
-* В {{ at-name }} добавлено событие удаления федеративного пользователя `DeleteFederatedUserAccounts`.
+* Реализована возможность отправлять уведомления внутри организации. <code><b><small>Консоль управления</small></b></code>
+* Добавлен скрипт для удаления пакетов OS Login с виртуальной машины.
+* Добавлено отображение даты последней аутентификации сервисного аккаунта и федеративных пользователей. <code><b><small>Консоль управления</small></b></code> <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
+* В Audit Trails добавлено событие удаления федеративного пользователя `DeleteFederatedUserAccounts`.
 
 
 ## II квартал 2024 {#q2-2024}
 
-* Добавлено поле **ACS URL** для {{ org-full-name }}. {{ tag-con }}
-* Добавлена поддержка параметра `labels` для работы с метками при создании федераций в {{ TF }}. {{ tag-tf }}
-* Добавлена поддержка [{{ oslogin }}](concepts/os-login.md) для [CentOS Stream 9](https://yandex.cloud/ru/marketplace/products/yc/centos-stream-9).
-* Добавлена валидация числового идентификатора пользователя (UID) для [{{ oslogin }}](concepts/os-login.md).
+* Добавлено поле **ACS URL** для Yandex Identity Hub. <code><b><small>Консоль управления</small></b></code>
+* Добавлена поддержка параметра `labels` для работы с метками при создании федераций в Terraform. <code><b><small>Terraform</small></b></code>
+* Добавлена поддержка [OS Login](concepts/os-login.md) для [CentOS Stream 9](https://yandex.cloud/ru/marketplace/products/yc/centos-stream-9).
+* Добавлена валидация числового идентификатора пользователя (UID) для [OS Login](concepts/os-login.md).
 
 
 ## I квартал 2024 {#q1-2024}
 
-* Добавлена возможность удалять федеративных пользователей через [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/delete-user-accounts.md) и [API](saml/api-ref/Federation/deleteUserAccounts.md). {{ tag-cli }} {{ tag-api }}
+* Добавлена возможность удалять федеративных пользователей через [CLI](../cli/cli-ref/organization-manager/cli-ref/federation/saml/delete-user-accounts.md) и [API](saml/api-ref/Federation/deleteUserAccounts.md). <code><b><small>CLI</small></b></code> <code><b><small>API</small></b></code>
 * Устранена уязвимость к Replay Attack для SAML.

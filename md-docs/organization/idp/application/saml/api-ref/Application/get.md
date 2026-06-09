@@ -6,7 +6,7 @@ To get the list of available applications, make a [List](../../mapi-ref/Applicat
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}
 ```
 
 ## Path parameters

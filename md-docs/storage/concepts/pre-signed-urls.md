@@ -1,8 +1,8 @@
 # Подписанные (pre-signed) URL
 
-В {{ objstorage-name }} реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [{#T}](../security/overview.md).
+В Object Storage реализовано несколько механизмов для управления доступом к ресурсам. Алгоритм взаимодействия этих механизмов см. в [Обзор способов управления доступом в Object Storage](../security/overview.md).
 
-С помощью подписанных URL произвольный пользователь интернета может выполнять в {{ objstorage-name }} различные операции, например:
+С помощью подписанных URL произвольный пользователь интернета может выполнять в Object Storage различные операции, например:
 
 * Скачать объект.
 * Загрузить объект.
@@ -14,16 +14,16 @@
 
 {% note info %}
 
-SDK для различных языков программирования и другие инструменты для работы с AWS S3 содержат готовые методы генерирования подписанного URL, которые можно использовать и для {{ objstorage-name }}.
+SDK для различных языков программирования и другие инструменты для работы с AWS S3 содержат готовые методы генерирования подписанного URL, которые можно использовать и для Object Storage.
 
 {% endnote %}
 
 ## Общий вид подписанного URL {#presigned-url-preview}
 
 ```
-https://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?
+https://<имя_бакета>.storage.yandexcloud.net/<ключ_объекта>?
      X-Amz-Algorithm=AWS4-HMAC-SHA256
-    &X-Amz-Credential=<access_key-id>%2F<YYYYMMDD>%2F{{ region-id }}%2Fs3%2Faws4_request
+    &X-Amz-Credential=<access_key-id>%2F<YYYYMMDD>%2Fru-central1%2Fs3%2Faws4_request
     &X-Amz-Date=<время_в_формате_ISO_8601>
     &X-Amz-Expires=<время_жизни_ссылки>
     &X-Amz-SignedHeaders=<список_подписанных_заголовков>
@@ -35,7 +35,7 @@ https://<имя_бакета>.{{ s3-storage-host }}/<ключ_объекта>?
 Параметр | Описание
 ---------|---------
 `X-Amz-Algorithm` | Идентифицирует версию подписи и алгоритм ее вычисления. Значение — `AWS4-HMAC-SHA256`.
-`X-Amz-Credential` | Идентификатор для подписи.<br/><br/>Строка формата `<access-key-id>/<YYYYMMDD>/{{ region-id }}/s3/aws4_request`, где `<YYYYMMDD>` должна совпадать с датой, установленной в заголовке `X-Amz-Date`.
+`X-Amz-Credential` | Идентификатор для подписи.<br/><br/>Строка формата `<access-key-id>/<YYYYMMDD>/ru-central1/s3/aws4_request`, где `<YYYYMMDD>` должна совпадать с датой, установленной в заголовке `X-Amz-Date`.
 `X-Amz-Date` | Время в формате [ISO8601](https://ru.wikipedia.org/wiki/ISO_8601), например, `20180719T000000Z`. Указанная дата должна по значению (не по формату) совпадать с датой в параметре `X-Amz-Credential`.
 `X-Amz-Expires` | Время в секундах, в течение которого ссылка действительна. Начало отсчета — момент, указанный в `X-Amz-Date`. Максимальное значение — 2592000 секунд (30 дней).
 `X-Amz-SignedHeaders` | Заголовки запроса, которые вы хотите подписать, разделенные точкой с запятой (`;`).<br/><br/>Обязательно подписывайте заголовок `Host` и все заголовки `X-Amz-*`, которые используются в запросе. Другие заголовки подписывать не обязательно, однако чем больше вы подпишете заголовков, тем безопаснее будет запрос.
@@ -93,7 +93,7 @@ URL-кодированный ключ объекта. Например, `/folder
 Пример:
 
 ```
-X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
+X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20190801T000000Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host
 ```
 
 #### CanonicalHeaders {#canonical-headers}
@@ -113,7 +113,7 @@ X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=JK38EXAMPLEAKDID8%2F20190801%2
 Пример: 
 
 ```
-host:sample-bucket.{{ s3-storage-host }}
+host:sample-bucket.storage.yandexcloud.net
 x-amz-date:20190801T000000Z
 ```
 
@@ -146,7 +146,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 
 * `AWS4-HMAC-SHA256` — алгоритм хэширования. 
 * `timestamp` — текущее время в формате ISO 8601, например, `20190801T000000Z`. Указанная дата должна по значению (не по формату) совпадать с датой в `scope`.
-* `scope` — `<YYYYMMDD>/{{ region-id }}/s3/aws4_request`.
+* `scope` — `<YYYYMMDD>/ru-central1/s3/aws4_request`.
 * `CanonicalRequest` — сформированный ранее [канонический запрос](#canonical-request). В строку для подписи помещается [SHA256](https://ru.wikipedia.org/wiki/SHA-2)-хэш канонического запроса в шестнадцатеричном представлении.
 
 ### Подписывающий ключ {#signing-key-gen}
@@ -162,7 +162,7 @@ Hex(Hash-SHA256(<CanonicalRequest>))
 1. Закодируйте регион с помощью полученного на предыдущем шаге ключа `DateKey`:
 
     ```
-    RegionKey = sign(DateKey, "{{ region-id }}")
+    RegionKey = sign(DateKey, "ru-central1")
     ```
 
 1. Закодируйте сервис с помощью полученного на предыдущем шаге ключа `RegionKey`:
@@ -211,7 +211,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 ### Подписанный URL {#composing-signed-url}
 
-Чтобы составить подписанный URL, к URL ресурса {{ objstorage-name }} добавьте [параметры](#presigned-url-preview), необходимые для авторизации запроса, в том числе параметр `X-Amz-Signature` с вычисленной подписью в значении.
+Чтобы составить подписанный URL, к URL ресурса Object Storage добавьте [параметры](#presigned-url-preview), необходимые для авторизации запроса, в том числе параметр `X-Amz-Signature` с вычисленной подписью в значении.
 
 Значения остальных параметров должны совпадать с аналогичными значениями, указанными ранее в [каноническом запросе](#canonical-request) и в [строке для подписи](#composing-string-to-sign).
 
@@ -231,8 +231,8 @@ signature = Hex(sign(SigningKey, StringToSign))
     ```
     GET
     /object-for-share.txt
-    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6x********eLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T184504Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host 
-    host:<имя_бакета>.{{ s3-storage-host }}
+    X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6x********eLTAdg%2F20231208%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20231208T184504Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host 
+    host:<имя_бакета>.storage.yandexcloud.net
 
     host
     UNSIGNED-PAYLOAD
@@ -243,14 +243,14 @@ signature = Hex(sign(SigningKey, StringToSign))
     ```
     AWS4-HMAC-SHA256
     20231208T184504Z
-    20231208/{{ region-id }}/s3/aws4_request
+    20231208/ru-central1/s3/aws4_request
     e823d75aad02c1317589bd5373fe9e20d5ef44499237703ff23e5600********
     ```
 
 - Подписывающий ключ:
 
     ```
-    sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"{{ region-id }}"),"s3"),"aws4_request")
+    sign(sign(sign(sign("AWS4" + "ExamP1eSecReTKeykdokKK38800","20190801"),"ru-central1"),"s3"),"aws4_request")
     ```
 
     Функция `sign` введена для обозначения способа вычисления ключа с помощью механизма [HMAC](https://ru.wikipedia.org/wiki/HMAC) с хэширующей функцией [SHA256](https://ru.wikipedia.org/wiki/SHA-2).
@@ -264,7 +264,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 - Подписанный URL:
 
     ```
-    https://<имя_бакета>.{{ s3-storage-host }}/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6xqy-pEQcueLTAdg%2F20231208%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20231208T195434Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b10c16a1997bb524bf59974512f1a6561cf2953c29dc3efbdb920790********
+    https://<имя_бакета>.storage.yandexcloud.net/object-for-share.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=YCAJEK0Iv6xqy-pEQcueLTAdg%2F20231208%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=20231208T195434Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=b10c16a1997bb524bf59974512f1a6561cf2953c29dc3efbdb920790********
     ```
 
 Отрабатывать процесс формирования запроса и подписи вы можете с помощью AWS CLI в [режиме отладки](../s3/signing-requests.md#debugging).
@@ -275,9 +275,9 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 В подразделе приведены примеры кода для генерации подписанных URL.
 
-Чтобы показать принцип формирования и подписи запросов к {{ objstorage-name }}, в этих примерах не используются [AWS SDK](../tools/sdk/index.md). Примеры с использованием {{ yandex-cloud }} CLI, AWS CLI и AWS SDK см. на страницах:
-* [{#T}](../operations/objects/link-for-download.md)
-* [{#T}](../operations/objects/link-for-upload.md)
+Чтобы показать принцип формирования и подписи запросов к Object Storage, в этих примерах не используются [AWS SDK](../tools/sdk/index.md). Примеры с использованием Yandex Cloud CLI, AWS CLI и AWS SDK см. на страницах:
+* [Получение подписанной ссылки (pre-signed URL) на скачивание объекта](../operations/objects/link-for-download.md)
+* [Получение подписанной ссылки (pre-signed URL) на загрузку объекта](../operations/objects/link-for-upload.md)
 
 {% list tabs %}
 
@@ -292,7 +292,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   secret_key = '<содержимое_статического_ключа>'
   object_key = '<ключ_объекта>'
   bucket = '<имя_бакета>'
-  host = '{{ s3-storage-host }}'
+  host = 'storage.yandexcloud.net'
   now = datetime.datetime.now(datetime.UTC)
   datestamp = now.strftime('%Y%m%d')
   timestamp = now.strftime('%Y%m%dT%H%M%SZ')
@@ -302,7 +302,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
   canonical_request = """GET
   /{bucket}/{object_key}
-  X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={access_key}%2F{datestamp}%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date={timestamp}&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
+  X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential={access_key}%2F{datestamp}%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date={timestamp}&X-Amz-Expires=3600&X-Amz-SignedHeaders=host
   host:{host}
 
   host
@@ -320,7 +320,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
   string_to_sign = """AWS4-HMAC-SHA256
   {timestamp}
-  {datestamp}/{{ region-id }}/s3/aws4_request
+  {datestamp}/ru-central1/s3/aws4_request
   {request_hash}""".format(
       timestamp=timestamp,
       datestamp=datestamp,
@@ -330,14 +330,14 @@ signature = Hex(sign(SigningKey, StringToSign))
   print("String to be signed:\n" + string_to_sign)
   print()
 
-  signing_key = sign(sign(sign(sign(('AWS4' + secret_key).encode('utf-8'), datestamp), '{{ region-id }}'), 's3'), 'aws4_request')
+  signing_key = sign(sign(sign(sign(('AWS4' + secret_key).encode('utf-8'), datestamp), 'ru-central1'), 's3'), 'aws4_request')
   signature = hmac.new(signing_key, string_to_sign.encode('utf-8'), hashlib.sha256).hexdigest()
 
   print()
   print("Signature: " + signature)
   print()
 
-  signed_link = "https://" + host + '/' + bucket + '/' + object_key + "?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=" + access_key + "%2F" + datestamp + "%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=" + timestamp + "&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=" + signature + "\n"
+  signed_link = "https://" + host + '/' + bucket + '/' + object_key + "?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=" + access_key + "%2F" + datestamp + "%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=" + timestamp + "&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=" + signature + "\n"
 
   print()
   print("Signed Link:\n" + signed_link)
@@ -353,14 +353,14 @@ signature = Hex(sign(SigningKey, StringToSign))
     $secretkey = "<содержимое_статического_ключа>";
     $path = "<ключ_объекта>";
     $objectname = "/".implode("/", array_map("rawurlencode", explode("/", $path)));
-    $host = "<имя_бакета>.{{ s3-storage-host }}";
-    $region = "{{ region-id }}";
+    $host = "<имя_бакета>.storage.yandexcloud.net";
+    $region = "ru-central1";
     $timestamp = time();
     $dater = strval(date('Ymd', $timestamp));
     $dateValue = strval(date('Ymd', $timestamp))."T".strval(date('His', $timestamp))."Z";
 
     // Generate the canonical request
-    $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
+    $canonical_request = "GET\n".$objectname."\nX-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host\nhost:".$host."\n\nhost\nUNSIGNED-PAYLOAD";
 
     echo "<b>Canonical request: </b><br>".$canonical_request."<br><br>";
 
@@ -370,7 +370,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     echo "<b>String to be signed: </b><br>".$string_to_sign."<br><br>";
 
     // Generate the signing key
-    $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', '{{ region-id }}', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
+    $signing_key = hash_hmac('sha256', 'aws4_request', hash_hmac('sha256', 's3', hash_hmac('sha256', 'ru-central1', hash_hmac('sha256', $dater, 'AWS4'.$secretkey, true), true), true), true);
 
     echo "<b>Signing key: </b><br>".$signing_key."<br><br>";
 
@@ -380,7 +380,7 @@ signature = Hex(sign(SigningKey, StringToSign))
     echo "<b>Signature: </b><br>".$signature."<br><br>";
 
     // Generate the pre-signed link
-    $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2F{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
+    $signed_link = "https://".$host.$objectname."?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=".$keyid."%2F".$dater."%2Fru-central1%2Fs3%2Faws4_request&X-Amz-Date=".$dateValue."&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=".$signature."\n";
 
     echo '<b>Signed link: </b><br>'.'<a href = "'.$signed_link.'" target = "_blank">'.$signed_link.'</a>';
 

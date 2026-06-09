@@ -13,23 +13,23 @@
 
 
 
-1. На главной странице сервиса {{ monitoring-short-name }} нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
+1. На главной странице сервиса Monitoring нажмите **Создать алерт**.
 1. Укажите основные параметры алерта:
 
-    * **{{ ui-key.yacloud_monitoring.alert.title_name }}**. Задайте название алерта.
-    * **{{ ui-key.yacloud_monitoring.alert.title_description }}**. Опишите назначение алерта.
+    * **Название**. Задайте название алерта.
+    * **Описание**. Опишите назначение алерта.
 
 1. Опишите [запросы](../../concepts/alerting/alert.md#queries).
 1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition) алерта:
 
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.query-to-check }}**.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**.
-    * Пороги срабатывания **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** и **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}**.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**.
+    * **Запрос для проверки**.
+    * **Функция агрегации**.
+    * **Функция сравнения**.
+    * Пороги срабатывания **Warning** и **Alarm**.
+    * **Окно вычисления**.
+    * **Задержка вычисления**.
 
-    Подробнее в разделе [{#T}](../../concepts/alerting/alert.md#condition).
+    Подробнее в разделе [Условия срабатывания](../../concepts/alerting/alert.md#condition).
 
 1. Задайте [политики обработки отсутствия данных](../../concepts/alerting/alert.md#no-data-policy) или оставьте значения по умолчанию.
 1. Укажите [аннотации](../../concepts/alerting/annotation.md) к алерту.
@@ -39,6 +39,6 @@
      Можно добавить несколько лейблов, для этого после ввода пары `ключ=значение` нажмите клавишу `Enter`. Чтобы использовать лейблы в другом алерте или в строке поиска, нажмите кнопку **Скопировать все лейблы**.
 
 1. Настройте [уведомления](../../concepts/alerting/notification-channel.md). Если у вас нет канала уведомлений, [создайте его](create-channel.md).
-1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**. Алерт появится в списке.
+1. Нажмите **Создать**. Алерт появится в списке.
 
 Чтобы следить за состоянием алерта, добавьте его [виджет на дашборд](../dashboard/add-widget.md).

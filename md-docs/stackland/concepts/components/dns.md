@@ -1,6 +1,6 @@
 # DNS
 
-{{ stackland-name }} позволяет обращаться к сервисам кластера (как к Kubernetes API, так и к собственным сервисам, запущенным в кластере) извне по доменным именам.
+Stackland позволяет обращаться к сервисам кластера (как к Kubernetes API, так и к собственным сервисам, запущенным в кластере) извне по доменным именам.
 
 Чтобы использовать DNS:
 
@@ -8,31 +8,31 @@
 2. Настройте делегирование выделенной доменной зоны: создайте NS- и A-записи для IP-адресов серверов с ролью `control-plane` или `combined`.
 3. Пропишите доменную зону в параметре `cluster.baseDomain.fqdn` инсталлятора.
 
-{{ stackland-name }} обеспечивает доступ к DNS на порту 53 (UDP и TCP) выбранных адресов.
+Stackland обеспечивает доступ к DNS на порту 53 (UDP и TCP) выбранных адресов.
 
 ## Подзоны и правила создания записей {#subzones-and-record-creation-rules}
 
 В выделенной для кластера зоне существуют следующие подзоны:
 
-* [системные записи](#sys-subzone) — подзона используется для размещения записей системных сервисов {{ stackland-name }};
+* [системные записи](#sys-subzone) — подзона используется для размещения записей системных сервисов Stackland;
 * [подзона svc](#svc-subzone) — подзона используется для автоматического создания записей сервисов с типом `LoadBalancer`;
 * [корневая подзона](#root-subzone) — используется для размещения записей пользовательских сервисов.
 
 ### Системные записи {#sys-subzone}
 
-Подзона `sys.{{ cluster-domain }}` предназначена для размещения записей системных сервисов {{ stackland-name }}. Чтобы предотвратить конфликты имен при добавлении новых системных сервисов, пользователь не может создавать записи в этой подзоне. Например, невозможно создать ресурс Ingress с доменом `ingress.sys.{{ cluster-domain }}`.
+Подзона `sys.<домен кластера>` предназначена для размещения записей системных сервисов Stackland. Чтобы предотвратить конфликты имен при добавлении новых системных сервисов, пользователь не может создавать записи в этой подзоне. Например, невозможно создать ресурс Ingress с доменом `ingress.sys.<домен кластера>`.
 
 Примеры системных записей в подзоне:
-- `api.sys.{{ cluster-domain }}` — доступ к Kubernetes API;
-- `console.sys.{{ cluster-domain }}` — доступ к консоли управления;
-- `grafana.sys.{{ cluster-domain }}` — доступ к интерфейсу Grafana;
-- `storage.sys.{{ cluster-domain }}` — доступ к {{ objstorage-name }} API.
+- `api.sys.<домен кластера>` — доступ к Kubernetes API;
+- `console.sys.<домен кластера>` — доступ к консоли управления;
+- `grafana.sys.<домен кластера>` — доступ к интерфейсу Grafana;
+- `storage.sys.<домен кластера>` — доступ к Object Storage API.
 
 ### Подзона svc {#svc-subzone}
 
 Подзона `svc` используется для автоматического создания DNS-записей для сервисов типа `LoadBalancer`.
 
-Если пользователь не указал аннотацию `dns.stackland.yandex.cloud/hostname`, сервис будет доступен по умолчанию по следующему имени: `<название сервиса>.<название проекта>.svc.{{ cluster-domain }}`.
+Если пользователь не указал аннотацию `dns.stackland.yandex.cloud/hostname`, сервис будет доступен по умолчанию по следующему имени: `<название сервиса>.<название проекта>.svc.<домен кластера>`.
 
 Рассмотрим пример создания сервиса без указания аннотации `dns.stackland.yandex.cloud/hostname`:
 
@@ -47,7 +47,7 @@ spec:
   # ...
 ```
 
-В этом случае сервис будет автоматически доступен по имени `kafka01.billing.svc.{{ cluster-domain }}`.
+В этом случае сервис будет автоматически доступен по имени `kafka01.billing.svc.<домен кластера>`.
 
 ### Корневая подзона {#root-subzone}
 
@@ -55,11 +55,11 @@ spec:
 
 Примеры пользовательских записей:
 
-- `phpmyadmin.{{ cluster-domain }}`;
-- `phpmyadmin.warehouse.{{ cluster-domain }}`;
-- `billing.prod.{{ cluster-domain }}`;
-- `billing.test.{{ cluster-domain }}`;
-- `pg01.bob.{{ cluster-domain }}`.
+- `phpmyadmin.<домен кластера>`;
+- `phpmyadmin.warehouse.<домен кластера>`;
+- `billing.prod.<домен кластера>`;
+- `billing.test.<домен кластера>`;
+- `pg01.bob.<домен кластера>`.
 
 #### Создание DNS-записей
 
@@ -73,7 +73,7 @@ metadata:
 spec:
   ingressClassName: stackland-default
   rules:
-  - host: phpmyadmin.{{ cluster-domain }} # это имя будет использовано для создания DNS-записи
+  - host: phpmyadmin.<домен кластера> # это имя будет использовано для создания DNS-записи
     # ...
 ```
 
@@ -85,7 +85,7 @@ kind: Service
 metadata:
   name: the-service
   annotations:
-    dns.stackland.yandex.cloud/hostname: "the-service.{{ cluster-domain }}"
+    dns.stackland.yandex.cloud/hostname: "the-service.<домен кластера>"
 spec:
   type: LoadBalancer
   # ...
@@ -93,35 +93,35 @@ spec:
 
 Ограничения:
 
-* {{ stackland-name }} запрещает создание ресурсов, если значения параметра `host` в ресурсе `Ingress` и аннотации `dns.stackland.yandex.cloud/hostname` в ресурсе `Service` являются поддоменами `sys.{{ cluster-domain }}` и `svc.{{ cluster-domain }}`;
-* {{ stackland-name }} не позволит создать ресурс `Ingress` или `Service`, если уже существует другой ресурс с таким же доменным именем.
+* Stackland запрещает создание ресурсов, если значения параметра `host` в ресурсе `Ingress` и аннотации `dns.stackland.yandex.cloud/hostname` в ресурсе `Service` являются поддоменами `sys.<домен кластера>` и `svc.<домен кластера>`;
+* Stackland не позволит создать ресурс `Ingress` или `Service`, если уже существует другой ресурс с таким же доменным именем.
 
 ## Внешняя и внутренняя DNS-зоны {#external-and-internal-zones}
 
 В системе используются две DNS-зоны:
 
 1. Внутренняя зона `*.cluster.local`, за обслуживание которой отвечает `kube-dns`.
-2. Внешняя зона `*.{{ cluster-domain }}`.
+2. Внешняя зона `*.<домен кластера>`.
 
 ### Сравнение зон {#comparison-of-zones}
 
 #### Примеры записей {#example-records}
 
-| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.{{ cluster-domain }}`) |
+| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.<домен кластера>`) |
 | --- | --- |
-| `kubernetes.default.svc.cluster.local` | `api.sys.{{ cluster-domain }}` |
-| `storage.stackland-object-storage.svc.cluster.local` | `storage.sys.{{ cluster-domain }}` |
-| `pg01-rw.my-namespace.svc.cluster.local` | `pg01-rw.my-namespace.svc.{{ cluster-domain }}` |
-| `redmine.redmine.svc.cluster.local` | `redmine.{{ cluster-domain }}` |
+| `kubernetes.default.svc.cluster.local` | `api.sys.<домен кластера>` |
+| `storage.stackland-object-storage.svc.cluster.local` | `storage.sys.<домен кластера>` |
+| `pg01-rw.my-namespace.svc.cluster.local` | `pg01-rw.my-namespace.svc.<домен кластера>` |
+| `redmine.redmine.svc.cluster.local` | `redmine.<домен кластера>` |
 
 #### Результат разрешения {#resolution-result}
 
-| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.{{ cluster-domain }}`) |
+| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.<домен кластера>`) |
 | --- | --- |
 | IP-адрес в overlay-сети | IP-адрес из диапазона LoadBalancer |
 
 #### Кто использует записи {#who-uses-records}
 
-| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.{{ cluster-domain }}`) |
+| **Внутренняя зона** (`*.cluster.local`) | **Внешняя зона** (`*.<домен кластера>`) |
 | --- | --- |
 | Сервисы, запущенные в кластере | Приложения, запущенные снаружи кластера, или пользователи |

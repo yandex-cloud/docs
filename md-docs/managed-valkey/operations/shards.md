@@ -16,20 +16,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластером.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластером.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Шарды**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список шардов в кластере, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards list --cluster-name <имя_кластера>
+  yc managed-redis shards list --cluster-name <имя_кластера>
   ```
 
   Результат:
@@ -52,13 +52,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListShards](../api-ref/Cluster/listShards.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/shards'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/shards'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -81,7 +81,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListShards](../api-ref/grpc/Cluster/listShards.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -93,7 +93,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.ListShards
         ```
 
@@ -109,14 +109,14 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить информацию о шарде, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards get <имя_шарда> --cluster-name <имя_кластера>
+  yc managed-redis shards get <имя_шарда> --cluster-name <имя_кластера>
   ```
 
 - REST API {#api}
@@ -127,13 +127,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.GetShard](../api-ref/Cluster/getShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.GetShard](../api-ref/Cluster/getShard.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя шарда — со [списком шардов в кластере](#list).
@@ -156,7 +156,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.GetShard](../api-ref/grpc/Cluster/getShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.GetShard](../api-ref/grpc/Cluster/getShard.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -169,7 +169,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "shard_name": "<имя_шарда>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.GetShard
         ```
 
@@ -191,32 +191,32 @@
 
   Чтобы добавить шард:
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.action_add-shard }}**.
-  1. Укажите **{{ ui-key.yacloud.mdb.forms.base_field_shard-name }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **Шарды**.
+  1. Нажмите кнопку **Создать шард**.
+  1. Укажите **Имя шарда**.
+  1. В блоке **Хосты**:
      * (Опционально) Отредактируйте настройки хоста.
-     * Нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}**.
-     * В поле **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** выберите зону доступности, выберите **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** и включите опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create-shard }}**.
+     * Нажмите **Добавить хост**.
+     * В поле **Зона доступности** выберите зону доступности, выберите **Подсеть** и включите опцию **Публичный доступ**.
+  1. Нажмите кнопку **Создать шард**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Посмотрите описание команды CLI для добавления шардов:
 
   ```bash
-  {{ yc-mdb-rd }} shards add --help
+  yc managed-redis shards add --help
   ```
 
   Чтобы создать шард с двумя хостами: один с публичным доступом, а другой с [приоритетом хоста](../concepts/replication.md#master-failover) `50`, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards add --name=<имя_нового_шарда> \
+  yc managed-redis shards add --name=<имя_нового_шарда> \
     --cluster-name=<имя_кластера> \
     --host zone-id=<зона_доступности>,`
       `subnet-name=<имя_подсети>,`
@@ -226,14 +226,14 @@
       `replica-priority=50
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы добавить шард:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Добавьте к описанию кластера {{ mrd-name }} нужное количество хостов в блоке `hosts` с указанием имени шарда в параметре `shard_name`:
+  1. Добавьте к описанию кластера Yandex Managed Service for Valkey™ нужное количество хостов в блоке `hosts` с указанием имени шарда в параметре `shard_name`:
 
      ```hcl
      resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
@@ -263,14 +263,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -292,11 +292,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -331,14 +331,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.AddShard](../api-ref/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.AddShard](../api-ref/Cluster/addShard.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/shards' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/shards' \
             --data '{
                       "shardName": "<имя_шарда>",
                       "hostSpecs": [
@@ -387,7 +387,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.AddShard](../api-ref/grpc/Cluster/addShard.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -412,7 +412,7 @@
                     { <аналогичный_набор_настроек_для_хоста_N> }
                   ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.AddShard
         ```
 
@@ -433,14 +433,14 @@
 
 {% endlist %}
 
-Чтобы получить возможность размещать данные в новом шарде, запустите [ребалансировку кластера](#rebalance-cluster) {{ mrd-name }}.
+Чтобы получить возможность размещать данные в новом шарде, запустите [ребалансировку кластера](#rebalance-cluster) Yandex Managed Service for Valkey™.
 
 ## Удалить шард {#remove}
 
 {% note alert %}
 
 * Вместе с шардом удаляются все находящиеся в нем хосты.
-* Если в кластере два или три шарда, то для удаления шарда воспользуйтесь CLI, {{ TF }} или API.
+* Если в кластере два или три шарда, то для удаления шарда воспользуйтесь CLI, Terraform или API.
 
 {% endnote %}
 
@@ -448,43 +448,43 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с кластером, из которого нужно удалить шард.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
-  1. В строке нужного шарда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.shards.popup-confirm_button_delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с кластером, из которого нужно удалить шард.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Шарды**.
+  1. В строке нужного шарда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить шард из кластера, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} shards delete <имя_шарда> \
+  yc managed-redis shards delete <имя_шарда> \
     --cluster-name=<имя_кластера>
   ```
 
   Имя шарда можно запросить со [списком шардов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-  1. Удалите из описания кластера {{ mrd-name }} все хосты в блоке `hosts`, которые относятся к удаляемому шарду.
+  1. Удалите из описания кластера Yandex Managed Service for Valkey™ все хосты в блоке `hosts`, которые относятся к удаляемому шарду.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -506,11 +506,11 @@
         1. Подтвердите изменение ресурсов.
         1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mrd }}).
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_redis_cluster_v2.md).
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -545,13 +545,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.DeleteShard](../api-ref/Cluster/deleteShard.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request DELETE \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/shards/<имя_шарда>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), имя шарда — со [списком шардов в кластере](#list).
@@ -574,7 +574,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.DeleteShard](../api-ref/grpc/Cluster/deleteShard.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -587,7 +587,7 @@
                   "cluster_id": "<идентификатор_кластера>",
                   "shard_name": "<имя_шарда>" 
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.DeleteShard
         ```
 
@@ -601,34 +601,34 @@
 
 Новый шард создается без хеш-слотов и не может принимать данные. Чтобы данные начали размещаться на новом шарде, выполните ребалансировку кластера — эта процедура выделит часть хеш-слотов кластера новому шарду. Данные в переназначенных хеш-слотах будут перемещены в соответствующий шард. Ребалансировка может выполняться на работающем кластере и не влияет на доступность и целостность данных.
 
-Подробнее см. в разделе [{#T}](../concepts/sharding.md#scaling).
+Подробнее см. в разделе [Масштабирование](../concepts/sharding.md#scaling).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы ребалансировать кластер:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с нужным кластер.
+  1. Перейдите в сервис **Yandex Managed Service for&nbsp;Valkey™**.
   1. Нажмите на имя нужного кластера.
-  1. На вкладке **{{ ui-key.yacloud.common.overview }}** нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster-short }}**.
+  1. На вкладке **Обзор** нажмите кнопку **Ребалансировать**.
 
   {% note tip %}
 
-  Также можно ребалансировать кластер с помощью кнопки **{{ ui-key.yacloud.mdb.cluster.hosts.button_rebalance-cluster }}** на вкладке **{{ ui-key.yacloud.redis.cluster.switch_shards }}**.
+  Также можно ребалансировать кластер с помощью кнопки **Ребалансировать кластер** на вкладке **Шарды**.
 
   {% endnote %}
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы ребалансировать кластер, выполните команду:
 
   ```bash
-  {{ yc-mdb-rd }} cluster rebalance \
+  yc managed-redis cluster rebalance \
     --name=<имя_кластера>
   ```
 
@@ -642,13 +642,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Rebalance](../api-ref/Cluster/rebalance.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Rebalance](../api-ref/Cluster/rebalance.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>:rebalance'
+            --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>:rebalance'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -671,7 +671,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Rebalance](../api-ref/grpc/Cluster/rebalance.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Rebalance](../api-ref/grpc/Cluster/rebalance.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -683,7 +683,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.redis.v1.ClusterService.Rebalance
         ```
 

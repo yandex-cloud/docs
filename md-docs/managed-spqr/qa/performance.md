@@ -1,4 +1,4 @@
-# Производительность кластера {{ mspqr-name }}
+# Производительность кластера Managed Service for Sharded PostgreSQL
 
 * [Как повысить производительность?](#how-to-improve-performance)
 
@@ -18,7 +18,7 @@
 
 * Отключите debug-логирование роутеров для снижения нагрузки на вычислительные ресурсы.
 
-* В конфигурации роутера отключите настройку `show_notice_messages`, так как сообщения NOTICE увеличивают нагрузку на {{ SPQR }}.
+* В конфигурации роутера отключите настройку `show_notice_messages`, так как сообщения NOTICE увеличивают нагрузку на Sharded PostgreSQL.
 
 * Избегайте частых переподключений: настройте пул соединений в приложении.
 
@@ -106,4 +106,4 @@
 ||
 |#
 
-Чтобы рассчитать стоимость кластера {{ mspqr-name }}, [воспользуйтесь калькулятором](https://yandex.cloud/ru/services/managed-spqr#calculator).
+Чтобы рассчитать стоимость кластера Managed Service for Sharded PostgreSQL, [воспользуйтесь калькулятором](https://yandex.cloud/ru/services/managed-spqr#calculator).

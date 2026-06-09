@@ -21,16 +21,16 @@
 
      ```bash
      docker build . \
-       -t {{ registry }}/<идентификатор_реестра>/ubuntu:hello
+       -t cr.yandex/<идентификатор_реестра>/ubuntu:hello
      ```
 
-     Флаг `-t` присваивает Docker-образу URL вида `{{ registry }}/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку по умолчанию: `latest`.
+     Флаг `-t` присваивает Docker-образу URL вида `cr.yandex/<идентификатор_реестра>/<имя_Docker-образа>:<тег>`. Можно собрать Docker-образ без указания тега. В таком случае Docker CLI присвоит метку по умолчанию: `latest`.
 
      Имя и тег Docker-образа являются частью имени [репозитория](../../concepts/repository.md), представляющего собой [URI](https://ru.wikipedia.org/wiki/URI), и должны соответствовать определенному формату. Подробнее см. в спецификации [OCI Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md#pull).
 
 {% endlist %}
 
 После выполнения данных команд будет создан Docker-образ с тегом `hello` в вашем репозитории и полным адресом репозитория, включающим:
-* Адрес сервиса {{ container-registry-name }} `{{ registry }}`.
+* Адрес сервиса Container Registry `cr.yandex`.
 * Идентификатор вашего реестра `<идентификатор_реестра>`.
 * Имя вашего репозитория `ubuntu`.

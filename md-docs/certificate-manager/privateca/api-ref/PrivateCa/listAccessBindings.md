@@ -5,7 +5,7 @@ Lists access bindings for a specified Certificate Authority.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{resourceId}:listAccessBindings
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

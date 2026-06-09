@@ -5,7 +5,7 @@ Retrieves the list of OAuthClient resources views in the specified folder
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/oauthClients
+GET https://iam.api.cloud.yandex.net/iam/v1/oauthClients
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListOAuthClientsRequest}

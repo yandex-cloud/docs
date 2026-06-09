@@ -7,7 +7,7 @@ To get the list of available RouteTable resources, make a [List](list.md#List) r
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}
+GET https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}
 ```
 
 ## Path parameters

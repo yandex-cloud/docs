@@ -5,7 +5,7 @@ Creates an OAuthClientSecret resource for the specified OAuthClient.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/oauthClientSecrets
+POST https://iam.api.cloud.yandex.net/iam/v1/oauthClientSecrets
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateOAuthClientSecretRequest}

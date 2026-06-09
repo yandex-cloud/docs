@@ -1,29 +1,29 @@
 # Создание группы виртуальных машин
 
-Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления {{ yandex-cloud }}.
+Создайте группу ВМ с помощью компонента [Instance Groups](../concepts/instance-groups/index.md) в консоли управления Yandex Cloud.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте его](../../resource-manager/operations/folder/create.md).
 
 ## Создайте группу ВМ {#create-ig}
 
-Вы можете создать автоматически масштабируемую группу или группу с фиксированным количеством ВМ. Подробнее читайте в разделе [{#T}](../concepts/instance-groups/scale.md).
+Вы можете создать автоматически масштабируемую группу или группу с фиксированным количеством ВМ. Подробнее читайте в разделе [Типы масштабирования](../concepts/instance-groups/scale.md).
 
 {% note alert %}
 
-Создавая группы ВМ, учитывайте [лимиты](../concepts/limits.md). Чтобы не нарушить работу компонента {{ ig-name }}, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}, ВМ и диски. Вместо этого измените или удалите группу полностью.
+Создавая группы ВМ, учитывайте [лимиты](../concepts/limits.md). Чтобы не нарушить работу компонента Instance Groups, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../network-load-balancer/concepts/target-resources.md) Network Load Balancer, ВМ и диски. Вместо этого измените или удалите группу полностью.
 
 {% endnote %}
 
 Чтобы создать группу ВМ:
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана группа ВМ.
-1. Перейдите в сервис **{{ compute-name }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создана группа ВМ.
+1. Перейдите в сервис **Compute Cloud**.
+1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+1. Нажмите кнопку **Создать группу виртуальных машин**.
+1. В блоке **Базовые параметры**:
     * Введите имя и описание группы ВМ. Требования к имени:
 
       * длина — от 3 до 63 символов;
@@ -36,72 +36,72 @@
       
       {% endnote %}
 
-    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в {{ ig-name }} выполняются от имени сервисного аккаунта.
+    * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `editor`. По умолчанию все операции в Instance Groups выполняются от имени сервисного аккаунта.
 
       Сервисный аккаунт нельзя удалить, пока он связан с группой виртуальных машин.
 
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите нужные [зоны доступности](../../overview/concepts/geo-scope.md). ВМ группы могут находиться в разных зонах доступности.
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**, чтобы задать конфигурацию базовой ВМ:
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** введите описание базовой ВМ.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}**:
+1. В блоке **Распределение** выберите нужные [зоны доступности](../../overview/concepts/geo-scope.md). ВМ группы могут находиться в разных зонах доступности.
+1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**, чтобы задать конфигурацию базовой ВМ:
+   * В блоке **Общая информация** введите описание базовой ВМ.
+   * В блоке **Образ загрузочного диска** выберите публичный образ.
+   * В блоке **Диски и файловые хранилища**:
      * Выберите [тип диска](../concepts/disk.md#disks_types).
      * Укажите размер диска.
-     * (Опционально) Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**, чтобы добавить дополнительные диски.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+     * (Опционально) Нажмите кнопку **Добавить диск**, чтобы добавить дополнительные диски.
+   * В блоке **Вычислительные ресурсы**:
      * Выберите [платформу](../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
      * (Опционально) Укажите, что ВМ должна быть [прерываемой](../concepts/preemptible-vm.md).
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+   * В блоке **Сетевые настройки**:
      * Выберите [облачную сеть](../concepts/vm.md#network) и [подсеть](../concepts/network.md#subnet). Если подсети нет, создайте ее:
-       * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create-subnetwork-new }}**.
+       * Нажмите кнопку **Создать подсеть**.
        * Введите имя и описание новой подсети, укажите зону доступности и CIDR.
-       * Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
-     * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите способ назначения адреса:
-       * `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}.
-       * `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` — чтобы не назначать публичный IP-адрес.
+       * Нажмите кнопку **Создать подсеть**.
+     * В поле **Публичный адрес** выберите способ назначения адреса:
+       * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов Yandex Cloud.
+       * `Без адреса` — чтобы не назначать публичный IP-адрес.
      * (Опционально) Выберите [группу безопасности](../../vpc/concepts/security-groups.md). Если группы безопасности нет, создайте ее:
-       * Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.vpc-security-group-select.label_add-security-group }}**.
-       * Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **{{ vpc-name }}**.
-       * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+       * Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить группу безопасности**.
+       * Введите имя и описание группы безопасности. Правила для группы безопасности вы сможете добавить позже в сервисе **Virtual Private Cloud**.
+       * Нажмите кнопку **Создать**.
+   * В блоке **Доступ**:
      * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) из списка или создайте новый.
      * Если вы выбрали публичный образ на базе Linux:
-       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+       * В поле **Логин** введите имя пользователя.
+       * В поле **SSH-ключ** вставьте содержимое файла открытого ключа. Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
      * Если вы выбрали публичный образ на базе Windows:
-       * В поле **{{ ui-key.yacloud.common.password }}** задайте пароль пользователя `Administrator`. Пользователь с именем `Administrator` создается автоматически.
-     * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+       * В поле **Пароль** задайте пароль пользователя `Administrator`. Пользователь с именем `Administrator` создается автоматически.
+     * Нажмите кнопку **Добавить**.
      * Если требуется, разрешите доступ к [серийной консоли](../concepts/serial-console.md).
-   * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите:
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** — на какое количество ВМ можно превышать размер группы.
+   * Нажмите кнопку **Сохранить**.
+1. В блоке **В процессе создания и обновления разрешено** укажите:
+   * **Добавлять выше целевого значения** — на какое количество ВМ можно превышать размер группы.
 
        При приведении количества ВМ в группе к целевому значению, созданные сверх целевого размера по квоте `max_expansion` виртуальные машины могут остаться в группе, в то время как ВМ, существовавшие в группе до этого, могут быть удалены.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-unavailable }}** — на какое количество ВМ можно уменьшать размер группы.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-creating }}** — сколько ВМ можно одновременно создавать.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-startup-duration }}** — время запуска, после которого ВМ начнет получать нагрузку.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** — сколько ВМ можно одновременно останавливать.
-   * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** — стратегию остановки ВМ: `{{ ui-key.yacloud.compute.groups.create.value_strategy-proactive }}` или `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
+   * **Уменьшать относительно целевого значения** — на какое количество ВМ можно уменьшать размер группы.
+   * **Одновременно создавать** — сколько ВМ можно одновременно создавать.
+   * **Время запуска** — время запуска, после которого ВМ начнет получать нагрузку.
+   * **Одновременно останавливать** — сколько ВМ можно одновременно останавливать.
+   * **Останавливать машины по стратегии** — стратегию остановки ВМ: `Автоматическая` или `Ручная`.
 
-      Подробнее читайте в разделе [{#T}](../concepts/instance-groups/policies/deploy-policy.md).
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}**:
+      Подробнее читайте в разделе [Политика развертывания](../concepts/instance-groups/policies/deploy-policy.md).
+1. В блоке **Масштабирование**:
    * Выберите [тип масштабирования](../concepts/instance-groups/scale.md).
-   * Если вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed }}`, укажите размер группы.
-   * Если вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`, укажите:
+   * Если вы выбрали `Фиксированный`, укажите размер группы.
+   * Если вы выбрали `Автоматический`, укажите:
      * Минимальное количество ВМ в одной зоне доступности.
      * Максимальный размер группы.
      * Промежуток измерения нагрузки — период, за который следует усреднять замеры нагрузки для каждой ВМ в группе.
      * Время на разогрев ВМ, в течение которого созданная ВМ не учитывается при замере средней нагрузки на группу.
      * Период стабилизации, в течение которого требуемое количество ВМ в группе не может быть снижено.
      * Начальный размер группы — количество ВМ, которые создаются вместе с группой.
-   * Если вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-fixed-test-auto }}`, укажите размеры группы и параметры для автоматического масштабирования. Автоматическое масштабирование группы в данном типе работает в экспериментальном режиме.
-1. Если ранее вы выбрали `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}` тип масштабирования, то в блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите целевой уровень загрузки CPU в процентах.
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_ylb }}**:
-   * (Опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}**. [Целевые группы](../../network-load-balancer/concepts/target-resources.md) нужны для распределения нагрузки [сетевым балансировщиком](../../network-load-balancer/concepts/index.md).
+   * Если вы выбрали `Фиксированный с тестом автоматического`, укажите размеры группы и параметры для автоматического масштабирования. Автоматическое масштабирование группы в данном типе работает в экспериментальном режиме.
+1. Если ранее вы выбрали `Автоматический` тип масштабирования, то в блоке **Метрики** укажите целевой уровень загрузки CPU в процентах.
+1. В блоке **Интеграция с Network Load Balancer**:
+   * (Опционально) Нажмите переключатель **Создать целевую группу**. [Целевые группы](../../network-load-balancer/concepts/target-resources.md) нужны для распределения нагрузки [сетевым балансировщиком](../../network-load-balancer/concepts/index.md).
      * Введите имя и описание целевой группы.
-1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_health-check }}**:
-   * (Опционально) Нажмите переключатель **{{ ui-key.yacloud.compute.groups.create.field_enable-health-check }}**.
+1. В блоке **Проверка состояний**:
+   * (Опционально) Нажмите переключатель **Активировать**.
      * Выберите тип проверки: `HTTP` или `TCP`.
      * Укажите путь, по которому будут выполняться проверки.
      * Укажите порт из диапазона 1-32767.
@@ -109,12 +109,12 @@
      * Укажите интервал отправки проверок состояния в секундах.
      * Укажите порог работоспособности — количество успешных проверок, после которого ВМ будет считаться готовой к приему трафика.
      * Укажите порог неработоспособности — количество проваленных проверок, после которого на ВМ перестанет подаваться трафик.
-1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+1. Нажмите кнопку **Создать**.
 
 Группа ВМ появится в списке.
 
 ## Что дальше {#what-is-next}
 
-* Посмотрите [сценарии создания веб-сервисов в {{ yandex-cloud }}](../../tutorials/applied/index.md#web).
+* Посмотрите [сценарии создания веб-сервисов в Yandex Cloud](../../tutorials/applied/index.md#web).
 * Узнайте, [как работать с группами ВМ](../operations/index.md).
 * Прочитайте [ответы на часто задаваемые вопросы](../qa/general.md).

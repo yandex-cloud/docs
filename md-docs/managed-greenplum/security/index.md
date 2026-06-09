@@ -1,4 +1,4 @@
-# Управление доступом в {{ mgp-name }}
+# Управление доступом в Yandex MPP Analytics for PostgreSQL
 
 
 В этом разделе вы узнаете:
@@ -9,10 +9,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `mdb.admin`, `managed-greenplum.admin` или одна из следующих ролей:
 
@@ -26,13 +26,13 @@
 
 Роль можно назначить на [организацию](../../organization/concepts/organization.md), [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Роли, назначенные на организацию, облако или каталог, действуют и на вложенные ресурсы.
 
-Чтобы разрешить доступ к ресурсам сервиса {{ mgp-name }}, назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
+Чтобы разрешить доступ к ресурсам сервиса Yandex MPP Analytics for PostgreSQL, назначьте пользователю нужные роли на каталог, облако или организацию, в которых содержатся эти ресурсы.
 
-В [консоли управления]({{ link-console-main }}), через [CLI](../../cli/index.md) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
+В [консоли управления](https://console.yandex.cloud), через [CLI](../../cli/index.md) или [API](../api-ref/authentication.md) роль также можно назначить на отдельный кластер.
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
 
 ```mermaid
 %%{init: { "flowchart": { "padding": 4 } } }%%
@@ -70,95 +70,95 @@ flowchart BT
 
 #### managed-greenplum.clusters.connector {#managed-greenplum-clusters-connector}
 
-Роль `managed-greenplum.clusters.connector` позволяет [пользователям](../../iam/concepts/users/accounts.md) {{ yandex-cloud }} подключаться к базам данных в [кластерах {{ mgp-name }}](../concepts/index.md) в сервисе {{ mgp-full-name }} с помощью механизмов сервиса [{{ iam-full-name }}](../../iam/index.md).
+Роль `managed-greenplum.clusters.connector` позволяет [пользователям](../../iam/concepts/users/accounts.md) Yandex Cloud подключаться к базам данных в [кластерах Yandex MPP Analytics for PostgreSQL](../concepts/index.md) в сервисе Yandex MPP Analytics for PostgreSQL с помощью механизмов сервиса [Yandex Identity and Access Management](../../iam/index.md).
 
 #### managed-greenplum.auditor {#managed-greenplum-auditor}
 
-Роль `managed-greenplum.auditor` позволяет просматривать информацию о [кластерах {{ mgp-name }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса {{ mgp-full-name }}.
+Роль `managed-greenplum.auditor` позволяет просматривать информацию о [кластерах Yandex MPP Analytics for PostgreSQL](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 #### managed-greenplum.viewer {#managed-greenplum-viewer}
 
-Роль `managed-greenplum.viewer` позволяет просматривать информацию о кластерах и хостах {{ mgp-name }} в сервисе {{ mgp-full-name }}, логи их работы, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-greenplum.viewer` позволяет просматривать информацию о кластерах и хостах Yandex MPP Analytics for PostgreSQL в сервисе Yandex MPP Analytics for PostgreSQL, логи их работы, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах {{ mgp-name }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }};
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ mgp-name }};
-* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров {{ mgp-name }};
-* просматривать логи работы кластеров {{ mgp-name }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ mgp-name }};
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса {{ mgp-full-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mgp-full-name }}.
+* просматривать информацию о [кластерах Yandex MPP Analytics for PostgreSQL](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать логи работы кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролями `managed-greenplum.auditor` и `managed-greenplum.maintenanceTask.viewer`.
 
 #### managed-greenplum.restorer {#managed-greenplum-restorer}
 
-Роль `managed-greenplum.restorer` позволяет восстанавливать из резервных копий кластеры {{ mgp-name }} в сервисе {{ mgp-full-name }}, просматривать информацию о кластерах и хостах {{ mgp-name }}, логи их работы, а также данные о квотах и операциях с ресурсами сервиса.
+Роль `managed-greenplum.restorer` позволяет восстанавливать из резервных копий кластеры Yandex MPP Analytics for PostgreSQL в сервисе Yandex MPP Analytics for PostgreSQL, просматривать информацию о кластерах и хостах Yandex MPP Analytics for PostgreSQL, логи их работы, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о резервных копиях [кластеров {{ mgp-name }}](../concepts/index.md) и восстанавливать кластеры из [резервных копий](../concepts/backup.md);
-* просматривать информацию о кластерах {{ mgp-name }} и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }};
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ mgp-name }};
-* просматривать логи работы кластеров {{ mgp-name }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ mgp-name }};
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса {{ mgp-full-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mgp-full-name }}.
+* просматривать информацию о резервных копиях [кластеров Yandex MPP Analytics for PostgreSQL](../concepts/index.md) и восстанавливать кластеры из [резервных копий](../concepts/backup.md);
+* просматривать информацию о кластерах Yandex MPP Analytics for PostgreSQL и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать логи работы кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.viewer`.
 
 #### managed-greenplum.user {#managed-greenplum-user}
 
-Роль `managed-greenplum.user` позволяет использовать [кластеры {{ mgp-name }}](../concepts/index.md).
+Роль `managed-greenplum.user` позволяет использовать [кластеры Yandex MPP Analytics for PostgreSQL](../concepts/index.md).
 
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
-Роль `managed-greenplum.editor` позволяет управлять кластерами {{ mgp-name }} в сервисе {{ mgp-full-name }}.
+Роль `managed-greenplum.editor` позволяет управлять кластерами Yandex MPP Analytics for PostgreSQL в сервисе Yandex MPP Analytics for PostgreSQL.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах {{ mgp-name }}](../concepts/index.md), а также создавать, использовать, изменять, удалять, запускать и останавливать их;
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам {{ mgp-name }};
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }} и изменять такие задания;
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ mgp-name }}, а также создавать, изменять и удалять их;
-* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров {{ mgp-name }}, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
-* просматривать логи работы кластеров {{ mgp-name }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ mgp-name }};
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса {{ mgp-full-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mgp-full-name }}.
+* просматривать информацию о [кластерах Yandex MPP Analytics for PostgreSQL](../concepts/index.md), а также создавать, использовать, изменять, удалять, запускать и останавливать их;
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к кластерам Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL и изменять такие задания;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex MPP Analytics for PostgreSQL, а также создавать, изменять и удалять их;
+* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров Yandex MPP Analytics for PostgreSQL, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
+* просматривать логи работы кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролями `managed-greenplum.viewer`, `managed-greenplum.user`, `managed-greenplum.restorer` и `managed-greenplum.maintenanceTask.editor`.
 
-Для создания кластеров {{ mgp-name }} в сервисе {{ mgp-full-name }} дополнительно необходима роль `vpc.user`.
+Для создания кластеров Yandex MPP Analytics for PostgreSQL в сервисе Yandex MPP Analytics for PostgreSQL дополнительно необходима роль `vpc.user`.
 
 #### managed-greenplum.admin {#managed-greenplum-admin}
 
-Роль `managed-greenplum.admin` позволяет управлять кластерами {{ mgp-name }} и доступом к ним в сервисе {{ mgp-full-name }}.
+Роль `managed-greenplum.admin` позволяет управлять кластерами Yandex MPP Analytics for PostgreSQL и доступом к ним в сервисе Yandex MPP Analytics for PostgreSQL.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [кластерам {{ mgp-name }}](../concepts/index.md) и изменять такие права доступа;
-* просматривать информацию о кластерах {{ mgp-name }}, а также создавать, использовать, изменять, удалять, запускать и останавливать их;
-* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }} и изменять такие задания;
-* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров {{ mgp-name }}, а также создавать, изменять и удалять их;
-* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров {{ mgp-name }}, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
-* просматривать логи работы кластеров {{ mgp-name }};
-* просматривать информацию о результатах диагностики производительности кластеров {{ mgp-name }};
-* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса {{ mgp-full-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ mgp-full-name }}.
+* просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к [кластерам Yandex MPP Analytics for PostgreSQL](../concepts/index.md) и изменять такие права доступа;
+* просматривать информацию о кластерах Yandex MPP Analytics for PostgreSQL, а также создавать, использовать, изменять, удалять, запускать и останавливать их;
+* просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL и изменять такие задания;
+* просматривать информацию о [хостах](../concepts/instance-types.md) кластеров Yandex MPP Analytics for PostgreSQL, а также создавать, изменять и удалять их;
+* просматривать информацию о [резервных копиях](../concepts/backup.md) кластеров Yandex MPP Analytics for PostgreSQL, создавать и удалять резервные копии кластеров, а также восстанавливать кластеры из резервных копий;
+* просматривать логи работы кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о результатах диагностики производительности кластеров Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию о [квотах](../concepts/limits.md#quotas) сервиса Yandex MPP Analytics for PostgreSQL;
+* просматривать информацию об операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.editor`.
 
-Для создания кластеров {{ mgp-name }} в сервисе {{ mgp-full-name }} дополнительно необходима роль `vpc.user`.
+Для создания кластеров Yandex MPP Analytics for PostgreSQL в сервисе Yandex MPP Analytics for PostgreSQL дополнительно необходима роль `vpc.user`.
 
 #### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenanceTask-viewer}
 
-Роль `managed-greenplum.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }}, а также о таких [кластерах](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса {{ mgp-full-name }}.
+Роль `managed-greenplum.maintenanceTask.viewer` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL, а также о таких [кластерах](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.auditor`.
 
 #### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenanceTask-editor}
 
-Роль `managed-greenplum.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров {{ mgp-name }} и изменять такие задания, просматривать информацию о [кластерах {{ mgp-name }}](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса {{ mgp-full-name }}.
+Роль `managed-greenplum.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../concepts/maintenance.md) кластеров Yandex MPP Analytics for PostgreSQL и изменять такие задания, просматривать информацию о [кластерах Yandex MPP Analytics for PostgreSQL](../concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, о [хостах](../concepts/instance-types.md) и [резервных копиях](../concepts/backup.md) кластеров, а также о [квотах](../concepts/limits.md#quotas) и операциях с ресурсами сервиса Yandex MPP Analytics for PostgreSQL.
 
 Включает разрешения, предоставляемые ролью `managed-greenplum.maintenanceTask.viewer`.
 
@@ -210,7 +210,7 @@ flowchart BT
 
 Включает разрешения, предоставляемые ролями `mdb.maintenanceTask.viewer`, `managed-clickhouse.maintenanceTask.editor`, `managed-greenplum.maintenanceTask.editor`, `managed-kafka.maintenanceTask.editor`, `managed-mongodb.maintenanceTask.editor`, `managed-mysql.maintenanceTask.editor`, `managed-opensearch.maintenanceTask.editor`, `managed-postgresql.maintenanceTask.editor`, `managed-redis.maintenanceTask.editor` и `managed-spqr.maintenanceTask.editor`.
 
-При создании кластера {{ mgp-name }} вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `{{ roles-mdb-admin }}` в {{ yandex-cloud }}. Подробнее читайте в разделе [{#T}](../concepts/cluster-users.md).
+При создании кластера Yandex MPP Analytics for PostgreSQL вместе с ним автоматически создается пользователь-администратор с ролью `mdb_admin`. Эта роль заменяет суперпользователя при работе с БД и не является аналогом роли `mdb.admin` в Yandex Cloud. Подробнее читайте в разделе [Пользователи и роли в Yandex MPP Analytics for PostgreSQL](../concepts/cluster-users.md).
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -227,9 +227,9 @@ flowchart BT
 * просматривать список [таблиц маршрутизации](../../vpc/concepts/routing.md#rt-vpc) и информацию о них, а также привязывать таблицы маршрутизации к подсетям;
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса {{ vpc-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
-* просматривать информацию об операциях с ресурсами сервиса {{ compute-name }};
+* просматривать информацию о [квотах](../../vpc/concepts/limits.md#vpc-quotas) сервиса Virtual Private Cloud;
+* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
+* просматривать информацию об операциях с ресурсами сервиса Compute Cloud;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
@@ -248,58 +248,58 @@ flowchart BT
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
 
-#### {{ roles-auditor }} {#auditor}
+#### auditor {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
+* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### {{ roles-viewer }} {#viewer}
+#### viewer {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
 
-#### {{ roles-editor }} {#editor}
+#### editor {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### {{ roles-admin }} {#admin}
+#### admin {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли необходимы {#required-roles}
 
-Чтобы пользоваться сервисом, необходима роль [{{ roles.mgp.editor }} или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `{{ roles.mgp.viewer }}` позволит только просматривать список кластеров.
+Чтобы пользоваться сервисом, необходима роль [managed-greenplum.editor или выше](../../iam/concepts/access-control/roles.md) на каталог, в котором создается кластер. Роль `managed-greenplum.viewer` позволит только просматривать список кластеров.
 
-Чтобы создать кластер {{ mgp-name }}, нужна роль [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) и роль `{{ roles.mgp.editor }}` или выше.
+Чтобы создать кластер Yandex MPP Analytics for PostgreSQL, нужна роль [vpc.user](../../vpc/security/index.md#vpc-user) и роль `managed-greenplum.editor` или выше.
 
-Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `{{ roles.mgp.admin }}` вместо `{{ roles.mgp.editor }}`.
+Вы всегда можете назначить роль, которая дает более широкие разрешения. Например, назначить `managed-greenplum.admin` вместо `managed-greenplum.editor`.
 
 ## Что дальше {#whats-next}
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

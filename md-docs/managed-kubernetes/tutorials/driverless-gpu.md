@@ -1,9 +1,9 @@
 # Использование групп узлов с GPU без предустановленных драйверов
 
 
-Вы можете использовать группы узлов {{ managed-k8s-name }} для рабочих нагрузок на видеопроцессорах ([GPU](../../compute/concepts/gpus.md)) без предустановленных драйверов. Приложение [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) позволит вам самостоятельно выбрать подходящую версию драйвера.
+Вы можете использовать группы узлов Managed Service for Kubernetes для рабочих нагрузок на видеопроцессорах ([GPU](../../compute/concepts/gpus.md)) без предустановленных драйверов. Приложение [GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) позволит вам самостоятельно выбрать подходящую версию драйвера.
 
-Чтобы подготовить кластер и группу узлов {{ managed-k8s-name }} без предустановленных драйверов к запуску рабочих нагрузок:
+Чтобы подготовить кластер и группу узлов Managed Service for Kubernetes без предустановленных драйверов к запуску рабочих нагрузок:
 
 1. [Установите GPU Operator](#install-gpu-operator).
 1. [Проверьте правильность установки драйверов](#check-install).
@@ -15,18 +15,18 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -34,20 +34,20 @@
     
     {% endnote %}
 
-1. [Создайте кластер {{ managed-k8s-name }}](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
+1. [Создайте кластер Managed Service for Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-1. [Создайте группу узлов {{ managed-k8s-name }}](../operations/node-group/node-group-create.md) с настройками:
-   * **{{ ui-key.yacloud.compute.instances.create.section_platform }}** — перейдите на вкладку **GPU** и выберите подходящую платформу.
-   * **{{ ui-key.yacloud.k8s.node-groups.create.field_driverless-gpu }}** — выберите опцию.
-   * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — выберите созданные ранее группы безопасности.
-   * **{{ ui-key.yacloud.k8s.node-groups.create.field_node-taints }}** — укажите [taint-политику](../concepts/index.md#taints-tolerations) `nvidia.com/gpu=true:NoSchedule`.
+1. [Создайте группу узлов Managed Service for Kubernetes](../operations/node-group/node-group-create.md) с настройками:
+   * **Вычислительные ресурсы** — перейдите на вкладку **GPU** и выберите подходящую платформу.
+   * **Не устанавливать драйверы GPU** — выберите опцию.
+   * **Группы безопасности** — выберите созданные ранее группы безопасности.
+   * **Taint-политики узла** — укажите [taint-политику](../concepts/index.md#taints-tolerations) `nvidia.com/gpu=true:NoSchedule`.
 
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Требования к версиям компонентов {#version-requirements}
 
-Начиная с версии {{ k8s }} `1.30` для корректной работы группы узлов с GPU без предустановленных драйверов требуются:
+Начиная с версии Kubernetes `1.30` для корректной работы группы узлов с GPU без предустановленных драйверов требуются:
 
 * GPU Operator версии `24.9.2`.
 
@@ -145,5 +145,5 @@ Done, now waiting for signal
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, во избежание списания средств за них:
 
-1. [Удалите кластер {{ k8s }}](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+1. [Удалите кластер Kubernetes](../operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 1. Если вы создавали сервисные аккаунты, [удалите их](../../iam/operations/sa/delete.md).

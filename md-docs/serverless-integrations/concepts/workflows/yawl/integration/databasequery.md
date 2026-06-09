@@ -1,13 +1,13 @@
 # DatabaseQuery
 
-Выполнение SQL-запросов к базам данных {{ MY }}, {{ PG }}, {{ CH }} и {{ ydb-short-name }}.
+Выполнение SQL-запросов к базам данных MySQL®, PostgreSQL, ClickHouse® и YDB.
 
 Поля `connection` и `dsn` — взаимоисключающие, нужно использовать только одно из них.
 
 #|
 || Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание ||
 || `connection` | [DatabaseConnection](#DatabaseonnecCtion) | Нет | Нет | Нет | Параметры подключения к базе данных. ||
-|| `dsn` | `string` | Нет | Нет | Нет | Строка подключения (DSN) к базе данных. Поддерживаемые схемы: `postgres://`, `postgresql://`, `clickhouse://`, `grpc://`, `grpcs://`, `ydb://`, а также формат {{ MY }} DSN (`user:pass@tcp(host:port)/db?...`). ||
+|| `dsn` | `string` | Нет | Нет | Нет | Строка подключения (DSN) к базе данных. Поддерживаемые схемы: `postgres://`, `postgresql://`, `clickhouse://`, `grpc://`, `grpcs://`, `ydb://`, а также формат MySQL® DSN (`user:pass@tcp(host:port)/db?...`). ||
 || `query` | `string` | Да | Нет | Да | Текст SQL-запроса. ||
 || `mode` | `string` | Нет | `EXEC` | Нет | Метод выполнения SQL-запроса. Доступные значения:
 * `EXEC` — выполнить SQL-запрос и вернуть только служебные поля, например `RowsAffected` и `LastInsertId`);
@@ -16,9 +16,9 @@
 
 ## DatabaseConnection {#DatabaseConnection}
 
-Поля `simple` и `iam` — взаимоисключающие, нужно использовать только одно из них. Поле `iam` поддерживается только для базы данных {{ ydb-short-name }}.
+Поля `simple` и `iam` — взаимоисключающие, нужно использовать только одно из них. Поле `iam` поддерживается только для базы данных YDB.
 
-Для базы данных {{ MY }} автоматически устанавливаются `parseTime=true` и `charset=utf8mb4`.
+Для базы данных MySQL® автоматически устанавливаются `parseTime=true` и `charset=utf8mb4`.
 
 #|
 || Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание ||
@@ -29,8 +29,8 @@
 || `ssl` | `bool` | Нет | `false` | Нет | Если значение `true`, для подключения к базе данных используется SSL-соединение. 
 
 Дополнительно:
-* Для базы данных {{ PG }} устанавливается `sslmode=require`, если `ssl=true`. Иначе — `sslmode=disable`.
-* Для базы данных {{ CH }} устанавливается `secure=true`, если `ssl=true`. ||
+* Для базы данных PostgreSQL устанавливается `sslmode=require`, если `ssl=true`. Иначе — `sslmode=disable`.
+* Для базы данных ClickHouse® устанавливается `secure=true`, если `ssl=true`. ||
 || `simple` | [DatabaseConnectionSimpleAuth](#DatabaseConnectionSimpleAuth) | Нет | Нет | Да | Аутентификация по имени пользователя и паролю. ||
 || `iam` | `bool` | Нет | Нет | Нет | Аутентификация по IAM-токену сервисного аккаунта, указанного в настройках рабочего процесса. ||
 |#

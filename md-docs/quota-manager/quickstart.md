@@ -1,12 +1,12 @@
-# Как начать работать с {{ quota-manager-full-name }}
+# Как начать работать с Yandex Cloud Quota Manager
 
 {% note info %}
 
-Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки]({{ link-console-support }}).
+Для работы с запросами на изменение квот через CLI и API обратитесь в [службу поддержки](https://center.yandex.cloud/support).
 
 {% endnote %}
 
-Сервис {{ quota-manager-name }} позволяет управлять квотами ваших сервисов {{ yandex-cloud }} с помощью различных интерфейсов. Некоторые сервисы, например {{ speechkit-name }} и {{ video-full-name }}, в {{ quota-manager-name }} недоступны.
+Сервис Cloud Quota Manager позволяет управлять квотами ваших сервисов Yandex Cloud с помощью различных интерфейсов. Некоторые сервисы, например SpeechKit и Yandex Cloud Video, в Cloud Quota Manager недоступны.
 
 **Квоты** — ограничения на количество ресурсов, которые вы используете в облаке. Это организационные ограничения, их можно изменять по мере необходимости.
 
@@ -18,20 +18,20 @@
 
 Потенциально квоты можно увеличить до _лимитов_.
 
-**Лимиты** — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}, физическими характеристиками оборудования или внешними ограничениями.
+**Лимиты** — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud, физическими характеристиками оборудования или внешними ограничениями.
 
 ![image](../_assets/quota-manager/quotas-limits.svg)
 
-Для работы с квотами доступны интерфейсы: [консоль управления]({{ link-console-quotas }}), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
+Для работы с квотами доступны интерфейсы: [консоль управления](https://console.yandex.cloud/cloud?section=quotas), [API](api-ref/authentication.md) и [CLI](cli-ref/index.md).
 
-Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [{#T}](all-quotas.md).
+Управление квотами через CLI и API выполняется по идентификатору квоты. Список идентификаторов см. в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать в {{ yandex-cloud }}:
+Чтобы начать работать в Yandex Cloud:
 
-1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. В сервисе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md).
 1. В зависимости от интерфейса, который вы будете использовать, выполните дополнительные действия:
 
@@ -49,7 +49,7 @@
 
     - CLI {#cli}
 
-      1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
+      1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
 
           По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -97,12 +97,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите облако, в котором хотите посмотреть квоты.
-  1. Выберите вкладку **{{ ui-key.yacloud.iam.cloud.switch_quotas }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите облако, в котором хотите посмотреть квоты.
+  1. Выберите вкладку **Квоты**.
 
      На странице отобразится список сервисов, которые используются в вашем облаке.
 
-  1. Раскройте раздел сервиса и посмотрите значения в столбце **{{ ui-key.yacloud.iam.cloud.quotas.column_usage }}**:
+  1. Раскройте раздел сервиса и посмотрите значения в столбце **Использование**:
 
      * Два числа — `потребление квоты / значение квоты`. Например, `2 / 20` или `1.203 / 5120 ГБ`.
 
@@ -110,7 +110,7 @@
 
   1. Чтобы оценить потребление ресурсов, вверху справа в списке выберите:
      * **Активно используются** — ресурсы, которые потребляют более половины установленной квоты.
-     * **{{ ui-key.yacloud.iam.cloud.quotas.value_status-error }}** — ресурсы, которые почти израсходованы.
+     * **Почти израсходованы** — ресурсы, которые почти израсходованы.
 
 - CLI {#cli}
 
@@ -158,7 +158,7 @@
         --resource-id <идентификатор_облака>
       ```
 
-      Будут выведены идентификаторы квот, которые есть в сервисе {{ iam-short-name }} в облаке, а также значения и потребление этих квот:
+      Будут выведены идентификаторы квот, которые есть в сервисе IAM в облаке, а также значения и потребление этих квот:
       
       ```text
       resource:
@@ -187,7 +187,7 @@
       ```
 
       Где:
-      * `--quota-id` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
+      * `--quota-id` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
       * `--resource-id` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `--resource-type` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
@@ -222,7 +222,7 @@
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=<тип_ресурса>"
+        "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=<тип_ресурса>"
       ```
 
       Где:
@@ -236,7 +236,7 @@
       curl \
         --request GET \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services?resourceType=resource-manager.cloud'
       ```
 
       **Пример ответа**
@@ -273,7 +273,7 @@
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits?service=<идентификатор_сервиса>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
+        "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=<идентификатор_сервиса>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
       ```
 
       Где:
@@ -290,7 +290,7 @@
         --request GET \
         --header "X-Request-Id: $(uuidgen -t)" \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits?service=iam&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
       ```
 
       **Пример ответа**
@@ -330,13 +330,13 @@
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        "https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/<идентификатор_квоты>?resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
+        "https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/<идентификатор_квоты>?resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>"
       ```
 
       Где:
 
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
-      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
+      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
       * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
 
@@ -347,7 +347,7 @@
         --request GET \
         --header "X-Request-Id: $(uuidgen -t)" \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/iam.accessKeys.count?resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
       ```
 
       **Пример ответа**
@@ -370,7 +370,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{\"resource_type\": \"<тип_ресурса>\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
       ```
 
       Где:
@@ -384,7 +384,7 @@
       grpcurl \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{\"resource_type\": \"resource-manager.cloud\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/ListServices
       ```
 
       **Пример ответа**
@@ -421,7 +421,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{ \"resource\": { \"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\" }, \"service\": \"<идентификатор_сервиса>\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
       ```
 
       Где:
@@ -438,7 +438,7 @@
         -H "X-Request-Id: $(uuidgen -t)" \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"service\": \"iam\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/List
       ```
 
       **Пример ответа**
@@ -478,7 +478,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{ \"resource\": { \"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\" }, \"quota_id\": \"<идентификатор_квоты>\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
       ```
 
       Где:
@@ -486,7 +486,7 @@
       * `<IAM-токен>` — IAM-токен для сервисного аккаунта или переменная окружения, в которой находится IAM-токен.
       * `<идентификатор_ресурса>` — идентификатор ресурса (облака, организации или платежного аккаунта).
       * `<тип_ресурса>` — тип ресурса: `resource-manager.cloud`, `organization-manager.organization`, `billing.account`.
-      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [{#T}](all-quotas.md).
+      * `<идентификатор_квоты>` — идентификатор квоты. Узнать идентификатор можно в разделе [Квоты для сервисов Yandex Cloud](all-quotas.md).
 
       **Пример запроса**
 
@@ -495,7 +495,7 @@
         -H "X-Request-Id: $(uuidgen -t)" \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{ \"resource\": { \"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\" }, \"quota_id\": \"iam.accessKeys.count\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaLimitService/Get
       ```
 
       **Пример ответа**
@@ -517,8 +517,8 @@
 - Консоль управления {#console}
 
   Запросите изменение квоты одним из способов:
-     * На [странице квот]({{ link-console-quotas }}) выберите ресурсы и нажмите **{{ ui-key.yacloud.iam.cloud.quotas.button_action-request }}**.
-     * Обратитесь в [техническую поддержку]({{ link-console-support }}) и опишите, какие потребляемые квоты нужно увеличить и на сколько.
+     * На [странице квот](https://console.yandex.cloud/cloud?section=quotas) выберите ресурсы и нажмите **Повысить**.
+     * Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и опишите, какие потребляемые квоты нужно увеличить и на сколько.
 
 - CLI {#cli}
 
@@ -554,8 +554,8 @@
       ```
 
       Будет создан запрос на увеличение квот:
-      * В сервисе {{ compute-name }} — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
-      * В сервисе {{ objstorage-name }} — количество бакетов (`storage.buckets.count`), новое значение — `30`.
+      * В сервисе Compute Cloud — количество групп размещения ВМ (`compute.placementGroups.count`), новое значение — `5`.
+      * В сервисе Object Storage — количество бакетов (`storage.buckets.count`), новое значение — `30`.
 
       **Пример ответа**
 
@@ -661,7 +661,7 @@
         --request POST \
         --header "Authorization: Bearer <IAM-токен>" \
         --data '{"resource": {"id": "<идентификатор_ресурса>", "type": "<тип_ресурса>"}, "desired_quota_limits": [{"quota_id": "<идентификатор_квоты>", "desired_limit": "<новое_значение_квоты>"}]}' \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
       ```
 
       Где:
@@ -680,7 +680,7 @@
         --header "X-Request-Id: $(uuidgen -t)" \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
         --data '{"resource": {"id": "<идентификатор_облака>", "type": "resource-manager.cloud"}, "desired_quota_limits": [{"quota_id": "iam.accessKeys.count", "desired_limit": "1001"}]}' \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests'
       ```
 
       **Пример ответа**
@@ -710,7 +710,7 @@
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=<размер_страницы>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=<размер_страницы>&resource.id=<идентификатор_ресурса>&resource.type=<тип_ресурса>'
       ```
 
       Где:
@@ -727,7 +727,7 @@
         --request GET \
         --header "X-Request-Id: $(uuidgen -t)" \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests?page_size=100&resource.id=<идентификатор_облака>&resource.type=resource-manager.cloud'
       ```
 
       **Пример ответа**
@@ -765,7 +765,7 @@
       curl \
         --request GET \
         --header "Authorization: Bearer <IAM-токен>" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
       ```
 
       Где:
@@ -780,7 +780,7 @@
         --request GET \
         --header "X-Request-Id: $(uuidgen -t)" \
         --header "Authorization: Bearer ${IAM_TOKEN?}" \
-        'https://{{ api-host-quota-manager }}/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
+        'https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/<идентификатор_запроса>'
       ```
 
       **Пример ответа**
@@ -815,7 +815,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{\"resource\": {\"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\"}, \"desired_quota_limits\": [{\"quota_id\": \"<идентификатор_квоты>\", \"desired_limit\": \"<новое_значение_квоты>\"}]}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
       ```
 
       Где:
@@ -833,7 +833,7 @@
         -H "X-Request-Id: $(uuidgen -t)" \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}, \"desired_quota_limits\": [{\"quota_id\": \"iam.accessKeys.count\", \"desired_limit\": \"1001\"}]}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Create
       ```
 
       **Пример ответа**
@@ -860,7 +860,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{\"resource\": {\"id\": \"<идентификатор_ресурса>\", \"type\": \"<тип_ресурса>\"}}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
       ```
 
       Где:
@@ -876,7 +876,7 @@
         -H "X-Request-Id: $(uuidgen -t)" \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{\"resource\": {\"id\": \"<идентификатор_облака>\", \"type\": \"resource-manager.cloud\"}}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/List
       ```
 
       **Пример ответа**
@@ -914,7 +914,7 @@
       grpcurl \
         -H "Authorization: Bearer <IAM-токен>" \
         -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
       ```
 
       Где:
@@ -929,7 +929,7 @@
         -H "X-Request-Id: $(uuidgen -t)" \
         -H "Authorization: Bearer ${IAM_TOKEN?}" \
         -d "{\"quota_request_id\": \"<идентификатор_запроса>\"}" \
-        {{ api-host-quota-manager }}:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
+        quota-manager.api.cloud.yandex.net:443 yandex.cloud.quotamanager.v1.QuotaRequestService/Get
       ```
 
       **Пример ответа**

@@ -12,10 +12,10 @@
 
     {% endnote %}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится рабочий процесс.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-    1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
-    1. Выберите рабочий процесс. Ссылка для запуска будет в поле **{{ ui-key.yacloud.serverless-workflows.label_execution-url }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится рабочий процесс.
+    1. Перейдите в сервис **Serverless Integrations**.
+    1. На панели слева нажмите ![image](../../../../_assets/console-icons/graph-node.svg) **Workflows**.
+    1. Выберите рабочий процесс. Ссылка для запуска будет в поле **Ссылка для запуска**.
 
 - CLI {#cli}
 
@@ -37,7 +37,7 @@
 
 Если рабочий процесс:
 * [публичный](../workflow/make-public.md), его может запустить любой пользователь.
-* приватный, чтобы запустить его, пользователю необходимо аутентифицироваться, передав [{{ iam-short-name }}-токен](../../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../../iam/concepts/authorization/api-key.md) в заголовке `Authorization`.
+* приватный, чтобы запустить его, пользователю необходимо аутентифицироваться, передав [IAM-токен](../../../../iam/concepts/authorization/iam-token.md) или [API-ключ](../../../../iam/concepts/authorization/api-key.md) в заголовке `Authorization`.
 
 Чтобы запустить рабочий процесс, сделайте POST-запрос:
 
@@ -47,10 +47,10 @@
     curl -X POST "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/fd2g4pu20roc********/start"
     ```
 
-*  Пример запуска приватного рабочего процесса без передачи входных данных и с аутентификацией по {{ iam-short-name }}-токену:
+*  Пример запуска приватного рабочего процесса без передачи входных данных и с аутентификацией по IAM-токену:
 
     ```bash
-    IAM_TOKEN="<{{ iam-short-name }}-токен>"
+    IAM_TOKEN="<IAM-токен>"
     curl -X POST \
     --header "Authorization: Bearer $IAM_TOKEN" \
     "https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/dfq3l36kr2gh********/start"
@@ -73,5 +73,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../../concepts/workflows/execution.md)
-* [{#T}](get-list.md)
+* [Запуск рабочего процесса](../../../concepts/workflows/execution.md)
+* [Получить список запусков рабочего процесса](get-list.md)

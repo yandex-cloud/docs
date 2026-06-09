@@ -6,7 +6,7 @@ You can modify one or more fields like name or data by specifying them in the up
 ## HTTP request
 
 ```
-PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates/{id}
+PATCH https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates/{id}
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@
 * **At-least-once** — источник отправляет сообщение до тех пор, пока приемник не подтвердит получение. Такая стратегия обеспечивает полную гарантию поставки, но может приводить к появлению дублей на приемнике.
 * **Exactly-once** — источник отправляет сообщение до тех пор, пока приемник не подтвердит получение. Приемник обрабатывает сообщение при получении так, чтобы исключить возникновение дублей. Стратегия обеспечивает полную гарантию поставки без дублей, но требует больше вычислительных затрат и сложнее в реализации.
 
-В сервисе {{ data-transfer-name }} для всех пар источник-приемник реализована стратегия поставки данных **At-least-once**. Приемник записывает в базу все полученные от источника сообщения и отправляет на источник подтверждение записи. Если источник по какой-то причине не получит от приемника подтверждение записи, сообщение будет отправлено повторно. В результате данные в базе приемника могут дублироваться.
+В сервисе Data Transfer для всех пар источник-приемник реализована стратегия поставки данных **At-least-once**. Приемник записывает в базу все полученные от источника сообщения и отправляет на источник подтверждение записи. Если источник по какой-то причине не получит от приемника подтверждение записи, сообщение будет отправлено повторно. В результате данные в базе приемника могут дублироваться.
 
 При этом стратегия **Exactly-once** реализуется с точки зрения данных на уровне СУБД, если выполнены оба требования:
 
@@ -15,22 +15,22 @@
 
     | Приемник             | Дедупликация по первичному ключу                                              |
     |-------------------------------------------------------------------------------|:-----------------------------------------------------------------:|
-    | Топик {{ KF }} — собственный или в составе [сервиса {{ mkf-short-name }}](../../managed-kafka/index.md)             | ![no](../../_assets/common/no.svg)   |
-    | База данных {{ CH }} — собственная или в составе [сервиса {{ mch-short-name }}](../../managed-clickhouse/index.md)  | ![no](../../_assets/common/no.svg)   |
-    | Собственная база данных {{ ES }}                                                                            | ![yes](../../_assets/common/yes.svg)  |
-    | База данных {{ GP }} — собственная или в составе [сервиса {{ mgp-short-name }}](../../managed-greenplum/index.md)   | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ MG }} — собственная или в составе [сервиса {{ mmg-short-name }}](../../storedoc/index.md)     | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ MY }} — собственная или в составе [сервиса {{ mmy-short-name }}](../../managed-mysql/index.md)       | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ PG }} — собственная или в составе [сервиса {{ mpg-short-name }}](../../managed-postgresql/index.md)  | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ OS }} — собственная или в составе [сервиса {{ mos-short-name }}](../../managed-opensearch/index.md)  | ![yes](../../_assets/common/yes.svg) |
-    | База данных {{ ydb-name }} — в составе [сервиса {{ ydb-name }}](../../ydb/index.md)                                 | ![yes](../../_assets/common/yes.svg) |
-    | Бакет [{{ objstorage-full-name }}](../../storage/index.md)                                                          | ![no](../../_assets/common/no.svg) |
-    | Поток данных [{{ yds-full-name }}](../../data-streams/index.md)                                                     | ![no](../../_assets/common/no.svg) |
+    | Топик Apache Kafka® — собственный или в составе [сервиса Managed Service for Apache Kafka®](../../managed-kafka/index.md)             | ![no](../../_assets/common/no.svg)   |
+    | База данных ClickHouse® — собственная или в составе [сервиса Managed Service for ClickHouse®](../../managed-clickhouse/index.md)  | ![no](../../_assets/common/no.svg)   |
+    | Собственная база данных Elasticsearch                                                                            | ![yes](../../_assets/common/yes.svg)  |
+    | База данных Greenplum® — собственная или в составе [сервиса Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md)   | ![yes](../../_assets/common/yes.svg) |
+    | База данных MongoDB — собственная или в составе [сервиса Yandex StoreDoc](../../storedoc/index.md)     | ![yes](../../_assets/common/yes.svg) |
+    | База данных MySQL® — собственная или в составе [сервиса Managed Service for MySQL®](../../managed-mysql/index.md)       | ![yes](../../_assets/common/yes.svg) |
+    | База данных PostgreSQL — собственная или в составе [сервиса Managed Service for PostgreSQL](../../managed-postgresql/index.md)  | ![yes](../../_assets/common/yes.svg) |
+    | База данных OpenSearch — собственная или в составе [сервиса Managed Service for OpenSearch](../../managed-opensearch/index.md)  | ![yes](../../_assets/common/yes.svg) |
+    | База данных Managed Service for YDB — в составе [сервиса Managed Service for YDB](../../ydb/index.md)                                 | ![yes](../../_assets/common/yes.svg) |
+    | Бакет [Yandex Object Storage](../../storage/index.md)                                                          | ![no](../../_assets/common/no.svg) |
+    | Поток данных [Yandex Data Streams](../../data-streams/index.md)                                                     | ![no](../../_assets/common/no.svg) |
 
 {% note tip %}
 
-Для фоновой очистки дублей в базе данных приемника {{ CH }} можно использовать [движок ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree), который выполняет дедупликацию по ключу сортировки во время слияния кусков данных. Этот движок, однако, не гарантирует отсутствие дублей на приемнике в каждый момент времени.
+Для фоновой очистки дублей в базе данных приемника ClickHouse® можно использовать [движок ReplacingMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree), который выполняет дедупликацию по ключу сортировки во время слияния кусков данных. Этот движок, однако, не гарантирует отсутствие дублей на приемнике в каждый момент времени.
 
 {% endnote %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -5,7 +5,7 @@ Retrieves information about a resource preset.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/resourcePresets/{resourcePresetId}
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

@@ -1,9 +1,9 @@
-# Практические руководства по использованию продуктов Microsoft в {{ yandex-cloud }}
+# Практические руководства по использованию продуктов Microsoft в Yandex Cloud
 
-* [{#T}](../byol.md)
-* [{#T}](secure-password-script/index.md)
-* [{#T}](active-directory.md)
-* [{#T}](exchange.md)
-* [{#T}](rds.md)
-* [{#T}](rds-gw.md)
-* [{#T}](mssql-alwayson-lb.md)
+* [Использование своей лицензии для продуктов Microsoft](../byol.md)
+* [Безопасная передача пароля в скрипт инициализации](secure-password-script/index.md)
+* [Развертывание Active Directory](active-directory.md)
+* [Развертывание Microsoft Exchange](exchange.md)
+* [Развертывание Microsoft Remote Desktop Services](rds.md)
+* [Развертывание Remote Desktop Gateway](rds-gw.md)
+* [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](mssql-alwayson-lb.md)

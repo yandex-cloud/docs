@@ -5,7 +5,7 @@ Retrieves the list of MongoDB Database resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/databases
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of sinks in the specified folder.
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/sinks
+GET https://logging.api.cloud.yandex.net/logging/v1/sinks
 ```
 
 ## Query parameters {#yandex.cloud.logging.v1.ListSinksRequest}

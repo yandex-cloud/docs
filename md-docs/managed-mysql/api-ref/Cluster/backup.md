@@ -6,7 +6,7 @@ To get information about a backup, make a [BackupService.Get](../Backup/get.md#G
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}:backup
+POST https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}:backup
 ```
 
 ## Path parameters

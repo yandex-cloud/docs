@@ -5,7 +5,7 @@ Deletes the specified gateway.
 ## HTTP request
 
 ```
-DELETE https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}
+DELETE https://vpc.api.cloud.yandex.net/vpc/v1/gateways/{gatewayId}
 ```
 
 ## Path parameters

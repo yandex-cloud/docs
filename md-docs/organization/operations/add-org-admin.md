@@ -2,23 +2,23 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) с учетной записью администратора или владельца организации.
   
-  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
+  1. На панели слева выберите ![persons-lock](../../_assets/console-icons/persons-lock.svg) **Права доступа**.
 
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Справа сверху нажмите кнопку **Назначить роли**.
 
   1. Выберите пользователя, которого хотите назначить администратором. При необходимости воспользуйтесь строкой поиска.
 
-  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin`.
+  1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/roles-reference.md#organization-manager-admin) `organization-manager.admin`.
 
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   1. [Получите идентификатор пользователя](users-get.md).
 
@@ -43,12 +43,12 @@
         --subject userAccount:aje6o61dvog2********
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры назначаемых [ролей](../../iam/concepts/access-control/roles.md):
 
@@ -68,7 +68,7 @@
       * `role` — укажите роль `organization-manager.admin`. Для одной роли можно использовать только один `yandex_organization manager_organization_iam_binding`.
       * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе.
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/index.md).
 
   1. Создайте ресурсы:
 
@@ -91,7 +91,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -100,7 +100,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
      
-  После этого указанному пользователю будет назначена роль администратора организации. Проверить появление роли можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
+  После этого указанному пользователю будет назначена роль администратора организации. Проверить появление роли можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization).
 
 - API {#api}
 
@@ -113,6 +113,6 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../iam/operations/sa/set-access-bindings.md)
-* [{#T}](../../resource-manager/operations/cloud/set-access-bindings.md)
-* [{#T}](../../resource-manager/operations/folder/set-access-bindings.md)
+* [Настройка прав доступа к сервисному аккаунту](../../iam/operations/sa/set-access-bindings.md)
+* [Настройка прав доступа к облаку](../../resource-manager/operations/cloud/set-access-bindings.md)
+* [Настройка прав доступа к каталогу](../../resource-manager/operations/folder/set-access-bindings.md)

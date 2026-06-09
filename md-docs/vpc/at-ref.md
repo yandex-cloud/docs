@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane). Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В Audit Trails поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane). Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.network.<имя_события>
+yandex.cloud.audit.network.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -53,4 +53,4 @@
 --- | ---
 `CreateIpfix` | Создание записи о сетевой трансляции адреса ([NAT](https://wikipedia.org/wiki/Nat))
 `DeleteIpfix` | Удаление записи о сетевой трансляции адреса (NAT)
-`ExternalFlow` | Поток трафика во внешние сети по отношению к {{ vpc-short-name }}
+`ExternalFlow` | Поток трафика во внешние сети по отношению к VPC

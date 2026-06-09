@@ -5,7 +5,7 @@ Generates a new password.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users:generatePassword
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users:generatePassword
 ```
 
 ## Response {#yandex.cloud.organizationmanager.v1.idp.GeneratePasswordResponse}

@@ -5,7 +5,7 @@ Lists access bindings for the image.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/images/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/images/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

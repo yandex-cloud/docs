@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections:batchGet
+GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections:batchGet
 ```
 
 ## Query parameters {#yandex.cloud.cic.v1.BatchGetTrunkConnectionsRequest}

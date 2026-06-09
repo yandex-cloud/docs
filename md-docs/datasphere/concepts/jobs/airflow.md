@@ -1,14 +1,14 @@
-# Интеграция с {{ maf-full-name }}
+# Интеграция с Yandex Managed Service for Apache Airflow™
 
-[Сервис {{ maf-full-name }}](../../../managed-airflow/concepts/index.md#about-the-service) позволяет описывать и управлять автоматизированными процессами обработки данных — воркфлоу. Воркфлоу представляет собой направленный ациклический граф (Directed Acyclic Graph, _DAG_), который реализуется с помощью скрипта на Python. Файл с таким скриптом называется _DAG-файлом_. В нем содержатся задачи, расписание их запуска и зависимости между ними.
+[Сервис Yandex Managed Service for Apache Airflow™](../../../managed-airflow/concepts/index.md#about-the-service) позволяет описывать и управлять автоматизированными процессами обработки данных — воркфлоу. Воркфлоу представляет собой направленный ациклический граф (Directed Acyclic Graph, _DAG_), который реализуется с помощью скрипта на Python. Файл с таким скриптом называется _DAG-файлом_. В нем содержатся задачи, расписание их запуска и зависимости между ними.
 
-Вы можете использовать {{ maf-name }}, чтобы организовать [повторный запуск](fork.md) заданий {{ ds-jobs }} по расписанию.
+Вы можете использовать Managed Service for Apache Airflow™, чтобы организовать [повторный запуск](fork.md) заданий DataSphere Jobs по расписанию.
 
 ## Регулярный запуск заданий {#airflow-dag}
 
-Чтобы реализовать регулярный запуск заданий, при [создании](../../../managed-airflow/operations/cluster-create.md) кластера {{ AF }} в разделе **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** укажите **{{ ui-key.yacloud.mdb.forms.title_pip-packages }}** — **DataSphere Jobs: datasphere**. Чтобы кластер {{ AF }} мог работать с заданиями {{ ml-platform-name }}, добавьте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) кластера в проект {{ ml-platform-name }} с [ролью](../../security/index.md) не ниже `Developer`.
+Чтобы реализовать регулярный запуск заданий, при [создании](../../../managed-airflow/operations/cluster-create.md) кластера Apache Airflow™ в разделе **Зависимости** укажите **Pip-пакеты** — **DataSphere Jobs: datasphere**. Чтобы кластер Apache Airflow™ мог работать с заданиями DataSphere, добавьте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) кластера в проект DataSphere с [ролью](../../security/index.md) не ниже `Developer`.
 
-Чтобы управлять DAG-файлом через веб-интерфейс {{ AF }}, [сохраните его](../../../managed-airflow/operations/upload-dags.md#dag-bucket-import) в бакет {{ objstorage-full-name }}.
+Чтобы управлять DAG-файлом через веб-интерфейс Apache Airflow™, [сохраните его](../../../managed-airflow/operations/upload-dags.md#dag-bucket-import) в бакет Yandex Object Storage.
 
 {% note warning %}
 
@@ -43,17 +43,17 @@ def run():
 run()
 ```
 
-Логи выполнения задания отображаются в [{{ ds-cli }}](cli.md) и в интерфейсе веб-сервера. В случае возникновения проблем, DAG-операция завершится ошибкой, а в логах появится соответствующая трассировка стека.
+Логи выполнения задания отображаются в [DataSphere CLI](cli.md) и в интерфейсе веб-сервера. В случае возникновения проблем, DAG-операция завершится ошибкой, а в логах появится соответствующая трассировка стека.
 
 {% note info %}
 
-В данный момент при работе с {{ ds-jobs }} через Airflow DAG нет возможности переопределения файлов с входными и выходными данными. Файлы с входными данными будут взяты у родительского задания. Выходные данные сохраняйте во внешние хранилища, например, в S3.
+В данный момент при работе с DataSphere Jobs через Airflow DAG нет возможности переопределения файлов с входными и выходными данными. Файлы с входными данными будут взяты у родительского задания. Выходные данные сохраняйте во внешние хранилища, например, в S3.
 
 {% endnote %}
 
 ## Неблокирующие вызовы клонов задания через DAG {#fork-from-dag}
 
-Неблокирующий вызов позволяет сразу после запуска задания, не дожидаясь его завершения, проводить новые вычисления на кластере {{ AF }}. Для проверки статуса задания используется [Airflow Sensor](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/sensors.html), который экономит вычислительные ресурсы кластера для запуска других графов заданий.
+Неблокирующий вызов позволяет сразу после запуска задания, не дожидаясь его завершения, проводить новые вычисления на кластере Apache Airflow™. Для проверки статуса задания используется [Airflow Sensor](https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/sensors.html), который экономит вычислительные ресурсы кластера для запуска других графов заданий.
 
 #### Пример {#example-fork-from-dag}
 
@@ -135,6 +135,6 @@ run()
 
 #### См. также {#see-also}
 
-* [{#T}](index.md)
-* [{#T}](fork.md)
-* [{#T}](../../../managed-airflow/concepts/index.md)
+* [DataSphere Jobs](index.md)
+* [Повторный запуск заданий DataSphere Jobs](fork.md)
+* [Взаимосвязь ресурсов в Managed Service for Apache Airflow™](../../../managed-airflow/concepts/index.md)

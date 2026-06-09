@@ -1,6 +1,6 @@
-# Создание интернет-магазина на платформе OpenCart с помощью {{ TF }}
+# Создание интернет-магазина на платформе OpenCart с помощью Terraform
 
-Чтобы создать инфраструктуру для [интернет-магазина на платформе OpenCart](index.md) с помощью {{ TF }}:
+Чтобы создать инфраструктуру для [интернет-магазина на платформе OpenCart](index.md) с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -11,31 +11,31 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
-* Кластер {{ mmy-name }}, если он создан для поддержки и обслуживания СУБД: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
+* Кластер Managed Service for MySQL®, если он создан для поддержки и обслуживания СУБД: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 ## Создайте инфраструктуру{#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Чтобы разместить интернет-магазин на OpenCart с помощью {{ TF }}:
+Чтобы разместить интернет-магазин на OpenCart с помощью Terraform:
 
-1. [Установите {{ TF }}](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 
 1. Подготовьте файлы с описанием инфраструктуры:
 
@@ -125,14 +125,14 @@
                
                resource "yandex_vpc_subnet" "subnet-1" {
                  name           = local.subnet_name1
-                 zone           = "{{ region-id }}-a"
+                 zone           = "ru-central1-a"
                  network_id     = yandex_vpc_network.network-1.id
                  v4_cidr_blocks = ["192.168.1.0/24"]
                }
                
                resource "yandex_vpc_subnet" "subnet-2" {
                  name           = local.subnet_name2
-                 zone           = "{{ region-id }}-b"
+                 zone           = "ru-central1-b"
                  network_id     = yandex_vpc_network.network-1.id
                  v4_cidr_blocks = ["192.168.2.0/24"]
                }
@@ -202,7 +202,7 @@
                resource "yandex_compute_instance" "opencart" {
                  name        = "opencart"
                  platform_id = "standard-v3"
-                 zone        = "{{ region-id }}-a"
+                 zone        = "ru-central1-a"
                
                  resources {
                    core_fraction = 20
@@ -229,8 +229,8 @@
                  }
                }
                
-               # Создание кластера {{ MY }}
-               # Если необходимости в кластере нет, удалите блок кода с созданием кластера, БД и пользователя  {{ MY }}
+               # Создание кластера MySQL®
+               # Если необходимости в кластере нет, удалите блок кода с созданием кластера, БД и пользователя  MySQL®
                
                resource "yandex_mdb_mysql_cluster" "opencart-mysql" {
                  name               = local.cluster_name
@@ -246,19 +246,19 @@
                  }
                
                  host {
-                   zone             = "{{ region-id }}-a"
+                   zone             = "ru-central1-a"
                    subnet_id        = yandex_vpc_subnet.subnet-1.id
                    assign_public_ip = false
                  }
                
                  host {
-                   zone             = "{{ region-id }}-b"
+                   zone             = "ru-central1-b"
                    subnet_id        = yandex_vpc_subnet.subnet-2.id
                    assign_public_ip = false
                  }
                }
                
-               # Создание базы данных для {{ MY }}
+               # Создание базы данных для MySQL®
                
                
                resource "yandex_mdb_mysql_database" "db1" {
@@ -266,7 +266,7 @@
                  name       = local.db_name
                }
                
-               # Создание пользователя для {{ MY }}
+               # Создание пользователя для MySQL®
                
                resource "yandex_mdb_mysql_user" "user1" {
                  cluster_id = yandex_mdb_mysql_cluster.opencart-mysql.id
@@ -297,22 +297,22 @@
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network)
-    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet)
-    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group)
-    * [Образ ВМ](../../../compute/concepts/image.md) — [yandex_compute_image]({{ tf-provider-resources-link }}/compute_image)
-    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance)
-    * [Кластер {{ MY }}](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster)
-    * База данных {{ MY }} — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database)
-    * Пользователь {{ MY }} — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user)
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md)
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md)
+    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md)
+    * [Образ ВМ](../../../compute/concepts/image.md) — [yandex_compute_image](../../../terraform/resources/compute_image.md)
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md)
+    * [Кластер MySQL®](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster](../../../terraform/resources/mdb_mysql_cluster.md)
+    * База данных MySQL® — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md)
+    * Пользователь MySQL® — [yandex_mdb_mysql_user](../../../terraform/resources/mdb_mysql_user.md)
 
 1. В файле `opencart.auto.tfvars` задайте пользовательские параметры:
 
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
     * `vm_user` — имя пользователя ВМ.
-    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [{#T}](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `ssh_key_path` — путь к файлу с открытым SSH-ключом для аутентификации пользователя на ВМ. Подробнее см. [Создание пары ключей SSH](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
     * `db_user` — имя пользователя БД, например `user1`.
     * `db_password` — пароль для доступа к БД. Длина пароля должна составлять от 8 до 128 символов.
 
@@ -337,7 +337,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -365,7 +365,7 @@
 
    {% list tabs %}
 
-   - Локальный сервер {{ MY }}
+   - Локальный сервер MySQL®
 
      Атрибуты подключения к БД генерируются в специальном файле при создании ВМ:
      1. Зайдите по SSH на созданную ВМ.
@@ -387,12 +387,12 @@
 
         Остальные поля оставьте без изменения.
 
-   - Кластер {{ mmy-name }}
+   - Кластер Managed Service for MySQL®
 
-     Если вы используете кластер {{ mmy-name }}, введите нужные атрибуты кластера:
+     Если вы используете кластер Managed Service for MySQL®, введите нужные атрибуты кластера:
      * **Hostname** — укажите [полное доменное имя (FQDN)](../../../compute/concepts/network.md#hostname) созданной БД. Чтобы его узнать:
-       1. Перейдите в новой вкладке браузера на страницу каталога в [консоли управления]({{ link-console-main }}).
-       1. Выберите раздел **{{ mmy-name }}**.
+       1. Перейдите в новой вкладке браузера на страницу каталога в [консоли управления](https://console.yandex.cloud).
+       1. Выберите раздел **Managed Service for MySQL®**.
        1. В таблице выберите созданный вами кластер.
        1. В меню слева выберите вкладку **Хосты**.
        1. Подведите курсор к полю **Имя хоста** (например, `rc1c-vok617m35g3dj23i`) и скопируйте полное доменное имя БД, нажав на значок ![copy](../../../_assets/console-icons/copy.svg).
@@ -449,7 +449,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -460,4 +460,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md).
+* [Создание интернет-магазина на платформе OpenCart с помощью консоли управления](console.md).

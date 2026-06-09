@@ -5,7 +5,7 @@ Retrieves the list of available resource presets.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-opensearch/v1/resourcePresets
+GET https://mdb.api.cloud.yandex.net/managed-opensearch/v1/resourcePresets
 ```
 
 ## Query parameters {#yandex.cloud.mdb.opensearch.v1.ListResourcePresetsRequest}

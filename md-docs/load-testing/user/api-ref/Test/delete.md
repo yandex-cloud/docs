@@ -5,7 +5,7 @@ Deletes specified tests.
 ## HTTP request
 
 ```
-DELETE https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}
+DELETE https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/tests/{testId}
 ```
 
 ## Path parameters

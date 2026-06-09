@@ -1,12 +1,12 @@
 # Запуск Docker-образа на виртуальной машине с помощью консоли управления, CLI и API
 
-Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [{{ container-registry-full-name }}](../../index.md), выполните следующие шаги:
+Чтобы запустить [Docker-образ на ВМ](index.md) с использованием реестра [Yandex Container Registry](../../index.md), выполните следующие шаги:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте реестр {{ container-registry-name }}](#create-registry).
+1. [Создайте реестр Container Registry](#create-registry).
 1. [Создайте сервисный аккаунт](#create-sa).
-1. [Создайте ВМ {{ compute-name }}](#create-vm).
-1. [Соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image).
+1. [Создайте ВМ Compute Cloud](#create-vm).
+1. [Соберите и загрузите Docker-образ в Container Registry](#create-image).
 1. [Загрузите Docker-образ на ВМ](#run).
 1. [Проверьте результат](#check-out).
 
@@ -15,11 +15,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -27,9 +27,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
-* плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../pricing.md)).
+* плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование динамического или статического [публичного IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
+* плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы Yandex Container Registry](../../pricing.md)).
 
 
 ### Создайте пару ключей SSH {#create-ssh}
@@ -149,41 +149,41 @@
 {% endlist %}
 
 
-## Создайте реестр {{ container-registry-name }} {#create-registry}
+## Создайте реестр Container Registry {#create-registry}
 
-[Создайте](../../operations/registry/registry-create.md) реестр в {{ container-registry-name }}.
+[Создайте](../../operations/registry/registry-create.md) реестр в Container Registry.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан реестр.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан реестр.
+  1. Перейдите в сервис **Container Registry**.
+  1. Нажмите кнопку **Создать реестр**.
   1. Задайте имя реестра. Требования к имени:
   
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
   
-  1. (Опционально) В блоке **{{ ui-key.yacloud.cr.overview.popup-create_field_auto_scan }}**:
+  1. (Опционально) В блоке **Автоматическое сканирование**:
   
   
-      * Отключите опцию **{{ ui-key.yacloud.cr.overview.popup-create_scan_push_text }}**, чтобы не сканировать Docker-образы при загрузке в репозиторий.
-      * Отключите опцию **{{ ui-key.yacloud.cr.overview.popup-create_scan_period_enabled }}** или настройте периодичность сканирования.
+      * Отключите опцию **Сканировать Docker-образы при загрузке**, чтобы не сканировать Docker-образы при загрузке в репозиторий.
+      * Отключите опцию **Сканировать все Docker-образы в реестре** или настройте периодичность сканирования.
   
         {% note warning %}
         
-        Автоматическое сканирование Docker-образов повышает безопасность реестра. Настройки сканирования уязвимостей по умолчанию соответствуют [Стандарту по защите облачной инфраструктуры {{ yandex-cloud }}](../../../security/standard/app-security.md#pipeline-recommendations).
+        Автоматическое сканирование Docker-образов повышает безопасность реестра. Настройки сканирования уязвимостей по умолчанию соответствуют [Стандарту по защите облачной инфраструктуры Yandex Cloud](../../../security/standard/app-security.md#pipeline-recommendations).
         
         {% endnote %}
   
   1. (Опционально) Добавьте метки.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
+  1. Нажмите кнопку **Создать реестр**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -202,7 +202,7 @@
       +----+------+-----------+
       ```
   
-      Если в каталоге уже есть реестр, посмотрите, как можно его изменить, в разделе [{#T}](../../operations/registry/registry-update.md).
+      Если в каталоге уже есть реестр, посмотрите, как можно его изменить, в разделе [Изменить реестр](../../operations/registry/registry-update.md).
   
   1. Создайте реестр:
   
@@ -215,7 +215,7 @@
   
         {% note warning %}
         
-        Автоматическое сканирование Docker-образов повышает безопасность реестра. Настройки сканирования уязвимостей по умолчанию соответствуют [Стандарту по защите облачной инфраструктуры {{ yandex-cloud }}](../../../security/standard/app-security.md#pipeline-recommendations).
+        Автоматическое сканирование Docker-образов повышает безопасность реестра. Настройки сканирования уязвимостей по умолчанию соответствуют [Стандарту по защите облачной инфраструктуры Yandex Cloud](../../../security/standard/app-security.md#pipeline-recommendations).
         
         {% endnote %}
   
@@ -242,7 +242,7 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
   
-      Параметр `--name` необязательный, можно создать реестр без имени и обращаться к нему по идентификатору. Поле `name` пользовательское, оно используется при листинге в {{ yandex-cloud }} CLI и не используется в Docker CLI.
+      Параметр `--name` необязательный, можно создать реестр без имени и обращаться к нему по идентификатору. Поле `name` пользовательское, оно используется при листинге в Yandex Cloud CLI и не используется в Docker CLI.
   1. Проверьте, что реестр создался:
   
       ```bash
@@ -268,29 +268,29 @@
 
 ## Создайте сервисный аккаунт {#create-sa}
 
-Создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../../iam/concepts/access-control/roles.md) `{{ roles-cr-puller }}` на реестр, созданный ранее:
+Создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и назначьте ему [роль](../../../iam/concepts/access-control/roles.md) `container-registry.images.puller` на реестр, созданный ранее:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
   1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `images-puller`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.iam.folder.switch_dashboard }}**.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. Нажмите **Создать**.
+  1. В верхней части экрана перейдите на вкладку **Дашборд каталога**.
+  1. Перейдите в сервис **Container Registry**.
   1. Выберите реестр и нажмите на строку с его именем.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_select-subject }}** и добавьте сервисный аккаунт, указав его идентификатор.
-  1. Нажмите **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-cr-puller }}`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Перейдите на вкладку **Права доступа**.
+  1. В правом верхнем углу нажмите кнопку **Назначить роли**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Выбрать пользователя** и добавьте сервисный аккаунт, указав его идентификатор.
+  1. Нажмите **Добавить роль** и выберите роль `container-registry.images.puller`.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Посмотрите описание команды CLI для создания сервисного аккаунта:
 
@@ -315,11 +315,11 @@
       name: myservice-acc
       ```
 
-  1. Назначьте роль `{{ roles-cr-puller }}` сервисному аккаунту:
+  1. Назначьте роль `container-registry.images.puller` сервисному аккаунту:
 
       ```bash
       yc container registry add-access-binding <имя_или_идентификатор_реестра> \
-        --role {{ roles-cr-puller }} \
+        --role container-registry.images.puller \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -334,7 +334,7 @@
 {% endlist %}
 
 
-## Создайте виртуальную машину {{ compute-name }} {#create-vm}
+## Создайте виртуальную машину Compute Cloud {#create-vm}
 
 Создайте ВМ с публичным IP-адресом и привяжите к ней созданный сервисный аккаунт:
 
@@ -342,43 +342,43 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте нужный [тип](../../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../../compute/concepts/disk.md).
+  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска** выберите один из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) и версию операционной системы на базе Linux.
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. (Опционально) В блоке **Диски и файловые хранилища** задайте нужный [тип](../../../compute/concepts/disk.md#disks-types) и размер загрузочного [диска](../../../compute/concepts/disk.md).
 
-      Если вы хотите добавить на ВМ новый дополнительный диск или подключить существующий, нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      Если вы хотите добавить на ВМ новый дополнительный диск или подключить существующий, нажмите кнопку **Добавить**.
 
       Также вы можете [создать ВМ из существующего диска](../../../compute/operations/vm-create/create-from-disks.md).
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../../vpc/concepts/network.md#network) или [подсети](../../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../../vpc/operations/subnet-create.md).
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее. Чтобы не назначать публичный IP-адрес, выберите `{{ ui-key.yacloud.component.compute.network-select.switch_none }}`.
-      * При необходимости разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и включите защиту от DDoS-атак.
+      * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../../vpc/concepts/network.md#network) или [подсети](../../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../../vpc/operations/subnet-create.md).
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее. Чтобы не назначать публичный IP-адрес, выберите `Без адреса`.
+      * При необходимости разверните блок **Дополнительно** и включите защиту от DDoS-атак.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ. Требования к имени:
+  1. В блоке **Общая информация** задайте имя ВМ. Требования к имени:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
@@ -390,8 +390,8 @@
       
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите созданный на предыдущем шаге [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Дополнительно** выберите созданный на предыдущем шаге [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md).
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
 
@@ -402,7 +402,7 @@
       ```
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Выберите в {{ marketplace-name }} один из публичных [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7)).
+  1. Выберите в Cloud Marketplace один из публичных [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) на базе операционной системы Linux (например, [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7)).
 
       Чтобы получить список доступных образов с помощью CLI, выполните команду:
       
@@ -429,7 +429,7 @@
       * `ID` — идентификатор образа.
       * `NAME` — имя образа.
       * `FAMILY` — идентификатор [семейства образов](../../../compute/concepts/image.md#family), к которому относится образ.
-      * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) {{ marketplace-full-name }}, связанных с образом.
+      * `PRODUCT IDS` — идентификаторы [продуктов](../../../marketplace/concepts/product.md) Yandex Cloud Marketplace, связанных с образом.
       * `STATUS` — текущий статус образа. Может принимать одно из значений:
       
           * `STATUS_UNSPECIFIED` — статус образа не определен.
@@ -450,9 +450,9 @@
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-      | b0c6n43f9lgh******** | default-{{ region-id }}-d     | enpe3m3fa00u******** |                | {{ region-id }}-d     | [10.130.0.0/24] |
-      | e2l2da8a20b3******** | default-{{ region-id }}-b     | enpe3m3fa00u******** |                | {{ region-id }}-b     | [10.129.0.0/24] |
-      | e9bnlm18l70a******** | default-{{ region-id }}-a     | enpe3m3fa00u******** |                | {{ region-id }}-a     | [10.128.0.0/24] |
+      | b0c6n43f9lgh******** | default-ru-central1-d     | enpe3m3fa00u******** |                | ru-central1-d     | [10.130.0.0/24] |
+      | e2l2da8a20b3******** | default-ru-central1-b     | enpe3m3fa00u******** |                | ru-central1-b     | [10.129.0.0/24] |
+      | e9bnlm18l70a******** | default-ru-central1-a     | enpe3m3fa00u******** |                | ru-central1-a     | [10.128.0.0/24] |
       +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
       ```
 
@@ -461,8 +461,8 @@
       ```bash
       yc compute instance create \
         --name first-instance \
-        --zone {{ region-id }}-b \
-        --network-interface subnet-name=default-{{ region-id }}-b,nat-ip-version=ipv4 \
+        --zone ru-central1-b \
+        --network-interface subnet-name=default-ru-central1-b,nat-ip-version=ipv4 \
         --create-boot-disk image-folder-id=standard-images,image-family=centos-7 \
         --ssh-key ~/.ssh/id_ed25519.pub
         --service-account-name service-acc
@@ -492,7 +492,7 @@
   Создайте ВМ с помощью метода REST API [Create](../../../compute/api-ref/Instance/create.md) для ресурса [Instance](../../../compute/api-ref/Instance/index.md):
 
   1. Подготовьте пару ключей (открытый и закрытый) для SSH-доступа на ВМ.
-  1. Получите [{{ iam-full-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
+  1. Получите [Yandex Identity and Access Management-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в примерах:
 
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
@@ -506,7 +506,7 @@
           export IAM_TOKEN=CggaATEVAgA...
           export FAMILY=ubuntu-1804
           curl --header "Authorization: Bearer ${IAM_TOKEN}" \
-            "https://compute.{{ api-host }}/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
+            "https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily?folderId=standard-images&family=${FAMILY}"
           ```
 
       * Вы можете получить информацию об образе из [списка публичных образов](../../../compute/operations/images-with-pre-installed-software/get-list.md).
@@ -517,7 +517,7 @@
       export IAM_TOKEN=CggaATEVAgA...
       export FOLDER_ID=b1gvmob95yys********
       curl --header "Authorization: Bearer ${IAM_TOKEN}" \
-        "https://vpc.{{ api-host }}/vpc/v1/subnets?folderId=${FOLDER_ID}"
+        "https://vpc.api.cloud.yandex.net/vpc/v1/subnets?folderId=${FOLDER_ID}"
       {
         "subnets": [
           {
@@ -527,10 +527,10 @@
           "id": "b0c6n43ftldh********",
           "folderId": "b1gvmob95yys********",
           "createdAt": "2018-09-23T12:15:00Z",
-          "name": "default-{{ region-id }}-b",
-          "description": "Auto-created default subnet for zone {{ region-id }}-b",
+          "name": "default-ru-central1-b",
+          "description": "Auto-created default subnet for zone ru-central1-b",
           "networkId": "enpe3m3faglu********",
-          "zoneId": "{{ region-id }}-b"
+          "zoneId": "ru-central1-b"
         },
         ...
         ]}
@@ -542,7 +542,7 @@
       {
         "folderId": "b1gvmob95yys********",
         "name": "instance-demo-no-pwauth",
-        "zoneId": "{{ region-id }}-b",
+        "zoneId": "ru-central1-b",
         "platformId": "standard-v3",
         "resourcesSpec": {
           "memory": "2147483648",
@@ -578,7 +578,7 @@
       * `zoneId` — зона доступности, которая соответствует выбранной подсети.
       * `platformId` — [платформа](../../../compute/concepts/vm-platforms.md).
       * `resourceSpec` — ресурсы, доступные ВМ. Значения должны соответствовать выбранной платформе.
-      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../../compute/concepts/vm-metadata.md).
+      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [Метаданные виртуальной машины](../../../compute/concepts/vm-metadata.md).
       * `bootDiskSpec` — настройки загрузочного диска. Укажите идентификатор выбранного образа и размер диска. Размер диска должен быть не меньше минимального размера диска, указанного в информации об образе.
       * `networkInterfaceSpecs` — настройки сети:
 
@@ -605,17 +605,17 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/instances
+        https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
 {% endlist %}
 
-После создания ВМ [соберите и загрузите Docker-образ в {{ container-registry-name }}](#create-image). 
+После создания ВМ [соберите и загрузите Docker-образ в Container Registry](#create-image). 
 
 
-## Соберите и загрузите Docker-образ в {{ container-registry-name }} {#create-image}
+## Соберите и загрузите Docker-образ в Container Registry {#create-image}
 
-Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь]({{ link-docs }}/overview/concepts/console-syntax-guide) с особенностями работы с Bash в Microsoft Windows.
+Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
 
 1. Откройте терминал.
 1. Для удобства выполнения команд добавьте переменные:
@@ -644,11 +644,11 @@
       
       {% endnote %}
 
-      1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
+      1. Если у вас еще нет OAuth-токена, получите его по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
       1. Выполните команду:
 
           ```bash
-          echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
+          echo <OAuth-токен> | docker login --username oauth --password-stdin cr.yandex
           ```
 
           Результат:
@@ -661,15 +661,15 @@
 
       {% note info %}
 
-      У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
+      У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  12 часов. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
 
       {% endnote %}
 
-      1. [Получите](../../../iam/operations/iam-token/create.md) {{ iam-short-name }}-токен.
+      1. [Получите](../../../iam/operations/iam-token/create.md) IAM-токен.
       1. Выполните команду:
 
           ```bash
-          yc iam create-token | docker login --username iam --password-stdin {{ registry }}
+          yc iam create-token | docker login --username iam --password-stdin cr.yandex
           ```
 
           Результат:
@@ -707,7 +707,7 @@
           В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
 
           ```json
-          "{{ registry }}": "yc"
+          "cr.yandex": "yc"
           ```
 
       1. Docker готов к использованию, например, для [загрузки Docker-образов](../../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
@@ -736,7 +736,7 @@
 1. Соберите Docker-образ:
 
     ```bash
-    docker build . -t {{ registry }}/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
+    docker build . -t cr.yandex/${REGISTRY_ID}/ubuntu:hello -f .dockerfile
     ```
 
     Результат:
@@ -744,19 +744,19 @@
     ```text
     ...
     Successfully built b68ee9b6b1af
-    Successfully tagged {{ registry }}/crpmnjr98tm5********/ubuntu:hello
+    Successfully tagged cr.yandex/crpmnjr98tm5********/ubuntu:hello
     ```
 
-1. Загрузите собранный Docker-образ в {{ container-registry-name }}:
+1. Загрузите собранный Docker-образ в Container Registry:
 
     ```bash
-    docker push {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+    docker push cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
     Результат:
 
     ```text
-    The push refers to repository [{{ registry }}/crpc9qeoft23********/ubuntu]
+    The push refers to repository [cr.yandex/crpc9qeoft23********/ubuntu]
     cc9d18e90faa: Pushed
     0c2689e3f920: Pushed
     47dde53750b4: Pushed
@@ -775,7 +775,7 @@
     cut -f1 -d',' | \
     cut -f2 -d':' | \
     tr -d '"' | \
-    docker login --username iam --password-stdin {{ registry }}
+    docker login --username iam --password-stdin cr.yandex
     ```
 
     Результат:
@@ -793,7 +793,7 @@
 1. Скачайте Docker-образ на ВМ:
 
     ```bash
-    docker pull {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+    docker pull cr.yandex/${REGISTRY_ID}/ubuntu:hello
     ```
 
     Результат:
@@ -804,8 +804,8 @@
     ba13d3bc422b: Pulling fs layer
     ...
     Digest: sha256:42068479274f1d4c7ea095482430dcba24dcfe8c23ebdf6d32305928********
-    Status: Downloaded newer image for {{ registry }}/crpc9qeoft23********/ubuntu:hello
-    {{ registry }}/crpc9qeoft23********/ubuntu:hello
+    Status: Downloaded newer image for cr.yandex/crpc9qeoft23********/ubuntu:hello
+    cr.yandex/crpc9qeoft23********/ubuntu:hello
     ```
 
 
@@ -814,7 +814,7 @@
 На ВМ запустите Docker-образ:
 
 ```bash
-docker run {{ registry }}/${REGISTRY_ID}/ubuntu:hello
+docker run cr.yandex/${REGISTRY_ID}/ubuntu:hello
 ```
 
 Результат:
@@ -835,4 +835,4 @@ Hi, I'm inside
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Запуск Docker-образа на виртуальной машине с помощью Terraform](terraform.md)

@@ -6,7 +6,7 @@ You can start the instance later using the [InstanceService.Start](start.md#Star
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:stop
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:stop
 ```
 
 ## Path parameters

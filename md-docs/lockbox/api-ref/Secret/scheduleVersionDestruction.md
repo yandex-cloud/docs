@@ -7,7 +7,7 @@ Scheduled destruction can be cancelled with the [SecretService.CancelVersionDest
 ## HTTP request
 
 ```
-POST https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
+POST https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}:scheduleVersionDestruction
 ```
 
 ## Path parameters

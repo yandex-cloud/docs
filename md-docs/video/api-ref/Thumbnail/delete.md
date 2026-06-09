@@ -6,7 +6,7 @@ This removes both the metadata record and the associated image file.
 ## HTTP request
 
 ```
-DELETE https://video.{{ api-host }}/video/v1/thumbnails/{thumbnailId}
+DELETE https://video.api.cloud.yandex.net/video/v1/thumbnails/{thumbnailId}
 ```
 
 ## Path parameters

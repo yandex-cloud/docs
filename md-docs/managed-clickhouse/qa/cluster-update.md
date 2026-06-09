@@ -1,4 +1,4 @@
-# Изменение {{ CH }}-кластера
+# Изменение ClickHouse®-кластера
 
 * [Как добавить хост в кластер?](#add-host)
 
@@ -40,7 +40,7 @@ yc managed-clickhouse user update <имя_пользователя> \
 
 #### Как изменить часовой пояс? {#timezone}
 
-Измените настройку {{ CH }} [timezone]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) или [session_timezone]({{ ch.docs }}{{ lang }}/operations/settings/settings#session_timezone). О том, как это сделать, читайте в [инструкции](../operations/change-server-level-settings.md#yandex-cloud-interfaces).
+Измените настройку ClickHouse® [timezone](https://clickhouse.com/docs/ru/operations/server-configuration-parameters/settings#server_configuration_parameters-timezone) или [session_timezone](https://clickhouse.com/docs/ru/operations/settings/settings#session_timezone). О том, как это сделать, читайте в [инструкции](../operations/change-server-level-settings.md#yandex-cloud-interfaces).
 
 #### Будет ли кластер недоступен при добавлении реплик? {#add-replica-availability}
 
@@ -70,4 +70,4 @@ yc managed-clickhouse user update <имя_пользователя> \
 
 В существующем кластере невозможно изменить расположение данных в шардах.
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

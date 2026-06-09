@@ -5,7 +5,7 @@ Terminates specified Workflow execution.
 ## HTTP request
 
 ```
-POST https://serverless-workflows.{{ api-host }}/workflows/v1/execution/{executionId}/terminate
+POST https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/{executionId}/terminate
 ```
 
 ## Path parameters

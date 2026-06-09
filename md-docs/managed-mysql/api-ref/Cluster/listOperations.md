@@ -5,7 +5,7 @@ Retrieves a list of operations for a cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/operations
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/operations
 ```
 
 ## Path parameters

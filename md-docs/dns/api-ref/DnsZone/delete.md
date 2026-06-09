@@ -5,7 +5,7 @@ Deletes the specified DNS zone.
 ## HTTP request
 
 ```
-DELETE https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}
+DELETE https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}
 ```
 
 ## Path parameters

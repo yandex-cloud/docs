@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Ошибка при блокировке всплывающего окна
+# [Yandex DataLens] Ошибка при блокировке всплывающего окна
 
 `ERR.CLIENT.POPUP_BLOCKED`
 

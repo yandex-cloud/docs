@@ -6,7 +6,7 @@ To get the list of Zone resources, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/zones/{zoneId}
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/zones/{zoneId}
 ```
 
 ## Path parameters

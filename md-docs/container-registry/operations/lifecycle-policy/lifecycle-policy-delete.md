@@ -4,17 +4,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан [реестр](../../concepts/registry.md).
+  1. Перейдите в сервис **Container Registry**.
   1. Выберите реестр и нажмите на строку с его именем.
   1. Выберите репозиторий и нажмите на строку с его именем.
-  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.cr.registry.label_lifecycle }}**.
-  1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужной [политики](../../concepts/lifecycle-policy.md) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. На панели слева нажмите ![lifecycle](../../../_assets/console-icons/arrows-rotate-right.svg) **Жизненный цикл**.
+  1. Нажмите на значок ![image](../../../_assets/console-icons/ellipsis.svg) для нужной [политики](../../concepts/lifecycle-policy.md) и выберите пункт **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Удалите [политику](../../concepts/lifecycle-policy.md), указав ее идентификатор:
 
@@ -38,16 +38,16 @@
      +----+------+---------------+--------+---------+-------------+
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Откройте конфигурационный файл и удалите фрагмент с описанием политики:
 
-     {% cut "Пример описания политики в конфигурации {{ TF }}" %}
+     {% cut "Пример описания политики в конфигурации Terraform" %}
 
      ```hcl
      resource "yandex_container_repository_lifecycle_policy" "my_lifecycle_policy" {
@@ -88,7 +88,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -97,7 +97,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  После этого в указанном [репозитории](../../concepts/repository.md) будет удалена политика удаления. Проверить удаление политики можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/index.md):
+  После этого в указанном [репозитории](../../concepts/repository.md) будет удалена политика удаления. Проверить удаление политики можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/index.md):
 
   ```bash
   yc container repository lifecycle-policy list --registry-id <идентификатор_реестра>

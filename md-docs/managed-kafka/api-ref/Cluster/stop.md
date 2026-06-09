@@ -5,7 +5,7 @@ Stops the specified Apache Kafka® cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:stop
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

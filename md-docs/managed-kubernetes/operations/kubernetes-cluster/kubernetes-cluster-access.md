@@ -1,14 +1,14 @@
-# Управление доступом к кластеру {{ managed-k8s-name }}
+# Управление доступом к кластеру Managed Service for Kubernetes
 
-Вы можете предоставить пользователю или сервисному аккаунту [роль для доступа к {{ k8s }} API](../../security/index.md#k8s-api) конкретного [кластера](../../concepts/index.md#kubernetes-cluster).
+Вы можете предоставить пользователю или сервисному аккаунту [роль для доступа к Kubernetes API](../../security/index.md#k8s-api) конкретного [кластера](../../concepts/index.md#kubernetes-cluster).
 
 Таким образом вы можете гранулярно назначать разные роли на конкретные кластеры для разных пользователей и сервисных аккаунтов.
 
 {% note warning %}
 
-Учитывайте, что помимо роли для доступа к {{ k8s }} API кластера у пользователя должна быть минимальная роль для просмотра ресурсов в каталоге, например [k8s.viewer](../../security/index.md#k8s-viewer) (для просмотра информации обо всех кластерах в каталоге) или примитивная [viewer](../../../iam/security/index.md#viewer) (для просмотра всех ресурсов в каталоге). 
+Учитывайте, что помимо роли для доступа к Kubernetes API кластера у пользователя должна быть минимальная роль для просмотра ресурсов в каталоге, например [k8s.viewer](../../security/index.md#k8s-viewer) (для просмотра информации обо всех кластерах в каталоге) или примитивная [viewer](../../../iam/security/index.md#viewer) (для просмотра всех ресурсов в каталоге). 
 
-Например, вы можете выдать пользователю роль [k8s.viewer](../../security/index.md#k8s-viewer) на каталог и роль [k8s.cluster-api.editor](../../security/index.md#k8s-cluster-api-editor) для управления ресурсами {{ k8s }} конкретного кластера. Таким образом пользователь сможет просматривать информацию обо всех кластерах каталога, а работать с API только конкретного кластера.
+Например, вы можете выдать пользователю роль [k8s.viewer](../../security/index.md#k8s-viewer) на каталог и роль [k8s.cluster-api.editor](../../security/index.md#k8s-cluster-api-editor) для управления ресурсами Kubernetes конкретного кластера. Таким образом пользователь сможет просматривать информацию обо всех кластерах каталога, а работать с API только конкретного кластера.
 
 Для разграничения возможности просмотра списка кластеров разными пользователями рекомендуем использовать разные каталоги в облаке.
 
@@ -20,20 +20,20 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
   1. Получите список кластеров в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster list
+      yc managed-kubernetes cluster list
       ```
   
   1. Получите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 {% endlist %}
@@ -44,20 +44,20 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для назначения роли на кластер:
   
       ```bash
-      {{ yc-k8s }} cluster add-access-binding --help
+      yc managed-kubernetes cluster add-access-binding --help
       ```
   
   1. Назначьте роль, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster add-access-binding <имя_или_идентификатор_кластера> \
+      yc managed-kubernetes cluster add-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -75,10 +75,10 @@
 
         Допустимые типы субъектов: 
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
-          * `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md).
+          * `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
             
             Допустимые значения идентификатора субъекта:
@@ -91,10 +91,10 @@
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```      
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note warning %}
     
@@ -102,9 +102,9 @@
     
   {% endnote %} 
   
-  1. Откройте актуальный конфигурационный файл с описанием кластера {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Kubernetes.
   
-      О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера Managed Service for Kubernetes](kubernetes-cluster-create.md).
   
   1. Добавьте описание ресурса:
     
@@ -130,10 +130,10 @@
 
         Допустимые типы субъектов: 
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
-          * `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md).
+          * `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
             
             Допустимые значения идентификатора субъекта:
@@ -145,14 +145,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -174,12 +174,12 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 {% endlist %}
@@ -190,7 +190,7 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -203,19 +203,19 @@
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
   
   1. Посмотрите описание команды CLI для назначения ролей на кластер:
   
       ```bash
-      {{ yc-k8s }} cluster set-access-bindings --help
+      yc managed-kubernetes cluster set-access-bindings --help
       ```
 
   1. Назначьте роли, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster set-access-bindings <имя_или_идентификатор_кластера> \
+      yc managed-kubernetes cluster set-access-bindings <имя_или_идентификатор_кластера> \
         --access-binding role=<роль_1>,subject=<тип_субъекта>:<идентификатор_субъекта_1> \
         --access-binding role=<роль_2>,subject=<тип_субъекта>:<идентификатор_субъекта_2>
       ```
@@ -233,10 +233,10 @@
 
           Допустимые типы субъектов: 
             
-            * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-            * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+            * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+            * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
             * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
-            * `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md).
+            * `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md).
             * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
               
               Допустимые значения идентификатора субъекта:
@@ -246,7 +246,7 @@
           
           Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note warning %}
     
@@ -254,7 +254,7 @@
     
   {% endnote %} 
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
       О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
 
@@ -288,10 +288,10 @@
 
         Допустимые типы субъектов: 
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
-          * `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md).
+          * `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
             
             Допустимые значения идентификатора субъекта:
@@ -303,14 +303,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -332,12 +332,12 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 {% endlist %}
@@ -348,25 +348,25 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
   
   1. Посмотрите описание команды CLI для отзыва роли на кластер:
   
       ```bash
-      {{ yc-k8s }} cluster remove-access-binding --help
+      yc managed-kubernetes cluster remove-access-binding --help
       ```
   1. Отзовите роль, выполнив команду:
 
       ```bash
-      {{ yc-k8s }} cluster remove-access-binding <имя_или_идентификатор_кластера> \
+      yc managed-kubernetes cluster remove-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -384,10 +384,10 @@
 
         Допустимые типы субъектов: 
           
-          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../../organization/concepts/add-federation.md).
-          * `group` — группа пользователей [{{ org-full-name }}](../../../organization/index.md).
+          * `group` — группа пользователей [Yandex Identity Hub](../../../organization/index.md).
           * `system` — [публичная группа](../../../iam/concepts/access-control/public-group.md) пользователей.
             
             Допустимые значения идентификатора субъекта:
@@ -398,7 +398,7 @@
         Подробнее о типах субъектов см. в разделе [Субъект, которому назначается роль](../../../iam/concepts/access-control/index.md#subject).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note warning %}
     
@@ -406,7 +406,7 @@
     
   {% endnote %} 
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
       О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
 
@@ -422,14 +422,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -451,12 +451,12 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
       
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
+      Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_cluster.md).
 
   1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
     
       ```bash
-      {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+      yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 {% endlist %}
@@ -465,7 +465,7 @@
 
 ### Добавить сервисному аккаунту доступ к управлению кластером {#sa-cluster-control}
 
-1. Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах {{ managed-k8s-name }} в каталоге, но изменять ресурсы {{ k8s }} только конкретного кластера, выдайте ему роль `k8s.viewer` на каталог и роль `k8s.cluster-api.editor` на этот кластер:
+1. Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах Managed Service for Kubernetes в каталоге, но изменять ресурсы Kubernetes только конкретного кластера, выдайте ему роль `k8s.viewer` на каталог и роль `k8s.cluster-api.editor` на этот кластер:
 
     {% list tabs group=instructions %}
 
@@ -483,13 +483,13 @@
       1. Назначьте роли на кластер:
 
           ```bash
-          {{ yc-k8s }} cluster set-access-bindings <имя_или_идентификатор_кластера> \
+          yc managed-kubernetes cluster set-access-bindings <имя_или_идентификатор_кластера> \
             --access-binding role=k8s.cluster-api.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
           ```
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-      1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+      1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
   
           О том, как создать такой файл, см. в разделе [Создание кластера](kubernetes-cluster-create.md).
 
@@ -511,14 +511,14 @@
 
       1. Проверьте корректность конфигурационных файлов.
 
-          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
           1. Выполните команду:
           
              ```bash
              terraform validate
              ```
           
-             Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+             Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите изменение ресурсов.
 
@@ -545,5 +545,5 @@
 1. Проверьте список ролей, назначенных на кластер, выполнив команду [CLI](../../../cli/index.md):
 
     ```bash
-    {{ yc-k8s }} cluster list-access-bindings <имя_или_идентификатор_кластера>
+    yc managed-kubernetes cluster list-access-bindings <имя_или_идентификатор_кластера>
     ```

@@ -7,7 +7,7 @@ Powers on the specified server.
 ## HTTP request
 
 ```
-POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:powerOn
+POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/{serverId}:powerOn
 ```
 
 ## Path parameters

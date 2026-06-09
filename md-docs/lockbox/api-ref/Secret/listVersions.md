@@ -5,7 +5,7 @@ Retrieves the list of versions of the specified secret.
 ## HTTP request
 
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}/versions
+GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}/versions
 ```
 
 ## Path parameters

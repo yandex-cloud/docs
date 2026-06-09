@@ -1,12 +1,12 @@
-# Подключение к {{ mpg-name }} из PySpark-задания в {{ msp-full-name }} с использованием секрета {{ lockbox-name }}
+# Подключение к Managed Service for PostgreSQL из PySpark-задания в Yandex Managed Service for Apache Spark™ с использованием секрета Yandex Lockbox
 
-# Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}
+# Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL
 
-Вы можете использовать секрет [{{ lockbox-name }}](../../lockbox/concepts/secret.md) для подключения к кластеру [{{ mpg-full-name }}](../index.md) из PySpark-задания в [{{ msp-full-name }}](../../managed-spark/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера {{ msp-full-name }} необходимо предоставить доступ к секрету. Секрет создается сервисом {{ connection-manager-full-name }} автоматически при создании пользователя {{ mpg-name }}.
+Вы можете использовать секрет [Yandex Lockbox](../../lockbox/concepts/secret.md) для подключения к кластеру [Yandex Managed Service for PostgreSQL](../index.md) из PySpark-задания в [Yandex Managed Service for Apache Spark™](../../managed-spark/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера Yandex Managed Service for Apache Spark™ необходимо предоставить доступ к секрету. Секрет создается сервисом Yandex Connection Manager автоматически при создании пользователя Managed Service for PostgreSQL.
 
-Для PySpark-задания используется Python-скрипт, который хранится в бакете {{ objstorage-full-name }}. Скрипт получает пароль пользователя из секрета и использует его для подключения к кластеру {{ mpg-name }}.
+Для PySpark-задания используется Python-скрипт, который хранится в бакете Yandex Object Storage. Скрипт получает пароль пользователя из секрета и использует его для подключения к кластеру Managed Service for PostgreSQL.
 
-Чтобы получить информацию из секрета и подключиться к кластеру {{ mpg-name }}, выполните следующие действия:
+Чтобы получить информацию из секрета и подключиться к кластеру Managed Service for PostgreSQL, выполните следующие действия:
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Настройте права доступа к секрету пользователя](#set-up-roles).
@@ -17,32 +17,32 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ msp-name }}: выделенные хостам вычислительные ресурсы (см. [тарифы {{ msp-name }}](../../managed-spark/pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for Apache Spark™: выделенные хостам вычислительные ресурсы (см. [тарифы Managed Service for Apache Spark™](../../managed-spark/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
-Использование секретов {{ lockbox-name }}, созданных с помощью {{ connection-manager-name }}, не тарифицируется.
+Использование секретов Yandex Lockbox, созданных с помощью Connection Manager, не тарифицируется.
 
 
 ## Подготовьте инфраструктуру {#infra}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `spark-agent` и назначьте ему роли:
   
-    * [managed-spark.integrationProvider](../../managed-spark/security.md#managed-spark-integrationProvider) — для взаимодействия {{ msp-full-name }} с другими сервисами;
-    * [storage.editor](../../storage/security/index.md#storage-editor) — для доступа к файлу с PySpark-заданием в бакете {{ objstorage-name }}.
+    * [managed-spark.integrationProvider](../../managed-spark/security.md#managed-spark-integrationProvider) — для взаимодействия Yandex Managed Service for Apache Spark™ с другими сервисами;
+    * [storage.editor](../../storage/security/index.md#storage-editor) — для доступа к файлу с PySpark-заданием в бакете Object Storage.
   
 1. [Создайте бакет](../../storage/operations/buckets/create.md). 
 1. [Предоставьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` для сервисного аккаунта `spark-agent` на созданный бакет.
@@ -51,61 +51,61 @@
 
     Вместе с ней автоматически будут созданы три подсети в разных зонах доступности.
 
-1. В сети `spark-network` [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` для кластера {{ msp-full-name }}, разрешающую исходящие TCP-подключения:
+1. В сети `spark-network` [создайте группу безопасности](../../vpc/operations/security-group-create.md) `spark-sg` для кластера Yandex Managed Service for Apache Spark™, разрешающую исходящие TCP-подключения:
     
-    * на порт `{{ port-mpg }}` для подключения к {{ PG }};
+    * на порт `6432` для подключения к PostgreSQL;
     * на порт `443` для скачивания Maven-пакетов.
 
-1. В сети `spark-network` создайте группу безопасности `pg-sg` для кластера {{ mpg-name }}, разрешающую входящие TCP-подключения на порт `{{ port-mpg }}`.
+1. В сети `spark-network` создайте группу безопасности `pg-sg` для кластера Managed Service for PostgreSQL, разрешающую входящие TCP-подключения на порт `6432`.
 
-1. [Создайте кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-create.md) со следующими настройками:
 
     * **Сервисный аккаунт** — `spark-agent`.
     * **Сеть** — `spark-network`.
     * **Группа безопасности** — `spark-sg`.
 
-1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создан кластер {{ msp-full-name }}. NAT-шлюз нужен для скачивания JDBC-драйвера {{ PG }} из Maven-репозитория.
+1. [Настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создан кластер Yandex Managed Service for Apache Spark™. NAT-шлюз нужен для скачивания JDBC-драйвера PostgreSQL из Maven-репозитория.
 
-1. [Создайте кластер {{ mpg-name }}](../operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер Managed Service for PostgreSQL](../operations/cluster-create.md) со следующими настройками:
 
     * **Сеть** — `spark-network`.
     * **Группа безопасности** — `pg-sg`.
 
-## Настройте права доступа к секрету пользователя {{ mpg-name }} {#set-up-roles}
+## Настройте права доступа к секрету пользователя Managed Service for PostgreSQL {#set-up-roles}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана необходимая инфраструктура.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_users }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создана необходимая инфраструктура.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Пользователи**.
   1. Нажмите на идентификатор подключения в строке нужного пользователя.
     
-      Откроется страница подключения {{ connection-manager-name }} для выбранного пользователя.
+      Откроется страница подключения Connection Manager для выбранного пользователя.
   
   1. На открывшейся странице нажмите на идентификатор секрета.
 
-      Откроется страница секрета {{ lockbox-name }}, который хранит пароль пользователя {{ PG }}.
+      Откроется страница секрета Yandex Lockbox, который хранит пароль пользователя PostgreSQL.
 
-  1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
   1. Выберите сервисный аккаунт `spark-agent`, которому будет предоставлен доступ к секрету.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите `lockbox.payloadViewer`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `lockbox.payloadViewer`.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы настроить права доступа к секрету пользователя {{ mpg-name }}:
+  Чтобы настроить права доступа к секрету пользователя Managed Service for PostgreSQL:
   
-  1. Получите идентификатор секрета из подключения {{ connection-manager-name }}:
+  1. Получите идентификатор секрета из подключения Connection Manager:
 
       ```bash
       yc metadata-hub connection-manager connection list \
-        --mdb-cluster-id <идентификатор_кластера_{{ PG }}>
+        --mdb-cluster-id <идентификатор_кластера_PostgreSQL>
       ```
 
       Идентификатор кластера можно получить со [списком кластеров в каталоге](../operations/cluster-list.md).
@@ -118,7 +118,7 @@
         --service-account-name spark-agent 
       ```
 
-      Сервисному аккаунту `spark-agent` будет предоставлен доступ к секрету пользователя {{ mpg-name }}.
+      Сервисному аккаунту `spark-agent` будет предоставлен доступ к секрету пользователя Managed Service for PostgreSQL.
 
 {% endlist %}
 
@@ -135,7 +135,7 @@
     from pyspark.sql import SparkSession
     
     def get_secret(secret_id: str) -> dict:
-        """Получение секрета из {{ lockbox-name }}."""
+        """Получение секрета из Yandex Lockbox."""
         # Получение IAM-токена через metadata service
         metadata_host = os.environ.get("YC_METADATA_ADDR", "169.254.169.254")
         token_url = f"http://{metadata_host}/computeMetadata/v1/instance/service-accounts/default/token"
@@ -145,7 +145,7 @@
         with urllib.request.urlopen(req, timeout=10) as resp:
             token = json.loads(resp.read())["access_token"]
     
-        # Получение секрета {{ lockbox-name }}
+        # Получение секрета Yandex Lockbox
         secret_url = f"https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secret_id}/payload"
         req = urllib.request.Request(secret_url)
         req.add_header("Authorization", f"Bearer {token}")
@@ -160,10 +160,10 @@
     # Инициализация Spark сессии
     spark = SparkSession.builder.appName("db-reader").getOrCreate()
     
-    # Подключение к кластеру {{ mpg-name }}
+    # Подключение к кластеру Managed Service for PostgreSQL
     df = spark.read \
         .format("jdbc") \
-        .option("url", f"jdbc:postgresql://<FQDN_хоста>:{{ port-mpg }}/<имя_БД>") \
+        .option("url", f"jdbc:postgresql://<FQDN_хоста>:6432/<имя_БД>") \
         .option("driver", "org.postgresql.Driver") \
         .option("user", "<имя_пользователя>") \
         .option("password", secrets["postgresql_password"]) \
@@ -179,7 +179,7 @@
 1. Укажите в файле скрипта следующие параметры:
     
     * идентификатор секрета;
-    * [FQDN хоста](../operations/connect/fqdn.md) для подключения к кластеру {{ mpg-name }};
+    * [FQDN хоста](../operations/connect/fqdn.md) для подключения к кластеру Managed Service for PostgreSQL;
     * имя базы данных;
     * имя таблицы.
 
@@ -190,7 +190,7 @@
 - Консоль управления {#console}
 
   1. [Загрузите в бакет](../../storage/operations/objects/upload.md#simple) файл `job-mpg-connection-with-secret.py`.
-  1. В кластере {{ msp-full-name }} [создайте задание](../../managed-spark/operations/jobs-pyspark.md) со следующими параметрами:
+  1. В кластере Yandex Managed Service for Apache Spark™ [создайте задание](../../managed-spark/operations/jobs-pyspark.md) со следующими параметрами:
       
       * **Тип задания** — **PySpark**.
       * **Main python файл** – `s3a://<имя_бакета>/job-mpg-connection-with-secret.py`.
@@ -241,7 +241,7 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. [Кластер {{ msp-full-name }}](../../managed-spark/operations/cluster-delete.md).
-1. [Кластер {{ mpg-name }}](../operations/cluster-delete.md).
-1. [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../storage/operations/objects/delete.md).
+1. [Кластер Yandex Managed Service for Apache Spark™](../../managed-spark/operations/cluster-delete.md).
+1. [Кластер Managed Service for PostgreSQL](../operations/cluster-delete.md).
+1. [Бакет Object Storage](../../storage/operations/buckets/delete.md). Перед удалением бакета [удалите из него все объекты](../../storage/operations/objects/delete.md).
 1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).

@@ -1,4 +1,4 @@
-# API {{ schema-registry-name }}
+# API Schema Registry
 
 
 После [авторизации с помощью IAM-токена](../authentication.md) вы можете использовать следующие HTTP-запросы:

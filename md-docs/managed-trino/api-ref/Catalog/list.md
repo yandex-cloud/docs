@@ -5,7 +5,7 @@ Retrieves a list of Trino Catalog resources.
 ## HTTP request
 
 ```
-GET https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}/catalogs
+GET https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}/catalogs
 ```
 
 ## Path parameters

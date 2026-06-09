@@ -5,7 +5,7 @@ Creates a backup for the specified SPQR cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}:backup
+POST https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}:backup
 ```
 
 ## Path parameters

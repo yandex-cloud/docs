@@ -5,7 +5,7 @@ Retrieves the list of secrets in the specified folder.
 ## HTTP request
 
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets
+GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets
 ```
 
 ## Query parameters {#yandex.cloud.lockbox.v1.ListSecretsRequest}

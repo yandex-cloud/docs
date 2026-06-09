@@ -7,7 +7,7 @@ For more information about logs, see the [Logs](../../operations/cluster-logs.md
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:logs
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:logs
 ```
 
 ## Path parameters

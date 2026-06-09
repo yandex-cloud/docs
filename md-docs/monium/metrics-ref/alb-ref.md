@@ -1,10 +1,10 @@
-# Метрики {{ alb-full-name }}
+# Метрики Yandex Application Load Balancer
 
-В этом разделе описаны метрики сервиса [{{ alb-name }}](../../application-load-balancer/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Application Load Balancer](../../application-load-balancer/index.md), поставляемые в Monium Metrics.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ alb-name }} имеют общую метку `service=application-load-balancer`.
+Все метрики сервиса Application Load Balancer имеют общую метку `service=application-load-balancer`.
 
 ## Метрики HTTP {#http-metrics}
 
@@ -38,9 +38,9 @@
 | `load_balancer.scaling.http_transmitted_bytes_per_second`<br>`DGAUGE`, байты/с | Объем передаваемых данных в секунду. |
 | `load_balancer.scaling.requests_per_second`<br>`DGAUGE`, запросы/с | Количество запросов в секунду. |
 
-## Метрики {{ sws-name }} {#sws-metrics}
+## Метрики Smart Web Security {#sws-metrics}
 
-Общие метки для всех метрик {{ sws-name }}:
+Общие метки для всех метрик Smart Web Security:
 
 | Метка | Значение |
 | --- | --- |
@@ -54,5 +54,5 @@
 
 | Имя<br>Тип, единицы измерения | Описание |
 | --- | --- |
-| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [{{ captcha-full-name }}](../../smartcaptcha/index.md) для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
-| `load_balancer.smart_web_security.`<br/>`arl_requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду, прошедших через модуль [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md).<br/>Общая метка `folderId` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).<br/><br/>Специальные метки:<ul><li>`arl_profile` — идентификатор профиля Advanced Rate Limiter.</li><li>`arl_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис {{ captcha-full-name }} для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
+| `load_balancer.smart_web_security.`<br/>`requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду.<br/>Общие метки:<ul><li>`route` — имя [маршрута](../../application-load-balancer/concepts/http-router.md#routes).</li><li>`zone` — [зона доступности](../../overview/concepts/geo-scope.md).</li><li>`backend` — имя бэкенда.</li><li>`backend_group` — имя [группы бэкендов](../../application-load-balancer/concepts/backend-group.md).</li></ul><br/>Специальная метка `antirobot_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |
+| `load_balancer.smart_web_security.`<br/>`arl_requests_per_second`<br/>`DGAUGE`, запросы/с | Количество запросов к защищаемому ресурсу в секунду, прошедших через модуль [Advanced Rate Limiter](../../smartwebsecurity/concepts/arl.md).<br/>Общая метка `folderId` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).<br/><br/>Специальные метки:<ul><li>`arl_profile` — идентификатор профиля Advanced Rate Limiter.</li><li>`arl_verdict` — действие с запросом по результатам проверок. Возможные значения:<ul><li>`allow` — запрос направлен к виртуальному хосту.</li><li>`captcha` — запрос направлен в сервис Yandex SmartCaptcha для дополнительной верификации.</li><li>`deny` — запрос заблокирован.</li></ul></li></ul> |

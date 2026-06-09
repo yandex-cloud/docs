@@ -1,9 +1,9 @@
-# Включить {{ datalens-name }}
+# Включить DataLens
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что образы {{ datalens-name }} загружены в локальный реестр кластера. Подробнее см. в разделе [{#T}](install-images.md).
-1. Убедитесь, что компоненты {{ mpg-name }} и {{ iam-name }} включены в кластере.
+1. Убедитесь, что образы DataLens загружены в локальный реестр кластера. Подробнее см. в разделе [Загрузить образы DataLens](install-images.md).
+1. Убедитесь, что компоненты Managed Service for PostgreSQL и Identity and Access Management включены в кластере.
 
 ## Включить компонент {#enable}
 
@@ -40,13 +40,13 @@
 
    Все поды должны перейти в статус `Running`.
 
-## Открыть консоль {{ datalens-name }} {#open-console}
+## Открыть консоль DataLens {#open-console}
 
-После завершения установки консоль {{ datalens-name }} доступна по адресу `https://datalens.<домен кластера>`. Чтобы войти в консоль, нажмите **Sign In via SSO** → **Stackland IAM** и авторизуйтесь в {{ iam-name }}.
+После завершения установки консоль DataLens доступна по адресу `https://datalens.<домен кластера>`. Чтобы войти в консоль, нажмите **Sign In via SSO** → **Stackland IAM** и авторизуйтесь в Identity and Access Management.
 
 ## Что создаётся при включении {#created-resources}
 
-При включении {{ datalens-name }} автоматически создаются следующие ресурсы:
+При включении DataLens автоматически создаются следующие ресурсы:
 
 * Пространство имён `stackland-datalens`.
 * Кластер PostgreSQL `datalens-db` со следующими базами данных:
@@ -58,8 +58,8 @@
   * `datalens-temporal` — данные планировщика задач;
   * `datalens-temporal-visibility` — данные видимости задач.
 * Секреты с паролями базы данных и ключами аутентификации. В секрете `datalens-secrets` содержится пароль локального пользователя-администратора по умолчанию. Используйте его в случае возникновения проблем с IAM-федерацией.
-* OAuthClient `stackland.datalens` для интеграции с {{ iam-name }}.
-* Группа `stackland-datalens-admins` в {{ iam-name }} с добавленным администратором кластера.
+* OAuthClient `stackland.datalens` для интеграции с Identity and Access Management.
+* Группа `stackland-datalens-admins` в Identity and Access Management с добавленным администратором кластера.
 
 ## Настроить конфигурацию {#configure}
 
@@ -69,4 +69,4 @@
 kubectl edit datalensconfig main
 ```
 
-Подробнее о параметрах конфигурации см. в разделе [{{ datalens-name }}](../../concepts/components/datalens.md#configuration).
+Подробнее о параметрах конфигурации см. в разделе [DataLens](../../concepts/components/datalens.md#configuration).

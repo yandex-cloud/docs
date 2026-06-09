@@ -1,49 +1,49 @@
 # Использовать OIDC-приложение и OAuth2 Proxy для настройки единого входа в приложения, не поддерживающие SSO
 
-Не в каждом приложении реализована встроенная поддержка технологии [единого входа](../../../glossary/sso.md) (SSO). При этом иногда возникает потребность в настройке аутентификации пользователей в них с помощью {{ org-full-name }}.
+Не в каждом приложении реализована встроенная поддержка технологии [единого входа](../../../glossary/sso.md) (SSO). При этом иногда возникает потребность в настройке аутентификации пользователей в них с помощью Yandex Identity Hub.
 
-В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с {{ org-full-name }} и организовать доступ к этому приложению только для заданных пользователей {{ org-full-name }} с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
+В данном руководстве вы воспользуетесь утилитой [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) в связке с прокси-сервером, чтобы настроить интеграцию простейшего приложения с Yandex Identity Hub и организовать доступ к этому приложению только для заданных пользователей Yandex Identity Hub с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC).
 
-В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи {{ org-full-name }} могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../concepts/applications.md#oidc). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) {{ compute-full-name }}, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
+В качестве прокси-сервера в данном руководстве используется [nginx](https://nginx.org/ru/), а в качестве тестового приложения — статическая HTML-страница. Чтобы ваши пользователи Yandex Identity Hub могли получить доступ к тестовому приложению, вы создадите и настроите [OIDC-приложение](../../concepts/applications.md#oidc). Дополнительно вам потребуется [виртуальная машина](../../../compute/concepts/vm.md) Yandex Compute Cloud, на которой будут запущены `nginx` и `OAuth2 Proxy`, а также размещено тестовое приложение. Кроме этого, для реализации защищенного доступа к тестовому приложению вам понадобятся доменное имя и выпущенный для него [SSL-сертификат](../../../glossary/ssl-certificate.md).
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
-Чтобы настроить доступ в приложение для ваших пользователей {{ org-full-name }}:
+Чтобы настроить доступ в приложение для ваших пользователей Yandex Identity Hub:
 
-1. [Создайте и настройте OIDC-приложение в {{ org-full-name }}](#setup-oidc-app).
+1. [Создайте и настройте OIDC-приложение в Yandex Identity Hub](#setup-oidc-app).
 1. [Подготовьте виртуальную машину с тестовым приложением](#setup-server).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе интеграции](#validate).
 
-## Создайте и настройте OIDC-приложение в {{ org-full-name }} {#setup-oidc-app}
+## Создайте и настройте OIDC-приложение в Yandex Identity Hub {#setup-oidc-app}
 
 ### Создайте OIDC-приложение {#create-app}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
 
-      1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `website-oidc-app`.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+      1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+      1. В поле **Имя** задайте имя создаваемого приложения: `website-oidc-app`.
+      1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+      1. (Опционально) В поле **Описание** задайте описание приложения.
       1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-          1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+          1. Нажмите **Добавить метку**.
           1. Введите метку в формате `ключ: значение`.
           1. Нажмите **Enter**.
-      1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
-  1. В открывшемся окне на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте и сохраните значение параметра `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` с уникальным идентификатором OAuth-клиента. Это значение понадобится позднее при настройке утилиты `OAuth2 Proxy`.
+      1. Нажмите **Создать приложение**.
+  1. В открывшемся окне на вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте и сохраните значение параметра `ClientID` с уникальным идентификатором OAuth-клиента. Это значение понадобится позднее при настройке утилиты `OAuth2 Proxy`.
   1. Создайте [секрет приложения](../../concepts/applications.md#oidc-secret):
   
-      В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+      В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
       
       1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+      1. Нажмите **Создать**.
       
       В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
       
@@ -53,13 +53,13 @@
       
       {% endnote %}
       
-      Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
+      Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
       
-      Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+      Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -120,7 +120,7 @@
       yc organization-manager idp application oauth application create \
         --organization-id <идентификатор_организации> \
         --name website-oidc-app \
-        --description "OIDC-приложение для настройки доступа пользователей {{ org-full-name }} к сайту" \
+        --description "OIDC-приложение для настройки доступа пользователей Yandex Identity Hub к сайту" \
         --client-id <идентификатор_OAuth-клиента> \
         --authorized-scopes openid,email,profile \
         --group-distribution-type none
@@ -142,7 +142,7 @@
       id: ek0odpetc1o4********
       name: website-oidc-app
       organization_id: bpf2c65rqcl8********
-      description: OIDC-приложение для настройки доступа пользователей {{ org-full-name }} к сайту
+      description: OIDC-приложение для настройки доступа пользователей Yandex Identity Hub к сайту
       group_claims_settings:
         group_distribution_type: NONE
       client_grant:
@@ -162,19 +162,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
-      1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для тестового приложения:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+      1. В поле **Redirect URI** укажите эндпоинт аутентификации для тестового приложения:
 
          ```text
          https://<ваш_домен>/oauth2/callback
          ```
 
          Где `<ваш_домен>` — домен вашего тестового приложения, например: `example.com`.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
@@ -210,7 +210,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы ваши пользователи {{ org-full-name }} могли проходить аутентификацию в тестовом приложении с помощью протокола OIDC, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
+Чтобы ваши пользователи Yandex Identity Hub могли проходить аутентификацию в тестовом приложении с помощью протокола OIDC, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
 
 {% note info %}
 
@@ -222,14 +222,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 - CLI {#cli}
 
@@ -269,12 +269,12 @@
 
 {% endnote %}
 
-### Подготовьте окружение {{ yandex-cloud }} {#prepare-env}
+### Подготовьте окружение Yandex Cloud {#prepare-env}
 
 Прежде чем создавать виртуальную машину, убедитесь, что в вашем каталоге есть [облачная сеть](../../../vpc/concepts/network.md) и [подсеть](../../../vpc/concepts/network.md#subnet). При необходимости воспользуйтесь следующими инструкциями, чтобы создать их:
 
-* [{#T}](../../../vpc/operations/network-create.md)
-* [{#T}](../../../vpc/operations/subnet-create.md)
+* [Создать облачную сеть](../../../vpc/operations/network-create.md)
+* [Создать подсеть](../../../vpc/operations/subnet-create.md)
 
 Кроме того, в вашей облачной сети [создайте](../../../vpc/operations/security-group-create.md) группу безопасности, разрешающую входящий TCP-трафик для портов `22`, `80` и `443`, а также любой исходящий трафик.
 
@@ -284,39 +284,39 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), соответствующую зоне доступности вашей подсети.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию `2 {{ ui-key.yacloud.component.compute.resources.field_cores }} 4 {{ ui-key.yacloud.common.units.label_gigabyte }} {{ ui-key.yacloud.component.compute.resources.field_memory }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 24.04 LTS` и выберите публичный образ [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts).
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), соответствующую зоне доступности вашей подсети.
+  1. В блоке **Вычислительные ресурсы** выберите конфигурацию `2 vCPU 4 ГБ RAM`.
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите ваши сеть и подсеть в зоне доступности создаваемой виртуальной машины.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную [ранее](#prepare-env) группу безопасности.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+      * В поле **Подсеть** выберите ваши сеть и подсеть в зоне доступности создаваемой виртуальной машины.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный публичный IP-адрес из пула Yandex Cloud.
+      * В поле **Группы безопасности** выберите созданную [ранее](#prepare-env) группу безопасности.
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `my-nginx-vm`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `my-nginx-vm`.
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
 
@@ -351,7 +351,7 @@
   folder_id: b1gt6g8ht345********
   created_at: "2026-01-22T12:03:52Z"
   name: my-nginx-vm
-  zone_id: {{ region-id }}-b
+  zone_id: ru-central1-b
   platform_id: standard-v2
   resources:
     memory: "2147483648"
@@ -405,7 +405,7 @@
 
     {% note info %}
 
-    Если управление вашим доменом делегировано сервису [{{ dns-full-name }}](../../../dns/index.md), для создания ресурсной записи воспользуйтесь инструкцией [{#T}](../../../dns/operations/resource-record-create.md). Если доменом управляет сторонний провайдер, воспользуйтесь документацией этого провайдера или обратитесь в его службу поддержки.
+    Если управление вашим доменом делегировано сервису [Yandex Cloud DNS](../../../dns/index.md), для создания ресурсной записи воспользуйтесь инструкцией [Создать ресурсную запись](../../../dns/operations/resource-record-create.md). Если доменом управляет сторонний провайдер, воспользуйтесь документацией этого провайдера или обратитесь в его службу поддержки.
 
     {% endnote %}
 1. [Подключитесь по SSH](../../../compute/operations/vm-connect/ssh.md) к созданной виртуальной машине.
@@ -429,7 +429,7 @@
         ```bash
         sudo mkdir /var/www/$MY_DOMAIN
         sudo touch /var/www/$MY_DOMAIN/index.html \
-          && echo "<h1>Your Web application that is available to your {{ org-full-name }} users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
+          && echo "<h1>Your Web application that is available to your Yandex Identity Hub users only</h1>" | sudo tee -a /var/www/$MY_DOMAIN/index.html
         ```
 1. Создайте самоподписанный SSL-сертификат для вашего домена. Для этого выполните команду и введите значения, следуя инструкциям на экране:
 
@@ -443,7 +443,7 @@
 
     Чтобы при использовании приложения браузер не выдавал предупреждение о проблемах с безопасностью, используйте SSL-сертификат, выданный удостоверяющим центром.
     
-    Например, чтобы создать сертификат от Let's Encrypt и сохранить его и закрытый ключ на свой компьютер, воспользуйтесь инструкциями [{#T}](../../../certificate-manager/operations/managed/cert-create.md) и [{#T}](../../../certificate-manager/operations/managed/cert-get-content.md).
+    Например, чтобы создать сертификат от Let's Encrypt и сохранить его и закрытый ключ на свой компьютер, воспользуйтесь инструкциями [Добавить сертификат от Let's Encrypt®](../../../certificate-manager/operations/managed/cert-create.md) и [Получить содержимое сертификата от Let's Encrypt](../../../certificate-manager/operations/managed/cert-get-content.md).
 
     {% endnote %}
 
@@ -571,7 +571,7 @@
         reverse_proxy = true # Включение режима работы за nginx
         client_id = "<идентификатор_ClientID>" # ClientID OIDC приложения 
         client_secret = "<секрет_OIDC_приложения>" # Секрет OIDC приложения
-        oidc_issuer_url = "https://{{ auth-main-host }}"
+        oidc_issuer_url = "https://auth.yandex.cloud"
         cookie_name = "_oauth2_proxy" # Имя cookie
         cookie_secret = "<секрет_cookie>"  # Сгенерированный ранее ключ cookie
         email_domains = [ "<домен_1>","<домен_2>",...,"<домен_n>" ]  # Домены, для которых разрешена аутентификация
@@ -585,9 +585,9 @@
         * `client_id` — значение `ClientID` OAuth-клиента, полученное [ранее](#create-app) при создании OIDC-приложения.
         * `client_secret` — значение секрета, сгенерированного в OIDC-приложении.
         * `cookie_secret` — секрет cookie, сгенерированный и сохраненный ранее.
-        * `email_domains` — список доменов в адресе электронной почты, для которых будет разрешена аутентификация пользователя {{ org-full-name }} в тестовом приложении.
+        * `email_domains` — список доменов в адресе электронной почты, для которых будет разрешена аутентификация пользователя Yandex Identity Hub в тестовом приложении.
 
-            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `{{ ui-key.yacloud_org.page.user.field_user-email }}` настроек пользователя в {{ org-full-name }} ([атрибут](../../concepts/applications.md#oidc-attributes) `email`).
+            Утилита `OAuth2 Proxy` проверяет домен электронной почты, указанной в поле `Электронная почта` настроек пользователя в Yandex Identity Hub ([атрибут](../../concepts/applications.md#oidc-attributes) `email`).
 
             В поле `email_domains` укажите домен электронной почты того пользователя, которого вы добавили ранее в ваше OIDC-приложение. Если в OIDC-приложение вы добавляли группу пользователей, укажите домен электронной почты того пользователя группы, от имени которого вы будете тестировать аутентификацию. Вы можете указать несколько доменов через запятую.
 
@@ -620,7 +620,7 @@
 1. В браузере введите адрес вашего тестового приложения (например, `https://example.com`).
 
     Если все было настроено правильно, в браузере откроется окно аутентификации `OAuth2 Proxy`.
-1. Нажмите кнопку **Sign in with {{ org-full-name }}**.
+1. Нажмите кнопку **Sign in with Yandex Identity Hub**.
 1. Пройдите аутентификацию от имени того пользователя, которого вы ранее добавили в OIDC-приложение. Если в OIDC-приложение вы добавляли группу пользователей, пройдите аутентификацию от имени пользователя, который входит в эту группу.
 
     Если все было настроено правильно, в браузере откроется страница с вашим тестовым приложением.

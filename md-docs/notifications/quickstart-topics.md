@@ -1,4 +1,4 @@
-# Как начать работать с топиками в {{ cns-full-name }}
+# Как начать работать с топиками в Yandex Cloud Notification Service
 
 {% note info %}
 
@@ -6,9 +6,9 @@
 
 {% endnote %}
 
-Чтобы включить {{ cns-name }}, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке]({{ link-console-support }}).
+Чтобы включить Cloud Notification Service, запросите доступ к сервису у вашего аккаунт-менеджера или в [технической поддержке](https://center.yandex.cloud/support).
 
-{{ cns-name }} ({{ cns-short-name }}) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
+Cloud Notification Service (CNS) — сервис для мультиканальной отправки уведомлений пользователям. HTTP API сервиса совместим с [Amazon SNS API](https://docs.aws.amazon.com/sns/latest/api/welcome.html).
 
 Чтобы отправлять сообщения в разные эндпоинты одновременно, используйте топики. _Топик_ позволяет отправлять уведомления сразу всем подписанным на него эндпоинтам.
 
@@ -28,11 +28,11 @@
 
 # Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
@@ -42,15 +42,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Слева выберите раздел **{{ ui-key.yacloud.cns.local.label_topics_vhBR3 }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cns.local.action_create-topic_qywb9 }}**.
-  1. Введите имя топика. Имя топика должно быть уникальным в {{ cns-name }}.
-  1. В разделе **{{ ui-key.yacloud.cns.section_logging }}** включите **{{ ui-key.yacloud.cns.field_logging }}**.
-  1. В списке **{{ ui-key.yacloud.cns.field_logging-folder }}** выберите каталог, в котором будет расположена [лог-группа](../logging/concepts/log-group.md).
-  1. В поле **{{ ui-key.yacloud.cns.field_log-group }}** выберите существующую лог-группу или создайте новую.
-  1. Нажмите **{{ ui-key.yacloud.cns.Topics.button_create_r6PZn }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Слева выберите раздел **Топики**.
+  1. Нажмите кнопку **Создать топик**.
+  1. Введите имя топика. Имя топика должно быть уникальным в Cloud Notification Service.
+  1. В разделе **Логирование** включите **Запись логов**.
+  1. В списке **Каталог** выберите каталог, в котором будет расположена [лог-группа](../logging/concepts/log-group.md).
+  1. В поле **Лог-группа** выберите существующую лог-группу или создайте новую.
+  1. Нажмите **Создать топик**.
 
 - AWS CLI {#aws-cli}
 
@@ -61,7 +61,7 @@
      aws sns create-topic --name <имя_топика>
      ```
      
-     Где `name` — произвольное имя топика, должно быть уникальным в {{ cns-name }}.
+     Где `name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
      
      Подробнее о команде `aws sns create-topic` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-topic.html).
 
@@ -80,7 +80,7 @@
      
      Где:
      
-     * `Name` — произвольное имя топика, должно быть уникальным в {{ cns-name }}.
+     * `Name` — произвольное имя топика, должно быть уникальным в Cloud Notification Service.
 
 {% endlist %}
 
@@ -91,7 +91,7 @@
 - Консоль управления {#console}
 
   1. Выберите топик.
-  1. Слева выберите **{{ ui-key.yacloud.cns.shared.CnsTopicLayout.subscriptions_cp53u }}**.
+  1. Слева выберите **Подписки**.
   1. Нажмите кнопку **Создать подписку**.
   1. Выберите тип канала уведомлений:
        
@@ -125,7 +125,7 @@
    Где:
      * `topic-arn` — ARN топика.
      * `protocol` — тип канала отправки уведомлений, например, `sms`, `application`.
-     * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://{{ lang }}.wikipedia.org/wiki/E.164), например `+79991112233`.
+     * `notification-endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
    
    Подробнее о команде `aws sns subscribe` см. в [документации AWS](https://docs.amazonaws.cn/en_us/sns/latest/dg/sns-create-subscribe-endpoint-to-topic.html).
 
@@ -149,7 +149,7 @@
   
   * `TopicArn` — ARN топика.
   * `Protocol` — тип канала для отправки уведомлений, например, `sms`, `application`.
-  * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://{{ lang }}.wikipedia.org/wiki/E.164), например `+79991112233`.
+  * `Endpoint` — ARN эндпоинта, который подписывается на топик, в формате `arn:aws:sns::<cloud_id>:endpoint/<platform>/<channel_name>/<endpoint_unique_id>`. Для SMS — номер телефона в формате [E.164](https://ru.wikipedia.org/wiki/E.164), например `+79991112233`.
 
 {% endlist %}
 
@@ -160,7 +160,7 @@
 - Консоль управления {#console}
 
   1. Выберите топик.
-  1. Нажмите кнопку **{{ ui-key.yacloud.cns.action_send-message }}**.
+  1. Нажмите кнопку **Отправить уведомление**.
   1. Выберите вид уведомлений: 
        
       * **Одинаковые** — во все типы каналов будет отправлено одно и то же уведомление.
@@ -204,7 +204,7 @@
       }
       ```
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.cns.action_send-msg }}**.
+  1. Нажмите кнопку **Отправить**.
 
 - AWS CLI {#aws-cli}
 

@@ -5,7 +5,7 @@ Delete specific backup.
 ## HTTP request
 
 ```
-DELETE https://backup.{{ api-host }}/backup/v1/backups/{computeInstanceId}/{backupId}
+DELETE https://backup.api.cloud.yandex.net/backup/v1/backups/{computeInstanceId}/{backupId}
 ```
 
 ## Path parameters

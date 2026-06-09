@@ -5,7 +5,7 @@ Adds a domain to the specified userpool.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}/domains
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}/domains
 ```
 
 ## Path parameters

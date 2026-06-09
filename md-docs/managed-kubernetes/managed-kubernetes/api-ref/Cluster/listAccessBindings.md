@@ -5,7 +5,7 @@ Lists cluster's access bindings
 ## HTTP request
 
 ```
-GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{resourceId}:listAccessBindings
+GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

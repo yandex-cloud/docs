@@ -4,10 +4,10 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать приемник логов.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Перейдите на вкладку **{{ ui-key.yacloud.logging.label_sinks }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-sink }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать приемник логов.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+    1. Перейдите на вкладку **Приёмники логов**.
+    1. Нажмите кнопку **Создать приёмник логов**.
     1. (Опционально) Введите имя и описание приемника логов. Формат имени:
 
         * длина — от 3 до 63 символов;
@@ -15,11 +15,11 @@
         * первый символ — буква, последний — не дефис.
 
     1. (Опционально) Добавьте метки.
-    1. В поле **{{ ui-key.yacloud.logging.label_destination }}** выберите `{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}`.
+    1. В поле **Назначение** выберите `Object Storage`.
     1. Выберите бакет, в который будут сохраняться логи.
     1. (Опционально) Укажите [папку](../../storage/concepts/object.md#folder).
     1. Выберите сервисный аккаунт, у которого есть права на загрузку объектов в бакет.
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-sink }}**.
+    1. Нажмите кнопку **Создать приёмник логов**.
 
 - CLI {#cli}
 

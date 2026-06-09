@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
@@ -10,9 +10,9 @@
 
 Доступны следующие категории шаблонов:
 
-* **{{ ui-key.yacloud_org.security.siem.my_8uT22 }}** — шаблоны, созданные пользователем и доступные ему в разных расследованиях.
-* **{{ ui-key.yacloud_org.security.siem.template_type_local_77J2t }}** — доступны всем пользователям, но привязаны к определенному расследованию.
-* **{{ ui-key.yacloud_org.security.siem.template_type_global_qSrVE }}** — доступны всем пользователям во всех расследованиях.
+* **Мои** — шаблоны, созданные пользователем и доступные ему в разных расследованиях.
+* **Инстанс** — доступны всем пользователям, но привязаны к определенному расследованию.
+* **Общие** — доступны всем пользователям во всех расследованиях.
 
 ## Открытие панели шаблонов {#open-templates-panel}
 
@@ -20,11 +20,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте расследование.
-  1. Нажмите **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.title_xK9v2 }}** в правой части экрана.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.ycdr.query-data-panel.tab-templates_tPl3Q }}**.
+  1. Нажмите **Данные для запроса** в правой части экрана.
+  1. Перейдите на вкладку **Шаблоны**.
 
 {% endlist %}
 
@@ -36,7 +36,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Выберите категорию в селекторе.
@@ -50,7 +50,7 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Введите поисковый запрос в поле поиска.
@@ -66,12 +66,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Найдите нужный шаблон.
   1. Нажмите на шаблон.
-  1. Выберите **{{ ui-key.yacloud_org.security.siem.action_insert_into_query_kR3x1 }}**.
+  1. Выберите **Вставить в запрос**.
 
   Текст шаблона будет добавлен в редактор запросов.
 
@@ -83,12 +83,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Найдите нужный шаблон.
   1. Нажмите на шаблон.
-  1. Выберите **{{ ui-key.yacloud_org.security.siem.action_new_query_from_template_pL7m2 }}**.
+  1. Выберите **Новый запрос по шаблону**.
 
   Будет создана новая вкладка с запросом на основе шаблона.
 
@@ -100,15 +100,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте запрос, который хотите сохранить.
   1. В меню действий выберите **Сохранить как шаблон**.
   1. Введите название шаблона.
   1. Выберите папку для сохранения:
-     * **{{ ui-key.yacloud_org.security.siem.my_8uT22 }}** — для личного использования;
-     * **{{ ui-key.yacloud_org.security.siem.template_type_local_77J2t }}** — для всех пользователей инстанса.
-  1. Нажмите **{{ ui-key.yacloud_org.security.siem.title_ap766 }}**.
+     * **Мои** — для личного использования;
+     * **Инстанс** — для всех пользователей инстанса.
+  1. Нажмите **Сохранить запрос как шаблон**.
 
 {% endlist %}
 
@@ -118,11 +118,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
-  1. Перейдите в категорию **{{ ui-key.yacloud_org.security.siem.my_8uT22 }}** или **{{ ui-key.yacloud_org.security.siem.template_type_local_77J2t }}**.
-  1. Нажмите **{{ ui-key.yacloud_org.security.siem.action_new_folder_qmx81 }}**.
+  1. Перейдите в категорию **Мои** или **Инстанс**.
+  1. Нажмите **Новая папка**.
   1. Введите название папки.
   1. Нажмите **Создать**.
 
@@ -136,12 +136,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Найдите нужный шаблон.
   1. Нажмите правой кнопкой мыши на шаблон.
-  1. Выберите **{{ ui-key.yacloud_org.security.siem.action_rename_vN4w3 }}**.
+  1. Выберите **Переименовать**.
   1. Введите новое название.
   1. Нажмите **Сохранить**.
 
@@ -153,17 +153,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
   1. Откройте панель шаблонов.
   1. Найдите нужный шаблон.
   1. Нажмите правой кнопкой мыши на шаблон.
-  1. Выберите **{{ ui-key.yacloud_org.security.siem.action_delete_wM5k5 }}**.
+  1. Выберите **Удалить**.
   1. Подтвердите удаление.
 
   {% note info %}
 
-  Удалить можно только шаблоны из категорий **{{ ui-key.yacloud_org.security.siem.my_8uT22 }}** и **{{ ui-key.yacloud_org.security.siem.template_type_local_77J2t }}**. Общие шаблоны недоступны для удаления.
+  Удалить можно только шаблоны из категорий **Мои** и **Инстанс**. Общие шаблоны недоступны для удаления.
 
   {% endnote %}
 
@@ -171,7 +171,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/investigations.md).
-* [{#T}](../../concepts/queries.md).
-* [{#T}](manage-queries.md).
-* [{#T}](work-with-schema-datasets.md).
+* [Расследования](../../concepts/investigations.md).
+* [Запросы](../../concepts/queries.md).
+* [Управление запросами](manage-queries.md).
+* [Работа со схемой базы и датасетами](work-with-schema-datasets.md).

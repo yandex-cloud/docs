@@ -2,11 +2,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ video-name }} {#console}
+- Интерфейс Cloud Video {#console}
 
-  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
   1. Выберите канал.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud_video.presets.title_presets }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/gear-play.svg) **Шаблоны плеера**.
   1. В списке шаблонов найдите нужный шаблон. Информация о шаблоне отображается в таблице, где:
      * `Имя` — название шаблона.
      * `Идентификатор` — уникальный идентификатор шаблона.
@@ -24,7 +24,7 @@
 
 #### См. также {#see-also}
 
-* [{#T}](create.md)
-* [{#T}](update.md)
-* [{#T}](delete.md)
-* [{#T}](set-default.md)
+* [Создать шаблон плеера](create.md)
+* [Изменить или дублировать шаблон плеера](update.md)
+* [Удалить шаблон плеера](delete.md)
+* [Назначить шаблон плеера по умолчанию](set-default.md)

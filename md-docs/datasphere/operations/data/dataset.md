@@ -6,7 +6,7 @@
 
 {% endnote %}
 
-Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`.
+Для работы с большими объемами данных в DataSphere используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`.
 
 ## Создать и инициализировать датасет {#create}
 
@@ -34,7 +34,7 @@
 
 ### Наполнить датасет файлами из хранилища проекта или подключенного объектного хранилища {#from-files}
 
-Этот способ также подойдет для создания датасета с данными из бакета [{{ objstorage-full-name }}](../../../storage/index.md) или другого объектного хранилища, подключенного к хранилищу проекта с помощью [коннектора S3](connect-to-s3.md).
+Этот способ также подойдет для создания датасета с данными из бакета [Yandex Object Storage](../../../storage/index.md) или другого объектного хранилища, подключенного к хранилищу проекта с помощью [коннектора S3](connect-to-s3.md).
 
 {% list tabs group=programming_language %}
 
@@ -105,9 +105,9 @@
 
 {% list tabs %}
 
-- {{ objstorage-short-name }}
+- Object Storage
 
-  Если вы подключаетесь к бакету {{ objstorage-name }} с помощью коннектора S3, создайте датасет из объектов как из [локальных файлов](#from-files) проекта.
+  Если вы подключаетесь к бакету Object Storage с помощью коннектора S3, создайте датасет из объектов как из [локальных файлов](#from-files) проекта.
 
   ```python
   #pragma dataset init <имя_датасета> --size 1Gb
@@ -124,7 +124,7 @@
   source_path = ''
   target_path = '/home/jupyter/datasets/<имя_датасета>/'
 
-  s3r = boto3.resource(service_name='s3', endpoint_url='https://{{ s3-storage-host }}', **S3_CREDS)
+  s3r = boto3.resource(service_name='s3', endpoint_url='https://storage.yandexcloud.net', **S3_CREDS)
   bucket = s3r.Bucket(bucket_name)
 
   for obj in bucket.objects.filter(Prefix=source_path):
@@ -164,7 +164,7 @@
   zipfile.extractall(path=dist_path)
   ```
 
-  Где `<ссылка_на_каталог_на_Яндекс_Диске>` — ссылка для доступа к каталогу на Яндекс Диске, содержимое которого нужно загрузить в {{ ml-platform-name }}.
+  Где `<ссылка_на_каталог_на_Яндекс_Диске>` — ссылка для доступа к каталогу на Яндекс Диске, содержимое которого нужно загрузить в DataSphere.
 
 - Google Drive
 
@@ -197,13 +197,13 @@
 
 Чтобы активировать датасет:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/console-icons/layers.svg)**Датасет**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Активировать**.
 
 ## Посмотреть список датасетов, доступных в проекте {#list}
 
-На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+На странице проекта в блоке **Ресурсы проекта** выберите ![dataset](../../../_assets/console-icons/layers.svg) **Датасет**. Затем перейдите на вкладку **Доступные**.
 
 ## Поделиться датасетом {#share}
 
@@ -213,19 +213,19 @@
 
 {% endnote %}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. В блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **Датасет**.
 1. Выберите нужный датасет в списке.
-1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.access }}**.
+1. Перейдите на вкладку **Доступ**.
 1. Включите опцию видимости напротив названия сообщества, с которым нужно поделиться датасетом.
 
-Чтобы датасет стал доступен для работы в другом проекте, необходимо [добавить](../projects/use-shared-resource.md) его на вкладке **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+Чтобы датасет стал доступен для работы в другом проекте, необходимо [добавить](../projects/use-shared-resource.md) его на вкладке **Доступные**.
 
 ## Деактивировать датасет {#deactivate}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.deactivate }}**.
+1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+1. На странице проекта в блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **Датасет**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Деактивировать**.
 
 ## Удалить датасет {#delete}
 
@@ -237,8 +237,8 @@
 
 Чтобы удалить датасет:
 
-1. На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. На странице проекта в блоке **Ресурсы проекта** нажмите ![dataset](../../../_assets/console-icons/layers.svg) **Датасет**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
 {% note warning %}
 

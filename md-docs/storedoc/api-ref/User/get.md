@@ -6,7 +6,7 @@ To get the list of available MongoDB User resources, make a [List](../../../mana
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

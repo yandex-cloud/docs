@@ -5,7 +5,7 @@ Disables the specified registry.
 ## HTTP request
 
 ```
-POST https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}:disable
+POST https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}:disable
 ```
 
 ## Path parameters

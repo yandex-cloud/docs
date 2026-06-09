@@ -1,15 +1,15 @@
-# Диапазоны публичных IP-адресов {{ yandex-cloud }}
+# Диапазоны публичных IP-адресов Yandex Cloud
 
-Для ресурсов в сетях {{ yandex-cloud }} используются два типа публичных IP-адресов:
+Для ресурсов в сетях Yandex Cloud используются два типа публичных IP-адресов:
 
-* [Адреса ресурсов сервисов {{ yandex-cloud }}](#yandex-resource-ips), доступные клиентам. Например адреса виртуальных машин {{ compute-name }} и хостов баз данных.
+* [Адреса ресурсов сервисов Yandex Cloud](#yandex-resource-ips), доступные клиентам. Например адреса виртуальных машин Compute Cloud и хостов баз данных.
 
-* [Адреса, которые используются {{ yandex-cloud }} для работы сервисов](#yandex-cloud-ips), например для записи [аудитных логов](../../audit-trails/concepts/format.md) в сервисе {{ at-name }}.
+* [Адреса, которые используются Yandex Cloud для работы сервисов](#yandex-cloud-ips), например для записи [аудитных логов](../../audit-trails/concepts/format.md) в сервисе Audit Trails.
 
 
-## Адреса ресурсов сервисов {{ yandex-cloud }}, доступные клиентам {#yandex-resource-ips}
+## Адреса ресурсов сервисов Yandex Cloud, доступные клиентам {#yandex-resource-ips}
 
-### {{ vpc-name }}
+### Virtual Private Cloud
 
 
 | IPv4               |
@@ -51,13 +51,13 @@
 
 Примеры ресурсов, которым назначаются вышеуказанные диапазоны адресов:
 
-* Виртуальные машины {{ compute-name }};
+* Виртуальные машины Compute Cloud;
 * Хосты баз данных;
 * NAT-инстансы;
-* Балансировщики нагрузки {{ network-load-balancer-name }} и {{ alb-name }}.
+* Балансировщики нагрузки Network Load Balancer и Application Load Balancer.
 
 
-### {{ baremetal-name }}
+### BareMetal
 
 | IPv4               |
 |--------------------|
@@ -69,17 +69,17 @@
 | `185.216.194.0/23` |
 
 
-### {{ cdn-name }}
+### Cloud CDN
 
 
-[Список публичных IP-адресов {{ cdn-full-name }}](https://tech.cdn.yandex.net/prefixes/yc.json)
+[Список публичных IP-адресов Yandex Cloud CDN](https://tech.cdn.yandex.net/prefixes/yc.json)
 
 
 
 
-### {{ captcha-name }} {#smartcaptcha-ips}
+### SmartCaptcha {#smartcaptcha-ips}
 
-Для корректной работы с сервисом {{ captcha-name }} необходимо разрешить доступ к следующим IP-адресам:
+Для корректной работы с сервисом SmartCaptcha необходимо разрешить доступ к следующим IP-адресам:
 
 | IPv4             | IPv6                      |
 | ---------------- | ------------------------- |
@@ -90,9 +90,9 @@
 Эти адреса нельзя назначить пользовательским ресурсам. Они нужны только для корректной работы запроса к API, отправленного на `/validate`.
 
 
-### {{ sws-name }} {#sws-ips}
+### Smart Web Security {#sws-ips}
 
-Для корректной работы с сервисом {{ sws-name }} необходимо разрешить доступ к следующим IP-адресам:
+Для корректной работы с сервисом Smart Web Security необходимо разрешить доступ к следующим IP-адресам:
 
 | IPv4              |
 | ----------------- |
@@ -102,11 +102,11 @@
 Доступ к этим адресам требуется для прохождения трафика от [прокси-сервера](../../smartwebsecurity/concepts/domain-protect.md#proxy) SWS к целевым ресурсам.
 
 
-### {{ sd-name }} {#security-deck-ips}
+### Security Deck {#security-deck-ips}
 
-#### {{ dspm-name }} {#dspm}
+#### DSPM {#dspm}
 
-Для корректной работы модуля {{ dspm-name }} при контроле доступа к бакетам {{ objstorage-name }} с помощью [политик](../../storage/security/policy.md#conditional-writes-policy) необходимо разрешить доступ к указанным IP-адресам в настройках политик:
+Для корректной работы модуля DSPM при контроле доступа к бакетам Object Storage с помощью [политик](../../storage/security/policy.md#conditional-writes-policy) необходимо разрешить доступ к указанным IP-адресам в настройках политик:
 
 | IPv6                                    |
 |-----------------------------------------|
@@ -115,9 +115,9 @@
 | `2a02:6b8:c41:1300:0:f898::/112`        |
 
 
-## Адреса, используемые {{ yandex-cloud }} для работы сервисов {#yandex-cloud-ips}
+## Адреса, используемые Yandex Cloud для работы сервисов {#yandex-cloud-ips}
 
-Ресурсам, которые обеспечивают работу {{ yandex-cloud }}, назначаются следующие диапазоны адресов:
+Ресурсам, которые обеспечивают работу Yandex Cloud, назначаются следующие диапазоны адресов:
 
 
 | IPv6               |
@@ -132,5 +132,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../smartcaptcha/concepts/ips.md)
-* [Диапазоны IP-адресов, используемых Яндексом]({{ link-yandex }}/ips)
+* [Публичные IP-адреса сервиса SmartCaptcha](../../smartcaptcha/concepts/ips.md)
+* [Диапазоны IP-адресов, используемых Яндексом](https://yandex.ru/ips)

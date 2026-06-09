@@ -1,4 +1,4 @@
-# Сопоставление {{ sf-name }} с другими сервисами {{ yandex-cloud }}
+# Сопоставление Cloud Functions с другими сервисами Yandex Cloud
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**
 --- | --- | --- | --- | ---

@@ -5,7 +5,7 @@ Returns the specified scan policy.
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/scanPolicies/{scanPolicyId}
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/scanPolicies/{scanPolicyId}
 ```
 
 ## Path parameters

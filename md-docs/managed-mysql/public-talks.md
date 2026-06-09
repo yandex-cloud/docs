@@ -1,28 +1,28 @@
-# Публичные материалы о {{ mmy-full-name }}
+# Публичные материалы о Yandex Managed Service for MySQL®
 
 ## Конференции и вебинары {#conf-and-webinars}
 
 ### 2026: Статьи {#article-2026}
 
-* Битрикс, WordPress и Ghost CMS: как {{ MY }} помогает со скоростью, стабильностью и ростом.
+* Битрикс, WordPress и Ghost CMS: как MySQL® помогает со скоростью, стабильностью и ростом.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/mysql-cloud-apps).
 
 ### 2025: Статьи {#article-2025}
 
-* Прирост производительности управляемых сервисов по работе с данными {{ yandex-cloud }}. 
+* Прирост производительности управляемых сервисов по работе с данными Yandex Cloud. 
 
   * [Текст статьи](https://yandex.cloud/ru/blog/performance-gains).
 
-*  {{ MY }}: фундамент для управления базами данных и аналитики.
+*  MySQL®: фундамент для управления базами данных и аналитики.
 
    * [Текст статьи](https://yandex.cloud/ru/blog/mysql-overview).
 
-* {{ MY }}: что это за система и какую версию выбрать.
+* MySQL®: что это за система и какую версию выбрать.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/posts/2025/05/mysql).
 
-### 2022: {{ yandex-cloud }} {#yc-2022}
+### 2022: Yandex Cloud {#yc-2022}
 
 * Про людей. Жизнь SRE в облаке.
 
@@ -52,19 +52,19 @@
 
   * [Запись трансляции](https://highload.ru/moscow/2019/abstracts/5981).
 
-### 2019: {{ yandex-cloud }} {#yc-2019}
+### 2019: Yandex Cloud {#yc-2019}
 
-* Что нового в платформе баз данных {{ yandex-cloud }}.
+* Что нового в платформе баз данных Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=5OcUo3J4Wdc).
 
-* Внутреннее устройство платформы баз данных в {{ yandex-cloud }}.
+* Внутреннее устройство платформы баз данных в Yandex Cloud.
 
   * [Запись трансляции](https://www.youtube.com/watch?v=Cwdg425a_cw).
 
 ### 2019: Статьи {#article-2019}
 
-* Как устроены сервисы управляемых баз данных в {{ yandex-cloud }}.
+* Как устроены сервисы управляемых баз данных в Yandex Cloud.
 
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/477860/).
 

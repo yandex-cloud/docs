@@ -5,7 +5,7 @@ Updates access bindings for the specified Apache Airflow cluster.
 ## HTTP request
 
 ```
-PATCH https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

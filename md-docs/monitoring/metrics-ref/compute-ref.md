@@ -1,10 +1,10 @@
-# Метрики {{ compute-full-name }}
+# Метрики Yandex Compute Cloud
 
-В этом разделе описаны метрики сервиса [{{ compute-name }}](../../compute/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Compute Cloud](../../compute/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса {{ compute-name }} имеют общую метку `service=compute`.
+Все метрики сервиса Compute Cloud имеют общую метку `service=compute`.
 
 {% note info %}
 
@@ -209,14 +209,14 @@
 || `network_connections.quota_utilization`
 `DGAUGE`, %
 |
-Утилизация [квоты]({{ link-console-quotas }}) на количество сетевых соединений ВМ от 0% до 100%.
+Утилизация [квоты](https://console.yandex.cloud/cloud?section=quotas) на количество сетевых соединений ВМ от 0% до 100%.
 Метки:
 - *resource_id* — имя или идентификатор ВМ.
 - *resource_type* — тип ресурса. Единственное значение — `vm`. ||
 || `network_connections.interface_quota_utilization`
 `DGAUGE`, %
 |
-Утилизация [квоты]({{ link-console-quotas }}) на количество подключений к сетевому интерфейсу ВМ от 0% до 100%.
+Утилизация [квоты](https://console.yandex.cloud/cloud?section=quotas) на количество подключений к сетевому интерфейсу ВМ от 0% до 100%.
 Метки:
 - *resource_id* — имя или идентификатор ВМ.
 - *resource_type* — тип ресурса. Единственное значение — `vm`.

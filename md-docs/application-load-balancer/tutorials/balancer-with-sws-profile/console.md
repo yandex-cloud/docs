@@ -1,6 +1,6 @@
-# Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{ sws-full-name }} с помощью консоли управления
+# Создание L7-балансировщика Application Load Balancer с профилем безопасности Yandex Smart Web Security с помощью консоли управления
 
-Чтобы создать [L7-балансировщик с профилем безопасности {{ sws-name }}](index.md) с помощью консоли управления {{ yandex-cloud }}:
+Чтобы создать [L7-балансировщик с профилем безопасности Smart Web Security](index.md) с помощью консоли управления Yandex Cloud:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте инфраструктуру](#infrastructure-prepare).
@@ -13,25 +13,25 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности {{ sws-name }} входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
-* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) (см. [тарифы {{ alb-name }}](../../pricing.md));
-* плата за запросы, обработанные правилами [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) (см. [тарифы {{ sws-full-name }}](../../../smartwebsecurity/pricing.md)).
+В стоимость поддержки инфраструктуры для L7-балансировщика с профилем безопасности Smart Web Security входят:
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
+* плата за использование вычислительных ресурсов [L7-балансировщика](../../concepts/index.md) (см. [тарифы Application Load Balancer](../../pricing.md));
+* плата за запросы, обработанные правилами [профиля безопасности](../../../smartwebsecurity/concepts/profiles.md) (см. [тарифы Yandex Smart Web Security](../../../smartwebsecurity/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
-[Разверните](../../quickstart.md) инфраструктуру {{ alb-name }}, а также ВМ с тестовым веб-сервером.
+[Разверните](../../quickstart.md) инфраструктуру Application Load Balancer, а также ВМ с тестовым веб-сервером.
 
 Создайте следующие ресурсы:
 
@@ -51,7 +51,7 @@
 
 ## Создайте профиль безопасности {#profile-create}
 
-Профиль безопасности является основным элементом сервиса {{ sws-name }} и состоит из набора правил, каждое из которых содержит условия для фильтрации входящих пользовательских запросов к защищаемому ресурсу.
+Профиль безопасности является основным элементом сервиса Smart Web Security и состоит из набора правил, каждое из которых содержит условия для фильтрации входящих пользовательских запросов к защищаемому ресурсу.
 
 Чтобы создать профиль безопасности:
 
@@ -59,15 +59,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать профиль.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать профиль.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+  1. Нажмите кнопку **Создать профиль** и выберите **По преднастроенному шаблону**.
 
       Преднастроенный профиль содержит:
       
-      * [базовое правило](../../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../../../smartwebsecurity/concepts/rules.md#rule-action) `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`;
-      * [правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) `sp-rule-1`, включенное для всего трафика, с типом действия `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`.
+      * [базовое правило](../../../smartwebsecurity/concepts/rules.md#base-rules) по умолчанию, включенное для всего трафика с [типом действия](../../../smartwebsecurity/concepts/rules.md#rule-action) `Разрешить`;
+      * [правило Smart Protection](../../../smartwebsecurity/concepts/rules.md#smart-protection-rules) `sp-rule-1`, включенное для всего трафика, с типом действия `Полная защита`.
 
       {% note tip %}
       
@@ -76,8 +76,8 @@
       {% endnote %}
 
   1. Введите имя профиля, например `test-sp1`.
-  1. В поле **{{ ui-key.yacloud.smart-web-security.form.label_default-action }}** выберите `{{ ui-key.yacloud.smart-web-security.form.label_action-deny }}`. Таким образом, если не будет задано других правил, весь трафик к защищаемому ресурсу будет запрещен.
-  1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
+  1. В поле **Действие для базового правила по умолчанию** выберите `Запретить`. Таким образом, если не будет задано других правил, весь трафик к защищаемому ресурсу будет запрещен.
+  1. Нажмите кнопку ![plus-sign](../../../_assets/console-icons/plus.svg) **Добавить правило**.
   1. В окне создания правила:
       1. Введите имя правила, например `test-rule1`.
       1. Задайте приоритет правила, например `999800`. Правило будет иметь больший приоритет, чем преднастроенные.
@@ -90,16 +90,16 @@
           
           {% endnote %}
 
-      1. Выберите тип правила — `{{ ui-key.yacloud.smart-web-security.overview.label_base-rule }}`.
-      1. Выберите действие — `{{ ui-key.yacloud.smart-web-security.overview.cell_sec-action-allow }}`.
+      1. Выберите тип правила — `Базовое`.
+      1. Выберите действие — `Разрешить`.
 
           В правиле будут описаны условия, при которых запросы будут направлены к бэкенду тестового приложения.
-      1. В поле **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** выберите {{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}.
+      1. В поле **Условия** выберите IP.
       1. В появившемся поле **Условия на IP** выберите опцию `Совпадает или принадлежит диапазону` и задайте публичный IP-адрес устройства, с которого вы будете отправлять запросы L7-балансировщику, например `158.160.100.200`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+      1. Нажмите кнопку **Добавить**.
         
-          В блоке **{{ ui-key.yacloud.smart-web-security.form.section_security-rules }}** в таблице появится созданное вами правило.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          В блоке **Правила безопасности** в таблице появится созданное вами правило.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -109,19 +109,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-    1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-    1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../index.md).
-    1. Нажмите кнопку ![plug](../../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-    1. В открывшемся окне нажмите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
-    1. Последовательно установите значения в полях [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../concepts/application-load-balancer.md), [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../concepts/http-router.md) и [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**](../../concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../../../smartwebsecurity/concepts/profiles.md).
+    1. Перейдите в сервис **Smart Web Security**.
+    1. На панели слева выберите ![shield-check](../../../_assets/console-icons/shield-check.svg) **Профили безопасности**.
+    1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../concepts/http-router.md#virtual-host) сервиса [Yandex Application Load Balancer](../../index.md).
+    1. Нажмите кнопку ![plug](../../../_assets/console-icons/plug-connection.svg) **Подключить к хосту**.
+    1. В открывшемся окне нажмите **Добавить ресурс** и выберите **Виртуальный хост**.
+    1. Последовательно установите значения в полях [**Балансировщик**](../../concepts/application-load-balancer.md), [**HTTP-роутер**](../../concepts/http-router.md) и [**Виртуальный хост**](../../concepts/http-router.md#virtual-host). Вы можете подключить профиль безопасности сразу к нескольким хостам.
   
-        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** и выберите **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
+        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **Добавить ресурс** и выберите **Виртуальный хост**.
       
-    1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
+    1. Нажмите кнопку **Подключить**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
   
-        В разделе ![cubes-3-overlap](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные виртуальные хосты.
+        В разделе ![cubes-3-overlap](../../../_assets/console-icons/cubes-3-overlap.svg) **Подключенные ресурсы** появятся подключенные виртуальные хосты.
 
 {% endlist %}
 
@@ -130,17 +130,17 @@
 1. Добавьте ресурсную [А-запись](../../../dns/concepts/resource-record.md#a) в публичную DNS-зону вашего домена, указав в ней значения:
 
     * `Имя записи` — адрес вашего домена, заканчивающийся на точку. Например: `example.com.` или `my.first.example.com.`.
-    * `Значение` — IP-адрес L7-балансировщика. Чтобы узнать IP-адрес, воспользуйтесь инструкцией [{#T}](../../operations/application-load-balancer-get.md).
+    * `Значение` — IP-адрес L7-балансировщика. Чтобы узнать IP-адрес, воспользуйтесь инструкцией [Получить информацию об L7-балансировщике](../../operations/application-load-balancer-get.md).
 
     Эта запись перенаправит запросы, которые будут поступать на ваш домен, на IP-адрес L7-балансировщика.
 
     {% note info %}
     
-    Если ваш домен делегирован {{ dns-full-name }}, создайте ресурсную запись по [инструкции](../../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь личным кабинетом вашего регистратора доменных имен. Если нужна помощь, обратитесь к документации регистратора или в его поддержку.
+    Если ваш домен делегирован Yandex Cloud DNS, создайте ресурсную запись по [инструкции](../../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь личным кабинетом вашего регистратора доменных имен. Если нужна помощь, обратитесь к документации регистратора или в его поддержку.
     
     {% endnote %}
 
-1. В настройках вашего сервера запретите все соединения и разрешите только соединения для [IP-адресов {{ yandex-cloud }}](../../../overview/concepts/public-ips.md).
+1. В настройках вашего сервера запретите все соединения и разрешите только соединения для [IP-адресов Yandex Cloud](../../../overview/concepts/public-ips.md).
 
 ## Протестируйте работу профиля безопасности {#test}
 
@@ -170,8 +170,8 @@
 1. [Удалите](../../operations/backend-group-delete.md) группу бэкендов.
 1. [Удалите](../../operations/target-group-delete.md) целевую группу.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ.
-1. [Удалите](../../../dns/operations/zone-delete.md) зону DNS, если вы создавали ее в {{ dns-full-name }}.
+1. [Удалите](../../../dns/operations/zone-delete.md) зону DNS, если вы создавали ее в Yandex Cloud DNS.
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Создание L7-балансировщика Application Load Balancer с профилем безопасности Smart Web Security с помощью Terraform](terraform.md)

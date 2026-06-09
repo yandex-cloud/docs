@@ -1,4 +1,4 @@
-# Загрузить Python-пакет в локальный реестр {{ cloud-registry-name }}
+# Загрузить Python-пакет в локальный реестр Cloud Registry
 
 Инструкция описывает, как загрузить [Python-пакет](../../concepts/artifacts/python.md) в [локальный реестр](../../concepts/registry.md#local-registry).
 
@@ -30,7 +30,7 @@
       index-servers = cloud-registry
 
       [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
+      repository = https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
       username = iam
       password = <IAM-токен>
       ```
@@ -47,7 +47,7 @@
       Результат:
 
       ```text
-      Uploading distributions to https://{{ cloud-registry }}/pypi/e5o6a2blpkb6********/legacy/
+      Uploading distributions to https://registry.yandexcloud.net/pypi/e5o6a2blpkb6********/legacy/
       Uploading my_package-0.0.1-py3-none-any.whl
       100% ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 kB • 00:00 • ?
       Uploading my_package-0.0.1.tar.gz
@@ -61,7 +61,7 @@
   1. Настройте репозиторий для публикации:
 
       ```bash
-      poetry config repositories.cloud-registry https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
+      poetry config repositories.cloud-registry https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/
       ```
 
   1. Настройте аутентификацию:
@@ -110,7 +110,7 @@
 
       ```toml
       [publish]
-      url = "https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/"
+      url = "https://registry.yandexcloud.net/pypi/<идентификатор_реестра>/legacy/"
       username = "iam"
       password = "<IAM-токен>"
       ```
@@ -135,6 +135,6 @@
 
 #### См. также {#see-also}
 
-* [{#T}](create.md)
-* [{#T}](pull.md)
-* [{#T}](examples.md)
+* [Создать Python-пакет](create.md)
+* [Скачать Python-пакет из реестра Cloud Registry](pull.md)
+* [Примеры работы с PyPI-реестрами](examples.md)

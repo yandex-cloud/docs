@@ -5,7 +5,7 @@ Retrieves the list of API gateways in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways
+GET https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways
 ```
 
 ## Query parameters {#yandex.cloud.serverless.apigateway.v1.ListApiGatewayRequest}

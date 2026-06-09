@@ -1,58 +1,58 @@
-# Изменение кластера {{ metastore-full-name }}
+# Изменение кластера Apache Hive™ Metastore
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно изменить кластер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
-  1. В строке с нужным кластером нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно изменить кластер.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
+  1. В строке с нужным кластером нажмите на значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Редактировать**.
+  1. В блоке **Базовые параметры**:
   
         1. Измените имя и описание кластера.
-        1. Удалите или добавьте новые [метки {{ yandex-cloud }}](../../../resource-manager/concepts/labels.md).
-        1. Выберите другой [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый с ролью `{{ roles.metastore.integrationProvider }}`.
-        1. Измените версию {{ metastore-name }}.
+        1. Удалите или добавьте новые [метки Yandex Cloud](../../../resource-manager/concepts/labels.md).
+        1. Выберите другой [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или создайте новый с ролью `managed-metastore.integrationProvider`.
+        1. Измените версию Apache Hive™ Metastore.
 
             Доступны версии 3.1 и 4.0.
             
             {% note warning %}
             
-            Для интеграции кластера {{ metastore-name }} с сервисами [{{ mtr-full-name }}](../../../managed-trino/index.md) и [{{ msp-full-name }}](../../../managed-spark/index.md) требуется версия {{ metastore.integration-version }}.
+            Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
             
             При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
             
             {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
-  1. В блоке **{{ ui-key.yacloud.metastore.label_resource-preset }}** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
-  1. В блоке **{{ ui-key.yacloud.logging.label_title }}** включите или выключите запись логов. Если логирование включено:
+  1. В блоке **Сетевые настройки** выберите другую [группу безопасности](configure-security-group.md) или создайте новую.
+  1. В блоке **Metastore** измените [конфигурацию кластера](../../concepts/metastore.md#presets).
+  1. В блоке **Логирование** включите или выключите запись логов. Если логирование включено:
       * Укажите, в какую лог-группу или каталог будут записываться логи.
       * Выберите минимальный уровень логирования. 
       
       Подробнее читайте в разделе [Передача логов кластера](logging.md).
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите или выключите защиту кластера от удаления.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **Дополнительные настройки** включите или выключите защиту кластера от удаления.
+  1. Нажмите кнопку **Редактировать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить настройки кластера {{ metastore-name }}:
+  Чтобы изменить настройки кластера Apache Hive™ Metastore:
 
   1. Посмотрите описание команды CLI для изменения кластера:
  
       ```bash
-      {{ yc-metastore }} cluster update --help
+      yc managed-metastore cluster update --help
       ```
 
   1. Передайте список настроек, которые хотите изменить, в команде изменения кластера:
 
       ```bash
-      {{ yc-metastore }} cluster update <имя_или_идентификатор_кластера> \
+      yc managed-metastore cluster update <имя_или_идентификатор_кластера> \
          --new-name <имя_кластера> \
          --description <описание_кластера> \
          --labels <список_меток> \
@@ -75,13 +75,13 @@
       * `--description` — описание кластера.
       * `--labels` — список [меток](../../../resource-manager/concepts/labels.md). Метки задаются в формате `<ключ>=<значение>`.
       * `--service-account-id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
-      * `--version` — версия {{ metastore-name }}.
+      * `--version` — версия Apache Hive™ Metastore.
       
         Доступны версии 3.1 и 4.0.
         
         {% note warning %}
         
-        Для интеграции кластера {{ metastore-name }} с сервисами [{{ mtr-full-name }}](../../../managed-trino/index.md) и [{{ msp-full-name }}](../../../managed-spark/index.md) требуется версия {{ metastore.integration-version }}.
+        Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
         
         При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
         
@@ -101,7 +101,7 @@
       * `--deletion-protection` — включает защиту кластера от непреднамеренного удаления.
       * Параметры логирования:
       
-          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ metastore-name }}, будут отправляться в {{ cloud-logging-full-name }}.
+          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами Apache Hive™ Metastore, будут отправляться в Yandex Cloud Logging.
           * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../../logging/concepts/log-group.md) по умолчанию для этого каталога.
           * `--log-group-id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
       
@@ -166,13 +166,13 @@
         * `description` — описание кластера.
         * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
-        * `version` — версия {{ metastore-name }}.
+        * `version` — версия Apache Hive™ Metastore.
         
           Доступны версии 3.1 и 4.0.
           
           {% note warning %}
           
-          Для интеграции кластера {{ metastore-name }} с сервисами [{{ mtr-full-name }}](../../../managed-trino/index.md) и [{{ msp-full-name }}](../../../managed-spark/index.md) требуется версия {{ metastore.integration-version }}.
+          Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
           
           При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
           
@@ -182,7 +182,7 @@
         * `serviceAccountId` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
         * `logging` — параметры логирования:
         
-          * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ metastore-name }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+          * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Apache Hive™ Metastore, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
           * `folderId` — идентификатор каталога. Логи будут записываться в [лог-группу](../../../logging/concepts/log-group.md) по умолчанию для этого каталога.
           * `logGroupId` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
         
@@ -201,13 +201,13 @@
               * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
               * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-    1. Воспользуйтесь методом [Cluster.Update](../../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-metastore }}/managed-metastore/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/<идентификатор_кластера>' \
             --data '@body.json'
         ```
 
@@ -295,13 +295,13 @@
           * `description` — описание кластера.
           * `labels` — список меток. Метки задаются в формате `"<ключ>": "<значение>"`.
           * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
-          * `version` — версия {{ metastore-name }}.
+          * `version` — версия Apache Hive™ Metastore.
           
             Доступны версии 3.1 и 4.0.
             
             {% note warning %}
             
-            Для интеграции кластера {{ metastore-name }} с сервисами [{{ mtr-full-name }}](../../../managed-trino/index.md) и [{{ msp-full-name }}](../../../managed-spark/index.md) требуется версия {{ metastore.integration-version }}.
+            Для интеграции кластера Apache Hive™ Metastore с сервисами [Yandex Managed Service for Trino](../../../managed-trino/index.md) и [Yandex Managed Service for Apache Spark™](../../../managed-spark/index.md) требуется версия 3.1.
             
             При необходимости версию 3.1 можно повысить до 4.0, но понизить версию 4.0 до 3.1 невозможно.
             
@@ -311,7 +311,7 @@
           * `service_account_id` — идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
           * `logging` — параметры логирования:
           
-            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами {{ metastore-name }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
+            * `enabled` — позволяет включить логирование. Логи, сгенерированные компонентами Apache Hive™ Metastore, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `log_group_id` — идентификатор пользовательской лог-группы. Логи будут записываться в нее.
           
@@ -330,7 +330,7 @@
                 * `day` — день недели в формате `DDD`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`;
                 * `hour` — час дня по UTC в формате `HH`: от `1` до `24`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -340,7 +340,7 @@
             -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
             -rpc-header "Authorization: Bearer $IAM_TOKEN" \
             -d @ \
-            {{ api-host-metastore }}:{{ port-https }} \
+            metastore.api.cloud.yandex.net:443 \
             yandex.cloud.metastore.v1.ClusterService.Update \
             < body.json
         ```

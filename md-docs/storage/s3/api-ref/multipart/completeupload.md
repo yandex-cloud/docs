@@ -2,12 +2,12 @@
 
 Запрос завершает составную загрузку.
 
-При получении запроса {{ objstorage-name }}:
+При получении запроса Object Storage:
 
 - Собирает конечный объект из полученных в процессе загрузки частей в порядке их номеров
 - Удаляет идентификатор загрузки, так что все последующие запросы с идентификатором загрузки вернут ошибку `NoSuchUpload`.
 
-При завершении загрузки клиент должен предоставить список частей, которые он отправлял. Описание каждой части должно содержать `ETag`, который клиент получает в ответ на каждую загруженную часть. Смотрите раздел [{#T}](uploadpart.md).
+При завершении загрузки клиент должен предоставить список частей, которые он отправлял. Описание каждой части должно содержать `ETag`, который клиент получает в ответ на каждую загруженную часть. Смотрите раздел [Object Storage API, REST совместимый с Amazon S3: UploadPart](uploadpart.md).
 
 В зависимости от размера объекта и количества частей операция может занять несколько минут.
 
@@ -33,7 +33,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 Параметр | Описание
 ----- | -----
-`uploadId` | Идентификатор составной загрузки, который {{ objstorage-name }} вернул при [инициализации](startupload.md).
+`uploadId` | Идентификатор составной загрузки, который Object Storage вернул при [инициализации](startupload.md).
 
 
 ### Заголовки {#request-headers}
@@ -64,7 +64,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 `CompleteMultipartUpload` | Данные запроса.<br/><br/>Путь: `/CompleteMultipartUpload`.
 `Part` | Данные о загруженной части объекта.<br/><br/>Путь: `/CompleteMultipartUpload/Part`.
 `PartNumber` | Номер части.<br/><br/>Уникальный идентификатор, определяющий положение части среди других частей в загрузке.<br/><br/>Путь: `/CompleteMultipartUpload/Part/PartNumber`.
-`ETag` | Идентификатор, который клиент получил от {{ objstorage-name }} в ответ на загрузку части.<br/><br/>Путь: `/CompleteMultipartUpload/Part/ETag`.
+`ETag` | Идентификатор, который клиент получил от Object Storage в ответ на загрузку части.<br/><br/>Путь: `/CompleteMultipartUpload/Part/ETag`.
 
 ## Ответ {#response}
 
@@ -74,9 +74,9 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
-Дополнительно, {{ objstorage-name }} может вернуть ошибки, описанные в таблице ниже.
+Дополнительно, Object Storage может вернуть ошибки, описанные в таблице ниже.
 
 Ошибка | Описание | HTTP-код
 ----- | ----- | -----
@@ -91,7 +91,7 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 ```xml
 <CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
-  <Location>http://Example-Bucket.{{ s3-storage-host }}/Example-Object</Location>
+  <Location>http://Example-Bucket.storage.yandexcloud.net/Example-Object</Location>
   <Bucket>Example-Bucket</Bucket>
   <Key>Example-Object</Key>
   <ETag>"3858f62230ac3c915f300c664312c11f-9"</ETag>
@@ -108,13 +108,13 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/multipart.md)
+* [Составная (multipart) загрузка](../../../concepts/multipart.md)
 
 * [Завершение составной загрузки с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

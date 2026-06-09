@@ -1,9 +1,9 @@
-# Миграция базы данных из {{ MY }} в {{ CH }} с помощью {{ data-transfer-full-name }}
+# Миграция базы данных из MySQL® в ClickHouse® с помощью Yandex Data Transfer
 
-# Асинхронная репликация данных из {{ mmy-name }} в {{ mch-name }} с помощью {{ data-transfer-full-name }}
+# Асинхронная репликация данных из Managed Service for MySQL® в Managed Service for ClickHouse® с помощью Yandex Data Transfer
 
 
-С помощью сервиса {{ data-transfer-name }} вы можете перенести базу данных из кластера-источника {{ MY }} в {{ CH }}.
+С помощью сервиса Data Transfer вы можете перенести базу данных из кластера-источника MySQL® в ClickHouse®.
 
 Чтобы перенести данные:
 
@@ -11,27 +11,27 @@
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
-1. [Выполните выборку данных в {{ CH }}](#working-with-data-ch).
+1. [Выполните выборку данных в ClickHouse®](#working-with-data-ch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../pricing.md)).
-* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../pricing.md)).
+* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#prepare-infrastructure}
@@ -42,28 +42,28 @@
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
-    1. [Создайте кластер-источник {{ mmy-name }}](../operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
+    1. [Создайте кластер-источник Managed Service for MySQL®](../operations/cluster-create.md) любой подходящей конфигурации. Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к кластеру при его создании.
 
-    1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+    1. [Создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
-        * Количество хостов {{ CH }} — не меньше 2 (для включения репликации в кластере).
+        * Количество хостов ClickHouse® — не меньше 2 (для включения репликации в кластере).
         * Имя базы данных — такое же, как на кластере-источнике.
-        * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ к кластеру при его создании.
+        * Для подключения к кластеру с локальной машины пользователя, а не из облачной сети Yandex Cloud, включите публичный доступ к кластеру при его создании.
 
     
     1. Если вы используете группы безопасности в кластерах, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-        * [{{ mmy-name }}](../operations/connect/index.md#configuring-security-groups).
-        * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
+        * [Managed Service for MySQL®](../operations/connect/index.md#configuring-security-groups).
+        * [Managed Service for ClickHouse®](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -74,33 +74,33 @@
 
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсети](../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру {{ mmy-name }};
-        * кластер-источник {{ mmy-name }};
-        * кластер-приемник {{ mch-name }};
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правило, необходимое для подключения к кластеру Managed Service for MySQL®;
+        * кластер-источник Managed Service for MySQL®;
+        * кластер-приемник Managed Service for ClickHouse®;
         * эндпоинт для источника;
         * эндпоинт для приемника;
         * трансфер.
 
     1. Укажите в файле `data-transfer-mmy-mch.tf`:
 
-        * параметры кластера-источника {{ mmy-name }}, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
+        * параметры кластера-источника Managed Service for MySQL®, которые будут использоваться как [параметры эндпоинта-источника](../../data-transfer/operations/endpoint/target/mysql.md#managed-service):
 
-            * `source_mysql_version` — версия {{ MY }};
-            * `source_db_name` — имя базы данных {{ MY }};
+            * `source_mysql_version` — версия MySQL®;
+            * `source_db_name` — имя базы данных MySQL®;
             * `source_user` и `source_password` — имя и пароль пользователя-владельца базы данных.
 
-        * параметры кластера-приемника {{ mch-name }}, которые будут использоваться как [параметры эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
+        * параметры кластера-приемника Managed Service for ClickHouse®, которые будут использоваться как [параметры эндпоинта-приемника](../../data-transfer/operations/endpoint/target/clickhouse.md#managed-service):
 
-            * `target_db_name` — имя базы данных {{ CH }};
+            * `target_db_name` — имя базы данных ClickHouse®;
             * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -122,7 +122,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -130,7 +130,7 @@
 
 1. Если вы создавали инфраструктуру вручную, [подготовьте кластер-источник](../../data-transfer/operations/prepare.md#source-my).
 
-1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../operations/connect/index.md).
+1. [Подключитесь к кластеру-источнику Managed Service for MySQL®](../operations/connect/index.md).
 
 1. Наполните базу тестовыми данными.
 
@@ -164,32 +164,32 @@
 
     1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ MY }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **Тип базы данных** — `MySQL®`.
+        * **Параметры эндпоинта** → **Настройки подключения** — `Кластер Managed Service for MySQL`.
 
             Выберите кластер-источник из списка и укажите настройки подключения к нему.
 
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
+        * **Тип базы данных** — `ClickHouse`.
+        * **Параметры эндпоинта** → **Настройки подключения** — `Managed кластер`.
 
             Выберите кластер-приемник из списка и укажите настройки подключения к нему.
 
-    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
     1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. Укажите в файле `data-transfer-mmy-mch.tf` для переменной `transfer_enabled` значение `1`.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -217,16 +217,16 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
+1. Дождитесь перехода трансфера в статус **Реплицируется**.
 
-1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из кластера-источника {{ mmy-name }}:
+1. Убедитесь, что в базу данных Managed Service for ClickHouse® перенеслись данные из кластера-источника Managed Service for MySQL®:
 
     1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
     1. Выполните запрос:
 
         ```sql
-        SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab
+        SELECT * FROM <имя_базы_данных_ClickHouse®>.x_tab
         ```
 
         Результат:
@@ -243,9 +243,9 @@
 
         Таблица также содержит [столбцы с временными метками](#working-with-data-ch) `__data_transfer_commit_time` и `__data_transfer_delete_time`.
 
-1. Удалите строку с `id` `41` и измените с `id` `42` в таблице `x_tab` базы-источника {{ MY }}:
+1. Удалите строку с `id` `41` и измените с `id` `42` в таблице `x_tab` базы-источника MySQL®:
 
-    1. [Подключитесь к кластеру-источнику {{ mmy-name }}](../operations/connect/index.md).
+    1. [Подключитесь к кластеру-источнику Managed Service for MySQL®](../operations/connect/index.md).
 
     1. Выполните запросы:
 
@@ -254,10 +254,10 @@
         UPDATE x_tab SET name = 'Key3' WHERE id = 42;
         ```
 
-1. Убедитесь, что в таблице `x_tab` на приемнике {{ CH }} отобразились изменения:
+1. Убедитесь, что в таблице `x_tab` на приемнике ClickHouse® отобразились изменения:
 
     ```sql
-    SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab WHERE id in (41,42);
+    SELECT * FROM <имя_базы_данных_ClickHouse®>.x_tab WHERE id in (41,42);
     ```
 
     Результат:
@@ -275,26 +275,26 @@
     └────┴──────┴─────────────────────────────┴─────────────────────────────┘
     ```
 
-## Выполните выборку данных в {{ CH }} {#working-with-data-ch}
+## Выполните выборку данных в ClickHouse® {#working-with-data-ch}
 
-На приемнике {{ CH }} с включенной [репликацией](../../managed-clickhouse/concepts/replication.md) для воссоздания таблиц используются движки [ReplicatedReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) и [ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree). В каждую таблицу автоматически добавляются столбцы:
+На приемнике ClickHouse® с включенной [репликацией](../../managed-clickhouse/concepts/replication.md) для воссоздания таблиц используются движки [ReplicatedReplacingMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication) и [ReplacingMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replacingmergetree). В каждую таблицу автоматически добавляются столбцы:
 
 * `__data_transfer_commit_time` — время изменения строки на это значение, в формате `TIMESTAMP`;
 * `__data_transfer_delete_time` — время удаления строки в формате `TIMESTAMP`, если строка удалена в источнике. Если строка не удалялась, то устанавливается значение `0`.
 
     Столбец `__data_transfer_commit_time` необходим для работы движка ReplicatedReplacedMergeTree. Если запись удаляется или изменяется, в таблицу вставляется новая строка со значением в этом столбце. Запрос по одному первичному ключу возвращает несколько записей с разными значениями в столбце `__data_transfer_commit_time`.
 
-В статусе трансфера **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в {{ CH }} конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
+В статусе трансфера **Реплицируется** данные в источнике могут добавляться или удаляться. Чтобы обеспечить стандартное поведение команд SQL, когда первичный ключ указывает на единственную запись, дополните запросы к перенесенным таблицам в ClickHouse® конструкцией с фильтром по столбцу `__data_transfer_delete_time`. Например, для таблицы `x_tab`:
 
 ```sql
-SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab FINAL
+SELECT * FROM <имя_базы_данных_ClickHouse®>.x_tab FINAL
 WHERE __data_transfer_delete_time = 0;
 ```
 
 Для упрощения запросов `SELECT` создайте представление с фильтром по столбцу `__data_transfer_delete_time` и обращайтесь к нему. Например, для таблицы `x_tab`:
 
 ```sql
-CREATE VIEW x_tab_view AS SELECT * FROM <имя_базы_данных_{{ CH }}>.x_tab FINAL
+CREATE VIEW x_tab_view AS SELECT * FROM <имя_базы_данных_ClickHouse®>.x_tab FINAL
 WHERE __data_transfer_delete_time == 0;
 ```
 
@@ -314,16 +314,16 @@ WHERE __data_transfer_delete_time == 0;
 
     1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
     1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-    1. [Удалите кластер {{ mmy-name }}](../operations/cluster-delete.md).
-    1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for MySQL®](../operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -337,8 +337,8 @@ WHERE __data_transfer_delete_time == 0;
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -2,13 +2,13 @@
 
 Метод | Описание
 ----- | -----
-[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
-[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
-[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в Object Storage.
+[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из Object Storage.
+[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из Object Storage.
 
 #### См. также {#see-also}
 
-* [{#T}](../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)
 

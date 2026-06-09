@@ -1,13 +1,13 @@
-# Хранение подключений и переменных {{ AF }} в {{ lockbox-full-name }}
+# Хранение подключений и переменных Apache Airflow™ в Yandex Lockbox
 
-При работе с {{ maf-full-name }} вы можете использовать [{{ lockbox-full-name }}](../../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. {{ lockbox-name }} интегрируется в {{ maf-short-name }} через провайдер [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
+При работе с Yandex Managed Service for Apache Airflow™ вы можете использовать [Yandex Lockbox](../../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Yandex Lockbox интегрируется в Managed Service for Apache Airflow™ через провайдер [Yandex Lockbox Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
 
-Ниже рассматривается [направленный ациклический граф (DAG)](../../../managed-airflow/concepts/index.md#about-the-service), выполняющий SQL-запрос `SELECT 1;` к БД в кластере {{ mpg-full-name }}. Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
+Ниже рассматривается [направленный ациклический граф (DAG)](../../../managed-airflow/concepts/index.md#about-the-service), выполняющий SQL-запрос `SELECT 1;` к БД в кластере Yandex Managed Service for PostgreSQL. Данные для подключения к БД хранятся в Yandex Lockbox и автоматически подставляются в граф.
 
-Чтобы использовать конфигурационные данные из секрета {{ lockbox-name }} в графе:
+Чтобы использовать конфигурационные данные из секрета Yandex Lockbox в графе:
 
 1. [Подготовьте инфраструктуру](#create-infrastracture).
-1. [Создайте секрет {{ lockbox-name }}](#create-lockbox-secret).
+1. [Создайте секрет Yandex Lockbox](#create-lockbox-secret).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
 1. [Проверьте результат](#check-result).
 
@@ -18,73 +18,73 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mpg-name }}: вычислительные ресурсы и дисковое пространство (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Плата за кластер {{ maf-name }}: вычислительные ресурсы и дисковое пространство (см. [тарифы {{ AF }}](../../../managed-airflow/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Плата за использование секрета {{ lockbox-name }}: (см. [тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Плата за кластер Managed Service for PostgreSQL: вычислительные ресурсы и дисковое пространство (см. [тарифы Managed Service for PostgreSQL](../../../managed-postgresql/pricing.md)).
+* Плата за кластер Managed Service for Apache Airflow™: вычислительные ресурсы и дисковое пространство (см. [тарифы Apache Airflow™](../../../managed-airflow/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../../storage/pricing.md)).
+* Плата за использование секрета Yandex Lockbox: (см. [тарифы Yandex Lockbox](../../../lockbox/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastracture}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
-   * `{{ roles.maf.integrationProvider }}`;
+   * `managed-airflow.integrationProvider`;
    * `lockbox.payloadViewer`.
 
    {% note info }
 
-   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
+   Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
    {% endnote %}
 
-1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с произвольными настройками.
+1. [Создайте бакет Object Storage](../../../storage/operations/buckets/create.md) с произвольными настройками.
 
 1. [Отредактируйте ACL](../../../storage/operations/buckets/edit-acl.md) созданного бакета так, чтобы у сервисного аккаунта `airflow-sa` было разрешение `READ`.
 
-1. [Создайте кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
+1. [Создайте кластер Managed Service for Apache Airflow™](../../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
 
    * **Сервисный аккаунт** — `airflow-sa`;
    * **Имя бакета** — имя созданного бакета.
-   * **{{ ui-key.yacloud.airflow.field_lockbox }}** — убедитесь, что эта опция включена.
+   * **Использовать Lockbox Secret Backend** — убедитесь, что эта опция включена.
 
-1. [Создайте кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-create.md#create-cluster) с параметрами:
+1. [Создайте кластер Managed Service for PostgreSQL](../../../managed-postgresql/operations/cluster-create.md#create-cluster) с параметрами:
 
    * **Имя БД** — `db1`;
    * **Имя пользователя** — `user1`;
    * **Пароль** — `user1-password`.
 
-## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
+## Создайте секрет Yandex Lockbox {#create-lockbox-secret}
 
-Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+Для корректной работы кластера Apache Airflow™ секрет в Yandex Lockbox должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
 
    * `<тип_артефакта>` — тип артефакта, который будет храниться в секрете. Доступны следующие типы:
      * `connections` — подключения;
      * `variables` — переменные;
      * `config` — данные конфигурации.
-   * `<идентификатор_артефакта>` — идентификатор, который будет использован для обращения к артефакту в {{ AF }}.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использован для обращения к артефакту в Apache Airflow™.
 
-[Создайте секрет {{ lockbox-name }}](../../../lockbox/operations/secret-create.md) с параметрами:
+[Создайте секрет Yandex Lockbox](../../../lockbox/operations/secret-create.md) с параметрами:
 
-   * **{{ ui-key.yacloud.common.name }}** — `airflow/connections/pg`.
-   * **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `airflow/connections/pg`.
-   * **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — выберите **{{ ui-key.yacloud.lockbox.SecretVersionsInputs.value_payload-entry-value-type-text }}** и укажите следующее содержимое:
+   * **Имя** — `airflow/connections/pg`.
+   * **Тип секрета** — `Пользовательский`.
+   * **Ключ** — `airflow/connections/pg`.
+   * **Значение** — выберите **Текст** и укажите следующее содержимое:
 
       ```json
       {
         "conn_type": "postgres",
-        "host": "<FQDN_хоста_кластера_{{ PG }}>",
-        "port": {{ port-mpg }},
+        "host": "<FQDN_хоста_кластера_PostgreSQL>",
+        "port": 6432,
         "schema": "db1",
         "login": "user1",
         "password": "user1-password"
       }
       ```
 
-В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
+В секрете будут сохранены данные для подключения к БД в кластере Managed Service for PostgreSQL.
 
-Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в [документации](../../../managed-postgresql/operations/connect/index.md#fqdn).
+Подробнее о том, как узнать FQDN хоста кластера PostgreSQL, см. в [документации](../../../managed-postgresql/operations/connect/index.md#fqdn).
 
 ## Подготовьте DAG-файл и запустите граф {#dag}
 
@@ -108,9 +108,9 @@
      )
    ```
 
-1. Загрузите DAG-файл `test_lockbox_connection.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
+1. Загрузите DAG-файл `test_lockbox_connection.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе Apache Airflow™ автоматически.
 
-1. [Откройте веб-интерфейс {{ AF }}](../../../managed-airflow/operations/af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс Apache Airflow™](../../../managed-airflow/operations/af-interfaces.md#web-gui).
 
 1. Убедитесь, что в разделе **DAGs** появился новый граф `test_lockbox_connection`.
 
@@ -120,7 +120,7 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе {{ AF }}:
+Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
 
 1. В разделе **DAGs** откройте граф `test_lockbox_connection`.
 1. Перейдите в раздел **Graph**.
@@ -133,7 +133,7 @@
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
 1. [Сервисный аккаунт](../../../iam/operations/sa/delete.md).
-1. [Бакет {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
-1. [Секрет {{ lockbox-name }}](../../../lockbox/operations/secret-delete.md).
-1. [Кластер {{ maf-name }}](../../../managed-airflow/operations/cluster-delete.md#delete).
-1. [Кластер {{ mpg-name }}](../../../managed-postgresql/operations/cluster-delete.md#delete).
+1. [Бакет Object Storage](../../../storage/operations/buckets/delete.md).
+1. [Секрет Yandex Lockbox](../../../lockbox/operations/secret-delete.md).
+1. [Кластер Managed Service for Apache Airflow™](../../../managed-airflow/operations/cluster-delete.md#delete).
+1. [Кластер Managed Service for PostgreSQL](../../../managed-postgresql/operations/cluster-delete.md#delete).

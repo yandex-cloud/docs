@@ -8,7 +8,7 @@ Use [PayloadService.Get](../Payload/get.md#Get) to get the payload (confidential
 ## HTTP request
 
 ```
-GET https://{{ api-host-lockbox }}/lockbox/v1/secrets/{secretId}
+GET https://lockbox.api.cloud.yandex.net/lockbox/v1/secrets/{secretId}
 ```
 
 ## Path parameters

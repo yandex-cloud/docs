@@ -5,18 +5,18 @@
 * базовые атрибуты и настройки группы — имя, описание, [метки](../../../resource-manager/concepts/labels.md), [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и защита от удаления;
 * [шаблон ВМ](instance-template.md) и использующиеся в нем [переменные](variables-in-the-template.md);
 * политики [распределения](policies/allocation-policy.md), [развертывания](policies/deploy-policy.md), [масштабирования](policies/scale-policy.md) и [восстановления](policies/healing-policy.md);
-* настройки балансировки трафика между ВМ с помощью [{{ network-load-balancer-full-name }}](../../../network-load-balancer/index.md) или [{{ alb-full-name }}](../../../application-load-balancer/index.md).
+* настройки балансировки трафика между ВМ с помощью [Yandex Network Load Balancer](../../../network-load-balancer/index.md) или [Yandex Application Load Balancer](../../../application-load-balancer/index.md).
 
 {% note info %}
 
-Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`]({{ tf-provider-resources-link }}/compute_instance_group).
+Также группу ВМ можно создать с помощью [Terraform](https://terraform.io) по описанию, схожему со спецификацией в формате YAML. Подробнее см. в [руководстве по началу работы с Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md), [инструкции по созданию группы ВМ](../../operations/instance-groups/create-fixed-group.md) и [справочнике ресурса `yandex_compute_instance_group`](../../../terraform/resources/compute_instance_group.md).
 
 {% endnote %}
 
 
 ## Пример {#example}
 
-По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди {{ message-queue-full-name }}](../../tutorials/autoscale-monitoring.md):
+По следующей спецификации можно создать автоматически масштабируемую группу ВМ, как в [сценарии обработки сообщений из очереди Yandex Message Queue](../../tutorials/autoscale-monitoring.md):
 
 ```yaml
 folder_id: b1gken0eihqn********
@@ -80,7 +80,7 @@ auto_healing_policy:
   auto_healing_action: RESTART
 allocation_policy:
   zones:
-    - zone_id: {{ region-id }}-a
+    - zone_id: ru-central1-a
 service_account_id: ajefnb8427bh********
 ```
 
@@ -97,14 +97,14 @@ service_account_id: ajefnb8427bh********
 
 Некоторые поля первого уровня и вложенные в них поля также описаны на русском языке в разделах документации:
 
-* [{#T}](instance-template.md) (поле `instance_template`).
-* [{#T}](variables-in-the-template.md) (поля `instance_template` и `variables`).
-* [{#T}](policies/allocation-policy.md) (поле `allocation_policy`).
-* [{#T}](policies/deploy-policy.md) (поле `deploy_policy`).
-* [{#T}](policies/scale-policy.md) (поле `scale_policy`).
-* [{#T}](policies/healing-policy.md) (поле `auto_healing_policy`).
-* [{#T}](autohealing.md) (поле `health_checks_spec`).
-* [{#T}](balancers.md) (поля `load_balancer_spec` и `application_load_balancer_spec`).
+* [Шаблон виртуальной машины](instance-template.md) (поле `instance_template`).
+* [Переменные в шаблоне виртуальной машины](variables-in-the-template.md) (поля `instance_template` и `variables`).
+* [Политика распределения](policies/allocation-policy.md) (поле `allocation_policy`).
+* [Политика развертывания](policies/deploy-policy.md) (поле `deploy_policy`).
+* [Политика масштабирования](policies/scale-policy.md) (поле `scale_policy`).
+* [Политика восстановления](policies/healing-policy.md) (поле `auto_healing_policy`).
+* [Проверки и автоматическое восстановление виртуальных машин в группе](autohealing.md) (поле `health_checks_spec`).
+* [Интеграция группы ВМ с Network Load Balancer или Application Load Balancer](balancers.md) (поля `load_balancer_spec` и `application_load_balancer_spec`).
 
 Эти разделы обновляются вручную. Они могут быть менее актуальными, чем справочники API и спецификация на GitHub.
 
@@ -249,9 +249,9 @@ service_account_id: ajefnb8427bh********
 
 Создать группу виртуальных машин по YAML-спецификации можно через интерфейс командной строки (CLI) или API. Подробнее см. в инструкциях:
 
-* [{#T}](../../operations/instance-groups/create-from-yaml.md)
-* [{#T}](../../operations/instance-groups/update-from-yaml.md)
+* [Создать группу виртуальных машин по спецификации в формате YAML](../../operations/instance-groups/create-from-yaml.md)
+* [Изменить группу виртуальных машин по спецификации в формате YAML](../../operations/instance-groups/update-from-yaml.md)
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/vm-autoscale/index.md)
+* [Работа с группой виртуальных машин с автоматическим масштабированием](../../tutorials/vm-autoscale/index.md)

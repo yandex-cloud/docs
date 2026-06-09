@@ -1,13 +1,13 @@
 # Настройка Delta Lake в однокластерном режиме
 
-{{ dataproc-name }} версии 2.0 и выше поддерживает использование Delta Lake в однокластерном режиме.
+Yandex Data Processing версии 2.0 и выше поддерживает использование Delta Lake в однокластерном режиме.
 
-Подробную информацию о Delta Lake читайте в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
+Подробную информацию о Delta Lake читайте в разделе [Delta Lake в Yandex Data Processing](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 
 {% note info %}
 
-Delta Lake не является частью сервиса {{ dataproc-name }} и не сопровождается командой разработки и службой поддержки {{ yandex-cloud }}, а его использование не входит в [условия использования {{ dataproc-full-name }}]({{ link-cloud-terms-of-use }}).
+Delta Lake не является частью сервиса Yandex Data Processing и не сопровождается командой разработки и службой поддержки Yandex Cloud, а его использование не входит в [условия использования Yandex Data Processing](https://yandex.ru/legal/cloud_termsofuse/?lang=ru).
 
 {% endnote %}
 
@@ -22,13 +22,13 @@ Delta Lake не является частью сервиса {{ dataproc-name }}
 
 ## Подготовьте инфраструктуру {#prereq}
 
-1. Если у вас нет кластера {{ dataproc-name }}, [создайте его](../cluster-create.md).
-1. Если для хранения данных вы подключили к кластеру [бакет {{ objstorage-full-name }}](../../../storage/concepts/bucket.md):
+1. Если у вас нет кластера Yandex Data Processing, [создайте его](../cluster-create.md).
+1. Если для хранения данных вы подключили к кластеру [бакет Yandex Object Storage](../../../storage/concepts/bucket.md):
 
     1. Создайте в бакете каталог c именем `warehouse`.
     1. [Установите свойство](../../concepts/settings-list.md#change-properties) `spark.sql.warehouse.dir` в значение `s3a://<имя_бакета>/warehouse/`.
 
-1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) {{ metastore-full-name }} и [подключите](../../../metadata-hub/operations/metastore/data-processing-connect.md) его к кластеру {{ dataproc-name }}.
+1. [Создайте кластер](../../../metadata-hub/operations/metastore/cluster-create.md) Apache Hive™ Metastore и [подключите](../../../metadata-hub/operations/metastore/data-processing-connect.md) его к кластеру Yandex Data Processing.
 
 ## Настройте свойства компонентов для работы с Delta Lake {#settings}
 
@@ -37,15 +37,15 @@ Delta Lake не является частью сервиса {{ dataproc-name }}
     * `spark.sql.extensions` в значение `io.delta.sql.DeltaSparkSessionExtension`;
     * `spark.sql.catalog.spark_catalog` в значение `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
 
-1. Добавьте библиотеки Delta Lake в зависимости кластера или отдельного задания (нужные версии библиотек [зависят от версии {{ dataproc-name }}](../../concepts/deltalake.md#compatibility)):
+1. Добавьте библиотеки Delta Lake в зависимости кластера или отдельного задания (нужные версии библиотек [зависят от версии Yandex Data Processing](../../concepts/deltalake.md#compatibility)):
 
     {% list tabs %}
 
-    - {{ dataproc-name }} 2.0.x
+    - Yandex Data Processing 2.0.x
 
         Воспользуйтесь одним из способов:
 
-        * Скачайте файл библиотеки [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar), сохраните его в бакет {{ objstorage-name }} и передайте URL файла в свойстве `spark.jars`:
+        * Скачайте файл библиотеки [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar), сохраните его в бакет Object Storage и передайте URL файла в свойстве `spark.jars`:
 
             `spark.jars=s3a://<имя_бакета>/<путь_к_файлу>`
 
@@ -60,11 +60,11 @@ Delta Lake не является частью сервиса {{ dataproc-name }}
 
         * Скачайте файл библиотеки [delta-core_2.12-0.8.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/0.8.0/delta-core_2.12-0.8.0.jar), скопируйте его на все узлы кластера вручную или с помощью [скриптов инициализации](../../concepts/init-action.md) и передайте полный путь к файлу в свойствах `spark.driver.extraClassPath` и `spark.executor.extraClassPath`.
 
-    - {{ dataproc-name }} 2.1.0 или 2.1.3
+    - Yandex Data Processing 2.1.0 или 2.1.3
 
         Воспользуйтесь одним из способов:
 
-        * Скачайте файлы библиотек [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar) и [delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar), сохраните их в бакет {{ objstorage-name }} и передайте URL файлов через запятую в свойстве `spark.jars`:
+        * Скачайте файлы библиотек [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar) и [delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar), сохраните их в бакет Object Storage и передайте URL файлов через запятую в свойстве `spark.jars`:
 
             `spark.jars=s3a://<имя_бакета>/<путь_к_файлу_core>,s3a://<имя_бакета>/<путь_к_файлу_storage>`
 
@@ -79,11 +79,11 @@ Delta Lake не является частью сервиса {{ dataproc-name }}
 
         * Скачайте файлы библиотек [delta-core_2.12-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.0.2/delta-core_2.12-2.0.2.jar) и [delta-storage-2.0.2.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.0.2/delta-storage-2.0.2.jar), скопируйте их на все узлы кластера вручную или с помощью [скриптов инициализации](../../concepts/init-action.md) и передайте полный путь к файлам в свойствах `spark.driver.extraClassPath` и `spark.executor.extraClassPath`.
 
-    - {{ dataproc-name }} 2.1.4 и выше
+    - Yandex Data Processing 2.1.4 и выше
 
         Воспользуйтесь одним из способов:
 
-        * Скачайте файлы библиотек [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar) и [delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar), сохраните их в бакет {{ objstorage-name }} и передайте URL файлов через запятую в свойстве `spark.jars`:
+        * Скачайте файлы библиотек [delta-core_2.12-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-core_2.12/2.3.0/delta-core_2.12-2.3.0.jar) и [delta-storage-2.3.0.jar](https://repo1.maven.org/maven2/io/delta/delta-storage/2.3.0/delta-storage-2.3.0.jar), сохраните их в бакет Object Storage и передайте URL файлов через запятую в свойстве `spark.jars`:
 
             `spark.jars=s3a://<имя_бакета>/<путь_к_файлу core>,s3a://<имя_бакета>/<путь_к_файлу_storage>`
 
@@ -100,15 +100,15 @@ Delta Lake не является частью сервиса {{ dataproc-name }}
 
     {% endlist %}
 
-Теперь вы можете использовать Delta Lake в кластере {{ dataproc-name }}.
+Теперь вы можете использовать Delta Lake в кластере Yandex Data Processing.
 
 Если перечисленные свойства Spark переданы на уровне кластера, то для работы с таблицами Delta Lake можно использовать [Spark Thrift Server](../../concepts/settings-list.md#spark-thrift-server).
 
 ## Пример использования Delta Lake {#example}
 
-Пример проверялся в кластере {{ dataproc-name }} версии 2.0 с доступом к репозиторию Maven Central.
+Пример проверялся в кластере Yandex Data Processing версии 2.0 с доступом к репозиторию Maven Central.
 
-1. [Подключитесь по SSH](../connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](../connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
 
 1. Запустите в кластере сессию Spark, передав необходимые параметры:
 

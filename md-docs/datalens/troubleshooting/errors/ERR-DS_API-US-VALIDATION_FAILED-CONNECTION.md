@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Invalid connection ID
+# [Yandex DataLens] Invalid connection ID
 
 `ERR.DS_API.US.VALIDATION_FAILED.CONNECTION`
 

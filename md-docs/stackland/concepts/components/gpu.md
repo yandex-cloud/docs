@@ -1,8 +1,8 @@
-# {{ gpu-operator }}
+# «Поддержка NVIDIA® GPU»
 
-{{ stackland-name }} позволяет использовать GPU {{ nvidia }} в кластере {{ stackland-name }} с помощью компонента {{ gpu-operator }}. Компонент автоматизирует управление GPU-ресурсами и обеспечивает их доступность для рабочих нагрузок. Компонент основан на [{{ nvidia }} GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) и включает набор инструментов для полноценной работы с GPU в Kubernetes.
+Stackland позволяет использовать GPU NVIDIA® в кластере Stackland с помощью компонента «Поддержка NVIDIA® GPU». Компонент автоматизирует управление GPU-ресурсами и обеспечивает их доступность для рабочих нагрузок. Компонент основан на [NVIDIA® GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/overview.html) и включает набор инструментов для полноценной работы с GPU в Kubernetes.
 
-{{ gpu-operator }} решает следующие задачи:
+«Поддержка NVIDIA® GPU» решает следующие задачи:
 
 * Автоматическое обнаружение GPU на узлах кластера.
 * Предоставление GPU как ресурсов Kubernetes для подов.
@@ -10,37 +10,37 @@
 * Поддержка создания кластеров GPU c помощью NVLink.
 * Мониторинг состояния и сбор метрик GPU.
 
-Для работы {{ gpu-operator }} необходимы узлы с GPU {{ nvidia }}.
+Для работы «Поддержка NVIDIA® GPU» необходимы узлы с GPU NVIDIA®.
 
 ## Основные компоненты {#components}
 
-### Драйвер {{ nvidia }} {#nvidia-driver}
+### Драйвер NVIDIA® {#nvidia-driver}
 
 Версия: 580.126
 
-Драйвер {{ nvidia }} обеспечивает низкоуровневый интерфейс между операционной системой и GPU. Драйвер предоставляет доступ к аппаратным возможностям GPU, управляет памятью устройства и обрабатывает команды от приложений.
+Драйвер NVIDIA® обеспечивает низкоуровневый интерфейс между операционной системой и GPU. Драйвер предоставляет доступ к аппаратным возможностям GPU, управляет памятью устройства и обрабатывает команды от приложений.
 
-### {{ nvidia }} Container Toolkit {#nvidia-container-toolkit}
-
-Версия: 580.126
-
-{{ nvidia }} Container Toolkit позволяет запускать контейнеры c GPU-ускорением. Toolkit интегрируется с container runtime и обеспечивает доступ GPU к контейнерам через Container Device Interface (CDI). Компонент автоматически настраивает окружение контейнера, монтирует необходимые библиотеки и устройства, а также управляет изоляцией GPU-ресурсов между контейнерами.
-
-### {{ nvidia }} Fabric Manager {#nvidia-fabric-manager}
+### NVIDIA® Container Toolkit {#nvidia-container-toolkit}
 
 Версия: 580.126
 
-{{ nvidia }} Fabric Manager управляет NVLink и NVSwitch в системах с несколькими GPU. Компонент обеспечивает высокоскоростное межсоединение между GPU, оптимизирует топологию связей и управляет распределенной памятью в multi-GPU конфигурациях.
+NVIDIA® Container Toolkit позволяет запускать контейнеры c GPU-ускорением. Toolkit интегрируется с container runtime и обеспечивает доступ GPU к контейнерам через Container Device Interface (CDI). Компонент автоматически настраивает окружение контейнера, монтирует необходимые библиотеки и устройства, а также управляет изоляцией GPU-ресурсов между контейнерами.
 
-### {{ nvidia }} Operator {#nvidia-operator}
+### NVIDIA® Fabric Manager {#nvidia-fabric-manager}
+
+Версия: 580.126
+
+NVIDIA® Fabric Manager управляет NVLink и NVSwitch в системах с несколькими GPU. Компонент обеспечивает высокоскоростное межсоединение между GPU, оптимизирует топологию связей и управляет распределенной памятью в multi-GPU конфигурациях.
+
+### NVIDIA® Operator {#nvidia-operator}
 
 Версия: 25.10
 
-{{ nvidia }} {{ gpu-operator }} автоматизирует управление GPU в кластере Kubernetes. Оператор создает, настраивает и управляет компонентами, необходимыми для работы GPU, включая драйверы, библиотеки, плагины устройств и системы мониторинга. Оператор обеспечивает управление жизненным циклом GPU-компонентов через CRD.
+NVIDIA® «Поддержка NVIDIA® GPU» автоматизирует управление GPU в кластере Kubernetes. Оператор создает, настраивает и управляет компонентами, необходимыми для работы GPU, включая драйверы, библиотеки, плагины устройств и системы мониторинга. Оператор обеспечивает управление жизненным циклом GPU-компонентов через CRD.
 
 ### DCGM {#dcgm}
 
-{{ nvidia }} Data Center GPU Manager (DCGM) — инструмент для мониторинга и управления GPU в дата-центрах. DCGM собирает метрики производительности, температуры, утилизации памяти и другие характеристики GPU.
+NVIDIA® Data Center GPU Manager (DCGM) — инструмент для мониторинга и управления GPU в дата-центрах. DCGM собирает метрики производительности, температуры, утилизации памяти и другие характеристики GPU.
 
 ### DCGM Exporter {#dcgm-exporter}
 
@@ -48,11 +48,11 @@ DCGM Exporter экспортирует метрики GPU в формате Prom
 
 ## Мониторинг GPU {#monitoring}
 
-Метрики GPU автоматически собираются DCGM Exporter и доступны в Grafana. {{ stackland-name }} предоставляет готовые дашборды для мониторинга GPU:
+Метрики GPU автоматически собираются DCGM Exporter и доступны в Grafana. Stackland предоставляет готовые дашборды для мониторинга GPU:
 
-* [{{ nvidia }} DCGM Dashboard](../cluster-monitoring/nvidia-dcgm-monitoring.md) — общий дашборд с метриками всех GPU в кластере.
-* [{{ nvidia }} DCGM Dashboard with MIG metrics](../cluster-monitoring/nvidia-dcgm-mig-monitoring.md) — дашборд для мониторинга GPU с MIG.
-* [{{ nvidia }} DCGM Dashboard w/o MIG metrics](../cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md) — дашборд для мониторинга GPU без MIG.
+* [NVIDIA® DCGM Dashboard](../cluster-monitoring/nvidia-dcgm-monitoring.md) — общий дашборд с метриками всех GPU в кластере.
+* [NVIDIA® DCGM Dashboard with MIG metrics](../cluster-monitoring/nvidia-dcgm-mig-monitoring.md) — дашборд для мониторинга GPU с MIG.
+* [NVIDIA® DCGM Dashboard w/o MIG metrics](../cluster-monitoring/nvidia-dcgm-no-mig-monitoring.md) — дашборд для мониторинга GPU без MIG.
 
 ## Использование GPU в подах {#usage}
 

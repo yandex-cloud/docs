@@ -5,7 +5,7 @@ Get origin in origin group.
 ## HTTP request
 
 ```
-GET https://cdn.{{ api-host }}/cdn/v1/origins/{originId}
+GET https://cdn.api.cloud.yandex.net/cdn/v1/origins/{originId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Returns the specified resource preset.
 ## HTTP request
 
 ```
-GET https://ydb.{{ api-host }}/ydb/v1/resourcePresets/{resourcePresetId}
+GET https://ydb.api.cloud.yandex.net/ydb/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

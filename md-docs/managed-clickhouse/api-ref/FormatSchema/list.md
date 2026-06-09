@@ -5,7 +5,7 @@ Returns a list of format schemas in a cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
 
 ## Path parameters

@@ -1,6 +1,6 @@
-# Вычисляемые выражения в конфигурации продукта {{ cloud-apps-name }}
+# Вычисляемые выражения в конфигурации продукта Cloud Apps
 
-При [настройке](../operations/create-configuration.md#configure) конфигурации продукта {{ cloud-apps-name }} в строковых значениях атрибутов ресурсов пользователи могут использовать _вычисляемые выражения_. Такие выражения позволяют динамически формировать значение атрибута на основе вычислений, входных параметров и значений других атрибутов.
+При [настройке](../operations/create-configuration.md#configure) конфигурации продукта Cloud Apps в строковых значениях атрибутов ресурсов пользователи могут использовать _вычисляемые выражения_. Такие выражения позволяют динамически формировать значение атрибута на основе вычислений, входных параметров и значений других атрибутов.
 
 ## Базовый синтаксис {#basic-syntax}
 
@@ -180,10 +180,10 @@ deployment_package: "not_var{{ artifact.application_archive }}"
 
 ### Атрибуты приложения {#app-attributes}
 
-Доступ к системным атрибутам текущего приложения (экземпляра продукта {{ cloud-apps-name }}):
+Доступ к системным атрибутам текущего приложения (экземпляра продукта Cloud Apps):
 
 * `application.id` — уникальный идентификатор приложения;
-* `application.folderId` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) {{ yandex-cloud }};
+* `application.folderId` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) Yandex Cloud;
 * `application.serviceAccountId` — идентификатор [сервисного аккаунта](../../iam/concepts/users/service-accounts.md).
 
 ```yaml
@@ -195,7 +195,7 @@ service_account: "not_var{{ application.serviceAccountId }}"
 
 ### Цепочки доступа {#hierarchy-chains}
 
-Для сложных структур данных используются цепочки доступа. Имена переменных пишутся в [snake_case](https://{{ lang }}.wikipedia.org/wiki/Snake_case) и формируются из названий полей. Например: `Folder Id` → `folder_id`.
+Для сложных структур данных используются цепочки доступа. Имена переменных пишутся в [snake_case](https://ru.wikipedia.org/wiki/Snake_case) и формируются из названий полей. Например: `Folder Id` → `folder_id`.
 
 Для доступа к атрибутам ресурса или вложенного объекта используется запись через точку:
 
@@ -258,7 +258,7 @@ positive_value: "not_var{{ input.offset | abs }}"
 
 ### base64decode {base64-decode}
 
-Декодирование из [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+Декодирование из [Base64](https://ru.wikipedia.org/wiki/Base64):
 
 ```yaml
 decoded_data: "not_var{{ input.encoded_config | base64decode }}"
@@ -266,7 +266,7 @@ decoded_data: "not_var{{ input.encoded_config | base64decode }}"
 
 ### base64encode {#base64-encode}
 
-Кодирование строки в [Base64](https://{{ lang }}.wikipedia.org/wiki/Base64):
+Кодирование строки в [Base64](https://ru.wikipedia.org/wiki/Base64):
 
 ```yaml
 encoded_data: "not_var{{ input.user_data | base64encode }}"
@@ -286,8 +286,8 @@ label: "not_var{{ input.type | capitalize }}"
 Значение по умолчанию:
 
 ```yaml
-region: "{{ input.region | default('{{ region-id }}-a') }}"
-# Если input.region не заполнен или null, будет использовано '{{ region-id }}-a'
+region: "{{ input.region | default('ru-central1-a') }}"
+# Если input.region не заполнен или null, будет использовано 'ru-central1-a'
 ```
 
 ### ident {#ident}
@@ -378,7 +378,7 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
 
 ## Особенности использования {#usage-specifics}
 
-При использовании выражений в именах ресурсов необходимо явно добавлять уникальный идентификатор продукта {{ cloud-apps-name }}. Это позволит установить в один [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) пользователя одновременно несколько приложений, не рискуя спровоцировать конфликт в именах ресурсов.
+При использовании выражений в именах ресурсов необходимо явно добавлять уникальный идентификатор продукта Cloud Apps. Это позволит установить в один [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) пользователя одновременно несколько приложений, не рискуя спровоцировать конфликт в именах ресурсов.
 
 ```yaml
   - type: resource.yandex_compute_instance
@@ -482,7 +482,7 @@ final_name: "{{ input.custom_name | default('default-app') | upper }}"
 ```yaml
 # Всегда задавайте разумные значения по умолчанию для полей с необязательными значениями
 instance_type: "{{ input.instance_type | default('s3-c4-m8') }}"
-region: "{{ input.region | default('{{ region-id }}-a') }}"
+region: "{{ input.region | default('ru-central1-a') }}"
 ```
 
 ### Валидация значений {#value-validation}

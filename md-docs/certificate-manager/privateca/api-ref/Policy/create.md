@@ -8,7 +8,7 @@ For example, you can specify allowed or disallowed key usages, extensions, and s
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies
+POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.CreatePolicyRequest}

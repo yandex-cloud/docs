@@ -2,7 +2,7 @@
 
 {% note info %}
 
-Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку]({{ link-console-support }}).
+Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 {% endnote %}
 
@@ -31,7 +31,7 @@ SELECT projection [ AS column_alias | column_alias ] [, ...]
 
 ## FROM {#from-clause}
 
-Источник данных для `SELECT`. В качестве аргумента принимает имя объекта {{ objstorage-name }}.
+Источник данных для `SELECT`. В качестве аргумента принимает имя объекта Object Storage.
 
 Синтаксис:
 
@@ -319,6 +319,6 @@ SELECT s.CAST FROM S3Object s
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/server-logs.md)
-* [{#T}](../tutorials/user-agent-statistics.md)
-* [{#T}](../tutorials/billing-resource-detailing.md)
+* [Получение статистики запросов к объекту с использованием S3 Select](../tutorials/server-logs.md)
+* [Получение статистики посещения сайта с использованием S3 Select](../tutorials/user-agent-statistics.md)
+* [Анализ поресурсной детализации расходов](../tutorials/billing-resource-detailing.md)

@@ -2,18 +2,18 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ## Настройка демо-приложения и передачи телеметрии {#example-app}
 
-В этом примере вы запустите приложение [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) и настроите отправку телеметрии в {{ monium-name }}.
+В этом примере вы запустите приложение [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) и настроите отправку телеметрии в Monium.
 Вы сможете собирать логи, трейсы и метрики о работе механизмов JVM (загрузка классов, потребление CPU, сборка мусора), пула соединений к базе данных и HTTP-эндпоинтов без изменения кода приложения.
 
 {% list tabs group=instructions %}
@@ -27,7 +27,7 @@
      sudo apt install -y git openjdk-25-jdk
      ```
 
-  1. Установите переменные окружения для подключения к {{ monium-name }}:
+  1. Установите переменные окружения для подключения к Monium:
 
      ```bash
      export MONIUM_API_KEY=<api_ключ>
@@ -54,7 +54,7 @@
 
      ```bash
      export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"
-     export OTEL_EXPORTER_OTLP_ENDPOINT="https://{{ api-host-monium }}:443"
+     export OTEL_EXPORTER_OTLP_ENDPOINT="https://ingest.monium.yandex.cloud:443"
      export OTEL_EXPORTER_OTLP_HEADERS="x-monium-project=${MONIUM_PROJECT},x-monium-cluster=${MONIUM_CLUSTER},authorization=Api-Key ${MONIUM_API_KEY}"
      export OTEL_SERVICE_NAME=spring-petclinic
      ```
@@ -75,17 +75,17 @@
 
 {% endlist %}
   
-## Просмотр телеметрии в {{ monium-name }} {#view-telemetry}
+## Просмотр телеметрии в Monium {#view-telemetry}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ monium-name }} {#console}
+- Интерфейс Monium {#console}
 
-  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел с нужным типом данных:
+  1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел с нужным типом данных:
 
       {% list tabs group=monium_telemetry_type %}
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }} {#metrics}
+      - Метрики {#metrics}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -96,9 +96,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -106,7 +106,7 @@
 
         Подробнее о [работе с метриками](../metrics/metric-explorer.md).
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }} {#logs}
+      - Логи {#logs}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -117,9 +117,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -127,7 +127,7 @@
 
         Подробнее о [работе с логами](../logs/logs-explorer.md).
 
-      - {{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }} {#traces}
+      - Трейсы {#traces}
 
         1. Вверху на шкале времени задайте временной промежуток поиска данных.
         1. В строке поиска введите запрос для поиска данных телеметрии:
@@ -138,9 +138,9 @@
             * `cluster = <имя_кластера>` — выберите имя инсталляции, в которой запущено ваше приложение. Если кластер не задан, то по умолчанию `cluster = default`.
             * `service = <имя_сервиса>` — имя вашего приложения или сервиса. Может передаваться в переменной окружения `OTEL_SERVICE_NAME`.
             
-              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [{#T}](troubleshooting.md).
+              Если нужных меток нет в подсказках, их можно ввести вручную. Но, скорее всего, в систему не поступали данные с такими метками. Решение возможных проблем см. в разделе [Устранение неполадок при поставке данных](troubleshooting.md).
         
-        1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}** или **{{ ui-key.yacloud_monitoring.querystring.button.apply-and-parse }}**.
+        1. Нажмите **Выполнить запрос** или **Выполнить**.
         
             На странице будут отображены данные, соответствующие запросу.
 
@@ -150,6 +150,6 @@
 
       {% endlist %}
 
-  1. Чтобы посмотреть информацию о шарде с данными, слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** и затем шард с названием вашего сервиса.
+  1. Чтобы посмотреть информацию о шарде с данными, слева выберите **Шарды** и затем шард с названием вашего сервиса.
 
 {% endlist %}

@@ -5,7 +5,7 @@ Updates the specified trigger.
 ## HTTP request
 
 ```
-PATCH https://serverless-triggers.{{ api-host }}/triggers/v1/triggers/{triggerId}
+PATCH https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers/{triggerId}
 ```
 
 ## Path parameters

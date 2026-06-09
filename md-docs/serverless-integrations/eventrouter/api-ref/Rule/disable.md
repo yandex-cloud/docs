@@ -5,7 +5,7 @@ Disables the specified rule.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/rules/{ruleId}:disable
+POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/rules/{ruleId}:disable
 ```
 
 ## Path parameters

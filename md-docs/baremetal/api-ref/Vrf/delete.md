@@ -6,7 +6,7 @@ Deleting a VRF removes its data permanently and is irreversible.
 ## HTTP request
 
 ```
-DELETE https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}
+DELETE https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs/{vrfId}
 ```
 
 ## Path parameters

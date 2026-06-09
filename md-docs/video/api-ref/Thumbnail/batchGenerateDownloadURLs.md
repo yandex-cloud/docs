@@ -7,7 +7,7 @@ This is useful for efficiently retrieving multiple thumbnails at once.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/thumbnails:batchGenerateDownloadURLs
+POST https://video.api.cloud.yandex.net/video/v1/thumbnails:batchGenerateDownloadURLs
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchGenerateDownloadURLsRequest}

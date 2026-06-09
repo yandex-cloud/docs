@@ -1,6 +1,6 @@
-# Удалить кластер {{ KF }}
+# Удалить кластер Apache Kafka®
 
-Если у вас есть кластер [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.
+Если у вас есть кластер [Apache Kafka®](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.
 
 {% list tabs group=instructions %}
 

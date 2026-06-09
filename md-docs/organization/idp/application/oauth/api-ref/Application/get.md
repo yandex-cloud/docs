@@ -6,7 +6,7 @@ To get the list of available OAuth applications, make a [List](../../mapi-ref/Ap
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}
 ```
 
 ## Path parameters

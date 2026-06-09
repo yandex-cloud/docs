@@ -5,7 +5,7 @@ Deletes the specified user.
 ## HTTP request
 
 ```
-DELETE https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users/{userId}
+DELETE https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users/{userId}
 ```
 
 ## Path parameters

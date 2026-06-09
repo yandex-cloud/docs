@@ -1,12 +1,12 @@
-# Вопросы и ответы о {{ mos-name }}
+# Вопросы и ответы о Managed Service for OpenSearch
 
-* [Как происходит обслуживание кластеров {{ OS }}?](#service-window)
+* [Как происходит обслуживание кластеров OpenSearch?](#service-window)
 
 * [Включено ли резервное копирование кластеров по умолчанию?](#default-backup)
 
-* [Какую версию {{ OS }} использует {{ mos-short-name }}?](#dbms-version)
+* [Какую версию OpenSearch использует Managed Service for OpenSearch?](#dbms-version)
 
-* [Что происходит, когда выпускается новая версия {{ OS }}?](#new-version)
+* [Что происходит, когда выпускается новая версия OpenSearch?](#new-version)
 
 * [Я могу получить логи моей работы в сервисах?](#logs)
 
@@ -25,10 +25,10 @@
 * [Почему при активации трансфера возникает ошибка?](#data-transfer-error)
 
 
-* [Как обеспечить доступ AI-моделей {{ ai-studio-full-name }} к кластеру {{ mos-name }} для дообучения?](#ai-access)
+* [Как обеспечить доступ AI-моделей Yandex AI Studio к кластеру Managed Service for OpenSearch для дообучения?](#ai-access)
 
 
-* [Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mos-short-name }}?](#services)
+* [Какую часть работы по управлению и сопровождению баз данных берет на себя Managed Service for OpenSearch?](#services)
 
 * [Какой размер блока используется на дисках кластера?](#block-size)
 
@@ -36,13 +36,13 @@
 
 ## Общие вопросы {#general}
 
-#### Как происходит обслуживание кластеров {{ OS }}? {#service-window}
+#### Как происходит обслуживание кластеров OpenSearch? {#service-window}
 
-Под обслуживанием в {{ mos-short-name }} понимается:
+Под обслуживанием в Managed Service for OpenSearch понимается:
 
-* автоматическая установка обновлений и исправлений {{ OS }} для ваших хостов;
+* автоматическая установка обновлений и исправлений OpenSearch для ваших хостов;
 * изменение класса хостов и объема хранилища;
-* другие сервисные работы {{ mos-short-name }}.
+* другие сервисные работы Managed Service for OpenSearch.
 
 Подробнее см. в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
@@ -52,19 +52,19 @@
 
 Автоматические резервные копии хранятся две недели.
 
-#### Какую версию {{ OS }} использует {{ mos-short-name }}? {#dbms-version}
+#### Какую версию OpenSearch использует Managed Service for OpenSearch? {#dbms-version}
 
-В {{ mos-short-name }} доступны версии {{ OS }}, поддерживаемые производителем. Подробнее см. в разделе [{#T}](../concepts/update-policy.md).
+В Managed Service for OpenSearch доступны версии OpenSearch, поддерживаемые производителем. Подробнее см. в разделе [Политика работы с версиями OpenSearch](../concepts/update-policy.md).
 
-#### Что происходит, когда выпускается новая версия {{ OS }}? {#new-version}
+#### Что происходит, когда выпускается новая версия OpenSearch? {#new-version}
 
-При выходе новой версии программное обеспечение кластеров [автоматически обновляется](../concepts/update-policy.md) после тестирования. Кластеры с неподдерживаемой версией {{ OS }} будут так же автоматически обновлены.
+При выходе новой версии программное обеспечение кластеров [автоматически обновляется](../concepts/update-policy.md) после тестирования. Кластеры с неподдерживаемой версией OpenSearch будут так же автоматически обновлены.
 
 На почту владельца кластеров заранее приходит уведомление о сроках проведения работ и доступности баз данных.
 
 #### Я могу получить логи моей работы в сервисах? {#logs}
 
-Да, вы можете запросить информацию о работе с вашими ресурсами из логов сервисов {{ yandex-cloud }}. Для этого обратитесь в [техническую поддержку]({{ link-console-support }}).
+Да, вы можете запросить информацию о работе с вашими ресурсами из логов сервисов Yandex Cloud. Для этого обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 #### Как долго хранятся логи? {#log-keeping}
 
@@ -72,17 +72,17 @@
 
 #### Как настроить алерт, который срабатывает при заполнении определенного процента дискового пространства? {#disk-space-percentage}
 
-[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе {{ monitoring-full-name }}. Метрика показывает размер использованного дискового пространства в кластере {{ mos-name }}.
+[Создайте алерт](../operations/monitoring.md#monitoring-integration) с метрикой `disk.used_bytes` в сервисе Yandex Monitoring. Метрика показывает размер использованного дискового пространства в кластере Managed Service for OpenSearch.
 
 Для `disk.used_bytes` используются пороги для оповещения. Их рекомендуемые значения:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — 90% дискового пространства.
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — 80% дискового пространства.
+* `Alarm` — 90% дискового пространства.
+* `Warning` — 80% дискового пространства.
 
 Значения порогов задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` — `96636764160` байтов (90%).
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}` — `85899345920` байтов (80%).
+* `Alarm` — `96636764160` байтов (90%).
+* `Warning` — `85899345920` байтов (80%).
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 
@@ -118,7 +118,7 @@ The revocation function was unable to check revocation for the certificate
 * выполните команду с параметром `--ssl-no-revoke`.
 
    ```powershell
-   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt {{ crt-web-path }}
+   mkdir $HOME\.opensearch; curl --ssl-no-revoke --output $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
 #### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
@@ -136,7 +136,7 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 * вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт;
 * вы восстанавливаете из резервной копии кластер с привязкой к сервисному аккаунту.
 
-Чтобы исправить ошибку, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+Чтобы исправить ошибку, [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 #### Почему при активации трансфера возникает ошибка `Unable to confirm permission`? {#data-transfer-error}
 
@@ -146,23 +146,23 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 Unable to confirm permission 'data-transfer.transfers.createExternal'
 ```
 
-Эта ошибка возникает, если трансфер выполняется в БД пользовательской инсталляции {{ OS }} или из нее, но в настройках эндпоинта {{ OS }} не указан идентификатор подсети.
+Эта ошибка возникает, если трансфер выполняется в БД пользовательской инсталляции OpenSearch или из нее, но в настройках эндпоинта OpenSearch не указан идентификатор подсети.
 
-Чтобы исправить ошибку, укажите в настройках эндпоинта {{ OS }} идентификатор подсети, даже если источник и приемник доступны друг для друга без интернета.
+Чтобы исправить ошибку, укажите в настройках эндпоинта OpenSearch идентификатор подсети, даже если источник и приемник доступны друг для друга без интернета.
 
 
-#### Как обеспечить доступ AI-моделей {{ ai-studio-full-name }} к кластеру {{ mos-name }} для дообучения? {#ai-access}
+#### Как обеспечить доступ AI-моделей Yandex AI Studio к кластеру Managed Service for OpenSearch для дообучения? {#ai-access}
 
 Воспользуйтесь одним из способов:
 
 * Настройте доступ из интернета к хостам с ролями `DATA` и `MANAGER`:
 
-    1. [Включите](../operations/host-groups.md#update-host-group) опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** в настройках группы хостов с ролями `DATA` и `MANAGER`.
-    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик на порт `{{ port-mos }}`. Для этого создайте следующее правило для входящего трафика:
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mos }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    1. [Включите](../operations/host-groups.md#update-host-group) опцию **Публичный доступ** в настройках группы хостов с ролями `DATA` и `MANAGER`.
+    1. [Настройте все группы безопасности](../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик на порт `9200`. Для этого создайте следующее правило для входящего трафика:
+        * **Диапазон портов** — `9200`.
+        * **Протокол** — `TCP`.
+        * **Источник** — `CIDR`.
+        * **CIDR блоки** — `0.0.0.0/0`.
 
 * Создайте и настройте NAT-шлюз:
 
@@ -170,9 +170,9 @@ Unable to confirm permission 'data-transfer.transfers.createExternal'
     1. [Создайте таблицу маршрутизации](../../vpc/operations/static-route-create.md) с префиксом `0.0.0.0/0` и привяжите ее к подсети, в которой находится группа хостов с ролями `DATA` и `MANAGER`.
 
 
-#### Какую часть работы по управлению и сопровождению баз данных берет на себя {{ mos-short-name }}? {#services}
+#### Какую часть работы по управлению и сопровождению баз данных берет на себя Managed Service for OpenSearch? {#services}
 
-При работе необходимо учитывать, что контролирует сервис, а что — клиент {{ yandex-cloud }}. Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных. Подробнее см. [{#T}](../../overview/concepts/mdb-responsibilities.md).
+При работе необходимо учитывать, что контролирует сервис, а что — клиент Yandex Cloud. Понимание этих зон контроля помогает эффективно использовать облачные ресурсы и избегать возможных проблем при работе с базами данных. Подробнее см. [Разграничение зон контроля пользователей сервисов управляемых баз данных (MDB) и Yandex Cloud](../../overview/concepts/mdb-responsibilities.md).
 
 #### Какой размер блока используется на дисках кластера? {#block-size}
 

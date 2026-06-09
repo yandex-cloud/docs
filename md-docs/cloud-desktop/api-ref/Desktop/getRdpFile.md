@@ -5,7 +5,7 @@ Returns a RDP file for the specified desktop.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:getRdpFile
 ```
 
 ## Path parameters

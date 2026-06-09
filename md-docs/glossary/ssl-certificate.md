@@ -132,18 +132,18 @@ SSL-сертификаты различаются по уровню валида
 
 ## Как приобрести SSL-сертификат для своего сайта {#setup}
 
-Защитить данные с помощью криптографического протокола можно инструментом [{{ certificate-manager-full-name }}](https://yandex.cloud/ru/services/certificate-manager/). Он предоставляет TLS-сертификаты вида Domain Validation от **Let's Encrypt** и полностью автоматизирует работу с ними. Если вам нужен сертификат вида Organization Validation или Extended Validation, то можно воспользоваться сторонним сервисом, а потом привязать его к {{ certificate-manager-name }}. Для получения пользовательского сертификата от Let's Encrypt нужно:
+Защитить данные с помощью криптографического протокола можно инструментом [Yandex Certificate Manager](https://yandex.cloud/ru/services/certificate-manager/). Он предоставляет TLS-сертификаты вида Domain Validation от **Let's Encrypt** и полностью автоматизирует работу с ними. Если вам нужен сертификат вида Organization Validation или Extended Validation, то можно воспользоваться сторонним сервисом, а потом привязать его к Certificate Manager. Для получения пользовательского сертификата от Let's Encrypt нужно:
 
 1. Указать список доменов, которые необходимо защитить.
 1. Выбрать тип проверки прав на домен: `HTTP` или `DNS`.
 1. Подтвердить свое владение доменами.
 
-Обновлять сертификат вручную не требуется. Каждые 90 дней {{ certificate-manager-name }} будет проводить процедуру самостоятельно.
+Обновлять сертификат вручную не требуется. Каждые 90 дней Certificate Manager будет проводить процедуру самостоятельно.
 
-Пользоваться {{ certificate-manager-name }} и TLS-сертификатом Let's Encrypt можно бесплатно. Подробнее в [документации](../certificate-manager/index.md).
+Пользоваться Certificate Manager и TLS-сертификатом Let's Encrypt можно бесплатно. Подробнее в [документации](../certificate-manager/index.md).
 
-## Интеграция {{ certificate-manager-name }} с другими сервисами {{ yandex-cloud }} {#cm-yc}
+## Интеграция Certificate Manager с другими сервисами Yandex Cloud {#cm-yc}
 
-* **[{{ objstorage-full-name }}](https://yandex.cloud/ru/services/storage/).** {{ certificate-manager-name }} позволяет использовать [протокол TLS](../storage/concepts/tls.md) для бакетов статического сайта. Обновление сертификата в них также происходит автоматически.
+* **[Yandex Object Storage](https://yandex.cloud/ru/services/storage/).** Certificate Manager позволяет использовать [протокол TLS](../storage/concepts/tls.md) для бакетов статического сайта. Обновление сертификата в них также происходит автоматически.
 
-* **[{{ api-gw-full-name }}](https://yandex.cloud/ru/services/api-gateway/).** Если вы используете собственный домен для работы с API, то {{ certificate-manager-name }} [обеспечит TLS-соединение](../api-gateway/operations/api-gw-domains.md) для всех микросервисов, входящих в ваш продукт.
+* **[Yandex API Gateway](https://yandex.cloud/ru/services/api-gateway/).** Если вы используете собственный домен для работы с API, то Certificate Manager [обеспечит TLS-соединение](../api-gateway/operations/api-gw-domains.md) для всех микросервисов, входящих в ваш продукт.

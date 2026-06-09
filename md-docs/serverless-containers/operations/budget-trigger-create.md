@@ -1,6 +1,6 @@
-# Создать триггер для бюджетов, который вызывает контейнер {{ serverless-containers-name }}
+# Создать триггер для бюджетов, который вызывает контейнер Serverless Containers
 
-Создайте [триггер для бюджетов](../concepts/trigger/budget-trigger.md), который будет вызывать [контейнер](../concepts/container.md) {{ serverless-containers-name }} при превышении пороговых значений.
+Создайте [триггер для бюджетов](../concepts/trigger/budget-trigger.md), который будет вызывать [контейнер](../concepts/container.md) Serverless Containers при превышении пороговых значений.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -29,36 +29,36 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. Перейдите в сервис **Serverless Containers**.
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. В блоке **Базовые параметры**:
 
        * Введите имя и описание триггера.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
-       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_container }}`.
+       * В поле **Тип** выберите `Бюджет`.
+       * В поле **Запускаемый ресурс** выберите `Контейнер`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}** выберите платежный аккаунт и бюджет. Можно выбрать **{{ ui-key.yacloud.serverless-functions.triggers.form.label_any-budget }}**.
+    1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет. Можно выбрать **Все бюджеты**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container }}** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
+    1. В блоке **Настройки контейнера** выберите его и [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого он будет вызываться.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function-retry }}**:
+    1. (Опционально) В блоке **Настройки повторных запросов**:
 
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}** укажите время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}** укажите количество повторных вызовов контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
+        * В поле **Интервал** укажите время, через которое будет сделан повторный вызов контейнера, если текущий завершился неуспешно. Допустимые значения — от 10 до 60 секунд, значение по умолчанию — 10 секунд.
+        * В поле **Количество попыток** укажите количество повторных вызовов контейнера, которые будут сделаны, прежде чем триггер отправит сообщение в Dead Letter Queue. Допустимые значения — от 1 до 5, значение по умолчанию — 1.
 
-    1. (Опционально) В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
+    1. (Опционально) В блоке **Настройки Dead Letter Queue** выберите очередь Dead Letter Queue и сервисный аккаунт с правами на запись в нее.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -108,7 +108,7 @@
             retry_attempts: "1"
             interval: 10s
           dead_letter_queue:
-            queue-id: yrn:yc:ymq:{{ region-id }}:aoek49ghmkh2********:dlq
+            queue-id: yrn:yc:ymq:ru-central1:aoek49ghmkh2********:dlq
             service-account-id: aje3932acdh2********
     status: ACTIVE
     ```
@@ -125,5 +125,5 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../../functions/operations/trigger/budget-trigger-create.md)
-* [{#T}](../../api-gateway/operations/trigger/budget-trigger-create.md)
+* [Создать триггер для бюджетов, который вызывает функцию Cloud Functions](../../functions/operations/trigger/budget-trigger-create.md)
+* [Создать триггер для бюджетов, который отправляет сообщения в WebSocket-соединения](../../api-gateway/operations/trigger/budget-trigger-create.md)

@@ -1,10 +1,10 @@
-# Метрики {{ container-registry-full-name }}
+# Метрики Yandex Container Registry
 
-В этом разделе описаны метрики сервиса [{{ container-registry-name }}](../../container-registry/index.md), поставляемые в {{ monitoring-name }}.
+В этом разделе описаны метрики сервиса [Container Registry](../../container-registry/index.md), поставляемые в Monitoring.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ container-registry-name }}:
+Общие метки для всех метрик сервиса Container Registry:
 
 Метка | Значение
 ----|----

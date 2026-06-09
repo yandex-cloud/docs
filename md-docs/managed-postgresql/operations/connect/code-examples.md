@@ -1,8 +1,8 @@
-# Примеры кода для подключения к кластеру {{ PG }}
+# Примеры кода для подключения к кластеру PostgreSQL
 
 **Примеры проверялись в следующем окружении:**
 
-* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS:
+* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS:
   * Bash: `5.0.16`.
   * Python: `3.8.2`; pip3: `20.0.2`.
   * PHP: `7.4.3`.
@@ -11,14 +11,14 @@
   * Go: `1.13.8`.
   * Ruby: `2.7.0p0`.
   * unixODBC: `2.3.6`.
-* Виртуальная машина в {{ yandex-cloud }} с Windows Server 2019 Datacenter:
+* Виртуальная машина в Yandex Cloud с Windows Server 2019 Datacenter:
   * PostgreSQL: `13`.
   * PowerShell: ` 5.1.17763.1490 Desktop`.  
   * .NET 5
   * Microsoft.EntityFrameworkCore 5.0.9
   * Npgsql.EntityFrameworkCore.PostgreSQL 5.0.7
 
-Подключиться к хостам {{ PG }} в публичном доступе можно только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](index.md#get-ssl-cert).
+Подключиться к хостам PostgreSQL в публичном доступе можно только с использованием SSL-сертификата. Перед подключением к таким хостам [подготовьте сертификат](index.md#get-ssl-cert).
 
 В примерах ниже предполагается, что SSL-сертификат `root.crt` расположен в директории:
 
@@ -29,15 +29,15 @@
 
 Подключиться к кластеру возможно как с использованием обычных [FQDN](../../concepts/network.md#hostname) хостов (можно передавать список из нескольких таких FQDN, разделенных запятой), так и [особых FQDN](fqdn.md#special-fqdns). В примерах используется особый FQDN текущего хоста-мастера.
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
 
 ## 1C:Предприятие {#1c}
 
-Если кластер использует версию {{ PG }}, оптимизированную для работы с системой <q>1С:Предприятие</q>, укажите в настройках:
+Если кластер использует версию PostgreSQL, оптимизированную для работы с системой <q>1С:Предприятие</q>, укажите в настройках:
 
 * **Защищенное соединение** — отключено.
 * **Тип СУБД** — `PostgreSQL`.
-* **Сервер баз данных** — `<особый_FQDN> port={{ port-mpg }}`.
+* **Сервер баз данных** — `<особый_FQDN> port=6432`.
 * **Имя базы данных** — `<имя_БД>`.
 * **Пользователь базы данных** — `<имя_пользователя>`.
 * **Пароль пользователя** — `<пароль>`.
@@ -45,11 +45,11 @@
 
 ## C++ (фреймворк userver) {#cpp-userver}
 
-Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.
+Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с PostgreSQL.
 
 Перед подключением получите доступ к фреймворку одним из способов:
 
-* [Создайте виртуальную машину](../../../compute/operations/images-with-pre-installed-software/create.md) {{ compute-full-name }} из [образа userver](https://yandex.cloud/ru/marketplace/products/yc/userver). Этот образ уже содержит фреймворк и все необходимые зависимости.
+* [Создайте виртуальную машину](../../../compute/operations/images-with-pre-installed-software/create.md) Yandex Compute Cloud из [образа userver](https://yandex.cloud/ru/marketplace/products/yc/userver). Этот образ уже содержит фреймворк и все необходимые зависимости.
 * [Вручную установите фреймворк и все необходимые зависимости](https://userver.tech/docs/v2.0/d3/da9/md_en_2userver_2tutorial_2build.html).
 
 {% list tabs group=connection %}
@@ -58,10 +58,10 @@
 
     1. Создайте проект на основе [шаблона для сервиса](https://github.com/userver-framework/pg_service_template).
 
-    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
+    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру PostgreSQL:
 
         ```url
-        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mpg }}/<имя_БД>
+        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:6432/<имя_БД>
         ```
 
     1. Соберите проект и запустите сервис:
@@ -75,10 +75,10 @@
 
     1. Создайте проект на основе [шаблона для сервиса](https://github.com/userver-framework/pg_service_template).
 
-    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
+    1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру PostgreSQL:
 
         ```url
-        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mpg }}/<имя_БД>?ssl=true&sslmode=verify-full
+        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:6432/<имя_БД>?ssl=true&sslmode=verify-full
         ```
 
     1. Соберите проект и запустите сервис:
@@ -90,7 +90,7 @@
 
 {% endlist %}
 
-После запуска сервис будет ожидать поступления POST-запроса от пользователя. В ходе ожидания запроса сервис будет периодически проверять доступность кластера {{ PG }}, выполняя запрос `SELECT 1 as ping`. Информация об этом содержится в логах работы сервиса.
+После запуска сервис будет ожидать поступления POST-запроса от пользователя. В ходе ожидания запроса сервис будет периодически проверять доступность кластера PostgreSQL, выполняя запрос `SELECT 1 as ping`. Информация об этом содержится в логах работы сервиса.
 
 {% cut "Пример содержимого логов при успешном подключении к кластеру" %}
 
@@ -100,7 +100,7 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
+peer_address=rc1a-goh2a9tr********.mdb.yandexcloud.net:6432
 ...
 ```
 
@@ -124,7 +124,7 @@ peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
           static async Task Main(string[] args)
           {
               var host       = "<список_хостов>";
-              var port       = "{{ port-mpg }}";
+              var port       = "6432";
               var db         = "<имя_БД>";
               var username   = "<имя_пользователя>";
               var password   = "<пароль_пользователя>";
@@ -148,7 +148,7 @@ peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
 
 {% endlist %}
 
-В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
 ## Go {#go}
 
@@ -218,7 +218,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
     
-    В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:6432.{{ dns-zone }}`).
+    В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Подключение:
 
@@ -302,9 +302,9 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
-      При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
+      При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для PostgreSQL в переменной `ca`.
 
   1. Подключение:
 
@@ -442,7 +442,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Сборка и подключение:
 
@@ -464,7 +464,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://<список_хостов>:{{ port-mgp }}/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<список_хостов>:6432/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -482,7 +482,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:6432` (пример: `rc1a-goh2a9tr********:6432.mdb.yandexcloud.net`).
 
   1. Сборка и подключение:
 
@@ -514,7 +514,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mgp }}/<имя_БД>"
+            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:6432/<имя_БД>"
     };
 
     const conn = new pg.Client(config);
@@ -540,7 +540,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mgp }}/<имя_БД>",
+            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:6432/<имя_БД>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -561,7 +561,7 @@ npm install pg
     });
     ```
 
-    При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
+    При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для PostgreSQL в переменной `ca`.
 
 {% endlist %}
 
@@ -581,7 +581,7 @@ node app.js
 sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 ```
 
-Драйвер {{ PG }} ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
+Драйвер PostgreSQL ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
 
 {% list tabs group=connection %}
 
@@ -598,7 +598,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=<имя_БД>
-      Port={{ port-mgp }}
+      Port=6432
       Pqopt=target_session_attrs=read-write
       ```
 
@@ -623,7 +623,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=<имя_БД>
-      Port={{ port-mgp }}
+      Port=6432
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
@@ -658,7 +658,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       <?php
         $conn = pg_connect("
             host=<особый_FQDN>
-            port={{ port-mgp }}
+            port=6432
             sslmode=disable
             dbname=<имя_БД>
             user=<имя_пользователя>
@@ -690,7 +690,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
       <?php
         $conn = pg_connect("
             host=<особый_FQDN>
-            port={{ port-mgp }}
+            port=6432
             sslmode=verify-full
             dbname=<имя_БД>
             user=<имя_пользователя>
@@ -736,7 +736,7 @@ pip3 install psycopg2-binary
 
       conn = psycopg2.connect("""
           host=<список_хостов>
-          port={{ port-mgp }}
+          port=6432
           sslmode=disable
           dbname=<имя_БД>
           user=<имя_пользователя>
@@ -752,7 +752,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
   1. Подключение:
 
@@ -771,7 +771,7 @@ pip3 install psycopg2-binary
 
       conn = psycopg2.connect("""
           host=<список_хостов>
-          port={{ port-mgp }}
+          port=6432
           sslmode=verify-full
           dbname=<имя_БД>
           user=<имя_пользователя>
@@ -787,7 +787,7 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
-     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `{{ host-name }}.{{ dns-zone }}`).
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>` (пример: `rc1a-goh2a9tr********.mdb.yandexcloud.net`).
 
   1. Подключение:
 
@@ -829,7 +829,7 @@ pip3 install psycopg2-binary
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя_БД>",
             host="<особый_FQDN>",
-            port={{ port-mpg }},
+            port=6432,
             user="<имя_пользователя>",
             password="<пароль_пользователя>"
         )
@@ -859,7 +859,7 @@ pip3 install psycopg2-binary
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя_БД>",
             host="<особый_FQDN>",
-            port={{ port-mpg }},
+            port=6432,
             sslmode="verify-full",
             user="<имя_пользователя>",
             password="<пароль_пользователя>"
@@ -901,7 +901,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
       conn = PG.connect("
               host=<особый_FQDN>
-              port={{ port-mgp }}
+              port=6432
               dbname=<имя_БД>
               user=<имя_пользователя>
               password=<пароль_пользователя>
@@ -932,7 +932,7 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
       conn = PG.connect("
               host=<особый_FQDN>
-              port={{ port-mgp }}
+              port=6432
               dbname=<имя_БД>
               user=<имя_пользователя>
               password=<пароль_пользователя>
@@ -954,4 +954,4 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
 
 {% endlist %}
 
-При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия {{ PG }}. Исключение — [пример для фреймворка userver](#cpp-userver), в котором будет выполняться тестовый запрос `SELECT 1 as ping` для периодической проверки доступности кластера {{ PG }}.
+При успешном подключении к кластеру и выполнении тестового запроса будет выведена версия PostgreSQL. Исключение — [пример для фреймворка userver](#cpp-userver), в котором будет выполняться тестовый запрос `SELECT 1 as ping` для периодической проверки доступности кластера PostgreSQL.

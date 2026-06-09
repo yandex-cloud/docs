@@ -1,8 +1,8 @@
-# Анализ производительности и оптимизация {{ mpg-name }}
+# Анализ производительности и оптимизация Managed Service for PostgreSQL
 
-Снижение производительности кластера {{ mpg-name }} чаще всего происходит по одной из следующих причин:
+Снижение производительности кластера Managed Service for PostgreSQL чаще всего происходит по одной из следующих причин:
 
-* [неэффективное выполнение запросов в {{ PG }}](#inefficient-queries),
+* [неэффективное выполнение запросов в PostgreSQL](#inefficient-queries),
 * [высокая утилизация CPU, дискового I/O и сети](#cpu-io-deficit),
 * [блокировки](#localize-locking-issues),
 * [исчерпание доступных подключений](#connection-errors),
@@ -31,7 +31,7 @@
 
 Выявить проблемные запросы можно двумя способами:
 
-* Сделать выборку из системной таблицы {{ PG }} `pg_stat_activity`:
+* Сделать выборку из системной таблицы PostgreSQL `pg_stat_activity`:
 
     ```sql
     SELECT NOW() - query_start AS duration, query, state
@@ -41,9 +41,9 @@
 
     Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
 
-    Подробнее об информации в выдаче см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+    Подробнее об информации в выдаче см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
-* [Получить и проанализировать статистику по запросам](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) с помощью встроенного в {{ mpg-name }} инструмента для диагностики.
+* [Получить и проанализировать статистику по запросам](../../managed-postgresql/operations/performance-diagnostics.md#get-queries) с помощью встроенного в Managed Service for PostgreSQL инструмента для диагностики.
 
 ## Устранение проблем с неэффективными запросами {#solving-inefficient-queries}
 
@@ -59,7 +59,7 @@
 
     Чтобы визуализировать планы выполнения найденных запросов, используйте вкладку **SQL** на странице управления кластером.
 
-    Подробнее см. в разделе [{#T}](../../managed-postgresql/operations/web-sql-query.md).
+    Подробнее см. в разделе [SQL-запросы в Yandex WebSQL](../../managed-postgresql/operations/web-sql-query.md).
 
     {% endnote %}
 
@@ -75,15 +75,15 @@
 
     При необходимости в [настройках СУБД](../../managed-postgresql/operations/update.md#change-postgresql-config) увеличьте значение параметра `default_statistics_target`, затем выполните запрос `ANALYZE` повторно.
 
-    Подробнее про параметр `default_statistics_target` см. в [настройках {{ PG }}](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
+    Подробнее про параметр `default_statistics_target` см. в [настройках PostgreSQL](../../managed-postgresql/concepts/settings-list.md#setting-default-statistics-target).
 
 * Создать расширенные объекты статистики.
 
-    {{ PG }} не собирает статистику о корреляции данных между столбцами одной таблицы. Это связано с тем, что число возможных комбинаций столбцов может быть очень большим. Если между некоторыми столбцами есть связь, [создайте расширенные объекты статистики](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). Тогда планировщик сможет оптимизировать запросы на основе информации о корреляции данных в столбцах.
+    PostgreSQL не собирает статистику о корреляции данных между столбцами одной таблицы. Это связано с тем, что число возможных комбинаций столбцов может быть очень большим. Если между некоторыми столбцами есть связь, [создайте расширенные объекты статистики](https://www.postgresql.org/docs/current/planner-stats.html#PLANNER-STATS-EXTENDED). Тогда планировщик сможет оптимизировать запросы на основе информации о корреляции данных в столбцах.
 
-* Проанализировать статистику планов выполнения запросов в логах {{ PG }}.
+* Проанализировать статистику планов выполнения запросов в логах PostgreSQL.
 
-    Модуль {{ PG }} `auto_explain` выводит информацию о планах выполнения запросов в лог {{ PG }}. Вы можете собрать статистику поиском по строкам лога. Подробнее читайте в [документации {{ PG }}](https://www.postgresql.org/docs/current/auto-explain.html).
+    Модуль PostgreSQL `auto_explain` выводит информацию о планах выполнения запросов в лог PostgreSQL. Вы можете собрать статистику поиском по строкам лога. Подробнее читайте в [документации PostgreSQL](https://www.postgresql.org/docs/current/auto-explain.html).
 
 Если не удается ни оптимизировать найденные запросы, ни отказаться от них, остается только [поднять класс хостов](../../managed-postgresql/operations/update.md#change-resource-preset).
 
@@ -105,24 +105,24 @@
 
 Чтобы выявить блокировки с помощью [инструмента диагностики производительности](../../managed-postgresql/operations/performance-diagnostics.md):
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}**.
-1. На вкладке **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **Диагностика производительности**.
+1. На вкладке **Сессии** в поле **Срез** выберите значение **WAIT_EVENT_TYPE**.
 
     * Обратите внимание на график **Lock**. Он показывает количество запросов, которые в выбранный период находились в состоянии блокировки.
-    * Чтобы получить детальную информацию о запросах, выполнявшихся в выбранный период, перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
+    * Чтобы получить детальную информацию о запросах, выполнявшихся в выбранный период, перейдите на вкладку **Запросы**.
 
-    Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
+    Подробнее про отображаемые сведения см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/pgstatstatements.html#id-1.11.7.38.6).
 
-Чтобы диагностировать наличие блокировок средствами {{ PG }}, выполните запрос:
+Чтобы диагностировать наличие блокировок средствами PostgreSQL, выполните запрос:
 
 ```sql
 SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
     ON pl.pid = psa.pid;
 ```
 
-   Подробнее о выборке запросов с блокировками см. в [документации {{ PG }}](https://www.postgresql.org/docs/current/view-pg-locks.html).
+   Подробнее о выборке запросов с блокировками см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/view-pg-locks.html).
 
 
 ## Устранение проблем с блокировками {#solving-locking-issues}
@@ -149,12 +149,12 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 Чтобы получить подробную информацию об использовании доступных подключений с помощью инструментов [мониторинга](../../managed-postgresql/operations/monitoring.md):
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **Мониторинг**.
 1. Изучите график **Total pooler connections**.
 
-    {{ mpg-name }} не допускает подключений напрямую к СУБД, вместо этого происходит подключение к менеджеру подключений.
+    Managed Service for PostgreSQL не допускает подключений напрямую к СУБД, вместо этого происходит подключение к менеджеру подключений.
 
     * Характеристика **Clients** отражает количество клиентских подключений к менеджеру подключений.
 
@@ -181,9 +181,9 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 Чтобы проверить наличие свободного места в хранилище кластера:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_monitoring }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **Мониторинг**.
 1. Проверьте график **Disk capacity in primary, [bytes]**.
 
     Обратите внимание на значение параметра **Used**, показывающего степень заполнения хранилища кластера.
@@ -191,4 +191,4 @@ SELECT * FROM pg_locks pl LEFT JOIN pg_stat_activity psa
 
 ## Устранение проблем с недостатком места в хранилище {#solving-storage-issues}
 
-Рекомендации по устранению проблем приведены в разделе [{#T}](../../managed-postgresql/concepts/storage.md#manage-storage-space).
+Рекомендации по устранению проблем приведены в разделе [Управление дисковым пространством](../../managed-postgresql/concepts/storage.md#manage-storage-space).

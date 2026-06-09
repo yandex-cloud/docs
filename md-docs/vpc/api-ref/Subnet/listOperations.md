@@ -5,7 +5,7 @@ List operations for the specified subnet.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}/operations
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}/operations
 ```
 
 ## Path parameters

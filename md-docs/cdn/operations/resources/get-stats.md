@@ -1,8 +1,8 @@
 # Просмотр статистики CDN-ресурса
 
-{{ cdn-name }} автоматически отправляет метрики работы CDN-ресурса в сервис [{{ monitoring-full-name }}](../../../monitoring/index.md).
+Cloud CDN автоматически отправляет метрики работы CDN-ресурса в сервис [Yandex Monitoring](../../../monitoring/index.md).
 
-Метрики {{ cdn-short-name }} обновляются в среднем раз в 3 минуты.
+Метрики Cloud CDN обновляются в среднем раз в 3 минуты.
 
 Полный список метрик представлен в [справочнике](../../metrics-yc.md).
 
@@ -12,10 +12,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан CDN-ресурс.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан CDN-ресурс.
+  1. Перейдите в сервис **Cloud CDN**.
   1. Выберите CDN-ресурс, статистику которого вы хотите посмотреть.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
+  1. Перейдите на вкладку **Мониторинг**.
   1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя, 1 месяц.
 
       На вкладке отображаются следующие дашборды:
@@ -33,17 +33,17 @@
 
 {% endlist %}
 
-## Посмотреть подробную статистику в {{ monitoring-name }} {#monitoring}
+## Посмотреть подробную статистику в Monitoring {#monitoring}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан CDN-ресурс.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан CDN-ресурс.
+  1. Перейдите в сервис **Monitoring**.
+  1. На панели слева выберите ![image](../../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **Метрики**.
   1. В строке запроса выберите параметры:
-      1. Сервис **{{ cdn-name }}**.
+      1. Сервис **Cloud CDN**.
       1. Метрику, значения которой вы хотите визуализировать.
       1. Метку для метрики.
 

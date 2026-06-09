@@ -1,12 +1,12 @@
-# Обзор {{ monitoring-name }}
+# Обзор Monium Metrics
 
-{{ monitoring-name }} позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.
+Monium Metrics позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.
 
-{{ monitoring-name }} автоматически собирает данные о состоянии ваших ресурсов в {{ yandex-cloud }} и отображает их на сервисных дашбордах. Для загрузки пользовательских метрик доступен API.
+Monium Metrics автоматически собирает данные о состоянии ваших ресурсов в Yandex Cloud и отображает их на сервисных дашбордах. Для загрузки пользовательских метрик доступен API.
 
-С помощью {{ monitoring-name }} вы можете:
-* Отслеживать состояние ваших сервисов в {{ yandex-cloud }} на сервисных дашбордах. Это позволяет контролировать текущую нагрузку на ресурсы и планировать увеличение [квот]({{ link-console-quotas }}).
-* Загружать собственные метрики, используя API. Вы можете собрать на одном дашборде метрики вашего приложения и метрики используемых им ресурсов {{ yandex-cloud }}.
+С помощью Monium Metrics вы можете:
+* Отслеживать состояние ваших сервисов в Yandex Cloud на сервисных дашбордах. Это позволяет контролировать текущую нагрузку на ресурсы и планировать увеличение [квот](https://console.yandex.cloud/cloud?section=quotas).
+* Загружать собственные метрики, используя API. Вы можете собрать на одном дашборде метрики вашего приложения и метрики используемых им ресурсов Yandex Cloud.
 * Выгружать метрики ваших ресурсов и пользовательские метрики с помощью API.
 * Создавать собственные дашборды и графики, чтобы визуализировать метрики удобным для вас способом.
 * Настраивать уведомления (алерты) об изменении метрик. Уведомления можно направлять получателям по различным каналам связи.
@@ -14,22 +14,22 @@
 
 ## Принцип работы {#how-it-works}
 
-{{ monitoring-name }} собирает и хранит метрики в виде [временных рядов](https://ru.wikipedia.org/wiki/Временной_ряд). Для идентификации и описания характеристик временных рядов используются метки. Они указывают на принадлежность метрики сервису, описывают смысловое значение метрик и т. д. Подробнее в разделе [{#T}](../concepts/data-model.md).
+Monium Metrics собирает и хранит метрики в виде [временных рядов](https://ru.wikipedia.org/wiki/Временной_ряд). Для идентификации и описания характеристик временных рядов используются метки. Они указывают на принадлежность метрики сервису, описывают смысловое значение метрик и т. д. Подробнее в разделе [Модель данных в Monium](../concepts/data-model.md).
 
-{{ monitoring-name }} отображает метрики на графиках. Множество связанных между собой графиков можно собрать на дашбордах. Подробнее в разделе [{#T}](../visualization/index.md).
+Monium Metrics отображает метрики на графиках. Множество связанных между собой графиков можно собрать на дашбордах. Подробнее в разделе [Визуализация данных телеметрии](../visualization/index.md).
 
-## Поставка метрик кластера {{ managed-k8s-full-name }} {#metrics-provider}
+## Поставка метрик кластера Yandex Managed Service for Kubernetes {#metrics-provider}
 
-{{ monitoring-name }} позволяет выгружать метрики объектов [кластера {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Провайдер преобразует запрос на получение внешних метрик от объекта в кластере {{ managed-k8s-name }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
+Monium Metrics позволяет выгружать метрики объектов [кластера Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). Провайдер преобразует запрос на получение внешних метрик от объекта в кластере Managed Service for Kubernetes в нужный Monium Metrics формат, а также выполняет обратное преобразование — от Monium Metrics до объекта кластера.
 
 Метрики кластеров можно получить с помощью следующих инструментов:
 
-* [консоль управления]({{ link-console-main }});
-* [интерфейс {{ monitoring-name }}]({{ link-monitoring }});
-* [API {{ monitoring-name }}](../../monitoring/api-ref/authentication.md);
+* [консоль управления](https://console.yandex.cloud);
+* [интерфейс Monium Metrics](https://monium.yandex.cloud);
+* [API Monium Metrics](../../monitoring/api-ref/authentication.md);
 * приложение [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider);
 * приложение [Prometheus Operator](https://yandex.cloud/ru/marketplace/products/yc/prometheus-operator).
 
-Подробнее читайте в разделе [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md).
+Подробнее читайте в разделе [Мониторинг состояния кластера Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-get-stats.md).
 
 Описание метрик приводится в [Справочнике](../metrics-ref/index.md#managed-kubernetes).

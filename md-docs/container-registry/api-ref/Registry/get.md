@@ -6,7 +6,7 @@ To get the list of available Registry resources, make a [List](list.md#List) req
 ## HTTP request
 
 ```
-GET https://container-registry.{{ api-host }}/container-registry/v1/registries/{registryId}
+GET https://container-registry.api.cloud.yandex.net/container-registry/v1/registries/{registryId}
 ```
 
 ## Path parameters

@@ -1,14 +1,14 @@
-# Переменные в шаблоне узла {{ managed-k8s-full-name }}
+# Переменные в шаблоне узла Yandex Managed Service for Kubernetes
 
-В {{ managed-k8s-name }} создаются [группы однотипных узлов](../index.md#node-group) кластера из шаблона. Чтобы такие узлы имели разные характеристики, используйте механизм подстановок переменных в шаблоне.
+В Managed Service for Kubernetes создаются [группы однотипных узлов](../index.md#node-group) кластера из шаблона. Чтобы такие узлы имели разные характеристики, используйте механизм подстановок переменных в шаблоне.
 
 Поддерживаются [системные](../../../compute/concepts/instance-groups/variables-in-the-template.md#first-stage) и [пользовательские](../../../compute/concepts/instance-groups/variables-in-the-template.md#second-stage) переменные.
 
-Подробнее о переменных и этапах их подстановки читайте на странице [{#T}](../../../compute/concepts/instance-groups/variables-in-the-template.md).
+Подробнее о переменных и этапах их подстановки читайте на странице [Переменные в шаблоне виртуальной машины](../../../compute/concepts/instance-groups/variables-in-the-template.md).
 
 Например, с помощью переменных вы можете [создать](../../operations/node-group/node-group-create-in-instance-pool.md) мультизональную группу узлов из пулов резервов ВМ, размещенных в разных [зонах доступности](../../../overview/concepts/geo-scope.md).
 
-Использование переменных доступно с помощью [CLI](../../cli-ref/node-group/create.md), [{{ TF }}](../../../terraform/resources/kubernetes_node_group.md) и [API](../../managed-kubernetes/api-ref/NodeGroup/create.md).
+Использование переменных доступно с помощью [CLI](../../cli-ref/node-group/create.md), [Terraform](../../../terraform/resources/kubernetes_node_group.md) и [API](../../managed-kubernetes/api-ref/NodeGroup/create.md).
 
 ## Примеры {#examples}
 
@@ -19,7 +19,7 @@
 - CLI {#cli}
 
   ```bash
-  {{ yc-k8s }} node-group create \
+  yc managed-kubernetes node-group create \
     --name k8s-multizone-reserved-ng \
     --cluster-id <идентификатор_кластера> \
     --platform-id standard-v4a \
@@ -28,9 +28,9 @@
     --disk-size 64 \
     --disk-type network-ssd \
     --fixed-size 3 \
-    --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_в_зоне_a> \
-    --location zone={{ region-id }}-b,subnet-id=<идентификатор_подсети_в_зоне_b> \
-    --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_в_зоне_d> \
+    --location zone=ru-central1-a,subnet-id=<идентификатор_подсети_в_зоне_a> \
+    --location zone=ru-central1-b,subnet-id=<идентификатор_подсети_в_зоне_b> \
+    --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_в_зоне_d> \
     --network-interface security-group-ids=[<идентификаторы_групп_безопасности>] \
     --reserved-instance-pool-id '{pool_{instance.zone_id}}' \
     --variables \
@@ -46,7 +46,7 @@
   * `--reserved-instance-pool-id` — [идентификаторы](../../../compute/cli-ref/reserved-instance-pool/list.md) пулов резервов ВМ, которые будут получены в результате подстановки [системной переменной](../../../compute/concepts/instance-groups/variables-in-the-template.md#first-stage) `instance.zone_id` (зона доступности конкретного узла) и [пользовательских переменных](../../../compute/concepts/instance-groups/variables-in-the-template.md#second-stage), заданных в параметре `--variables`.
   * `--variables` — пользовательские переменные с идентификаторами пулов резервов ВМ в разных зонах доступности.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   ```hcl
   resource "yandex_kubernetes_node_group" "k8s-multizone-reserved-ng" {
@@ -95,15 +95,15 @@
   
     allocation_policy {
       location {
-        zone = "{{ region-id }}-a"
+        zone = "ru-central1-a"
       }
   
       location {
-        zone = "{{ region-id }}-b"
+        zone = "ru-central1-b"
       }
   
       location {
-        zone = "{{ region-id }}-d"
+        zone = "ru-central1-d"
       }
     }
   }
@@ -123,6 +123,6 @@
 
 ### См. также {#see-also}
 
-* [{#T}](../../../compute/concepts/instance-groups/variables-in-the-template.md)
-* [{#T}](reserved-pools.md)
-* [{#T}](../../operations/node-group/node-group-create-in-instance-pool.md)
+* [Переменные в шаблоне виртуальной машины](../../../compute/concepts/instance-groups/variables-in-the-template.md)
+* [Пулы резервов виртуальных машин для групп узлов Yandex Managed Service for Kubernetes](reserved-pools.md)
+* [Создание группы с узлами из пула резервов ВМ Yandex Compute Cloud](../../operations/node-group/node-group-create-in-instance-pool.md)

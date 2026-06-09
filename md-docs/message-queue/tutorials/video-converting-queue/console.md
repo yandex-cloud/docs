@@ -1,6 +1,6 @@
 # Конвертация видео в GIF на Python с помощью консоли управления
 
-Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью консоли управления {{ yandex-cloud }}:
+Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью консоли управления Yandex Cloud:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Подготовьте ресурсы](#create-resources).
@@ -14,11 +14,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -26,9 +26,9 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы {{ sf-full-name }}](../../../functions/pricing.md));
-* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) (см. [тарифы {{ ydb-full-name }}](../../../ydb/pricing/serverless.md));
-* плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md)).
+* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md));
+* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) (см. [тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
+* плата за хранение данных в [бакете](../../../storage/concepts/bucket.md) (см. [тарифы Yandex Object Storage](../../../storage/pricing.md)).
 
 
 ## Подготовьте ресурсы {#create-resources}
@@ -43,32 +43,32 @@
 
    * `ymq.reader`;
    * `ymq.writer`;
-   * `{{ roles-lockbox-payloadviewer }}`;
+   * `lockbox.payloadViewer`;
    * `storage.viewer`;
    * `storage.uploader`;
    * `ydb.admin`;
-   * `{{ roles-functions-invoker }}`.
+   * `functions.functionInvoker`.
 
 1. [Создайте статический ключ](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните **Идентификатор ключа** и **Ваш секретный ключ**.
-1. [Создайте секрет](../../../lockbox/operations/secret-create.md) с именем `ffmpeg-sa-secret` в {{ lockbox-name }}:
+1. [Создайте секрет](../../../lockbox/operations/secret-create.md) с именем `ffmpeg-sa-secret` в Yandex Lockbox:
 
-      1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}**: **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
+      1. Выберите **Тип секрета**: **Пользовательский**.
       1. Задайте две пары ключ-значение:
 
          * Ключ — `ACCESS_KEY_ID`, значение — **Идентификатор ключа** из предыдущего шага.
          * Ключ — `SECRET_ACCESS_KEY`, значение — **Ваш секретный ключ** из предыдущего шага.
 
-         Сохраните **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета из блока **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-general-section }}**.
+         Сохраните **Идентификатор** секрета из блока **Информация о секрете**.
 
-1. [Создайте очередь сообщений](../../operations/message-queue-new-queue.md) с именем `converter-queue` в {{ message-queue-full-name }}. Сохраните **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди из блока **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**.
-1. [Создайте базу данных](../../../ydb/quickstart.md#serverless) {{ ydb-short-name }} в режиме `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`. Сохраните **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из блока **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
+1. [Создайте очередь сообщений](../../operations/message-queue-new-queue.md) с именем `converter-queue` в Yandex Message Queue. Сохраните **URL** очереди из блока **Общая информация**.
+1. [Создайте базу данных](../../../ydb/quickstart.md#serverless) YDB в режиме `Serverless`. Сохраните **Эндпоинт** из блока **Document API эндпоинт**.
 1.  [Создайте таблицу](../../../ydb/operations/schema.md#create-table)  в базе данных:
 
-    * **{{ ui-key.yacloud.ydb.table.form.field_name }}** — `tasks`.
-    * **{{ ui-key.yacloud.ydb.table.form.field_type }}** — [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
-    * **{{ ui-key.yacloud.ydb.table.form.label_columns }}** — одна колонка с именем `task_id` типа `String`. Установите атрибут [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../../ydb/operations/schema.md#create-table).
+    * **Имя** — `tasks`.
+    * **Тип таблицы** — [Документная таблица](../../../ydb/operations/schema.md#create-table).
+    * **Колонки** — одна колонка с именем `task_id` типа `String`. Установите атрибут [Ключ партицирования](../../../ydb/operations/schema.md#create-table).
 
-1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в {{ objstorage-full-name }}.
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) с ограниченным доступом в Yandex Object Storage.
 
 
 ## Создайте API-функцию {#create-api-function}
@@ -95,16 +95,16 @@
      1. Создайте файл `index.py` и вставьте в него содержимое файла `ffmpeg-api.py` из архива `ffmpeg-api.zip`.
      1. Укажите следующие параметры:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handle_api`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`.
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `ffmpeg-sa`.
+        * **Среда выполнения** — `python312`.
+        * **Точка входа** — `index.handle_api`.
+        * **Таймаут** — `5`.
+        * **Сервисный аккаунт** — `ffmpeg-sa`.
 
      1. Добавьте переменные окружения:
 
-        * `DOCAPI_ENDPOINT` — **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из конфигурации базы данных.
-        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета {{ lockbox-name }}.
-        * `YMQ_QUEUE_URL` — **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди {{ message-queue-name }}.
+        * `DOCAPI_ENDPOINT` — **Эндпоинт** из конфигурации базы данных.
+        * `SECRET_ID` — **Идентификатор** секрета Yandex Lockbox.
+        * `YMQ_QUEUE_URL` — **URL** очереди Message Queue.
 
 {% endlist %}
 
@@ -113,7 +113,7 @@
 
 Функция-конвертер запускается с помощью триггера и выполняет обработку видео, а также отмечает результат выполнения в таблице `tasks`.
 
-Для преобразования видео используется утилита FFmpeg. Размер исполняемого файла FFmpeg — более 70 мегабайт. Чтобы загрузить его вместе с кодом функции, подготовьте ZIP-архив и загрузите его через {{ objstorage-name }}. Подробнее о [форматах загрузки кода](../../../functions/concepts/function.md).
+Для преобразования видео используется утилита FFmpeg. Размер исполняемого файла FFmpeg — более 70 мегабайт. Чтобы загрузить его вместе с кодом функции, подготовьте ZIP-архив и загрузите его через Object Storage. Подробнее о [форматах загрузки кода](../../../functions/concepts/function.md).
 
 {% list tabs group=instructions %}
 
@@ -138,20 +138,20 @@
 
      1. Укажите следующие параметры:
 
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}** — имя созданного ранее бакета.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}** — `src.zip`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handle_process_event`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `600`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `2048 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `ffmpeg-sa`.
+        * **Среда выполнения** — `python312`.
+        * **Источник кода** — способ загрузки `Object Storage`.
+        * **Бакет** — имя созданного ранее бакета.
+        * **Объект** — `src.zip`.
+        * **Точка входа** — `index.handle_process_event`.
+        * **Таймаут** — `600`.
+        * **Память** — `2048 МБ`.
+        * **Сервисный аккаунт** — `ffmpeg-sa`.
 
      1. Добавьте переменные окружения:
 
-        * `DOCAPI_ENDPOINT` — **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** из конфигурации базы данных.
-        * `SECRET_ID` — **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}** секрета {{ lockbox-name }}.
-        * `YMQ_QUEUE_URL` — **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди {{ message-queue-name }}.
+        * `DOCAPI_ENDPOINT` — **Эндпоинт** из конфигурации базы данных.
+        * `SECRET_ID` — **Идентификатор** секрета Yandex Lockbox.
+        * `YMQ_QUEUE_URL` — **URL** очереди Message Queue.
         * `S3_BUCKET` — имя бакета, созданного ранее.
 
 {% endlist %}
@@ -159,25 +159,25 @@
 
 ## Создайте триггер {#create-trigger}
 
-Обработка очереди сообщений выполняется с помощью [триггера для {{ message-queue-name }}](../../../functions/concepts/trigger/ymq-trigger.md). Он вызывает функцию-конвертер при поступлении сообщений в очередь `converter-queue`. 
+Обработка очереди сообщений выполняется с помощью [триггера для Message Queue](../../../functions/concepts/trigger/ymq-trigger.md). Он вызывает функцию-конвертер при поступлении сообщений в очередь `converter-queue`. 
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+  1. Выберите сервис **Cloud Functions**.
+  1. Перейдите на вкладку **Триггеры**.
+  1. Нажмите кнопку **Создать триггер**.
+  1. В блоке **Базовые параметры**:
      * Введите имя триггера — `ffmpeg-trigger`.
-     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений `converter-queue` и сервисный аккаунт с правами на чтение из нее — `ffmpeg-sa`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
+     * В поле **Тип** выберите `Message Queue`.
+  1. В блоке **Настройки сообщений Message Queue** выберите очередь сообщений `converter-queue` и сервисный аккаунт с правами на чтение из нее — `ffmpeg-sa`.
+  1. В блоке **Настройки функции**:
      * Выберите функцию, которую будет вызывать триггер — `ffmpeg-converter`.
      * Укажите [тег версии функции](../../../functions/concepts/function.md#tag) — `$latest`.
      * Укажите сервисный аккаунт, от имени которого будет вызываться функция — `ffmpeg-sa`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+  1. Нажмите кнопку **Создать триггер**.
 
 {% endlist %}
 
@@ -190,11 +190,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
+  1. Перейдите на вкладку **Тестирование**.
+  1. В поле **Входные данные** введите:
 
      ```json
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
@@ -202,8 +202,8 @@
 
      Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится идентификатор задачи:
+  1. Нажмите кнопку **Запустить тест**.
+  1. В поле **Ответ функции** отобразится идентификатор задачи:
 
      ```json
      { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf********" }
@@ -219,11 +219,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится очередь `converter-queue`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится очередь `converter-queue`.
+  1. Выберите сервис **Message Queue**.
   1. Выберите очередь `converter-queue`.
-  1. В блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите в раздел **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
+  1. В блоке **Общая информация** отображается количество сообщений в очереди и в обработке.
+  1. Перейдите в раздел **Мониторинг**. Посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 
@@ -235,10 +235,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-converter`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-converter`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-converter`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи.
+  1. Перейдите на вкладку **Логи** и укажите период, за который хотите посмотреть логи.
 
 {% endlist %}
 
@@ -248,18 +248,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите запрос:
+  1. Перейдите на вкладку **Тестирование**.
+  1. В поле **Входные данные** введите запрос:
 
      ```json
      {"action":"get_task_status", "task_id":"<идентификатор_задачи>"}
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-  1. Если конвертация видео в GIF-файл не завершилась, в поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится ответ:
+  1. Нажмите кнопку **Запустить тест**.
+  1. Если конвертация видео в GIF-файл не завершилась, в поле **Ответ функции** отобразится ответ:
 
      ```json
      {
@@ -272,7 +272,7 @@
      ```json
      {
          "ready": true,
-         "gif_url": "https://{{ s3-storage-host }}/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F202********{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
+         "gif_url": "https://storage.yandexcloud.net/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F202********ru-central1%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
      }
      ```
 
@@ -292,4 +292,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md)
+* [Конвертация видео в GIF на Python с помощью Terraform](terraform.md)

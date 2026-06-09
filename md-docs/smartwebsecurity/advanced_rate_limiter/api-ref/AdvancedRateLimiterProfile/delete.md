@@ -5,7 +5,7 @@ Deletes the specified ARL profile.
 ## HTTP request
 
 ```
-DELETE https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
+DELETE https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/advancedRateLimiterProfiles/{advancedRateLimiterProfileId}
 ```
 
 ## Path parameters

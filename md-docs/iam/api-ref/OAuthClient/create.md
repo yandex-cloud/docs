@@ -5,7 +5,7 @@ Creates an oauth client in the specified folder.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/oauthClients
+POST https://iam.api.cloud.yandex.net/iam/v1/oauthClients
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateOAuthClientRequest}

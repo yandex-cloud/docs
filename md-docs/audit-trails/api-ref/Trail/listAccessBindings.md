@@ -5,7 +5,7 @@ Lists existing access bindings for the specified trail.
 ## HTTP request
 
 ```
-GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{resourceId}:listAccessBindings
+GET https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

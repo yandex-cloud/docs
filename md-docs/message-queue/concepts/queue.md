@@ -22,17 +22,17 @@
 
 ### Дедупликация на записи {#deduplication}
 
-FIFO-очереди дедуплицируют сообщения на записи по идентификатору дедупликации или по содержимому сообщения. Подробнее читайте в разделе [{#T}](deduplication.md).
+FIFO-очереди дедуплицируют сообщения на записи по идентификатору дедупликации или по содержимому сообщения. Подробнее читайте в разделе [Дедупликация](deduplication.md).
 
 {% note info %}
 
-{{ message-queue-full-name }} автоматически удаляет сообщения, находящиеся в очереди дольше времени хранения. Стандартное время хранения сообщений — 4 дня. Время хранения может быть изменено в интервале от 60 секунд до 14 дней при создании очереди или при помощи метода [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md).
+Yandex Message Queue автоматически удаляет сообщения, находящиеся в очереди дольше времени хранения. Стандартное время хранения сообщений — 4 дня. Время хранения может быть изменено в интервале от 60 секунд до 14 дней при создании очереди или при помощи метода [SetQueueAttributes](../api-ref/queue/SetQueueAttributes.md).
 
 {% endnote %}
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/autoscale-monitoring.md).
-* [{#T}](../tutorials/video-converting-queue/index.md).
-* [{#T}](../tutorials/websocket-app.md).
-* [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).
+* [Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Message Queue](../tutorials/autoscale-monitoring.md).
+* [Конвертация видео в GIF на Python](../tutorials/video-converting-queue/index.md).
+* [Создание интерактивного serverless-приложения с использованием WebSocket](../tutorials/websocket-app.md).
+* [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

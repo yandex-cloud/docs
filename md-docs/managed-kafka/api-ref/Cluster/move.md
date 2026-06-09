@@ -5,7 +5,7 @@ Moves the specified Apache Kafka® cluster to the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:move
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:move
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of InstanceGroup resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instanceGroups
+GET https://compute.api.cloud.yandex.net/compute/v1/instanceGroups
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.instancegroup.ListInstanceGroupsRequest}

@@ -5,7 +5,7 @@ Retrieves the list of services available for quota management.
 ## HTTP request
 
 ```
-GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaLimits/services
+GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/services
 ```
 
 ## Query parameters {#yandex.cloud.quotamanager.v1.ListServicesRequest}

@@ -1,9 +1,9 @@
-# Создание подключения к AppMetrica в {{ datalens-full-name }}
+# Создание подключения к AppMetrica в Yandex DataLens
 
 Чтобы создать подключение к AppMetrica:
 
 
-1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
+1. Перейдите на [страницу создания нового подключения](https://datalens.ru/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **AppMetrica**.
 1. Укажите параметры подключения:
 
@@ -50,7 +50,7 @@
 Подключение к AppMetrica не поддерживает [публичный доступ](../../concepts/datalens-public.md) к объектам, созданным на его основе. Чтобы поделиться дашбордом или чартом, созданным на основе данного подключения, воспользуйтесь одним из способов:
 
 * [Добавьте](../../security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../../qa/connections.md#uploading-data-logs-api) данные в кластер [{{ mch-short-name }}](../../../managed-clickhouse/index.md) и используйте подключение к БД {{ CH }} в качестве источника. С тарифами сервиса {{ mch-short-name }} можно ознакомиться в разделе [Правила тарификации](../../../managed-clickhouse/pricing.md).
+* [Выгрузите](../../qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../../managed-clickhouse/pricing.md).
 
 
 ## Получение OAuth-токена {#get-oauth-token}
@@ -60,14 +60,14 @@
 Чтобы получить доступ к счетчику Яндекс Метрики не под текущей учетной записью Яндекса, воспользуйтесь сценарием:
 1. Переключитесь на учетную запись с доступом к Яндекс Метрике.
 1. Получите токен по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=4f802221a95340dd9417c04bc30606b5). При необходимости разрешите доступ приложению, затем скопируйте токен.
-1. Переключитесь на учетную запись с доступом к {{ datalens-full-name }}.
+1. Переключитесь на учетную запись с доступом к Yandex DataLens.
 1. Создайте новое подключение к Яндекс Метрике и добавьте полученный токен из буфера обмена в поле **OAuth-токен**.
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
 
 
 
 
 ## Примеры использования {#examples}
-* [{#T}](../../tutorials/data-from-appmetrica-visualization.md)
-* [{#T}](../../tutorials/data-from-appmetrica-yc-visualization.md)
+* [AppMetrica: прямое подключение](../../tutorials/data-from-appmetrica-visualization.md)
+* [AppMetrica: экспорт, постобработка и визуализация данных](../../tutorials/data-from-appmetrica-yc-visualization.md)

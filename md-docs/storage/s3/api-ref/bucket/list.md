@@ -29,7 +29,7 @@ GET / HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
 
@@ -57,13 +57,13 @@ GET / HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/bucket.md)
+* [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [{#T}](../../../operations/buckets/get-list.md)
+* [Получение списка бакетов](../../../operations/buckets/get-list.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

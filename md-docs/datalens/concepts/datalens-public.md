@@ -12,16 +12,16 @@
 
 Перед публикацией данных убедитесь, что:
 
-* У вас есть право доступа `{{ permission-admin }}` на публикуемые чарты, дашборды и связанные с ними объекты.
+* У вас есть право доступа `Администрирование` на публикуемые чарты, дашборды и связанные с ними объекты.
 * Ваши чарты и дашборды не содержат персональных данных или коммерческой тайны. Доступ к опубликованным данным неограничен.
 * Подключение, поверх которого построены объекты, поддерживает публикацию данных. Нельзя публиковать данные из следующих подключений:
 
   * [Snowflake](../operations/connection/create-snowflake.md)
   * [Metrica](../operations/connection/create-metrica-api.md)
   * [AppMetrica](../operations/connection/create-appmetrica.md)
-  * [{{ yandex-cloud }} Billing](../operations/connection/create-cloud-billing.md)
-  * [{{ datalens-short-name }} Usage Analytics](../operations/connection/create-usage-tracking.md)
-  * [{{ speechsense-name }}](../operations/connection/create-speechsense.md) (чтобы публиковать объекты, создайте подключение от имени сервисного аккаунта)
+  * [Yandex Cloud Billing](../operations/connection/create-cloud-billing.md)
+  * [DataLens Usage Analytics](../operations/connection/create-usage-tracking.md)
+  * [SpeechSense](../operations/connection/create-speechsense.md) (чтобы публиковать объекты, создайте подключение от имени сервисного аккаунта)
 
     {% note info %}
 
@@ -42,7 +42,7 @@
 
   {% note warning %}
   
-  Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
+  Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
   
   1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
   1. Откройте нужный воркбук и выберите объект.
@@ -52,7 +52,7 @@
   {% endnote %}
   
   
-  1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите дашборд и откройте его.
+  1. На [странице навигации](https://datalens.ru/navigation) найдите дашборд и откройте его.
   1. В верхней части интерфейса дашборда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/globe.svg) **Публичный доступ**.
   
      ![screen01](../../_assets/datalens/concepts/datalens-public/screen01.png)
@@ -69,7 +69,7 @@
         {% endnote %}
   
      1. (опционально) В блоке **Авторство или ссылка на источник** укажите ссылку на источник или автора дашборда и ее текст. Ссылка будет отображаться внизу дашборда.
-     1. (опционально) В блоке **Связанные объекты** выберите объекты, доступ к которым станет публичным. По умолчанию {{ datalens-short-name }} автоматически предоставит доступ для всех связанных объектов.
+     1. (опционально) В блоке **Связанные объекты** выберите объекты, доступ к которым станет публичным. По умолчанию DataLens автоматически предоставит доступ для всех связанных объектов.
      1. Нажмите кнопку **Применить**.
   
      ![screen02](../../_assets/datalens/concepts/datalens-public/screen02.png)
@@ -78,7 +78,7 @@
 
   {% note warning %}
   
-  Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
+  Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../workbooks-collections/index.md):
   
   1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
   1. Откройте нужный воркбук и выберите объект.
@@ -88,7 +88,7 @@
   {% endnote %}
   
   
-  1. На [странице навигации]({{ link-datalens-main }}/navigation) найдите чарт и откройте его.
+  1. На [странице навигации](https://datalens.ru/navigation) найдите чарт и откройте его.
   1. В верхней части интерфейса визарда нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/globe.svg) **Публичный доступ**.
   
      ![screen03](../../_assets/datalens/concepts/datalens-public/screen03.png)
@@ -105,7 +105,7 @@
         {% endnote %}
   
      1. (опционально) В блоке **Авторство или ссылка на источник** укажите ссылку на источник или автора чарта и ее текст. Ссылка будет отображаться внизу чарта.
-     1. (опционально) В блоке **Связанные объекты** выберите объекты, доступ к которым станет публичным. По умолчанию {{ datalens-short-name }} автоматически предоставит доступ для всех связанных объектов.
+     1. (опционально) В блоке **Связанные объекты** выберите объекты, доступ к которым станет публичным. По умолчанию DataLens автоматически предоставит доступ для всех связанных объектов.
      1. Нажмите кнопку **Применить**.
      
      ![screen04](../../_assets/datalens/concepts/datalens-public/screen04.png)
@@ -114,9 +114,9 @@
 
 ## Посмотреть опубликованные объекты {#public-objects-list}
 
-[Администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} может посмотреть список всех опубликованных в нем объектов:
+[Администратор](../security/roles.md#datalens-admin) экземпляра DataLens может посмотреть список всех опубликованных в нем объектов:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
 1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации** нажмите кнопку **Посмотреть опубликованное**.
@@ -126,22 +126,22 @@
 Чтобы поделиться чартом или дашбордом, содержащим данные Метрики или AppMetrica, воспользуйтесь одним из способов:
 
 * [Добавьте](../security/add-new-user.md) пользователя в организацию или облако и предоставьте ему доступ к дашборду или чарту.
-* [Выгрузите](../qa/connections.md#uploading-data-logs-api) данные в кластер [{{ mch-short-name }}](../../managed-clickhouse/index.md) и используйте подключение к БД {{ CH }} в качестве источника. С тарифами сервиса {{ mch-short-name }} можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
+* [Выгрузите](../qa/connections.md#uploading-data-logs-api) данные в кластер [Managed Service for ClickHouse®](../../managed-clickhouse/index.md) и используйте подключение к БД ClickHouse® в качестве источника. С тарифами сервиса Managed Service for ClickHouse® можно ознакомиться в разделе [Правила тарификации](../../managed-clickhouse/pricing.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
 
 ## Отключить возможность публикации {#publication-disable}
 
-По умолчанию пользователи могут публиковать чарты и дашборды, на которые у них есть права администратора. Эту возможность можно отключить на уровне экземпляра {{ datalens-short-name }}. После запрета публикации:
+По умолчанию пользователи могут публиковать чарты и дашборды, на которые у них есть права администратора. Эту возможность можно отключить на уровне экземпляра DataLens. После запрета публикации:
 
 * все ранее опубликованные объекты пропадут из публичного доступа;
 * пользователи не смогут предоставлять публичный доступ к объектам.
 
-Отключить возможность публикации может только [администратор](../security/roles.md#datalens-admin) экземпляра {{ datalens-short-name }} (роль `{{ roles-datalens-admin }}`).
+Отключить возможность публикации может только [администратор](../security/roles.md#datalens-admin) экземпляра DataLens (роль `datalens.admin`).
 
 Чтобы запретить публикацию объектов:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
 1. На панели слева выберите ![sliders](../../_assets/console-icons/sliders.svg) **Настройки сервиса**.
 1. Выберите вкладку **Безопасность**.
 1. В разделе **Возможность публикации**:
@@ -151,4 +151,4 @@ _{{ CH }} является зарегистрированным товарным
 
 #### См. также: {#see-also}
 
-* [{#T}](../security/embedded-objects.md).
+* [Встраивание публичных объектов](../security/embedded-objects.md).

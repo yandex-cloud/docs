@@ -1,9 +1,9 @@
-# Создать OIDC-приложение в {{ org-full-name }} для интеграции с MWS
+# Создать OIDC-приложение в Yandex Identity Hub для интеграции с MWS
 
 
 [МТС Web Services (MWS)](https://mws.ru/) — это экосистема сервисов и платформенных решений для построения IT-инфраструктуры и управления ею. MWS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне MWS.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в MWS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне MWS.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -34,24 +34,24 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `mws-oidc-app`.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `mws-oidc-app`.
+        1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+        1. Нажмите **Создать приложение**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -152,21 +152,21 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию MWS с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне MWS и на стороне {{ org-full-name }}.
+Чтобы настроить интеграцию MWS с созданным OIDC-приложением в Yandex Identity Hub, выполните настройки на стороне MWS и на стороне Yandex Identity Hub.
 
 ### Получите учетные данные приложения {#get-credentials}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значение параметра **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**, которое необходимо задать на стороне MWS.
-  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значение параметра **ClientID**, которое необходимо задать на стороне MWS.
+  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите **Создать**.
      
      В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -176,13 +176,13 @@
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -249,8 +249,8 @@
 1. После создания федерации нажмите кнопку **Добавить IdP**.
 1. (Опционально) Введите описание провайдера.
 1. Нажмите кнопку **Далее**.
-1. В поле **Issuer** введите `https://{{ auth-main-host }}`, затем нажмите кнопку **Загрузить**. Конфигурация заполнится автоматически.
-1. В поле **Client ID** введите значение, скопированное ранее из поля **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}**.
+1. В поле **Issuer** введите `https://auth.yandex.cloud`, затем нажмите кнопку **Загрузить**. Конфигурация заполнится автоматически.
+1. В поле **Client ID** введите значение, скопированное ранее из поля **ClientID**.
 1. В поле **Client Secret** введите сгенерированный ранее секрет приложения.
 1. В блоке **Способ получения данных** выберите значение **Token Endpoint и UserInfo Endpoint** и нажмите **Далее**.
 1. Напротив атрибута `mws.subject` в поле **IdP** введите `preferred_username` и нажмите **Далее**.
@@ -261,12 +261,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
-      1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите эндпоинт аутентификации для вашей федерации MWS в формате:
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+      1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашей федерации MWS в формате:
 
           ```text
           https://auth.mws.ru/api/iam/v1/organizations/<идентификатор_организации>/userFederations/<идентификатор_созданной_федерации>/providers/<идентификатор_провайдера>/login-callback
@@ -278,11 +278,11 @@
           https://auth.mws.ru/api/iam/v1/organizations/organization-test/userFederations/federation-test/providers/-testprov/login-callback
           ```
 
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -322,7 +322,7 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в MWS с помощью OIDC-приложения {{ org-full-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в MWS с помощью OIDC-приложения Yandex Identity Hub, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
 
 {% note info %}
 
@@ -334,18 +334,18 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. Нажмите **Добавить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -395,6 +395,6 @@
 1. На странице провайдера скопируйте из секции **Основное** значение **Sign In URL**. Это ссылка для входа в консоль MWS в качестве пользователя федерации.
 1. Выйдите из профиля MWS.
 1. Введите в адресную строку браузера скопированную ссылку и перейдите по ней.
-1. На странице аутентификации {{ yandex-cloud }} укажите email и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. На странице аутентификации Yandex Cloud укажите email и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
 1. Прочитайте и примите условия использования, затем нажмите **Далее**.
 1. Убедитесь, что вы аутентифицировались в MWS.

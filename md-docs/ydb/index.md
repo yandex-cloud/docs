@@ -8,7 +8,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
 Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
 
-# {{ ydb-full-name }}
+# Yandex Managed Service for YDB
 
  - [Начало работы](quickstart.md)
 
@@ -16,7 +16,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Обзор](operations/index.md)
 
- - [Подключение к БД с помощью {{ ydb-short-name }} CLI](operations/connection.md)
+ - [Подключение к БД с помощью YDB CLI](operations/connection.md)
 
  - [Управление базами данных](operations/manage-databases.md)
 
@@ -28,7 +28,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Мониторинг состояния базы данных](operations/monitoring.md)
 
- - [Работа с {{ ydb-short-name }} через ydb-mcp сервер на примере IDE Cursor](operations/ydb-mcp-cursor.md)
+ - [Работа с YDB через ydb-mcp сервер на примере IDE Cursor](operations/ydb-mcp-cursor.md)
 
 ## Практические руководства
 
@@ -36,9 +36,9 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Развертывание веб-приложения](tutorials/java-servlet-todo-list.md)
 
- - [Подключение к {{ ydb-short-name }} из функции {{ sf-full-name }} на Python](tutorials/connect-from-cf.md)
+ - [Подключение к YDB из функции Yandex Cloud Functions на Python](tutorials/connect-from-cf.md)
 
- - [Подключение к базе данных {{ ydb-short-name }} из функции {{ sf-full-name }} на Node.js](tutorials/connect-from-cf-nodejs.md)
+ - [Подключение к базе данных YDB из функции Yandex Cloud Functions на Node.js](tutorials/connect-from-cf-nodejs.md)
 
 ### Конвертация видео в GIF на Python
 
@@ -46,51 +46,51 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Консоль управления](tutorials/video-converting-queue/console.md)
 
- - [{{ TF }}](tutorials/video-converting-queue/terraform.md)
+ - [Terraform](tutorials/video-converting-queue/terraform.md)
 
  - [Разработка навыка Алисы и сайта с авторизацией](tutorials/alice-shareable-todolist.md)
 
- - [Миграция базы данных из {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mmy-ydb-migration.md)
+ - [Миграция базы данных из Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/mmy-ydb-migration.md)
 
- - [Поставка данных из {{ ydb-short-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-mkf-replication.md)
+ - [Поставка данных из YDB в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/ydb-mkf-replication.md)
 
- - [Поставка данных из {{ ydb-short-name }} в {{ yds-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-yds.md)
+ - [Поставка данных из YDB в Yandex Data Streams с помощью Yandex Data Transfer](tutorials/ydb-to-yds.md)
 
- - [Загрузка данных из {{ objstorage-full-name }} в {{ ydb-short-name }} с помощью {{ data-transfer-full-name }}](tutorials/object-storage-to-ydb.md)
+ - [Загрузка данных из Yandex Object Storage в YDB с помощью Yandex Data Transfer](tutorials/object-storage-to-ydb.md)
 
- - [Загрузка данных из {{ ydb-short-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-object-storage.md)
+ - [Загрузка данных из YDB в Yandex Object Storage с помощью Yandex Data Transfer](tutorials/ydb-to-object-storage.md)
 
- - [Загрузка данных из {{ ydb-short-name }} в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-clickhouse.md)
+ - [Загрузка данных из YDB в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/ydb-to-clickhouse.md)
 
- - [Загрузка данных из {{ ydb-short-name }} в {{ mpg-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-postgresql.md)
+ - [Загрузка данных из YDB в Yandex Managed Service for PostgreSQL с помощью Yandex Data Transfer](tutorials/ydb-to-postgresql.md)
 
- - [Миграция данных из {{ mos-full-name }} в {{ ydb-short-name }} с помощью {{ data-transfer-full-name }}](tutorials/opensearch-to-ydb.md)
+ - [Миграция данных из Yandex Managed Service for OpenSearch в YDB с помощью Yandex Data Transfer](tutorials/opensearch-to-ydb.md)
 
- - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
- - [Поставка данных из {{ mpg-full-name }} в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mpg-ydb-replication.md)
+ - [Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/mpg-ydb-replication.md)
 
- - [Передача событий {{ postbox-full-name }} в {{ yds-full-name }} и их анализ с помощью {{ datalens-full-name }}](tutorials/events-from-postbox-to-yds.md)
+ - [Передача событий Yandex Cloud Postbox в Yandex Data Streams и их анализ с помощью Yandex DataLens](tutorials/events-from-postbox-to-yds.md)
 
- - [Поставка данных из {{ mkf-full-name }} в {{ yds-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-yds-stream.md)
+ - [Поставка данных из Yandex Managed Service for Apache Kafka® в Data Streams с помощью Yandex Data Transfer](tutorials/mkf-yds-stream.md)
 
- - [Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/mkf-ydb-stream.md)
+ - [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/mkf-ydb-stream.md)
 
- - [Сохранение потока данных {{ yds-name }} в {{ mch-name }}](tutorials/yds-to-clickhouse.md)
+ - [Сохранение потока данных Data Streams в Managed Service for ClickHouse®](tutorials/yds-to-clickhouse.md)
 
- - [Поставка данных из очереди {{ yds-name }} в {{ mkf-name }} с помощью {{ data-transfer-name }}](tutorials/yds-to-kafka.md)
+ - [Поставка данных из очереди Data Streams в Managed Service for Apache Kafka® с помощью Data Transfer](tutorials/yds-to-kafka.md)
 
- - [Поставка данных из очереди {{ yds-name }} в {{ ydb-name }} с помощью {{ data-transfer-name }}](tutorials/yds-to-ydb.md)
+ - [Поставка данных из очереди Data Streams в Managed Service for YDB с помощью Data Transfer](tutorials/yds-to-ydb.md)
 
- - [Захват изменений {{ MY }} и поставка в {{ DS }}](tutorials/mmy-to-yds.md)
+ - [Захват изменений MySQL® и поставка в YDS](tutorials/mmy-to-yds.md)
 
- - [Захват изменений {{ PG }} и поставка в {{ DS }}](tutorials/mpg-to-yds.md)
+ - [Захват изменений PostgreSQL и поставка в YDS](tutorials/mpg-to-yds.md)
 
- - [Интерактивная отладка функций {{ sf-name }}](tutorials/serverless-live-debug.md)
+ - [Интерактивная отладка функций Cloud Functions](tutorials/serverless-live-debug.md)
 
- - [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](tutorials/terraform-state-lock.md)
+ - [Блокировка состояний Terraform с помощью Managed Service for YDB](tutorials/terraform-state-lock.md)
 
- - [Разработка пользовательской интеграции в {{ api-gw-name }}](tutorials/api-gw-integration.md)
+ - [Разработка пользовательской интеграции в API Gateway](tutorials/api-gw-integration.md)
 
  - [Разработка CRUD API для сервиса фильмов](tutorials/movies-database.md)
 
@@ -102,7 +102,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Консоль управления](tutorials/serverless-url-shortener/console.md)
 
- - [{{ TF }}](tutorials/serverless-url-shortener/terraform.md)
+ - [Terraform](tutorials/serverless-url-shortener/terraform.md)
 
 ### Загрузка аудитных логов в MaxPatrol SIEM
 
@@ -110,9 +110,9 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Консоль управления](tutorials/maxpatrol/console.md)
 
- - [{{ TF }}](tutorials/maxpatrol/terraform.md)
+ - [Terraform](tutorials/maxpatrol/terraform.md)
 
- - [Интеграция {{ postbox-full-name }} с внешними системами через вебхуки](tutorials/postbox-webhook.md)
+ - [Интеграция Yandex Cloud Postbox с внешними системами через вебхуки](tutorials/postbox-webhook.md)
 
 ## Концепции
 
@@ -390,7 +390,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Общие ошибки при работе с Document API](docapi/common-errors.md)
 
-## Справочник API {{ yandex-cloud }} для {{ ydb-name }}
+## Справочник API Yandex Cloud для Managed Service for YDB
 
  - [Обзор](api-ref/overview.md)
 
@@ -552,17 +552,17 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [List](api-ref/StorageType/list.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
-## Работа с YDB через {{ TF }}
+## Работа с YDB через Terraform
 
- - [Введение в работу с YDB через {{ TF }}](terraform/intro.md)
+ - [Введение в работу с YDB через Terraform](terraform/intro.md)
 
  - [Получение данных для аутентификации](terraform/credentials.md)
 
- - [Установка и настройка {{ TF }} и провайдера для подключения к YDB](terraform/install.md)
+ - [Установка и настройка Terraform и провайдера для подключения к YDB](terraform/install.md)
 
  - [Создание конфигурационных файлов и подключение к YDB](terraform/configure.md)
 
@@ -578,7 +578,7 @@ Yandex Managed Service for YDB помогает разворачивать и п
 
  - [Создание вторичных индексов строковых таблиц](terraform/row-tables-secondary-index.md)
 
- - [Управление конфигурацией топиков {{ ydb-short-name }}](terraform/topic.md)
+ - [Управление конфигурацией топиков YDB](terraform/topic.md)
 
  - [Вопросы и ответы](faq.md)
 

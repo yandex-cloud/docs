@@ -1,10 +1,10 @@
 # Оценка количества уникальных элементов с помощью алгоритма HyperLogLog
 
-Чтобы оценить количество уникальных элементов в столбце таблицы (_мощность_ множества), вы можете воспользоваться встроенными в {{ mgp-name }} функциями, реализующими [алгоритм HyperLogLog](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).
+Чтобы оценить количество уникальных элементов в столбце таблицы (_мощность_ множества), вы можете воспользоваться встроенными в Yandex MPP Analytics for PostgreSQL функциями, реализующими [алгоритм HyperLogLog](https://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf).
 
 Этот алгоритм преобразует исходное множество в особый объект — _HLL_. Мощность HLL соответствует мощности исходного множества, а ее оценка может быть произведена за константное время. Алгоритм позволяет быстро оценить количество уникальных элементов в столбце, а относительная погрешность оценки снижается с увеличением размера множества.
 
-В {{ mgp-name }} алгоритм HyperLogLog реализуется двумя функциями:
+В Yandex MPP Analytics for PostgreSQL алгоритм HyperLogLog реализуется двумя функциями:
 
 * `gp_hyperloglog_accum(<имя_столбца>)` — применяет алгоритм HyperLogLog к переданному столбцу. Возвращает HLL с типом данных `gp_hyperloglog_estimator`.
 * `gp_hyperloglog_get_estimate(<HLL>)` — конвертирует переданный HLL в численную оценку.
@@ -86,7 +86,7 @@ FROM <имя_таблицы>;
     * `estimated_col` — имя столбца в исходной таблице, для которого вычисляется оценка.
     * `original_table` — имя исходной таблицы.
 
-1. Создайте новую [агрегатную функцию]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) на основе `gp_hyperloglog_merge`:
+1. Создайте новую [агрегатную функцию](https://techdocs.broadcom.com/us/en/vmware-tanzu/data-solutions/tanzu-greenplum/7/greenplum-database/ref_guide-sql_commands-CREATE_AGGREGATE.html) на основе `gp_hyperloglog_merge`:
 
     ```sql
     CREATE AGGREGATE gp_hyperloglog_merge(gp_hyperloglog_estimator) (

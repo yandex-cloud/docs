@@ -8,7 +8,7 @@ To stop the running instance, make a [InstanceService.Stop](stop.md#Stop) reques
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instances/{instanceId}:detachNetworkInterface
+POST https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}:detachNetworkInterface
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ To get the list of available ResourcePreset resources, make a [List](list.md#Lis
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/resourcePresets/{resourcePresetId}
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

@@ -1,4 +1,4 @@
-# Как начать работать с {{ mgp-name }}
+# Как начать работать с Yandex MPP Analytics for PostgreSQL
 
 Чтобы начать работу с сервисом:
 
@@ -13,17 +13,17 @@
 * Графическая IDE [DBeaver](https://dbeaver.io/).
 * Консольный клиент `psql`.
 
-Некоторые другие инструменты для работы с {{ mgp-name }} описаны в разделе [{#T}](operations/connect/index.md).
+Некоторые другие инструменты для работы с Yandex MPP Analytics for PostgreSQL описаны в разделе [Предварительная настройка для подключения к кластеру Yandex MPP Analytics for PostgreSQL](operations/connect/index.md).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
 1. Если у вас еще нет каталога, создайте его:
 
-    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
+    1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
     1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-    1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+    1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
     
        ![create-folder1](../_assets/resource-manager/create-folder-1.png)
     
@@ -34,12 +34,12 @@
         * первый символ — буква, последний — не дефис.
     
     1. (Опционально) Введите описание каталога.
-    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
+    1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+    1. Нажмите кнопку **Создать**.
     
        ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
-1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) и роль [{{ roles.mgp.editor }} или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
+1. [Назначьте](../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [vpc.user](../vpc/security/index.md#vpc-user) и роль [managed-greenplum.editor или выше](security/index.md#roles-list). Эти роли позволяют создать кластер.
 
     {% note info %}
     
@@ -50,65 +50,65 @@
 
 ## Создайте кластер {#create-cluster}
 
-Создайте кластер {{ mgp-name }} с публичным доступом. К такому кластеру можно [подключиться](operations/connect/index.md) как с виртуальной машины {{ compute-full-name }}, так и через интернет.
+Создайте кластер Yandex MPP Analytics for PostgreSQL с публичным доступом. К такому кластеру можно [подключиться](operations/connect/index.md) как с виртуальной машины Yandex Compute Cloud, так и через интернет.
 
 Чтобы создать кластер:
 
 1. В консоли управления выберите каталог, в котором нужно создать кластер БД.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
+1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. Нажмите кнопку **Создать кластер**.
 
 
 1. Укажите следующие параметры кластера:
 
-    * **{{ ui-key.yacloud.mdb.forms.section_base }}** → **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — имя кластера. Оно должно быть уникальным в рамках каталога.
+    * **Базовые параметры** → **Имя кластера** — имя кластера. Оно должно быть уникальным в рамках каталога.
 
-    * **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+    * **Сетевые настройки**:
 
         * **Сеть** — укажите [сеть](../vpc/concepts/network.md), в которой нужно разместить [хосты кластера](concepts/index.md).
-        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — укажите [группы безопасности](../vpc/concepts/security-groups.md) для сетевого трафика кластера.
+        * **Группы безопасности** — укажите [группы безопасности](../vpc/concepts/security-groups.md) для сетевого трафика кластера.
 
             [Настройте эти группы безопасности](operations/connect/index.md#configuring-security-groups) так, чтобы можно было подключаться к кластеру через интернет.
 
-        * **{{ ui-key.yacloud.mdb.forms.network_field_zone }}** — укажите зону доступности для хостов кластера.
+        * **Зона доступности** — укажите зону доступности для хостов кластера.
 
-        * **{{ ui-key.yacloud.mdb.forms.network_field_subnetwork }}** — укажите подсеть для хостов кластера.
+        * **Подсеть** — укажите подсеть для хостов кластера.
 
-        * **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** — включите опцию.
+        * **Публичный доступ** — включите опцию.
 
-    * **{{ ui-key.yacloud.mdb.forms.section_user }}**:
+    * **Пользователь**:
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — имя пользователя-администратора. Имя может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
+        * **Имя пользователя** — имя пользователя-администратора. Имя может содержать латинские буквы, цифры, дефис и подчеркивание, но не может начинаться с дефиса. Длина от 1 до 32 символов.
 
             {% note info %}
             
-            Имена `admin`, `gpadmin`, [mdb_admin](concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` зарезервированы для собственных нужд {{ mgp-name }}. Создавать пользователей с этими именами нельзя.
+            Имена `admin`, `gpadmin`, [mdb_admin](concepts/cluster-users.md#mdb_admin), `mdb_replication`, `monitor`, `none`, `postgres`, `public`, `repl` зарезервированы для собственных нужд Yandex MPP Analytics for PostgreSQL. Создавать пользователей с этими именами нельзя.
             
             {% endnote %}
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — пароль пользователя-администратора. Длина от 8 до 128 символов.
+        * **Пароль** — пароль пользователя-администратора. Длина от 8 до 128 символов.
 
-        Пользователь-администратор — это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [{#T}](concepts/cluster-users.md).
+        Пользователь-администратор — это специальный пользователь, который необходим для управления кластером и не может быть удален. Подробнее см. в разделе [Пользователи и роли в Yandex MPP Analytics for PostgreSQL](concepts/cluster-users.md).
 
-    * **{{ ui-key.yacloud.greenplum.section_resource-master }}** и **{{ ui-key.yacloud.greenplum.section_resource-segment }}** — конфигурация [хостов-мастеров и хостов-сегментов](concepts/index.md) в кластере {{ mgp-name }}.
+    * **Master** и **Segment** — конфигурация [хостов-мастеров и хостов-сегментов](concepts/index.md) в кластере Yandex MPP Analytics for PostgreSQL.
 
-        Измените настройки на этих вкладках, если конфигурация по умолчанию вам не подходит. Дополнительную информацию см. в разделе [{#T}](concepts/calculate-specs.md).
+        Измените настройки на этих вкладках, если конфигурация по умолчанию вам не подходит. Дополнительную информацию см. в разделе [Расчет конфигурации кластера](concepts/calculate-specs.md).
 
-1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+1. Нажмите кнопку **Создать кластер**.
 
 
-1. Дождитесь, когда кластер будет готов к работе: его статус на панели {{ mgp-short-name }} сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
+1. Дождитесь, когда кластер будет готов к работе: его статус на панели Yandex MPP Analytics for PostgreSQL сменится на **Running**, а состояние — на **Alive**. Это может занять некоторое время.
 
-Подробнее о создании кластера см. в разделе [{#T}](operations/cluster-create.md).
+Подробнее о создании кластера см. в разделе [Создание кластера Yandex MPP Analytics for PostgreSQL](operations/cluster-create.md).
 
 ## Получите идентификатор кластера {#get-cluster-id}
 
 Получите идентификатор кластера, который потребуется при [подключении](#connect):
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
-1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}**.
-1. Скопируйте идентификатор кластера из блока **{{ ui-key.yacloud.common.section-base }}**.
+1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+1. Перейдите в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+1. Нажмите на имя нужного кластера и выберите вкладку ![image](../_assets/console-icons/flag.svg) **Обзор**.
+1. Скопируйте идентификатор кластера из блока **Общая информация**.
 
 ## Подключитесь к кластеру {#connect}
 
@@ -128,18 +128,18 @@
 
     1. Запустите DBeaver.
     1. Выберите в меню **База данных** пункт **Новое соединение**.
-    1. Выберите из списка БД **{{ GP }}**.
+    1. Выберите из списка БД **Greenplum®**.
     1. Нажмите кнопку **Next**.
     1. Укажите основные параметры соединения на вкладке **Главное**:
 
         * В блоке **Server**:
             * **Connect by** — `Host`.
-            * **Хост** — [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master): `c-<идентификатор_кластера>.rw.{{ dns-zone }}`.
+            * **Хост** — [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master): `c-<идентификатор_кластера>.rw.mdb.yandexcloud.net`.
 
                 Идентификатор кластера [был получен ранее](#get-cluster-id).
 
             * **База данных** — `postgres`.
-            * **Порт** — `{{ port-mgp }}`.
+            * **Порт** — `6432`.
             * **Показать все базы данных** — включите опцию.
 
         * В блоке **Аутентификация**:
@@ -151,17 +151,17 @@
 
     1. Нажмите кнопку **Тест соединения**.
 
-        Если DBeaver предложит скачать файлы драйвера, то нажмите кнопку **Скачать**. Эти файлы могут отсутствовать, если ранее вы никогда не использовали DBeaver для подключения к {{ mgp-name }}.
+        Если DBeaver предложит скачать файлы драйвера, то нажмите кнопку **Скачать**. Эти файлы могут отсутствовать, если ранее вы никогда не использовали DBeaver для подключения к Yandex MPP Analytics for PostgreSQL.
 
         Введите пароль пользователя, если DBeaver его запросит, и нажмите кнопку **OK**.
         
-        DBeaver подключится к базе данных `postgres` в кластере {{ mgp-name }}.
+        DBeaver подключится к базе данных `postgres` в кластере Yandex MPP Analytics for PostgreSQL.
 
-        При успешном подключении будет выведена информация о сервере {{ mgp-name }} и о драйвере, который использовался для подключения. Нажмите кнопку **OK**.
+        При успешном подключении будет выведена информация о сервере Yandex MPP Analytics for PostgreSQL и о драйвере, который использовался для подключения. Нажмите кнопку **OK**.
 
         {% note warning %}
 
-        При подключении будет использоваться шифрованное подключение (с SSL), но без проверки подлинности хостов кластера. Это [поведение по умолчанию для всех клиентов]({{ pg-docs }}/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), которые используют библиотеку `libpq`.
+        При подключении будет использоваться шифрованное подключение (с SSL), но без проверки подлинности хостов кластера. Это [поведение по умолчанию для всех клиентов](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), которые используют библиотеку `libpq`.
 
         В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](operations/connect/clients.md#connection-ide).
 
@@ -179,7 +179,7 @@
 
         Введите пароль пользователя, если DBeaver его запросит, и нажмите кнопку **OK**.
         
-        DBeaver подключится к базе данных `postgres` в кластере {{ mgp-name }}.
+        DBeaver подключится к базе данных `postgres` в кластере Yandex MPP Analytics for PostgreSQL.
 
     1. Выполните тестовый запрос:
 
@@ -201,23 +201,23 @@
 
     1. [Установите](https://www.postgresql.org/download/) клиент `psql` на хост, с которого будет выполняться подключение.
 
-        Например, чтобы установить `psql` на [виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md) в {{ yandex-cloud }} c Ubuntu 24.04:
+        Например, чтобы установить `psql` на [виртуальную машину Linux](../compute/operations/vm-create/create-linux-vm.md) в Yandex Cloud c Ubuntu 24.04:
 
         
-        1. Подключитесь к виртуальной машине по [{{ oslogin }}](../compute/operations/vm-connect/os-login.md) или [SSH](../compute/operations/vm-connect/ssh.md).
+        1. Подключитесь к виртуальной машине по [OS Login](../compute/operations/vm-connect/os-login.md) или [SSH](../compute/operations/vm-connect/ssh.md).
 
 
-        1. Установите необходимые зависимости и клиент {{ PG }}:
+        1. Установите необходимые зависимости и клиент PostgreSQL:
 
             ```bash
             sudo apt update && sudo apt install postgresql-client --yes
             ```
 
-    1. Подключитесь к базе данных `postgres` в кластере {{ mgp-name }}. Используйте [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master):
+    1. Подключитесь к базе данных `postgres` в кластере Yandex MPP Analytics for PostgreSQL. Используйте [особый FQDN первичного мастера](operations/connect/fqdn.md#fqdn-master):
 
         ```bash
-        psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-          port={{ port-mgp }} \
+        psql "host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
+          port=6432 \
           dbname=postgres \
           user=<имя_пользователя>"
         ```
@@ -228,7 +228,7 @@
 
         {% note warning %}
 
-        При подключении будет использоваться шифрованное подключение (с SSL), но без проверки подлинности хостов кластера. Это [поведение по умолчанию для всех клиентов]({{ pg-docs }}/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), которые используют библиотеку `libpq`.
+        При подключении будет использоваться шифрованное подключение (с SSL), но без проверки подлинности хостов кластера. Это [поведение по умолчанию для всех клиентов](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-SSLMODE-STATEMENTS), которые используют библиотеку `libpq`.
 
         В промышленной эксплуатации [подключайтесь к кластеру через SSL с проверкой подлинности хоста](operations/connect/clients.md#bash).
 
@@ -246,9 +246,9 @@
 
 ## Создайте базу данных {#create-db}
 
-В [созданном ранее](#create-cluster) кластере {{ mgp-name }} есть только одна база данных — служебная база данных `postgres`. Эта база не предназначена для хранения пользовательских данных: например, в такой базе нельзя создавать схемы данных (schemas).
+В [созданном ранее](#create-cluster) кластере Yandex MPP Analytics for PostgreSQL есть только одна база данных — служебная база данных `postgres`. Эта база не предназначена для хранения пользовательских данных: например, в такой базе нельзя создавать схемы данных (schemas).
 
-После [подключения к кластеру](#connect) {{ mgp-name }} создайте базу `sample_db` для хранения пользовательских данных:
+После [подключения к кластеру](#connect) Yandex MPP Analytics for PostgreSQL создайте базу `sample_db` для хранения пользовательских данных:
 
 {% list tabs group=mgp-quickstart %}
 
@@ -258,7 +258,7 @@
 
         Введите пароль пользователя, если DBeaver его запросит, и нажмите кнопку **OK**.
         
-        DBeaver подключится к базе данных `postgres` в кластере {{ mgp-name }}.
+        DBeaver подключится к базе данных `postgres` в кластере Yandex MPP Analytics for PostgreSQL.
 
     1. Создайте базу данных:
 
@@ -294,7 +294,7 @@
         CREATE DATABASE sample_db;
         ```
 
-    1. Выведите список баз данных в кластере {{ mgp-name }} и убедитесь, что в нем присутствует база `sample_db`:
+    1. Выведите список баз данных в кластере Yandex MPP Analytics for PostgreSQL и убедитесь, что в нем присутствует база `sample_db`:
 
         ```sql
         \list
@@ -314,7 +314,7 @@
 
         Введите пароль пользователя, если DBeaver его запросит, и нажмите кнопку **OK**.
         
-        DBeaver подключится к базе данных `postgres` в кластере {{ mgp-name }}.
+        DBeaver подключится к базе данных `postgres` в кластере Yandex MPP Analytics for PostgreSQL.
 
     1. Раскройте папку **Базы данных**, затем раскройте контекстное меню базы данных `sample_db` и выберите пункт **Редактор SQL** → **Open SQL console**.
 
@@ -364,7 +364,7 @@
         50005000|
         ```
 
-    1. Получите информацию о том, как 10000 строк таблицы распределены по сегментам {{ mgp-name }}. Для этого очистите консоль, вставьте запрос и выполните его:
+    1. Получите информацию о том, как 10000 строк таблицы распределены по сегментам Yandex MPP Analytics for PostgreSQL. Для этого очистите консоль, вставьте запрос и выполните его:
 
         ```sql
         SELECT gp_segment_id, count(*)
@@ -427,7 +427,7 @@
         50005000|
         ```
 
-    1. Получите информацию о том, как 10000 строк таблицы распределены по сегментам {{ mgp-name }}:
+    1. Получите информацию о том, как 10000 строк таблицы распределены по сегментам Yandex MPP Analytics for PostgreSQL:
 
         ```sql
         SELECT gp_segment_id, count(*)

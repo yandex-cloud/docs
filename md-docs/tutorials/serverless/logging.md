@@ -1,13 +1,13 @@
-# Запись логов балансировщика в {{ PG }}
+# Запись логов балансировщика в PostgreSQL
 
-# Запись логов балансировщика в {{ PG }}
+# Запись логов балансировщика в PostgreSQL
 
 
-Вы можете записывать [логи](../../application-load-balancer/concepts/monitoring.md#logging) балансировщика — сообщения с информацией о каждом входящем запросе к балансировщику {{ alb-full-name }} — в базу данных {{ PG }}.
+Вы можете записывать [логи](../../application-load-balancer/concepts/monitoring.md#logging) балансировщика — сообщения с информацией о каждом входящем запросе к балансировщику Yandex Application Load Balancer — в базу данных PostgreSQL.
 
-Для логирования работы балансировщика будет создана [лог-группа](../../logging/concepts/log-group.md) в {{ cloud-logging-name }}. Поставка логов из этой лог-группы в БД будет настроена с помощью ресурсов сервиса {{ sf-full-name }} — [триггера](../../functions/concepts/trigger/cloud-logging-trigger.md) и вызываемой им [функции](../../functions/concepts/function.md).
+Для логирования работы балансировщика будет создана [лог-группа](../../logging/concepts/log-group.md) в Cloud Logging. Поставка логов из этой лог-группы в БД будет настроена с помощью ресурсов сервиса Yandex Cloud Functions — [триггера](../../functions/concepts/trigger/cloud-logging-trigger.md) и вызываемой им [функции](../../functions/concepts/function.md).
 
-БД будет создана с помощью сервиса [{{ mpg-full-name }}](../../managed-postgresql/index.md).
+БД будет создана с помощью сервиса [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md).
 
 Чтобы настроить запись логов:
 
@@ -15,33 +15,33 @@
 1. [Создайте облачную сеть](#create-network).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Создайте группы безопасности](#create-security-groups).
-1. [Подготовьте базу данных в {{ mpg-full-name }}](#set-up-db).
+1. [Подготовьте базу данных в Yandex Managed Service for PostgreSQL](#set-up-db).
 1. [Создайте группу ВМ](#create-vms).
-1. [Создайте лог-группу {{ cloud-logging-full-name }}](#create-log-group).
-1. [Создайте необходимые ресурсы в {{ alb-full-name }}](#create-alb-resources).
-1. [Создайте необходимые ресурсы в {{ sf-full-name }}](#set-up-sf).
+1. [Создайте лог-группу Yandex Cloud Logging](#create-log-group).
+1. [Создайте необходимые ресурсы в Yandex Application Load Balancer](#create-alb-resources).
+1. [Создайте необходимые ресурсы в Yandex Cloud Functions](#set-up-sf).
 1. [Проверьте запись логов](#test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
-* Логи {{ cloud-logging-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
-* Балансировщики {{ alb-name }}: использование вычислительных ресурсов каждого активного балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Функции Yandex Cloud Functions: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Логи Cloud Logging: объем записываемых данных и время их хранения (см. [тарифы Cloud Logging](../../logging/pricing.md)).
+* Балансировщики Application Load Balancer: использование вычислительных ресурсов каждого активного балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
 
 
 ## Создайте облачную сеть {#create-network}
@@ -54,12 +54,12 @@
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-    1. Укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** сети: `alb-logging-network`.
-    1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+    1. Откройте [консоль управления](https://console.yandex.cloud).
+    1. Перейдите в сервис **Virtual Private Cloud**.
+    1. Нажмите кнопку **Создать сеть**.
+    1. Укажите **Имя** сети: `alb-logging-network`.
+    1. В поле **Дополнительно** выберите опцию **Создать подсети**.
+    1. Нажмите кнопку **Создать сеть**.
     
 {% endlist %}
 
@@ -69,12 +69,12 @@
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** введите `alb-logging-service-account`.
-  1. Добавьте роли: `{{ roles-functions-invoker }}` и `editor`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В поле **Имя** введите `alb-logging-service-account`.
+  1. Добавьте роли: `functions.functionInvoker` и `editor`.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -82,7 +82,7 @@
 
 [Группы безопасности](../../application-load-balancer/concepts/application-load-balancer.md#security-groups) содержат правила, которые: 
 * разрешают балансировщику получать входящий трафик и отправлять его на ВМ, а ВМ — получать этот трафик; 
-* разрешают балансировщику отправлять логи в лог-группу, а кластеру {{ PG }} — получать логи из нее.
+* разрешают балансировщику отправлять логи в лог-группу, а кластеру PostgreSQL — получать логи из нее.
 
 Вы создадите три группы безопасности: для балансировщика, для всех ВМ и для кластера.
 
@@ -92,57 +92,57 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Откройте вкладку **Группы безопасности**.
   1. Создайте группу безопасности для балансировщика:
      
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-     1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `alb-logging-sg-balancer`.
-     1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `alb-logging-network`.
-     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
+     1. Нажмите кнопку **Создать группу безопасности**.
+     1. Укажите **Имя** группы: `alb-logging-sg-balancer`.
+     1. Выберите **Сеть** `alb-logging-network`.
+     1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
 
-        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+        | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
         | --- | --- | --- | --- | --- | --- |
-        | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-        | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
+        | `Исходящий` | `any` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
+        | `Входящий` | `ext-http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
+        | `Входящий` | `ext-https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0` |
+        | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
       
-        1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
-        1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
-        1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
-        1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
+        1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
+        1. Нажмите кнопку **Добавить правило**.
+        1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+        1. В поле **Протокол** укажите нужный протокол или оставьте `Любой`, чтобы разрешить передачу трафика по всем протоколам.
+        1. В поле **Назначение** или **Источник** выберите назначение правила:
       
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-           * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
+           * `CIDR` — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
+           * `Группа безопасности` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+           * `Проверки состояния балансировщика` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
+        1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
    
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+     1. Нажмите кнопку **Сохранить**.
 
   1. Аналогично создайте группу безопасности для ВМ с именем `alb-logging-sg-vms`, той же сетью `alb-logging-network` и следующими правилами:
       
-     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+     | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
      | --- | --- | --- | --- | --- | --- |
-     | `Входящий` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `alb-logging-sg-balancer` |
-     | `Входящий` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+     | `Входящий` | `balancer` | `80` | `TCP` | `Группа безопасности` | `alb-logging-sg-balancer` |
+     | `Входящий` | `ssh` | `22` | `TCP` | `CIDR` | `0.0.0.0/0` |
      
-  1. Аналогично создайте группу безопасности для кластера {{ PG }} с именем `alb-logging-sg-cluster`, той же сетью `alb-logging-network` и следующим правилом:
+  1. Аналогично создайте группу безопасности для кластера PostgreSQL с именем `alb-logging-sg-cluster`, той же сетью `alb-logging-network` и следующим правилом:
         
-       | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+       | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
        | --- | --- | --- | --- | --- | --- |
-       | `Входящий` | `db` | `6432` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+       | `Входящий` | `db` | `6432` | `TCP` | `CIDR` | `0.0.0.0/0` |
      
 {% endlist %}
 
-## Подготовьте базу данных в {{ mpg-full-name }} {#set-up-db}
+## Подготовьте базу данных в Yandex Managed Service for PostgreSQL {#set-up-db}
 
 ### Создайте кластер {#set-up-db-create-cluster}
 
-Логи, полученные от балансировщика, будут записываться в базу данных, которая входит в состав [кластера](../../managed-postgresql/concepts/index.md) {{ mpg-name }}.
+Логи, полученные от балансировщика, будут записываться в базу данных, которая входит в состав [кластера](../../managed-postgresql/concepts/index.md) Managed Service for PostgreSQL.
 
 Чтобы создать кластер и базу данных:
 
@@ -150,13 +150,13 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите `alb-logging-cluster`.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Нажмите кнопку **Создать кластер**.
+  1. В поле **Имя кластера** введите `alb-logging-cluster`.
+  1. В поле **Окружение** выберите `PRODUCTION`.
+  1. В поле **Версия** выберите `17`.
+  1. В блоке **Класс хоста**:
 
      * Укажите платформу `Intel Cascade Lake`.
      * Выберите тип `burstable`.
@@ -168,7 +168,7 @@
 
      {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
+  1. В блоке **Размер хранилища**:
 
      * Выберите `network-ssd`.
      * Укажите размер равным 10 ГБ.
@@ -179,7 +179,7 @@
 
      {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите атрибуты БД:
+  1. В блоке **База данных** укажите атрибуты БД:
 
      * Имя базы данных. Имя БД должно быть уникальным в рамках каталога и содержать только латинские буквы, цифры и подчеркивания.
      * Имя пользователя — владельца БД. Имя пользователя должно содержать только латинские буквы, цифры и подчеркивания.
@@ -187,15 +187,15 @@
 
      Для базы данных, которая создается вместе с кластером, устанавливаются настройки набора символов (кодировки) `LC_CTYPE=C` и `LC_COLLATE=C`. После создания эти настройки изменить нельзя, но вы можете [создать новую базу](../../managed-postgresql/operations/databases.md#add-db) с нужными настройками.
 
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
      * Выберите сеть `alb-logging-network`.
      * Выберите группу безопасности `alb-logging-sg-cluster`.
    
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** добавьте хост, который будет доступен извне {{ yandex-cloud }}. Для этого включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите опции **Доступ из консоли управления** и **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
+  1. В блоке **Хосты** добавьте хост, который будет доступен извне Yandex Cloud. Для этого включите опцию **Публичный доступ**.
+  1. В блоке **Дополнительные настройки** включите опции **Доступ из консоли управления** и **Доступ из Serverless**.
   1. Остальные поля оставьте заполненными по умолчанию.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Нажмите кнопку **Создать кластер**.
 
 {% endlist %}
 
@@ -205,7 +205,7 @@
 
 ### Подключитесь к кластеру и создайте таблицу {#set-up-db-create-table}
 
-В качестве примера в базу данных {{ PG }} будет записываться информация из следующих полей сообщений, которые балансировщик записывает в логи при входящих запросах:
+В качестве примера в базу данных PostgreSQL будет записываться информация из следующих полей сообщений, которые балансировщик записывает в логи при входящих запросах:
 
 * `type` — протокол запроса: HTTP или gRPC.
 * `time` — дата и время запроса.
@@ -219,7 +219,7 @@
 
 - Консоль управления {#console}
 
-  После [создания кластера](#set-up-db-create-cluster) вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.mdb.clusters.label_title }}**.
+  После [создания кластера](#set-up-db-create-cluster) вы автоматически будете перенаправлены на страницу **Кластеры**.
 
   1. Дождитесь, когда статус кластера `alb-logging-cluster` изменится на **Alive**, и выберите этот кластер.
   1. Перейдите на вкладку **SQL**.
@@ -244,7 +244,7 @@
     
 ## Создайте группу ВМ {#create-vms}
 
-В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-name }}. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее см. [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)).
+В качестве веб-серверов для сайта будет выступать [группа виртуальных машин](../../compute/concepts/instance-groups/index.md) Compute Cloud. Серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL, PHP; подробнее см. [Сайт на LAMP- или LEMP-стеке](../web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ:
 
@@ -252,44 +252,44 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Откройте вкладку **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Compute Cloud**.
+  1. Откройте вкладку **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
   1. Укажите имя группы ВМ: `alb-logging-ig`.
-  1. В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** выберите аккаунт, [созданный ранее](#create-sa).
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько [зон доступности](../../overview/concepts/geo-scope.md), чтобы обеспечить отказоустойчивость хостинга.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
+  1. В поле **Сервисный аккаунт** выберите аккаунт, [созданный ранее](#create-sa).
+  1. В блоке **Распределение** выберите несколько [зон доступности](../../overview/concepts/geo-scope.md), чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**.
+  1. В блоке **Образ загрузочного диска** откройте вкладку **Marketplace** и нажмите кнопку **Показать все продукты Marketplace**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **Использовать**.
+  1. В блоке **Вычислительные ресурсы**:
      
      - Выберите [платформу](../../compute/concepts/vm-platforms.md) виртуальной машины.
      - Укажите необходимое количество vCPU и объем RAM.
   
      Для функционального тестирования сайта хватит минимальной конфигурации:
-     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `5%`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+     * **Платформа** — `Intel Cascade Lake`.
+     * **Гарантированная доля vCPU** — `5%`.
+     * **vCPU** — `2`.
+     * **RAM** — `1 ГБ`.
   
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** `alb-logging-network`, [созданную ранее](#create-network), и ее подсети.
-  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите **{{ ui-key.yacloud.compute.instances.create.value_address-auto }}**. 
+  1. В блоке **Сетевые настройки** выберите **Сеть** `alb-logging-network`, [созданную ранее](#create-network), и ее подсети.
+  1. В поле **Публичный адрес** выберите **Автоматически**. 
   1. Выберите группу безопасности `alb-logging-sg-vms`, [созданную ранее](#create-security-groups).
   1. Укажите данные для доступа на виртуальную машину:
-     - В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
-     - В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
+     - В поле **Логин** введите имя пользователя.
+     - В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
         
        Пару ключей для подключения по [SSH](../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к виртуальным машинам по SSH](../../compute/operations/vm-connect/ssh.md).
         
      {% note alert %}
       
-     IP-адрес и имя хоста ([FQDN](../../glossary/fqdn.md)) для подключения к машине назначатся ей при создании. Если вы выбрали вариант **{{ ui-key.yacloud.compute.instances.create.value_address-none }}** в поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}**, вы не сможете обращаться к ВМ из интернета.
+     IP-адрес и имя хоста ([FQDN](../../glossary/fqdn.md)) для подключения к машине назначатся ей при создании. Если вы выбрали вариант **Без адреса** в поле **Публичный адрес**, вы не сможете обращаться к ВМ из интернета.
       
      {% endnote %}
      
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** группы ВМ — 2.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы — `alb-logging-tg`. [Подробнее о целевых группах](../../application-load-balancer/concepts/target-group.md).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Сохранить**.
+  1. В блоке **Масштабирование** укажите **Размер** группы ВМ — 2.
+  1. В блоке **Интеграция с Application Load Balancer** выберите опцию **Создать целевую группу** и укажите имя группы — `alb-logging-tg`. [Подробнее о целевых группах](../../application-load-balancer/concepts/target-group.md).
+  1. Нажмите кнопку **Создать**.
   
 {% endlist %}
 
@@ -297,22 +297,22 @@
 
 ![ig-running](../../_assets/application-load-balancer/tutorials/virtual-hosting/ig-running.png)
 
-## Создайте лог-группу {{ cloud-logging-full-name }} {#create-log-group}
+## Создайте лог-группу Yandex Cloud Logging {#create-log-group}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [лог-группу](../../logging/concepts/log-group.md).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [лог-группу](../../logging/concepts/log-group.md).
+    1. Перейдите в сервис **Cloud Logging**.
+    1. Нажмите кнопку **Создать группу**.
     1. Введите имя и описание лог-группы, например `alb-logging-group`.
     1. Укажите срок хранения записей в лог-группе.
-    1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
+    1. Нажмите кнопку **Создать группу**.
 
 {% endlist %}
 
-## Создайте необходимые ресурсы в {{ alb-full-name }} {#create-alb-resources}
+## Создайте необходимые ресурсы в Yandex Application Load Balancer {#create-alb-resources}
 
 ### Создайте группу бэкендов {#create-backend-group}
 
@@ -326,18 +326,18 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `alb-logging-bg`.
-  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** бэкенда: `alb-logging-backend`.
-  1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите группу `alb-logging-tg`.
-  1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
-  1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
-  1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
+  1. Укажите **Имя** группы бэкендов: `alb-logging-bg`.
+  1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
+  1. Укажите **Имя** бэкенда: `alb-logging-backend`.
+  1. В поле **Целевые группы** выберите группу `alb-logging-tg`.
+  1. Укажите **Порт**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
+  1. Нажмите кнопку **Добавить проверку состояния**.
+  1. Укажите **Порт**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
+  1. Укажите **Путь**, к которому будет обращаться балансировщик при проверке состояния: `/`.
+  1. Нажмите кнопку **Создать**.
   
 {% endlist %}
 
@@ -351,16 +351,16 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `alb-logging-router`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** виртуального хоста: `alb-logging-host`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** маршрута: `alb-logging-route`.
-  1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите группу `alb-logging-bg`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
+  1. Укажите **Имя** HTTP-роутера: `alb-logging-router`.
+  1. Нажмите кнопку **Добавить виртуальный хост**.
+  1. Укажите **Имя** виртуального хоста: `alb-logging-host`.
+  1. Нажмите кнопку **Добавить маршрут**.
+  1. Укажите **Имя** маршрута: `alb-logging-route`.
+  1. В поле **Группа бэкендов** выберите группу `alb-logging-bg`.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -372,21 +372,21 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите опцию **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** балансировщика: `alb-logging-balancer`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть `alb-logging-network` и группу безопасности `alb-logging-sg-balancer`, созданные ранее.
-  1. В блоке **{{ ui-key.yacloud.alb.section_logs-settings }}** укажите лог-группу `alb-logging-group`.
-  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
-  1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `alb-logging-listener`.
-  1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
-  1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите роутер `alb-logging-router`, [созданный ранее](#create-http-router).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. Нажмите кнопку **Создать L7-балансировщик** и выберите опцию **Вручную**.
+  1. Укажите **Имя** балансировщика: `alb-logging-balancer`.
+  1. В блоке **Сетевые настройки** выберите сеть `alb-logging-network` и группу безопасности `alb-logging-sg-balancer`, созданные ранее.
+  1. В блоке **Настройки логов** укажите лог-группу `alb-logging-group`.
+  1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**.
+  1. Укажите **Имя** обработчика: `alb-logging-listener`.
+  1. В поле **Протокол** выберите пункт `HTTPS`.
+  1. В поле **HTTP-роутер** выберите роутер `alb-logging-router`, [созданный ранее](#create-http-router).
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
-## Создайте необходимые ресурсы в {{ sf-full-name }} {#set-up-sf}
+## Создайте необходимые ресурсы в Yandex Cloud Functions {#set-up-sf}
 
 ### Создайте функцию для обработки данных {#set-up-sf-create-function}
 
@@ -398,12 +398,12 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Cloud Functions**.
+  1. Нажмите кнопку **Создать функцию**.
   1. Введите имя функции: `alb-logging-function`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**. После создания функции вы автоматически будете перенаправлены на страницу **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}**.
-  1. Выберите среду выполнения **Python** версии **3.8** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+  1. Нажмите кнопку **Создать**. После создания функции вы автоматически будете перенаправлены на страницу **Редактор**.
+  1. Выберите среду выполнения **Python** версии **3.8** и нажмите кнопку **Продолжить**.
   1. Очистите область редактирования файла и вставьте в нее следующий код:
   
      {% cut "Код функции" %}
@@ -481,15 +481,15 @@
   
   1. Задайте следующие параметры версии:
   
-     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `10`.
-     * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+     * **Таймаут** — `10`.
+     * **Память** — `128 МБ`.
   
   1. Выберите созданный ранее сервисный аккаунт `alb-logging-service-account`. От имени этого аккаунта функция будет записывать данные в БД.
   
   1. Добавьте переменные окружения:
   
      * `VERBOSE_LOG` — параметр, отвечающий за вывод подробной информации о выполнении функции. Введите значение `True`.
-     * `DB_HOSTNAME` — имя хоста БД {{ PG }} для подключения.
+     * `DB_HOSTNAME` — имя хоста БД PostgreSQL для подключения.
      * `DB_PORT` — порт для подключения.
      * `DB_NAME` — имя базы данных для подключения.
      * `DB_USER` — имя пользователя для подключения.
@@ -497,15 +497,15 @@
   
      Чтобы определить значения параметров для подключения:
   
-     1. Откройте [консоль управления]({{ link-console-main }}).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+     1. Откройте [консоль управления](https://console.yandex.cloud).
+     1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
      1. Выберите кластер `alb-logging-cluster`.
      1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке с нужной БД.
-     1. Выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+     1. Выберите пункт **Подключиться**.
      1. На вкладке **Shell** найдите пример строки подключения.
-     1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующее поле **{{ ui-key.yacloud.common.value }}** переменных окружения функции.
+     1. Перенесите значения переменных `host`, `port`, `dbname` и `user` в соответствующее поле **Значение** переменных окружения функции.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 {% endlist %}
 
@@ -519,38 +519,38 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Перейдите в сервис **Cloud Functions**.
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+    1. В блоке **Базовые параметры**:
 
         * Введите имя триггера, например `alb-logging-trigger`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_logging }}`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+        * В поле **Тип** выберите `Cloud Logging`.
+        * В поле **Запускаемый ресурс** выберите `Функция`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_logging }}**:
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_log-group }}** выберите `alb-logging-group`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_resource-type }}** укажите `alb.loadBalancer`.
+    1. В блоке **Настройки Cloud Logging**:
+        * В поле **Лог-группа** выберите `alb-logging-group`.
+        * В поле **Типы ресурсов** укажите `alb.loadBalancer`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**:
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}** укажите `15`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_size }}** укажите `10`.
+    1. В блоке **Настройки группирования сообщений**:
+        * В поле **Время ожидания, с** укажите `15`.
+        * В поле **Размер группы** укажите `10`.
 
-    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию, созданную ранее, и укажите:
+    1. В блоке **Настройки функции** выберите функцию, созданную ранее, и укажите:
 
         * тег версии функции — `$latest`;
         * сервисный аккаунт, созданный ранее.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+    1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -591,8 +591,8 @@
    
    - Консоль управления {#console}
    
-     1. Откройте [консоль управления]({{ link-console-main }}).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. Откройте [консоль управления](https://console.yandex.cloud).
+     1. Перейдите в сервис **Application Load Balancer**.
      1. Найдите в списке балансировщик `alb-logging-balancer` и скопируйте его IP-адрес.
      
    {% endlist %}
@@ -604,12 +604,12 @@
    
    - Консоль управления {#console}
    
-     1. Откройте [консоль управления]({{ link-console-main }}).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+     1. Откройте [консоль управления](https://console.yandex.cloud).
+     1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
      1. Выберите кластер `alb-logging-cluster`.
      1. Перейдите на вкладку **SQL**.
      1. Выберите пользователя, [созданного вместе с кластером](#set-up-db-create-cluster), и введите его пароль.
-     1. Выберите базу данных, созданную вместе с кластером, и нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
+     1. Выберите базу данных, созданную вместе с кластером, и нажмите **Подключиться**.
      1. Нажмите на таблицу `load_balancer_requests`. Вы должны увидеть первые строки этой таблицы, соответствующие вашим запросам к балансировщику.
      
    {% endlist %}

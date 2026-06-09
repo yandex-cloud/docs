@@ -5,7 +5,7 @@ Forcefully deletes the specified registry along with all its repositories and da
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:forceDelete
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}:forceDelete
 ```
 
 ## Path parameters

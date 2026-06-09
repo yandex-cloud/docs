@@ -1,10 +1,10 @@
 # Поля ресурса YCStorageBucket
 
-Ресурс `YCStorageBucket` содержит параметры бакета {{ objstorage-name }} для настройки бэкенда в ресурсе `HTTPRoute`.
+Ресурс `YCStorageBucket` содержит параметры бакета Object Storage для настройки бэкенда в ресурсе `HTTPRoute`.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ spec: <YCStorageBucketSpec>
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
 
@@ -50,7 +50,7 @@ bucketRef:
 
 * `bucketRef` (обязательное)
 
-  Параметры бакета {{ objstorage-name }}.
+  Параметры бакета Object Storage.
 
   * `bucketName` (`string`)
   

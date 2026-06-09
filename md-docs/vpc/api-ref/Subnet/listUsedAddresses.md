@@ -5,7 +5,7 @@ List used addresses in specified subnet.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/subnets/{subnetId}/addresses
+GET https://vpc.api.cloud.yandex.net/vpc/v1/subnets/{subnetId}/addresses
 ```
 
 ## Path parameters

@@ -1,19 +1,19 @@
 # Правила алертинга
 
-{{ managed-prometheus-name }} позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. 
+Yandex Managed Service for Prometheus® позволяет добавить правила вычисления алертов и отправлять уведомления об их срабатывании. 
 
 Для использования алертинга:
 
 * [Добавьте правила алертинга](#alerting-rule-add).
 * [Настройте Alert Manager](#alert-manager-set) для обработки и доставки уведомлений.
 
-В этом разделе описаны особенности работы с правилами алертинга и конфигурацией Alert Manager. Управление файлами см. в разделе [{#T}](recording-rules.md).
+В этом разделе описаны особенности работы с правилами алертинга и конфигурацией Alert Manager. Управление файлами см. в разделе [Правила записи](recording-rules.md).
 
-Вы можете настраивать алертинг через [консоль управления]({{ link-console-main }}) или API.
+Вы можете настраивать алертинг через [консоль управления](https://console.yandex.cloud) или API.
 
 ## Предварительная настройка для работы с API {#api-set}
 
-API представлен набором REST-ресурсов, которые находятся по адресу `https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules`. 
+API представлен набором REST-ресурсов, которые находятся по адресу `https://monitoring.api.cloud.yandex.net/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules`. 
 
 Чтобы начать выполнять запросы:
 
@@ -25,7 +25,7 @@ API представлен набором REST-ресурсов, которые 
 
 ### Требования к правилам алертинга {#rule-requirements}
 
-В {{ managed-prometheus-name }} можно использовать правила алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)) на основе PromQL, созданные для других ваших инсталляций {{ prometheus-name }}.
+В Yandex Managed Service for Prometheus® можно использовать правила алертинга ([alerting rules](https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/)) на основе PromQL, созданные для других ваших инсталляций Prometheus.
 
 При описании правил учитывайте особенности:
 
@@ -61,12 +61,12 @@ groups:
 
 - Консоль управления {#console}
 
-   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
    1. Выберите или создайте воркспейс.
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}**.
-   1. Если у вас еще нет загруженных файлов, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}** и выберите файл `.yml` с правилами.
-   1. Чтобы добавить еще один файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.recording-rules.action_add-file }}**.
-   1. Чтобы заменить существующий файл, справа от него нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **{{ ui-key.yacloud_monitoring.prometheus.common.action_replace }}**.
+   1. Перейдите на вкладку **Правила**.
+   1. Если у вас еще нет загруженных файлов, нажмите **Добавить файл** и выберите файл `.yml` с правилами.
+   1. Чтобы добавить еще один файл, нажмите **Добавить файл**.
+   1. Чтобы заменить существующий файл, справа от него нажмите **![options](../../../_assets/horizontal-ellipsis.svg)** > **Заменить файл**.
 
 - API {#api}
 
@@ -111,24 +111,24 @@ groups:
            -H "Content-Type: application/json" \
            -H "Authorization: Bearer ${IAM_TOKEN}" \
            -d "@body.json"  \
-           "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
+           "https://monitoring.api.cloud.yandex.net/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/rules"
        ```
 
 {% endlist %}
 
 После создания правил алертинга они будут вычисляться и создавать метрики `ALERTS` и `ALERTS_FOR_STATE`. Для отправки уведомлений настройте Alert Manager.
 
-Следить за статусами алертов можно на отдельной вкладке **{{ prometheus-name }}** → **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** в [консоли управления]({{ link-monitoring }}).
+Следить за статусами алертов можно на отдельной вкладке **Prometheus** → **Алерты** в [консоли управления](https://monitoring.yandex.cloud).
 
-Подробнее о действиях с файлами и вычислении правил см. в разделе [{#T}](recording-rules.md).
+Подробнее о действиях с файлами и вычислении правил см. в разделе [Правила записи](recording-rules.md).
 
 ## Настройка Alert Manager {#alert-manager-create}
 
-[Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) отвечает за отправку уведомлений и настраивается отдельно от правил алертинга. Для настройки можно использовать файлы [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/), созданные для других ваших инсталляций {{ prometheus-name }}.
+[Alert Manager](https://prometheus.io/docs/alerting/latest/alertmanager/) отвечает за отправку уведомлений и настраивается отдельно от правил алертинга. Для настройки можно использовать файлы [конфигурации](https://prometheus.io/docs/alerting/latest/configuration/), созданные для других ваших инсталляций Prometheus.
 
 ### Особенности настройки каналов уведомлений {#rule-processing}
 
-* Каналы уведомлений из файла конфигурации сопоставляются с [каналами уведомлений](../../concepts/alerting/notification-channel.md) в {{ monitoring-full-name }}, которые заданы в каталоге воркспейса.
+* Каналы уведомлений из файла конфигурации сопоставляются с [каналами уведомлений](../../concepts/alerting/notification-channel.md) в Yandex Monitoring, которые заданы в каталоге воркспейса.
 * Сейчас поддерживается отправка в каналы [Email](https://prometheus.io/docs/alerting/latest/configuration/#email_config), [Telegram](https://prometheus.io/docs/alerting/latest/configuration/#telegram_config), SMS и Push. Остальные каналы будут проигнорированы без уведомлений об ошибках.
 * Канал выбирается согласно [правилам маршрутизации](https://prometheus.io/docs/alerting/latest/configuration/#route) в конфигурации Alert Manager, в секции `routes`. В правилах маршрутизации каналы сопоставляются меткам, заданным в правилах алертинга в секции `labels`. Например `severity: critical`.
 
@@ -177,12 +177,12 @@ receivers:
 
 - Консоль управления {#console}
 
-   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
    1. Выберите или создайте воркспейс.
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.tab.alert-manager-key-value }}**.
-   1. Если у вас еще нет загруженного файла конфигурации, нажмите кнопку **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.upload-config }}** и выберите файл `.yml`.
-   1. Чтобы скачать файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.download }}**.
-   1. Чтобы заменить файл, нажмите **{{ ui-key.yacloud_monitoring.prometheus.alert-manager.config-action.replace }}**. 
+   1. Перейдите на вкладку **Конфигурация Alert manager**.
+   1. Если у вас еще нет загруженного файла конфигурации, нажмите кнопку **Загрузить файл конфигурации** и выберите файл `.yml`.
+   1. Чтобы скачать файл, нажмите **Скачать**.
+   1. Чтобы заменить файл, нажмите **Заменить файл**. 
 
 - API {#api}
 
@@ -239,7 +239,7 @@ receivers:
            -H "Content-Type: application/json" \
            -H "Authorization: Bearer ${IAM_TOKEN}" \
            -d "@alertmanager-body.json"  \
-           "https://monitoring.{{ api-host }}/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/alertmanager"
+           "https://monitoring.api.cloud.yandex.net/prometheus/workspaces/<идентификатор_воркспейса>/extensions/v1/alertmanager"
        ```
 
    В случае успешного запроса будет возвращен HTTP-код `204`, иначе — текст ошибки. Файл, в котором не удалось найти ни одного соответствия текущим каналам уведомлений в каталоге, не будет принят.
@@ -248,7 +248,7 @@ receivers:
 
 ## Просмотр алертов {#view-alerts}
 
-Состояние алертов можно отслеживать в [консоли управления]({{ link-console-main }}). Вкладка **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.rules }}** показывает только правила вычисления алертов. Вкладка **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** отображает все алерты и их статусы.
+Состояние алертов можно отслеживать в [консоли управления](https://console.yandex.cloud). Вкладка **Правила** показывает только правила вычисления алертов. Вкладка **Алерты** отображает все алерты и их статусы.
 
 Чтобы просмотреть алерты:
 
@@ -256,9 +256,9 @@ receivers:
 
 - Консоль управления {#console}
 
-   1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.prometheus.title }}**.
+   1. На главной странице [Monium](https://monium.yandex.cloud) слева выберите раздел **Prometheus**.
    1. Выберите или [создайте воркспейс](index.md#access).
-   1. Перейдите на вкладку **{{ ui-key.yacloud_monitoring.prometheus.managing-rule.tabs.alerts }}** и посмотрите списки правил с алертами.
+   1. Перейдите на вкладку **Алерты** и посмотрите списки правил с алертами.
    1. (Опционально) Настройте фильтрацию алертов по имени и статусу.
 
    Список статусов алертов:

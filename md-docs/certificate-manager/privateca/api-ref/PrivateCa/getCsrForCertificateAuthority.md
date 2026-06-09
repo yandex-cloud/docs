@@ -6,7 +6,7 @@ This retrieves the CSR so that it can be signed by an external CA.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}/csr
+GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}/csr
 ```
 
 ## Path parameters

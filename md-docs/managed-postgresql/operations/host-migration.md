@@ -1,7 +1,7 @@
-# Миграция хостов кластера {{ PG }} в другую зону доступности
+# Миграция хостов кластера PostgreSQL в другую зону доступности
 
 
-Хосты кластера {{ mpg-name }} располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) {{ yandex-cloud }}. Чтобы перенести хосты из одной зоны в другую:
+Хосты кластера Managed Service for PostgreSQL располагаются в [зонах доступности](../../overview/concepts/geo-scope.md) Yandex Cloud. Чтобы перенести хосты из одной зоны в другую:
 
 1. [Создайте подсеть](../../vpc/operations/subnet-create.md) в зоне доступности, в которую вы переносите хосты.
 1. Добавьте хост в кластер:
@@ -10,27 +10,27 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
+      1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+      1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать хост**.
       1. Укажите параметры хоста:
 
          * Зону доступности, куда переносятся хосты.
          * Новую подсеть.
-         * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
+         * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
 
-      1. Нажмите **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+      1. Нажмите **Сохранить**.
 
    - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
       Выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} host add \
+      yc managed-postgresql host add \
          --cluster-name <имя_кластера> \
          --host zone-id=<зона_доступности>,`
                `subnet-id=<ID_новой_подсети>,`
@@ -39,9 +39,9 @@
 
       Имя кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters). В параметре `zone-id` укажите зону, куда вы переносите хосты.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-      1. В конфигурационный файл {{ TF }} с планом инфраструктуры добавьте манифест хоста:
+      1. В конфигурационный файл Terraform с планом инфраструктуры добавьте манифест хоста:
 
          ```hcl
          resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -58,14 +58,14 @@
 
       1. Проверьте корректность настроек.
 
-         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
          1. Выполните команду:
          
             ```bash
             terraform validate
             ```
          
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите изменение ресурсов.
 
@@ -95,14 +95,14 @@
          export IAM_TOKEN="<IAM-токен>"
          ```
 
-      1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+      1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
          ```bash
          curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
             --data '{
                        "hostSpecs": [
                           {
@@ -133,7 +133,7 @@
          ```
          
          Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-      1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
          ```bash
          grpcurl \
@@ -152,7 +152,7 @@
                       }
                    ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
          ```
 
@@ -167,7 +167,7 @@
    Чтобы узнать FQDN, получите список хостов в кластере:
 
    ```bash
-   {{ yc-mdb-pg }} host list --cluster-name <имя_кластера>
+   yc managed-postgresql host list --cluster-name <имя_кластера>
    ```
 
    FQDN указан в выводе команды, в столбце `NAME`. Также вы можете использовать [особый FQDN](connect/fqdn.md#special-fqdns) для подключения.
@@ -178,31 +178,31 @@
 
    - Консоль управления {#console}
 
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-      1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
-      1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
+      1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+      1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+      1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
 
    - CLI {#cli}
 
       Выполните команду для каждого хоста:
 
       ```bash
-      {{ yc-mdb-pg }} host delete <FQDN_хоста> --cluster-name <имя_кластера>
+      yc managed-postgresql host delete <FQDN_хоста> --cluster-name <имя_кластера>
       ```
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-      1. В конфигурационном файле {{ TF }} с планом инфраструктуры удалите из описания кластера блоки `host` с первоначальной зоной доступности.
+      1. В конфигурационном файле Terraform с планом инфраструктуры удалите из описания кластера блоки `host` с первоначальной зоной доступности.
       1. Проверьте корректность настроек.
 
-         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
          1. Выполните команду:
          
             ```bash
             terraform validate
             ```
          
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Введите слово `yes` и нажмите **Enter**.
 
@@ -226,14 +226,14 @@
 
    - REST API {#api}
 
-      1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+      1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
          ```bash
          curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
             --data '{
                        "hostNames": [
                           "<FQDN_хоста>"
@@ -249,7 +249,7 @@
 
    - gRPC API {#grpc-api}
 
-      1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+      1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
          ```bash
          grpcurl \
@@ -264,7 +264,7 @@
                       "<FQDN_хоста>"
                    ]
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.postgresql.v1.ClusterService.DeleteHosts
          ```
 
@@ -276,32 +276,32 @@
 
    {% endlist %}
 
-1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**. Состояние кластера отображается в столбце **{{ ui-key.yacloud.mdb.clusters.column_availability }}**.
+1. Дождитесь, когда кластер перейдет в состояние **Alive**. В консоли управления Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**. Состояние кластера отображается в столбце **Доступность**.
 
 {% note info %}
 
-Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`, недоступно:
+Для кластеров, хосты которых располагаются в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-d`, недоступно:
 
 - использование платформы Intel Broadwell;
 - хранилище на локальных SSD-дисках при использовании платформы Intel Cascade Lake.
 
 {% endnote %}
 
-## Особенности миграции в сервисе {{ data-transfer-full-name }} {#data-transfer}
+## Особенности миграции в сервисе Yandex Data Transfer {#data-transfer}
 
-Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса {{ data-transfer-name }} и используется [тип трансфера](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) {{ dt-type-repl }} или {{ dt-type-copy-repl }}, перезапустите трансфер после миграции кластера. Так трансфер получит сведения о новой топологии кластера.
+Если кластер выступает в роли [эндпоинта](../../data-transfer/concepts/index.md#endpoint) при передаче данных с помощью сервиса Data Transfer и используется [тип трансфера](../../data-transfer/concepts/transfer-lifecycle.md#transfer-types) **Репликация** или **Копирование и репликация**, перезапустите трансфер после миграции кластера. Так трансфер получит сведения о новой топологии кластера.
 
-Трансферы типа {{ dt-type-copy }} перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
+Трансферы типа **Копирование** перезапускать не нужно, так как во время их активации информация о новой топологии передается автоматически.
 
 Чтобы перезапустить трансфер, выберите один из двух способов:
 
-* [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус {{ dt-status-stopped }}. Затем [активируйте](../../data-transfer/operations/transfer.md#activate) трансфер и дождитесь его перехода в статус {{ dt-status-repl }}.
+* [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансфер и дождитесь его перехода в статус **Остановлен**. Затем [активируйте](../../data-transfer/operations/transfer.md#activate) трансфер и дождитесь его перехода в статус **Реплицируется**.
 * Измените какую-либо [настройку трансфера](../../data-transfer/operations/transfer.md#update) или [эндпоинта](../../data-transfer/operations/endpoint/index.md#update).
 
-Подробнее читайте в разделе [{#T}](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).
+Подробнее читайте в разделе [Миграция эндпоинтов и трансфера Data Transfer в другую зону доступности](../../data-transfer/operations/endpoint/migration-to-an-availability-zone.md).
 
 {% note info %}
 
-[Включите](extensions/cluster-extensions.md) расширение `pg_tm_aux` для кластера {{ PG }}. Это позволит продолжить репликацию при смене хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее читайте в разделе [Решение проблем](../../data-transfer/troubleshooting/index.md#master-change).
+[Включите](extensions/cluster-extensions.md) расширение `pg_tm_aux` для кластера PostgreSQL. Это позволит продолжить репликацию при смене хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее читайте в разделе [Решение проблем](../../data-transfer/troubleshooting/index.md#master-change).
 
 {% endnote %}

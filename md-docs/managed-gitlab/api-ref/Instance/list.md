@@ -5,7 +5,7 @@ Retrieves the list of GitLab instances in the specified folder.
 ## HTTP request
 
 ```
-GET https://gitlab.{{ api-host }}/gitlab/v1/instances
+GET https://gitlab.api.cloud.yandex.net/gitlab/v1/instances
 ```
 
 ## Query parameters {#yandex.cloud.gitlab.v1.ListInstancesRequest}

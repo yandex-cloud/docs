@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Не удалось распарсить название клики
+# [Yandex DataLens] Не удалось распарсить название клики
 
 `ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID`
 

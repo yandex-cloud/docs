@@ -1,6 +1,6 @@
-# Резервное копирование в {{ objstorage-full-name }} с помощью GeeseFS
+# Резервное копирование в Yandex Object Storage с помощью GeeseFS
 
-В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [{{ objstorage-full-name }}](../../storage/index.md) с помощью [GeeseFS](../../storage/tools/geesefs.md).
+В этом практическом руководстве вы настроите резервное копирование файлов из локальной системы в облачное хранилище [Yandex Object Storage](../../storage/index.md) с помощью [GeeseFS](../../storage/tools/geesefs.md).
 
 GeeseFS позволяет монтировать [бакет](../../storage/concepts/bucket.md) как обычную папку. Это дает возможность использовать привычные инструменты копирования и синхронизации. Резервное копирование выполняется путем копирования и синхронизации данных между локальным каталогом и бакетом. Это выглядит как работа с двумя папками, одна из которых находится в облаке. Для оптимизации процесса применяются инструменты синхронизации, которые передают только новые и измененные файлы — например, `rsync` или `robocopy`.
 
@@ -19,18 +19,18 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
+В стоимость поддержки бакета входит плата за хранение данных в бакете и операции с ними (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -47,12 +47,12 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+  1. Перейдите в сервис **Object Storage**.
+  1. Нажмите **Создать бакет**.
   1. Укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
+  1. Нажмите **Создать бакет**.
 
 - AWS CLI {#cli}
 
@@ -60,7 +60,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
   1. Создайте бакет, указав имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming):
 
       ```bash
-      aws --endpoint-url=https://{{ s3-storage-host }} \
+      aws --endpoint-url=https://storage.yandexcloud.net \
         s3 mb s3://<имя_бакета>
       ```
 
@@ -85,16 +85,16 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `sa-backup-to-s3`.
-  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../storage/security/index.md#storage-editor) `storage.editor`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
+  1. В поле **Имя** укажите `sa-backup-to-s3`.
+  1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../storage/security/index.md#storage-editor) `storage.editor`.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -150,7 +150,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
 
 {% endnote %}
 
@@ -161,12 +161,12 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт `sa-backup-to-s3`.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-  1. Задайте описание ключа и нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
+  1. Задайте описание ключа и нажмите **Создать**.
   1. Сохраните полученные идентификатор и секретный ключ — они понадобятся позднее при монтировании бакета.
 
       {% note alert %}
@@ -309,7 +309,7 @@ GeeseFS позволяет монтировать [бакет](../../storage/con
 
 ### Аутентифицируйте GeeseFS {#auth-geesefs}
 
-GeeseFS использует статический ключ доступа к {{ objstorage-name }}, [полученный ранее](#create-static-key). Он задается несколькими способами:
+GeeseFS использует статический ключ доступа к Object Storage, [полученный ранее](#create-static-key). Он задается несколькими способами:
 
 {% list tabs group=operating_system %}
 
@@ -385,7 +385,7 @@ GeeseFS использует статический ключ доступа к {
 
 {% endlist %}
 
-При работе с GeeseFS на виртуальной машине {{ compute-name }}, к которой [привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте параметр `--iam`.
+При работе с GeeseFS на виртуальной машине Compute Cloud, к которой [привязан сервисный аккаунт](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance), вы можете включить упрощенную аутентификацию, без статического ключа доступа. Для этого при монтировании бакета используйте параметр `--iam`.
 
 
 ## Смонтируйте бакет {#mount-bucket}

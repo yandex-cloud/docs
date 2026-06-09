@@ -5,7 +5,7 @@ Request a certificate in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-certmanager }}/certificate-manager/v1/certificates/requestNew
+POST https://certificate-manager.api.cloud.yandex.net/certificate-manager/v1/certificates/requestNew
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.RequestNewCertificateRequest}

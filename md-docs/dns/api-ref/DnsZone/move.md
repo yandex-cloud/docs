@@ -5,7 +5,7 @@ Moves the specified DNS zone to another folder.
 ## HTTP request
 
 ```
-POST https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:move
+POST https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:move
 ```
 
 ## Path parameters

@@ -1,14 +1,14 @@
-# Обратно несовместимые изменения в СУБД {{ CB }} по сравнению с {{ GP }} в сервисе {{ mgp-full-name }}
+# Обратно несовместимые изменения в СУБД Apache Cloudberry™ по сравнению с Greenplum® в сервисе Yandex MPP Analytics for PostgreSQL
 
-{{ CB }} отличается от {{ GP }} в ряде аспектов. Значительная часть отличий связана со сменой версии ядра {{ PG }}: {{ GP }} основан на версии 9.4.26, а {{ CB }} — на версии 14.4. Кроме того, есть различия в функциональности, специфичной для каждой из систем.
+Apache Cloudberry™ отличается от Greenplum® в ряде аспектов. Значительная часть отличий связана со сменой версии ядра PostgreSQL: Greenplum® основан на версии 9.4.26, а Apache Cloudberry™ — на версии 14.4. Кроме того, есть различия в функциональности, специфичной для каждой из систем.
 
-Эта статья описывает основные отличия и помогает заранее подготовиться к переходу с {{ GP }} на {{ CB }}.
+Эта статья описывает основные отличия и помогает заранее подготовиться к переходу с Greenplum® на Apache Cloudberry™.
 
 ## Препятствия для обновления {#update-limitations}
 
 ### Несовместимое изменение внутреннего формата типа `jsonb` {#internal-jsonb}
 
-В версиях ядра {{ PG }}, более новых, чем 9.4, внутреннее представление типа `jsonb` было изменено без обеспечения обратной совместимости.
+В версиях ядра PostgreSQL, более новых, чем 9.4, внутреннее представление типа `jsonb` было изменено без обеспечения обратной совместимости.
 
 **Как выявить**
 
@@ -29,10 +29,10 @@
 
 ### Удаление типов `abstime`, `reltime`, `tinterval` и `unknown` {#type-deletion}
 
-Начиная с версии ядра {{ PG }} 10 тип `unknown` стал псевдотипом.
-Начиная с версии ядра {{ PG }} 12, типы `abstime`, `reltime`, `tinterval` были удалены.
+Начиная с версии ядра PostgreSQL 10 тип `unknown` стал псевдотипом.
+Начиная с версии ядра PostgreSQL 12, типы `abstime`, `reltime`, `tinterval` были удалены.
 
-В {{ GP }} следующие запросы работают без ошибок:
+В Greenplum® следующие запросы работают без ошибок:
 
 ```sql
 CREATE TABLE example_abstime (x abstime);
@@ -45,7 +45,7 @@ CREATE TABLE example_unknown (x unknown);
 WARNING:  column "x" has type "unknown"
 ```
 
-В {{ CB }} те же самые запросы завершаются с ошибкой:
+В Apache Cloudberry™ те же самые запросы завершаются с ошибкой:
 
 ```sql
 CREATE TABLE example_abstime (x abstime);
@@ -96,15 +96,15 @@ ERROR:  column "x" has pseudo-type unknown
 
 ### Запрет на использование префикса `pg_` в именах ролей {#pg-prefix}
 
-Начиная с версии ядра {{ PG }} 9.6 префикс `pg_` зарезервирован для имен системных ролей и пользователей и больше недоступен.
+Начиная с версии ядра PostgreSQL 9.6 префикс `pg_` зарезервирован для имен системных ролей и пользователей и больше недоступен.
 
-В {{ GP }} следующий запрос работает без ошибок:
+В Greenplum® следующий запрос работает без ошибок:
 
 ```sql
 CREATE ROLE pg_example;
 ```
 
-В {{ CB }} такой запрос завершается с ошибкой:
+В Apache Cloudberry™ такой запрос завершается с ошибкой:
 
 ```sql
 CREATE ROLE pg_example;
@@ -128,7 +128,7 @@ DETAIL:  Role names starting with "pg_" are reserved.
  
 ### Удаление расширений `tsearch2` и `timetravel` {#extenstion-deletion}
 
-В {{ CB }} полностью удалены следующие расширения:
+В Apache Cloudberry™ полностью удалены следующие расширения:
 
 - `tsearch2`;
 - `timetravel`.
@@ -149,16 +149,16 @@ DETAIL:  Role names starting with "pg_" are reserved.
 
 ### Удалена поддержка таблиц, созданных с опцией `WITH OIDS` {#table-deletion}
 
-В версиях ядра {{ PG }} новее 12 удалена поддержка таблиц,
+В версиях ядра PostgreSQL новее 12 удалена поддержка таблиц,
 созданных с опцией `WITH OIDS`.
 
-В {{ GP }} следующий запрос работает без ошибок:
+В Greenplum® следующий запрос работает без ошибок:
 
 ```sql
 CREATE TABLE example (value text) with oids;
 ```
 
-В {{ CB }} тот же запрос завершается с ошибкой:
+В Apache Cloudberry™ тот же запрос завершается с ошибкой:
 
 ```sql
 CREATE TABLE example (value text) with oids;
@@ -186,11 +186,11 @@ ERROR:  syntax error at or near "oids"
 
 ### Изменение поведения функций, возвращающих множества {#set-function-change}
 
-Начиная с версии ядра {{ PG }} 10 изменилось поведение `Set Returning Functions` (например, `generate_series`, `unnest`, `regexp_split_to_table`, `json_each`, `json_array_elements`) в секции `SELECT`.
+Начиная с версии ядра PostgreSQL 10 изменилось поведение `Set Returning Functions` (например, `generate_series`, `unnest`, `regexp_split_to_table`, `json_each`, `json_array_elements`) в секции `SELECT`.
 
 Разница видна на следующем примере.
 
-{{ GP }}:
+Greenplum®:
 
 ```sql
 SELECT 'example' AS value, generate_series(1, 3), generate_series(1, 2);
@@ -205,7 +205,7 @@ SELECT 'example' AS value, generate_series(1, 3), generate_series(1, 2);
 (6 rows)
 ```
 
-{{ CB }}:
+Apache Cloudberry™:
 
 ```sql
 SELECT 'example' AS value, generate_series(1, 3), generate_series(1, 2);
@@ -227,9 +227,9 @@ SELECT 'example' AS value, generate_series(1, 3), generate_series(1, 2);
 
 ### Тип возвращаемого значения функции `extract()` изменен на `numeric` {#extract-type}
 
-Начиная с версии ядра {{ PG }} 14 функция `extract()` возвращает значение типа `numeric`, а не с типом `double precision`.
+Начиная с версии ядра PostgreSQL 14 функция `extract()` возвращает значение типа `numeric`, а не с типом `double precision`.
 
-Пример для {{ GP }}:
+Пример для Greenplum®:
 
 ```sql
 SELECT pg_typeof(extract(epoch FROM now()));
@@ -238,7 +238,7 @@ SELECT pg_typeof(extract(epoch FROM now()));
  double precision
 ```
 
-Пример для {{ CB }}:
+Пример для Apache Cloudberry™:
 
 ```sql
 SELECT pg_typeof(extract(epoch FROM now()));
@@ -259,7 +259,7 @@ SELECT pg_typeof(extract(epoch FROM now()));
 
 ### Исправлено поведение функции `to_number()` для корректной обработки форматов {#to-number}
 
-В {{ GP }} функция `to_number()` «съедала» лишние символы:
+В Greenplum® функция `to_number()` «съедала» лишние символы:
 
 ```sql
 SELECT to_number('1234', '9,999');
@@ -269,7 +269,7 @@ SELECT to_number('1234', '9,999');
 (1 row)
 ```
 
-В {{ CB }} это поведение исправлено:
+В Apache Cloudberry™ это поведение исправлено:
 
 ```sql
 SELECT to_number('1234', '9,999');
@@ -289,16 +289,16 @@ SELECT to_number('1234', '9,999');
 
 ### Изменен порядок вычисления некоторых операторов {#operator-order-change}
 
-В {{ CB }} по сравнению с {{ GP }} изменен порядок вычисления операторов `<=`, `>=`, `<>`, `IS`, `NOT BETWEEN` и других составных операторов.
+В Apache Cloudberry™ по сравнению с Greenplum® изменен порядок вычисления операторов `<=`, `>=`, `<>`, `IS`, `NOT BETWEEN` и других составных операторов.
 
-Например, в {{ GP }} следующий запрос некорректен:
+Например, в Greenplum® следующий запрос некорректен:
 
 ```sql
 SELECT 1 <> 2 IS TRUE;
 ERROR:  argument of IS TRUE must be type boolean, not type integer
 ```
 
-Но в {{ CB }} запрос работает:
+Но в Apache Cloudberry™ запрос работает:
 
 ```sql
 SELECT 1 <> 2 IS TRUE;
@@ -318,9 +318,9 @@ t
 
 ### Изменено поведение `SIMILAR TO` с `ESCAPE NULL` {#similar-to-escape-null}
 
-Начиная с версии ядра {{ PG }} 13 изменилось поведение конструкции `SIMILAR TO ... ESCAPE NULL`.
+Начиная с версии ядра PostgreSQL 13 изменилось поведение конструкции `SIMILAR TO ... ESCAPE NULL`.
 
-Пример для {{ GP }}:
+Пример для Greenplum®:
 
 ```sql
 SELECT 'abc' SIMILAR TO 'abc' ESCAPE NULL;
@@ -330,7 +330,7 @@ t
 (1 row)
 ```
 
-Пример для {{ CB }}:
+Пример для Apache Cloudberry™:
 
 ```sql
 SELECT 'abc' SIMILAR TO 'abc' ESCAPE NULL;
@@ -352,9 +352,9 @@ SELECT 'abc' SIMILAR TO 'abc' ESCAPE NULL;
 
 ### Требование явного `ROW()` в `UPDATE` с ROW-конструкторами {#row-constructor}
 
-Начиная с версии ядра {{ PG }} 10 при обновлении одной колонки через `ROW`-конструктор требуется явно указывать ключевое слово `ROW`.
+Начиная с версии ядра PostgreSQL 10 при обновлении одной колонки через `ROW`-конструктор требуется явно указывать ключевое слово `ROW`.
 
-В {{ GP }} следующий запрос работает без ошибок:
+В Greenplum® следующий запрос работает без ошибок:
 
 ```sql
 CREATE TABLE example (value text);
@@ -365,7 +365,7 @@ INSERT INTO example (value) VALUES ('a');
 UPDATE example SET (value) = (value || '_updated');
 ```
 
-В {{ CB }} тот же запрос завершается с ошибкой:
+В Apache Cloudberry™ тот же запрос завершается с ошибкой:
 
 ```sql
 CREATE TABLE example (value text);
@@ -387,9 +387,9 @@ ERROR:  source for a multiple-column UPDATE item must be a sub-SELECT or ROW() e
 
 ### Отсутствие поддержки триггеров уровня операторов {#unsupported-triggers}
 
-В отличие от {{ GP }}, {{ CB }} не поддерживает `statement-level triggers`.
+В отличие от Greenplum®, Apache Cloudberry™ не поддерживает `statement-level triggers`.
 
-Следующие запросы корректно работают в {{ GP }}:
+Следующие запросы корректно работают в Greenplum®:
 
 ```sql
 CREATE TABLE example (
@@ -410,7 +410,7 @@ CREATE TRIGGER example_trigger
     EXECUTE PROCEDURE example_trigger_func();
 ```
 
-Но не работают в {{ CB }}:
+Но не работают в Apache Cloudberry™:
 
 ```sql
 CREATE TABLE example (
@@ -451,9 +451,9 @@ ERROR:  Triggers for statements are not yet supported
 
 ### Функции с `EXECUTE ON` должны возвращать множества (`SETOF`) {#execute-on-return-setof}
 
-В {{ CB }} функции с атрибутами `EXECUTE ON ALL SEGMENTS`/`COORDINATOR`/`INITPLAN` теперь должны возвращать `SETOF`.
+В Apache Cloudberry™ функции с атрибутами `EXECUTE ON ALL SEGMENTS`/`COORDINATOR`/`INITPLAN` теперь должны возвращать `SETOF`.
 
-Корректный пример для {{ GP }}:
+Корректный пример для Greenplum®:
 
 ```sql
 CREATE OR REPLACE FUNCTION example_func()
@@ -466,7 +466,7 @@ $$ LANGUAGE plpgsql
 EXECUTE ON ALL SEGMENTS;
 ```
 
-Перестает работать в {{ CB }}:
+Перестает работать в Apache Cloudberry™:
 
 ```sql
 CREATE OR REPLACE FUNCTION example_func()
@@ -503,9 +503,9 @@ ERROR:  EXECUTE ON ALL SEGMENTS is only supported for set-returning functions
 
 ### Удалена поддержка постфиксных операторов {#postfix-operator-deletion}
 
-Начиная с версии ядра {{ PG }} 14 удалена поддержка постфиксных операторов — как системных, так и определенных пользователем.
+Начиная с версии ядра PostgreSQL 14 удалена поддержка постфиксных операторов — как системных, так и определенных пользователем.
 
-В {{ GP }} следующий запрос работает без ошибок:
+В Greenplum® следующий запрос работает без ошибок:
 
 ```sql
 SELECT 5! AS factorial;
@@ -514,7 +514,7 @@ SELECT 5! AS factorial;
        120
 ```
 
-В {{ CB }} тот же запрос завершается с ошибкой:
+В Apache Cloudberry™ тот же запрос завершается с ошибкой:
 
 ```sql
 SELECT 5! AS factorial;
@@ -524,7 +524,7 @@ LINE 1: SELECT 5! AS factorial;
 
 **Как выявить**
 
-В {{ GP }} есть только один системный постфиксный оператор — `!`. Но могут существовать и операторы, определенные пользователем. Полный список постфиксных операторов можно получить следующим запросом:
+В Greenplum® есть только один системный постфиксный оператор — `!`. Но могут существовать и операторы, определенные пользователем. Полный список постфиксных операторов можно получить следующим запросом:
 
   ```sql
   SELECT o.oid, n.nspname, o.oprname, o.oid < 16384 AS is_system
@@ -542,9 +542,9 @@ LINE 1: SELECT 5! AS factorial;
 
 ### Требование включения всех ключей партиционирования в уникальные индексы {#partition-key-in-unique-index}
 
-В отличие от {{ GP }}, в {{ CB }} уникальный индекс должен включать **все** `partition keys`.
+В отличие от Greenplum®, в Apache Cloudberry™ уникальный индекс должен включать **все** `partition keys`.
 
-Пример запроса, работающего в {{ GP }}:
+Пример запроса, работающего в Greenplum®:
 
 ```sql
 CREATE TABLE sales (
@@ -568,7 +568,7 @@ VALUES
 CREATE UNIQUE INDEX sales_id_idx ON sales (id);
 ```
 
-Тот же запрос не работает в {{ CB }}:
+Тот же запрос не работает в Apache Cloudberry™:
 
 ```sql
 CREATE TABLE sales (
@@ -619,11 +619,11 @@ DETAIL:  UNIQUE constraint on table "sales" lacks column "region" which is part 
 
 ### Ограничение на списковое партиционирование по нескольким столбцам {#list-partitioning-limit}
 
-В {{ CB }} `list partitioning` по нескольким столбцам реализуется через `subpartitioning`: стандартный синтаксис {{ CB }} предполагает один столбец или выражение на каждом уровне.
+В Apache Cloudberry™ `list partitioning` по нескольким столбцам реализуется через `subpartitioning`: стандартный синтаксис Apache Cloudberry™ предполагает один столбец или выражение на каждом уровне.
 
 Ограничение связано с тем, что партиционирование на основе списков по нескольким столбцам (например, `PARTITION BY LIST (col1, col2)`) зачастую делает невозможным использование оптимизатора GPORCA.
 
-Следующий пример работает для {{ GP }}:
+Следующий пример работает для Greenplum®:
 
 ```sql
 CREATE TABLE example (a int, b int, c int)
@@ -633,7 +633,7 @@ CREATE TABLE example (a int, b int, c int)
     );
 ```
 
-Но не работает для {{ CB }}:
+Но не работает для Apache Cloudberry™:
 
 ```sql
 CREATE TABLE example (a int, b int, c int)
@@ -659,7 +659,7 @@ ERROR:  cannot use "list" partition strategy with more than one column
 
 **Как исправить**
 
-В {{ CB }} для этого следует использовать `subpartitioning`:
+В Apache Cloudberry™ для этого следует использовать `subpartitioning`:
 
   ```sql
   CREATE TABLE example (a int, b int, c int)
@@ -675,9 +675,9 @@ ERROR:  cannot use "list" partition strategy with more than one column
 
 ### Удалена поддержка `FOR (RANK(...))` в DDL партиций {#for-rank-deletion}
 
-В {{ CB }} не поддерживается конструкция `FOR (RANK(...))` при работе с партициями.
+В Apache Cloudberry™ не поддерживается конструкция `FOR (RANK(...))` при работе с партициями.
 
-Рабочий пример для {{ GP }}:
+Рабочий пример для Greenplum®:
 
 ```sql
 CREATE TABLE sales (
@@ -696,7 +696,7 @@ ALTER TABLE sales
     TRUNCATE PARTITION FOR (RANK(2));
 ```
 
-Не работает в {{ CB }}:
+Не работает в Apache Cloudberry™:
 
 ```sql
 CREATE TABLE sales (
@@ -729,10 +729,10 @@ HINT:  Use partition name or FOR (<partition key value>) instead.
 
 Если AO-параметр для партиции не указан явно, поведение различается:
 
-* в {{ GP }} применяется значение по умолчанию;
-* в {{ CB }} параметр наследуется от родительской таблицы.
+* в Greenplum® применяется значение по умолчанию;
+* в Apache Cloudberry™ параметр наследуется от родительской таблицы.
 
-Следующий запрос работает для {{ GP }}:
+Следующий запрос работает для Greenplum®:
 
 ```sql
 CREATE TABLE sales
@@ -752,7 +752,7 @@ CREATE TABLE sales
         );
 ```
 
-Но не работает для {{ CB }}:
+Но не работает для Apache Cloudberry™:
 
 ```sql
 CREATE TABLE sales
@@ -800,9 +800,9 @@ ERROR:  compresstype "zstd" can't be used with compresslevel 0
 
 ### Ограничения на `EXCLUSIVE`/`INCLUSIVE` границы для типов `float`/`numeric`/`text` {#exclusive-inclusive-limit}
 
-В отличие от {{ GP }}, в {{ CB }} конструкции `START EXCLUSIVE`/`END INCLUSIVE` работают только для типов с оператором `+` (например, `integer` и `timestamp`), но не для `float`, `numeric` и `text`.
+В отличие от Greenplum®, в Apache Cloudberry™ конструкции `START EXCLUSIVE`/`END INCLUSIVE` работают только для типов с оператором `+` (например, `integer` и `timestamp`), но не для `float`, `numeric` и `text`.
 
-Корректный пример для {{ GP }}:
+Корректный пример для Greenplum®:
 
 ```sql
 CREATE TABLE sales
@@ -821,7 +821,7 @@ CREATE TABLE sales
         );
 ```
 
-Не работает в {{ CB }}:
+Не работает в Apache Cloudberry™:
 
 ```sql
 CREATE TABLE sales
@@ -864,7 +864,7 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 ### Изменена система уровней партиционированных таблиц {#pg-partition-tree}
 
-В {{ GP }} непосредственные партиции (`immediate child`) имеют `pg_partition.parlevel = 0`. В {{ CB }} непосредственные партиции имеют `pg_partition_tree().level = 1` (представление `pg_partition` в {{ CB }} удалено, поэтому нужно использовать функцию `pg_partition_tree()`).
+В Greenplum® непосредственные партиции (`immediate child`) имеют `pg_partition.parlevel = 0`. В Apache Cloudberry™ непосредственные партиции имеют `pg_partition_tree().level = 1` (представление `pg_partition` в Apache Cloudberry™ удалено, поэтому нужно использовать функцию `pg_partition_tree()`).
 
 Это изменение может нарушить работу запросов, опирающихся на уровень партиций.
 
@@ -878,9 +878,9 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 ### Перемещены ограничения партиционирования из `pg_constraint` {#move-patition-pg-constraint}
 
-В {{ GP }} границы партиций отображаются как `CHECK CONSTRAINT` в системном представлении `pg_constraint`.
+В Greenplum® границы партиций отображаются как `CHECK CONSTRAINT` в системном представлении `pg_constraint`.
 
-В {{ CB }} границы партиций больше не являются `CHECK CONSTRAINT` и не отображаются в `pg_constraint`. Аналогичную информацию теперь можно получить из `gp_toolkit.gp_partitions`.
+В Apache Cloudberry™ границы партиций больше не являются `CHECK CONSTRAINT` и не отображаются в `pg_constraint`. Аналогичную информацию теперь можно получить из `gp_toolkit.gp_partitions`.
 
 **Как выявить**
 
@@ -894,7 +894,7 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 ### Удаление и переименование колонок в представлениях и таблицах системного каталога {#columns}
 
-При переходе к {{ CB }} (вместе с обновлением ядра {{ PG }} и {{ GP }}) были удалены или переименованы следующие колонки в представлениях и таблицах системного каталога:
+При переходе к Apache Cloudberry™ (вместе с обновлением ядра PostgreSQL и Greenplum®) были удалены или переименованы следующие колонки в представлениях и таблицах системного каталога:
 
 | Старая колонка                                                             | Новая колонка                                                       |
 |----------------------------------------------------------------------------|---------------------------------------------------------------------|
@@ -922,7 +922,7 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 ### Удаление системных таблиц и представлений {#system-table-deletion}
 
-В {{ CB }} по сравнению с {{ GP }} полностью удалены следующие системные таблицы и представления:
+В Apache Cloudberry™ по сравнению с Greenplum® полностью удалены следующие системные таблицы и представления:
 
 * `pg_catalog.pg_partition`;
 * `pg_catalog.pg_partition_columns`;
@@ -940,11 +940,11 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 Внести соответствующие правки в кодовую базу приложения.
  
-Для работы с партиционированными таблицами в {{ CB }} следует использовать представление `pg_partitioned_table` и функции `pg_partition_tree()`, `pg_partition_ancestors()`, `pg_partition_root()`.
+Для работы с партиционированными таблицами в Apache Cloudberry™ следует использовать представление `pg_partitioned_table` и функции `pg_partition_tree()`, `pg_partition_ancestors()`, `pg_partition_root()`.
 
 ### Удаление и переименование системных функций {#sysmtem-functions}
 
-В {{ CB }} по сравнению с {{ GP }} полностью удалены следующие системные функции:
+В Apache Cloudberry™ по сравнению с Greenplum® полностью удалены следующие системные функции:
 
 * `pg_get_partition_def`, `pg_get_partition_rule_def`, `pg_get_partition_template_def`.
 * `gp_elog`, `gp_fault_inject`, `gp_update_ao_master_stats`.
@@ -962,10 +962,10 @@ HINT:  Specify an inclusive START value and remove the EXCLUSIVE keyword
 
 ### Изменения в отображении метаданных последовательностей {#seq-name}
 
-Начиная с версии ядра {{ PG }} 10 изменилось отображение метаданных последовательностей.
+Начиная с версии ядра PostgreSQL 10 изменилось отображение метаданных последовательностей.
 Запросы вида `SELECT * FROM <seq_name>` теперь возвращают только `last_value`, `log_cnt`, `is_called`. Остальные свойства доступны через `pg_sequence` или `pg_sequences`.
 
-Пример для {{ GP }}:
+Пример для Greenplum®:
 
 ```sql
 CREATE SEQUENCE example_seq
@@ -978,7 +978,7 @@ SELECT * FROM example_seq;
  example_seq      |        100 |         100 |            1 | 9223372036854775807 |         1 |           1 |       0 | f         | f
 ```
 
-Пример для {{ CB }}:
+Пример для Apache Cloudberry™:
 
 ```sql
 CREATE SEQUENCE example_seq
@@ -1011,7 +1011,7 @@ SELECT * FROM pg_sequences WHERE sequencename = 'example_seq';
 
 ### Изменение внутреннего представления внешних таблиц {#external-tables}
 
-Внутри {{ CB }} внешние таблицы (`EXTERNAL TABLES`) представлены как `FOREIGN TABLES`. По сравнению с {{ GP }} это дает следующие отличия:
+Внутри Apache Cloudberry™ внешние таблицы (`EXTERNAL TABLES`) представлены как `FOREIGN TABLES`. По сравнению с Greenplum® это дает следующие отличия:
 
 * Системное представление `pg_tables` больше не показывает внешние таблицы.
 * `pg_class.relkind` для внешних таблиц теперь имеет значение `'f'`, а не `'r'`.
@@ -1037,7 +1037,7 @@ SELECT * FROM pg_sequences WHERE sequencename = 'example_seq';
 
 ### Схема `gp_toolkit` теперь поставляется в виде расширения {#gp-toolkit}
 
-В {{ CB }}, в отличие от {{ GP }}, `gp_toolkit` поставляется в виде расширения.
+В Apache Cloudberry™, в отличие от Greenplum®, `gp_toolkit` поставляется в виде расширения.
 С точки зрения установки ничего не меняется — при создании базы данных `gp_toolkit` подключается автоматически.
 
 Удалены следующие представления:
@@ -1095,7 +1095,7 @@ SELECT * FROM pg_sequences WHERE sequencename = 'example_seq';
 
 ### Удаление параметров конфигурации {#config-params}
 
-В {{ CB }} по сравнению с {{ GP }} полностью удалены следующие параметры конфигурации:
+В Apache Cloudberry™ по сравнению с Greenplum® полностью удалены следующие параметры конфигурации:
 
 * `wal_keep_segments` (переименован в `wal_keep_size`);
 * `memory_spill_ratio`;
@@ -1138,9 +1138,9 @@ SELECT * FROM pg_sequences WHERE sequencename = 'example_seq';
 
 ### Изменение возможных значений параметра `password_encryption` {#password_encryption}
 
-Начиная с версии ядра {{ PG }} 10 изменились тип параметра `password_encryption` и множество возможных значений.
+Начиная с версии ядра PostgreSQL 10 изменились тип параметра `password_encryption` и множество возможных значений.
 
-В {{ GP }} параметр имеет следующий тип и возможные значения:
+В Greenplum® параметр имеет следующий тип и возможные значения:
 
 ```sql
 SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
@@ -1150,7 +1150,7 @@ SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
 (1 row)
 ```
 
-В {{ CB }} параметр имеет следующий тип и возможные значения:
+В Apache Cloudberry™ параметр имеет следующий тип и возможные значения:
 
 ```sql
 SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
@@ -1171,9 +1171,9 @@ SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
 
 ### Изменение значений параметров по умолчанию {#default-parameters}
 
-В {{ CB }} по сравнению с {{ GP }} изменены значения по умолчанию для следующих параметров:
+В Apache Cloudberry™ по сравнению с Greenplum® изменены значения по умолчанию для следующих параметров:
 
-| Параметр                       |    {{ GP }} |           {{ CB }} |
+| Параметр                       |    Greenplum® |           Apache Cloudberry™ |
 |--------------------------------|------------:|---------------------:|
 | `wal_level`                    | `archive` | `replica` |
 | `autovacuum_vacuum_cost_delay` | `20ms` | `2ms` |
@@ -1194,7 +1194,7 @@ SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
 
 ### Возможные изменения в планах исполнения запросов {#query-plan}
 
-{{ CB }} содержит множество изменений и улучшений в оптимизаторе GPORCA, которые могут изменить план выполнения запроса. Запросы не «сломаются» логически, но могут начать исполняться иначе.
+Apache Cloudberry™ содержит множество изменений и улучшений в оптимизаторе GPORCA, которые могут изменить план выполнения запроса. Запросы не «сломаются» логически, но могут начать исполняться иначе.
 
 Что стоит учитывать:
 
@@ -1220,7 +1220,7 @@ SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
 
 **Как выявить**
 
-Снять baseline-планы для критических запросов до перехода на {{ CB }}:
+Снять baseline-планы для критических запросов до перехода на Apache Cloudberry™:
 
   ```sql
   EXPLAIN (ANALYZE, VERBOSE, COSTS, BUFFERS) <query>;
@@ -1232,7 +1232,7 @@ SELECT vartype, enumvals FROM pg_settings WHERE name = 'password_encryption';
 
 ### Расширения, вошедшие в ядро {#extenstions}
 
-В {{ CB }} следующие расширения удалены, а их функциональность перенесена в ядро:
+В Apache Cloudberry™ следующие расширения удалены, а их функциональность перенесена в ядро:
 
 * `gp_parallel_retrieve_cursor`;
 * `gp_array_agg`;

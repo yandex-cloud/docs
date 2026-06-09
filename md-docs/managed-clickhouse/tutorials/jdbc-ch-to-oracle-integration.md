@@ -1,17 +1,17 @@
-# Интеграция {{ mch-full-name }} с внешней базой данных Oracle через {{ CH }} JDBC Bridge
+# Интеграция Yandex Managed Service for ClickHouse® с внешней базой данных Oracle через ClickHouse® JDBC Bridge
 
-С помощью [{{ CH }} JDBC Bridge]({{ ch.docs }}{{ lang }}/integrations/jdbc/jdbc-with-clickhouse) вы можете:
+С помощью [ClickHouse® JDBC Bridge](https://clickhouse.com/docs/ru/integrations/jdbc/jdbc-with-clickhouse) вы можете:
 
-* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Oracle.
-* [Создавать таблицы](#jdbc-table-engine) в {{ CH }} с помощью [JDBC Table Engine]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Oracle.
+* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function](https://clickhouse.com/docs/ru/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Oracle.
+* [Создавать таблицы](#jdbc-table-engine) в ClickHouse® с помощью [JDBC Table Engine](https://clickhouse.com/docs/ru/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Oracle.
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -20,9 +20,9 @@
 
 В стоимость поддержки решения входят:
 
-* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../pricing.md)).
-* Плата за NAT-шлюз, если для хостов кластера не включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
+* Плата за NAT-шлюз, если для хостов кластера не включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#deploy-infrastructure}
@@ -31,23 +31,23 @@
 
     Также добавьте правило для исходящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `0-65535`;
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`;
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`;
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `0-65535`;
+    * **Протокол** — `TCP`;
+    * **Источник** — `CIDR`;
+    * **CIDR блоки** — `0.0.0.0/0`.
 
-    Это правило разрешает любой исходящий трафик, что позволит {{ CH }} JDBC Bridge подключаться к внешним базам данных, в т. ч. к Oracle.
+    Это правило разрешает любой исходящий трафик, что позволит ClickHouse® JDBC Bridge подключаться к внешним базам данных, в т. ч. к Oracle.
 
-1. [Создайте кластер {{ mch-name }}](../operations/cluster-create.md).
+1. [Создайте кластер Managed Service for ClickHouse®](../operations/cluster-create.md).
 
     При создании кластера укажите группу безопасности, подготовленную ранее.
 
-    В разделе **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}** и добавьте опцию **jdbcBridge** с параметрами:
+    В разделе **Настройки СУБД** нажмите **Настроить** и добавьте опцию **jdbcBridge** с параметрами:
 
     * **host** — IP-адрес вашей инсталляции базы данных Oracle;
     * **port** — `9019`.
 
-1. Создайте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой будет создан кластер {{ mch-name }}, если вы не используете публичный доступ.
+1. Создайте [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой будет создан кластер Managed Service for ClickHouse®, если вы не используете публичный доступ.
 
 ## Подготовьте внешнюю базу данных Oracle {#prepare-source}
 
@@ -68,13 +68,13 @@
 
 1. Установите [Docker Engine](https://docs.docker.com/engine/install/).
 
-1. Запустите {{ CH }} JDBC Bridge:
+1. Запустите ClickHouse® JDBC Bridge:
 
     ```bash
     docker run -d --name jdbc_bridge --network host -v /opt/drivers:/app/drivers clickhouse/jdbc-bridge
     ```
 
-    Если у вас уже запущен контейнер, перезапустите его, чтобы новые драйверы загрузились в {{ CH }} JDBC Bridge:
+    Если у вас уже запущен контейнер, перезапустите его, чтобы новые драйверы загрузились в ClickHouse® JDBC Bridge:
 
     ```bash
     docker container restart jdbc_bridge
@@ -92,7 +92,7 @@
     ALTER SESSION SET CONTAINER = PDB1;
     ```
 
-1. Создайте пользователя `JDBC_USER`, от имени которого вы будете подключаться из кластера {{ mch-name }}:
+1. Создайте пользователя `JDBC_USER`, от имени которого вы будете подключаться из кластера Managed Service for ClickHouse®:
 
     ```sql
     CREATE USER JDBC_USER IDENTIFIED BY <пароль_пользователя>
@@ -109,7 +109,7 @@
 
     {% endnote %}
 
-1. Выдайте права, необходимые для работы {{ CH }} JDBC Bridge:
+1. Выдайте права, необходимые для работы ClickHouse® JDBC Bridge:
 
     ```sql
     GRANT CONNECT, RESOURCE TO JDBC_USER;
@@ -153,7 +153,7 @@
 
 ## Запросите данные с помощью JDBC Table Function {#jdbc-table-function}
 
-1. [Подключитесь к кластеру {{ mch-name }}](../operations/connect/index.md).
+1. [Подключитесь к кластеру Managed Service for ClickHouse®](../operations/connect/index.md).
 
 1. Отправьте запрос к внешней базе данных Oracle с помощью JDBC Table Function:
 
@@ -175,13 +175,13 @@
 * Запрашивать данные через `SELECT`.
 * Добавлять новые значения через `INSERT INTO`, с ограничениями: 
 
-    * Таблица в базе данных кластера {{ mch-name }} должна полностью повторять структуру таблицы, на которую ссылается. 
+    * Таблица в базе данных кластера Managed Service for ClickHouse® должна полностью повторять структуру таблицы, на которую ссылается. 
     * `INSERT INTO` — единственная доступная операция записи. Изменять уже существующие данные через `UPDATE`, `DELETE`, `ALTER` и т. п. — нельзя.
     * Если добавить новые записи и не указать в них значения для полей с автоматической генерацией (`DEFAULT`, `GENERATED BY`, `SYSDATE` и т. п.), эти значения сгенерированы не будут.
 
 Чтобы использовать JDBC Table Engine:
 
-1. [Подключитесь к кластеру {{ mch-name }}](../operations/connect/index.md).
+1. [Подключитесь к кластеру Managed Service for ClickHouse®](../operations/connect/index.md).
 
 1. Создайте таблицу с JDBC Table Engine на основе таблицы из внешней базы данных Oracle.
 
@@ -216,7 +216,7 @@
       VALUES ('Alice Wonderland', 'alice@example.ru');
     ```
 
-    {{ CH }} JDBC Bridge сам открывает транзакцию и закрывает её. Выполнять отдельно `COMMIT` не нужно.
+    ClickHouse® JDBC Bridge сам открывает транзакцию и закрывает её. Выполнять отдельно `COMMIT` не нужно.
 
 1. Снова проверьте результат и сравните с предыдущим выводом:
 
@@ -230,7 +230,7 @@
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-* [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
+* [Удалите кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
 * [Удалите NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

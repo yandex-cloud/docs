@@ -1,12 +1,12 @@
-# Пошаговые инструкции для {{ mrd-name }}
+# Пошаговые инструкции для Yandex Managed Service for Valkey™
 
 ## Кластеры {#clusters}
 
 * [Информация об имеющихся кластерах](cluster-list.md)
 * [Создание кластера](cluster-create.md)
 * [Изменение настроек кластера](update.md)
-* [{#T}](cluster-version-update.md)
-* [{#T}](modules.md)
+* [Обновление версии Valkey™](cluster-version-update.md)
+* [Работа с модулями Valkey™](modules.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Управление хостами кластера](hosts.md)
 * [Миграция хостов в другую зону доступности](host-migration.md)
@@ -16,7 +16,7 @@
 
 ## Подключение {#connect}
 
-* [{#T}](connect/index.md)
+* [Предварительная настройка для подключения к кластеру Valkey™](connect/index.md)
 * [FQDN хостов](connect/fqdn.md)
 * [Подключение из приложений](connect/clients.md)
 * [Примеры кода](connect/code-examples.md)
@@ -27,7 +27,7 @@
 
 ## Базы данных {#databases}
 
-* [Запросы в {{ websql-full-name }}](web-sql-query.md)
+* [Запросы в Yandex WebSQL](web-sql-query.md)
 
 
 ## Пользователи {#users}
@@ -40,7 +40,7 @@
 ## Шардирование и отказоустойчивость {#sharding}
 
 * [Управление шардами](shards.md)
-* [{#T}](failover.md)
+* [Переключение мастера](failover.md)
 
 ## Логи и мониторинг {#logs-and-monitoring}
 

@@ -1,10 +1,10 @@
 # Передача данных из эндпоинта-источника Microsoft SQL Server
 
-С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из базы данных Microsoft SQL Server в управляемые базы данных {{ yandex-cloud }} и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса Yandex Data Transfer вы можете переносить данные из базы данных Microsoft SQL Server в управляемые базы данных Yandex Cloud и реализовывать различные сценарии обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Подготовьте базу данных Microsoft SQL Server](#prepare) к трансферу.
-1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. При возникновении проблем, [воспользуйтесь готовыми решениями](../../../troubleshooting/index.md) по их устранению.
@@ -13,38 +13,38 @@
 
 Вы можете реализовывать сценарии миграции и поставки данных из базы данных Microsoft SQL Server в управляемые базы данных для дальнейшего хранения в облаке, обработки и загрузки в витрины данных с целью последующей визуализации.
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в Yandex Data Transfer читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных Microsoft SQL Server {#prepare}
 
-{{ AB }} предъявляет требования к источнику данных Microsoft SQL Server:
+Airbyte® предъявляет требования к источнику данных Microsoft SQL Server:
 
-1. База данных доступна с компьютера, на котором работает {{ AB }}.
-1. Создан выделенный пользователь {{ AB }} с правами только на чтение и с доступом ко всем таблицам, для которых необходима репликация.
+1. База данных доступна с компьютера, на котором работает Airbyte®.
+1. Создан выделенный пользователь Airbyte® с правами только на чтение и с доступом ко всем таблицам, для которых необходима репликация.
 
-Подробнее в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql).
+Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/mssql).
 
-{{ AB }} уже встроен в {{ data-transfer-name }}, поэтому вам не нужно создавать отдельную виртуальную машину для его развертывания и добавления пользователя. Достаточно обеспечить [сетевой доступ](../../../concepts/network.md) {{ data-transfer-name }} к базе-источнику.
+Airbyte® уже встроен в Data Transfer, поэтому вам не нужно создавать отдельную виртуальную машину для его развертывания и добавления пользователя. Достаточно обеспечить [сетевой доступ](../../../concepts/network.md) Data Transfer к базе-источнику.
 
 ## Настройка эндпоинта-источника Microsoft SQL Server {#endpoint-settings}
 
-При [создании](../index.md#create) эндпоинта выберите тип базы данных `MSSQL` и задайте настройки доступа к {{ MS }}. Вы можете [изменить](../index.md#update) настройки после создания эндпоинта.
+При [создании](../index.md#create) эндпоинта выберите тип базы данных `MSSQL` и задайте настройки доступа к SQL Server. Вы можете [изменить](../index.md#update) настройки после создания эндпоинта.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.host.title }}** — IP-адрес или [FQDN](../../../../glossary/fqdn.md) хоста, к которому необходимо подключиться.
+    * **Хост** — IP-адрес или [FQDN](../../../../glossary/fqdn.md) хоста, к которому необходимо подключиться.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.port.title }}** — номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения к хосту. 
+    * **Порт** — номер порта, который сервис Data Transfer будет использовать для подключения к хосту. 
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.database.title }}** — имя БД для подключения.
+    * **База данных** — имя БД для подключения.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.username.title }}**, **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.password.title }}** — имя и пароль пользователя БД.
+    * **Имя пользователя**, **Пароль** — имя и пароль пользователя БД.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.replication_method.title }}** — способ репликации, используемый для извлечения данных из базы данных. Репликация типа `STANDARD` не требует настройки на стороне БД, но не сможет отображать изменения данных. Репликация типа `CDC` позволяет обнаруживать вставки, обновления и удаления.
+    * **Метод репликации** — способ репликации, используемый для извлечения данных из базы данных. Репликация типа `STANDARD` не требует настройки на стороне БД, но не сможет отображать изменения данных. Репликация типа `CDC` позволяет обнаруживать вставки, обновления и удаления.
   
-    * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.mssql_source.endpoint.airbyte.mssql_source.MSSQLSource.ssl_method.title }}** — метод шифрования, который используется при обмене данными с базой данных:
+    * **Метод SSL** — метод шифрования, который используется при обмене данными с базой данных:
       
         * `UNENCRYPTED` — сохранение пароля в открытом текстовом виде;
       
@@ -54,23 +54,23 @@
     
 {% endlist %}
 
-Подробнее о настройках в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql/).
+Подробнее о настройках в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/mssql/).
 
 
 ## Настройка приемника данных {#supported-targets}
 
 Настройте один из поддерживаемых приемников данных:
 
-* [{{ MY }}](../target/mysql.md);
-* [{{ MG }}](../target/mongodb.md);
-* [{{ CH }}](../target/clickhouse.md);
-* [{{ GP }}](../target/greenplum.md);
-* [{{ ydb-full-name }}](../target/yandex-database.md);
-* [{{ KF }}](../target/kafka.md);
-* [{{ DS }}](../target/data-streams.md);
-* [{{ PG }}](../target/postgresql.md).
+* [MySQL®](../target/mysql.md);
+* [MongoDB](../target/mongodb.md);
+* [ClickHouse®](../target/clickhouse.md);
+* [Greenplum®](../target/greenplum.md);
+* [Yandex Managed Service for YDB](../target/yandex-database.md);
+* [Apache Kafka®](../target/kafka.md);
+* [YDS](../target/data-streams.md);
+* [PostgreSQL](../target/postgresql.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в Yandex Data Transfer читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 Убедитесь, что настройки сети, в которой размещен кластер-приемник, разрешают подключение к интернету. Чтобы открыть доступ в интернет, [настройте маршрутизацию](../../../../vpc/tutorials/nat-instance/index.md).
 
@@ -78,6 +78,6 @@
 
 _Airbyte® является зарегистрированным товарным знаком Airbyte, Inc в США и/или других странах._
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

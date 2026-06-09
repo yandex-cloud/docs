@@ -1,11 +1,11 @@
 # Создание сайта на базе «1С-Битрикс» с помощью консоли управления
 
-Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью консоли управления {{ yandex-cloud }}:
+Чтобы создать инфраструктуру для [сайта на базе «1С-Битрикс»](index.md) c помощью консоли управления Yandex Cloud:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте и настройте облачную сеть](#create-network).
 1. [Создайте ВМ в облаке](#create-vm).
-1. [Создайте кластер БД {{ MY }}](#create-mysql).
+1. [Создайте кластер БД MySQL®](#create-mysql).
 1. [Настройте сервер для работы с «1C-Битрикс»](#configure-server).
 1. [Настройте «1С-Битрикс»](#configure-bitrix).
 
@@ -13,20 +13,20 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
 
 Для данного руководства используется пробная версия «1С-Битрикс» с ознакомительным периодом в 30 дней. Стоимость электронных версий продукта вы можете уточнить на официальном ресурсе [«1С-Битрикс»](https://www.1c-bitrix.ru).
 
@@ -36,32 +36,32 @@
 
 - Консоль управления {#console}
 
-  1. [Создайте сеть](../../../vpc/operations/network-create.md) с именем `network-1`. При создании сети отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. [Создайте сеть](../../../vpc/operations/network-create.md) с именем `network-1`. При создании сети отключите опцию **Создать подсети**.
   1. В сети `network-1` [создайте](../../../vpc/operations/subnet-create.md) две [подсети](../../../vpc/concepts/network.md#subnet) в разных [зонах доступности](../../../overview/concepts/geo-scope.md) со следующими параметрами:
-     1. Подсеть в зоне доступности `{{ region-id }}-a`:
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-a`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.0.0/24`.
-     1. Подсеть в зоне доступности `{{ region-id }}-b`:
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `subnet-b`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-b`.
-        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
+     1. Подсеть в зоне доступности `ru-central1-a`:
+        * **Имя** — `subnet-a`.
+        * **Зона доступности** — `ru-central1-a`.
+        * **CIDR** — `192.168.0.0/24`.
+     1. Подсеть в зоне доступности `ru-central1-b`:
+        * **Имя** — `subnet-b`.
+        * **Зона доступности** — `ru-central1-b`.
+        * **CIDR** — `192.168.1.0/24`.
   1. В сети `network-1` [создайте группы безопасности](../../../vpc/operations/security-group-create.md):
      1. С именем `bitrix-sg-vm` для ВМ в облаке. [Задайте правила](../../../vpc/operations/security-group-add-rule.md) для этой [группы безопасности](../../../vpc/concepts/security-groups.md) в соответствии с таблицей:
 
-        Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+        Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник /<br>Назначение | CIDR блоки
         --- | --- | --- | --- | --- | ---
-        Исходящий | `ANY` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
-        Входящий | `HTTP` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
-        Входящий | `EXT-HTTPS` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
-        Входящий | `SSH` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
+        Исходящий | `ANY` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0`
+        Входящий | `HTTP` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
+        Входящий | `EXT-HTTPS` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
+        Входящий | `SSH` | `22` | `TCP` | `CIDR` | `0.0.0.0/0`
 
-     1. С именем `bitrix-sg` для кластера баз данных {{ MY }}. [Задайте правила](../../../vpc/operations/security-group-add-rule.md) для этой группы безопасности в соответствии с таблицей:
+     1. С именем `bitrix-sg` для кластера баз данных MySQL®. [Задайте правила](../../../vpc/operations/security-group-add-rule.md) для этой группы безопасности в соответствии с таблицей:
 
-        Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+        Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник /<br>Назначение | CIDR блоки
         --- | --- | --- | --- | --- | ---
-        Исходящий | `ANY` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
-        Входящий | `EXT-HTTPS` | `3306` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-cidr }}` | `0.0.0.0/0`
+        Исходящий | `ANY` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0`
+        Входящий | `EXT-HTTPS` | `3306` | `TCP` | `CIDR` | `0.0.0.0/0`
 
 {% endlist %}
 
@@ -71,46 +71,46 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md): `{{ region-id }}-a`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите [тип диска](../../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `24 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите пункт `Виртуальная машина`.
+  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `Ubuntu 22.04 LTS` и выберите публичный образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md): `ru-central1-a`.
+  1. В блоке **Диски и файловые хранилища** выберите [тип диска](../../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `24 ГБ`.
+  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
-      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+      * **Платформа** — `Intel Ice Lake`.
+      * **vCPU** — `2`.
+      * **Гарантированная доля vCPU** — `20%`.
+      * **RAM** — `4 ГБ`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `network-1` и подсеть `subnet-a`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `bitrix-sg-vm`.
+      * В поле **Подсеть** выберите сеть `network-1` и подсеть `subnet-a`.
+      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный публичный IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **Группы безопасности** выберите группу безопасности `bitrix-sg-vm`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `ubuntu`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, например: `ubuntu`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `bitrixwebsite`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `bitrixwebsite`.
+  1. Нажмите кнопку **Создать ВМ**.
 
   В процессе работы вам может потребоваться сохранять [снимки диска](../../../compute/operations/disk-control/create-snapshot.md) ВМ. Они содержат копию файловой системы ВМ на момент создания снимка.
 
@@ -121,32 +121,32 @@
 
 {% endlist %}
 
-## Создайте кластер БД {{ MY }} {#create-mysql}
+## Создайте кластер БД MySQL® {#create-mysql}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-mysql }}**.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите имя кластера, например `Bitrix{{ MY }}`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s3-c2-m8`. Данных характеристик хватит для работы системы «1С-Битрикс».
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}** выберите [тип хранилища](../../concepts/storage.md) — `network-ssd` и укажите размер `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите:
-     * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**. В этом руководстве оставьте значение по умолчанию `db1`.
-     * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**, которое является логином для подключения к БД. В этом руководстве оставьте значение по умолчанию `user1`.
-     * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**, будет использоваться для доступа системой «1С-Битрикс» к БД {{ MY }}, например `p@s$woRd!`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
-     * В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите созданную ранее сеть `network-1`.
-     * В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите группу безопасности `bitrix-sg`.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**, при необходимости, поменяйте зону доступности, в которой должна находиться база данных. Для этого нажмите значок ![pencil](../../../_assets/console-icons/pencil.svg) в строке с информацией о хосте. В открывшемся окне выберите нужную зону доступности и нажмите кнопку **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
+  1. На странице каталога в [консоли управления](https://console.yandex.cloud) нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите пункт **Кластер MySQL**.
+  1. В поле **Имя кластера** введите имя кластера, например `BitrixMySQL®`.
+  1. В блоке **Класс хоста** выберите `s3-c2-m8`. Данных характеристик хватит для работы системы «1С-Битрикс».
+  1. В блоке **Размер хранилища** выберите [тип хранилища](../../concepts/storage.md) — `network-ssd` и укажите размер `10 ГБ`.
+  1. В блоке **База данных** укажите:
+     * **Имя БД**. В этом руководстве оставьте значение по умолчанию `db1`.
+     * **Имя пользователя**, которое является логином для подключения к БД. В этом руководстве оставьте значение по умолчанию `user1`.
+     * **Пароль**, будет использоваться для доступа системой «1С-Битрикс» к БД MySQL®, например `p@s$woRd!`.
+  1. В блоке **Сетевые настройки**:
+     * В поле **Сеть** выберите созданную ранее сеть `network-1`.
+     * В поле **Группы безопасности** выберите группу безопасности `bitrix-sg`.
+  1. В блоке **Хосты**, при необходимости, поменяйте зону доступности, в которой должна находиться база данных. Для этого нажмите значок ![pencil](../../../_assets/console-icons/pencil.svg) в строке с информацией о хосте. В открывшемся окне выберите нужную зону доступности и нажмите кнопку **Сохранить**.
 
      Рекомендуется выбрать ту же зону доступности, которую вы выбрали при создании ВМ. Это позволит уменьшить задержку (latency) между ВМ и БД.
 
-  1. Для обеспечения отказоустойчивости вы можете добавить дополнительные хосты для вашей БД. Для этого нажмите **{{ ui-key.yacloud.mdb.forms.button_add-host }}** и укажите, в какой зоне доступности он будет размещен.
+  1. Для обеспечения отказоустойчивости вы можете добавить дополнительные хосты для вашей БД. Для этого нажмите **Добавить хост** и укажите, в какой зоне доступности он будет размещен.
   1. Остальные поля оставьте без изменений.
-  1. Нажмите на кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
+  1. Нажмите на кнопку **Создать кластер**.
 
-  Создание кластера БД может занять несколько минут. Проверить доступность созданного кластера вы можете в консоли управления {{ yandex-cloud }}, выбрав сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**. На вкладке **{{ ui-key.yacloud.mysql.switch_list }}** статус кластера должен быть `Running`, состояние `Alive`.
+  Создание кластера БД может занять несколько минут. Проверить доступность созданного кластера вы можете в консоли управления Yandex Cloud, выбрав сервис **Managed Service for&nbsp;MySQL**. На вкладке **Кластеры** статус кластера должен быть `Running`, состояние `Alive`.
 
 {% endlist %}
 
@@ -159,7 +159,7 @@
    ssh ubuntu@<публичный_IP-адрес_ВМ>
    ```
 
-   Публичный IP-адрес ВМ можно узнать в [консоли управления]({{ link-console-main }}) в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ.
+   Публичный IP-адрес ВМ можно узнать в [консоли управления](https://console.yandex.cloud) в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ.
 
 1. Установите необходимое программное обеспечение:
 
@@ -282,18 +282,18 @@
 
 1. Настройте БД:
    1. В поле **Сервер** укажите полное доменное имя созданной вами БД. Чтобы его узнать:
-      1. В [консоли управления]({{ link-console-main }}) перейдите в новой вкладке браузера на страницу каталога.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+      1. В [консоли управления](https://console.yandex.cloud) перейдите в новой вкладке браузера на страницу каталога.
+      1. Перейдите в сервис **Managed Service for&nbsp;MySQL**.
       1. В открывшемся окне выберите созданный ранее кластер `BitrixMySQL`.
-      1. В меню слева выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
-      1. В поле **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** подведите курсор к имени хоста (вида `rc1c-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер** должно быть указано имя вида `rc1c-cfazv1db********.{{ dns-zone }}`.
-   1. В полях **Имя пользователя** и **Пароль** укажите данные, с которыми вы создавали БД в разделе [Создайте кластер БД {{ MY }}](#create-mysql).
+      1. В меню слева выберите вкладку **Хосты**.
+      1. В поле **FQDN хоста** подведите курсор к имени хоста (вида `rc1c-cfazv1db********`) и скопируйте полное доменное имя базы данных, нажав появившийся значок ![copy](../../../_assets/copy.svg). К имени хоста добавится полное доменное имя, в результате в поле **Сервер** должно быть указано имя вида `rc1c-cfazv1db********.mdb.yandexcloud.net`.
+   1. В полях **Имя пользователя** и **Пароль** укажите данные, с которыми вы создавали БД в разделе [Создайте кластер БД MySQL®](#create-mysql).
    1. В поле **Имя базы данных** укажите имя созданной БД (`db1`).
    1. Нажмите кнопку **Далее**.
 
    ![Шаг 5](../../../_assets/tutorials/bitrix-website/bitrix-website7.png)
 
-1. Дождитесь инициализации БД {{ MY }}.
+1. Дождитесь инициализации БД MySQL®.
 
    ![Шаг 6](../../../_assets/tutorials/bitrix-website/bitrix-website8.png)
 
@@ -334,13 +334,13 @@
 
 Чтобы перестать платить за созданные ресурсы:
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) ВМ `bitrixwebsite`.
-1. [Удалите](../../operations/cluster-delete.md) кластер БД `Bitrix{{ MY }}`.
+1. [Удалите](../../operations/cluster-delete.md) кластер БД `BitrixMySQL®`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
-1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.
+1. Перейдите в сервис **Virtual Private Cloud** в вашем каталоге.
+1. Перейдите на вкладку **Публичные IP-адреса**.
+1. Найдите нужный IP-адрес, нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить**.
 
 #### См. также {#see-also}
 
-* [{#T}](terraform.md).
+* [Создание сайта на базе «1С-Битрикс» с помощью Terraform](terraform.md).

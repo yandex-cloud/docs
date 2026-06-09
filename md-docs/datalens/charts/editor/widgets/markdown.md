@@ -453,7 +453,7 @@ module.exports = {
 
 `[DataLens](https://datalens.ru)`
 
-[{{ datalens-short-name }}]({{ link-datalens-main }})
+[DataLens](https://datalens.ru)
 
 ### Вставка кода {#code}
 

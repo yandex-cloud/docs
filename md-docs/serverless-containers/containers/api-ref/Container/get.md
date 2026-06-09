@@ -7,7 +7,7 @@ To get the list of all available containers, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://serverless-containers.{{ api-host }}/containers/v1/containers/{containerId}
+GET https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/{containerId}
 ```
 
 ## Path parameters

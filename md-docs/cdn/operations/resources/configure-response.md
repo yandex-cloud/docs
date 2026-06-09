@@ -10,19 +10,19 @@ CDN-ресурс может возвращать определенный код
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
+  1. Перейдите в сервис **Cloud CDN**.
   1. Нажмите на имя необходимого ресурса.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
-  1. В поле **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** выберите `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_redirect_o58we }}`.
+  1. Перейдите на вкладку **HTTP-заголовки и методы**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В блоке **Настройки ответа** включите опцию **Настраиваемый HTTP-ответ**.
+  1. В поле **Тип ответа** выберите `Настроить перенаправление`.
   1. Укажите код ответа.
 
       Поддерживаются коды `301`, `302`, `303`, `307` и `308`.
 
   1. Укажите URL, на который нужно перенаправлять запросы пользователей.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
 - REST API {#rest-api}
 
@@ -83,19 +83,19 @@ CDN-ресурс может возвращать определенный код
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ресурс.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ресурс.
+  1. Перейдите в сервис **Cloud CDN**.
   1. Нажмите на имя необходимого ресурса.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
-  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
-  1. В поле **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** выберите `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_data_rLo9U }}`.
+  1. Перейдите на вкладку **HTTP-заголовки и методы**.
+  1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В блоке **Настройки ответа** включите опцию **Настраиваемый HTTP-ответ**.
+  1. В поле **Тип ответа** выберите `Задать содержимое ответа`.
   1. Укажите код ответа.
 
       Поддерживаются коды из списка [HTTP Status Code Registry](https://www.iana.org/assignments/http-status-codes/http-status-codes.xhtml), кроме тех кодов, у которых в описании указано `Unassigned`.
 
   1. Укажите JSON, HTML или простой текст, который нужно вернуть клиенту в теле ответа.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
 - REST API {#rest-api}
 

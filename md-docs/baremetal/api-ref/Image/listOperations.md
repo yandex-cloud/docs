@@ -5,7 +5,7 @@ Lists operations for the specified image.
 ## HTTP request
 
 ```
-GET https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}/operations
+GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}/operations
 ```
 
 ## Path parameters

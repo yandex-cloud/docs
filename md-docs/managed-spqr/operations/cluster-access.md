@@ -1,4 +1,4 @@
-# Управление доступом к кластеру {{ mspqr-name }}
+# Управление доступом к кластеру Managed Service for Sharded PostgreSQL
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security.md) для доступа к конкретному [кластеру](../concepts/index.md).
 
@@ -28,14 +28,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.ListAccessBindings](../api-ref/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listAccessBindings.md#yandex.cloud.access.ListAccessBindingsResponse).
@@ -55,7 +55,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -67,7 +67,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.ListAccessBindings
       ```
 
@@ -79,11 +79,11 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл с описанием кластера {{ mspqr-name }}.
+  1. Откройте актуальный конфигурационный файл с описанием кластера Managed Service for Sharded PostgreSQL.
 
-      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [Создание кластера Sharded PostgreSQL](cluster-create.md).
 
   1. Добавьте описание ресурса:
 
@@ -112,8 +112,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -129,14 +129,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -158,7 +158,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -168,14 +168,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -201,8 +201,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -234,7 +234,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -258,7 +258,7 @@
                 }
               ]
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.UpdateAccessBindings
       ```
       
@@ -271,8 +271,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -295,9 +295,9 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -337,8 +337,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -354,14 +354,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -383,7 +383,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -399,14 +399,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.SetAccessBindings](../api-ref/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:setAccessBindings' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:setAccessBindings' \
         --data '{
                   "accessBindings": [
                     {
@@ -444,8 +444,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -483,7 +483,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -519,7 +519,7 @@
                 }
               ]
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.SetAccessBindings
       ```
 
@@ -533,8 +533,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -557,9 +557,9 @@
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -577,14 +577,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -606,7 +606,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -616,14 +616,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -649,8 +649,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -681,7 +681,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -705,7 +705,7 @@
                 }
               ]
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -719,8 +719,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -742,13 +742,13 @@
 
 ### Добавить сервисному аккаунту доступ к управлению кластером {#sa-cluster-control}
 
-Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах {{ mspqr-name }} в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-spqr.viewer` на каталог и роль `managed-spqr.editor` на этот кластер:
+Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах Managed Service for Sharded PostgreSQL в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-spqr.viewer` на каталог и роль `managed-spqr.editor` на этот кластер:
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -774,14 +774,14 @@
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -803,7 +803,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_sharded_postgresql_cluster_iam_binding).
+      Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_sharded_postgresql_cluster_iam_binding.md).
 
 - REST API {#api}
 
@@ -820,7 +820,7 @@
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings' \
+        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -839,14 +839,14 @@
 
       Где `access_binding_deltas.subject.id` — идентификатор сервисного аккаунта, которому назначается роль.
 
-  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.UpdateAccessBindings](../api-ref/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:updateAccessBindings' \
         --data '{
                   "access_binding_deltas": [
                     {
@@ -872,7 +872,7 @@
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://resource-manager.{{ api-host }}/resource-manager/v1/folders/<идентификатор_каталога>:listAccessBindings'
+        --url 'https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/<идентификатор_каталога>:listAccessBindings'
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
@@ -882,7 +882,7 @@
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
+        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:listAccessBindings'
       ```
 
 - gRPC API {#grpc-api}
@@ -924,7 +924,7 @@
                 }
               ]
             }' \
-        resource-manager.{{ api-host }}:443 \
+        resource-manager.api.cloud.yandex.net:443 \
         yandex.cloud.resourcemanager.v1.FolderService.UpdateAccessBindings
       ```
 
@@ -954,7 +954,7 @@
                 }
               ]
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -972,7 +972,7 @@
         -d '{
               "resource_id": "<идентификатор_каталога>"
             }' \
-        resource-manager.{{ api-host }}:443 \
+        resource-manager.api.cloud.yandex.net:443 \
         yandex.cloud.resourcemanager.v1.FolderService.ListAccessBindings
       ```
 
@@ -988,7 +988,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.spqr.v1.ClusterService.ListAccessBindings
       ```
 

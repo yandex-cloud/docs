@@ -5,7 +5,7 @@ Updates access bindings for the specified MySQL cluster.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{resourceId}:updateAccessBindings
+PATCH https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

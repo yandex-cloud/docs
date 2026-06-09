@@ -1,6 +1,6 @@
-# Диагностика производительности в {{ mpg-name }}
+# Диагностика производительности в Managed Service for PostgreSQL
 
-{{ mpg-name }} предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики производительности {{ PG }} для [сессий](#get-sessions) и [запросов](#get-queries).
+Managed Service for PostgreSQL предоставляет встроенный инструмент для диагностики производительности кластера СУБД. Этот инструмент помогает анализировать метрики производительности PostgreSQL для [сессий](#get-sessions) и [запросов](#get-queries).
 
 О том, как выявить и устранить проблемы с производительностью кластера, см. в разделах [Анализ производительности и оптимизация](../tutorials/profiling.md) и [Поиск проблем с производительностью кластера](../tutorials/performance-problems.md).
 
@@ -12,22 +12,22 @@
 
     При [создании кластера](cluster-create.md) или [изменении его настроек](update.md#change-additional-settings):
     
-    1. Включите опцию **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (по умолчанию отключена).
-    1. Настройте **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** и **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Допустимые значения:
+    1. Включите опцию **Сбор статистики** (по умолчанию отключена).
+    1. Настройте **Интервал сбора сессий** и **Интервал сбора запросов**. Допустимые значения:
         
         * для сессий — от `5` до `86400` секунд;
         * для запросов — от `60` до `86400` секунд.
 
 * CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы включить сбор статистики, передайте параметр `--performance-diagnostics` в команде изменения кластера:
 
     ```bash
-    {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+    yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
         ...
         --performance-diagnostics enabled=true,`
                                  `sessions-sampling-interval=<интервал_сбора_сессий>,`
@@ -40,13 +40,13 @@
     - `sessions-sampling-interval` — от `5` до `86400` секунд.
     - `statements-sampling-interval` — от `60` до `86400` секунд.
 
-* {{ TF }} {#tf}
+* Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
     1. Чтобы настроить сбор статистики, добавьте в блок `config` блок `performance_diagnostics`:
        
@@ -74,14 +74,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -105,7 +105,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -149,7 +149,7 @@
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters' \
           --data '{
                     "configSpec": {
                       "performanceDiagnostics": {
@@ -173,7 +173,7 @@
 
   1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+     1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -186,7 +186,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
           --data '{
                     "updateMask": "configSpec.performanceDiagnostics",
                     "configSpec": {
@@ -244,7 +244,7 @@
                 },
                 ...
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.postgresql.v1.ClusterService.Create
         ```
 
@@ -258,7 +258,7 @@
 
   1. Чтобы включить сбор статистики при изменении существующего кластера:
 
-     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+     1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -303,7 +303,7 @@
                   }
                 }
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.postgresql.v1.ClusterService.Update
         ```
 
@@ -323,8 +323,8 @@
 
 * Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
+    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Сессии**.
 
     Для просмотра статистики по сессиям:
 
@@ -354,7 +354,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawSessionStates](../api-ref/grpc/PerformanceDiagnostics/listRawSessionStates.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -368,7 +368,7 @@
              "from_time": "<левая_граница_временного_диапазона>",
              "to_time": "<правая_граница_временного_диапазона>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.PerformanceDiagnosticsService.ListRawSessionStates
      ```
 
@@ -383,7 +383,7 @@
 
 {% endlist %}
 
-Подробнее про отображаемые сведения см. [в документации {{ PG }}](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
+Подробнее про отображаемые сведения см. [в документации PostgreSQL](https://www.postgresql.org/docs/current/monitoring-stats.html#MONITORING-PG-STAT-ACTIVITY-VIEW).
 
 ## Получить статистику по запросам {#get-queries}
 
@@ -391,8 +391,8 @@
 
 * Консоль управления {#console}
 
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
+    1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Диагностика производительности** → **Запросы**.
 
     Для просмотра статистики запросов за интервал:
 
@@ -401,8 +401,8 @@
 
     Чтобы получить сведения об относительном изменении статистических характеристик запросов:
 
-    1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-first }}** выберите временной интервал, статистика за который будет основой для расчетов.
-    1. В поле **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_interval-second }}** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
+    1. В поле **Интервал 1** выберите временной интервал, статистика за который будет основой для расчетов.
+    1. В поле **Интервал 2** выберите временной интервал, статистика за который будет сравниваться со статистикой первого интервала.
     1. (Опционально) Настройте фильтры.
 
     Например, пусть в первом интервале было выполнено 10 запросов `SELECT * FROM cities`, а во втором — 20. Тогда при сравнении статистических данных разница по метрике <q>количество запросов</q> (столбец `Calls` в таблице) будет равняться `+100%`.
@@ -422,7 +422,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [PerformanceDiagnosticsService.ListRawStatements](../api-ref/grpc/PerformanceDiagnostics/listRawStatements.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      ```bash
      grpcurl \
@@ -436,7 +436,7 @@
              "from_time": "<левая_граница_временного_диапазона>",
              "to_time": "<правая_граница_временного_диапазона>"
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.PerformanceDiagnosticsService.ListRawStatements
      ```
 
@@ -455,7 +455,7 @@
 
 ## Получить информацию о плане выполнения запроса {#auto-explain-enable}
 
-[Модуль `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html) позволяет логировать план выполнения медленных запросов автоматически, обходясь без [команды `EXPLAIN`](https://www.postgresql.org/docs/current/sql-explain.html). Это полезно для отслеживания неоптимизированных запросов. Логирование выполняется в общий лог {{ PG }}.
+[Модуль `auto_explain`](https://www.postgresql.org/docs/current/auto-explain.html) позволяет логировать план выполнения медленных запросов автоматически, обходясь без [команды `EXPLAIN`](https://www.postgresql.org/docs/current/sql-explain.html). Это полезно для отслеживания неоптимизированных запросов. Логирование выполняется в общий лог PostgreSQL.
 
 Чтобы включить логирование запросов, [измените настройки СУБД](update.md#change-postgresql-config):
 

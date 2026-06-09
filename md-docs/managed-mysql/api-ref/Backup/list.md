@@ -6,7 +6,7 @@ To list backups for an existing cluster, make a [ClusterService.ListBackups](../
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-mysql/v1/backups
+GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.mysql.v1.ListBackupsRequest}

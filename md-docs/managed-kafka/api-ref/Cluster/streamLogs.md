@@ -5,7 +5,7 @@ Same as [ListLogs](listLogs.md#ListLogs) but using server-side streaming. Also a
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}:stream_logs
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters

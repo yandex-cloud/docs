@@ -1,4 +1,4 @@
-# Рекомендации по использованию {{ managed-k8s-name }}
+# Рекомендации по использованию Managed Service for Kubernetes
 
 
 Используйте эти рекомендации для ваших `PRODUCTION`-приложений, которым требуется:
@@ -18,13 +18,13 @@
 
   {% note tip %}
 
-  Используйте релизный канал `RAPID` для тестовых окружений, чтобы быстрее тестировать обновления {{ k8s }} и {{ managed-k8s-name }}.
+  Используйте релизный канал `RAPID` для тестовых окружений, чтобы быстрее тестировать обновления Kubernetes и Managed Service for Kubernetes.
 
   {% endnote %}
 
 * Контролируйте обновление [кластера](index.md#kubernetes-cluster) и [группы узлов](index.md#node-group). Либо отключите автоматическое обновление и выполняйте его вручную, либо задайте время обновления так, чтобы ваши приложения были доступны в часы их активного использования.
 * Настраивайте [политики `podDisruptionBudget`](node-group/node-drain.md), чтобы сократить время простоя [сервисов](service.md) во время обновления.
-* Выбирайте [высокодоступный](index.md#master) тип мастера, размещенный в трех зонах. Сервисы {{ k8s }} будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса {{ managed-k8s-name }} распространяется на конфигурацию с высокодоступным мастером, размещенным в трех зонах.
+* Выбирайте [высокодоступный](index.md#master) тип мастера, размещенный в трех зонах. Сервисы Kubernetes будут доступны в случае сбоя на уровне [зоны доступности](../../overview/concepts/geo-scope.md). [Соглашение об уровне обслуживания](https://yandex.ru/legal/cloud_sla_kb/) сервиса Managed Service for Kubernetes распространяется на конфигурацию с высокодоступным мастером, размещенным в трех зонах.
 * Выделяйте мастеру и узлам достаточно вычислительных ресурсов (CPU, RAM).
 * Минимизируйте или исключите переподписку ресурсов (особенно RAM) на узлах.
 * Настраивайте корректные [проверки состояния](../../network-load-balancer/concepts/health-check.md) (Health Checks) для балансировщиков нагрузки.
@@ -32,11 +32,11 @@
 
   {% note tip %}
 
-  {{ managed-k8s-name }} использует в качестве групп узлов кластера [группы виртуальных машин](../../compute/concepts/instance-groups/index.md) {{ compute-full-name }}. Посмотрите [описание групп ВМ при зональном инциденте и рекомендации по предотвращению его последствий](../../compute/concepts/instance-groups/zonal-inc/overview.md).
+  Managed Service for Kubernetes использует в качестве групп узлов кластера [группы виртуальных машин](../../compute/concepts/instance-groups/index.md) Yandex Compute Cloud. Посмотрите [описание групп ВМ при зональном инциденте и рекомендации по предотвращению его последствий](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
   {% endnote %}
 
-* Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера {{ k8s }}.
+* Разворачивайте сервисы типа `Deployment` и `StatefulSet` в нескольких экземплярах в разных зонах доступности. Используйте стратегии [Pod Topology Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) и [AntiAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#affinity-and-anti-affinity), чтобы обеспечить высокую доступность сервисов и эффективное потребление ресурсов кластера Kubernetes.
 
   Для всех стратегий используйте комбинации меток:
   * `topology.kubernetes.io/zone`, чтобы сервисы сохраняли доступность в случае отказа зоны доступности.
@@ -50,11 +50,11 @@
 
 ## Масштабирование нагрузки {#scaling}
 
-Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
-* Для снижения нагрузки на {{ k8s }} DNS используйте [NodeLocal DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
+Используйте эти рекомендации, если нагрузка на ваш кластер Managed Service for Kubernetes постоянно растет:
+* Для снижения нагрузки на Kubernetes DNS используйте [NodeLocal DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
 * Чтобы снизить горизонтальный трафик внутри кластера, используйте [сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#create-lb), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:
-  * Изучите [лимиты дисков](../../compute/concepts/limits.md) для {{ compute-full-name }}.
+  * Изучите [лимиты дисков](../../compute/concepts/limits.md) для Yandex Compute Cloud.
   * Проведите нагрузочное тестирование дисковой подсистемы в тестовом окружении.
 * Для снижения задержки при высоких показателях IOPS используйте [нереплицируемые диски](../../compute/concepts/disk.md#disks_types).
 
@@ -62,7 +62,7 @@
 
 Сетевой балансировщик нагрузки (Network Load Balancer) распределяет поступающий на него трафик между целевыми ресурсами (ВМ). Обработчик с публичным IP-адресом позволяет балансировщику обрабатывать трафик из интернета, а обработчик с приватным IP-адресом — внутренний трафик. Балансировщик проверяет доступность целевых ресурсов с помощью проверок состояния (Health Checks).
 
-В {{ yandex-cloud }} реализован [механизм](../../architecture/fault-tolerance.md#nlb-zone-shift) `NLB Zone Shift`, который позволяет отметить балансировщик специальным флагом. Если в зоне доступности произошел частичный сбой, который не фиксируется проверками состояния, служба поддержки {{ yandex-cloud }} отключит проблемную зону от этого балансировщика.
+В Yandex Cloud реализован [механизм](../../architecture/fault-tolerance.md#nlb-zone-shift) `NLB Zone Shift`, который позволяет отметить балансировщик специальным флагом. Если в зоне доступности произошел частичный сбой, который не фиксируется проверками состояния, служба поддержки Yandex Cloud отключит проблемную зону от этого балансировщика.
 
 Чтобы оценить работоспособность вашего приложения при отказе одной из зон доступности, воспользуйтесь [сценарием](https://github.com/yandex-cloud-examples/yc-deploy-ha-app-with-nlb).
 
@@ -78,7 +78,7 @@
 
 ## Изоляция ресурсов {#isolation}
 
-Применяйте эти рекомендации для приложений, использующих общие ресурсы кластера {{ k8s }}.
+Применяйте эти рекомендации для приложений, использующих общие ресурсы кластера Kubernetes.
 
 Настройте значения `limits` и `requests` для всех сервисов кластера:
 
@@ -99,7 +99,7 @@ containers:
 
 Укажите доступность vCPU в тысячных долях, а RAM — в мегабайтах. Сервис не превысит лимиты vCPU и RAM, указанные в значениях `limits`. Настройка `requests` позволяет масштабировать узлы кластера при помощи автоматического масштабирования.
 
-Чтобы автоматически управлять ресурсами подов, настройте политики {{ k8s }}:
+Чтобы автоматически управлять ресурсами подов, настройте политики Kubernetes:
 * [Quality of Service for Pods](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) для создания подов различных классов доступности.
 * [Limit Ranges](https://kubernetes.io/docs/concepts/policy/limit-range/) для установки лимитов на уровне [пространства имен](index.md#namespace).
 * [Resource Quotas](https://kubernetes.io/docs/concepts/policy/resource-quotas/) для ограничения общего потребления ресурсов в пространстве имен.

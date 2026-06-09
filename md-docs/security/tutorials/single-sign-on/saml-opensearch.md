@@ -1,22 +1,22 @@
-# Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mos-name }}
+# Создать SAML-приложение в Yandex Identity Hub для интеграции с Managed Service for OpenSearch
 
-[{{ OS }}](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. {{ OS }} включает в себя пользовательский интерфейс визуализации данных [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/). [{{ mos-full-name }}](../../../managed-opensearch/index.md) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. {{ mos-name }} поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[OpenSearch](https://opensearch.org/) — это легко масштабируемая система поисковых и аналитических инструментов с открытым исходным кодом. OpenSearch включает в себя пользовательский интерфейс визуализации данных [OpenSearch Dashboards](https://docs.opensearch.org/latest/dashboards/). [Yandex Managed Service for OpenSearch](../../../managed-opensearch/index.md) — сервис для управления кластерами OpenSearch в инфраструктуре Yandex Cloud. Managed Service for OpenSearch поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mos-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне кластера {{ OS }}.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Managed Service for OpenSearch с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне кластера OpenSearch.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
 ## Перед началом работы {#before-you-begin}
 
-Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер {{ OS }}, см. в разделе [Создание кластера {{ OS }}](../../../managed-opensearch/operations/cluster-create.md).
+Убедитесь, что вы можете [подключиться к OpenSearch Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`. О том, как создать и настроить кластер OpenSearch, см. в разделе [Создание кластера OpenSearch](../../../managed-opensearch/operations/cluster-create.md).
 
-В этом практическом руководстве предполагается, что веб-интерфейс {{ OS }} Dashboards доступен по URL:
+В этом практическом руководстве предполагается, что веб-интерфейс OpenSearch Dashboards доступен по URL:
 
 ```url
-https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
+https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
 ```
 
-Чтобы дать доступ пользователям вашей организации в {{ mos-name }}:
+Чтобы дать доступ пользователям вашей организации в Managed Service for OpenSearch:
 
 1. [Создайте приложение](#create-app).
 1. [Настройте интеграцию](#setup-integration).
@@ -26,126 +26,126 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
-        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
-        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `opensearch-app`.
-        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `opensearch-app`.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
-            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+            1. Нажмите **Добавить метку**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
+        1. Нажмите **Создать приложение**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию {{ mos-name }} с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне кластера {{ OS }} и на стороне {{ org-full-name }}.
+Чтобы настроить интеграцию Managed Service for OpenSearch с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне кластера OpenSearch и на стороне Yandex Identity Hub.
 
 1. Получите метаданные для [созданного ранее приложения](#create-app):
 
-    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите созданное ранее SAML-приложение.
-    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение параметра `Issuer / IdP EntityID`, которое необходимо задать на стороне кластера {{ OS }}.
-    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.idp_section_download_metadata_action }}**.
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите созданное ранее SAML-приложение.
+    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение параметра `Issuer / IdP EntityID`, которое необходимо задать на стороне кластера OpenSearch.
+    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** нажмите кнопку **Скачать файл с метаданными**.
 
       Скачанный [XML](https://ru.wikipedia.org/wiki/XML)-файл содержит необходимые метаданные и сертификат, который используется для проверки подписи SAML-ответов.
 
-1. Настройте SSO для кластера {{ OS }}.
+1. Настройте SSO для кластера OpenSearch.
 
     {% note tip %}
 
-    Далее приведены инструкции для консоли управления, но можно [использовать и другие доступные интерфейсы {{ yandex-cloud }}](../../../managed-opensearch/operations/saml-authentication.md#configuration-sso).
+    Далее приведены инструкции для консоли управления, но можно [использовать и другие доступные интерфейсы Yandex Cloud](../../../managed-opensearch/operations/saml-authentication.md#configuration-sso).
 
     {% endnote %}
 
-    Чтобы настроить источник аутентификации {{ org-full-name }}:
+    Чтобы настроить источник аутентификации Yandex Identity Hub:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
+    1. Нажмите кнопку **Настроить**.
     1. Укажите нужные значения настроек:
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}** — идентификатор провайдера. Введите сохраненное ранее значение параметра `Issuer / IdP EntityID`.
+        * **idp_entity_id** — идентификатор провайдера. Введите сохраненное ранее значение параметра `Issuer / IdP EntityID`.
 
         * **idp_metadata_file** — выберите и загрузите ранее скачанный файл с метаданными.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}** — идентификатор поставщика услуг.
+        * **sp_entity_id** — идентификатор поставщика услуг.
         
-            Этот идентификатор должен совпадать с URL для подключения к {{ OS }} Dashboards:
+            Этот идентификатор должен совпадать с URL для подключения к OpenSearch Dashboards:
 
             ```url
-            https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
+            https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
             ```
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}** — URL для подключения к {{ OS }} Dashboards.
+        * **kibana_url** — URL для подключения к OpenSearch Dashboards.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}** — атрибут, в котором хранится перечень ролей. Укажите значение `groups`.
+        * **roles_key** — атрибут, в котором хранится перечень ролей. Укажите значение `groups`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}** — оставьте поле пустым.
+        * **subject_key** — оставьте поле пустым.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — оставьте значение `0`.
+        * **Таймаут сессии** — оставьте значение `0`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}** — убедитесь, что эта опция включена.
+        * **Активировать** — убедитесь, что эта опция включена.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_save }}**. Дождитесь, когда статус кластера изменится на `Running`. Применение настроек может занять несколько минут.
+    1. Нажмите кнопку **Сохранить**. Дождитесь, когда статус кластера изменится на `Running`. Применение настроек может занять несколько минут.
 
-1. Настройте сопоставление ролей в {{ OS }}.
+1. Настройте сопоставление ролей в OpenSearch.
 
-    Чтобы группы пользователей {{ org-full-name }} сопоставлялись с ролями {{ OS }} при аутентификации:
+    Чтобы группы пользователей Yandex Identity Hub сопоставлялись с ролями OpenSearch при аутентификации:
 
-    1. Подключитесь к {{ OS }} Dashboards от имени пользователя `admin`.
-    1. В меню слева выберите **{{ OS }} Plugins** → **Security**.
+    1. Подключитесь к OpenSearch Dashboards от имени пользователя `admin`.
+    1. В меню слева выберите **OpenSearch Plugins** → **Security**.
     1. На панели слева выберите **Roles**.
     1. Настройте сопоставления ролей:
         1. Нажмите на имя нужной роли. В данном руководстве это роль `kibana_user`.
         1. Перейдите на вкладку **Mapped users**.
         1. Нажмите кнопку **Manage mapping**.
-        1. В блоке **Backend roles** введите имя [группы пользователей](../../../organization/concepts/groups.md) {{ org-full-name }}, которой будет сопоставлена роль в {{ OS }}, например, `opensearch-users`.
+        1. В блоке **Backend roles** введите имя [группы пользователей](../../../organization/concepts/groups.md) Yandex Identity Hub, которой будет сопоставлена роль в OpenSearch, например, `opensearch-users`.
         1. Нажмите кнопку **Map**.
     
-    Теперь пользователи вашей организации, добавленные в группу `opensearch-users`, будут получать роль `kibana_user` при успешной аутентификации в {{ OS }} Dashboards.
+    Теперь пользователи вашей организации, добавленные в группу `opensearch-users`, будут получать роль `kibana_user` при успешной аутентификации в OpenSearch Dashboards.
 
-### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
+### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите URL для подключения к {{ OS }} Dashboards.
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите ACS URL.
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
+      1. В поле **SP EntityID** укажите URL для подключения к OpenSearch Dashboards.
+      1. В поле **ACS URL** укажите ACS URL.
 
         ACS URL имеет вид:
 
         ```url
-        https://c-{{ cluster-id }}.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
+        https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/_opendistro/_security/saml/acs
         ```
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите **Сохранить**.
 
 {% endlist %}
 
 #### Добавьте атрибут групп пользователей {#group-attribute}
 
-Необходимо, чтобы пользователи в {{ OS }} при входе получали одну из базовых ролей. Чтобы это выполнялось, источник аутентификации {{ org-full-name }} должен передавать в SAML-ответе список групп пользователей, которым в {{ OS }} будут сопоставлены роли. Для этого:
+Необходимо, чтобы пользователи в OpenSearch при входе получали одну из базовых ролей. Чтобы это выполнялось, источник аутентификации Yandex Identity Hub должен передавать в SAML-ответе список групп пользователей, которым в OpenSearch будут сопоставлены роли. Для этого:
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
-    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** оставьте значение `groups`.
-    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
-    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **Добавить атрибут группы** и в открывшемся окне:
+    1. В поле **Имя атрибута** оставьте значение `groups`.
+    1. В поле **Передаваемые группы** выберите `Только назначенные группы`.
+    1. Нажмите **Добавить**.
 
 {% endlist %}
 
@@ -153,7 +153,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в {{ OS }} Dashboards с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и группы пользователей.
+Чтобы пользователи вашей организации могли аутентифицироваться в OpenSearch Dashboards с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в SAML-приложение нужных пользователей и группы пользователей.
 
 {% note info %}
 
@@ -161,22 +161,22 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
 {% endnote %}
 
-1. Если вы настроили сопоставление ролей на стороне {{ mos-name }}, [создайте](../../../organization/operations/create-group.md) нужные группы:
+1. Если вы настроили сопоставление ролей на стороне Managed Service for OpenSearch, [создайте](../../../organization/operations/create-group.md) нужные группы:
 
     {% list tabs group=instructions %}
 
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+    - Интерфейс Cloud Center {#cloud-center}
 
-        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-        1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
-        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
-        1. Задайте название, например, `opensearch-users`. Название группы должно точно соответствовать имени группы пользователей, указанному при сопоставлении с ролью {{ OS }}.
-        1. Нажмите **{{ ui-key.yacloud_org.groups.action_create-group }}**.
+        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+        1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **Группы**.
+        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать группу**.
+        1. Задайте название, например, `opensearch-users`. Название группы должно точно соответствовать имени группы пользователей, указанному при сопоставлении с ролью OpenSearch.
+        1. Нажмите **Создать группу**.
         1. Добавьте пользователей в группу:
-            1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
-            1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
+            1. Перейдите на вкладку **Участники**.  
+            1. Нажмите **Добавить участника**.
             1. В открывшемся окне выберите нужных пользователей.
-            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+            1. Нажмите **Сохранить**.
 
     {% endlist %}
 
@@ -184,27 +184,27 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
     {% list tabs group=instructions %}
 
-    - Интерфейс {{ cloud-center }} {#cloud-center}
+    - Интерфейс Cloud Center {#cloud-center}
 
-        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
-        1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
-        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
+        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+        1. Перейдите на вкладку **Пользователи и группы**.
+        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
         1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите **Добавить**.
 
     {% endlist %}
 
 ## Убедитесь в корректной работе приложения {#validate}
 
-Чтобы убедиться в корректной работе SAML-приложения и интеграции с {{ mos-name }}, выполните аутентификацию в {{ OS }} Dashboards от имени одного из добавленных в приложение пользователей. Для этого:
+Чтобы убедиться в корректной работе SAML-приложения и интеграции с Managed Service for OpenSearch, выполните аутентификацию в OpenSearch Dashboards от имени одного из добавленных в приложение пользователей. Для этого:
 
-1. В браузере перейдите по адресу вашего экземпляра {{ OS }} Dashboards.
-1. Если вы были авторизованы в {{ OS }} Dashboards, выйдите из профиля.
-1. На странице аутентификации {{ OS }} Dashboards нажмите **Log in with single sign-on**.
-1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен состоять в группе, добавленной в приложение.
-1. Убедитесь, что вы аутентифицировались в {{ OS }} Dashboards.
+1. В браузере перейдите по адресу вашего экземпляра OpenSearch Dashboards.
+1. Если вы были авторизованы в OpenSearch Dashboards, выйдите из профиля.
+1. На странице аутентификации OpenSearch Dashboards нажмите **Log in with single sign-on**.
+1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен состоять в группе, добавленной в приложение.
+1. Убедитесь, что вы аутентифицировались в OpenSearch Dashboards.
 1. Если вы настроили сопоставление ролей, то:
-     1. Нажмите на иконку пользователя в {{ OS }} Dashboards.
+     1. Нажмите на иконку пользователя в OpenSearch Dashboards.
      1. Перейдите в **View roles and identities**.
      1. Убедитесь, что в блоке **Roles** отображается роль `kibana_user`, а в блоке **Backend roles** — роль `opensearch-users`.

@@ -4,7 +4,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1/asymmetricsignature).
 
-**Service URL**: `https://{{ api-host-kms }}`
+**Service URL**: `https://kms.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

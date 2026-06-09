@@ -7,7 +7,7 @@ Note that currently Object Storage API does not support cancelling operations.
 ## HTTP request
 
 ```
-GET https://operation.{{ api-host }}/operations/{operationId}:cancel
+GET https://operation.api.cloud.yandex.net/operations/{operationId}:cancel
 ```
 
 ## Path parameters

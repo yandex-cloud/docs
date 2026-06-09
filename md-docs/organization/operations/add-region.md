@@ -8,14 +8,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
-  1. Под названием вашей организации в поле **{{ ui-key.yacloud_org.dashboard.organization.label_regions }}** нажмите на регион, который хотите подключить.
-  1. Во всплывающем окне нажмите **{{ ui-key.yacloud_org.dashboard.organization.action_connect-new-region }}**.  
-  1. Нажмите **{{ ui-key.yacloud_org.dashboard.organization.action_submit-new-region }}**.  
+  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. Под названием вашей организации в поле **Регионы:** нажмите на регион, который хотите подключить.
+  1. Во всплывающем окне нажмите **Подключить регион {region}**.  
+  1. Нажмите **Подключить**.  
   1. Введите название и описание организации.  
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action.create }}**.
+  1. Нажмите кнопку **Создать новую организацию**.
 
 {% endlist %}
 

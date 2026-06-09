@@ -5,7 +5,7 @@ Updates the specified registry.
 ## HTTP request
 
 ```
-PATCH https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
+PATCH https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}
 ```
 
 ## Path parameters

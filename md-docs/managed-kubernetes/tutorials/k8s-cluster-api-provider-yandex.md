@@ -1,34 +1,34 @@
-# Создание управляемого пользователем (self-managed) кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }} для {{ k8s }} Cluster API
+# Создание управляемого пользователем (self-managed) кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API
 
-# Создание управляемого пользователем (self-managed) кластера {{ k8s }} с помощью провайдера {{ yandex-cloud }} для {{ k8s }} Cluster API
+# Создание управляемого пользователем (self-managed) кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API
 
-[Сluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера {{ k8s }} в облачной инфраструктуре {{ yandex-cloud }} с помощью [{{ k8s }} Cluster API](https://cluster-api.sigs.k8s.io/).
+[Сluster-api-provider-yandex](https://github.com/yandex-cloud/cluster-api-provider-yandex) — провайдер для развертывания управляемого пользователем (self-managed) кластера Kubernetes в облачной инфраструктуре Yandex Cloud с помощью [Kubernetes Cluster API](https://cluster-api.sigs.k8s.io/).
 
-Кластер разворачивается на базе [виртуальных машин](../../compute/concepts/vm.md) {{ compute-full-name }} и [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}.
+Кластер разворачивается на базе [виртуальных машин](../../compute/concepts/vm.md) Yandex Compute Cloud и [L7-балансировщика](../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer.
 
-**Преимущества использования провайдера {{ yandex-cloud }} для создания кластера:** {#advantages}
+**Преимущества использования провайдера Yandex Cloud для создания кластера:** {#advantages}
 
-* Интеграция с [API {{ yandex-cloud }}](../../api-design-guide/concepts/general.md).
+* Интеграция с [API Yandex Cloud](../../api-design-guide/concepts/general.md).
 * Декларативный подход к созданию кластера и управлению им.
 * Возможность описать кластер как пользовательский ресурс — [CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/).
 * Широкий спектр параметров для конфигурации вычислительных ресурсов кластера.
 * [Пользовательские образы](#prepare-os-image) операционных систем для мастера и узлов.
 * Пользовательский Control Plane.
-* Альтернатива [{{ TF }}](https://www.terraform.io/) в CI-процессах.
+* Альтернатива [Terraform](https://www.terraform.io/) в CI-процессах.
 
-**Совместимость провайдера с {{ k8s }} Cluster API** {#compatibility}
+**Совместимость провайдера с Kubernetes Cluster API** {#compatibility}
 
 | Версия провайдера | Версия Cluster API |
 | :---: | :---: |
 | v1alpha1 | v1beta1 (v1.x) |
 
-Чтобы развернуть кластер {{ k8s }} в {{ yandex-cloud }} с помощью Cluster API:
+Чтобы развернуть кластер Kubernetes в Yandex Cloud с помощью Cluster API:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Настройте окружение](#prepare-environment).
 1. [Подготовьте образ операционной системы для узлов кластера](#prepare-os-image).
-1. [Получите Docker-образ с провайдером {{ yandex-cloud }}](#get-docker-image).
-1. [Установите провайдер {{ yandex-cloud }} и провайдер {{ k8s }} Cluster API](#install-providers).
+1. [Получите Docker-образ с провайдером Yandex Cloud](#get-docker-image).
+1. [Установите провайдер Yandex Cloud и провайдер Kubernetes Cluster API](#install-providers).
 1. [Сформируйте манифесты кластера](#prepare-manifests).
 1. [Разверните кластер](#create-cluster).
 1. [Подключитесь к кластеру](#connect-to-cluster).
@@ -40,55 +40,55 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер {{ k8s }}, вспомогательной ВМ, а также узлов управляющего кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
-* Плата за использование мастера управляющего кластера {{ managed-k8s-name }} и исходящий трафик (см. [тарифы {{ managed-k8s-full-name }}](../pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера {{ managed-k8s-name }} (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#nat-gateways)).
+* Плата за вычислительные ресурсы и диски ВМ, на базе которых разворачивается кластер Kubernetes, вспомогательной ВМ, а также узлов управляющего кластера Managed Service for Kubernetes (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Yandex Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за использование мастера управляющего кластера Managed Service for Kubernetes и исходящий трафик (см. [тарифы Yandex Managed Service for Kubernetes](../pricing.md)).
+* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) для вспомогательной ВМ и управляющего кластера Managed Service for Kubernetes (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за использование [NAT-шлюза](../../vpc/concepts/gateways.md) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#nat-gateways)).
 
 #### Опциональные траты {#optional-expenses}
 
-* Если для узлов создаваемого кластера {{ k8s }} вы будете использовать собственный образ:
-  * Плата за хранение образа в бакете и операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-  * Плата за хранение образа в {{ compute-name }} (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Если для развертывания провайдера {{ yandex-cloud }} в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../container-registry/pricing.md)).
+* Если для узлов создаваемого кластера Kubernetes вы будете использовать собственный образ:
+  * Плата за хранение образа в бакете и операции с данными (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+  * Плата за хранение образа в Compute Cloud (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Если для развертывания провайдера Yandex Cloud в управляющем кластере вы будете использовать собственный Docker-образ — плата за хранение Docker-образа в реестре и исходящий трафик (см. [тарифы Yandex Container Registry](../../container-registry/pricing.md)).
 
 ### Подготовьте инфраструктуру {#infra}
 
-1. Подготовьте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) {{ yandex-cloud }}:
+1. Подготовьте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) Yandex Cloud:
     1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будут создаваться ресурсы кластера.
     1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [alb.editor](../../application-load-balancer/security/index.md#alb-editor) на каталог.
     1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта в формате JSON.
-1. Если в вашем каталоге еще нет [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-name }}, [создайте](../../vpc/operations/network-create.md) ее. Также [создайте](../../vpc/operations/subnet-create.md) и подсеть.
+1. Если в вашем каталоге еще нет [облачной сети](../../vpc/concepts/network.md#network) Virtual Private Cloud, [создайте](../../vpc/operations/network-create.md) ее. Также [создайте](../../vpc/operations/subnet-create.md) и подсеть.
 
     {% note warning %}
     
-    Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+    Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
     
     {% endnote %}
 
 1. Инфраструктуре создаваемого кластера будет автоматически назначена [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию, которая создается вместе с сетью. [Добавьте](../../vpc/operations/security-group-add-rule.md) в эту группу следующие правила для _входящего_ трафика:
 
-    {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
+    Протокол | Диапазон портов | Тип источника | Источник | Описание
     --- | --- | --- | --- | ---
-    `{{ ui-key.yacloud.common.label_tcp }}` | `{{ port-any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}` | `Balancer` | `Проверки состояния L7-балансировщиком`
-    `Any` | `8443` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` | `Доступ к {{ k8s }} API`
+    `TCP` | `0-65535` | `Группа безопасности` | `Balancer` | `Проверки состояния L7-балансировщиком`
+    `Any` | `8443` | `CIDR` | `0.0.0.0/0` | `Доступ к Kubernetes API`
 
 1. Создаваемый кластер будет доступен в облачной сети по [внутреннему IP-адресу](../../vpc/concepts/address.md#internal-addresses). Чтобы обеспечить удаленный доступ к кластеру:
     1. [Создайте](../../compute/operations/vm-create/create-linux-vm.md) в той же сети, в которой будет развернут кластер, вспомогательную ВМ с публичным IP-адресом и с группой безопасности по умолчанию.
     1. Установите на вспомогательную ВМ утилиту [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
-1. Создайте _управляющий_ [кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }} с публичным IP-адресом и [группу узлов](../operations/node-group/node-group-create.md). Кластер потребуется для развертывания нового кластера с помощью Cluster API и управления кластерной инфраструктурой.
+1. Создайте _управляющий_ [кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes с публичным IP-адресом и [группу узлов](../operations/node-group/node-group-create.md). Кластер потребуется для развертывания нового кластера с помощью Cluster API и управления кластерной инфраструктурой.
 
     {% note tip %}
 
@@ -108,7 +108,7 @@
     * [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) версии 1.11.3 или выше.
     * [clusterctl](https://cluster-api.sigs.k8s.io/user/quick-start#install-clusterctl) версии 1.5.0 или выше.
 
-1. [Настройте](../operations/connect/index.md#kubectl-connect) для `kubectl` доступ к управляющему кластеру {{ managed-k8s-name }}.
+1. [Настройте](../operations/connect/index.md#kubectl-connect) для `kubectl` доступ к управляющему кластеру Managed Service for Kubernetes.
 
     Если вы разворачивали управляющий кластер локально с помощью утилиты `kind`, настройте к нему доступ [по инструкции](https://kind.sigs.k8s.io/docs/user/quick-start/#interacting-with-your-cluster).
 
@@ -121,7 +121,7 @@
     
 ## Подготовьте образ операционной системы для узлов кластера {#prepare-os-image}
 
-[Образ](../../compute/concepts/image.md) ОС, который будет развернут на узлах создаваемого кластера, должен быть подготовлен для работы с {{ k8s }} Cluster API и совместим с {{ compute-name }}.
+[Образ](../../compute/concepts/image.md) ОС, который будет развернут на узлах создаваемого кластера, должен быть подготовлен для работы с Kubernetes Cluster API и совместим с Compute Cloud.
 
 Вы можете использовать готовый тестовый образ или собрать собственный:
 
@@ -129,7 +129,7 @@
 
 - Готовый образ
 
-  Чтобы использовать тестовый образ ОС на основе Ubuntu 24.04, подготовленный для работы с {{ k8s }} версии 1.31.4, при [формировании манифеста кластера](#prepare-manifests) в переменной `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` укажите идентификатор образа `fd8a3kknu25826s8hbq3`.
+  Чтобы использовать тестовый образ ОС на основе Ubuntu 24.04, подготовленный для работы с Kubernetes версии 1.31.4, при [формировании манифеста кластера](#prepare-manifests) в переменной `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` укажите идентификатор образа `fd8a3kknu25826s8hbq3`.
 
   {% note warning %}
 
@@ -141,34 +141,34 @@
 
   1. [Соберите](https://image-builder.sigs.k8s.io/capi/capi) образ ОС с помощью утилиты [Image Builder](https://github.com/kubernetes-sigs/image-builder).
 
-      См. также [Подготовить образ диска для {{ compute-name }}](../../compute/operations/image-create/custom-image.md).
-  1. [Загрузите](../../compute/operations/image-create/upload.md) образ в {{ compute-name }} и сохраните его идентификатор.
+      См. также [Подготовить образ диска для Compute Cloud](../../compute/operations/image-create/custom-image.md).
+  1. [Загрузите](../../compute/operations/image-create/upload.md) образ в Compute Cloud и сохраните его идентификатор.
 
 {% endlist %}
 
-## Получите Docker-образ с провайдером {{ yandex-cloud }} {#get-docker-image}
+## Получите Docker-образ с провайдером Yandex Cloud {#get-docker-image}
 
-Вы можете использовать готовый Docker-образ с провайдером {{ yandex-cloud }} из публичного [реестра](../../container-registry/concepts/registry.md) {{ container-registry-full-name }} или собрать его самостоятельно из исходного кода.
+Вы можете использовать готовый Docker-образ с провайдером Yandex Cloud из публичного [реестра](../../container-registry/concepts/registry.md) Yandex Container Registry или собрать его самостоятельно из исходного кода.
 
 {% list tabs %}
 
 - Готовый образ
 
-  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре {{ container-registry-name }} с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
-  1. Добавьте в переменную окружения `IMG` путь к Docker-образу с провайдером {{ yandex-cloud }} в публичном реестре:
+  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+  1. Добавьте в переменную окружения `IMG` путь к Docker-образу с провайдером Yandex Cloud в публичном реестре:
 
       ```bash
-      export IMG={{ registry }}/crpsjg1coh47p81vh2lc/capy/cluster-api-provider-yandex:latest
+      export IMG=cr.yandex/crpsjg1coh47p81vh2lc/capy/cluster-api-provider-yandex:latest
       ```
 
 - Образ из исходного кода
 
-  1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр {{ container-registry-name }} и сохраните его идентификатор.
-  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре {{ container-registry-name }} с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
+  1. [Создайте](../../container-registry/operations/registry/registry-create.md) реестр Container Registry и сохраните его идентификатор.
+  1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md#cred-helper) в реестре Container Registry с помощью [Docker Credential helper](https://docs.docker.com/engine/reference/commandline/login/#credential-helpers).
   1. Добавьте в переменную окружения `IMG` путь, по которому собранный Docker-образ будет сохранен в реестре:
 
       ```bash
-      export IMG={{ registry }}/<идентификатор_реестра>/cluster-api-provider-yandex:<тег>
+      export IMG=cr.yandex/<идентификатор_реестра>/cluster-api-provider-yandex:<тег>
       ```
 
   1. Если вы собираете Docker-образ на компьютере с архитектурой, отличной от [AMD64](https://ru.wikipedia.org/wiki/X86-64), отредактируйте в [Makefile](https://github.com/yandex-cloud/cluster-api-provider-yandex/blob/master/Makefile) блок `docker-build`:
@@ -186,7 +186,7 @@
 
 {% endlist %}
 
-## Установите провайдер {{ yandex-cloud }} и провайдер {{ k8s }} Cluster API {#install-providers}
+## Установите провайдер Yandex Cloud и провайдер Kubernetes Cluster API {#install-providers}
 
 1. Инициализируйте управляющий кластер:
 
@@ -194,7 +194,7 @@
     clusterctl init
     ```
 
-    В управляющий кластер будут установлены основные компоненты {{ k8s }} Cluster API и [cert-manager](https://cert-manager.io/).
+    В управляющий кластер будут установлены основные компоненты Kubernetes Cluster API и [cert-manager](https://cert-manager.io/).
 
 1. Создайте в управляющем кластере описание пользовательского ресурса — [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) (CRD) для создаваемого кластера:
 
@@ -215,13 +215,13 @@
       --output yaml
     ```
 
-1. Создайте пространство имен для провайдера {{ yandex-cloud }}:
+1. Создайте пространство имен для провайдера Yandex Cloud:
 
     ```bash
     kubectl create namespace capy-system
     ```
 
-1. Создайте секрет с авторизованным ключом сервисного аккаунта {{ yandex-cloud }}:
+1. Создайте секрет с авторизованным ключом сервисного аккаунта Yandex Cloud:
 
     ```bash
     kubectl create secret generic yc-sa-key \
@@ -229,7 +229,7 @@
       --namespace capy-system
     ```
 
-1. Установите провайдер {{ yandex-cloud }}:
+1. Установите провайдер Yandex Cloud:
 
     ```bash
     make deploy
@@ -237,7 +237,7 @@
 
 ## Сформируйте манифесты кластера {#prepare-manifests}
 
-1. Получите идентификаторы ресурсов {{ yandex-cloud }} для развертывания кластера:
+1. Получите идентификаторы ресурсов Yandex Cloud для развертывания кластера:
     * [Образ ОС](../../compute/operations/image-control/image-control-get-info.md).
     * [Каталог](../../resource-manager/operations/folder/get-id.md).
     * [Зона доступности](../../overview/concepts/geo-scope.md).
@@ -254,7 +254,7 @@
     export YANDEX_ZONE_ID=<идентификатор_зоны_доступности>
     ```
 
-    Если вы [не собирали свой образ ОС](#prepare-os-image), в переменной `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` укажите значение `fd8a3kknu25826s8hbq3`. Это идентификатор тестового образа на основе Ubuntu 24.04, подходящего для работы с {{ k8s }} версии 1.31.4.
+    Если вы [не собирали свой образ ОС](#prepare-os-image), в переменной `YANDEX_CONTROL_PLANE_MACHINE_IMAGE_ID` укажите значение `fd8a3kknu25826s8hbq3`. Это идентификатор тестового образа на основе Ubuntu 24.04, подходящего для работы с Kubernetes версии 1.31.4.
 
 1. Сформируйте манифесты кластера:
 
@@ -264,12 +264,12 @@
     ```
 
     В манифесте `capy-cluster.yaml` будут описаны:
-    * L7-балансировщик {{ alb-name }} с динамическим внутренним IP-адресом. Ему можно [присвоить фиксированный IP-адрес](#configure-endpoint).
+    * L7-балансировщик Application Load Balancer с динамическим внутренним IP-адресом. Ему можно [присвоить фиксированный IP-адрес](#configure-endpoint).
 
         {% note warning %}
 
         * После создания кластера присвоить L7-балансировщику фиксированный IP-адрес будет нельзя.
-        * Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
+        * Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
 
         {% endnote %}
 
@@ -303,7 +303,7 @@
 kubectl apply -f /tmp/capy-cluster.yaml
 ```
 
-За созданием кластера можно следить в [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} и в логах пода `capy-controller-manager`:
+За созданием кластера можно следить в [консоли управления](https://console.yandex.cloud) Yandex Cloud и в логах пода `capy-controller-manager`:
 
 ```bash
 kubectl logs <имя_пода_с_capy-controller-manager> \
@@ -339,11 +339,11 @@ kubectl logs <имя_пода_с_capy-controller-manager> \
 
 ## Установите CCM в созданный кластер {#install-ccm}
 
-Чтобы обеспечить связь между ресурсами кластера и ресурсами {{ yandex-cloud }}, установите в созданный кластер [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/), например [Kubernetes Cloud Controller Manager for {{ yandex-cloud }}](https://github.com/deckhouse/yandex-cloud-controller-manager/tree/master).
+Чтобы обеспечить связь между ресурсами кластера и ресурсами Yandex Cloud, установите в созданный кластер [Cloud Controller Manager](https://kubernetes.io/docs/concepts/architecture/cloud-controller/), например [Kubernetes Cloud Controller Manager for Yandex Cloud](https://github.com/deckhouse/yandex-cloud-controller-manager/tree/master).
 
 {% note info %}
 
-Если вы хотите использовать Kubernetes Cloud Controller Manager for {{ yandex-cloud }}, добавьте в пример манифеста [yandex-cloud-controller-manager.yaml](https://github.com/deckhouse/yandex-cloud-controller-manager/blob/master/manifests/yandex-cloud-controller-manager.yaml) для `DaemonSet` актуальную версию Docker-образа и переменную окружения `YANDEX_CLUSTER_NAME` с именем созданного кластера.
+Если вы хотите использовать Kubernetes Cloud Controller Manager for Yandex Cloud, добавьте в пример манифеста [yandex-cloud-controller-manager.yaml](https://github.com/deckhouse/yandex-cloud-controller-manager/blob/master/manifests/yandex-cloud-controller-manager.yaml) для `DaemonSet` актуальную версию Docker-образа и переменную окружения `YANDEX_CLUSTER_NAME` с именем созданного кластера.
 
 {% endnote %}
 
@@ -399,31 +399,31 @@ kubectl logs <имя_пода_с_capy-controller-manager> \
 
 Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
-1. Удалите кластер {{ k8s }}, созданный с помощью Cluster API:
+1. Удалите кластер Kubernetes, созданный с помощью Cluster API:
 
     ```bash
     kubectl delete -f /tmp/capy-cluster.yaml
     ```
 
-1. Удалите CRD из управляющего кластера {{ managed-k8s-name }}:
+1. Удалите CRD из управляющего кластера Managed Service for Kubernetes:
 
     ```bash
     make uninstall
     ```
 
-1. Удалите контроллер провайдера {{ yandex-cloud }} из управляющего кластера:
+1. Удалите контроллер провайдера Yandex Cloud из управляющего кластера:
 
     ```bash
     make undeploy
     ```
 
-1. Удалите вспомогательные ресурсы {{ yandex-cloud }}, если вы их создавали:
-    * [Группу узлов](../operations/node-group/node-group-delete.md) управляющего кластера {{ managed-k8s-name }}.
-    * [Управляющий кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
+1. Удалите вспомогательные ресурсы Yandex Cloud, если вы их создавали:
+    * [Группу узлов](../operations/node-group/node-group-delete.md) управляющего кластера Managed Service for Kubernetes.
+    * [Управляющий кластер](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
     * [Вспомогательную ВМ](../../compute/operations/vm-control/vm-delete.md).
     * [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
-    * [Образ ОС](../../compute/operations/image-control/delete.md) в {{ compute-name }}.
-    * [Образ ОС](../../storage/operations/objects/delete.md) в {{ objstorage-name }}.
+    * [Образ ОС](../../compute/operations/image-control/delete.md) в Compute Cloud.
+    * [Образ ОС](../../storage/operations/objects/delete.md) в Object Storage.
     * [Бакет](../../storage/operations/buckets/delete.md).
     * [Docker-образ](../../container-registry/operations/docker-image/docker-image-delete.md).
     * [Реестр](../../container-registry/operations/registry/registry-delete.md).

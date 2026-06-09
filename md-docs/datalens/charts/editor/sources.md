@@ -1,4 +1,4 @@
-# Источники данных в Editor {{ datalens-full-name }}
+# Источники данных в Editor Yandex DataLens
 
 ## Виды источников {#source-types}
 

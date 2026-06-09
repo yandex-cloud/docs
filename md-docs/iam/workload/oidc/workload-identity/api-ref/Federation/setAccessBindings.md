@@ -5,7 +5,7 @@ Sets access bindings for the specified OIDC workload identity federation.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{resourceId}:setAccessBindings
+POST https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

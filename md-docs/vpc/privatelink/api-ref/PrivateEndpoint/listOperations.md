@@ -5,7 +5,7 @@ List operations for the specified private endpoint.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/endpoints/{privateEndpointId}/operations
+GET https://vpc.api.cloud.yandex.net/vpc/v1/endpoints/{privateEndpointId}/operations
 ```
 
 ## Path parameters

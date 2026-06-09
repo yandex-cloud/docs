@@ -5,7 +5,7 @@ Updates assignmnents for the specified OAuth application.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/oauth/applications/{applicationId}:updateAssignments
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/oauth/applications/{applicationId}:updateAssignments
 ```
 
 ## Path parameters

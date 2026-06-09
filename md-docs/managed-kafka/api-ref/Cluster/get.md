@@ -7,7 +7,7 @@ To get the list of available Apache Kafka® clusters, make a [List](list.md#List
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
+GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

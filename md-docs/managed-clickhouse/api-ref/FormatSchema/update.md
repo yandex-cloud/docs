@@ -5,7 +5,7 @@ Changes a format schema.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
+PATCH https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas/{formatSchemaName}
 ```
 
 ## Path parameters

@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Internal server error
+# [Yandex DataLens] Internal server error
 
 `ERR.DS_API.CONNECTION_CONFIG`
 
@@ -7,4 +7,4 @@
 Чтобы исправить ошибку, устраните проблемы, указанные в подробной информации об ошибке.
 
 
-Если ошибка сохраняется, обратитесь в [техническую поддержку]({{ link-console-support }}) {{ yandex-cloud }}. В сообщении опишите, когда возникает ошибка.
+Если ошибка сохраняется, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) Yandex Cloud. В сообщении опишите, когда возникает ошибка.

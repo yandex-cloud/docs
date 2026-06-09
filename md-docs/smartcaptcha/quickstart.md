@@ -1,30 +1,30 @@
-# Как начать работать с {{ captcha-full-name }}
+# Как начать работать с Yandex SmartCaptcha
 
-{{ captcha-full-name }} — сервис защиты от ботов и автоматизированных атак.
+Yandex SmartCaptcha — сервис защиты от ботов и автоматизированных атак.
 
 Чтобы добавить капчу на свою HTML-страницу:
 
-1. [Создайте капчу](#create-captcha) в {{ yandex-cloud }}.
+1. [Создайте капчу](#create-captcha) в Yandex Cloud.
 1. [Скопируйте ключи](#get-keys) на странице с информацией о капче.
 1. [Добавьте код виджета капчи](#add-widget) в свою HTML-страницу.
 1. [Проверьте ответ пользователя](#check-answer) с помощью отправки POST-запроса.
 
-Если не получается настроить {{ captcha-name }}:
+Если не получается настроить SmartCaptcha:
 
-* Для Бизнес и Премиум [тарифов поддержки](../support/pricing.md) — обратитесь в [поддержку]({{ link-console-support }}).
+* Для Бизнес и Премиум [тарифов поддержки](../support/pricing.md) — обратитесь в [поддержку](https://center.yandex.cloud/support).
 * В других случаях обратитесь к аккаунт-менеджеру для связи со специалистами сервиса.
 
 ## Перед началом работы {#before-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}). Войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
+1. Перейдите в [консоль управления](https://console.yandex.cloud). Войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md).
 
 
 ## Создайте капчу {#create-captcha}
 
 {% note info %}
 
-Чтобы сделать вашу защиту более эффективной, мы используем информацию об HTTP-запросах для развития моделей машинного обучения (ML). Вы можете отключить использование этой информации в [консоли управления]({{ link-console-main }}) при создании капчи или позднее в ее настройках.
+Чтобы сделать вашу защиту более эффективной, мы используем информацию об HTTP-запросах для развития моделей машинного обучения (ML). Вы можете отключить использование этой информации в [консоли управления](https://console.yandex.cloud) при создании капчи или позднее в ее настройках.
 
 {% endnote %}
 
@@ -32,23 +32,23 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **Yandex SmartCaptcha**.
+    1. Нажмите кнопку **Создать капчу**.
 
     1. Введите имя капчи, например `sm-captcha`.
     1. Укажите список сайтов, на которых будет размещаться капча. Например, `my-shop.com`.
-    1. **{{ ui-key.yacloud.smartcaptcha.label_section-style }}** оставьте без изменений.
+    1. **Внешний вид** оставьте без изменений.
     1. Выберите параметры капчи по умолчанию (или оставьте текущие):
        1. [Основное задание](concepts/tasks.md#main-task) — будет показано пользователю первым.
        1. [Дополнительное задание](concepts/tasks.md#additional-task) — будет показано, если результат выполнения основного задания кажется сервису подозрительным или если выбран максимальный уровень сложности.
-       1. Выберите [сложность](concepts/tasks.md#task-difficulty) — `{{ ui-key.yacloud.smartcaptcha.value_complexity-medium }}`.
+       1. Выберите [сложность](concepts/tasks.md#task-difficulty) — `Средняя`.
 
          Можно добавить [варианты заданий](concepts/captcha-variants.md) и настроить правила для входящего трафика, чтобы показывать разную капчу разным пользователям. В этом примере будет добавлена только одна капча по умолчанию для всех пользователей.
 
        ![step9-10](../_assets/smartcaptcha/quickstart/step9-10.png)
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+    1. Нажмите кнопку **Создать**.
 
 {% endlist %}
 
@@ -60,8 +60,8 @@
 - Консоль управления {#console}
     
     После создания капчи выберите ее в списке и скопируйте два ключа:
-    * **{{ ui-key.yacloud.smartcaptcha.label_client-key }}** — для добавления виджета {{ captcha-name }} на ваш сайт или страницу.
-    * **{{ ui-key.yacloud.smartcaptcha.label_server-key }}** — для [проверки ответа](#check-answer) пользователя.
+    * **Ключ клиента** — для добавления виджета SmartCaptcha на ваш сайт или страницу.
+    * **Ключ сервера** — для [проверки ответа](#check-answer) пользователя.
 
     Сохраните их в безопасном месте.
 
@@ -76,7 +76,7 @@
 1. Подключите JS-скрипт к вашей HTML-странице. Для этого разместите в любом месте страницы (например, внутри тега `<head>`) код:
 
     ```html
-    <script src="https://{{ captcha-domain }}/captcha.js" defer></script>
+    <script src="https://smartcaptcha.cloud.yandex.ru/captcha.js" defer></script>
     ```
 
     Скрипт `captcha.js` автоматически найдет все `div` с классом `smart-captcha` и установит в них виджет.
@@ -117,7 +117,7 @@
 </div>
 ```
 
-Для проверки токена отправьте POST-запрос на адрес `https://{{ captcha-domain }}/validate`, передав параметры в формате `x-www-form-urlencoded`:
+Для проверки токена отправьте POST-запрос на адрес `https://smartcaptcha.cloud.yandex.ru/validate`, передав параметры в формате `x-www-form-urlencoded`:
 
 ```
 secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_пользователя>
@@ -127,7 +127,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
 * `secret` — [ключ сервера](concepts/keys.md);
 * `token` — одноразовый токен, полученный после прохождения проверки;
-* `ip` — IP-адрес пользователя, с которого пришел запрос на проверку токена. Этот параметр не обязателен, однако мы просим передавать IP-адрес пользователя при запросах. Это помогает улучшить качество работы {{ captcha-name }}.
+* `ip` — IP-адрес пользователя, с которого пришел запрос на проверку токена. Этот параметр не обязателен, однако мы просим передавать IP-адрес пользователя при запросах. Это помогает улучшить качество работы SmartCaptcha.
 
 Пример функции проверки токена:
 
@@ -136,7 +136,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 - cURL {#curl}
 
     ```bash
-    curl -X POST https://{{ captcha-domain }}/validate \
+    curl -X POST https://smartcaptcha.cloud.yandex.ru/validate \
       -d "secret=<ключ_сервера>" \
       -d "token=<токен_из_формы>" \
       -d "ip=<IP_пользователя>"
@@ -159,7 +159,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
         });
     
         const options = {
-            hostname: '{{ captcha-domain }}',
+            hostname: 'smartcaptcha.cloud.yandex.ru',
             port: 443,
             path: '/validate',
             method: 'POST',
@@ -220,7 +220,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
     define('SMARTCAPTCHA_SERVER_KEY', '<ключ_сервера>');
 
     function check_captcha($token) {
-        $ch = curl_init("https://{{ captcha-domain }}/validate");
+        $ch = curl_init("https://smartcaptcha.cloud.yandex.ru/validate");
         $args = [
             "secret" => SMARTCAPTCHA_SERVER_KEY,
             "token" => $token,
@@ -264,7 +264,7 @@ secret=<ключ_сервера>&token=<токен>&ip=<IP-адрес_польз
 
     def check_captcha(token):
         resp = requests.post(
-           "https://{{ captcha-domain }}/validate",
+           "https://smartcaptcha.cloud.yandex.ru/validate",
            data={
               "secret": SMARTCAPTCHA_SERVER_KEY,
               "token": token,

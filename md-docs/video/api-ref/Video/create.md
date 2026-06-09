@@ -6,7 +6,7 @@ The video can be created from different sources: TUS upload, direct link, or S3 
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/videos
+POST https://video.api.cloud.yandex.net/video/v1/videos
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateVideoRequest}

@@ -1,13 +1,13 @@
-# Практические руководства {{ maf-name }}
+# Практические руководства Managed Service for Apache Airflow™
 
 ## Работа с кластерами {#clusters}
 
-* [{#T}](data-processing-automation.md)
-* [{#T}](airflow-auto-tasks.md)
-* [{#T}](spark-automation.md)
-* [{#T}](airflow-spark-min.md)
+* [Автоматизация работы с Yandex Data Processing](data-processing-automation.md)
+* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
+* [Автоматизация работы с Yandex Managed Service for Apache Spark™](spark-automation.md)
+* [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](airflow-spark-min.md)
 
 ## Другие руководства {#other}
 
-* [{#T}](test-smtp-notification.md)
-* [{#T}](using-python-sdk.md)
+* [Настройка SMTP-сервера для отправки уведомлений по электронной почте](test-smtp-notification.md)
+* [Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK](using-python-sdk.md)

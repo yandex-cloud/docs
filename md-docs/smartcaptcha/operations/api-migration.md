@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-9 июня 2026 года сервис перейдет на новый формат условий и имя поля в правилах показа капчи. Если вы используете API, CLI или {{ TF }}, обновите команды и конфигурации.
+9 июня 2026 года сервис перейдет на новый формат условий и имя поля в правилах показа капчи. Если вы используете API, CLI или Terraform, обновите команды и конфигурации.
 
 {% endnote %}
 
@@ -92,9 +92,9 @@ exact_not_match = example.net
 
   Подробнее о командах в справочнике CLI: [captcha create](../../cli/cli-ref/smartcaptcha/cli-ref/captcha/create.md) и [captcha update](../../cli/cli-ref/smartcaptcha/cli-ref/captcha/update.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  В конфигурации {{ TF }} замените блок `hosts` на `host_matcher`:
+  В конфигурации Terraform замените блок `hosts` на `host_matcher`:
 
   ```hcl
   resource "yandex_smartcaptcha_captcha" "yandex-smartcaptcha-captcha" {
@@ -113,7 +113,7 @@ exact_not_match = example.net
   }
   ```
 
-  Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера]({{ tf-provider-resources-link }}/smartcaptcha_captcha).
+  Подробнее о параметрах ресурса `yandex_smartcaptcha_captcha` в [документации провайдера](../../terraform/resources/smartcaptcha_captcha.md).
 
 - API {#api}
 
@@ -121,7 +121,7 @@ exact_not_match = example.net
 
   ```bash
   curl -X POST \
-    '{{ api-host-captcha }}/smartcaptcha/v1/captchas' \
+    'https://smartcaptcha.api.cloud.yandex.net/smartcaptcha/v1/captchas' \
     -H "Authorization: Bearer $(yc iam create-token)" \
     -H 'Content-Type: application/json' \
     -d '{
@@ -149,6 +149,6 @@ exact_not_match = example.net
 
 #### См. также {#see-also}
 
-* [{#T}](create-captcha.md)
-* [{#T}](get-info.md)
-* [{#T}](validate-captcha.md)
+* [Создать капчу](create-captcha.md)
+* [Получить информацию о капче](get-info.md)
+* [Проверить капчу](validate-captcha.md)

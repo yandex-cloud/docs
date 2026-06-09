@@ -6,7 +6,7 @@ If it is not locked, locks the subscription to the resource.
 ## HTTP request
 
 ```
-POST https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/locks/ensure
+POST https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/locks/ensure
 ```
 
 ## Body parameters {#yandex.cloud.marketplace.licensemanager.saas.v1.EnsureLockRequest}

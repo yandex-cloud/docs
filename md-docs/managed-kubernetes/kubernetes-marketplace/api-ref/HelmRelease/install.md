@@ -5,7 +5,7 @@ Installs helm release into specified Kubernetes Cluster.
 ## HTTP request
 
 ```
-POST https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases:install
+POST https://mks.api.cloud.yandex.net/managed-kubernetes/marketplace/v1/helm-releases:install
 ```
 
 ## Body parameters {#yandex.cloud.k8s.marketplace.v1.InstallHelmReleaseRequest}

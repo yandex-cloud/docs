@@ -1,6 +1,6 @@
-# Добавление HTML-страницы для работы {{ captcha-full-name }}
+# Добавление HTML-страницы для работы Yandex SmartCaptcha
 
-Вы можете встраивать [{{ captcha-name }}](../../../smartcaptcha/index.md) в приложения Android или iOS через WebView — компонент, позволяющий отображать веб-страницы внутри приложения (мини-браузер).
+Вы можете встраивать [SmartCaptcha](../../../smartcaptcha/index.md) в приложения Android или iOS через WebView — компонент, позволяющий отображать веб-страницы внутри приложения (мини-браузер).
 
 Для этого разместите HTML-страницу с кодом капчи на вашем сервере и затем встройте ссылку на нее в приложении.
 
@@ -110,7 +110,7 @@
     </script>
 
     <script
-      src="https://{{ captcha-domain }}/captcha.js?render=onload&onload=onSmartCaptchaReady"
+      src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onSmartCaptchaReady"
       defer
     ></script>
   </head>
@@ -126,14 +126,14 @@
 
 {% endcut %}
 
-Также вы можете добавить в приложение ссылку на HTML-страницу, размещенную на сервере {{ yandex-cloud }}.
+Также вы можете добавить в приложение ссылку на HTML-страницу, размещенную на сервере Yandex Cloud.
 
 ```
-{{ captcha-mobile-site }}
+https://smartcaptcha.cloud.yandex.ru/webview
 ```
 
-После этого вы сможете встраивать {{ captcha-name }} в свои мобильные приложения:
-* [{#T}](../../../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
-* [{#T}](../../../smartcaptcha/tutorials/mobile-app/android/invisible-captcha-android.md).
-* [{#T}](../../../smartcaptcha/tutorials/mobile-app/android/quickstart-android-flutter.md).
-* [{#T}](../../../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).
+После этого вы сможете встраивать SmartCaptcha в свои мобильные приложения:
+* [SmartCaptcha в приложении на Android](../../../smartcaptcha/tutorials/mobile-app/android/quickstart-android.md).
+* [Невидимая SmartCaptcha в приложении на Android](../../../smartcaptcha/tutorials/mobile-app/android/invisible-captcha-android.md).
+* [SmartCaptcha в приложении Android на Flutter](../../../smartcaptcha/tutorials/mobile-app/android/quickstart-android-flutter.md).
+* [SmartCaptcha в приложении на iOS](../../../smartcaptcha/tutorials/mobile-app/ios/quickstart-ios.md).

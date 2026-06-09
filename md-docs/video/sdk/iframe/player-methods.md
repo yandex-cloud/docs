@@ -1,6 +1,6 @@
 # Методы плеера
 
-Вы можете управлять [видеоплеером](../../concepts/player.md) {{ video-player-name }} с использованием методов SDK для IFrame. Методы вызываются через механизм `postMessage` для взаимодействия с iframe.
+Вы можете управлять [видеоплеером](../../concepts/player.md) Cloud Video Player с использованием методов SDK для IFrame. Методы вызываются через механизм `postMessage` для взаимодействия с iframe.
 
 ## Формат вызова методов {#method-format}
 
@@ -294,6 +294,6 @@ window.addEventListener('message', function(event) {
 
 #### См. также {#see-also}
 
-* [{#T}](index.md)
-* [{#T}](initialization.md)
-* [{#T}](player-events.md)
+* [Начало работы с SDK видеоплеера для IFrame](index.md)
+* [Параметры инициализации плеера](initialization.md)
+* [События плеера](player-events.md)

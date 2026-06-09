@@ -4,7 +4,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/kms/v1/asymmetricsignature).
 
-**Service URL**: `https://{{ api-host-kms }}`
+**Service URL**: `https://kms.api.cloud.yandex.net`
 
 #|
 ||Service | Description ||

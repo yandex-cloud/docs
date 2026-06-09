@@ -1,22 +1,22 @@
-# Настройка {{ IBRG }} в кластере {{ dataproc-name }}
+# Настройка Apache Iceberg™ в кластере Yandex Data Processing
 
-{{ dataproc-name }} версии 2.0 и выше поддерживает использование таблиц {{ IBRG }} совместно с движком {{ SPRK }}.
+Yandex Data Processing версии 2.0 и выше поддерживает использование таблиц Apache Iceberg™ совместно с движком Apache Spark™.
 
-Подробную информацию об {{ IBRG }} читайте в разделе [{#T}](../concepts/apache-iceberg.md) и в [официальной документации](https://iceberg.apache.org/docs/latest/).
+Подробную информацию об Apache Iceberg™ читайте в разделе [Apache Iceberg™ в Yandex Data Processing](../concepts/apache-iceberg.md) и в [официальной документации](https://iceberg.apache.org/docs/latest/).
 
 
 {% note info %}
 
-{{ IBRG }} не является частью сервиса {{ dataproc-name }} и не сопровождается командой разработки и службой поддержки {{ yandex-cloud }}, а его использование не входит в [условия использования {{ dataproc-full-name }}]({{ link-cloud-terms-of-use }}).
+Apache Iceberg™ не является частью сервиса Yandex Data Processing и не сопровождается командой разработки и службой поддержки Yandex Cloud, а его использование не входит в [условия использования Yandex Data Processing](https://yandex.ru/legal/cloud_termsofuse/?lang=ru).
 
 {% endnote %}
 
 
-## Настройте свойства компонентов для работы с {{ IBRG }} {#settings}
+## Настройте свойства компонентов для работы с Apache Iceberg™ {#settings}
 
 1. [Установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.sql.extensions` в значение `org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions`. Это можно сделать как на уровне кластера, так и на уровне отдельного задания.
 
-1. Добавьте библиотеки {{ IBRG }} в зависимости кластера или отдельного задания. Версии библиотек должны быть [совместимы с версией {{ dataproc-name }}](../concepts/apache-iceberg.md#compatibility).
+1. Добавьте библиотеки Apache Iceberg™ в зависимости кластера или отдельного задания. Версии библиотек должны быть [совместимы с версией Yandex Data Processing](../concepts/apache-iceberg.md#compatibility).
 
     {% list tabs %}
 
@@ -24,16 +24,16 @@
 
         Чтобы добавить библиотеки требуемых версий, воспользуйтесь одним из способов:
 
-        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp20.pkg }}`.
+        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `org.apache.iceberg:iceberg-spark-runtime-3.0_2.12:1.0.0`.
 
             Настроить доступ к Maven можно двумя способами:
             
             * В [группе безопасности](../../vpc/concepts/security-groups.md) кластера разрешите сетевой доступ к репозиторию [Maven Central](https://repo.maven.apache.org/maven2/).
             * Настройте [альтернативный репозиторий Maven](https://maven.apache.org/guides/mini/guide-mirror-settings.html) и разрешите трафик к нему в [группе безопасности](../../vpc/concepts/security-groups.md) кластера.
 
-        * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) и предоставьте доступ к нему одним из способов:
+        * Скачайте файл библиотеки [iceberg-spark-runtime-3.0_2.12-1.0.0.jar](https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.0_2.12/1.0.0/iceberg-spark-runtime-3.0_2.12-1.0.0.jar) и предоставьте доступ к нему одним из способов:
 
-            * Сохраните файл в бакет {{ objstorage-full-name }} и передайте URL файла в свойстве `spark:spark.jars`.
+            * Сохраните файл в бакет Yandex Object Storage и передайте URL файла в свойстве `spark:spark.jars`.
             
                 URL файла имеет формат `s3a://<имя_бакета>/<путь_к_файлу>`.
             
@@ -45,16 +45,16 @@
 
         Чтобы добавить библиотеки требуемых версий, воспользуйтесь одним из способов:
 
-        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp21.spark32.pkg }}`.
+        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `org.apache.iceberg:iceberg-spark-runtime-3.2_2.12-1.4.3`.
 
             Настроить доступ к Maven можно двумя способами:
             
             * В [группе безопасности](../../vpc/concepts/security-groups.md) кластера разрешите сетевой доступ к репозиторию [Maven Central](https://repo.maven.apache.org/maven2/).
             * Настройте [альтернативный репозиторий Maven](https://maven.apache.org/guides/mini/guide-mirror-settings.html) и разрешите трафик к нему в [группе безопасности](../../vpc/concepts/security-groups.md) кластера.
 
-        * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) и предоставьте доступ к нему одним из способов:
+        * Скачайте файл библиотеки [iceberg-spark-runtime-3.2_2.12-1.4.3.jar](https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.2_2.12/1.4.3/iceberg-spark-runtime-3.2_2.12-1.4.3.jar) и предоставьте доступ к нему одним из способов:
 
-            * Сохраните файл в бакет {{ objstorage-full-name }} и передайте URL файла в свойстве `spark:spark.jars`.
+            * Сохраните файл в бакет Yandex Object Storage и передайте URL файла в свойстве `spark:spark.jars`.
             
                 URL файла имеет формат `s3a://<имя_бакета>/<путь_к_файлу>`.
             
@@ -66,16 +66,16 @@
 
         Чтобы добавить библиотеки требуемых версий, воспользуйтесь одним из способов:
 
-        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp21.spark33.pkg }}`.
+        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `org.apache.iceberg:iceberg-spark-runtime-3.3_2.12:1.5.2`.
 
             Настроить доступ к Maven можно двумя способами:
             
             * В [группе безопасности](../../vpc/concepts/security-groups.md) кластера разрешите сетевой доступ к репозиторию [Maven Central](https://repo.maven.apache.org/maven2/).
             * Настройте [альтернативный репозиторий Maven](https://maven.apache.org/guides/mini/guide-mirror-settings.html) и разрешите трафик к нему в [группе безопасности](../../vpc/concepts/security-groups.md) кластера.
 
-        * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) и предоставьте доступ к нему одним из способов:
+        * Скачайте файл библиотеки [iceberg-spark-runtime-3.3_2.12-1.5.2.jar](https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/1.5.2/iceberg-spark-runtime-3.3_2.12-1.5.2.jar) и предоставьте доступ к нему одним из способов:
 
-            * Сохраните файл в бакет {{ objstorage-full-name }} и передайте URL файла в свойстве `spark:spark.jars`.
+            * Сохраните файл в бакет Yandex Object Storage и передайте URL файла в свойстве `spark:spark.jars`.
             
                 URL файла имеет формат `s3a://<имя_бакета>/<путь_к_файлу>`.
             
@@ -87,16 +87,16 @@
 
         Чтобы добавить библиотеки требуемых версий, воспользуйтесь одним из способов:
 
-        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `{{ dp-libs.iceberg.dp22.pkg }}`.
+        * Настройте доступ к репозиторию [Maven](https://maven.apache.org/index.html) и [установите свойство](../concepts/settings-list.md#change-properties) `spark:spark.jars.packages` в значение `org.apache.iceberg:iceberg-spark-runtime-3.5_2.12:1.5.2`.
 
             Настроить доступ к Maven можно двумя способами:
             
             * В [группе безопасности](../../vpc/concepts/security-groups.md) кластера разрешите сетевой доступ к репозиторию [Maven Central](https://repo.maven.apache.org/maven2/).
             * Настройте [альтернативный репозиторий Maven](https://maven.apache.org/guides/mini/guide-mirror-settings.html) и разрешите трафик к нему в [группе безопасности](../../vpc/concepts/security-groups.md) кластера.
 
-        * Скачайте файл библиотеки [{{ dp-libs.iceberg.dp22.jar }}]({{ dp-libs.iceberg.dp22.repo }}) и предоставьте доступ к нему одним из способов:
+        * Скачайте файл библиотеки [iceberg-spark-runtime-3.5_2.12-1.5.2.jar](https://repo1.maven.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.5_2.12/1.5.2/iceberg-spark-runtime-3.5_2.12-1.5.2.jar) и предоставьте доступ к нему одним из способов:
 
-            * Сохраните файл в бакет {{ objstorage-full-name }} и передайте URL файла в свойстве `spark:spark.jars`.
+            * Сохраните файл в бакет Yandex Object Storage и передайте URL файла в свойстве `spark:spark.jars`.
             
                 URL файла имеет формат `s3a://<имя_бакета>/<путь_к_файлу>`.
             
@@ -106,22 +106,22 @@
 
     {% endlist %}
 
-Теперь вы можете использовать {{ IBRG }} в кластере {{ dataproc-name }}.
+Теперь вы можете использовать Apache Iceberg™ в кластере Yandex Data Processing.
 
-## Пример использования {{ IBRG }} {#example}
+## Пример использования Apache Iceberg™ {#example}
 
-Пример проверялся в кластере {{ dataproc-name }} версии 2.0, в котором:
+Пример проверялся в кластере Yandex Data Processing версии 2.0, в котором:
 
 * Установлены компоненты Spark и Hadoop.
-* Подключен бакет {{ objstorage-name }}, и сервисный аккаунт кластера имеет права на чтение и запись в этом бакете.
+* Подключен бакет Object Storage, и сервисный аккаунт кластера имеет права на чтение и запись в этом бакете.
 * Настроен доступ к репозиторию Maven Central.
-* Необходимые свойства компонентов [настроены](#settings) так, чтобы библиотеки {{ IBRG }} загружались из Maven Central.
+* Необходимые свойства компонентов [настроены](#settings) так, чтобы библиотеки Apache Iceberg™ загружались из Maven Central.
 
-Чтобы создать таблицу в формате {{ IBRG }} и начать работать с ней:
+Чтобы создать таблицу в формате Apache Iceberg™ и начать работать с ней:
 
 1. Укажите [настройки каталога](https://iceberg.apache.org/docs/latest/spark-configuration/#catalogs), в котором будет находиться таблица.
 
-    {{ IBRG }} оперирует таблицами на уровне отдельных каталогов. Настройки каталога указываются на уровне отдельного каталога, нельзя указать настройки для всех каталогов сразу.
+    Apache Iceberg™ оперирует таблицами на уровне отдельных каталогов. Настройки каталога указываются на уровне отдельного каталога, нельзя указать настройки для всех каталогов сразу.
 
     Чтобы настроить каталог `sample` [типа Hadoop](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration), [установите следующие свойства](../concepts/settings-list.md#change-properties) на уровне кластера или на уровне отдельного задания:
 
@@ -131,9 +131,9 @@
 
         Данные таблиц будут храниться в бакете по пути `warehouse/`.
 
-    Подробнее о свойствах, влияющих на настройки каталога, в [документации {{ IBRG }}](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
+    Подробнее о свойствах, влияющих на настройки каталога, в [документации Apache Iceberg™](https://iceberg.apache.org/docs/latest/spark-configuration/#catalog-configuration).
 
-1. [Подключитесь по SSH](connect-ssh.md) к хосту-мастеру кластера {{ dataproc-name }}.
+1. [Подключитесь по SSH](connect-ssh.md) к хосту-мастеру кластера Yandex Data Processing.
 
 1. Запустите сессию Spark SQL:
 

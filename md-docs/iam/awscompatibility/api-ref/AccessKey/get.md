@@ -6,7 +6,7 @@ To get the list of available access keys, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys/{accessKeyId}
 ```
 
 ## Path parameters

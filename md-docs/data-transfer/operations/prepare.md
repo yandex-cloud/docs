@@ -4,13 +4,13 @@
 
 ## Подготовка источника {#source}
 
-### Источники {{ AB }} {#source-airbyte}
+### Источники Airbyte® {#source-airbyte}
 
 #### Источник AWS CloudTrail {#source-aws}
 
 Получите идентификатор ключа и секретный ключ доступа AWS, следуя [инструкции AWS](https://docs.aws.amazon.com/powershell/latest/userguide/pstools-appendix-sign-up.html).
 
-Подробнее в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
+Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/aws-cloudtrail/).
 
 #### Источник BigQuery {#source-bigquery}
 
@@ -20,43 +20,43 @@
 1. [Добавьте учетную запись](https://cloud.google.com/iam/docs/granting-changing-revoking-access#granting-console) в качестве участника в проект Google Cloud с ролью `BigQuery User`.
 1. [Создайте ключ учетной записи](https://cloud.google.com/iam/docs/creating-managing-service-account-keys) Google Cloud.
 
-Подробнее в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/bigquery).
+Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/bigquery).
 
 #### Источник Microsoft SQL Server {#source-mssql}
 
-{{ AB }} предъявляет требования к источнику данных Microsoft SQL Server:
+Airbyte® предъявляет требования к источнику данных Microsoft SQL Server:
 
-1. База данных доступна с компьютера, на котором работает {{ AB }}.
-1. Создан выделенный пользователь {{ AB }} с правами только на чтение и с доступом ко всем таблицам, для которых необходима репликация.
+1. База данных доступна с компьютера, на котором работает Airbyte®.
+1. Создан выделенный пользователь Airbyte® с правами только на чтение и с доступом ко всем таблицам, для которых необходима репликация.
 
-Подробнее в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/mssql).
+Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/mssql).
 
-{{ AB }} уже встроен в {{ data-transfer-name }}, поэтому вам не нужно создавать отдельную виртуальную машину для его развертывания и добавления пользователя. Достаточно обеспечить [сетевой доступ](../concepts/network.md) {{ data-transfer-name }} к базе-источнику.
+Airbyte® уже встроен в Data Transfer, поэтому вам не нужно создавать отдельную виртуальную машину для его развертывания и добавления пользователя. Достаточно обеспечить [сетевой доступ](../concepts/network.md) Data Transfer к базе-источнику.
 
 #### Источник S3 {#source-s3}
 
 Если вы используете частный бакет в качестве источника, предоставьте разрешения `read` и `list` учетной записи, которую будете использовать для подключения.
 
-Подробнее в [документации {{ AB }}](https://docs.airbyte.com/integrations/sources/s3/).
+Подробнее в [документации Airbyte®](https://docs.airbyte.com/integrations/sources/s3/).
 
 
-### Источник {{ KF }} {#source-kf}
+### Источник Apache Kafka® {#source-kf}
 
 {% list tabs %}
 
-- {{ mkf-name }}
+- Managed Service for Apache Kafka®
     
     
     [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с ролью `ACCESS_ROLE_CONSUMER` на топике-источнике.
 
 
-- {{ KF }}
+- Apache Kafka®
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
-    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../concepts/network.md#source-external).
+    1. [Настройте доступ к кластеру-источнику из Yandex Cloud](../concepts/network.md#source-external).
     
     1. [Настройте права доступа](https://kafka.apache.org/42/security/authorization-and-acls/#examples) пользователя к нужному топику.
     
@@ -75,45 +75,45 @@
 
 {% endlist %}
 
-### Источник {{ CH }} {#source-ch}
+### Источник ClickHouse® {#source-ch}
 
 {% note info %}
 
-{{ data-transfer-full-name }} не может переносить базы данных {{ CH }}, в названии которых есть дефис.
+Yandex Data Transfer не может переносить базы данных ClickHouse®, в названии которых есть дефис.
 
 
-При переносе таблиц с движками, отличными от движков на базе `ReplicatedMergeTree` и `Distributed`, в многохостовом кластере {{ CH }} трансфер завершится с ошибкой: `the following tables have not Distributed or Replicated engines and are not yet supported`.
+При переносе таблиц с движками, отличными от движков на базе `ReplicatedMergeTree` и `Distributed`, в многохостовом кластере ClickHouse® трансфер завершится с ошибкой: `the following tables have not Distributed or Replicated engines and are not yet supported`.
 
 {% endnote %}
 
 {% list tabs %}
 
-* {{ mch-name }}
+* Managed Service for ClickHouse®
 
     
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}{{ lang }}/materialized-views) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.com/docs/ru/materialized-views) (MaterializedView).
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
     1. [Создайте пользователя](../../managed-clickhouse/operations/cluster-users.md) с доступом к базе источника. В настройках пользователя укажите для [параметра](../../managed-clickhouse/concepts/settings-list.md#setting-max-execution-time) **Max execution time**  значение не менее `1000000`.
 
-* {{ CH }}
+* ClickHouse®
 
-    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления]({{ ch.docs }}{{ lang }}/materialized-views) (MaterializedView).
+    1. Убедитесь, что переносимые таблицы используют движки семейства `MergeTree`. Будут перенесены только эти таблицы и [материализованные представления](https://clickhouse.com/docs/ru/materialized-views) (MaterializedView).
 
        В случае многохостового кластера будут перенесены таблицы и материализованные представления только с движками на базе `ReplicatedMergeTree` либо `Distributed`. Проверьте, что данные таблицы и представления присутствуют на всех хостах кластера.
 
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
-    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../concepts/network.md#source-external).
+    1. [Настройте доступ к кластеру-источнику из Yandex Cloud](../concepts/network.md#source-external).
 
     1. Создайте пользователя с доступом к базе источника. В настройках пользователя укажите для параметра **Max execution time**  значение не менее `1000000`.
 
 {% endlist %}
 
-### Источник {{ GP }} {#source-gp}
+### Источник Greenplum® {#source-gp}
 
 
 {% note info %}
@@ -124,7 +124,7 @@
 
 {% list tabs %}
 
-- {{ mgp-name }}
+- Yandex MPP Analytics for PostgreSQL
 
     
     1. Создайте пользователя, от имени которого трансфер подключится к источнику. Для этого выполните команду:
@@ -135,13 +135,13 @@
 
     1. Настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-мастерам](../../managed-greenplum/concepts/index.md) кластера.
     
-    1. Если предполагается использовать [параллельное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode). Для этого убедитесь, что для кластера включена настройка "Доступ из {{ data-transfer-name }}".
+    1. Если предполагается использовать [параллельное копирование](../concepts/sharded.md), настройте кластер-источник так, чтобы созданный пользователь мог подключаться ко всем [хостам-сегментам](../../managed-greenplum/concepts/index.md) кластера в режиме прямого доступа (utility mode). Для этого убедитесь, что для кластера включена настройка "Доступ из Data Transfer".
     
     1. Выдайте созданному пользователю привилегию на выполнение операции `SELECT` над таблицами, которые переносит трансфер, и привилегию `USAGE` на схемы, в которых находятся эти таблицы.
     
        Привилегии должны быть выданы на таблицы целиком, доступ только к части столбцов таблицы не поддерживается.
     
-       Таблицы, для которых не выданы необходимые привилегии, недоступны для {{ data-transfer-name }}. Эти таблицы обрабатываются так же, как если бы они отсутствовали.
+       Таблицы, для которых не выданы необходимые привилегии, недоступны для Data Transfer. Эти таблицы обрабатываются так же, как если бы они отсутствовали.
     
        В этом примере привилегии выдаются на все таблицы в выбранной схеме:
     
@@ -150,9 +150,9 @@
         GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
         ```
 
-- {{ GP }}
+- Greenplum®
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
@@ -170,7 +170,7 @@
     
        Привилегии должны быть выданы на таблицы целиком, доступ только к части столбцов таблицы не поддерживается.
     
-       Таблицы, для которых не выданы необходимые привилегии, недоступны для {{ data-transfer-name }}. Эти таблицы обрабатываются так же, как если бы они отсутствовали.
+       Таблицы, для которых не выданы необходимые привилегии, недоступны для Data Transfer. Эти таблицы обрабатываются так же, как если бы они отсутствовали.
     
        В этом примере привилегии выдаются на все таблицы базы данных:
     
@@ -181,34 +181,34 @@
 
 {% endlist %}
 
-{{ data-transfer-name }} взаимодействует с {{ GP }} по-разному в зависимости от настроек трансфера и содержимого кластера-источника. Подробная информация доступна в разделе [настройка эндпоинта-источника {{ GP }}](endpoint/source/greenplum.md).
+Data Transfer взаимодействует с Greenplum® по-разному в зависимости от настроек трансфера и содержимого кластера-источника. Подробная информация доступна в разделе [настройка эндпоинта-источника Greenplum®](endpoint/source/greenplum.md).
 
 
-### Источник {{ MG }} {#source-mg}
+### Источник MongoDB {#source-mg}
 
 
 {% list tabs %}
 
-- {{ mmg-name }} (Managed Service for MongoDB)
+- Yandex StoreDoc (Managed Service for MongoDB)
 
 
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ mmg-name }}. Если нагрузка на базы выше 10 000 операций записи в секунду, создайте несколько эндпоинтов и трансферов. Подробнее читайте в разделе [{#T}](endpoint/source/mongodb.md).
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на Yandex StoreDoc. Если нагрузка на базы выше 10 000 операций записи в секунду, создайте несколько эндпоинтов и трансферов. Подробнее читайте в разделе [Передача данных из эндпоинта-источника MongoDB/Yandex StoreDoc (Managed Service for MongoDB)](endpoint/source/mongodb.md).
     
     1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) с ролью `readWrite` на каждую базу в источнике, которая будет реплицироваться. Роль `readWrite` нужна для того, чтобы у трансфера было право записи в служебную коллекцию `__data_transfer.__dt_cluster_time`.
 
-- {{ MG }}
+- MongoDB
     
-    1. Оцените общее количество баз данных для трансфера и общую нагрузку на {{ MG }}. Если нагрузка на базы выше 10 000 операций записи в секунду, создайте несколько эндпоинтов и трансферов. Подробнее читайте в разделе [{#T}](endpoint/source/mongodb.md).
+    1. Оцените общее количество баз данных для трансфера и общую нагрузку на MongoDB. Если нагрузка на базы выше 10 000 операций записи в секунду, создайте несколько эндпоинтов и трансферов. Подробнее читайте в разделе [Передача данных из эндпоинта-источника MongoDB/Yandex StoreDoc (Managed Service for MongoDB)](endpoint/source/mongodb.md).
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
-    1. Убедитесь, что версия {{ MG }} на приемнике не ниже `4.0`.
+    1. Убедитесь, что версия MongoDB на приемнике не ниже `4.0`.
     
-    1. Убедитесь, что кластер {{ MG }} сконфигурирован таким образом, чтобы на запросы к нему он возвращал корректно разрешающиеся IP-адреса или FQDN (Fully Qualified Domain Name).
+    1. Убедитесь, что кластер MongoDB сконфигурирован таким образом, чтобы на запросы к нему он возвращал корректно разрешающиеся IP-адреса или FQDN (Fully Qualified Domain Name).
     
-    1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../concepts/network.md#source-external). Чтобы настроить кластер-источник для подключения из интернета:
+    1. [Настройте доступ к кластеру-источнику из Yandex Cloud](../concepts/network.md#source-external). Чтобы настроить кластер-источник для подключения из интернета:
         
         1. Измените в конфигурационном файле значение настройки `net.bindIp` со `127.0.0.1` на `0.0.0.0`:
         
@@ -240,7 +240,7 @@
             sudo systemctl restart mongod.service
             ```
         
-        1. Подключитесь к {{ MG }} и инициализируйте набор реплик командой:
+        1. Подключитесь к MongoDB и инициализируйте набор реплик командой:
         
             ```javascript
             rs.initiate({
@@ -278,11 +278,11 @@
     
        {% note info %}
     
-       Для версий {{ MG }}, начиная с {{ dt-mg-version }}, достаточно выдать созданному пользователю роль `read` на реплицируемые базы.
+       Для версий MongoDB, начиная с 3.6, достаточно выдать созданному пользователю роль `read` на реплицируемые базы.
     
        {% endnote %}
     
-    1. При использовании {{ MG }}, начиная с версии {{ dt-mg-version }}, для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль `clusterAdmin`, предоставляющую такие права, подключитесь к {{ MG }} и выполните команды:
+    1. При использовании MongoDB, начиная с версии 3.6, для работы трансфера необходимо, чтобы пользователь обладал правами на чтение коллекции `local.oplog.rs`, а также на запись с чтением коллекции `__data_transfer.__dt_cluster_time`. Чтобы назначить пользователю роль `clusterAdmin`, предоставляющую такие права, подключитесь к MongoDB и выполните команды:
     
         ```js
         use admin;
@@ -293,11 +293,11 @@
 
 {% endlist %}
 
-### Источник {{ MY }} {#source-my}
+### Источник MySQL® {#source-my}
 
 {% list tabs %}
 
-- {{ mmy-name }}
+- Managed Service for MySQL®
 
     
     1. [Включите режим полного бинарного лога](../../managed-mysql/operations/update.md#change-mysql-config) на источнике, установив значение `FULL` или `NOBLOB` для [параметра **Binlog row image**](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image).
@@ -310,7 +310,7 @@
         
         1. [Выдайте пользователю административные привилегии](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges) `REPLICATION CLIENT` и `REPLICATION SLAVE`.
     
-    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ таблицы без уникальных индексов не переносятся. 
+    1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ таблицы без уникальных индексов не переносятся. 
        
        Если в таблице, содержащей строку, есть первичный ключ, то при изменении строки в бинарный лог записываются только столбцы первичного ключа. Если первичного ключа нет, но есть уникальный индекс, все столбцы которого не равны `NULL`, то в бинарный лог записываются только эти столбцы. Если нет ни первичного ключа, ни уникального индекса без `NULL`, то в бинарный лог записываются все столбцы в строке.
        
@@ -363,11 +363,11 @@
     
        {% endnote %}
     
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее — в [описании дополнительных настроек эндпоинта для источника {{ MY }}](endpoint/source/mysql.md#additional-settings).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _**Репликация**_ и _**Копирование и репликация**_). Подробнее — в [описании дополнительных настроек эндпоинта для источника MySQL®](endpoint/source/mysql.md#additional-settings).
 
-- {{ MY }}
+- MySQL®
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
@@ -383,11 +383,11 @@
     
     1. [Задайте строковый формат бинарного лога](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) на источнике, установив значение `ROW` для параметра `binlog_format`.
 
-    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_:
+    1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_:
 
-        * [Укажите путь к расположению бинарного лог-файла]({{ my.docs }}/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin) в параметре `log_bin`.
+        * [Укажите путь к расположению бинарного лог-файла](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin) в параметре `log_bin`.
 
-        * Выведите информацию о бинарном логе с помощью запроса [SHOW MASTER STATUS]({{ my.docs }}/refman/8.0/en/show-master-status.html) (для версий {{ MY }} 5.7 и 8.0) или [SHOW BINARY LOG STATUS]({{ my.docs }}/refman/8.4/en/show-binary-log-status.html) (для версии {{ MY }} 8.4). Запрос должен возвращать строку с информацией, а не пустой ответ.
+        * Выведите информацию о бинарном логе с помощью запроса [SHOW MASTER STATUS](https://dev.mysql.com/doc/refman/8.0/en/show-master-status.html) (для версий MySQL® 5.7 и 8.0) или [SHOW BINARY LOG STATUS](https://dev.mysql.com/doc/refman/8.4/en/show-binary-log-status.html) (для версии MySQL® 8.4). Запрос должен возвращать строку с информацией, а не пустой ответ.
 
     1. Если источник репликации — кластер, который находится за балансером, включите для него GTID-режим (`GTID-MODE = ON`).
     
@@ -405,7 +405,7 @@
         GRANT REPLICATION CLIENT, REPLICATION SLAVE ON *.* TO '<имя_пользователя>'@'%';
         ```
 
-    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ таблицы без уникальных индексов не переносятся. 
+    1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ таблицы без уникальных индексов не переносятся. 
        
        Если в таблице, содержащей строку, есть первичный ключ, то при изменении строки в бинарный лог записываются только столбцы первичного ключа. Если первичного ключа нет, но есть уникальный индекс, все столбцы которого не равны `NULL`, то в бинарный лог записываются только эти столбцы. Если нет ни первичного ключа, ни уникального индекса без `NULL`, то в бинарный лог записываются все столбцы в строке.
        
@@ -458,25 +458,25 @@
     
        {% endnote %}
     
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее — в [описании дополнительных настроек эндпоинта для источника {{ MY }}](endpoint/source/mysql.md#additional-settings).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _**Репликация**_ и _**Копирование и репликация**_). Подробнее — в [описании дополнительных настроек эндпоинта для источника MySQL®](endpoint/source/mysql.md#additional-settings).
 
 {% endlist %}
 
-### Источник {{ ES }} {#source-es}
+### Источник Elasticsearch {#source-es}
 
 
-Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
 
 Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
-### Источник {{ OS }} {#source-os}
+### Источник OpenSearch {#source-os}
 
 {% list tabs %}
 
-- {{ OS }}
+- OpenSearch
 
   
-  Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+  Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
   
   Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
@@ -497,7 +497,7 @@
 
 - Oracle
     
-    * Чтобы подготовить источник к трансферу типа _{{ dt-type-copy }}_:
+    * Чтобы подготовить источник к трансферу типа _**Копирование**_:
         
         1. Создайте пользователя, от имени которого трансфер подключится к источнику:
         
@@ -519,7 +519,7 @@
         
         1. Выдайте пользователю [права на чтение таблиц](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html), которые нужно скопировать.
     
-    * Чтобы подготовить источник к трансферу типа _{{ dt-type-repl }}_:
+    * Чтобы подготовить источник к трансферу типа _**Репликация**_:
         
         1. Создайте пользователя, от имени которого трансфер подключится к источнику:
         
@@ -612,13 +612,13 @@
 
 {% endlist %}
 
-### Источник {{ PG }} {#source-pg}
+### Источник PostgreSQL {#source-pg}
 
 {% note info %}
 
-При трансфере из {{ PG }} в любой тип приемника объекты типа [large objects](https://www.postgresql.org/docs/current/largeobjects.html) не переносятся.
+При трансфере из PostgreSQL в любой тип приемника объекты типа [large objects](https://www.postgresql.org/docs/current/largeobjects.html) не переносятся.
 
-При переносе данных с типом `TIMESTAMP WITHOUT TIME ZONE` применяется часовой пояс, указанный в параметре `timezone` базы данных источника {{ PG }}.
+При переносе данных с типом `TIMESTAMP WITHOUT TIME ZONE` применяется часовой пояс, указанный в параметре `timezone` базы данных источника PostgreSQL.
 
 {% cut "Пример" %}
 
@@ -631,7 +631,7 @@
 
 Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.
 
-Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции]({{ pg.docs.org }}/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
+Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции](https://www.postgresql.org/docs/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
 
 Большие объекты в [системе хранения TOAST](https://www.postgresql.org/docs/12/storage-toast.html) и данные с [типом bytea](https://www.postgresql.org/docs/12/datatype-binary.html) переносятся без ограничений.
 
@@ -639,14 +639,14 @@
 
 {% list tabs %}
 
-- {{ mpg-name }}
+- Managed Service for PostgreSQL
 
     
     1. Настройте пользователя, от имени которого трансфер подключится к источнику:
         
         1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser).
         
-        1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ [назначьте роль](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` этому пользователю.
+        1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ [назначьте роль](../../managed-postgresql/operations/grant.md#grant-role) `mdb_replication` этому пользователю.
         
         1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md), которую нужно мигрировать, от имени владельца базы и [настройте привилегии](../../managed-postgresql/operations/grant.md#grant-privilege):
 
@@ -668,7 +668,7 @@
               GRANT USAGE ON SCHEMA <название_схемы> TO <имя_владельца_БД>;
               ```
 
-            * Выдайте привилегию `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](endpoint/source/postgresql.md#additional-settings) схему для хранения служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _{{ dt-type-repl }}_ или _{{ dt-type-copy-repl }}_:
+            * Выдайте привилегию `ALL PRIVILEGES` (`CREATE` и `USAGE`) на задаваемую [параметром эндпоинта](endpoint/source/postgresql.md#additional-settings) схему для хранения служебных таблиц `__consumer_keeper` и `__data_transfer_mole_finder`, если эндпоинт будет использоваться для типов трансфера _**Репликация**_ или _**Копирование и репликация**_:
 
               ```sql
               GRANT ALL PRIVILEGES ON SCHEMA <название_схемы> TO <имя_владельца_БД>;
@@ -680,9 +680,9 @@
 
         * [Включите](../../managed-postgresql/operations/extensions/cluster-extensions.md) для него расширение `pg_tm_aux`. Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее читайте в разделе [Решение проблем](../troubleshooting/index.md#master-change).
 
-        * Укажите в кластере значение [настройки](../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) `Wal keep size`. В случае смены хоста-мастера хранимой в [WAL](https://www.postgresql.org/docs/current/wal-intro.html) на новом мастере истории должно хватать для продолжения репликации с того же места. Если истории недостаточно, трансфер может завершиться [ошибкой](endpoint/source/postgresql.md#no-wal-story). В качестве минимального значения настройки `Wal keep size` рекомендуется взять среднее значение из графика **Source buffer size** в [мониторинге {{ data-transfer-name }}](monitoring.md). Если на диске достаточно свободных ресурсов, укажите значение настройки с запасом.
+        * Укажите в кластере значение [настройки](../../managed-postgresql/concepts/settings-list.md#setting-wal-keep-size) `Wal keep size`. В случае смены хоста-мастера хранимой в [WAL](https://www.postgresql.org/docs/current/wal-intro.html) на новом мастере истории должно хватать для продолжения репликации с того же места. Если истории недостаточно, трансфер может завершиться [ошибкой](endpoint/source/postgresql.md#no-wal-story). В качестве минимального значения настройки `Wal keep size` рекомендуется взять среднее значение из графика **Source buffer size** в [мониторинге Data Transfer](monitoring.md). Если на диске достаточно свободных ресурсов, укажите значение настройки с запасом.
 
-    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ таблицы без первичных ключей не переносятся. Чтобы сохранить работоспособность трансфера при переносе базы с такими таблицами:
+    1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ таблицы без первичных ключей не переносятся. Чтобы сохранить работоспособность трансфера при переносе базы с такими таблицами:
        
        * Не переносите таблицы без первичных ключей. Для этого добавьте их в список исключенных таблиц в [настройках эндпоинта для источника](endpoint/source/postgresql.md#additional-settings.md).
        * Добавьте идентификатор реплики на таблицах без `primary key`:
@@ -697,17 +697,17 @@
                ```sql
                ALTER TABLE MY_TBL REPLICA IDENTITY FULL;
                ```
-             В этом случае {{ data-transfer-name }} будет воспринимать такие таблицы как таблицы, в которых первичный ключ является составным, и в него входят все колонки таблицы.
+             В этом случае Data Transfer будет воспринимать такие таблицы как таблицы, в которых первичный ключ является составным, и в него входят все колонки таблицы.
        
-       Если в таблице нет первичных ключей, тогда в логической репликации [не будет событий изменений строк]({{ pg-docs }}/logical-replication-publication.html) (`UPDATE`, `DELETE`).
+       Если в таблице нет первичных ключей, тогда в логической репликации [не будет событий изменений строк](https://www.postgresql.org/docs/current/logical-replication-publication.html) (`UPDATE`, `DELETE`).
        
-       * Во время трансфера из {{ PG }} в {{ PG }}, если у вас в источнике трансфера не будет исключена таблица без первичных ключей, то вы увидите ошибку: 
+       * Во время трансфера из PostgreSQL в PostgreSQL, если у вас в источнике трансфера не будет исключена таблица без первичных ключей, то вы увидите ошибку: 
        
           ```text
            failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed: "public"."MY_TBL": no key columns found
            ```
        
-        * Во время трансфера из {{ PG }} в другую базу данных, если у вас будет добавлена таблица без первичных ключей, то вы увидите ошибку:
+        * Во время трансфера из PostgreSQL в другую базу данных, если у вас будет добавлена таблица без первичных ключей, то вы увидите ошибку:
        
           ```text
           failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed:
@@ -718,7 +718,7 @@
 
     1. Если база данных содержит таблицы, в которых есть генерируемые столбцы, то такие таблицы не переносятся, и трансфер завершается ошибкой. Подробнее читайте в разделе [Решение проблем](../troubleshooting/index.md#generated-columns). Чтобы сохранить работоспособность трансфера при переносе базы данных с такими таблицами, добавьте их в список исключенных таблиц в [настройках эндпоинта для источника](endpoint/source/postgresql.md#additional-settings.md).
 
-    1. Найдите и завершите слишком долгие DDL-запросы. Для этого сделайте выборку из системной таблицы {{ PG }} `pg_stat_activity`:
+    1. Найдите и завершите слишком долгие DDL-запросы. Для этого сделайте выборку из системной таблицы PostgreSQL `pg_stat_activity`:
     
         ```sql
         SELECT NOW() - query_start AS duration, query, state
@@ -728,17 +728,17 @@
     
        Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
     
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее — в [описании дополнительных настроек эндпоинта для источника {{ PG }}](endpoint/source/postgresql.md#additional-settings).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _**Репликация**_ и _**Копирование и репликация**_). Подробнее — в [описании дополнительных настроек эндпоинта для источника PostgreSQL](endpoint/source/postgresql.md#additional-settings).
     
     1. Для параллельного чтения из таблицы по диапазонам убедитесь, что указан первичный ключ. После этого укажите количество воркеров и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
     
     1. Настройте мониторинг WAL-лога. {#wal-setup-recommendation}
 
-       Для трансферов типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ используется [логическая репликация]({{ pg-docs }}/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
+       Для трансферов типа _**Репликация**_ и _**Копирование и репликация**_ используется [логическая репликация](https://www.postgresql.org/docs/current/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
 
         1. Для мониторинга размера использованного хранилища или диска [настройте алерт средствами мониторинга](../../managed-postgresql/operations/monitoring.md#monitoring-hosts) (см. описание `disk.used_bytes`).
         
-        1. Задайте максимальный размер WAL при репликации в [настройке](../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии {{ PG }}. Если вы хотите экстренно запретить операции чтения трансферу, то [удалите слот репликации](../../managed-postgresql/operations/replication-slots.md#delete). 
+        1. Задайте максимальный размер WAL при репликации в [настройке](../../managed-postgresql/concepts/settings-list.md#setting-max-slot-wal-keep-size) `Max slot wal keep size`. Редактирование данной настройки доступно начиная с 13 версии PostgreSQL. Если вы хотите экстренно запретить операции чтения трансферу, то [удалите слот репликации](../../managed-postgresql/operations/replication-slots.md#delete). 
         
            {% note warning %}
         
@@ -746,16 +746,16 @@
         
            {% endnote %}
         
-        1. [Настройте алерт](../../managed-postgresql/operations/monitoring.md) средствами {{ monitoring-full-name }} на метрику, которая используется для `Total size of WAL files`. Пороговые значения должны быть меньше, чем указаны для метрики `disk.used_bytes`, так как на диске, кроме данных, хранятся временные файлы, WAL-лог и другие типы данных. Текущий размер слота можно мониторить средствами БД через запрос, указав правильный `slot_name`, равный идентификатору трансфера:
+        1. [Настройте алерт](../../managed-postgresql/operations/monitoring.md) средствами Yandex Monitoring на метрику, которая используется для `Total size of WAL files`. Пороговые значения должны быть меньше, чем указаны для метрики `disk.used_bytes`, так как на диске, кроме данных, хранятся временные файлы, WAL-лог и другие типы данных. Текущий размер слота можно мониторить средствами БД через запрос, указав правильный `slot_name`, равный идентификатору трансфера:
         
             ```sql
             SELECT slot_name, pg_size_pretty(pg_current_wal_lsn() - restart_lsn), active_pid, catalog_xmin, restart_lsn, confirmed_flush_lsn
             FROM pg_replication_slots WHERE slot_name = '<идентификатор_трансфера>'
             ```
 
-- {{ PG }}
+- PostgreSQL
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
@@ -763,13 +763,13 @@
 
         1. Создайте нового пользователя:
             
-            * Для типа трансфера _{{ dt-type-copy }}_ создайте пользователя командой:
+            * Для типа трансфера _**Копирование**_ создайте пользователя командой:
             
                 ```sql
                 CREATE ROLE <имя_пользователя> LOGIN ENCRYPTED PASSWORD '<пароль>';
                 ```
             
-            * Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ создайте пользователя с привилегией `REPLICATION` командой:
+            * Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ создайте пользователя с привилегией `REPLICATION` командой:
             
                 ```sql
                 CREATE ROLE <имя_пользователя> WITH REPLICATION LOGIN ENCRYPTED PASSWORD '<пароль>';
@@ -783,13 +783,13 @@
         
         1. Выдайте созданному пользователю привилегию на схемы переносимой базы данных:
 
-            * Для типа трансфера _{{ dt-type-copy }}_ выдайте привилегию `USAGE`:
+            * Для типа трансфера _**Копирование**_ выдайте привилегию `USAGE`:
         
                 ```sql
                 GRANT USAGE ON SCHEMA <название_схемы> TO <имя_пользователя>;
                 ```
 
-            * Для типа трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ выдайте привилегии `CREATE` и `USAGE` (`ALL PRIVILEGES`), необходимые для создания [служебных таблиц](endpoint/source/postgresql.md#additional-settings):
+            * Для типа трансфера _**Репликация**_ и _**Копирование и репликация**_ выдайте привилегии `CREATE` и `USAGE` (`ALL PRIVILEGES`), необходимые для создания [служебных таблиц](endpoint/source/postgresql.md#additional-settings):
 
                 ```sql
                 GRANT ALL PRIVILEGES ON SCHEMA <название_схемы> TO <имя_пользователя>;
@@ -807,9 +807,9 @@
             GRANT CONNECT ON DATABASE <название_базы_данных> TO <имя_пользователя>;
             ```
 
-    1. Настройте конфигурацию {{ PG }}:
+    1. Настройте конфигурацию PostgreSQL:
     
-        1. Внесите изменения в конфигурацию и настройки аутентификации кластера-источника. Для этого отредактируйте файлы `postgresql.conf`  и `pg_hba.conf` (на дистрибутивах Debian и Ubuntu они по умолчанию расположены в каталоге `/etc/postgresql/<версия_{{ PG }}>/main/`):
+        1. Внесите изменения в конфигурацию и настройки аутентификации кластера-источника. Для этого отредактируйте файлы `postgresql.conf`  и `pg_hba.conf` (на дистрибутивах Debian и Ubuntu они по умолчанию расположены в каталоге `/etc/postgresql/<версия_PostgreSQL>/main/`):
         
             1. Задайте максимальное количество подключений пользователя. Для этого в файле `postgresql.conf` отредактируйте параметр `max_connections`:
         
@@ -863,16 +863,16 @@
         
                 {% endlist %}
         
-                Где `<IP-адрес_подключения>` может быть как точным IP-адресом, так и диапазоном IP-адресов. Например, чтобы разрешить доступ из сети {{ yandex-cloud }}, вы можете указать [все публичные IP-адреса](../../overview/concepts/public-ips.md) {{ yandex-cloud }}.
+                Где `<IP-адрес_подключения>` может быть как точным IP-адресом, так и диапазоном IP-адресов. Например, чтобы разрешить доступ из сети Yandex Cloud, вы можете указать [все публичные IP-адреса](../../overview/concepts/public-ips.md) Yandex Cloud.
         1. Если в кластере-источнике работает файрвол, разрешите входящие соединения с нужных адресов.
         
-        1. Чтобы применить настройки, перезапустите сервис {{ PG }}:
+        1. Чтобы применить настройки, перезапустите сервис PostgreSQL:
         
            ```bash
            sudo systemctl restart postgresql
            ```
         
-        1. Проверьте статус сервиса {{ PG }} после перезапуска:
+        1. Проверьте статус сервиса PostgreSQL после перезапуска:
         
            ```bash
            sudo systemctl status postgresql
@@ -882,8 +882,8 @@
 
         * Linux
             
-            1. Подключите [официальный репозиторий {{ PG }}](https://www.postgresql.org/download/) для вашего дистрибутива.
-            1. Обновите список доступных пакетов и установите пакет `wal2json` для используемой версии {{ PG }}.
+            1. Подключите [официальный репозиторий PostgreSQL](https://www.postgresql.org/download/) для вашего дистрибутива.
+            1. Обновите список доступных пакетов и установите пакет `wal2json` для используемой версии PostgreSQL.
         
         * Windows 10, 11
             
@@ -904,7 +904,7 @@
             1. Перейдите в каталог `C:\wal2json`.
             1. В рамках одной сессии PowerShell внесите изменения в файл `wal2json.vcxproj`:
                 
-                * замените строки `C:\postgres\pg103` на путь к каталогу с установленной версией {{ PG }}, например:
+                * замените строки `C:\postgres\pg103` на путь к каталогу с установленной версией PostgreSQL, например:
                 
                     ```powershell
                     (Get-Content .\wal2json.vcxproj).replace('C:\postgres\pg103', 'C:\PostgreSQL\14') | `
@@ -936,11 +936,11 @@
                     & 'C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\MSBuild.exe' /p:Configuration=Release /p:Platform=x64
                     ```
                 
-                1. Скопируйте файл `wal2json.dll` из каталога `build/release` в каталог `lib` установленной версии {{ PG }}.
+                1. Скопируйте файл `wal2json.dll` из каталога `build/release` в каталог `lib` установленной версии PostgreSQL.
     
     1. Если источник репликации — кластер, установите и включите на его хостах расширение [pg_tm_aux](https://github.com/x4m/pg_tm_aux). Это позволит продолжить репликацию в случае смены хоста-мастера. В некоторых случаях при смене мастера в кластере трансфер может завершиться ошибкой. Подробнее читайте в разделе [Решение проблем](../troubleshooting/index.md#master-change).
     
-    1. Для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ таблицы без первичных ключей не переносятся. Чтобы сохранить работоспособность трансфера при переносе базы с такими таблицами:
+    1. Для типов трансфера _**Репликация**_ и _**Копирование и репликация**_ таблицы без первичных ключей не переносятся. Чтобы сохранить работоспособность трансфера при переносе базы с такими таблицами:
        
        * Не переносите таблицы без первичных ключей. Для этого добавьте их в список исключенных таблиц в [настройках эндпоинта для источника](endpoint/source/postgresql.md#additional-settings.md).
        * Добавьте идентификатор реплики на таблицах без `primary key`:
@@ -955,17 +955,17 @@
                ```sql
                ALTER TABLE MY_TBL REPLICA IDENTITY FULL;
                ```
-             В этом случае {{ data-transfer-name }} будет воспринимать такие таблицы как таблицы, в которых первичный ключ является составным, и в него входят все колонки таблицы.
+             В этом случае Data Transfer будет воспринимать такие таблицы как таблицы, в которых первичный ключ является составным, и в него входят все колонки таблицы.
        
-       Если в таблице нет первичных ключей, тогда в логической репликации [не будет событий изменений строк]({{ pg-docs }}/logical-replication-publication.html) (`UPDATE`, `DELETE`).
+       Если в таблице нет первичных ключей, тогда в логической репликации [не будет событий изменений строк](https://www.postgresql.org/docs/current/logical-replication-publication.html) (`UPDATE`, `DELETE`).
        
-       * Во время трансфера из {{ PG }} в {{ PG }}, если у вас в источнике трансфера не будет исключена таблица без первичных ключей, то вы увидите ошибку: 
+       * Во время трансфера из PostgreSQL в PostgreSQL, если у вас в источнике трансфера не будет исключена таблица без первичных ключей, то вы увидите ошибку: 
        
           ```text
            failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed: "public"."MY_TBL": no key columns found
            ```
        
-        * Во время трансфера из {{ PG }} в другую базу данных, если у вас будет добавлена таблица без первичных ключей, то вы увидите ошибку:
+        * Во время трансфера из PostgreSQL в другую базу данных, если у вас будет добавлена таблица без первичных ключей, то вы увидите ошибку:
        
           ```text
           failed to run (abstract1 source): Cannot parse logical replication message: failed to reload schema: primary key check failed: Tables: n / N check failed:
@@ -976,7 +976,7 @@
 
     1. Если база данных содержит таблицы, в которых есть генерируемые столбцы, то такие таблицы не переносятся, и трансфер завершается ошибкой. Подробнее читайте в разделе [Решение проблем](../troubleshooting/index.md#generated-columns). Чтобы сохранить работоспособность трансфера при переносе базы данных с такими таблицами, добавьте их в список исключенных таблиц в [настройках эндпоинта для источника](endpoint/source/postgresql.md#additional-settings.md).
 
-    1. Найдите и завершите слишком долгие DDL-запросы. Для этого сделайте выборку из системной таблицы {{ PG }} `pg_stat_activity`:
+    1. Найдите и завершите слишком долгие DDL-запросы. Для этого сделайте выборку из системной таблицы PostgreSQL `pg_stat_activity`:
     
         ```sql
         SELECT NOW() - query_start AS duration, query, state
@@ -986,7 +986,7 @@
     
        Будет возвращен список запросов, выполняющихся на сервере. Обратите внимание на запросы с высоким значением `duration`.
     
-    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_). Подробнее — в [описании дополнительных настроек эндпоинта для источника {{ PG }}](endpoint/source/postgresql.md#additional-settings).
+    1. Выключите перенос триггеров на стадии активации трансфера и включите его на стадии деактивации (для типов трансфера _**Репликация**_ и _**Копирование и репликация**_). Подробнее — в [описании дополнительных настроек эндпоинта для источника PostgreSQL](endpoint/source/postgresql.md#additional-settings).
     
     1. Для параллельного чтения из таблицы по диапазонам убедитесь, что указан первичный ключ. После этого укажите количество [воркеров](../concepts/index.md#worker) и потоков в блоке **Среда выполнения** в [параметрах трансфера](transfer.md#create).
     
@@ -1013,11 +1013,11 @@
        Warn(Termination): unable to create new pg source: Replication slotID <имя_слота_репликации> does not exist.
        ```
     
-    1. Настройте мониторинг WAL-лога. Для трансферов типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ используется [логическая репликация]({{ pg-docs }}/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
+    1. Настройте мониторинг WAL-лога. Для трансферов типа _**Репликация**_ и _**Копирование и репликация**_ используется [логическая репликация](https://www.postgresql.org/docs/current/logicaldecoding.html). Для этого сам трансфер создает слот репликации со значением `slot_name`, равным идентификатору трансфера, который можно получить, выбрав трансфер в списке ваших трансферов. WAL может расти по разным причинам: из-за долгой транзакции или из-за проблемы на трансфере. Поэтому рекомендуется настроить мониторинг WAL-лога на стороне источника.
         
-        1. Настройте алерты на основе [рекомендаций по использованию диска]({{ pg-docs }}/diskusage.html).
+        1. Настройте алерты на основе [рекомендаций по использованию диска](https://www.postgresql.org/docs/current/diskusage.html).
         
-        1. [Установите максимальный размер WAL]({{ pg-docs }}/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE). Эта возможность доступна, начиная с версии {{ PG }} 13.
+        1. [Установите максимальный размер WAL](https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-MAX-SLOT-WAL-KEEP-SIZE). Эта возможность доступна, начиная с версии PostgreSQL 13.
         
         1. Текущий размер слота можно отслеживать средствами БД через запрос, указав правильный `slot_name`, равный идентификатору трансфера:
         
@@ -1030,13 +1030,13 @@
 
 {% note info %}
 
-Об особенностях переноса данных из {{ PG }} в {{ CH }} трансферами типа _{{ dt-type-repl }}_ и _{{ dt-type-copy-repl }}_ читайте в разделе [Асинхронная репликация данных из {{ PG }} в {{ CH }}](../tutorials/rdbms-to-clickhouse.md).
+Об особенностях переноса данных из PostgreSQL в ClickHouse® трансферами типа _**Репликация**_ и _**Копирование и репликация**_ читайте в разделе [Асинхронная репликация данных из PostgreSQL в ClickHouse®](../tutorials/rdbms-to-clickhouse.md).
 
 {% endnote %}
 
 
 
-### Источник {{ yds-full-name }} {#source-yds}
+### Источник Yandex Data Streams {#source-yds}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `yds.editor`.
 1. [Создайте поток данных](../../data-streams/operations/manage-streams.md#create-data-stream).
@@ -1137,18 +1137,18 @@
   * `utf8`
 
 
-### Источник {{ ydb-full-name }} {#source-ydb}
+### Источник Yandex Managed Service for YDB {#source-ydb}
 
-Если вы выбрали режим базы данных {{ dd }}, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+Если вы выбрали режим базы данных Dedicated, [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
 
 ## Подготовка приемника {#target}
 
-### Приемник {{ CH }} {#target-ch}
+### Приемник ClickHouse® {#target-ch}
 
 {% list tabs %}
 
-- {{ mch-name }}
+- Managed Service for ClickHouse®
 
     1. [Создайте базу-приемник](../../managed-clickhouse/operations/databases.md#add-db).
 
@@ -1170,11 +1170,11 @@
 
     1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) и [настройте ее](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
 
-    1. Назначьте кластеру {{ mch-name }} созданную группу безопасности.
+    1. Назначьте кластеру Managed Service for ClickHouse® созданную группу безопасности.
 
-- {{ CH }}
+- ClickHouse®
 
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
@@ -1194,12 +1194,12 @@
 
 {% endlist %}
 
-### Приемник {{ GP }} {#target-gp}
+### Приемник Greenplum® {#target-gp}
 
 
 {% list tabs %}
 
-- {{ mgp-name }}
+- Yandex MPP Analytics for PostgreSQL
     
     1. Отключите на приемнике следующие настройки:
         
@@ -1233,9 +1233,9 @@
     
        После старта трансфер подключится к приемнику от имени этого пользователя.
 
-- {{ GP }}
+- Greenplum®
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
@@ -1274,19 +1274,19 @@
 {% endlist %}
 
 
-### Приемник {{ MG }} {#target-mg}
+### Приемник MongoDB {#target-mg}
 
 
 {% list tabs %}
 
-- {{ mmg-name }} (Managed Service for MongoDB)
+- Yandex StoreDoc (Managed Service for MongoDB)
     
     1. [Создайте базу данных](../../storedoc/operations/databases.md#add-db).
     1. [Создайте пользователя](../../storedoc/operations/cluster-users.md#adduser) с ролью [`readWrite`](../../storedoc/concepts/users-and-roles.md#readWrite) на созданную базу.
-    1. Чтобы шардировать переносимые коллекции в кластере-приемнике {{ mmg-full-name }}:
+    1. Чтобы шардировать переносимые коллекции в кластере-приемнике Yandex StoreDoc:
         1. Следуя [инструкции](../../storedoc/tutorials/sharding.md), создайте и настройте в базе-приемнике пустые шардированные коллекции.
         
-           Сервис {{ data-transfer-name }} не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
+           Сервис Data Transfer не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
         
         1. Если шардирование происходит по ключу, отличному от `_id` (используется по умолчанию), [назначьте пользователю роль](../../storedoc/operations/cluster-users.md#updateuser) `mdbShardingManager`.
         
@@ -1295,15 +1295,15 @@
            Выбор политики `DROP` приведет к тому, что при активации трансфера сервис удалит из базы-приемника все данные, в т. ч. шардированные коллекции, и создаст вместо них новые, нешардированные.
 
 
-- {{ MG }}
+- MongoDB
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
-    1. Убедитесь, что версия {{ MG }} на приемнике не ниже, чем на источнике.
+    1. Убедитесь, что версия MongoDB на приемнике не ниже, чем на источнике.
     
-    1. Убедитесь, что кластер {{ MG }} сконфигурирован таким образом, чтобы на запросы к нему он возвращал корректно разрешающиеся IP-адреса или FQDN (Fully Qualified Domain Name).
+    1. Убедитесь, что кластер MongoDB сконфигурирован таким образом, чтобы на запросы к нему он возвращал корректно разрешающиеся IP-адреса или FQDN (Fully Qualified Domain Name).
     
     1. Настройте кластер-приемник, чтобы к нему можно было подключиться из интернета:
         
@@ -1337,7 +1337,7 @@
             sudo systemctl restart mongod.service
             ```
         
-        1. Подключитесь к {{ MG }} и инициализируйте набор реплик командой:
+        1. Подключитесь к MongoDB и инициализируйте набор реплик командой:
         
             ```javascript
             rs.initiate({
@@ -1378,7 +1378,7 @@
         
         1. Подготовьте базу данных и создайте в ней пустые коллекции с теми же именами, что и на источнике.
         
-           Сервис {{ data-transfer-name }} не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
+           Сервис Data Transfer не шардирует переносимые коллекции автоматически. Шардирование больших коллекций может занять продолжительное время и снизить скорость трансфера.
         
         1. Включите шардирование для базы-приемника:
         
@@ -1399,7 +1399,7 @@
             sh.status()
             ```
         
-        1. Если для шардирования используется ключ, отличный от `_id` (значение по умолчанию), назначьте системную роль `clusterManager` пользователю, от имени которого сервис {{ data-transfer-name }} будет подключаться к кластеру-приемнику:
+        1. Если для шардирования используется ключ, отличный от `_id` (значение по умолчанию), назначьте системную роль `clusterManager` пользователю, от имени которого сервис Data Transfer будет подключаться к кластеру-приемнику:
         
             ```javascript
             use admin;
@@ -1413,13 +1413,13 @@
 
 {% endlist %}
 
-### Приемник {{ MY }} {#target-my}
+### Приемник MySQL® {#target-my}
 
 {% list tabs %}
 
-- {{ mmy-name }}
+- Managed Service for MySQL®
     
-    1. Убедитесь, что мажорная версия {{ MY }} на приемнике не ниже версии на источнике.
+    1. Убедитесь, что мажорная версия MySQL® на приемнике не ниже версии на источнике.
     
     1. [Установите SQL Mode](../../managed-mysql/operations/update.md#change-mysql-config), который совпадает с источником.
     
@@ -1427,13 +1427,13 @@
         
         1. [Назначьте пользователю роль](../../managed-mysql/operations/grant.md#grant-role) `ALL_PRIVILEGES` для базы-приемника.
 
-- {{ MY }}
+- MySQL®
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
-    1. Убедитесь, что мажорная версия {{ MY }} на приемнике не ниже версии на источнике.
+    1. Убедитесь, что мажорная версия MySQL® на приемнике не ниже версии на источнике.
     
     1. Убедитесь, что приемник использует подсистему хранения данных низкого уровня MyISAM или InnoDB.
     
@@ -1448,19 +1448,19 @@
 
 {% endlist %}
 
-### Приемник {{ objstorage-full-name }} {#target-storage}
+### Приемник Yandex Object Storage {#target-storage}
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) нужной вам конфигурации.
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader`.
 
-### Приемник {{ ES }} {#target-es}
+### Приемник Elasticsearch {#target-es}
 
 
-Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
 
 Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
-* Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах {{ ES }}. Максимальное количество полей задается в [параметре](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-settings-limit.html#mapping-settings-limit) `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
+* Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах Elasticsearch. Максимальное количество полей задается в [параметре](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-settings-limit.html#mapping-settings-limit) `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
 
     Чтобы увеличить значение параметра, [настройте шаблон](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-template.html#indices-put-template), по которому максимальное количество полей в создаваемых индексах будет равно указанному значению.
 
@@ -1468,9 +1468,9 @@
 
     ```bash
     curl \
-        --user <имя_пользователя_{{ ES }}>:<пароль> \
+        --user <имя_пользователя_Elasticsearch>:<пароль> \
         --header 'Content-Type: application/json' \
-        --request PUT "https://<FQDN_кластера_{{ ES }}>:9200/_template/index_defaults" \
+        --request PUT "https://<FQDN_кластера_Elasticsearch>:9200/_template/index_defaults" \
         --data '
             {
                 "index_patterns": "cdc*",
@@ -1496,9 +1496,9 @@
 
     ```bash
     curl \
-        --user <имя_пользователя_{{ ES }}>:<пароль> \
+        --user <имя_пользователя_Elasticsearch>:<пароль> \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<FQDN_кластера_{{ ES }}>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
+        --request GET 'https://<FQDN_кластера_Elasticsearch>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
     ```
 
 * По умолчанию при трансфере данных в единичный индекс задействуется только один хост. Чтобы распределить нагрузку между хостами при передаче больших объемов данных, [настройте шаблон](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-put-template.html#indices-put-template), по которому создаваемые индексы будут заранее разбиты на шарды.
@@ -1507,9 +1507,9 @@
 
     ```bash
     curl \
-        --user <имя_пользователя_{{ ES }}>:<пароль> \
+        --user <имя_пользователя_Elasticsearch>:<пароль> \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<FQDN_кластера_{{ ES }}>:9200/_template/index_defaults' \
+        --request PUT 'https://<FQDN_кластера_Elasticsearch>:9200/_template/index_defaults' \
         --data '
             {
                 "index_patterns": "cdc*",
@@ -1528,13 +1528,13 @@
 
     Для настройки шаблона можно также использовать [интерфейс Kibana](https://www.elastic.co/guide/en/elasticsearch/reference/current/index-mgmt.html#manage-index-templates).
 
-### Приемник {{ OS }} {#target-os}
+### Приемник OpenSearch {#target-os}
 
 {% list tabs %}
 
-- {{ mos-name }}
+- Managed Service for OpenSearch
 
-  * Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах {{ OS }}. Максимальное количество полей задается в параметре `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
+  * Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах OpenSearch. Максимальное количество полей задается в параметре `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
   
       {% note warning %}
   
@@ -1548,9 +1548,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults" \
+      --request PUT "https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_template/index_defaults" \
       --data '
           {
               "index_patterns": "cdc*",
@@ -1576,9 +1576,9 @@
   
       ```bash
       curl \
-          --user <имя_пользователя_{{ OS }}>:<пароль> \
+          --user <имя_пользователя_OpenSearch>:<пароль> \
           --header 'Content-Type: application/json' \
-          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
+          --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
       ```
   
   * По умолчанию при трансфере данных в единичный индекс задействуется только один хост. Чтобы распределить нагрузку между хостами при передаче больших объемов данных, [настройте шаблон](https://opensearch.org/docs/latest/im-plugin/index-templates/), по которому создаваемые индексы будут заранее разбиты на шарды.
@@ -1587,9 +1587,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_template/index_defaults' \
       --data '
           {
               "index_patterns": "cdc*",
@@ -1613,15 +1613,15 @@
       * Когда размер индекса превысит 50 ГБ.
       * Когда возраст индекса превысит 30 дней.
   
-      Создать и включить политику можно с помощью запросов. Подробнее о политиках см. [в документации {{ OS }}]({{ os.docs }}/im-plugin/ism/policies/).
+      Создать и включить политику можно с помощью запросов. Подробнее о политиках см. [в документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/ism/policies/).
   
       {% cut "Пример запроса для создания политики" %}
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/policies/rollover_policy' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_plugins/_ism/policies/rollover_policy' \
       --data '
           {
               "policy": {
@@ -1656,9 +1656,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_index_template/ism_rollover' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_index_template/ism_rollover' \
       --data '
           {
               "index_patterns": ["log*"],
@@ -1676,9 +1676,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/log-000001' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/log-000001' \
       --data '
           {
               "aliases": {
@@ -1695,20 +1695,20 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/explain/log-000001?pretty'
+      --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_plugins/_ism/explain/log-000001?pretty'
       ```
   
       {% endcut %}
 
-- {{ OS }}
+- OpenSearch
     
-    * Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    * Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
       
       Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
 
-  * Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах {{ OS }}. Максимальное количество полей задается в параметре `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
+  * Убедитесь, что количество колонок в источнике не превышает максимальное количество полей в индексах OpenSearch. Максимальное количество полей задается в параметре `index.mapping.total_fields.limit` и по умолчанию составляет `1000`.
   
       {% note warning %}
   
@@ -1722,9 +1722,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT "https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults" \
+      --request PUT "https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_template/index_defaults" \
       --data '
           {
               "index_patterns": "cdc*",
@@ -1750,9 +1750,9 @@
   
       ```bash
       curl \
-          --user <имя_пользователя_{{ OS }}>:<пароль> \
+          --user <имя_пользователя_OpenSearch>:<пароль> \
           --header 'Content-Type: application/json' \
-          --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
+          --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/<название_индекса>/_settings/*total_fields.limit?include_defaults=true'
       ```
   
   * По умолчанию при трансфере данных в единичный индекс задействуется только один хост. Чтобы распределить нагрузку между хостами при передаче больших объемов данных, [настройте шаблон](https://opensearch.org/docs/latest/im-plugin/index-templates/), по которому создаваемые индексы будут заранее разбиты на шарды.
@@ -1761,9 +1761,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_template/index_defaults' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_template/index_defaults' \
       --data '
           {
               "index_patterns": "cdc*",
@@ -1787,15 +1787,15 @@
       * Когда размер индекса превысит 50 ГБ.
       * Когда возраст индекса превысит 30 дней.
   
-      Создать и включить политику можно с помощью запросов. Подробнее о политиках см. [в документации {{ OS }}]({{ os.docs }}/im-plugin/ism/policies/).
+      Создать и включить политику можно с помощью запросов. Подробнее о политиках см. [в документации OpenSearch](https://opensearch.org/docs/latest/im-plugin/ism/policies/).
   
       {% cut "Пример запроса для создания политики" %}
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/policies/rollover_policy' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_plugins/_ism/policies/rollover_policy' \
       --data '
           {
               "policy": {
@@ -1830,9 +1830,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_index_template/ism_rollover' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_index_template/ism_rollover' \
       --data '
           {
               "index_patterns": ["log*"],
@@ -1850,9 +1850,9 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request PUT 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/log-000001' \
+      --request PUT 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/log-000001' \
       --data '
           {
               "aliases": {
@@ -1869,30 +1869,30 @@
   
       ```bash
       curl \
-      --user <имя_пользователя_{{ OS }}>:<пароль> \
+      --user <имя_пользователя_OpenSearch>:<пароль> \
       --header 'Content-Type: application/json' \
-      --request GET 'https://<адрес_хоста_{{ OS }}_с_ролью_DATA>:9200/_plugins/_ism/explain/log-000001?pretty'
+      --request GET 'https://<адрес_хоста_OpenSearch_с_ролью_DATA>:9200/_plugins/_ism/explain/log-000001?pretty'
       ```
   
       {% endcut %}
 
 {% endlist %}
 
-### Приемник {{ PG }} {#target-pg}
+### Приемник PostgreSQL {#target-pg}
 
 {% list tabs %}
 
-- {{ mpg-name }}
+- Managed Service for PostgreSQL
     
-    1. Убедитесь, что мажорная версия {{ PG }} на приемнике не ниже версии на источнике.
+    1. Убедитесь, что мажорная версия PostgreSQL на приемнике не ниже версии на источнике.
      
-    1. При трансфере из {{ PG }} [включите те же расширения](../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
+    1. При трансфере из PostgreSQL [включите те же расширения](../../managed-postgresql/operations/extensions/cluster-extensions.md) в базе приемника, что и в базе источника.
 
-        Если в базе источника расширения установлены в пользовательскую схему, и эти расширения используются в DDL переносимых объектов, то вручную создайте в приемнике DDL. В этих DDL обращение к функции должно быть без указания схемы. В политике очистки эндпоинта-приемника установите значение `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`, чтобы трансфер не удалил эти объекты.
+        Если в базе источника расширения установлены в пользовательскую схему, и эти расширения используются в DDL переносимых объектов, то вручную создайте в приемнике DDL. В этих DDL обращение к функции должно быть без указания схемы. В политике очистки эндпоинта-приемника установите значение `Truncate`, чтобы трансфер не удалил эти объекты.
 
-    1. Выберите политику очистки таблиц трансфера `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}`.
+    1. Выберите политику очистки таблиц трансфера `Drop`.
 
-        Если вы вручную создали в приемнике DDL, используйте политику `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}`. При политике `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}` эти DDL не будут удалены.
+        Если вы вручную создали в приемнике DDL, используйте политику `Truncate`. При политике `Truncate` эти DDL не будут удалены.
 
     1. [Создайте пользователя](../../managed-postgresql/operations/cluster-users.md#adduser) с доступом к базе приемника.
     
@@ -1917,13 +1917,13 @@
 
     1. Настройте [количество подключений пользователя](../concepts/work-with-endpoints.md#postgresql-connection-limit) к базе данных.
 
-- {{ PG }}
+- PostgreSQL
     
-    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис {{ interconnect-name }}](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом {{ data-transfer-name }}](../../overview/concepts/public-ips.md#virtual-private-cloud}).
+    1. Если вы не планируете использовать для подключения к внешнему кластеру [сервис Cloud Interconnect](../../interconnect/concepts/index.md) или [VPN](../../glossary/vpn.md), разрешите подключения к такому кластеру из интернета с [IP-адресов, используемых сервисом Data Transfer](../../overview/concepts/public-ips.md#virtual-private-cloud}).
        
        Подробнее о настройке сети для работы с внешними ресурсами читайте в [концепции](../concepts/network.md#source-external).
     
-    1. Убедитесь, что мажорная версия {{ PG }} на приемнике не ниже версии на источнике.
+    1. Убедитесь, что мажорная версия PostgreSQL на приемнике не ниже версии на источнике.
     
     1. Включите те же расширения в базе приемника, что и в базе источника.
     
@@ -1961,17 +1961,17 @@
 
 Данные, хранящиеся в `MATERIALIZED VIEW`, не переносятся. Для переноса данных из `MATERIALIZED VIEW` создайте обыкновенный `VIEW`, ссылающийся на переносимый `MATERIALIZED VIEW`.
 
-Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции]({{ pg.docs.org }}/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
+Если определение переносимого `VIEW` содержит вызов `VOLATILE` [функции](https://www.postgresql.org/docs/current/xfunc-volatility.html), то трансфер читает данные из такого `VIEW` с уровнем изоляции `READ UNCOMMITTED`. Консистентность между данными в этом `VIEW` и данными других переносимых объектов не гарантируется. Чтение из `MATERIALIZED VIEW` в определении `VIEW` равносильно вызову `VOLATILE` функции.
 
 
-### Приемник {{ ydb-full-name }} {#target-ydb}
+### Приемник Yandex Managed Service for YDB {#target-ydb}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `ydb.editor`.
-1. Для базы данных в {{ dd }}-режиме [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
+1. Для базы данных в Dedicated-режиме [создайте](../../vpc/operations/security-group-create.md) и [настройте](../../ydb/operations/connection.md#configuring-security-groups) группу безопасности в сети, где находится БД.
 
 
 _Airbyte® является зарегистрированным товарным знаком Airbyte, Inc в США и/или других странах._
 
 _Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

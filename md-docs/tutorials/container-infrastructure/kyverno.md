@@ -1,10 +1,10 @@
-# Настройка Kyverno & Kyverno Policies в {{ managed-k8s-full-name }}
+# Настройка Kyverno & Kyverno Policies в Yandex Managed Service for Kubernetes
 
 # Настройка Kyverno & Kyverno Policies
 
-Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности {{ k8s }}. Они представлены в Kyverno как ресурсы {{ k8s }}.
+Приложение [Kyverno](https://kyverno.io) и его расширение [Kyverno policies](https://github.com/kyverno/kyverno/tree/main/charts/kyverno-policies) используются для управления политиками безопасности Kubernetes. Они представлены в Kyverno как ресурсы Kubernetes.
 
-Чтобы интегрировать [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) в {{ managed-k8s-name }}:
+Чтобы интегрировать [Kyverno & Kyverno Policies](https://yandex.cloud/ru/marketplace/products/yc/kyverno) в Managed Service for Kubernetes:
 
 1. [Установите приложение Kyverno & Kyverno Policies](#install-kyverno).
 1. [Проверьте работу политики для профиля baseline](#check-baseline).
@@ -17,22 +17,22 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичный IP-адрес, если он назначен узлам кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Создайте [кластер](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group) {{ managed-k8s-name }}.
+1. Создайте [кластер](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) и [группу узлов](../../managed-kubernetes/concepts/index.md#node-group) Managed Service for Kubernetes.
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
      1. Если у вас еще нет [сети](../../vpc/concepts/network.md#network), [создайте ее](../../vpc/operations/network-create.md).
-     1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер {{ k8s }} и группа узлов.
-     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+     1. Если у вас еще нет [подсетей](../../vpc/concepts/network.md#subnet), [создайте их](../../vpc/operations/subnet-create.md) в [зонах доступности](../../overview/concepts/geo-scope.md), где будут созданы кластер Kubernetes и группа узлов.
+     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -40,11 +40,11 @@
         
         {% endnote %}
 
-     1. [Создайте кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
+     1. [Создайте кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные ранее.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
      1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
      1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
      1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -52,9 +52,9 @@
      1. Скачайте в ту же рабочую директорию файл конфигурации кластера [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf). В файле описаны:
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
-        * Кластер {{ managed-k8s-name }}.
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов {{ managed-k8s-name }}.
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        * Кластер Managed Service for Kubernetes.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и группы узлов Managed Service for Kubernetes.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -64,16 +64,16 @@
 
      1. Укажите в файле конфигурации:
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * [Версию {{ k8s }}](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
-        * CIDR кластера {{ k8s }}.
+        * [Версию Kubernetes](../../managed-kubernetes/concepts/release-channels-and-updates.md) для кластера и групп узлов Managed Service for Kubernetes.
+        * CIDR кластера Kubernetes.
         * Имя сервисного аккаунта. Оно должно быть уникальным в рамках каталога.
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
      1. Создайте необходимую инфраструктуру:
 
         1. Выполните команду для просмотра планируемых изменений:
@@ -94,11 +94,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    {% endlist %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
 ## Установите приложение Kyverno & Kyverno Policies {#install-kyverno}
 
@@ -193,7 +193,7 @@
 
 ## Проверьте работу Kyverno & Kyverno Policies {#check-apps}
 
-* Создайте под `nginx` без {{ k8s }}-метки `app.kubernetes.io/name`:
+* Создайте под `nginx` без Kubernetes-метки `app.kubernetes.io/name`:
 
   ```bash
   kubectl run nginx --image nginx
@@ -229,17 +229,17 @@
 
 - Вручную {#manual}
 
-  1. [Удалите кластер {{ k8s }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Удалите кластер Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
   1. [Удалите созданные подсети](../../vpc/operations/subnet-delete.md) и [сети](../../vpc/operations/network-delete.md).
   1. [Удалите созданный сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -253,6 +253,6 @@
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

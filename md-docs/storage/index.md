@@ -1,22 +1,22 @@
-# {{ objstorage-full-name }}
+# Yandex Object Storage
 
-Сервис {{ objstorage-full-name }} — это универсальное масштабируемое решение для хранения данных. Оно подходит как для высоконагруженных сервисов, которым требуется надежный и быстрый доступ к данным, так и для проектов с невысокими требованиями к инфраструктуре хранения.
+Сервис Yandex Object Storage — это универсальное масштабируемое решение для хранения данных. Оно подходит как для высоконагруженных сервисов, которым требуется надежный и быстрый доступ к данным, так и для проектов с невысокими требованиями к инфраструктуре хранения.
 
-Используя {{ objstorage-name }}, вы можете: <ul><li>Хранить данные произвольного формата как <a href="concepts/object.md">объекты</a> с доступом по текстовому идентификатору.</li> <li>Использовать различные <a href="concepts/storage-class.md">классы хранилища</a> для объектов и управлять их <a href="concepts/lifecycles.md">жизненным циклом</a>.</li> <li>Хранить <a href="concepts/multipart.md">большие объекты</a> размером в несколько терабайт.</li> <li>Опубликовать статический <a href="concepts/hosting.md">сайт</a>.</li></ul>
+Используя Object Storage, вы можете: <ul><li>Хранить данные произвольного формата как <a href="concepts/object.md">объекты</a> с доступом по текстовому идентификатору.</li> <li>Использовать различные <a href="concepts/storage-class.md">классы хранилища</a> для объектов и управлять их <a href="concepts/lifecycles.md">жизненным циклом</a>.</li> <li>Хранить <a href="concepts/multipart.md">большие объекты</a> размером в несколько терабайт.</li> <li>Опубликовать статический <a href="concepts/hosting.md">сайт</a>.</li></ul>
 
-<a href="s3/index.md">HTTP API сервиса</a> совместим с API Amazon S3, то есть для работы с {{ objstorage-name }} вы можете использовать множество <a href="tools/index.md">инструментов</a>, созданных для работы с объектными хранилищами.
+<a href="s3/index.md">HTTP API сервиса</a> совместим с API Amazon S3, то есть для работы с Object Storage вы можете использовать множество <a href="tools/index.md">инструментов</a>, созданных для работы с объектными хранилищами.
 
 Инфраструктура Yandex Cloud <a href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
 
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_storage">Уровень обслуживания {{ objstorage-full-name }}</a>.
+Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_storage">Уровень обслуживания Yandex Object Storage</a>.
 
-# {{ objstorage-full-name }}
+# Yandex Object Storage
 
 ## Начало работы
 
  - [Обзор](quickstart/overview.md)
 
- - [Начало работы c {{ objstorage-name }}](quickstart.md)
+ - [Начало работы c Object Storage](quickstart.md)
 
  - [Начало работы с AWS CLI](quickstart/quickstart-aws-cli.md)
 
@@ -38,7 +38,7 @@
 
  - [Управление конфигурацией CORS](operations/buckets/cors.md)
 
- - [Настройка прав доступа с помощью {{ iam-short-name }}](operations/buckets/iam-access.md)
+ - [Настройка прав доступа с помощью IAM](operations/buckets/iam-access.md)
 
  - [Редактирование ACL бакета](operations/buckets/edit-acl.md)
 
@@ -48,11 +48,11 @@
 
  - [Запретить доступ со статическими ключами](operations/buckets/disable-statickey-auth.md)
 
- - [Доступ в бакет с помощью {{ sts-name }}](operations/buckets/create-sts-key.md)
+ - [Доступ в бакет с помощью Security Token Service](operations/buckets/create-sts-key.md)
 
  - [Доступ в бакет с помощью эфемерного ключа доступа](operations/buckets/manage-ephemeral-keys.md)
 
- - [Доступ в бакет с помощью сервисного подключения из {{ vpc-short-name }}](operations/buckets/access-via-vpc.md)
+ - [Доступ в бакет с помощью сервисного подключения из VPC](operations/buckets/access-via-vpc.md)
 
  - [Управление версионированием бакета](operations/buckets/versioning.md)
 
@@ -118,7 +118,7 @@
 
  - [Консоль управления, CLI и API](operations/hosting/multiple-domains/console.md)
 
- - [{{ TF }}](operations/hosting/multiple-domains/terraform.md)
+ - [Terraform](operations/hosting/multiple-domains/terraform.md)
 
  - [Настройка HTTPS](operations/hosting/certificate.md)
 
@@ -130,43 +130,43 @@
 
  - [Обзор](tutorials/storage-backup-overview.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью aws s3 sync](tutorials/storage-backup-aws-s3-sync.md)
+ - [Резервное копирование в Object Storage с помощью aws s3 sync](tutorials/storage-backup-aws-s3-sync.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью rclone](tutorials/storage-backup-rclone.md)
+ - [Резервное копирование в Object Storage с помощью rclone](tutorials/storage-backup-rclone.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью GeeseFS](tutorials/storage-backup-geesefs.md)
+ - [Резервное копирование в Object Storage с помощью GeeseFS](tutorials/storage-backup-geesefs.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью CloudBerry Desktop Backup](tutorials/object-storage-cloudberry.md)
+ - [Резервное копирование в Object Storage с помощью CloudBerry Desktop Backup](tutorials/object-storage-cloudberry.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью Duplicati](tutorials/object-storage-duplicati.md)
+ - [Резервное копирование в Object Storage с помощью Duplicati](tutorials/object-storage-duplicati.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью Bacula](tutorials/backup-with-bacula.md)
+ - [Резервное копирование в Object Storage с помощью Bacula](tutorials/backup-with-bacula.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью Veritas Backup Exec](tutorials/object-storage-veritas.md)
+ - [Резервное копирование в Object Storage с помощью Veritas Backup Exec](tutorials/object-storage-veritas.md)
 
- - [Резервное копирование в {{ objstorage-name }} с помощью Veeam Backup](tutorials/backup-with-veeam.md)
+ - [Резервное копирование в Object Storage с помощью Veeam Backup](tutorials/backup-with-veeam.md)
 
  - [Резервное копирование ВМ с помощью Хайстекс Акура](tutorials/hystax-backup.md)
 
- - [Резервное копирование кластера {{ managed-k8s-name }} в {{ objstorage-name }}](tutorials/kubernetes-backup.md)
+ - [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](tutorials/kubernetes-backup.md)
 
  - [Получение статистики запросов к объекту с использованием S3 Select](tutorials/server-logs.md)
 
  - [Получение статистики посещения сайта с использованием S3 Select](tutorials/user-agent-statistics.md)
 
- - [Получение статистики запросов к объектам с использованием {{ yq-full-name }}](tutorials/server-logs-yq.md)
+ - [Получение статистики запросов к объектам с использованием Yandex Query](tutorials/server-logs-yq.md)
 
  - [Анализ поресурсной детализации расходов](tutorials/billing-resource-detailing.md)
 
  - [Шифрование на стороне сервера](tutorials/server-side-encryption.md)
 
-### Интеграция L7-балансировщика с CDN и {{ objstorage-name }}
+### Интеграция L7-балансировщика с CDN и Object Storage
 
  - [Обзор](tutorials/cdn-storage-integration/index.md)
 
  - [Консоль управления, CLI и API](tutorials/cdn-storage-integration/console.md)
 
- - [{{ TF }}](tutorials/cdn-storage-integration/terraform.md)
+ - [Terraform](tutorials/cdn-storage-integration/terraform.md)
 
  - [Сине-зеленое и канареечное развертывание версий сервиса](tutorials/blue-green-canary-deployment.md)
 
@@ -180,79 +180,79 @@
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка работы с {{ yq-full-name }}](tutorials/search-events-audit-logs/query.md)
+ - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
 
- - [Монтирование бакетов к файловой системе хостов {{ dataproc-full-name }}](tutorials/data-processing-init-actions-geesefs.md)
+ - [Монтирование бакетов к файловой системе хостов Yandex Data Processing](tutorials/data-processing-init-actions-geesefs.md)
 
- - [Использование {{ objstorage-name }} в {{ dataproc-name }}](tutorials/copy-files-from-object-storage.md)
+ - [Использование Object Storage в Yandex Data Processing](tutorials/copy-files-from-object-storage.md)
 
- - [Импорт данных из {{ objstorage-name }}, обработка и экспорт в {{ mch-name }}](tutorials/s3-data-processing-ch.md)
+ - [Импорт данных из Object Storage, обработка и экспорт в Managed Service for ClickHouse®](tutorials/s3-data-processing-ch.md)
 
  - [Подключение бакета как диска в Windows](tutorials/s3-disk-connect.md)
 
- - [Миграция данных из {{ yds-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/yds-obj-migration.md)
+ - [Миграция данных из Yandex Data Streams с помощью Yandex Data Transfer](tutorials/yds-obj-migration.md)
 
- - [Использование гибридного хранилища в {{ mch-full-name }}](tutorials/clickhouse-hybrid-storage.md)
+ - [Использование гибридного хранилища в Yandex Managed Service for ClickHouse®](tutorials/clickhouse-hybrid-storage.md)
 
- - [Загрузка данных из {{ mos-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/opensearch-to-object-storage.md)
+ - [Загрузка данных из Yandex Managed Service for OpenSearch в Yandex Object Storage с помощью Yandex Data Transfer](tutorials/opensearch-to-object-storage.md)
 
  - [Автоматическое копирование объектов из бакета в бакет](tutorials/bucket-to-bucket.md)
 
  - [Регулярное асинхронное распознавание аудиофайлов в бакете](tutorials/batch-recognition-stt.md)
 
- - [Обучение модели в {{ ml-platform-full-name }} на данных из {{ objstorage-name }}](tutorials/s3-to-datasphere.md)
+ - [Обучение модели в Yandex DataSphere на данных из Object Storage](tutorials/s3-to-datasphere.md)
 
- - [Подключение к {{ objstorage-name }} из {{ vpc-short-name }}](tutorials/storage-vpc-access.md)
+ - [Подключение к Object Storage из VPC](tutorials/storage-vpc-access.md)
 
- - [Перенос данных в {{ mpg-full-name }} с использованием {{ data-transfer-full-name }}](tutorials/object-storage-to-postgresql.md)
+ - [Перенос данных в Yandex Managed Service for PostgreSQL с использованием Yandex Data Transfer](tutorials/object-storage-to-postgresql.md)
 
- - [Загрузка данных в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/object-storage-to-greenplum.md)
+ - [Загрузка данных в Yandex MPP Analytics for PostgreSQL с помощью Yandex Data Transfer](tutorials/object-storage-to-greenplum.md)
 
- - [Загрузка данных в {{ mch-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/object-storage-to-clickhouse.md)
+ - [Загрузка данных в Yandex Managed Service for ClickHouse® с помощью Yandex Data Transfer](tutorials/object-storage-to-clickhouse.md)
 
- - [Загрузка данных в {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/object-storage-to-ydb.md)
+ - [Загрузка данных в Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/object-storage-to-ydb.md)
 
- - [Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}](tutorials/dp-mch-data-exchange.md)
+ - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
 
- - [Загрузка данных из {{ ydb-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/ydb-to-object-storage.md)
+ - [Загрузка данных из Yandex Managed Service for YDB с помощью Yandex Data Transfer](tutorials/ydb-to-object-storage.md)
 
- - [Хостинг статического сайта на фреймворке Gatsby в {{ objstorage-name }}](tutorials/gatsby-static-website.md)
+ - [Хостинг статического сайта на фреймворке Gatsby в Object Storage](tutorials/gatsby-static-website.md)
 
- - [Установка WordPress High Availability с помощью {{ cloud-apps-name }}](tutorials/wordpress-ha-cloudapp.md)
+ - [Установка WordPress High Availability с помощью Cloud Apps](tutorials/wordpress-ha-cloudapp.md)
 
- - [Установка WordPress с помощью {{ cloud-apps-name }}](tutorials/wordpress-cloudapp.md)
+ - [Установка WordPress с помощью Cloud Apps](tutorials/wordpress-cloudapp.md)
 
- - [Установка Ghost CMS High Availability с помощью {{ cloud-apps-name }}](tutorials/ghost-cms-cloudapp.md)
+ - [Установка Ghost CMS High Availability с помощью Cloud Apps](tutorials/ghost-cms-cloudapp.md)
 
-### Хранение статического ключа доступа в секрете {{ lockbox-name }}
+### Хранение статического ключа доступа в секрете Yandex Lockbox
 
  - [Обзор](tutorials/static-key-in-lockbox/index.md)
 
  - [CLI](tutorials/static-key-in-lockbox/console.md)
 
- - [{{ TF }}](tutorials/static-key-in-lockbox/terraform.md)
+ - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
 
- - [Миграция базы данных из {{ mpg-name }} в {{ objstorage-name }}](tutorials/mpg-to-objstorage.md)
+ - [Миграция базы данных из Managed Service for PostgreSQL в Object Storage](tutorials/mpg-to-objstorage.md)
 
- - [Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}](tutorials/dp-mch-data-exchange.md)
+ - [Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing](tutorials/dp-mch-data-exchange.md)
 
- - [Импорт данных из {{ mpg-full-name }} в {{ dataproc-full-name }} с помощью Sqoop](tutorials/sqoop-mpg.md)
+ - [Импорт данных из Yandex Managed Service for PostgreSQL в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mpg.md)
 
- - [Импорт данных из {{ mmy-full-name }} в {{ dataproc-full-name }} с помощью Sqoop](tutorials/sqoop-mmy.md)
+ - [Импорт данных из Yandex Managed Service for MySQL® в Yandex Data Processing с помощью Sqoop](tutorials/sqoop-mmy.md)
 
- - [Миграция данных из {{ objstorage-full-name }} в {{ mmy-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/objs-mmy-migration.md)
+ - [Миграция данных из Yandex Object Storage в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](tutorials/objs-mmy-migration.md)
 
- - [Миграция базы данных из {{ mmy-full-name }} в {{ objstorage-full-name }}](tutorials/mmy-objs-migration.md)
+ - [Миграция базы данных из Yandex Managed Service for MySQL® в Yandex Object Storage](tutorials/mmy-objs-migration.md)
 
- - [Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name }}](tutorials/greenplum-yezzey.md)
+ - [Выгрузка данных Greenplum® в холодное хранилище Yandex Object Storage](tutorials/greenplum-yezzey.md)
 
- - [Загрузка данных из {{ yandex-direct }} в витрину {{ mch-full-name }} с использованием {{ sf-full-name }}, {{ objstorage-full-name }} и {{ data-transfer-full-name }}](tutorials/data-transfer-direct-to-mch.md)
+ - [Загрузка данных из Яндекс Директ в витрину Yandex Managed Service for ClickHouse® с использованием Yandex Cloud Functions, Yandex Object Storage и Yandex Data Transfer](tutorials/data-transfer-direct-to-mch.md)
 
- - [Загрузка состояний {{ TF }} в {{ objstorage-name }}](tutorials/terraform-state-storage.md)
+ - [Загрузка состояний Terraform в Object Storage](tutorials/terraform-state-storage.md)
 
- - [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](tutorials/terraform-state-lock.md)
+ - [Блокировка состояний Terraform с помощью Managed Service for YDB](tutorials/terraform-state-lock.md)
 
-### Статический сайт в {{ objstorage-full-name }}
+### Статический сайт в Yandex Object Storage
 
  - [Обзор](tutorials/static/index.md)
 
@@ -260,11 +260,11 @@
 
  - [Terraform](tutorials/static/terraform.md)
 
- - [Визуализация данных {{ yq-full-name }}](tutorials/data-from-yandex-query-visualization.md)
+ - [Визуализация данных Yandex Query](tutorials/data-from-yandex-query-visualization.md)
 
  - [Публикация обновлений для игр](tutorials/prefetch.md)
 
- - [Разработка пользовательской интеграции в {{ api-gw-name }}](tutorials/api-gw-integration.md)
+ - [Разработка пользовательской интеграции в API Gateway](tutorials/api-gw-integration.md)
 
 ### Сокращатель ссылок
 
@@ -272,7 +272,7 @@
 
  - [Консоль управления](tutorials/serverless-url-shortener/console.md)
 
- - [{{ TF }}](tutorials/serverless-url-shortener/terraform.md)
+ - [Terraform](tutorials/serverless-url-shortener/terraform.md)
 
  - [Хранение журналов работы приложения](tutorials/log-ingestion.md)
 
@@ -288,11 +288,11 @@
 
  - [Консоль управления](tutorials/telegram-bot-serverless/console.md)
 
- - [{{ TF }}](tutorials/telegram-bot-serverless/terraform.md)
+ - [Terraform](tutorials/telegram-bot-serverless/terraform.md)
 
- - [Репликация логов в {{ objstorage-name }} с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
+ - [Репликация логов в Object Storage с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
 
- - [Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}](tutorials/replicate-logs-to-storage-via-data-streams.md)
+ - [Репликация логов в Object Storage с помощью Data Streams](tutorials/replicate-logs-to-storage-via-data-streams.md)
 
  - [Загрузка аудитных логов в SIEM ArcSight](tutorials/export-logs-to-arcsight.md)
 
@@ -300,13 +300,13 @@
 
  - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
 
- - [Работа с данными с помощью {{ yq-full-name }}](tutorials/yq-storage.md)
+ - [Работа с данными с помощью Yandex Query](tutorials/yq-storage.md)
 
- - [Федеративные запросы к данным с помощью {{ yq-name }}](tutorials/yq-federative-queries.md)
+ - [Федеративные запросы к данным с помощью Query](tutorials/yq-federative-queries.md)
 
- - [Распознавание архива изображений в {{ vision-name }}](tutorials/archive-from-vision-to-object-storage.md)
+ - [Распознавание архива изображений в Vision OCR](tutorials/archive-from-vision-to-object-storage.md)
 
- - [Регулярное распознавание изображений и PDF-документов из бакета {{ objstorage-short-name }}](tutorials/vision-ocrrecognizer-storage.md)
+ - [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](tutorials/vision-ocrrecognizer-storage.md)
 
 ### Конвертация видео в GIF на Python
 
@@ -314,41 +314,41 @@
 
  - [Консоль управления](tutorials/video-converting-queue/console.md)
 
- - [{{ TF }}](tutorials/video-converting-queue/terraform.md)
+ - [Terraform](tutorials/video-converting-queue/terraform.md)
 
- - [Автоматизация задач с помощью {{ maf-short-name }}](tutorials/airflow-auto-tasks.md)
+ - [Автоматизация задач с помощью Managed Service for Apache Airflow™](tutorials/airflow-auto-tasks.md)
 
- - [Обработка файлов детализации в сервисе {{ billing-name }}](tutorials/billing.md)
+ - [Обработка файлов детализации в сервисе Yandex Cloud Billing](tutorials/billing.md)
 
- - [Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
+ - [Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
 
- - [Поиск событий {{ yandex-cloud }} в {{ yq-full-name }}](tutorials/search-events-query.md)
+ - [Поиск событий Yandex Cloud в Yandex Query](tutorials/search-events-query.md)
 
- - [Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}](tutorials/search-events-bucket.md)
+ - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-events-bucket.md)
 
  - [Создание внешней таблицы на базе таблицы из бакета с помощью конфигурационного файла](tutorials/mgp-config-server-for-s3.md)
 
- - [Миграция базы данных из Google BigQuery в {{ mch-name }}](tutorials/bigquery-to-clickhouse.md)
+ - [Миграция базы данных из Google BigQuery в Managed Service for ClickHouse®](tutorials/bigquery-to-clickhouse.md)
 
-### Развертывание Nextcloud в интеграции с {{ objstorage-name }}
+### Развертывание Nextcloud в интеграции с Object Storage
 
  - [Обзор](tutorials/integrate-nextcloud/index.md)
 
- - [Развертывание Nextcloud на ВМ из образа {{ coi }}](tutorials/integrate-nextcloud/coi-based.md)
+ - [Развертывание Nextcloud на ВМ из образа Container Optimized Image](tutorials/integrate-nextcloud/coi-based.md)
 
  - [Развертывание Nextcloud на ВМ или в группе ВМ вручную](tutorials/integrate-nextcloud/fault-tolerant.md)
 
- - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}](tutorials/integrate-nextcloud/terraform.md)
+ - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform](tutorials/integrate-nextcloud/terraform.md)
 
-### Настройка хостинга статического сайта в бакете {{ objstorage-full-name }} с доступом через {{ cdn-full-name }}
+### Настройка хостинга статического сайта в бакете Yandex Object Storage с доступом через Yandex Cloud CDN
 
  - [Обзор](tutorials/cdn-hosting/index.md)
 
  - [Консоль управления, CLI, API](tutorials/cdn-hosting/console.md)
 
- - [{{ TF }}](tutorials/cdn-hosting/terraform.md)
+ - [Terraform](tutorials/cdn-hosting/terraform.md)
 
- - [Использование {{ objstorage-name }} в {{ msp-full-name }}](tutorials/spark-objstorage-integration.md)
+ - [Использование Object Storage в Yandex Managed Service for Apache Spark™](tutorials/spark-objstorage-integration.md)
 
 ## Концепции
 
@@ -404,7 +404,7 @@
 
 ### Консольные клиенты
 
- - [{{ yandex-cloud }} CLI](tools/yc-cli.md)
+ - [Yandex Cloud CLI](tools/yc-cli.md)
 
  - [AWS CLI](tools/aws-cli.md)
 
@@ -452,7 +452,7 @@
 
  - [Обзор](security/overview.md)
 
- - [{{ iam-name }}](security/index.md)
+ - [Identity and Access Management](security/index.md)
 
  - [Список управления доступом (ACL)](security/acl.md)
 
@@ -462,7 +462,7 @@
 
  - [Подписанные (pre-signed) URL](security/pre-signed-urls.md)
 
- - [{{ sts-name }}](security/sts.md)
+ - [Security Token Service](security/sts.md)
 
  - [Эфемерные ключи](security/ephemeral-keys.md)
 
@@ -668,7 +668,7 @@
 
  - [upload-part-copy](cli-ref/v0/s3api/upload-part-copy.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -852,7 +852,7 @@
 
  - [Ответы](s3/api-ref/response-codes.md)
 
-### {{ yandex-cloud }} REST (англ.)
+### Yandex Cloud REST (англ.)
 
  - [Overview](api-ref/index.md)
 
@@ -900,7 +900,7 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
-### {{ yandex-cloud }} gRPC (англ.)
+### Yandex Cloud gRPC (англ.)
 
  - [Overview](api-ref/grpc/index.md)
 
@@ -954,9 +954,9 @@
 
  - [Create](api-ref/grpc/Presign/create.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Логи бакета](logs-ref.md)
 

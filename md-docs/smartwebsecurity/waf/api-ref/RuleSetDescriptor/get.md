@@ -5,7 +5,7 @@ Returns the specified RuleSetDescriptor resource.
 ## HTTP request
 
 ```
-GET https://smartwebsecurity.{{ api-host }}/smartwebsecurity/v1/wafRuleSetDescriptors/{name}/{version}
+GET https://smartwebsecurity.api.cloud.yandex.net/smartwebsecurity/v1/wafRuleSetDescriptors/{name}/{version}
 ```
 
 ## Path parameters

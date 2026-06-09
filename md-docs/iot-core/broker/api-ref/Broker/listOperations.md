@@ -5,7 +5,7 @@ Lists operations for the specified broker.
 ## HTTP request
 
 ```
-GET https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}/operations
+GET https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}/operations
 ```
 
 ## Path parameters

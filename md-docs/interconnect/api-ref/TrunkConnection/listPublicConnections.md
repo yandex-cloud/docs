@@ -5,7 +5,7 @@ Retrieves the list of PublicConnection resources associated with the specified T
 ## HTTP request
 
 ```
-GET https://cic.{{ api-host }}/cic/v1/trunkConnections/{trunkConnectionId}/publicConnections
+GET https://cic.api.cloud.yandex.net/cic/v1/trunkConnections/{trunkConnectionId}/publicConnections
 ```
 
 ## Path parameters

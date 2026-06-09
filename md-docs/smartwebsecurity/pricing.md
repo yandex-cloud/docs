@@ -1,11 +1,11 @@
-# Правила тарификации для {{ sws-full-name }}
+# Правила тарификации для Yandex Smart Web Security
 
 
 
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-## Из чего складывается стоимость использования {{ sws-name }} {#rules}
+## Из чего складывается стоимость использования Smart Web Security {#rules}
 
 Стоимость зависит от способа тарификации:
 
@@ -31,9 +31,9 @@
 
 {% note info %}
 
-Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
+Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -109,7 +109,7 @@
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=3f9244f089f5#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=3f9244f089f5#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -130,7 +130,7 @@
   
 * Обработка правилами в режиме Dry run, если запрос достиг защищаемого ресурса.
 
-Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [{{ ddos-protection-full-name }}](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [{{ ddos-protection-full-name }}](../vpc/pricing.md#prices-ddos-protection).
+Чтобы дополнительно использовать защиту от DDoS-атак на уровнях 3 и 4 модели OSI, подключите [Yandex DDoS Protection](../vpc/ddos-protection/index.md). При этом будет взиматься оплата за [публичный IP-адрес](../vpc/pricing.md#prices-public-ip) и [Yandex DDoS Protection](../vpc/pricing.md#prices-ddos-protection).
 
 #### Ресурсы прокси-сервера {#proxy-resources}
 
@@ -156,19 +156,37 @@
 Защита трафика от DDoS-атак на уровнях L3–L4 тарифицируется по объему [легитимного](concepts/rules.md#rule-action) трафика в ГБ.
 
 
-| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
-| ------ | ---- | --------------- | ----------- | ------------ |
+| Услуга                                                                                                                 | Цена              | Ед. тарификации         | Действует с    | Действует до |
+| ---------------------------------------------------------------------------------------------------------------------- | ----------------- | ----------------------- | -------------- | ------------ |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 0 до 0.01 единицы тарификации в месяц                      | Не тарифицируется | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 0.01 до 1 единицы тарификации в месяц                      | 27 450 ₽          | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 1 до 10 единицы тарификации в месяц                        | 3 843 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 10 до 100 единицы тарификации в месяц                      | 219,6 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 100 до 1000 единицы тарификации в месяц                    | 153,72 ₽          | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 1000 до 10000 единицы тарификации в месяц                  | 54,9 ₽            | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами WAF, от 10000 единицы тарификации в месяц                          | 27,45 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 0 до 0.01 единицы тарификации в месяц     | Не тарифицируется | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 0.01 до 1 единицы тарификации в месяц     | 27 450 ₽          | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 1 до 10 единицы тарификации в месяц       | 3 843 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 10 до 100 единицы тарификации в месяц     | 219,6 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 100 до 1000 единицы тарификации в месяц   | 153,72 ₽          | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 1000 до 10000 единицы тарификации в месяц | 54,9 ₽            | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Запросы, обработанные правилами профиля безопасности, от 10000 единицы тарификации в месяц         | 27,45 ₽           | 1 млн запросов          | 1 января 2026  | —            |
+| Smart Web Security. Защита входящего трафика от DDoS-атак                                                              | 1,1081 ₽          | ГБ                      | 1 мая 2026     | —            |
+| Smart Web Security. Одна ресурсная единица прокси-сервера                                                              | 2,44 ₽            | Ресурсная единица × час | 1 января 2026  | —            |
+| Smart Web Security. Правило безопасности                                                                               | Не тарифицируется | Правило × месяц         | 1 октября 2024 | —            |
+| Smart Web Security. Профиль безопасности                                                                               | Не тарифицируется | Профиль × месяц         | 1 октября 2024 | —            |
 
 
 
 
 
-#### Пример расчета стоимости {{ sws-name }} по запросам {#price-example}
+#### Пример расчета стоимости Smart Web Security по запросам {#price-example}
 
 {% cut "Готовые расчеты стоимости запросов" %}
 
 Чтобы оценить порядок стоимости запросов, в таблице ниже представлены расчеты цен за определенное количество запросов в месяц. В это количество не включен нетарифицируемый лимит — 10 000 запросов.
-Стоимость приведена для ориентира, использование {{ sws-name }} вашими сервисами будет рассчитываться по фактическому количеству запросов.
+Стоимость приведена для ориентира, использование Smart Web Security вашими сервисами будет рассчитываться по фактическому количеству запросов.
 
 
 {% list tabs group=pricing %}
@@ -177,21 +195,21 @@
 
   | Количество запросов в месяц, млн | Стоимость запросов, разрешенных профилем безопасности, вкл. НДС | Стоимость запросов, разрешенных профилями безопасности и WAF, вкл. НДС |
   | --- | --- | --- |
-  | 1 | {{ sku|RUB|sws.requests.v1|pricingRate.0.01|string }} | {% calc [currency=RUB] {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|number }} %} |
-  | 10 | {% calc [currency=RUB] {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 %} | {% calc [currency=RUB] ({{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9) + ({{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.waf.requests.v1|pricingRate.1|number }} × 9) %} |
-  | 100 | {% calc [currency=RUB] {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90 %} | {% calc [currency=RUB] ({{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90) + ({{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.10|number }} × 90) %} |
-  | 1 000 | {% calc [currency=RUB] {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} × 900 %} | {% calc [currency=RUB] ({{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} × 900) + ({{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.100|number }} × 900) %} |
-  | 10 000 | {% calc [currency=RUB] {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} × 900 + {{ sku|RUB|sws.requests.v1|pricingRate.1000|number }} × 9000 %} | {% calc [currency=RUB] ({{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} × 900 + {{ sku|RUB|sws.requests.v1|pricingRate.1000|number }} × 9000) + ({{ sku|RUB|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|RUB|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.10|number }} × 90 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.100|number }} × 900 + {{ sku|RUB|sws.waf.requests.v1|pricingRate.1000|number }} × 9000) %} |
+  | 1 | 27 450 ₽ | {% calc [currency=RUB] 27450 + 27450 %} |
+  | 10 | {% calc [currency=RUB] 27450 + 3843 × 9 %} | {% calc [currency=RUB] (27450 + 3843 × 9) + (27450 + 3843 × 9) %} |
+  | 100 | {% calc [currency=RUB] 27450 + 3843 × 9 + 219.6 × 90 %} | {% calc [currency=RUB] (27450 + 3843 × 9 + 219.6 × 90) + (27450 + 3843 × 9 + 219.6 × 90) %} |
+  | 1 000 | {% calc [currency=RUB] 27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900 %} | {% calc [currency=RUB] (27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900) + (27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900) %} |
+  | 10 000 | {% calc [currency=RUB] 27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900 + 54.9 × 9000 %} | {% calc [currency=RUB] (27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900 + 54.9 × 9000) + (27450 + 3843 × 9 + 219.6 × 90 + 153.72 × 900 + 54.9 × 9000) %} |
 
 - Расчет в тенге {#prices-kzt}
 
   | Количество запросов в месяц, млн | Стоимость запросов, разрешенных профилем безопасности, вкл. НДС | Стоимость запросов, разрешенных профилями безопасности и WAF, вкл. НДС |
   | --- | --- | --- |
-  | 1 | {{ sku|KZT|sws.requests.v1|pricingRate.0.01|string }} | {% calc [currency=KZT] {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.waf.requests.v1|pricingRate.0.01|number }} %} |
-  | 10 | {% calc [currency=KZT] {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 %} | {% calc [currency=KZT] ({{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9) + ({{ sku|KZT|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.waf.requests.v1|pricingRate.1|number }} × 9) %} |
-  | 100 | {% calc [currency=KZT] {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90 %} | {% calc [currency=KZT] ({{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90) + ({{ sku|KZT|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.10|number }} × 90) %} |
-  | 1 000 | {% calc [currency=KZT] {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} × 900 %} | {% calc [currency=KZT] ({{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} × 900) + ({{ sku|KZT|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.100|number }} × 900) %} |
-  | 10 000 | {% calc [currency=KZT] {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} × 900 + {{ sku|KZT|sws.requests.v1|pricingRate.1000|number }} × 9000 %} | {% calc [currency=KZT] ({{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} × 900 + {{ sku|KZT|sws.requests.v1|pricingRate.1000|number }} × 9000) + ({{ sku|KZT|sws.waf.requests.v1|pricingRate.0.01|number }} + {{ sku|KZT|sws.waf.requests.v1|pricingRate.1|number }} × 9 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.10|number }} × 90 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.100|number }} × 900 + {{ sku|KZT|sws.waf.requests.v1|pricingRate.1000|number }} × 9000) %} |
+  | 1 | 137 250 ₸ | {% calc [currency=KZT] 137250 + 137250 %} |
+  | 10 | {% calc [currency=KZT] 137250 + 19215 × 9 %} | {% calc [currency=KZT] (137250 + 19215 × 9) + (137250 + 19215 × 9) %} |
+  | 100 | {% calc [currency=KZT] 137250 + 19215 × 9 + 1098 × 90 %} | {% calc [currency=KZT] (137250 + 19215 × 9 + 1098 × 90) + (137250 + 19215 × 9 + 1098 × 90) %} |
+  | 1 000 | {% calc [currency=KZT] 137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900 %} | {% calc [currency=KZT] (137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900) + (137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900) %} |
+  | 10 000 | {% calc [currency=KZT] 137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900 + 274.5 × 9000 %} | {% calc [currency=KZT] (137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900 + 274.5 × 9000) + (137250 + 19215 × 9 + 1098 × 90 + 768.6 × 900 + 274.5 × 9000) %} |
 
 {% endlist %}
 
@@ -207,75 +225,75 @@
   ##### Профиль безопасности
   
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности:
-  > 0,01 × {{ sku|RUB|sws.requests.v1|number }} ₽ + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|string }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|string }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|string }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|string }} = {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %}, вкл. НДС.
+  > 0,01 × 0 ₽ + 0,99 × 27 450 ₽ + 9 × 3 843 ₽ + 90 × 219,6 ₽ + 215,04 × 153,72 ₽ = {% calc [currency=RUB] 0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72 %}, вкл. НДС.
   
   Где:
   
-  * 0,01 × {{ sku|RUB|sws.requests.v1|number }} ₽ — нетарифицируемый порог, первые 0,01 млн запросов.
-  * 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|string }} — стоимость последующих 0,99 млн запросов.
-  * 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|string }} — стоимость последующих 9 млн запросов.
-  * 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|string }} — стоимость последующих 90 млн запросов.
-  * 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|string }} — стоимость оставшихся 215,04 млн запросов.
+  * 0,01 × 0 ₽ — нетарифицируемый порог, первые 0,01 млн запросов.
+  * 0,99 × 27 450 ₽ — стоимость последующих 0,99 млн запросов.
+  * 9 × 3 843 ₽ — стоимость последующих 9 млн запросов.
+  * 90 × 219,6 ₽ — стоимость последующих 90 млн запросов.
+  * 215,04 × 153,72 ₽ — стоимость оставшихся 215,04 млн запросов.
   
   Профиль WAF можно подключить только при использовании профиля безопасности. Стоимость будет складываться из обработки запросов правилами обоих профилей — безопасности и WAF. Так как цены для профиля безопасности и WAF равны, общая стоимость будет в два раза выше, чем при использовании только профиля безопасности.
   
   ##### Профиль безопасности и WAF
   
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности и WAF: 
-  > {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} × 2 = {% calc [currency=RUB] (0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }}) × 2 %}, вкл. НДС.
+  > {% calc [currency=RUB] 0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72 %} × 2 = {% calc [currency=RUB] (0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72) × 2 %}, вкл. НДС.
   
   Где:
   
-  * {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
+  * {% calc [currency=RUB] 0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72 %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
   * × 2 — стоимость умножается на `2`, поскольку цены для профиля безопасности и WAF равны.
   
   ##### Профиль безопасности и прокси-сервер
   
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц при использовании прокси-сервера и правил профиля безопасности:
-  > {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × {{ sku|RUB|sws.proxy-server.v1|string }} + 7 × {{ sku|RUB|sws.antiddos.traffic|string }} = {% calc [currency=RUB] (0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × {{ sku|RUB|sws.proxy-server.v1|number }} + 7 × {{ sku|RUB|sws.antiddos.traffic|number }} %}, вкл. НДС.
+  > {% calc [currency=RUB] 0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72 %} + 6 × 720 × 2,44 ₽ + 7 × 1,1081 ₽ = {% calc [currency=RUB] (0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72) + 6 × 720 × 2.44 + 7 × 1.1081 %}, вкл. НДС.
   
   Где: 
   
-  * {% calc [currency=RUB] 0,01 × {{ sku|RUB|sws.requests.v1|number }} + 0,99 × {{ sku|RUB|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|RUB|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|RUB|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|RUB|sws.requests.v1|pricingRate.100|number }} %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
+  * {% calc [currency=RUB] 0,01 × 0 + 0,99 × 27450 + 9 × 3843 + 90 × 219.6 + 215,04 × 153.72 %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
   * 6 — минимальное количество ресурсных единиц прокси-сервера. 
   * 720 — количество часов в 30 днях.
-  * {{ sku|RUB|sws.proxy-server.v1|string }} — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
+  * 2,44 ₽ — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
   * 7 — объем входящего трафика (в гигабайтах).
-  * {{ sku|RUB|sws.antiddos.traffic|string }} — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.
+  * 1,1081 ₽ — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.
 
 - Расчет в тенге {#prices-kzt}
 
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности:
-  > 0,01 × {{ sku|KZT|sws.requests.v1|number }} ₸ + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|string }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|string }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|string }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|string }} = {% calc [currency=KZT] 0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} %}, вкл. НДС.
+  > 0,01 × 0 ₸ + 0,99 × 137 250 ₸ + 9 × 19 215 ₸ + 90 × 1 098 ₸ + 215,04 × 768,6 ₸ = {% calc [currency=KZT] 0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6 %}, вкл. НДС.
   
   Где:
   
-  * 0,01 × {{ sku|KZT|sws.requests.v1|number }} ₸ — нетарифицируемый порог, первые 0,01 млн запросов.
-  * 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|string }} — стоимость последующих 0,99 млн запросов.
-  * 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|string }} — стоимость последующих 9 млн запросов.
-  * 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|string }} — стоимость последующих 90 млн запросов.
-  * 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|string }} — стоимость оставшихся 215,04 млн запросов.
+  * 0,01 × 0 ₸ — нетарифицируемый порог, первые 0,01 млн запросов.
+  * 0,99 × 137 250 ₸ — стоимость последующих 0,99 млн запросов.
+  * 9 × 19 215 ₸ — стоимость последующих 9 млн запросов.
+  * 90 × 1 098 ₸ — стоимость последующих 90 млн запросов.
+  * 215,04 × 768,6 ₸ — стоимость оставшихся 215,04 млн запросов.
   
   Профиль WAF можно подключить только при использовании профиля безопасности. Стоимость будет складываться из обработки запросов правилами обоих профилей — безопасности и WAF. Так как цены для профиля безопасности и WAF равны, общая стоимость будет в два раза выше, чем при использовании только профиля безопасности.
   
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности и WAF: 
-  > {% calc [currency=KZT] 0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} %} × 2 = {% calc [currency=KZT] (0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }}) × 2 %}, вкл. НДС.
+  > {% calc [currency=KZT] 0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6 %} × 2 = {% calc [currency=KZT] (0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6) × 2 %}, вкл. НДС.
   
   Где:
   
-  * {% calc [currency=KZT] 0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
+  * {% calc [currency=KZT] 0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6 %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
   * × 2 — стоимость умножается на `2`, поскольку цены для профиля безопасности и WAF равны.
   
   > Рассчитаем стоимость 315,04 млн легитимных запросов в месяц при использовании прокси-сервера и правил профиля безопасности:
-  > {% calc [currency=KZT] 0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} %} + 6 × 720 × {{ sku|KZT|sws.proxy-server.v1|string }} + 7 × {{ sku|KZT|sws.antiddos.traffic|string }} = {% calc [currency=KZT] (0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }}) + 6 × 720 × {{ sku|KZT|sws.proxy-server.v1|number }} + 7 × {{ sku|KZT|sws.antiddos.traffic|number }} %}, вкл. НДС.
+  > {% calc [currency=KZT] 0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6 %} + 6 × 720 × 12,2 ₸ + 7 × 5,5405 ₸ = {% calc [currency=KZT] (0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6) + 6 × 720 × 12.2 + 7 × 5.5405 %}, вкл. НДС.
   
   Где: 
   
-  * {% calc [currency=KZT] 0,01 × {{ sku|KZT|sws.requests.v1|number }} + 0,99 × {{ sku|KZT|sws.requests.v1|pricingRate.0.01|number }} + 9 × {{ sku|KZT|sws.requests.v1|pricingRate.1|number }} + 90 × {{ sku|KZT|sws.requests.v1|pricingRate.10|number }} + 215,04 × {{ sku|KZT|sws.requests.v1|pricingRate.100|number }} %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
+  * {% calc [currency=KZT] 0,01 × 0 + 0,99 × 137250 + 9 × 19215 + 90 × 1098 + 215,04 × 768.6 %} — стоимость 315,04 млн легитимных запросов в месяц, обработанных правилами профиля безопасности.
   * 6 — минимальное количество ресурсных единиц прокси-сервера. 
   * 720 — количество часов в 30 днях.
-  * {{ sku|KZT|sws.proxy-server.v1|string }} — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
+  * 12,2 ₸ — стоимость 1 ресурсной единицы прокси-сервера за 1 час.
   * 7 — объем входящего трафика (в гигабайтах).
-  * {{ sku|KZT|sws.antiddos.traffic|string }} — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.
+  * 5,5405 ₸ — стоимость защиты 1 ГБ входящего трафика от DDoS-атак.
 
 {% endlist %}

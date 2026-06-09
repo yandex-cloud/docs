@@ -5,7 +5,7 @@ Updates access bindings for the host group.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/hostGroups/{resourceId}:updateAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

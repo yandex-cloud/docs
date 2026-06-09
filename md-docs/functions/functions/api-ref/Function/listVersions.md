@@ -6,7 +6,7 @@ in the specified folder.
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/versions
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions
 ```
 
 ## Query parameters {#yandex.cloud.serverless.functions.v1.ListFunctionsVersionsRequest}

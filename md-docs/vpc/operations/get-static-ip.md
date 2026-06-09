@@ -13,23 +13,23 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно зарезервировать адрес.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно зарезервировать адрес.
+   1. Перейдите в сервис **Virtual Private Cloud**.
+   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**.
+   1. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
    1. В открывшемся окне:
-       * В поле **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** выберите зону доступности, в которой нужно зарезервировать адрес.
-       * (Опционально) В блоке **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}** включите опции **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** и **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
+       * В поле **Зона доступности** выберите зону доступности, в которой нужно зарезервировать адрес.
+       * (Опционально) В блоке **Дополнительно** включите опции **Защита от DDoS-атак** и **Защита от удаления**.
        * (Опционально) Укажите метки.
-       * (Опционально) Чтобы добавить DNS-запись, разверните список **{{ ui-key.yacloud.vpc.addresses.label_dns-spec-title }}** и нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**. В открывшемся блоке:
+       * (Опционально) Чтобы добавить DNS-запись, разверните список **Настройки DNS** и нажмите кнопку **Добавить запись**. В открывшемся блоке:
            * Выберите зону DNS.
            * Укажите FQDN. Вы можете создать новый домен или использовать домен, имя которого совпадает с именем зоны DNS.
-           * В поле **{{ ui-key.yacloud.dns.label_ttl }}** укажите время жизни записи в секундах.
-   1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
+           * В поле **TTL** укажите время жизни записи в секундах.
+   1. Нажмите кнопку **Зарезервировать**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -42,7 +42,7 @@
    1. Зарезервируйте адрес, указав зону доступности:
 
       ```bash
-      yc vpc address create --external-ipv4 zone={{ region-id }}-a --deletion-protection
+      yc vpc address create --external-ipv4 zone=ru-central1-a --deletion-protection
       ```
 
       Где:
@@ -59,7 +59,7 @@
       created_at: "2021-01-19T17:52:42Z"
       external_ipv4_address:
         address: 178.154.253.52
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         requirements: {}
       reserved: true
       type: EXTERNAL
@@ -69,18 +69,18 @@
 
       Статический публичный IP-адрес зарезервирован.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -106,7 +106,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_address).
+     Более подробную информацию о параметрах ресурса `yandex_vpc_address` в Terraform см. в [документации провайдера](../../terraform/resources/vpc_address.md).
 
   1. Создайте ресурсы:
 
@@ -129,7 +129,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -138,7 +138,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc vpc address list

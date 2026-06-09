@@ -5,7 +5,7 @@ Deletes the specified PostgreSQL cluster backup.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-postgresql/v1/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}
 ```
 
 ## Path parameters

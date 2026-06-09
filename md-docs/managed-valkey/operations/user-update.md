@@ -1,6 +1,6 @@
 # Изменение настроек пользователя
 
-После создания пользователя {{ VLK }} вы можете:
+После создания пользователя Valkey™ вы можете:
 
 * [изменить пароль](#change-password);
 * [изменить статус пользователя](#change-status);
@@ -13,42 +13,42 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Изменить пароль**.
   
     
   1. Задайте пароль пользователя одним из способов:
 
-      * **{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}** — введите пароль вручную. Длина пароля — от 8 до 128 символов.
-      * **{{ ui-key.yacloud.component.password-input.label_button-generate }}** — пароль будет сгенерирован с помощью сервиса [{{ connection-manager-full-name }}](../../metadata-hub/concepts/connection-manager.md) и сохранен в [секрете {{ lockbox-full-name }}](../../lockbox/concepts/secret.md).
+      * **Ввести вручную** — введите пароль вручную. Длина пароля — от 8 до 128 символов.
+      * **Сгенерировать** — пароль будет сгенерирован с помощью сервиса [Yandex Connection Manager](../../metadata-hub/concepts/connection-manager.md) и сохранен в [секрете Yandex Lockbox](../../lockbox/concepts/secret.md).
 
-        Чтобы посмотреть пароль, на странице кластера выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_users }}** и нажмите **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** в строке нужного пользователя. Откроется страница секрета {{ lockbox-full-name }}, в котором хранится пароль.
+        Чтобы посмотреть пароль, на странице кластера выберите вкладку **Пользователи** и нажмите **Посмотреть пароль** в строке нужного пользователя. Откроется страница секрета Yandex Lockbox, в котором хранится пароль.
 
         Для просмотра паролей требуется роль [lockbox.payloadViewer](../../lockbox/security/index.md#lockbox-payloadViewer).
 
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить пароль пользователя {{ VLK }}:
+  Чтобы изменить пароль пользователя Valkey™:
 
   1. Посмотрите описание команды CLI для изменения настроек пользователя:
 
       ```bash
-      {{ yc-mdb-rd }} user update --help
+      yc managed-redis user update --help
       ```
 
   1. Измените пароль, выполнив команду:
 
       ```bash
-      {{ yc-mdb-rd }} user update <имя_пользователя> \
+      yc managed-redis user update <имя_пользователя> \
         --cluster-id=<идентификатор_кластера> \
         --password="<пароль_пользователя>" 
       ```
@@ -63,9 +63,9 @@
 
       Имя пользователя можно получить со [списком пользователей](user-list.md#list) в кластере.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -84,14 +84,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -115,7 +115,7 @@
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -175,14 +175,14 @@
 
         Можно указать только один пароль.
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
         --data "@body.json"
       ```
 
@@ -262,7 +262,7 @@
 
         Можно указать только один пароль.  
 
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -272,7 +272,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/user_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.redis.v1.UserService.Update \
         < body.json
         ```
@@ -287,35 +287,35 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Измените статус пользователя с помощью опции **{{ ui-key.yacloud.mdb.cluster.users.field_enable-user }}**:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
+  1. Измените статус пользователя с помощью опции **Включить пользователя**:
       
       * Чтобы разрешить пользователю подключаться к кластеру и выполнять команды, включите опцию.
       * Чтобы запретить пользователю подключаться к кластеру, отключите опцию.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы изменить статус пользователя {{ VLK }}:
+  Чтобы изменить статус пользователя Valkey™:
 
   1. Посмотрите описание команды CLI для изменения настроек пользователя:
 
       ```bash
-      {{ yc-mdb-rd }} user update --help
+      yc managed-redis user update --help
       ```
 
   1. Измените статус пользователя, выполнив команду:
 
       ```bash
-      {{ yc-mdb-rd }} user update <имя_пользователя> \
+      yc managed-redis user update <имя_пользователя> \
         --cluster-id=<идентификатор_кластера> \
         <статус_пользователя> 
       ```
@@ -333,9 +333,9 @@
 
       Имя пользователя можно получить со [списком пользователей](user-list.md#list) в кластере.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -355,14 +355,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -386,7 +386,7 @@
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -445,14 +445,14 @@
         * `true` — пользователь включен;
         * `false` — пользователь отключен.
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
         --data "@body.json"
       ```
 
@@ -531,7 +531,7 @@
           * `true` — пользователь включен;
           * `false` — пользователь отключен.
 
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -541,7 +541,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/user_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.redis.v1.UserService.Update \
         < body.json
         ```
@@ -556,20 +556,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
   1. В блоке `Permissions` в поле `Sanitize Payload` введите разрешение пользователя на очистку данных. Возможные значения:
         
       * `sanitize-payload` (по умолчанию) — очистка данных включена;
       * `skip-sanitize-payload` — очистка данных отключена.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -578,13 +578,13 @@
   1. Посмотрите описание команды CLI для изменения настроек пользователя:
 
       ```bash
-      {{ yc-mdb-rd }} user update --help
+      yc managed-redis user update --help
       ```
 
   1. Настройте очистку данных, выполнив команду:
 
       ```bash
-      {{ yc-mdb-rd }} user update <имя_пользователя> \
+      yc managed-redis user update <имя_пользователя> \
         --cluster-id=<идентификатор_кластера> \
         --sanitize-payload=<очистка_данных> 
       ```
@@ -602,9 +602,9 @@
 
       Имя пользователя можно получить со [списком пользователей](user-list.md#list) в кластере.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -624,14 +624,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -655,7 +655,7 @@
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -716,14 +716,14 @@
         * `sanitize-payload` (по умолчанию) — очистка данных включена;
         * `skip-sanitize-payload` — очистка данных отключена.
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
         --data "@body.json"
       ```
 
@@ -804,7 +804,7 @@
         * `sanitize-payload` (по умолчанию) — очистка данных включена;
         * `skip-sanitize-payload` — очистка данных отключена.
 
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -814,7 +814,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/user_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.redis.v1.UserService.Update \
         < body.json
         ```
@@ -829,10 +829,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится нужный кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mdb.cluster.switch_users }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится нужный кластер.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex Managed Service for&nbsp;Valkey™**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного пользователя и выберите пункт **Настроить**.
   1. В блоке `Permissions` задайте разрешения пользователя:
 
       * `Patterns` — разрешения на шаблоны ключей.
@@ -846,28 +846,28 @@
       
       {% endnote %}
 
-      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+      Подробнее о списках контроля доступа читайте в [документации Valkey™ ACL](https://valkey.io/topics/acl).
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы назначить разрешения пользователю {{ VLK }}:
+  Чтобы назначить разрешения пользователю Valkey™:
 
   1. Посмотрите описание команды CLI для изменения настроек пользователя:
 
       ```bash
-      {{ yc-mdb-rd }} user update --help
+      yc managed-redis user update --help
       ```
 
   1. Назначьте разрешения пользователю, выполнив команду:
 
       ```bash
-      {{ yc-mdb-rd }} user update <имя_пользователя> \
+      yc managed-redis user update <имя_пользователя> \
         --cluster-id=<идентификатор_кластера> \
         --raw="<разрешения>" \
         --categories="<разрешения_на_категории_команд>" \
@@ -909,13 +909,13 @@
       
       {% endnote %}
 
-      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+      Подробнее о списках контроля доступа читайте в [документации Valkey™ ACL](https://valkey.io/topics/acl).
 
       Имя пользователя можно получить со [списком пользователей](user-list.md#list) в кластере.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -951,18 +951,18 @@
       
       {% endnote %}
 
-      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+      Подробнее о списках контроля доступа читайте в [документации Valkey™ ACL](https://valkey.io/topics/acl).
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -986,7 +986,7 @@
 
   {% note warning "Ограничения по времени" %}
   
-  Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mrd-name }}:
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex Managed Service for Valkey™:
   
   * создание, в т. ч. путем восстановления из резервной копии, — 15 минут;
   * изменение — 60 минут;
@@ -1059,16 +1059,16 @@
       
       {% endnote %}
 
-      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+      Подробнее о списках контроля доступа читайте в [документации Valkey™ ACL](https://valkey.io/topics/acl).
 
-  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [User.Update](../api-ref/User/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://{{ api-host-mdb }}/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+        --url 'https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
         --data "@body.json"
       ```
 
@@ -1161,9 +1161,9 @@
       
       {% endnote %}
 
-      Подробнее о списках контроля доступа читайте в [документации {{ VLK }} ACL](https://valkey.io/topics/acl).
+      Подробнее о списках контроля доступа читайте в [документации Valkey™ ACL](https://valkey.io/topics/acl).
 
-  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [UserService.Update](../api-ref/grpc/User/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
       ```bash
       grpcurl \
@@ -1173,7 +1173,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/redis/v1/user_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.redis.v1.UserService.Update \
         < body.json
         ```

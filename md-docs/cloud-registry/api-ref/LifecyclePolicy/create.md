@@ -5,7 +5,7 @@ Creates a lifecycle policy in the specified registry.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/lifecyclePolicies
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/lifecyclePolicies
 ```
 
 ## Body parameters {#yandex.cloud.cloudregistry.v1.CreateLifecyclePolicyRequest}

@@ -5,7 +5,7 @@ Deletes the specified OIDC workload identity federation.
 ## HTTP request
 
 ```
-DELETE https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+DELETE https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{federationId}
 ```
 
 ## Path parameters

@@ -8,7 +8,7 @@ Supports additional features like subtitle processing, translation, summarizatio
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/videos/{videoId}:transcode
+POST https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:transcode
 ```
 
 ## Path parameters

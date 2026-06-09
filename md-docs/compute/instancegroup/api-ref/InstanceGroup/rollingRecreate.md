@@ -6,7 +6,7 @@ Rolling recreate does recreate of instance VMs respecting all group policies.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/instanceGroups/{instanceGroupId}:rollingRecreate
+POST https://compute.api.cloud.yandex.net/compute/v1/instanceGroups/{instanceGroupId}:rollingRecreate
 ```
 
 ## Path parameters

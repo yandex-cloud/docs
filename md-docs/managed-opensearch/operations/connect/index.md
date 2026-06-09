@@ -1,16 +1,16 @@
-# Предварительная настройка для подключения к кластеру {{ OS }}
+# Предварительная настройка для подключения к кластеру OpenSearch
 
 
-К хостам кластера {{ mos-name }} с [ролью](../../concepts/host-roles.md#data) `DATA` можно подключиться:
+К хостам кластера Managed Service for OpenSearch с [ролью](../../concepts/host-roles.md#data) `DATA` можно подключиться:
 
 * Через интернет, если вы настроили публичный доступ для нужной группы хостов.
 
 * Через интернет по [особому FQDN](fqdn.md#special-fqdns), если вы настроили публичный доступ для группы хостов с [ролью](../../concepts/host-roles.md#dashboards) `DASHBOARDS`.
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же [виртуальной сети](../../../vpc/concepts/network.md).
+* С виртуальных машин Yandex Cloud, расположенных в той же [виртуальной сети](../../../vpc/concepts/network.md).
 
 
-Вне зависимости от способа подключения, {{ mos-name }} поддерживает только соединения с [SSL-сертификатом](#ssl-certificate) к хостам кластера.
+Вне зависимости от способа подключения, Managed Service for OpenSearch поддерживает только соединения с [SSL-сертификатом](#ssl-certificate) к хостам кластера.
 
 
 ## Настройка групп безопасности {#security-groups}
@@ -25,23 +25,23 @@
 
 - Через интернет {#internet}
 
-  [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порты {{ port-https }} (Dashboards) и {{ port-mos }} ({{ OS }}). Для этого создайте следующие правила для входящего трафика:
+  [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик с любых IP-адресов на порты 443 (Dashboards) и 9200 (OpenSearch). Для этого создайте следующие правила для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`, `{{ port-mos }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `443`, `9200`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
   На каждый порт создается отдельное правило.
 
-- С ВМ в {{ yandex-cloud }} {#cloud}
+- С ВМ в Yandex Cloud {#cloud}
 
-    1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты {{ port-https }} (Dashboards) и {{ port-mos }} ({{ OS }}). Для этого создайте в этих группах следующие правила для входящего трафика:
+    1. [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порты 443 (Dashboards) и 9200 (OpenSearch). Для этого создайте в этих группах следующие правила для входящего трафика:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`, `{{ port-mos }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). В противном случае укажите группу безопасности ВМ.
+        * **Диапазон портов** — `443`, `9200`.
+        * **Протокол** — `TCP`.
+        * **Источник** — `Группа безопасности`.
+        * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая` (`Self`). В противном случае укажите группу безопасности ВМ.
 
        На каждый порт создается отдельное правило.
 
@@ -51,19 +51,19 @@
 
         * Для входящего трафика:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-ssh }}`, `{{ port-https }}`, `{{ port-mos }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `22`, `443`, `9200`.
+            * **Протокол** — `TCP`.
+            * **Источник** — `CIDR`.
+            * **CIDR блоки** — `0.0.0.0/0`.
 
           На каждый порт создается отдельное правило.
 
         * Для исходящего трафика:
 
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+            * **Диапазон портов** — `0-65535`.
+            * **Протокол** — `Любой` (`Any`).
+            * **Назначение** — `CIDR`.
+            * **CIDR блоки** — `0.0.0.0/0`.
 
           Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -77,7 +77,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#ssl-certificate}
@@ -90,7 +90,7 @@
 
    ```bash
    mkdir -p ~/.opensearch && \
-   wget "{{ crt-web-path }}" \
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
         --output-document ~/.opensearch/root.crt && \
    chmod 0600 ~/.opensearch/root.crt
    ```
@@ -100,7 +100,7 @@
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt {{ crt-web-path }}
+   mkdir $HOME\.opensearch; curl.exe -o $HOME\.opensearch\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
    Сертификат будет сохранен в файле `$HOME\.opensearch\root.crt`.

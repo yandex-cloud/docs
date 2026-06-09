@@ -1,36 +1,36 @@
-# Создание и запуск триггера в {{ serverless-containers-name }}
+# Создание и запуск триггера в Serverless Containers
 
-Триггеры позволяют вызывать контейнер {{ serverless-containers-name }} при наступлении определенных событий. Например, [таймер](../../concepts/trigger/timer.md) вызывает [контейнер](../../concepts/container.md) по заданному пользователем расписанию. [Пример создания таймера, который вызывает контейнер {{ serverless-containers-name }} каждую минуту](../timer.md).
+Триггеры позволяют вызывать контейнер Serverless Containers при наступлении определенных событий. Например, [таймер](../../concepts/trigger/timer.md) вызывает [контейнер](../../concepts/container.md) по заданному пользователем расписанию. [Пример создания таймера, который вызывает контейнер Serverless Containers каждую минуту](../timer.md).
 
-Кроме таймера, в {{ serverless-containers-name }} доступны следующие триггеры:
+Кроме таймера, в Serverless Containers доступны следующие триггеры:
 
-* Триггер для {{ message-queue-short-name }}
+* Триггер для Message Queue
 
-    Создайте [триггер](../../concepts/trigger/ymq-trigger.md) для [очереди сообщений](../../../message-queue/concepts/queue.md) сервиса {{ message-queue-short-name }} и обрабатывайте их с помощью контейнера.
+    Создайте [триггер](../../concepts/trigger/ymq-trigger.md) для [очереди сообщений](../../../message-queue/concepts/queue.md) сервиса Message Queue и обрабатывайте их с помощью контейнера.
 
-* Триггер для {{ objstorage-short-name }}
+* Триггер для Object Storage
 
-    Создайте [триггер для {{ objstorage-name }}](../../concepts/trigger/os-trigger.md), который будет вызывать контейнер при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.
+    Создайте [триггер для Object Storage](../../concepts/trigger/os-trigger.md), который будет вызывать контейнер при создании, перемещении или удалении [объекта](../../../storage/concepts/object.md) в бакете.
 
-* Триггер для {{ container-registry-short-name }}
+* Триггер для Container Registry
 
-    Создайте [триггер для {{ container-registry-name }}](../../concepts/trigger/cr-trigger.md), который будет вызывать контейнер при создании и удалении [Docker-образов](../../../container-registry/concepts/docker-image.md) {{ container-registry-name }} или их [тегов](../../../container-registry/concepts/docker-image.md#version).
+    Создайте [триггер для Container Registry](../../concepts/trigger/cr-trigger.md), который будет вызывать контейнер при создании и удалении [Docker-образов](../../../container-registry/concepts/docker-image.md) Container Registry или их [тегов](../../../container-registry/concepts/docker-image.md#version).
 
-* Триггер для {{ cloud-logging-short-name }}
+* Триггер для Cloud Logging
 
-    Создайте [триггер для {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md), который будет вызывать контейнер при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).
+    Создайте [триггер для Cloud Logging](../../concepts/trigger/cloud-logging-trigger.md), который будет вызывать контейнер при добавлении записей в [лог-группу](../../../logging/concepts/log-group.md).
 
-* Триггер для {{ iot-full-name }}
+* Триггер для Yandex IoT Core
 
-    Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика [устройства](../../../iot-core/concepts/index.md#device), [реестра](../../../iot-core/concepts/index.md#registry) или [брокера](../../../iot-core/concepts/index.md#broker) {{ iot-name }} и обрабатывайте копии сообщений с помощью контейнера.
+    Создайте [триггер](../../concepts/trigger/iot-core-trigger.md) для топика [устройства](../../../iot-core/concepts/index.md#device), [реестра](../../../iot-core/concepts/index.md#registry) или [брокера](../../../iot-core/concepts/index.md#broker) Yandex IoT Core и обрабатывайте копии сообщений с помощью контейнера.
 
 * Триггер для бюджетов
 
     Создайте [триггер для бюджетов](../../concepts/trigger/budget-trigger.md), который будет вызывать контейнер при превышении пороговых значений.
 
-* Триггер для {{ yds-short-name }}
+* Триггер для Data Streams
 
-    Создайте [триггер для {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md), который будет вызывать контейнер при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
+    Создайте [триггер для Data Streams](../../concepts/trigger/data-streams-trigger.md), который будет вызывать контейнер при отправке данных в [поток](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 * Триггер для почты
 
@@ -39,4 +39,4 @@
 ## См. также
 
 * [Пошаговые инструкции по созданию триггеров](../../operations/index.md#trigger-create)
-* [Обзор триггеров в {{ serverless-containers-full-name }}](../../concepts/trigger/index.md)
+* [Обзор триггеров в Yandex Serverless Containers](../../concepts/trigger/index.md)

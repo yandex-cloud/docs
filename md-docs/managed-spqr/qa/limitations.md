@@ -1,16 +1,16 @@
-# Ограничения в {{ mspqr-name }}
+# Ограничения в Managed Service for Sharded PostgreSQL
 
 * [Какие типы данных доступны для шардирования?](#available-data-types)
 
-* [Какие лимиты существуют для кластера {{ mspqr-name }}?](#cluster-limits)
+* [Какие лимиты существуют для кластера Managed Service for Sharded PostgreSQL?](#cluster-limits)
 
 * [Можно ли выполнять JOIN между шардами?](#cross-shard-join-queries)
 
 * [Поддерживаются ли кросс-шардовые запросы?](#cross-shard-queries)
 
-* [Какая политика повторных попыток (retry) используется в {{ SPQR }}?](#retry-policy)
+* [Какая политика повторных попыток (retry) используется в Sharded PostgreSQL?](#retry-policy)
 
-* [Как {{ SPQR }} управляет лимитами подключений?](#connection-limits)
+* [Как Sharded PostgreSQL управляет лимитами подключений?](#connection-limits)
 
 * [Есть ли дедупликация запросов?](#query-deduplication)
 
@@ -32,17 +32,17 @@
 
 Если вам не хватает какого-либо типа данных, вы можете завести issue в [репозитории проекта на Github](https://github.com/pg-sharding/spqr/issues).
 
-#### Какие лимиты существуют для кластера {{ mspqr-name }}? {#cluster-limits}
+#### Какие лимиты существуют для кластера Managed Service for Sharded PostgreSQL? {#cluster-limits}
 
-Количество роутеров и шардов в кластере {{ mspqr-name }} не ограничено.
+Количество роутеров и шардов в кластере Managed Service for Sharded PostgreSQL не ограничено.
 
-Подробнее о [квотах и лимитах в {{ mspqr-name }}](../concepts/limits.md).
+Подробнее о [квотах и лимитах в Managed Service for Sharded PostgreSQL](../concepts/limits.md).
 
 #### Можно ли выполнять JOIN между шардами? {#cross-shard-join-queries}
 
 Нет. JOIN возможен только в пределах одного шарда. При работе со связанными данными используйте одинаковые ключи шардирования для связанных таблиц, чтобы данные находились на одном шарде.
 
-Если вам нужно выполнять JOIN между шардами, рекомендуем использовать [{{ mgp-full-name }}](../../managed-greenplum/index.md).
+Если вам нужно выполнять JOIN между шардами, рекомендуем использовать [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/index.md).
 
 #### Поддерживаются ли кросс-шардовые запросы? {#cross-shard-queries}
 
@@ -55,10 +55,10 @@
 
 Виртуальные параметры можно задавать комментариями в SQL или через `SET`.
 
-#### Какая политика повторных попыток (retry) используется в {{ SPQR }}? {#retry-policy}
+#### Какая политика повторных попыток (retry) используется в Sharded PostgreSQL? {#retry-policy}
 Роутер не выполняет пользовательские запросы повторно. Пользователю нужно самостоятельно реализовать политику повторов, исходя из своей бизнес-логики.
 
-#### Как {{ SPQR }} управляет лимитами подключений? {#connection-limits}
+#### Как Sharded PostgreSQL управляет лимитами подключений? {#connection-limits}
 Лимит подключений задается отдельно для каждого пользователя в параметре `conn_limit`.
 
 #### Есть ли дедупликация запросов? {#query-deduplication}

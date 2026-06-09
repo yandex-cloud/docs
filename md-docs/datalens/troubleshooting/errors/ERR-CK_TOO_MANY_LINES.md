@@ -1,10 +1,10 @@
-# [{{ datalens-full-name }}] Too many series on the chart
+# [Yandex DataLens] Too many series on the chart
 
 `ERR.CK.TOO_MANY_LINES`
 
 Превышено допустимое число рядов.
 
-В {{ datalens-short-name }} есть ограничение на объем данных для отображения в чарте. Для каждого вида визуализации установлен свой [лимит](../../concepts/limits.md#datalens-chart-data-limits) на количество рядов.
+В DataLens есть ограничение на объем данных для отображения в чарте. Для каждого вида визуализации установлен свой [лимит](../../concepts/limits.md#datalens-chart-data-limits) на количество рядов.
 
 Чтобы исправить ошибку, уменьшите объем данных для отображения, например:
 

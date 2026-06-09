@@ -5,7 +5,7 @@ Lists access bindings for the instance.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/instances/{resourceId}:listAccessBindings
+GET https://compute.api.cloud.yandex.net/compute/v1/instances/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

@@ -1,4 +1,4 @@
-# Квоты и лимиты в {{ mspqr-name }}
+# Квоты и лимиты в Managed Service for Sharded PostgreSQL
 
 {% note info %}
 
@@ -7,19 +7,19 @@
 {% endnote %}
 
 
-В сервисе {{ mspqr-name }} действуют следующие ограничения:
+В сервисе Managed Service for Sharded PostgreSQL действуют следующие ограничения:
 
-* [_Квоты_]({{ link-console-quotas }}) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
-* _Лимиты_ — технические ограничения, обусловленные особенностями архитектуры {{ yandex-cloud }}. Изменить лимиты невозможно.
+* [_Квоты_](https://console.yandex.cloud/cloud?section=quotas) — организационные ограничения, которые можно изменить по запросу в техническую поддержку.
+* _Лимиты_ — технические ограничения, обусловленные особенностями архитектуры Yandex Cloud. Изменить лимиты невозможно.
 
 Если вам необходимо больше ресурсов, увеличьте квоты одним из способов:
 
-* [Сформируйте запрос на увеличение]({{ link-console-quotas }}).
-* Обратитесь в [техническую поддержку]({{ link-console-support }}) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
+* [Сформируйте запрос на увеличение](https://console.yandex.cloud/cloud?section=quotas).
+* Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) и расскажите, какие потребляемые квоты нужно увеличить и на сколько.
 
 Чтобы ваш запрос был рассмотрен, у вас должна быть [роль](../../iam/roles-reference.md#quota-manager-requestoperator) `quota-manager.requestOperator` или выше (`editor` или `admin`).
 
-Управлять квотами позволяет сервис [{{ quota-manager-name }}](../../quota-manager/quickstart.md).
+Управлять квотами позволяет сервис [Cloud Quota Manager](../../quota-manager/quickstart.md).
 
 #### Квоты {#mspqr-quotas}
 
@@ -40,7 +40,7 @@
 
 #### Лимиты {#mspqr-limits}
 
-Лимиты кластеров {{ PG }} см. в [документации {{ mpg-name }}](../../managed-postgresql/concepts/limits.md#mpg-limits).
+Лимиты кластеров PostgreSQL см. в [документации Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-limits).
 
 #|
 || **Вид ограничения** | **Минимальное значение** | **Максимальное значение** ||

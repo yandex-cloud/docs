@@ -1,85 +1,85 @@
-# Практические руководства {{ managed-k8s-name }}
+# Практические руководства Managed Service for Kubernetes
 
-C помощью {{ managed-k8s-name }} вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре {{ yandex-cloud }}: разворачивать, масштабировать и управлять приложениями в контейнерах.
+C помощью Managed Service for Kubernetes вы можете работать с [контейнеризованными приложениями](../../glossary/containerization.md) в инфраструктуре Yandex Cloud: разворачивать, масштабировать и управлять приложениями в контейнерах.
 
 ## Создание и настройка проекта {#creating-project}
 
-* [{#T}](new-kubernetes-project.md)
-* [{#T}](k8s-cluster-with-no-internet.md)
-* [{#T}](kubernetes-terraform-provider.md)
-* [{#T}](running-pod-gpu.md)
-* [{#T}](driverless-gpu.md)
-* [{#T}](time-slicing-gpu.md)
-* [{#T}](migration-to-an-availability-zone.md)
-* [{#T}](kms-k8s.md)
-* [{#T}](k8s-cluster-api-provider-yandex.md)
-* [{#T}](wlif-managed-k8s-integration.md)
+* [Создание нового Kubernetes-проекта в Yandex Cloud](new-kubernetes-project.md)
+* [Создание и настройка кластера Kubernetes без доступа в интернет](k8s-cluster-with-no-internet.md)
+* [Управление ресурсами Kubernetes в кластере Managed Service for Kubernetes с помощью провайдера Terraform](kubernetes-terraform-provider.md)
+* [Запуск рабочих нагрузок с GPU](running-pod-gpu.md)
+* [Использование групп узлов с GPU без предустановленных драйверов](driverless-gpu.md)
+* [Установка Time-Slicing GPUs](time-slicing-gpu.md)
+* [Миграция ресурсов Kubernetes в другую зону доступности](migration-to-an-availability-zone.md)
+* [Шифрование секретов в Managed Service for Kubernetes](kms-k8s.md)
+* [Создание управляемого пользователем (self-managed) кластера Kubernetes с помощью провайдера Yandex Cloud для Kubernetes Cluster API](k8s-cluster-api-provider-yandex.md)
+* [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](wlif-managed-k8s-integration.md)
 
-### Создание проекта с помощью {{ TF }} {#terraform}
+### Создание проекта с помощью Terraform {#terraform}
 
-* [{#T}](kubernetes-terraform-provider.md)
-* [{#T}](terraform-modules.md)
+* [Управление ресурсами Kubernetes в кластере Managed Service for Kubernetes с помощью провайдера Terraform](kubernetes-terraform-provider.md)
+* [Использование модулей Yandex Cloud в Terraform](terraform-modules.md)
 
 ## Настройка и тестирование масштабирования {#scaling}
 
-* [{#T}](autoscaling.md)
-* [{#T}](vpa-autoscaling.md)
-* [{#T}](load-testing-grpc-autoscaling.md)
+* [Горизонтальное масштабирование приложения в кластере](autoscaling.md)
+* [Вертикальное масштабирование приложения в кластере](vpa-autoscaling.md)
+* [Развертывание и нагрузочное тестирование gRPC-сервиса с масштабированием](load-testing-grpc-autoscaling.md)
 
 ## Установка NGINX {#nginx}
 
-* [{#T}](ingress-cert-manager.md)
-* [{#T}](nginx-ingress-certificate-manager.md)
+* [Установка Ingress-контроллера NGINX с менеджером для сертификатов Let's Encrypt®](ingress-cert-manager.md)
+* [Установка Ingress-контроллера NGINX с сертификатом из Yandex Certificate Manager](nginx-ingress-certificate-manager.md)
 
-## Использование {{ container-registry-full-name }} {#container-registry}
+## Использование Yandex Container Registry {#container-registry}
 
-* [{#T}](container-registry.md)
-* [{#T}](sign-cr-with-cosign.md)
-* [{#T}](image-storage.md)
+* [Интеграция с Container Registry](container-registry.md)
+* [Подпись и проверка Docker-образов Yandex Container Registry в Managed Service for Kubernetes](sign-cr-with-cosign.md)
+* [Хранение Docker-образов из проектов Yandex Managed Service for GitLab](image-storage.md)
 
-## Использование {{ mkf-name }} {#kafka}
+## Использование Managed Service for Apache Kafka® {#kafka}
 
-[{#T}](deploy-kafka-ui.md)
+[Развертывание веб-интерфейса Apache Kafka®](deploy-kafka-ui.md)
 
-## Непрерывная интеграция с {{ GL }} {#gitlab}
+## Непрерывная интеграция с GitLab {#gitlab}
 
-* [{#T}](gitlab-containers.md)
-* [{#T}](cr-scanner-with-k8s-and-gitlab.md)
-* [{#T}](ci-cd-serverless.md)
+* [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](gitlab-containers.md)
+* [Сканирование уязвимостей Container Registry при непрерывном развертывании приложений с помощью GitLab](cr-scanner-with-k8s-and-gitlab.md)
+* [Построение пайплайна CI/CD с использованием serverless-продуктов](ci-cd-serverless.md)
 
 ## Работа с DNS {#dns}
 
-* [{#T}](custom-dns.md)
-* [{#T}](dns-autoscaler.md)
-* [{#T}](node-local-dns.md)
-* [{#T}](dnschallenge.md)
-* [{#T}](cert-manager-webhook.md)
+* [Интеграция с корпоративной зоной DNS](custom-dns.md)
+* [Автоматическое масштабирование DNS по размеру кластера](dns-autoscaler.md)
+* [Настройка NodeLocal DNS](node-local-dns.md)
+* [Проверка DNS Challenge для сертификатов Let's Encrypt®](dnschallenge.md)
+* [Создание веб-хука резолвера ACME для ответов на DNS01-проверки](cert-manager-webhook.md)
 
 ## Резервное копирование {#backup}
 
-* [{#T}](kubernetes-backup.md)
-* [{#T}](pvc-snapshot-restore.md)
+* [Резервное копирование кластера Managed Service for Kubernetes в Object Storage](kubernetes-backup.md)
+* [Работа со снапшотами](pvc-snapshot-restore.md)
 
 
 ## Мониторинг {#monitoring}
 
-* [{#T}](prometheus-grafana-monitoring.md)
-* [{#T}](k8s-fluent-bit-logging.md)
-* [{#T}](filebeat-oss-monitoring.md)
+* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](prometheus-grafana-monitoring.md)
+* [Передача логов кластера Managed Service for Kubernetes в Yandex Cloud Logging](k8s-fluent-bit-logging.md)
+* [Мониторинг кластера с помощью Filebeat OSS](filebeat-oss-monitoring.md)
 
-## Использование продуктов {{ marketplace-full-name }} {#marketplace-tutorials}
+## Использование продуктов Yandex Cloud Marketplace {#marketplace-tutorials}
 
-* [{#T}](marketplace/argo-cd.md)
-* [{#T}](marketplace/crossplane.md)
-* [{#T}](kubernetes-lockbox-secrets.md)
-* [{#T}](fluent-bit-logging.md)
-* [{#T}](marketplace/gateway-api.md)
-* [{#T}](alb-ingress-controller.md)
-* [{#T}](alb-ingress-controller-log-options.md)
-* [{#T}](custom-health-checks.md)
-* [{#T}](alb-ingress-with-sws-profile.md)
-* [{#T}](marketplace/kyverno.md)
-* [{#T}](marketplace/metrics-provider.md)
-* [{#T}](marketplace/thumbor.md)
-* [{#T}](marketplace/istio.md)
-* [{#T}](marketplace/hashicorp-vault.md)
+* [Интеграция с Argo CD](marketplace/argo-cd.md)
+* [Интеграция с Crossplane](marketplace/crossplane.md)
+* [Синхронизация с секретами Yandex Lockbox](kubernetes-lockbox-secrets.md)
+* [Настройка Fluent Bit для работы с Yandex Cloud Logging](fluent-bit-logging.md)
+* [Настройка Gateway API](marketplace/gateway-api.md)
+* [Настройка L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller.md)
+* [Настройка логирования для L7-балансировщика Yandex Application Load Balancer с помощью Ingress-контроллера](alb-ingress-controller-log-options.md)
+* [Проверка состояния приложений в кластере Yandex Managed Service for Kubernetes с помощью L7-балансировщика Yandex Application Load Balancer](custom-health-checks.md)
+* [Создание L7-балансировщика с профилем безопасности Smart Web Security через Ingress-контроллер Application Load Balancer](alb-ingress-with-sws-profile.md)
+* [Настройка Kyverno & Kyverno Policies](marketplace/kyverno.md)
+* [Использование Metrics Provider для трансляции метрик](marketplace/metrics-provider.md)
+* [Редактирование изображений для сайтов с помощью приложения Thumbor](marketplace/thumbor.md)
+* [Использование Istio](marketplace/istio.md)
+* [Использование HashiCorp Vault для хранения секретов](marketplace/hashicorp-vault.md)

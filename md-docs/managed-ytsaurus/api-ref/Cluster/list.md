@@ -5,7 +5,7 @@ Retrieves the list of clusters in the specified folder.
 ## HTTP request
 
 ```
-GET https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters
+GET https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.ytsaurus.v1.ListClustersRequest}

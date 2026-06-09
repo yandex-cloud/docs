@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Invalid connection type value
+# [Yandex DataLens] Invalid connection type value
 
 `ERR.DS_API.BAD_CONN_TYPE`
 

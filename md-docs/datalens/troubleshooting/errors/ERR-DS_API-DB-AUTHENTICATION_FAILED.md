@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Database authentication failed
+# [Yandex DataLens] Database authentication failed
 
 `ERR.DS_API.DB.AUTHENTICATION_FAILED`
 

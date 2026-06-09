@@ -5,7 +5,7 @@ Get specific policy.
 ## HTTP request
 
 ```
-GET https://backup.{{ api-host }}/backup/v1/policies/{policyId}
+GET https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}
 ```
 
 ## Path parameters

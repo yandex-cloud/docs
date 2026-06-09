@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -17,14 +17,14 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-   1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-temporal-selector }}**.
-   1. В блоке **{{ ui-key.yacloud.load-testing.title_temporal-agent-field }}**:
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог для тестирования.
+   1. В списке сервисов выберите **Load Testing**.
+   1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** нажмите **Создать тест**.
+   1. В секции **Агенты** нажмите **Временный**.
+   1. В блоке **Настройки временного агента**:
       * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](agent.md#benchmark).
-      * Выберите созданный ранее [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый сервисный аккаунт с помощью кнопки **{{ ui-key.yacloud.common.create }}**. Сервисный аккаунт должен обладать следующими ролями:
-         * `loadtesting.generatorClient` — для отправки результатов тестирования в сервис {{ load-testing-name }}.
+      * Выберите созданный ранее [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или создайте новый сервисный аккаунт с помощью кнопки **Создать**. Сервисный аккаунт должен обладать следующими ролями:
+         * `loadtesting.generatorClient` — для отправки результатов тестирования в сервис Load Testing.
          * `compute.editor` — для создания ВМ в пользовательском каталоге.
          * `iam.serviceAccounts.user` — для привязки сервисного аккаунта к ВМ.
          * `vpc.user` — для подключения к сетевым ресурсам в пользовательском каталоге и их использования.
@@ -42,10 +42,10 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-   1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-from-list-selector }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог для тестирования.
+   1. В списке сервисов выберите **Load Testing**.
+   1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** нажмите **Создать тест**.
+   1. В секции **Агенты** нажмите **Выбрать из списка**.
    1. В выпадающем списке выберите имя нужного агента.
 
       {% note info %}
@@ -83,14 +83,14 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-   1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-   1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-by-filter-selector }}**.
-   1. Если для теста подходит любой из имеющихся агентов, выберите опцию **{{ ui-key.yacloud.load-testing.label_agent-by-filter-any-option }}**. В противном случае, выберите опцию **{{ ui-key.yacloud.load-testing.label_agent-by-filter-condition-option }}** и настройте условия фильтрации агентов:
-      * (Опционально) В секции **{{ ui-key.yacloud.load-testing.filter_label_tags }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и укажите метки в формате `ключ:значение`, по которым будут отобраны агенты тестирования.
-      * (Опционально) В поле **{{ ui-key.yacloud.load-testing.field_name-filter }}** укажите строку, которую должны содержать имена агентов, на которых необходимо запустить тестовую конфигурацию.
-   1. В поле **{{ ui-key.yacloud.load-testing.label_agents-count }}** укажите число агентов, с которых будет синхронно выполняться тест. Это позволит увеличить нагрузку на цель тестирования.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог для тестирования.
+   1. В списке сервисов выберите **Load Testing**.
+   1. На вкладке ![image](../../_assets/load-testing/test.svg) **Тесты** нажмите **Создать тест**.
+   1. В секции **Агенты** нажмите **Первый освободившийся**.
+   1. Если для теста подходит любой из имеющихся агентов, выберите опцию **Любой подходящий**. В противном случае, выберите опцию **Задать условия** и настройте условия фильтрации агентов:
+      * (Опционально) В секции **Фильтр по меткам** нажмите **Добавить метку** и укажите метки в формате `ключ:значение`, по которым будут отобраны агенты тестирования.
+      * (Опционально) В поле **Фильтр по имени** укажите строку, которую должны содержать имена агентов, на которых необходимо запустить тестовую конфигурацию.
+   1. В поле **Количество агентов** укажите число агентов, с которых будет синхронно выполняться тест. Это позволит увеличить нагрузку на цель тестирования.
 
 - CLI {#cli}
 

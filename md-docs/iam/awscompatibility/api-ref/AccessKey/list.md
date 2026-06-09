@@ -5,7 +5,7 @@ Retrieves the list of access keys for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
+GET https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.awscompatibility.ListAccessKeysRequest}

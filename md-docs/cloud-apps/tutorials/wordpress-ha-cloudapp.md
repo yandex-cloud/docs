@@ -1,14 +1,14 @@
-# Установка WordPress High Availability с помощью {{ cloud-apps-name }}
+# Установка WordPress High Availability с помощью Cloud Apps
 
-С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [{{ cloud-apps-name }}](../index.md) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая базу данных [{{ mmy-full-name }}](../../managed-mysql/index.md), веб-сервер и интеграцию с сервисом [{{ postbox-name }}](../../postbox/index.md).
+С помощью этого руководства вы установите и настроите [WordPress](https://wordpress.org/) — систему управления контентом, подходящую как для личных блогов, так и для крупных медиа и коммерческих проектов. Приложение [Cloud Apps](../index.md) будет развернуто на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая базу данных [Yandex Managed Service for MySQL®](../../managed-mysql/index.md), веб-сервер и интеграцию с сервисом [Yandex Cloud Postbox](../../postbox/index.md).
 
 Чтобы установить WordPress:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Создайте сеть и подсети {{ vpc-short-name }}](#create-network).
+1. [Создайте сеть и подсети VPC](#create-network).
 1. [Настройте DNS-зону](#configure-dns).
-1. [Создайте секреты {{ lockbox-name }}](#create-secret).
-1. [Установите WordPress, используя {{ cloud-apps-name }}](#install-wordpress).
+1. [Создайте секреты Yandex Lockbox](#create-secret).
+1. [Установите WordPress, используя Cloud Apps](#install-wordpress).
 1. [Настройте WordPress](#configure-wordpress).
 1. [Проверьте результат](#check-result).
 
@@ -17,11 +17,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,15 +30,15 @@
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* Плата за использование виртуальной машины и хранение данных на диске (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование публичной DNS-зоны и за публичные DNS-запросы (см. [тарифы {{ dns-full-name }}](../../dns/pricing.md)).
-* Плата за выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-full-name }}](../../managed-mysql/pricing.md)).
-* Плата за использование бакета для хранения медиафайлов (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md)).
-* Плата за хранение секретов и операции с ними (см. тарифы [{{ lockbox-full-name }}](../../lockbox/pricing.md)).
-* Плата за исходящие письма (см. тарифы [{{ postbox-full-name }}](../../postbox/pricing.md)).
+* Плата за использование виртуальной машины и хранение данных на диске (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование публичной DNS-зоны и за публичные DNS-запросы (см. [тарифы Yandex Cloud DNS](../../dns/pricing.md)).
+* Плата за выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Yandex Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Плата за использование бакета для хранения медиафайлов (см. [тарифы Yandex Object Storage](../../storage/pricing.md)).
+* Плата за хранение секретов и операции с ними (см. тарифы [Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за исходящие письма (см. тарифы [Yandex Cloud Postbox](../../postbox/pricing.md)).
 
 
-## Создайте сеть и подсети {{ vpc-short-name }} {#create-network}
+## Создайте сеть и подсети VPC {#create-network}
 
 Создайте [облачную сеть](../../vpc/concepts/network.md) и [подсети](../../vpc/concepts/network.md#subnet), в которых будут развернуты ресурсы.
 
@@ -46,21 +46,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором будете разворачивать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором будете разворачивать инфраструктуру.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. В правом верхнем углу нажмите **Создать сеть**.
+  1. В поле **Имя** укажите имя сети. Требования к имени:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
   
-  1. Оставьте включенной опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Оставьте включенной опцию **Создать подсети**.
+  1. Нажмите **Создать сеть**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -87,12 +87,12 @@
       +----------------------+-------------------+
       ```
 
-  1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
+  1. Выберите `NAME` или `ID` требуемой облачной сети. Создайте подсеть в зоне доступности `ru-central1-a`:
 
       ```
       yc vpc subnet create \
         --network-id enpavfmgapum******** \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --range 192.168.0.0/24
       ```
 
@@ -108,7 +108,7 @@
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-  1. Аналогичным образом создайте подсеть в зоне доступности `{{ region-id }}-d`.
+  1. Аналогичным образом создайте подсеть в зоне доступности `ru-central1-d`.
 
 - API {#api}
 
@@ -116,7 +116,7 @@
 
   О том, как узнать идентификатор каталога, читайте в разделе [Получение идентификатора каталога](../../resource-manager/operations/folder/get-id.md).
 
-  Чтобы создать подсети в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-d`, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) и передайте в запросе:
+  Чтобы создать подсети в зонах доступности `ru-central1-a` и `ru-central1-d`, воспользуйтесь методом REST API [create](../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) и передайте в запросе:
 
   * Идентификатор каталога, в котором будет размещена подсеть, в параметре `folderId`.
   * Идентификатор сети, в которой будет размещена подсеть, в параметре `networkId`.
@@ -136,15 +136,15 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+  1. Перейдите в сервис **Cloud DNS**.
+  1. Нажмите кнопку **Создать зону**.
   1. Задайте настройки зоны DNS:
-     * **{{ ui-key.yacloud.dns.label_zone }}** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
-     * **{{ ui-key.yacloud.common.type }}** — выберите `{{ ui-key.yacloud.dns.label_public }}`.
-     * **{{ ui-key.yacloud.common.name }}** — укажите имя зоны, например `example-zone`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     * **Зона** — укажите ваш зарегистрированный домен, например `example.com.` (с точкой в конце).
+     * **Тип** — выберите `Публичная`.
+     * **Имя** — укажите имя зоны, например `example-zone`.
+  1. Нажмите кнопку **Создать**.
 
-  1. Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
+  1. Делегируйте домен на серверы Yandex Cloud. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
 
      Делегирование происходит не сразу. Серверы интернет-провайдеров обновляют записи до 24 часов. Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
 
@@ -155,11 +155,11 @@
      Результат:
 
      ```text
-     ns2.{{ dns-ns-host-sld }}.
-     ns1.{{ dns-ns-host-sld }}.
+     ns2.yandexcloud.net.
+     ns1.yandexcloud.net.
      ```
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Создайте публичную зону DNS:
 
@@ -185,7 +185,7 @@
 
      Подробнее о команде `yc dns zone create` читайте в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
-  1. Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
+  1. Делегируйте домен на серверы Yandex Cloud. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
 
      Делегирование происходит не сразу. Серверы интернет-провайдеров обновляют записи в течение 24 часов.
 
@@ -193,34 +193,34 @@
 
   Чтобы создать публичную зону DNS, воспользуйтесь методом REST API [create](../../dns/api-ref/DnsZone/create.md) для ресурса [DnsZone](../../dns/api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md).
 
-  Делегируйте домен на серверы {{ yandex-cloud }}. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
+  Делегируйте домен на серверы Yandex Cloud. Для этого в личном кабинете вашего регистратора доменных имен укажите адреса DNS-серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
 
 {% endlist %}
 
 
-## Создайте секреты {{ lockbox-name }} {#create-secret}
+## Создайте секреты Yandex Lockbox {#create-secret}
 
-В [секретах](../../lockbox/concepts/secret.md) {{ lockbox-name }} будут храниться пароль базы данных {{ mmy-full-name }} и пароль администратора WordPress.
+В [секретах](../../lockbox/concepts/secret.md) Yandex Lockbox будут храниться пароль базы данных Yandex Managed Service for MySQL® и пароль администратора WordPress.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы создать секрет, в котором будет храниться пароль базы данных {{ mmy-full-name }}:
+  Чтобы создать секрет, в котором будет храниться пароль базы данных Yandex Managed Service for MySQL®:
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `db-password-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите `db_password`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** вставьте пароль базы данных {{ mmy-full-name }}.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите **Создать секрет**.
+  1. В поле **Имя** введите имя секрета: `db-password-secret`.
+  1. В поле **Тип секрета** выберите `Пользовательский`.
+  1. В поле **Ключ** введите `db_password`.
+  1. В поле **Значение** вставьте пароль базы данных Yandex Managed Service for MySQL®.
+  1. Нажмите **Создать**.
 
-  Аналогичным образом создайте секрет `wp-admin-password-secret`, в котором будет храниться пароль администратора WordPress. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите `wp_admin_password`.
+  Аналогичным образом создайте секрет `wp-admin-password-secret`, в котором будет храниться пароль администратора WordPress. В поле **Ключ** укажите `wp_admin_password`.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Чтобы создать секрет, в котором будет храниться пароль базы данных {{ mmy-full-name }}, выполните команду:
+  Чтобы создать секрет, в котором будет храниться пароль базы данных Yandex Managed Service for MySQL®, выполните команду:
 
   ```bash
   yc lockbox secret create \
@@ -228,7 +228,7 @@
     --payload "[{'key': 'db_password', 'text_value': '<пароль>'}]"
   ```
 
-  Где `text_value` — пароль базы данных {{ mmy-full-name }}.
+  Где `text_value` — пароль базы данных Yandex Managed Service for MySQL®.
 
   Результат:
 
@@ -253,7 +253,7 @@
 
   Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
 
-  В параметре `key` для ключа, в котором будет храниться пароль базы данных {{ mmy-full-name }}, укажите `db_password`. Для ключа, в котором будет храниться пароль администратора WordPress, — `wp_admin_password`.
+  В параметре `key` для ключа, в котором будет храниться пароль базы данных Yandex Managed Service for MySQL®, укажите `db_password`. Для ключа, в котором будет храниться пароль администратора WordPress, — `wp_admin_password`.
 
 {% endlist %}
 
@@ -266,15 +266,15 @@
 
 ## Установите WordPress {#install-wordpress}
 
-Установите [WordPress High Availability](https://yandex.cloud/ru/marketplace/products/yc/wordpress-ha-app) с помощью {{ cloud-apps-name }}:
+Установите [WordPress High Availability](https://yandex.cloud/ru/marketplace/products/yc/wordpress-ha-app) с помощью Cloud Apps:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
-  1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
-  1. Выберите приложение **WordPress High Availability** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. Перейдите в сервис **Cloud Apps**.
+  1. Нажмите **Установить приложение**.
+  1. Выберите приложение **WordPress High Availability** и нажмите **Использовать**.
   1. Задайте настройки приложения:
 
       {% note warning %}
@@ -285,17 +285,17 @@
 
       #|
       || **Параметр** | **Обязательный** | **Значение по умолчанию** | **Описание** ||
-      || **{{ ui-key.yacloud.common.name }}** | Да | — | Название вашего экземпляра WordPress High Availability. ||
-      || **{{ ui-key.yacloud.common.description }}** | — | — | Описание экземпляра приложения. ||
-      || **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** | Да | — | Сервисный аккаунт с ролью `admin` на каталог. Чтобы сервисный аккаунт с необходимыми правами создался во время установки приложения, выберите `{{ ui-key.yacloud.component.service-account-field.label_sg-auto }}`. ||
+      || **Имя** | Да | — | Название вашего экземпляра WordPress High Availability. ||
+      || **Описание** | — | — | Описание экземпляра приложения. ||
+      || **Сервисный аккаунт** | Да | — | Сервисный аккаунт с ролью `admin` на каталог. Чтобы сервисный аккаунт с необходимыми правами создался во время установки приложения, выберите `Автоматически`. ||
       || **Идентификатор DNS-зоны** | Да | — | Идентификатор DNS-зоны, в которой будет находиться домен приложения. ||
       || **Поддомен сайта** | — | Пустой | Домен, на котором будет доступен основной сайт. Формируется добавлением поддомена к домену DNS-зоны: `site.example.com` или `example.com`, если поддомен не указан. ||
-      || **Отправитель** | — | `noreply@<домен_сайта>` | Отправитель почты. Используется для настройки SMTP через {{ postbox-name }}. ||
+      || **Отправитель** | — | `noreply@<домен_сайта>` | Отправитель почты. Используется для настройки SMTP через Yandex Cloud Postbox. ||
       || **Логин администратора WordPress** | — | `admin` | Имя пользователя для учетной записи администратора WordPress. ||
       || **Электронная почта администратора WordPress** | Да | — | Адрес электронной почты, который будет использоваться для создания учетной записи администратора WordPress, отправки системных уведомлений и восстановления пароля. ||
       || **Идентификатор секрета с паролем администратора WordPress** | — | — | Идентификатор секрета `wp-admin-password-secret` с паролем администратора WordPress, созданный ранее. Если вы не укажете секрет, он создастся со случайным паролем автоматически во время установки приложения. ||
-      || **Подсеть в {{ region-id }}-a** | Да | — | Подсеть в зоне доступности {{ region-id }}-a для развертывания кластера {{ mmy-name }} и виртуальных машин с файловой системой. ||
-      || **Подсеть в {{ region-id }}-d** | Да | — | Подсеть в зоне доступности {{ region-id }}-d для развертывания кластера {{ mmy-name }} и виртуальных машин с файловой системой. ||
+      || **Подсеть в ru-central1-a** | Да | — | Подсеть в зоне доступности ru-central1-a для развертывания кластера Managed Service for MySQL® и виртуальных машин с файловой системой. ||
+      || **Подсеть в ru-central1-d** | Да | — | Подсеть в зоне доступности ru-central1-d для развертывания кластера Managed Service for MySQL® и виртуальных машин с файловой системой. ||
       || **Размер группы ВМ** | — | `2` | Количество виртуальных машин в группе. ||
       || **Количество vCPU** | — | `2` | Количество ядер vCPU. ||
       || **Объём RAM** | — | `2` | Объем RAM в ГБ. ||
@@ -303,11 +303,11 @@
       || **Публичный SSH-ключ** | — | — | Ключ добавится в `authorized_keys` пользователя WordPress.
       Рекомендуется указать публичный SSH-ключ, чтобы иметь доступ к ВМ по SSH. Пару ключей для подключения по SSH необходимо создать самостоятельно, см. [документацию](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). ||
       || **Размер файловой системы** | — | `100` | Размер файловой системы в ГБ. ||
-      || **Идентификатор секрета с паролем БД** | Да | — | Идентификатор секрета `db-password-secret` с паролем для подключения к кластеру {{ mmy-name }}, созданного ранее. ||
-      || **Размер диска кластера {{ mmy-name }}** | — | `20` | Размер диска кластера {{ mmy-name }} в ГБ. ||
+      || **Идентификатор секрета с паролем БД** | Да | — | Идентификатор секрета `db-password-secret` с паролем для подключения к кластеру Managed Service for MySQL®, созданного ранее. ||
+      || **Размер диска кластера Managed Service for MySQL®** | — | `20` | Размер диска кластера Managed Service for MySQL® в ГБ. ||
       |#
 
-  1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_install }}**.
+  1. Нажмите **Установить**.
 
      В открывшемся окне отобразятся ресурсы, которые будут созданы во время установки приложения. После создания всех ресурсов на виртуальной машине будет происходить настройка сайта, установка плагинов и выпуск TLS-сертификатов. Дождитесь завершения установки, она займет 5–10 минут.
 
@@ -315,7 +315,7 @@
 
 {% note info %}
 
-При установке приложения автоматически создаются [адрес](../../postbox/concepts/glossary.md#adress) {{ postbox-name }} и DNS-запись для его верификации.
+При установке приложения автоматически создаются [адрес](../../postbox/concepts/glossary.md#adress) Yandex Cloud Postbox и DNS-запись для его верификации.
 
 {% endnote %}
 
@@ -346,7 +346,7 @@
 
    1. В административной панели нажмите **Записи** → **Добавить новую**.
    1. Заполните заголовок и содержимое поста.
-   1. Загрузите изображение в пост — оно автоматически сохранится в бакет {{ objstorage-name }}.
+   1. Загрузите изображение в пост — оно автоматически сохранится в бакет Object Storage.
    1. Опубликуйте пост.
 
 1. Проверьте, что пост доступен на главной странице сайта.
@@ -358,7 +358,7 @@
 
    {% note info %}
 
-   Интеграция с {{ postbox-name }} поддерживает регистрацию пользователей и восстановление пароля. Массовые рассылки через {{ postbox-name }} не поддерживаются, так как для них требуется специальный API.
+   Интеграция с Yandex Cloud Postbox поддерживает регистрацию пользователей и восстановление пароля. Массовые рассылки через Yandex Cloud Postbox не поддерживаются, так как для них требуется специальный API.
 
    {% endnote %}
 
@@ -366,8 +366,8 @@
 
    1. В административной панели перейдите в раздел **Плагины**.
    1. Убедитесь, что установлены следующие плагины:
-      * **S3 Uploads** — для интеграции с сервисом **{{objstorage-full-name}}** для хранения медиафайлов.
-      * **WP Mail SMTP** — для интеграции с сервисом **{{postbox-full-name}}** для отправки почтовых уведомлений.
+      * **S3 Uploads** — для интеграции с сервисом **Yandex Object Storage** для хранения медиафайлов.
+      * **WP Mail SMTP** — для интеграции с сервисом **Yandex Cloud Postbox** для отправки почтовых уведомлений.
 
 1. Откройте в браузере домен административной панели БД:
 
@@ -383,16 +383,16 @@
 
 Чтобы остановить работу и перестать платить за созданные ресурсы:
 
-1. Удалите адрес {{ postbox-name }} и связанную с ним [DNS-запись](../../dns/operations/resource-record-delete.md) — они не удалятся автоматически при удалении приложения.
-1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакетов {{ objstorage-name }}, созданных при установке приложения, так как удалять можно только пустые бакеты.
+1. Удалите адрес Yandex Cloud Postbox и связанную с ним [DNS-запись](../../dns/operations/resource-record-delete.md) — они не удалятся автоматически при удалении приложения.
+1. [Удалите](../../storage/operations/objects/delete-all.md) все объекты из бакетов Object Storage, созданных при установке приложения, так как удалять можно только пустые бакеты.
 1. Удалите установленное приложение WordPress High Availability:
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором установлено приложение.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором установлено приложение.
+   1. Перейдите в сервис **Cloud Apps**.
    1. Найдите установленное приложение WordPress High Availability в списке.
-   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **{{ ui-key.yacloud.common.delete }}**.
+   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) рядом с приложением и выберите **Удалить**.
    1. Подтвердите удаление приложения.
 
 1. [Удалите](../../dns/operations/zone-delete.md) публичную DNS-зону.
-1. [Удалите](../../lockbox/operations/secret-delete.md) секреты {{ lockbox-name }}.
-1. Удалите [подсети](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md) {{ vpc-short-name }}.
+1. [Удалите](../../lockbox/operations/secret-delete.md) секреты Yandex Lockbox.
+1. Удалите [подсети](../../vpc/operations/subnet-delete.md) и [сеть](../../vpc/operations/network-delete.md) VPC.

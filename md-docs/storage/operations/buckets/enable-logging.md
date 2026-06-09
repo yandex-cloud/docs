@@ -5,9 +5,9 @@
 
 Подробная информация о запросах к _исходному_ бакету будет сохранена в [объекте](../../concepts/object.md) в _целевом_ бакете. Исходный и целевой бакеты должны различаться. 
 
-{{ objstorage-name }} [не гарантирует](../../concepts/server-logs.md) полноту и своевременность записи логов.
+Object Storage [не гарантирует](../../concepts/server-logs.md) полноту и своевременность записи логов.
 
-По умолчанию механизм логирования отключен. После его включения, {{ objstorage-name }} будет записывать информацию о действиях с бакетом раз в час.
+По умолчанию механизм логирования отключен. После его включения, Object Storage будет записывать информацию о действиях с бакетом раз в час.
 
 ## Включите механизм логирования {#enable}
 
@@ -23,31 +23,31 @@
    
    - Консоль управления {#console}
    
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-     1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
+     1. Перейдите в сервис **Object Storage**.
+     1. На панели сверху нажмите **Создать бакет**.
      1. На странице создания бакета:
    
          1. Введите имя бакета в соответствии с [правилами именования](../../concepts/bucket.md#naming).
    
              
-             По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в {{ objstorage-name }}.
+             По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в Object Storage.
    
    
          1. При необходимости добавьте [метки](../../concepts/tags.md):
    
-             1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+             1. Нажмите **Добавить метку**.
              1. Введите метку в формате `ключ: значение`.
              1. Нажмите **Enter**.
    
          1. При необходимости ограничьте максимальный размер бакета.
    
-             Размер `0` означает отсутствие ограничений и аналогичен включенной опции **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+             Размер `0` означает отсутствие ограничений и аналогичен включенной опции **Без ограничения**.
    
          1. Задайте параметры [публичного доступа](../../security/public-access.md) на чтение [объектов](../../concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета:
    
-             * `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}` — доступ только для авторизованных пользователей {{ yandex-cloud }}.
-             * `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` — доступ для любых пользователей.
+             * `С авторизацией` — доступ только для авторизованных пользователей Yandex Cloud.
+             * `Для всех` — доступ для любых пользователей.
    
              {% note warning %}
              
@@ -57,21 +57,21 @@
    
          1. Выберите [класс хранилища](../../concepts/storage-class.md) по умолчанию:
    
-             * `{{ ui-key.yacloud.storage.value_standard }}`
-             * `{{ ui-key.yacloud.storage.value_cold }}`
-             * `{{ ui-key.yacloud.storage.value_ice }}`
+             * `Стандартное`
+             * `Холодное`
+             * `Ледяное`
    
              Более «холодные» классы предназначены для длительного хранения объектов, работать с которыми планируется реже. Чем «холоднее» хранилище, тем дешевле хранить в нем данные, но тем дороже их читать и записывать.
    
          
-         1. При необходимости включите шифрование: в поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите [симметричный ключ](../../../kms/concepts/key.md) или [создайте](../../../kms/operations/key.md#create) новый.
+         1. При необходимости включите шифрование: в поле **Ключ KMS** выберите [симметричный ключ](../../../kms/concepts/key.md) или [создайте](../../../kms/operations/key.md#create) новый.
    
    
-         1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
+         1. Нажмите **Создать бакет** для завершения операции.
    
-   - {{ yandex-cloud }} CLI {#cli}
+   - Yandex Cloud CLI {#cli}
    
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
    
      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
    
@@ -90,7 +90,7 @@
          Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../../concepts/bucket.md#naming).
      
          
-         По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
+         По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в Object Storage.
      
      
          Результат:
@@ -133,10 +133,10 @@
      
          * Параметры для настройки [ACL](../../concepts/acl.md) бакета:
          * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-         * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
+         * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
              * `grant-type` — тип получателя разрешения. Возможные значения:
              * `grant-type-account` — пользователь, [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../../organization/concepts/groups.md);
-             * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+             * `grant-type-all-authenticated-users` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
              * `grant-type-all-users` — публичная группа всех пользователей интернета.
              * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
              * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../../concepts/acl.md#permissions-types).
@@ -159,19 +159,19 @@
    
      ```bash
      aws s3api create-bucket \
-       --endpoint-url=https://{{ s3-storage-host }} \
+       --endpoint-url=https://storage.yandexcloud.net \
        --bucket <имя_бакета>
      ```
    
      Где:
    
-     * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
+     * `--endpoint-url` — эндпоинт Object Storage.
      * `--bucket` — имя бакета.
    
      
      {% note info %}
    
-     По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}. Подробнее см. [Правила именования бакетов](../../concepts/bucket.md#naming).
+     По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../hosting/certificate.md) собственный сертификат безопасности в Object Storage. Подробнее см. [Правила именования бакетов](../../concepts/bucket.md#naming).
    
      {% endnote %}
    
@@ -191,7 +191,7 @@
    
      {% cut "Опциональные параметры" %}
    
-     Вы можете применить к бакету [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
+     Вы можете применить к бакету [предопределенный ACL](../../concepts/acl.md#predefined-acls) или настроить разрешения для отдельных пользователей, [сервисных аккаунтов](../../../iam/concepts/users/service-accounts.md), [групп пользователей](../../../organization/concepts/groups.md) и [публичных групп](../../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Эти настройки несовместимы: у бакета должен быть либо предопределенный ACL, либо набор отдельных разрешений.
    
      {% note info %}
    
@@ -203,7 +203,7 @@
    
      ```bash
      aws s3api create-bucket \
-       --endpoint-url=https://{{ s3-storage-host }} \
+       --endpoint-url=https://storage.yandexcloud.net \
        --bucket <имя_бакета> \
        --acl <предопределенный_ACL>
      ```
@@ -214,7 +214,7 @@
    
      ```bash
      aws s3api create-bucket \
-       --endpoint-url=https://{{ s3-storage-host }} \
+       --endpoint-url=https://storage.yandexcloud.net \
        --bucket <имя_бакета> \
        <тип_разрешения> <получатель_разрешения>
      ```
@@ -228,7 +228,7 @@
        Вы можете задать несколько разрешений в одной команде.
      * Возможные получатели разрешений:
        * `id=<идентификатор_получателя>` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение.
-       * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }}.
+       * `uri=http://acs.amazonaws.com/groups/global/AuthenticatedUsers` — [публичная группа](../../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud.
        * `uri=http://acs.amazonaws.com/groups/global/AllUsers` — публичная группа всех пользователей интернета.
    
      По умолчанию для каждого нового бакета создается пустой ACL.
@@ -237,30 +237,30 @@
    
      Подробнее о команде `aws s3api create-bucket` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/create-bucket.html).
    
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
    
      {% note info %}
      
-     Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+     Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
      
      {% endnote %}
    
-     [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+     [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
      
-     {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+     Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
      
-     Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+     Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
    
      
-     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
    
    
    
      
-     По умолчанию для аутентификации в {{ objstorage-name }} {{ TF }} использует IAM-токен. Кроме IAM-токена для аутентификации в {{ objstorage-name }} можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации {{ TF }} в {{ objstorage-name }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+     По умолчанию для аутентификации в Object Storage Terraform использует IAM-токен. Кроме IAM-токена для аутентификации в Object Storage можно использовать сервисный аккаунт и статические ключи доступа. Более подробную информацию об особенностях аутентификации Terraform в Object Storage см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
    
      **Создание бакета с использованием IAM-токена**
    
@@ -279,7 +279,7 @@
          Где:
          * `bucket` — имя бакета. Обязательный параметр.
    
-           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в {{ objstorage-name }}.
+           По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в Object Storage.
          
          * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
    
@@ -291,7 +291,7 @@
    
            {% endnote %}
    
-         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
    
      1. Создайте ресурсы:
    
@@ -314,7 +314,7 @@
               terraform plan
               ```
            
-              В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+              В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
            1. Примените изменения конфигурации:
            
               ```bash
@@ -323,7 +323,7 @@
            
            1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
    
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
    
    
      **Создание бакета с использованием статического ключа**
@@ -345,7 +345,7 @@
          # Настройка провайдера
          
          provider "yandex" {
-           zone      = "{{ region-id }}-a"
+           zone      = "ru-central1-a"
          }
    
          # Создание сервисного аккаунта
@@ -398,7 +398,7 @@
            * `bucket` — имя бакета.
    
              
-             По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в {{ objstorage-name }}.
+             По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../hosting/certificate.md) в Object Storage.
    
    
            * `max_size` — максимальный размер бакета в байтах. Значение по умолчанию — `0`, без ограничений. 
@@ -418,7 +418,7 @@
    
            * `tags` — [метки](../../concepts/tags.md) бакета в формате `ключ = "значение"`.
    
-         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform, см. в [документации провайдера](../../../terraform/resources/storage_bucket.md).
    
          {% endcut %}
    
@@ -443,7 +443,7 @@
             terraform plan
             ```
          
-            В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+            В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
          1. Примените изменения конфигурации:
          
             ```bash
@@ -452,7 +452,7 @@
          
          1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
    
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
    
    - API {#api}
    
@@ -474,15 +474,15 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. Перейдите в сервис **Object Storage**.
       1. Выберите бакет, для которого хотите настроить логирование.
-      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-      1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-      1. Включите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
-      1. Выберите **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}**.
-      1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** укажите префикс, с которым будут сохраняться логи.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+      1. Выберите вкладку **Логирование**.
+      1. Включите опцию **Запись логов**.
+      1. Выберите **Бакет для хранения логов**.
+      1. В поле **Префикс** укажите префикс, с которым будут сохраняться логи.
+      1. Нажмите **Сохранить**.
 
    - AWS CLI {#cli}
 
@@ -509,7 +509,7 @@
          ```bash
          aws s3api put-bucket-logging \
            --bucket <имя_исходного_бакета> \
-           --endpoint-url https://{{ s3-storage-host }} \
+           --endpoint-url https://storage.yandexcloud.net \
            --bucket-logging-status file://<путь_к_файлу_настроек>
          ```
 
@@ -518,31 +518,31 @@
          * `--bucket` — имя исходного бакета, для которого нужно включить логирование действий.
          * `--bucket-logging-status` — путь к файлу с настройками логирования.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
      {% note info %}
      
-     Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+     Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
      
      {% endnote %}
 
-     [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+     [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
      
-     {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+     Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
      
-     Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+     Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
      
-     Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+     Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
-     1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
+     1. Откройте файл конфигурации Terraform и добавьте блок `logging` во фрагмент с описанием бакета.
 
         ```hcl
         resource "yandex_storage_bucket" "log_bucket" {
@@ -569,7 +569,7 @@
 
            {% note info %}
            
-           Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+           Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
            
            {% endnote %}
 
@@ -577,7 +577,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#enable-logging).
 
      1. Примените изменения:
 
@@ -600,7 +600,7 @@
            terraform plan
            ```
         
-           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+           В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
         1. Примените изменения конфигурации:
         
            ```bash
@@ -609,7 +609,7 @@
         
         1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    - API {#api}
 
@@ -643,13 +643,13 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+   1. Перейдите в сервис **Object Storage**.
    1. Выберите исходный бакет.
-   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-   1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**
-   1. В списке **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_target-bucket_jEJ5E }}** содержится имя целевого бакета.
-   1. В поле **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_prefix_4JTZG }}** содержится префикс, с которым сохраняются логи.
+   1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+   1. Выберите вкладку **Логирование**
+   1. В списке **Бакет для хранения логов** содержится имя целевого бакета.
+   1. В поле **Префикс** содержится префикс, с которым сохраняются логи.
 
 - AWS CLI {#cli}
 
@@ -661,7 +661,7 @@
    aws s3api get-bucket-logging \
      --bucket <имя_бакета> \
      --output json \
-     --endpoint-url https://{{ s3-storage-host }}
+     --endpoint-url https://storage.yandexcloud.net
    ```
 
    Результат:
@@ -675,12 +675,12 @@
    }
    ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
 
   Чтобы получить настройки логирования в бакете, который вы хотите отслеживать:
 
-     1. Откройте файл конфигурации {{ TF }} и найдите блок `logging` в фрагменте с описанием бакета.
+     1. Откройте файл конфигурации Terraform и найдите блок `logging` в фрагменте с описанием бакета.
 
         ```hcl
         resource "yandex_storage_bucket" "log_bucket" {
@@ -708,7 +708,7 @@
         * `target_bucket` — указание на бакет для хранения логов.
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
-        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#enable-logging).
 
   1. Примените изменения:
 
@@ -731,7 +731,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -740,7 +740,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+     Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -769,11 +769,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите целевой бакет с логами.
   1. Перейдите в папку `logs/`.
-  1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.storage.bucket.button_download }}**.
+  1. Напротив объекта с логами, который вы хотите скачать, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Скачать**.
   
   {% note info %}
 
@@ -799,13 +799,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите выключить логирование.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}**.
-  1. Выключите опцию **{{ ui-key.yacloud.storage.form.BucketServerLogsFormContent.label_server-logs_mfGpj }}**.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Выберите вкладку **Логирование**.
+  1. Выключите опцию **Запись логов**.
+  1. Нажмите **Сохранить**.
 
 - AWS CLI {#cli}
 
@@ -814,20 +814,20 @@
      ```bash
      aws s3api put-bucket-logging \
          --bucket <имя_бакета> \
-         --endpoint-url https://{{ s3-storage-host }} \
+         --endpoint-url https://storage.yandexcloud.net \
          --bucket-logging-status {}
      ```
 
      Где `--bucket` — имя исходного бакета, для которого нужно выключить логирование действий.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
 
   Чтобы выключить механизм логирования:
 
-  1. В файле конфигураций {{ TF }} удалите блок `logging` во фрагменте с описанием бакета.
+  1. В файле конфигураций Terraform удалите блок `logging` во фрагменте с описанием бакета.
 
-      {% cut "Пример описания бакета в конфигурации {{ TF }}" %}
+      {% cut "Пример описания бакета в конфигурации Terraform" %}
 
       ```hcl
       ...
@@ -874,7 +874,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -883,7 +883,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменения можно в [консоли управления]({{ link-console-main }}).
+  Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 

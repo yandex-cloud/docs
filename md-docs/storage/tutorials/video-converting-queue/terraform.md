@@ -1,6 +1,6 @@
-# Конвертация видео в GIF на Python с помощью {{ TF }}
+# Конвертация видео в GIF на Python с помощью Terraform
 
-Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью {{ TF }}:
+Чтобы создать инфраструктуру для [конвертации видео в GIF на Python](index.md) с помощью Terraform:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте инфраструктуру](#deploy).
@@ -10,11 +10,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -22,21 +22,21 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы {{ sf-full-name }}](../../../functions/pricing.md));
-* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) (см. [тарифы {{ ydb-full-name }}](../../../ydb/pricing/serverless.md));
-* плата за хранение данных в [бакете](../../concepts/bucket.md) (см. [тарифы {{ objstorage-full-name }}](../../pricing.md)).
+* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md));
+* плата за выполнение запросов к [базе данных](../../../ydb/concepts/serverless-and-dedicated.md) (см. [тарифы Yandex Managed Service for YDB](../../../ydb/pricing/serverless.md));
+* плата за хранение данных в [бакете](../../concepts/bucket.md) (см. [тарифы Yandex Object Storage](../../pricing.md)).
 
 
 ## Создайте инфраструктуру {#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры с помощью {{ TF }}:
-1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры с помощью Terraform:
+1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -548,17 +548,17 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
-   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
-   * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member)
-   * [Секрет](../../../lockbox/concepts/secret.md) — [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
-   * [Версия секрета](../../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
-   * [Очередь сообщений](../../../message-queue/concepts/queue.md) — [yandex_message_queue]({{ tf-provider-resources-link }}/message_queue)
-   * [База данных YDB](../../../message-queue/concepts/queue.md) — [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless)
-   * [Бакет](../../concepts/bucket.md) — [yandex_storage_bucket]({{ tf-provider-resources-link }}/storage_bucket)
-   * [Объект бакета](../../concepts/object.md) — [yandex_storage_object]({{ tf-provider-resources-link }}/storage_object)
-   * [Функция](../../../functions/concepts/function.md) — [yandex_function]({{ tf-provider-resources-link }}/function)
-   * [Триггер](../../../functions/concepts/trigger/ymq-trigger.md) — [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger)
+   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
+   * [Роль](../../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md)
+   * [Секрет](../../../lockbox/concepts/secret.md) — [yandex_lockbox_secret](../../../terraform/resources/lockbox_secret.md)
+   * [Версия секрета](../../../lockbox/concepts/secret.md#version) — [yandex_lockbox_secret_version](../../../terraform/resources/lockbox_secret_version.md)
+   * [Очередь сообщений](../../../message-queue/concepts/queue.md) — [yandex_message_queue](../../../terraform/resources/message_queue.md)
+   * [База данных YDB](../../../message-queue/concepts/queue.md) — [yandex_ydb_database_serverless](../../../terraform/resources/ydb_database_serverless.md)
+   * [Бакет](../../concepts/bucket.md) — [yandex_storage_bucket](../../../terraform/resources/storage_bucket.md)
+   * [Объект бакета](../../concepts/object.md) — [yandex_storage_object](../../../terraform/resources/storage_object.md)
+   * [Функция](../../../functions/concepts/function.md) — [yandex_function](../../../terraform/resources/function.md)
+   * [Триггер](../../../functions/concepts/trigger/ymq-trigger.md) — [yandex_function_trigger](../../../terraform/resources/function_trigger.md)
 
 1. В файле `video-converting.tf` задайте пользовательские параметры:
    * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
@@ -585,7 +585,7 @@
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -603,9 +603,9 @@
 
 1.  [Создайте таблицу](../../../ydb/operations/schema.md#create-table)  в базе данных YDB:
 
-    * **{{ ui-key.yacloud.ydb.table.form.field_name }}** — `tasks`.
-    * **{{ ui-key.yacloud.ydb.table.form.field_type }}** — [{{ ui-key.yacloud.ydb.table.form.label_document-table }}](../../../ydb/operations/schema.md#create-table).
-    * **{{ ui-key.yacloud.ydb.table.form.label_columns }}** — одна колонка с именем `task_id` типа `String`. Установите атрибут [{{ ui-key.yacloud.ydb.table.form.column_shard }}](../../../ydb/operations/schema.md#create-table).
+    * **Имя** — `tasks`.
+    * **Тип таблицы** — [Документная таблица](../../../ydb/operations/schema.md#create-table).
+    * **Колонки** — одна колонка с именем `task_id` типа `String`. Установите атрибут [Ключ партицирования](../../../ydb/operations/schema.md#create-table).
 
 После создания таблицы [проверьте работу приложения](#test-app).
 
@@ -619,11 +619,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите:
+  1. Перейдите на вкладку **Тестирование**.
+  1. В поле **Входные данные** введите:
 
      ```json
      {"action":"convert", "src_url":"<ссылка_на_видео>"}
@@ -631,8 +631,8 @@
 
      Где `<ссылка_на_видео>` — ссылка на сохраненный на [Яндекс Диске](https://disk.yandex.ru) видеофайл в формате [MP4](https://ru.wikipedia.org/wiki/MPEG-4_Part_14).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится идентификатор задачи:
+  1. Нажмите кнопку **Запустить тест**.
+  1. В поле **Ответ функции** отобразится идентификатор задачи:
 
      ```json
      { "task_id": "c4269ceb-8d3a-40fe-95f0-84cf********" }
@@ -648,11 +648,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится очередь `converter-queue`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится очередь `converter-queue`.
+  1. Выберите сервис **Message Queue**.
   1. Выберите очередь `converter-queue`.
-  1. В блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** отображается количество сообщений в очереди и в обработке.
-  1. Перейдите в раздел **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите графики **Overall queue stats**.
+  1. В блоке **Общая информация** отображается количество сообщений в очереди и в обработке.
+  1. Перейдите в раздел **Мониторинг**. Посмотрите графики **Overall queue stats**.
 
 {% endlist %}
 
@@ -664,10 +664,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-converter`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-converter`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-converter`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи.
+  1. Перейдите на вкладку **Логи** и укажите период, за который хотите посмотреть логи.
 
 {% endlist %}
 
@@ -677,18 +677,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится функция `ffmpeg-api`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится функция `ffmpeg-api`.
+  1. Выберите сервис **Cloud Functions**.
   1. Выберите функцию `ffmpeg-api`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
-  1. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_payload }}** введите запрос:
+  1. Перейдите на вкладку **Тестирование**.
+  1. В поле **Входные данные** введите запрос:
 
      ```json
      {"action":"get_task_status", "task_id":"<идентификатор_задачи>"}
      ```
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
-  1. Если конвертация видео в GIF-файл не завершилась, в поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_function-output }}** отобразится ответ:
+  1. Нажмите кнопку **Запустить тест**.
+  1. Если конвертация видео в GIF-файл не завершилась, в поле **Ответ функции** отобразится ответ:
 
      ```json
      {
@@ -701,7 +701,7 @@
      ```json
      {
          "ready": true,
-         "gif_url": "https://{{ s3-storage-host }}/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F202********{{ region-id }}%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
+         "gif_url": "https://storage.yandexcloud.net/<имя_бакета>/1b4db1a6-f2b2-4b1c-b662-37f7********.gif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=qxLftbbZ91U695ysemyZ%2F202********ru-central1%2Fs3%2Faws4_request&X-Amz-Date=20210831T110351Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=f4a5fe7848274a09be5b221fbf8a9f6f2b385708cfa351861a4e69df********"
      }
      ```
 
@@ -734,7 +734,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -745,4 +745,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Конвертация видео в GIF на Python с помощью консоли управления](console.md)

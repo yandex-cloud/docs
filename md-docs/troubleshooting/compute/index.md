@@ -1,17 +1,17 @@
-# Решения для {{ compute-name }}
+# Решения для Compute Cloud
 
-## Примеры конфигураций и сценариев {{ compute-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Compute Cloud {#configuration-examples}
 
-* [Варианты миграции образа виртуальной машины в {{ yandex-cloud }}](how-to/possible-vm-migration-scenarios.md)
-* [Как узнать о потреблении оперативной памяти виртуальными машинами в {{ compute-name }}](how-to/view-ram-usage-in-monitoring.md)
+* [Варианты миграции образа виртуальной машины в Yandex Cloud](how-to/possible-vm-migration-scenarios.md)
+* [Как узнать о потреблении оперативной памяти виртуальными машинами в Compute Cloud](how-to/view-ram-usage-in-monitoring.md)
 * [Как уменьшить объем диска виртуальной машины](how-to/shrink-instance-disk.md)
 * [Как настроить GUI и графическое окружение на виртуальных машин с Linux](how-to/access-gui-and-xorg-on-linux-vm.md)
-* [Как экспортировать образы дисков виртуальных машин {{ compute-name }}](how-to/export-disk-image.md)
+* [Как экспортировать образы дисков виртуальных машин Compute Cloud](how-to/export-disk-image.md)
 * [Как перенести виртуальную машину между разными каталогами или облаками](how-to/transfer-vm-between-clouds.md)
 * [Как использовать ISO-образ для развертывания виртуальных машин](how-to/using-iso-to-deploy-vm-is-not-supported.md)
 * [Как изменить тип загрузочного диска виртуальной машины](how-to/migrate-data-from-hdd-to-ssd.md)
 * [Как получить входящий или исходящий трафик виртуальной машины](how-to/incoming-and-outcoming-traffic-logs.md)
-* [Как подключиться к виртуальной машине Linux в {{ yandex-cloud }} через WinSCP со сгенерированным при создании ключом](how-to/winscp-and-key-authorization.md)
+* [Как подключиться к виртуальной машине Linux в Yandex Cloud через WinSCP со сгенерированным при создании ключом](how-to/winscp-and-key-authorization.md)
 * [Как создать бэкап виртуальной машины с возможностью отката](how-to/create-vm-backups.md)
 * [Как подключиться по SSH от root с паролем или ключом](how-to/ssh-root-authorization.md)
 * [Как отслеживать объем потребляемой памяти](how-to/ram-monitoring.md)
@@ -20,9 +20,9 @@
 * [Как создать виртуальную машину с доступом по паролю](how-to/create-password-protected-vm.md)
 * [Как настроить защиту RDP-подключения на Microsoft Windows®](how-to/rdp-protection-for-windows.md)
 
-## Решения для известных проблем {{ compute-name }} {#known-issues-resolving}
+## Решения для известных проблем Compute Cloud {#known-issues-resolving}
 
-* [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами {{ TF }}](known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
+* [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами Terraform](known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
 * [Не поддерживается вложенная виртуализация](known-issues/nested-virtualisation-is-not-supported.md)
 * [Нет доступа к ВМ по SSH и ping после обновления cloud-init](known-issues/no-ssh-access-and-ping-after-cloud-init-update.md)
 * [Восстановление доступа к виртуальной машине с утерянным SSH-ключом](known-issues/restore-access-to-vm.md)

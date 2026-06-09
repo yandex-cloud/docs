@@ -2,7 +2,7 @@
 
 Создавать новую ревизию необходимо в следующих случаях:
 
-* загрузка новой версии Docker-образа в [{{ container-registry-full-name }}](../../container-registry/index.md);
+* загрузка новой версии Docker-образа в [Yandex Container Registry](../../container-registry/index.md);
 * изменение настроек ревизии.
 
 {% note info %}
@@ -19,21 +19,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../concepts/container.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [контейнер](../concepts/container.md).
+  1. Перейдите в сервис **Serverless Containers**.
   1. Выберите контейнер, [ревизию](../concepts/container.md#revision) которого хотите создать.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-  1. В разделе **{{ ui-key.yacloud.serverless-containers.section_image }}**:
-      * Укажите URL Docker-образа из {{ container-registry-full-name }}.
+  1. Перейдите на вкладку **Редактор**.
+  1. В разделе **Параметры образа**:
+      * Укажите URL Docker-образа из Yandex Container Registry.
       * Если необходимо, дополнительно укажите параметры ревизии:
-          * **{{ ui-key.yacloud.serverless-containers.label_command }}** — команды, которые контейнер выполнит при запуске. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
-          * **{{ ui-key.yacloud.serverless-containers.label_args }}** — соответствует инструкции `CMD` в Dockerfile. Аргументы указываются в формате `ключ = значение`. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
+          * **Команда** — команды, которые контейнер выполнит при запуске. Соответствует инструкции `ENTRYPOINT` в Dockerfile.
+          * **Аргументы** — соответствует инструкции `CMD` в Dockerfile. Аргументы указываются в формате `ключ = значение`. Если не указано, будет использоваться значение `CMD` по умолчанию из Docker-образа.
 
-              В контейнер можно передать несколько аргументов. Для этого нажмите **{{ ui-key.yacloud.common.add }}**.
+              В контейнер можно передать несколько аргументов. Для этого нажмите **Добавить**.
 
-          * **{{ ui-key.yacloud.serverless-containers.label_working-directory }}** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
+          * **Рабочая директория** — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
+  1. Нажмите кнопку **Создать ревизию**.
 
 - CLI {#cli}
 
@@ -67,7 +67,7 @@
   container_id: bba3fva6ka5g********
   created_at: "2021-07-09T15:04:55.135Z"
   image:
-    image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
+    image_url: cr.yandex/crpd3cicopk7********/test-container:latest
     image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
   resources:
     memory: "1073741824"
@@ -77,20 +77,20 @@
   status: ACTIVE
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  В {{ TF }} [ревизия](../concepts/container.md#revision) создается при каждом обновлении параметров работы ресурса.
+  В Terraform [ревизия](../concepts/container.md#revision) создается при каждом обновлении параметров работы ресурса.
 
   Чтобы создать ревизию:
   1. Обновите в конфигурационном файле параметры ресурса `yandex_serverless_container`:
@@ -118,7 +118,7 @@
      * `args` — аргументы, соответствует инструкции `CMD` в Dockerfile. Указываются в формате `ключ = значение` через запятую. Если не указано, будет использоваться значение CMD по умолчанию из Docker-образа.
      * `work_dir` — позволяет изменить рабочую директорию контейнера. Соответствует инструкции `WORKDIR` в Dockerfile. Рекомендуется устанавливать абсолютные пути к папкам.
 
-     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_container).
+     Более подробную информацию о параметрах ресурса `yandex_serverless_container` в Terraform, см. в [документации провайдера](../../terraform/resources/serverless_container.md).
 
   1. Создайте ресурсы:
 
@@ -141,7 +141,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -150,7 +150,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     После этого будет создана ревизия. Проверить создание ревизии можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/index.md):
+     После этого будет создана ревизия. Проверить создание ревизии можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/index.md):
 
      ```bash
      yc serverless container revision list

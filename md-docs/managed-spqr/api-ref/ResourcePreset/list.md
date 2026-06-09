@@ -5,7 +5,7 @@ Retrieves the list of available ResourcePreset resources.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/resourcePresets
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/resourcePresets
 ```
 
 ## Query parameters {#yandex.cloud.mdb.spqr.v1.ListResourcePresetsRequest}

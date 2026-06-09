@@ -1,6 +1,6 @@
 # Рекомендуемые конфигурации мастера
 
-Конфигурацию [мастера](index.md#master) можно выбрать при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) кластера. Для стабильной работы конфигурация мастера должна соответствовать нагрузке на кластер {{ k8s }}.
+Конфигурацию [мастера](index.md#master) можно выбрать при [создании](../operations/kubernetes-cluster/kubernetes-cluster-create.md) или [изменении](../operations/kubernetes-cluster/kubernetes-cluster-update.md#manage-resources) кластера. Для стабильной работы конфигурация мастера должна соответствовать нагрузке на кластер Kubernetes.
 
 С помощью таблицы можно подобрать минимальную конфигурацию мастера мастера по параметрам кластера. Конфигурации могут меняться, [смотрите список доступных конфигураций](../operations/kubernetes-cluster/kubernetes-cluster-configuration-list.md).
 

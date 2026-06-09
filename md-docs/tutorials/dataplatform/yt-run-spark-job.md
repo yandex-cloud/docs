@@ -1,8 +1,8 @@
-# Запуск PySpark-задания в {{ myt-full-name }}
+# Запуск PySpark-задания в Yandex Managed Service for YTsaurus
 
 # Запуск PySpark-задания
 
-В кластере {{ ytsaurus-name }} вы можете запускать Spark- и PySpark-задания с помощью скрипта `spark-submit`. Он сохраняет результаты расчета в HDFS. Подробнее о `spark-submit` читайте в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications). Задания запускаются в кластере {{ SPRK }}, работающем на вычислительных ресурсах кластера {{ ytsaurus-name }}, с помощью инструмента [SPYT](https://ytsaurus.tech/docs/ru/user-guide/data-processing/spyt/overview#what-is-spyt).
+В кластере YTsaurus вы можете запускать Spark- и PySpark-задания с помощью скрипта `spark-submit`. Он сохраняет результаты расчета в HDFS. Подробнее о `spark-submit` читайте в [документации Spark](https://spark.apache.org/docs/latest/submitting-applications.html#submitting-applications). Задания запускаются в кластере Apache Spark™, работающем на вычислительных ресурсах кластера YTsaurus, с помощью инструмента [SPYT](https://ytsaurus.tech/docs/ru/user-guide/data-processing/spyt/overview#what-is-spyt).
 
 Ниже рассматривается пример запуска приложения на языке программирования [Python](https://www.python.org/downloads).
 
@@ -17,8 +17,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ ytsaurus-name }}: использование вычислительных ресурсов компонентов кластера и объем хранилища (см. [тарифы {{ ytsaurus-name }}](../../managed-ytsaurus/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Кластер YTsaurus: использование вычислительных ресурсов компонентов кластера и объем хранилища (см. [тарифы YTsaurus](../../managed-ytsaurus/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -30,38 +30,38 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `ytsaurus-sa` с ролью `managed-ytsaurus.editor`.
 
-    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `ytsaurus-network`. При создании выключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+    1. [Создайте сеть](../../vpc/operations/network-create.md) с именем `ytsaurus-network`. При создании выключите опцию **Создать подсети**.
     1. В сети `ytsaurus-network` [создайте подсеть](../../vpc/operations/subnet-create.md) со следующими параметрами:
 
         * Имя — `ytsaurus-subnet-a`.
-        * Зона доступности — `{{ region-id }}-a`.
+        * Зона доступности — `ru-central1-a`.
         * CIDR — `10.1.0.0/16`.
 
     1. В сети `ytsaurus-network` [создайте группы безопасности](../../vpc/operations/security-group-create.md):
 
         * Для виртуальной машины — с именем `vm-security-group` и правилами, разрешающими входящий трафик по протоколу TCP на порт 22 со всех адресов и исходящий трафик на все порты и адреса.
 
-        * Для кластера {{ ytsaurus-name }} — с именем `ytsaurus-security-group` и правилом, разрешающим входящий трафик на все порты со всех адресов.
+        * Для кластера YTsaurus — с именем `ytsaurus-security-group` и правилом, разрешающим входящий трафик на все порты со всех адресов.
 
     1. [Создайте виртуальную машину](../../compute/quickstart/quick-create-linux.md) `vm-ubuntu-24-04` со следующими параметрами:
 
         * Операционная система — `Ubuntu 24.04`.
-        * Зона доступности — `{{ region-id }}-a`.
+        * Зона доступности — `ru-central1-a`.
         * Подсеть — `ytsaurus-subnet-a`.
         * Группа безопасности — `vm-security-group`.
         * Сервисный аккаунт — `ytsaurus-sa`.
 
-    1. [Создайте кластер {{ ytsaurus-name }}](../../managed-ytsaurus/operations/cluster-create.md) с настройками:
+    1. [Создайте кластер YTsaurus](../../managed-ytsaurus/operations/cluster-create.md) с настройками:
 
-        * Тип кластера — `{{ ui-key.yacloud.managed-ytsaurus.clusters.YTSaurusClusterCreatePage.cluster-kind-card_demo_title_4B7zu }}`.
+        * Тип кластера — `Demo-кластер`.
         * Имя кластера — `ytsaurus-cluster`.
-        * Зона доступности — `{{ region-id }}-a`.
+        * Зона доступности — `ru-central1-a`.
         * Подсеть — `ytsaurus-subnet-a`.
         * Группа безопасности — `ytsaurus-security-group`.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -75,16 +75,16 @@
         * группы безопасности;
         * сервисный аккаунт для работы с ресурсами кластера;
         * виртуальная машина;
-        * кластер {{ ytsaurus-name }}.
+        * кластер YTsaurus.
 
     1. Укажите в файле конфигурации `ytsaurus-for-spark-jobs.tf` необходимые параметры.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -106,14 +106,14 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 ## Подготовьте ВМ к работе {#prepare-vm}
 
 1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect).
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 1. Установите зависимости:
 
@@ -155,7 +155,7 @@
 1. Задайте переменные окружения:
 
     ```bash
-    export YT_PROXY=http://hp.<идентификатор_кластера_{{ ytsaurus-name }}>.ytsaurus.mdb.yandexcloud.net:32100 ; \
+    export YT_PROXY=http://hp.<идентификатор_кластера_YTsaurus>.ytsaurus.mdb.yandexcloud.net:32100 ; \
     export YT_TOKEN=<IAM-токен> ; \
     export YT_USER=<идентификатор_сервисного_аккаунта>
     ```
@@ -224,7 +224,7 @@
 
 На виртуальной машине выполните команды:
 
-1. Создайте таблицу `table1` в {{ ytsaurus-name }}:
+1. Создайте таблицу `table1` в YTsaurus:
 
     ```bash
     yt create table //tmp/table1 \
@@ -281,15 +281,15 @@
 - Вручную {#manual}
 
     * [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-    * [Кластер {{ ytsaurus-name }}](../../managed-ytsaurus/operations/cluster-delete.md).
+    * [Кластер YTsaurus](../../managed-ytsaurus/operations/cluster-delete.md).
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -303,6 +303,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

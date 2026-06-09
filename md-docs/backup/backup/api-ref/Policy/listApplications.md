@@ -5,7 +5,7 @@ List applied policies using filters.
 ## HTTP request
 
 ```
-GET https://backup.{{ api-host }}/backup/v1/policies/{policyId}/applications
+GET https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}/applications
 ```
 
 ## Path parameters

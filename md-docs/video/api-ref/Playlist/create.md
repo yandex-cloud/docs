@@ -6,7 +6,7 @@ Playlists can contain videos, episodes, or a mix of both content types.
 ## HTTP request
 
 ```
-POST https://video.{{ api-host }}/video/v1/playlists
+POST https://video.api.cloud.yandex.net/video/v1/playlists
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreatePlaylistRequest}

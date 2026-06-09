@@ -2,29 +2,29 @@
 
 Указанные примеры отправки запроса работают только с [нодами из Docker-образа](../../concepts/deploy/index.md#docker-node). Чтобы отправить запрос в [ноду из модели](../../concepts/deploy/index.md#models-node), установите [Triton Client](https://github.com/triton-inference-server/client).
 
-Отправлять запросы к публичному алиасу могут все пользователи, авторизованные в {{ yandex-cloud }}. Чтобы отправить запрос к приватному алиасу, необходимы следующие роли:
+Отправлять запросы к публичному алиасу могут все пользователи, авторизованные в Yandex Cloud. Чтобы отправить запрос к приватному алиасу, необходимы следующие роли:
 
-* Для пользователей минимальная роль — `{{ roles-datasphere-project-developer }}` в проекте.
-* Для сервисных аккаутов необходима роль `{{ roles-datasphere-project-developer }}` в проекте либо сервисный аккаунт должен быть создан в каталоге, указанном при создании алиаса.
+* Для пользователей минимальная роль — `datasphere.community-projects.developer` в проекте.
+* Для сервисных аккаутов необходима роль `datasphere.community-projects.developer` в проекте либо сервисный аккаунт должен быть создан в каталоге, указанном при создании алиаса.
 
 {% list tabs %}
 
-- Интерфейс {{ ml-platform-full-name }}
+- Интерфейс Yandex DataSphere
 
   Тип запроса в [алиас](../../concepts/deploy/index.md#alias) зависит от вашей [ноды](../../concepts/deploy/index.md#node). Вы можете отправить тестовый запрос в интерфейсе, если в ответе ожидаете получить простые данные, например числа или строковые переменные.
   
-  1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-  1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.common.alias }}**.
+  1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+  1. В блоке **Ресурсы проекта** выберите **Алиас**.
   1. Выберите алиас, к которому нужно отправить запрос.
-  1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.node-page.tab.request }}**.
-  1. В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.create-test-request }}**:
+  1. Перейдите на вкладку **Запрос**.
+  1. В блоке **Создать тестовый запрос**:
      * В поле **Method** выберите тип запроса.
-     * В поле **{{ ui-key.yc-ui-datasphere.common.input }}** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.execute }}**.
-  1. Посмотрите результат обработки запроса в блоке **{{ ui-key.yc-ui-datasphere.common.response }}**.
+     * В поле **Входные значения** введите входные переменные запроса в формате `{"a":2,"b":3}` и нажмите кнопку **Выполнить**.
+  1. Посмотрите результат обработки запроса в блоке **Ответ**.
   
   {% note info %}
   
-  В блоке **{{ ui-key.yc-ui-datasphere.node-page.request.curl }}** приведены примеры запросов в алиас для утилит cURL и gRPCurl.
+  В блоке **cURL** приведены примеры запросов в алиас для утилит cURL и gRPCurl.
   
   {% endnote %}
 
@@ -38,7 +38,7 @@
      --header "Authorization: Bearer <IAM-токен>" \
      --header "x-folder-id: <идентификатор_каталога>" \
      --data '<входные_переменные>' \
-     {{ ds-node-endpoint }}:443
+     node-api.datasphere.yandexcloud.net:443
   ```
   
   Где:
@@ -69,7 +69,7 @@
      --header "x-folder-id: <идентификатор_каталога>" \
      --request <тип_запроса> \
      --data '<входные_переменные>' \
-     https://{{ ds-node-endpoint }}/
+     https://node-api.datasphere.yandexcloud.net/
   ```
   
   Где:

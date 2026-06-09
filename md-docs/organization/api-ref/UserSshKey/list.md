@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/userSshKeys
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/userSshKeys
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListUserSshKeysRequest}

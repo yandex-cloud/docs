@@ -5,7 +5,7 @@ Deletes the specified host group.
 ## HTTP request
 
 ```
-DELETE https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
+DELETE https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
 ```
 
 ## Path parameters

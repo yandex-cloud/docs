@@ -5,7 +5,7 @@ Retrieves the list of available backups for the specified Redis cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/backups
+GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters

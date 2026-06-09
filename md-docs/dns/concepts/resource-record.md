@@ -14,7 +14,7 @@
 
 {% endnote %}
 
-{{ dns-name }} оперирует наборами записей. Набор может содержать одну запись или объединять ресурсные записи с одинаковым именем и типом, но с разными значениями.
+Cloud DNS оперирует наборами записей. Набор может содержать одну запись или объединять ресурсные записи с одинаковым именем и типом, но с разными значениями.
 
 Пример набора записей:
 
@@ -30,7 +30,7 @@
 
 {% endnote %}
 
-Типы ресурсных записей, поддерживаемых {{ dns-name }}, указаны ниже.
+Типы ресурсных записей, поддерживаемых Cloud DNS, указаны ниже.
 
 
 ## A {#a}
@@ -108,14 +108,14 @@
 
 | Имя                  | Тип   | TTL | Значение                           |
 |----------------------|-------|-----|------------------------------------|
-| example.com.         | ANAME | 600 | example.com.{{ s3-web-host }} |
+| example.com.         | ANAME | 600 | example.com.website.yandexcloud.net |
 | example.com.         | MX    | 600 | 10 mx.example.com                  |
 | example.com.         | TXT   | 600 | v=spf1 redirect=_spf.example.com   |
 | example.com.         | TXT   | 600 | v=DKIM1; k=rsa; t=s; p=<ключ>      |
 
 {% note info %}
 
-Не используйте ресурсную запись `ANAME` с доменными именами для раздачи контента [{{ cdn-full-name }}](../../cdn/index.md), поскольку в таком случае конечный пользователь получит ответ от CDN-сервера, не связанного с геолокацией пользователя. Ответ всегда будет одинаков для всех пользователей.
+Не используйте ресурсную запись `ANAME` с доменными именами для раздачи контента [Yandex Cloud CDN](../../cdn/index.md), поскольку в таком случае конечный пользователь получит ответ от CDN-сервера, не связанного с геолокацией пользователя. Ответ всегда будет одинаков для всех пользователей.
 
 {% endnote %}
 
@@ -168,13 +168,13 @@
 
 * `MNAME` — доменное имя сервера, обслуживающего зону. Значение по умолчанию:
     * `ns.internal.` — для внутренних зон;
-    * `ns1.{{ dns-ns-host-sld }}.` — для публичных зон.
-* `RNAME` — доменное имя почтового сервера, обслуживающего зону. Значение по умолчанию — `{{ dns-mx-host }}.`.
+    * `ns1.yandexcloud.net.` — для публичных зон.
+* `RNAME` — доменное имя почтового сервера, обслуживающего зону. Значение по умолчанию — `mx.cloud.yandex.net.`.
 * `SERIAL` — 32-битное беззнаковое целое, указывающее на номер копии зоны. При синхронизации данных между DNS-серверами проверяется значение в поле `SERIAL`. Чем оно больше, тем более свежими считаются данные. Значение по умолчанию — `1`.
 
     {% note warning %}
 
-    Сервис {{ dns-name }} не изменяет значение поля `SERIAL` в SOA-записях при редактировании ресурсных записей зоны. Если вы хотите принудительно обновить кеш DNS-серверов, содержащих информацию о ваших ресурсных записях, увеличьте значение в этом поле вручную.
+    Сервис Cloud DNS не изменяет значение поля `SERIAL` в SOA-записях при редактировании ресурсных записей зоны. Если вы хотите принудительно обновить кеш DNS-серверов, содержащих информацию о ваших ресурсных записях, увеличьте значение в этом поле вручную.
 
     {% endnote %}
 
@@ -185,8 +185,8 @@
 
 | Имя          | Тип | TTL  | Значение                                                           |
 |--------------|-----|------|--------------------------------------------------------------------|
-| example.com. | SOA | 3600 | ns1.{{ dns-ns-host-sld }}. {{ dns-mx-host }}. 1 10800 900 604800 86400 |
-| example.com. | SOA | 3600 | ns.internal. {{ dns-mx-host }}. 1 10800 900 604800 86400         |
+| example.com. | SOA | 3600 | ns1.yandexcloud.net. mx.cloud.yandex.net. 1 10800 900 604800 86400 |
+| example.com. | SOA | 3600 | ns.internal. mx.cloud.yandex.net. 1 10800 900 604800 86400         |
 
 Подробнее о SOA-записях см. в [RFC-1035](https://www.ietf.org/rfc/rfc1035.html#section-3.3.13).
 
@@ -213,7 +213,7 @@
 
 {% note warning %}
 
-Сервис {{ dns-name }} поддерживает только SRV-записи класса `IN`. При создании записей указывать префикс `IN` не нужно.
+Сервис Cloud DNS поддерживает только SRV-записи класса `IN`. При создании записей указывать префикс `IN` не нужно.
 
 {% endnote %}
 
@@ -266,7 +266,7 @@
     * DKIM, [RFC-6376](https://datatracker.ietf.org/doc/html/rfc6376/);
     * SPF, [RFC-7208](https://datatracker.ietf.org/doc/html/rfc7208).
 
-Реализация работы TXT-записей в {{ dns-full-name }} имеет следующие особенности и ограничения:
+Реализация работы TXT-записей в Yandex Cloud DNS имеет следующие особенности и ограничения:
 
 * Сервис использует формат [MASTER FILES](https://www.ietf.org/rfc/rfc1035.html#section-5). Согласно спецификации этого формата, с символа `;` начинается комментарий, т. е. все содержимое после него игнорируется. Если вы хотите использовать символ `;` в значении TXT-записи, заключите содержащую его строку в двойные кавычки `""`.
 
@@ -307,18 +307,18 @@
 
 ## Сервисные записи {#service-records}
 
-Некоторые сервисы {{ yandex-cloud }} используют в своей работе ресурсные записи {{ dns-name }} и позволяют создавать их. В списке ресурсных записей {{ dns-name }} такие записи помечены значками сервисов, в которых они были созданы:
+Некоторые сервисы Yandex Cloud используют в своей работе ресурсные записи Cloud DNS и позволяют создавать их. В списке ресурсных записей Cloud DNS такие записи помечены значками сервисов, в которых они были созданы:
 
-* {{ api-gw-full-name }} — [запись ANAME](#aname) необходима для [привязки](../../api-gateway/operations/api-gw-domains.md) домена к API-шлюзу и помечена значком ![logo](../../_assets/api-gateway/api-gateway-logo.svg)
-* {{ certificate-manager-full-name }} — [запись CNAME](#cname) необходима для прохождения [проверки прав на домен](../../certificate-manager/concepts/challenges.md) и помечена значком ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg)
-* {{ objstorage-full-name }} — [запись ANAME](#aname) необходима для [привязки](../../storage/operations/hosting/own-domain.md) домена к бакету и помечена значком ![logo](../../_assets/storage/storage-logo.svg)
+* Yandex API Gateway — [запись ANAME](#aname) необходима для [привязки](../../api-gateway/operations/api-gw-domains.md) домена к API-шлюзу и помечена значком ![logo](../../_assets/api-gateway/api-gateway-logo.svg)
+* Yandex Certificate Manager — [запись CNAME](#cname) необходима для прохождения [проверки прав на домен](../../certificate-manager/concepts/challenges.md) и помечена значком ![logo](../../_assets/certificate-manager/certificate-manager-logo.svg)
+* Yandex Object Storage — [запись ANAME](#aname) необходима для [привязки](../../storage/operations/hosting/own-domain.md) домена к бакету и помечена значком ![logo](../../_assets/storage/storage-logo.svg)
 
 Сервисные записи нельзя изменять, а удалять можно только по одной. После удаления ресурса, для которого создавалась сервисная ресурсная запись, эту ресурсную запись необходимо [удалить](../operations/resource-record-delete.md) вручную.
 
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/connect-migration.md#yaconnect-records-move)
-* [{#T}](../tutorials/bind-domain-vm/console.md#create-record)
-* [{#T}](../tutorials/prefetch.md)
-* [{#T}](../tutorials/tls-termination/console.md#configure-dns)
+* [Перенесите записи](../tutorials/connect-migration.md#yaconnect-records-move)
+* [Создайте ресурсную запись типа A](../tutorials/bind-domain-vm/console.md#create-record)
+* [Публикация обновлений для игр с помощью Yandex Cloud CDN](../tutorials/prefetch.md)
+* [Настройте DNS для сайта](../tutorials/tls-termination/console.md#configure-dns)

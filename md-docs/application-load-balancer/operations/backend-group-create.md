@@ -6,21 +6,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться группа бэкендов.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создаваться группа бэкендов.
+  1. Перейдите в сервис **Application Load Balancer**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  1. Нажмите кнопку **Создать группу бэкендов**.
   1. Введите имя группы бэкендов.
   1. Выберите [тип группы бэкендов](../concepts/backend-group.md#group-types):
-     * `{{ ui-key.yacloud.alb.label_proto-http }}` — для HTTP- или HTTPS-трафика.
-     * `{{ ui-key.yacloud.alb.label_proto-grpc }}` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://{{ lang }}.wikipedia.org/wiki/GRPC)-процедур.
-     * `{{ ui-key.yacloud.alb.label_proto-stream }}` — для TCP-трафика без шифрования или с TLS-шифрованием.
-  1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc }}` доступны следующие режимы привязки:
-     * `{{ ui-key.yacloud.alb.label_affinity-connection }}`.
-     * `{{ ui-key.yacloud.alb.label_affinity-header }}`.
-     * `{{ ui-key.yacloud.alb.label_affinity-cookie }}`.
+     * `HTTP` — для HTTP- или HTTPS-трафика.
+     * `gRPC` — для HTTP- или HTTPS-трафика с вызовами [gRPC](https://ru.wikipedia.org/wiki/GRPC)-процедур.
+     * `Stream` — для TCP-трафика без шифрования или с TLS-шифрованием.
+  1. (Опционально) Включите [привязку сессий](../concepts/backend-group.md#session-affinity). Для группы бэкендов типа `HTTP` или `gRPC` доступны следующие режимы привязки:
+     * `По IP-адресу`.
+     * `По HTTP-заголовку`.
+     * `По cookie`.
 
-     Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}` сессии привязываются по [IP-адресу](../../vpc/concepts/address.md) клиента.
+     Для группы бэкендов типа `Stream` сессии привязываются по [IP-адресу](../../vpc/concepts/address.md) клиента.
 
      {% note info %}
      
@@ -28,72 +28,72 @@
      
      {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**. Задайте настройки бэкенда:
+  1. В блоке **Бэкенды** нажмите кнопку **Добавить**. Задайте настройки бэкенда:
 
-     * **{{ ui-key.yacloud.common.name }}** бэкенда.
-     * **{{ ui-key.yacloud.alb.label_backend-weight }}** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
-     * **{{ ui-key.yacloud.common.type }}** бэкенда (для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http-plain }}`): `{{ ui-key.yacloud.alb.label_target-group }}` ([целевые группы](../concepts/target-group.md) {{ alb-name }}) или `{{ ui-key.yacloud.alb.label_bucket }}` ([бакет](../../storage/concepts/bucket.md) {{ objstorage-name }}). Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}` или Stream тип любого бэкенда — `{{ ui-key.yacloud.alb.label_target-group }}`. Подробнее о типах бэкендов см. в разделе [{#T}](../concepts/backend-group.md#types).
+     * **Имя** бэкенда.
+     * **Вес** — относительный вес бэкенда при распределении трафика. Если опция в поле отключена, эндпоинты бэкенда не будут получать трафик (вес будет равен 0).
+     * **Тип** бэкенда (для группы бэкендов типа `HTTP`): `Целевая группа` ([целевые группы](../concepts/target-group.md) Application Load Balancer) или `Бакет` ([бакет](../../storage/concepts/bucket.md) Object Storage). Для группы бэкендов типа `gRPC` или Stream тип любого бэкенда — `Целевая группа`. Подробнее о типах бэкендов см. в разделе [Типы бэкендов](../concepts/backend-group.md#types).
      
-     * Следующие настройки доступны только для типа бэкенда **{{ ui-key.yacloud.alb.label_target-group }}**:
+     * Следующие настройки доступны только для типа бэкенда **Целевая группа**:
      
-       * В блоке **{{ ui-key.yacloud.alb.label_lb-settings }}**:
+       * В блоке **Настройки балансировки**:
          
-         * **{{ ui-key.yacloud.alb.label_load-balancing-mode }}** — [режим распределения трафика](../concepts/backend-group.md#balancing-mode) между эндпоинтами бэкенда.
-         * **{{ ui-key.yacloud.alb.label_panic-threshold }}** — доля работоспособных эндпоинтов, при которой включится [режим паники](../concepts/backend-group.md#panic-mode): балансировщик будет распределять запросы во все эндпоинты, не учитывая результаты проверок состояния.
-         * **{{ ui-key.yacloud.alb.label_locality-aware-routing }}** — доля входящего трафика, которую узел балансировщика передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Подробнее см. в разделе [{#T}](../concepts/backend-group.md#locality).
-         * **{{ ui-key.yacloud.alb.label_strict-locality }}** — опция, при которой балансировщик будет отвечать ошибкой (`503 Service Unavailable`), если в зоне доступности, где был принят запрос, нет работающих бэкендов приложения.
+         * **Режим балансировки** — [режим распределения трафика](../concepts/backend-group.md#balancing-mode) между эндпоинтами бэкенда.
+         * **Порог для режима паники** — доля работоспособных эндпоинтов, при которой включится [режим паники](../concepts/backend-group.md#panic-mode): балансировщик будет распределять запросы во все эндпоинты, не учитывая результаты проверок состояния.
+         * **Локализация трафика** — доля входящего трафика, которую узел балансировщика передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Подробнее см. в разделе [Локализация трафика](../concepts/backend-group.md#locality).
+         * **Строгая локализация** — опция, при которой балансировщик будет отвечать ошибкой (`503 Service Unavailable`), если в зоне доступности, где был принят запрос, нет работающих бэкендов приложения.
       
-       * В блоке **{{ ui-key.yacloud.alb.label_protocol-settings }}**:
+       * В блоке **Настройки протокола**:
          
-         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}`:
+         * Для группы бэкендов типа `HTTP`:
            
-           * **{{ ui-key.yacloud.alb.label_use-http2 }}** — опция использования протокола HTTP/2 при отправке запросов к бэкенду для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-http }}`. По умолчанию используется протокол версии 1.1. Группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}` поддерживают только HTTP/2-соединения.
-           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-http-plain }}` (без шифрования) или `{{ ui-key.yacloud.alb.label_proto-http-tls }}` (с TLS-шифрованием). Для протокола `{{ ui-key.yacloud.alb.label_proto-http-tls }}` укажите:
+           * **HTTP/2** — опция использования протокола HTTP/2 при отправке запросов к бэкенду для группы бэкендов типа `HTTP`. По умолчанию используется протокол версии 1.1. Группы бэкендов типа `gRPC` поддерживают только HTTP/2-соединения.
+           * **Протокол** — протокол соединений с бэкендом: `HTTP` (без шифрования) или `HTTPS` (с TLS-шифрованием). Для протокола `HTTPS` укажите:
              
-             * **{{ ui-key.yacloud.alb.label_sni }}**. Доменное имя хоста для Server Name Indication — расширения TLS.
-             * **{{ ui-key.yacloud.alb.label_trusted-ca }}**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов.
+             * **SNI**. Доменное имя хоста для Server Name Indication — расширения TLS.
+             * **Доверенный корневой сертификат**. Укажите [корневой сертификат](https://en.wikipedia.org/wiki/Root_certificate) (Root CA) для цепочки сертификатов, установленной на эндпоинтах бэкендов.
      
-               L7‑балансировщик поддерживает [X.509‑сертификаты](https://{{ lang }}.wikipedia.org/wiki/X.509), соответствующие требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
+               L7‑балансировщик поддерживает [X.509‑сертификаты](https://ru.wikipedia.org/wiki/X.509), соответствующие требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
          
-         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-grpc }}`:
+         * Для группы бэкендов типа `gRPC`:
      
-           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-grpc-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc-tls }}`. Для зашифрованного протокола укажите **{{ ui-key.yacloud.alb.label_sni }}** и **{{ ui-key.yacloud.alb.label_trusted-ca }}** (см. выше).
+           * **Протокол** — протокол соединений с бэкендом: `Открытый` или `Зашифрованный`. Для зашифрованного протокола укажите **SNI** и **Доверенный корневой сертификат** (см. выше).
          
-         * Для группы бэкендов типа `{{ ui-key.yacloud.alb.label_proto-stream }}`:
+         * Для группы бэкендов типа `Stream`:
            
-           * **{{ ui-key.yacloud.alb.label_enable-proxy-protocol }}** — опция, при которой балансировщик передает бэкенду метаданные своего соединения с клиентом, в том числе его IP-адрес, по [протоколу PROXY от HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
+           * **Протокол PROXY** — опция, при которой балансировщик передает бэкенду метаданные своего соединения с клиентом, в том числе его IP-адрес, по [протоколу PROXY от HAProxy](https://www.haproxy.org/download/1.9/doc/proxy-protocol.txt).
              
-           * **{{ ui-key.yacloud.alb.label_protocol }}** — протокол соединений с бэкендом: `{{ ui-key.yacloud.alb.label_proto-grpc-plain }}` или `{{ ui-key.yacloud.alb.label_proto-grpc-tls }}`. Для зашифрованного протокола укажите **{{ ui-key.yacloud.alb.label_sni }}** и **{{ ui-key.yacloud.alb.label_trusted-ca }}** (см. выше).
+           * **Протокол** — протокол соединений с бэкендом: `Открытый` или `Зашифрованный`. Для зашифрованного протокола укажите **SNI** и **Доверенный корневой сертификат** (см. выше).
      
-     * Следующие настройки доступны только для типа бэкенда **{{ ui-key.yacloud.alb.label_bucket }}** для типа группы бэкендов **{{ ui-key.yacloud.alb.label_proto-http }}**:
+     * Следующие настройки доступны только для типа бэкенда **Бакет** для типа группы бэкендов **HTTP**:
      
-       * **{{ ui-key.yacloud.mdb.forms.config_field_form-bucket-type }}** — выберите одну из опций: `{{ ui-key.yacloud.forms.label_form-list }}` или `{{ ui-key.yacloud.forms.label_form-id }}`.
-       * **{{ ui-key.yacloud.alb.label_bucket }}** — выберите из списка или укажите идентификатор нужного бакета.
+       * **Формат указания бакета** — выберите одну из опций: `Список` или `ID`.
+       * **Бакет** — выберите из списка или укажите идентификатор нужного бакета.
      
      * В блоке **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния**:
        
-       * **{{ ui-key.yacloud.alb.label_timeout }}** — время ожидания ответа. Максимальный период, на который может быть установлено соединение.
-       * **{{ ui-key.yacloud.alb.label_interval }}** — интервал отправки проверочных запросов.
-       * **{{ ui-key.yacloud.alb.label_healthy }}** — количество последовательных успешных проверок, после которых эндпоинт считается работоспособным. Игнорируется в начале работы балансировщика: достаточно одной проверки.
-       * **{{ ui-key.yacloud.alb.label_unhealthy }}** — количество последовательных неуспешных проверок, после которых эндпоинт считается неработоспособным. Игнорируется, если бэкенд один раз ответил HTTP-кодом состояния `503 Service Unavailable`: он сразу считается неработоспособным.
-       * **{{ ui-key.yacloud.alb.label_port }}**.
-       * **{{ ui-key.yacloud.common.type }}** — протокол, по которому будет осуществляться проверка: `{{ ui-key.yacloud.alb.label_hc-type-http }}`, `{{ ui-key.yacloud.alb.label_hc-type-grpc }}` или `{{ ui-key.yacloud.alb.label_hc-type-stream }}`. Тип проверки может не совпадать с типом группы бэкендов. Дополнительно укажите:
+       * **Таймаут, с** — время ожидания ответа. Максимальный период, на который может быть установлено соединение.
+       * **Интервал** — интервал отправки проверочных запросов.
+       * **Порог работоспособности** — количество последовательных успешных проверок, после которых эндпоинт считается работоспособным. Игнорируется в начале работы балансировщика: достаточно одной проверки.
+       * **Порог неработоспособности** — количество последовательных неуспешных проверок, после которых эндпоинт считается неработоспособным. Игнорируется, если бэкенд один раз ответил HTTP-кодом состояния `503 Service Unavailable`: он сразу считается неработоспособным.
+       * **Порт**.
+       * **Тип** — протокол, по которому будет осуществляться проверка: `HTTP`, `gRPC` или `Stream`. Тип проверки может не совпадать с типом группы бэкендов. Дополнительно укажите:
          
-         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-http }}`:
+         * Для типа `HTTP`:
            
-           * **{{ ui-key.yacloud.alb.label_path }}** — путь в URI запроса к эндпоинту.
-           * **{{ ui-key.yacloud.alb.label_hc_host }}** — значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, которое будет передаваться эндпоинтам бэкенда при проверках состояния.
-           * **{{ ui-key.yacloud.alb.label_use-http2 }}** — опция использования протокола HTTP версии 2.
-           * **{{ ui-key.yacloud.alb.label_expected-statuses }}** — список HTTP-кодов, которые считаются корректными при проверке состояния бэкенда.
+           * **Путь** — путь в URI запроса к эндпоинту.
+           * **Authority** — значение заголовка `Host` для HTTP/1.1 или псевдо-заголовка `:authority` для HTTP/2, которое будет передаваться эндпоинтам бэкенда при проверках состояния.
+           * **HTTP/2** — опция использования протокола HTTP версии 2.
+           * **HTTP-коды** — список HTTP-кодов, которые считаются корректными при проверке состояния бэкенда.
           
-         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-grpc }}`:
+         * Для типа `gRPC`:
            
-           * **{{ ui-key.yacloud.alb.label_service-name }}** — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
+           * **Имя сервиса** — имя проверяемого gRPC-сервиса. Если сервис не указан, проверяется общее состояние бэкенда.
           
-         * Для типа `{{ ui-key.yacloud.alb.label_hc-type-stream }}`:
+         * Для типа `Stream`:
            
-           * **{{ ui-key.yacloud.alb.label_send }}** — данные, которые отправляются на эндпоинт для проверки состояния.
-           * **{{ ui-key.yacloud.alb.label_receive }}** — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
+           * **Отправка** — данные, которые отправляются на эндпоинт для проверки состояния.
+           * **Получение** — данные, которые должны поступить с эндпоинта, чтобы он прошел проверку состояния.
            
        {% note alert %}
        
@@ -103,21 +103,21 @@
        
        {% endnote %}
      
-       Чтобы добавить проверку состояния, внизу блока бэкенда нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}** и задайте настройки проверки.
+       Чтобы добавить проверку состояния, внизу блока бэкенда нажмите кнопку **Добавить проверку состояния** и задайте настройки проверки.
      
-       Чтобы удалить проверку состояния, напротив заголовка **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+       Чтобы удалить проверку состояния, напротив заголовка **HTTP проверка состояния**, **gRPC проверка состояния** или **Stream проверка состояния** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   {% note info %}
 
-  Создать группу бэкендов типа `gRPC` можно в [консоли управления]({{ link-console-main }}) или с помощью {{ TF }}.
+  Создать группу бэкендов типа `gRPC` можно в [консоли управления](https://console.yandex.cloud) или с помощью Terraform.
 
   {% endnote %}
 
@@ -330,20 +330,20 @@
 
      {% endcut %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурса, который необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры ресурса, который необходимо создать:
 
      ```hcl
      resource "yandex_alb_backend_group" "test-backend-group" {
@@ -428,7 +428,7 @@
        
        {% endnote %}
 
-     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера {{ TF }}]({{ tf-provider-alb-backendgroup }}).
+     Подробную информацию о параметрах ресурса `yandex_alb_backend_group` см. в [документации провайдера Terraform](../../terraform/resources/alb_backend_group.md).
   1. Создайте ресурсы:
 
      1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -450,7 +450,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -459,7 +459,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
      ```bash
      yc alb backend-group list
@@ -467,7 +467,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами бэкендов {{ alb-name }} 10 минутами.
+     Провайдер Terraform ограничивает время на выполнение операций с группами бэкендов Application Load Balancer 10 минутами.
      
      Операции, которые длятся дольше указанного времени, прерываются.
      
@@ -498,4 +498,4 @@
 
 ### См. также {#see-also}
 
-* [{#T}](../concepts/best-practices.md)
+* [Рекомендации по настройке проверок состояния Yandex Application Load Balancer](../concepts/best-practices.md)

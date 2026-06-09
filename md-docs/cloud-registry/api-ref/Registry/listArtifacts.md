@@ -5,7 +5,7 @@ Retrieves the list of registry artifact resources in the specified registry.
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:listArtifacts
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}:listArtifacts
 ```
 
 ## Path parameters

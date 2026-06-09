@@ -5,7 +5,7 @@ Retrieves the list of regression dashboards in the specified folder.
 ## HTTP request
 
 ```
-GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards
+GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/regressionDashboards
 ```
 
 ## Query parameters {#yandex.cloud.loadtesting.api.v1.ListRegressionDashboardsRequest}

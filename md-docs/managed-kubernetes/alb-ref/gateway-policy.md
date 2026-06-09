@@ -1,14 +1,14 @@
 # Поля ресурса GatewayPolicy
 
-Ресурс `GatewayPolicy` предназначен для задания облачных политик, которые применяются к ресурсам `Gateway` в рамках одного пространства имен {{ k8s }}. Политика может быть применена к определенным ресурсам с помощью ссылок (`targetRefs`) или селектора (`selector`). Если ни одно из этих полей не указано, политика применяется ко всем ресурсам в пространстве имен.
+Ресурс `GatewayPolicy` предназначен для задания облачных политик, которые применяются к ресурсам `Gateway` в рамках одного пространства имен Kubernetes. Политика может быть применена к определенным ресурсам с помощью ссылок (`targetRefs`) или селектора (`selector`). Если ни одно из этих полей не указано, политика применяется ко всем ресурсам в пространстве имен.
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
 
 {% endnote %}
 
-`GatewayPolicy` — это расширение Gateway API, реализуемое в {{ alb-name }}. Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API {{ alb-name }}.
+`GatewayPolicy` — это расширение Gateway API, реализуемое в Application Load Balancer. Ниже описаны поля и аннотации ресурса, с которыми работает Gateway API Application Load Balancer.
 
 {% note info %}
 
@@ -97,7 +97,7 @@ status:
 
   * `name` (`string`, обязательное)
   
-    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   * `namespace` (`string`)
   
@@ -123,7 +123,7 @@ status:
 
   Текущее состояние политики.
 
-  * `conditions` — массив условий статуса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
+  * `conditions` — массив условий статуса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.31/#condition-v1-meta).
 
   * `attachedGateways` — количество привязанных ресурсов `Gateway`.
 
@@ -155,13 +155,13 @@ zone:
 
 * `subnets` (`[]string`)
 
-  Список [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-name }} в [зонах доступности](../../overview/concepts/geo-scope.md), где размещен балансировщик. Идентификаторы подсетей перечисляются через запятую.
+  Список [подсетей](../../vpc/concepts/network.md#subnet) Virtual Private Cloud в [зонах доступности](../../overview/concepts/geo-scope.md), где размещен балансировщик. Идентификаторы подсетей перечисляются через запятую.
 
 * `securityGroups` (`[]string`)
 
-  Список [групп безопасности](../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую.
+  Список [групп безопасности](../../vpc/concepts/security-groups.md) Virtual Private Cloud для балансировщика. Идентификаторы групп перечисляются через запятую.
 
-  Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
+  Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [Настройка групп безопасности для инструментов Application Load Balancer в Yandex Managed Service for Kubernetes](security-groups.md).
 
 * `logs` (`LogOptions`)
 
@@ -169,7 +169,7 @@ zone:
 
   * `logGroupID` (`string`)
   
-    Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../../application-load-balancer/logs-ref.md) в {{ cloud-logging-full-name }}.
+    Идентификатор [лог-группы](../../logging/concepts/log-group.md) для записи [логов балансировщика](../../application-load-balancer/logs-ref.md) в Yandex Cloud Logging.
 
   * `disable` (`bool`)
   

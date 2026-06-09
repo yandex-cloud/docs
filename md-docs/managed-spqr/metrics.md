@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ mspqr-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+В этом разделе описаны метрики сервиса Managed Service for Sharded PostgreSQL, поставляемые в [Monitoring](../monitoring/concepts/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mspqr-name }}:
+Общие метки для всех метрик сервиса Managed Service for Sharded PostgreSQL:
 
 Метка | Значение
 ----|----

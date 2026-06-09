@@ -1,6 +1,6 @@
-# Обновление версии {{ TR }}
+# Обновление версии Trino
 
-Вы можете изменить версию {{ TR }} на любую из [поддерживаемых](#available-versions) в {{ mtr-name }}. Версию можно как повысить, так и понизить.
+Вы можете изменить версию Trino на любую из [поддерживаемых](#available-versions) в Managed Service for Trino. Версию можно как повысить, так и понизить.
 
 Обновления и исправления внутри одной версии устанавливаются во время [технического обслуживания](../concepts/maintenance.md) автоматически.
 
@@ -10,11 +10,11 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**. Откроется страница редактирования кластера.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. Выберите кластер и нажмите на панели сверху кнопку **Редактировать**. Откроется страница редактирования кластера.
       
-        Список доступных версий можно посмотреть в поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}**.
+        Список доступных версий можно посмотреть в поле **Версия**.
 
 {% endlist %}
 
@@ -22,8 +22,8 @@
 
 Убедитесь, что обновление не нарушит работу ваших приложений:
 
-1. Посмотрите в [истории изменений](https://trino.io/docs/current/release.html) {{ TR }}, как обновления могут повлиять на работу ваших приложений.
-1. Попробуйте обновить версию {{ TR }} на тестовом кластере.
+1. Посмотрите в [истории изменений](https://trino.io/docs/current/release.html) Trino, как обновления могут повлиять на работу ваших приложений.
+1. Попробуйте обновить версию Trino на тестовом кластере.
 
 ## Обновить версию {#update}
 
@@ -31,38 +31,38 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-    1. Выберите кластер и нажмите на панели сверху кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите версию {{ TR }}.
-    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+    1. Выберите кластер и нажмите на панели сверху кнопку **Редактировать**.
+    1. В блоке **Базовые параметры** выберите версию Trino.
+    1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить версию {{ TR }}:
+    Чтобы изменить версию Trino:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        {{ yc-mdb-tr }} cluster update --help
+        yc managed-trino cluster update --help
         ```
 
     2. Измените версию, выполнив команду:
 
         ```bash
-        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
-          --version <версия_{{ TR }}>
+        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+          --version <версия_Trino>
         ```
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
         
@@ -71,21 +71,21 @@
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
           ...
-          version = "<версия_{{ TR }}>"
+          version = "<версия_Trino>"
           ...
         }
         ```
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -121,7 +121,7 @@
         {
           "updateMask": "trino.version",
           "trino": {
-            "version": "<версия_{{ TR }}>"
+            "version": "<версия_Trino>"
           }
         }
         ```
@@ -136,15 +136,15 @@
 
             {% endnote %}
 
-        * `trino.version` — версия {{ TR }}.
+        * `trino.version` — версия Trino.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -179,7 +179,7 @@
             ]
           },
           "trino": {
-            "version": "<версия_{{ TR }}>"
+            "version": "<версия_Trino>"
           }
         }
         ```
@@ -213,9 +213,9 @@
 
             {% endnote %}
 
-        * `version` — версия {{ TR }}.
+        * `version` — версия Trino.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -225,7 +225,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          {{ api-host-trino }}:{{ port-https }} \
+          trino.api.cloud.yandex.net:443 \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```

@@ -49,7 +49,7 @@
 
    ```bash
    aws sesv2 send-email --cli-input-json file://message.json \
-     --endpoint-url {{ postbox-endpoint }}
+     --endpoint-url https://postbox.cloud.yandex.net
    ```
 
    {% note info %}

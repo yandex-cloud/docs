@@ -1,18 +1,18 @@
 # Использование Sqoop
 
-Импорт баз данных в кластер {{ dataproc-name }} из внешних источников выполняется с помощью утилиты [Sqoop](https://sqoop.apache.org/). Раздел содержит:
+Импорт баз данных в кластер Yandex Data Processing из внешних источников выполняется с помощью утилиты [Sqoop](https://sqoop.apache.org/). Раздел содержит:
 
 * сведения о [формировании строк подключения](#jdbc-url-getting) и [установке драйверов](#driver-installation) для Sqoop;
 * команды для импорта данных с помощью Sqoop в:
 
-    * [{{ objstorage-full-name }}](#object-storage);
+    * [Yandex Object Storage](#object-storage);
     * [директорию HDFS](#hdfs);
     * [Apache Hive](#apache-hive);
     * [Apache HBase](#apache-hbase).
 
 {% note info %}
 
-Утилита Sqoop не поддерживается для кластеров {{ dataproc-name }} версии 2.0 и выше. В качестве альтернативы используйте [функциональные возможности {{ SPRK }}](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html).
+Утилита Sqoop не поддерживается для кластеров Yandex Data Processing версии 2.0 и выше. В качестве альтернативы используйте [функциональные возможности Apache Spark™](https://spark.apache.org/docs/latest/sql-data-sources-jdbc.html).
 
 {% endnote %}
 
@@ -22,30 +22,30 @@
 
 {% list tabs group=data_sources %}
 
-- {{ PG }} {#postgresql}
+- PostgreSQL {#postgresql}
 
     ```http
     jdbc:postgresql://<адрес_сервера_базы_данных>:5432/<имя_базы_данных>
     ```
 
-    Для {{ mpg-full-name }} используйте строку с [особым FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
+    Для Yandex Managed Service for PostgreSQL используйте строку с [особым FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
 
     ```http
-    jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_базы_данных>
+    jdbc:postgresql://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6432/<имя_базы_данных>
     ```
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list-clusters).
 
-- {{ MY }} {#mysql}
+- MySQL® {#mysql}
 
     ```http
     jdbc:mysql://<адрес_сервера_базы_данных>:3306/<имя_базы_данных>
     ```
 
-    Для {{ mmy-full-name }} используйте строку с [особым FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
+    Для Yandex Managed Service for MySQL® используйте строку с [особым FQDN](../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
 
     ```http
-    jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/<имя_базы_данных>
+    jdbc:mysql://c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:3306/<имя_базы_данных>
     ```
 
     Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-mysql/operations/cluster-list.md#list-clusters).
@@ -58,13 +58,13 @@
 
 {% list tabs group=data_sources %}
 
-- {{ PG }} {#postgresql}
+- PostgreSQL {#postgresql}
 
-    Драйвер для {{ mpg-full-name }} предустановлен в {{ dataproc-name }}, дополнительных действий не требуется.
+    Драйвер для Yandex Managed Service for PostgreSQL предустановлен в Yandex Data Processing, дополнительных действий не требуется.
 
-- {{ MY }} {#mysql}
+- MySQL® {#mysql}
 
-    [Подключитесь](connect-ssh.md) по [SSH](../../glossary/ssh-keygen.md) к хосту подкластера {{ dataproc-name }} для хранения данных и выполните команду:
+    [Подключитесь](connect-ssh.md) по [SSH](../../glossary/ssh-keygen.md) к хосту подкластера Yandex Data Processing для хранения данных и выполните команду:
 
     ```bash
     MYSQL_VER="8.0.25" && \
@@ -84,15 +84,15 @@
 
 ## Импорт с помощью Sqoop {#import-with-sqoop}
 
-### В {{ objstorage-name }} {#object-storage}
+### В Object Storage {#object-storage}
 
-Этот тип импорта доступен, если в кластере {{ dataproc-name }} активирован компонент `Sqoop`.
+Этот тип импорта доступен, если в кластере Yandex Data Processing активирован компонент `Sqoop`.
 
-Чтобы импортировать данные в бакет {{ objstorage-name }}:
+Чтобы импортировать данные в бакет Object Storage:
 
-1. При [создании](cluster-create.md) или изменении кластера {{ dataproc-name }} укажите имя бакета для импорта в {{ objstorage-name }}. Убедитесь, что сервисный аккаунт {{ dataproc-name }} имеет [права на запись](../../storage/operations/buckets/edit-acl.md) в этот бакет.
+1. При [создании](cluster-create.md) или изменении кластера Yandex Data Processing укажите имя бакета для импорта в Object Storage. Убедитесь, что сервисный аккаунт Yandex Data Processing имеет [права на запись](../../storage/operations/buckets/edit-acl.md) в этот бакет.
 1. [Сформируйте строки подключения](#jdbc-url-getting) для JDBC.
-1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
 1. [Установите драйверы](#driver-installation) для работы Sqoop, если они еще не установлены.
 1. Выполните команду:
 
@@ -116,7 +116,7 @@
 
 ### В директорию HDFS {#hdfs}
 
-Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
+Этот тип импорта доступен, если в кластере Yandex Data Processing включены сервисы:
 
 * `HBase`;
 * `HDFS`;
@@ -127,7 +127,7 @@
 Чтобы импортировать данные в директорию HDFS:
 
 1. [Сформируйте строки подключения](#jdbc-url-getting) для JDB.
-1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
 1. [Установите драйверы](#driver-installation) для работы Sqoop, если они еще не установлены.
 1. Выполните команду:
 
@@ -151,7 +151,7 @@
 
 ### В Apache Hive {#apache-hive}
 
-Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
+Этот тип импорта доступен, если в кластере Yandex Data Processing включены сервисы:
 
 * `HDFS`;
 * `Hive`;
@@ -161,9 +161,9 @@
 
 Чтобы импортировать данные в таблицу Hive:
 
-1. При [создании](cluster-create.md) или изменении кластера {{ dataproc-name }} добавьте в свойства кластера ключ `hive:hive.execution.engine` со значением `mr`.
+1. При [создании](cluster-create.md) или изменении кластера Yandex Data Processing добавьте в свойства кластера ключ `hive:hive.execution.engine` со значением `mr`.
 1. [Сформируйте строки подключения](#jdbc-url-getting) для JDBC.
-1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
 1. [Установите драйверы](#driver-installation) для работы Sqoop, если они еще не установлены.
 1. Создайте базу данных Hive:
 
@@ -196,7 +196,7 @@
 
 ### В Apache HBase {#apache-hbase}
 
-Этот тип импорта доступен, если в кластере {{ dataproc-name }} включены сервисы:
+Этот тип импорта доступен, если в кластере Yandex Data Processing включены сервисы:
 
 * `HBase`;
 * `HDFS`;
@@ -207,7 +207,7 @@
 Чтобы импортировать данные в Apache HBase:
 
 1. [Сформируйте строки подключения](#jdbc-url-getting) для JDBC.
-1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера {{ dataproc-name }} для хранения данных.
+1. [Подключитесь](connect-ssh.md) по SSH к хосту подкластера Yandex Data Processing для хранения данных.
 1. [Установите драйверы](#driver-installation) для работы Sqoop, если они еще не установлены.
 1. Выполните команду:
 

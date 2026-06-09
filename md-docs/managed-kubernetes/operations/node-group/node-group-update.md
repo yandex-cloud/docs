@@ -1,13 +1,13 @@
-# Изменение группы узлов {{ managed-k8s-name }}
+# Изменение группы узлов Managed Service for Kubernetes
 
 
-Отдельные узлы в группах узлов — это виртуальные машины {{ compute-full-name }} с автоматически сгенерированными именами. Чтобы сконфигурировать узлы, воспользуйтесь инструкциями, приведенными ниже, или [другими инструкциями по управлению группами узлов](../index.md#node-group).
+Отдельные узлы в группах узлов — это виртуальные машины Yandex Compute Cloud с автоматически сгенерированными именами. Чтобы сконфигурировать узлы, воспользуйтесь инструкциями, приведенными ниже, или [другими инструкциями по управлению группами узлов](../index.md#node-group).
 
 {% note alert %}
 
-Не изменяйте параметры ВМ узлов, в том числе имена, сетевые интерфейсы и SSH-ключи, с помощью интерфейсов {{ compute-name }} или SSH-подключения к ВМ.
+Не изменяйте параметры ВМ узлов, в том числе имена, сетевые интерфейсы и SSH-ключи, с помощью интерфейсов Compute Cloud или SSH-подключения к ВМ.
 
-Это может нарушить работу отдельных узлов, групп узлов и всего кластера {{ managed-k8s-name }}.
+Это может нарушить работу отдельных узлов, групп узлов и всего кластера Managed Service for Kubernetes.
 
 {% endnote %}
 
@@ -31,16 +31,16 @@ yc managed-kubernetes node-group list
 
 ## Изменить параметры группы узлов {#update-settings}
 
-Вы можете изменить следующие параметры [группы узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group):
+Вы можете изменить следующие параметры [группы узлов Managed Service for Kubernetes](../../concepts/index.md#node-group):
 * Имя.
 * Описание.
-* Масштабирование: для фиксированного типа — количество узлов {{ managed-k8s-name }}, для [автоматического](../../concepts/node-group/cluster-autoscaler.md) — минимальное, максимальное и начальное количество узлов {{ managed-k8s-name }}. Тип масштабирования нельзя изменить.
-* [Версию {{ k8s }}](../../concepts/release-channels-and-updates.md).
+* Масштабирование: для фиксированного типа — количество узлов Managed Service for Kubernetes, для [автоматического](../../concepts/node-group/cluster-autoscaler.md) — минимальное, максимальное и начальное количество узлов Managed Service for Kubernetes. Тип масштабирования нельзя изменить.
+* [Версию Kubernetes](../../concepts/release-channels-and-updates.md).
 * Способ назначения [IP-адресов](../../../vpc/concepts/address.md) узлам группы: только внутренние адреса или также публичные.
 
     {% note info %}
 
-    Для подключения к внешним ресурсам, например реестрам Docker-образов [{{ container-registry-name }}](../../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [{{ objstorage-name }}](../../../storage/concepts/bucket.md), у узлов группы должен быть доступ в интернет.
+    Для подключения к внешним ресурсам, например реестрам Docker-образов [Container Registry](../../../container-registry/concepts/index.md), [Cloud Registry](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/), а также бакетам [Object Storage](../../../storage/concepts/bucket.md), у узлов группы должен быть доступ в интернет.
     
     Чтобы обеспечить доступ в интернет, [назначьте](node-group-update.md#node-internet-access) узлам публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
@@ -52,45 +52,45 @@ yc managed-kubernetes node-group list
 
   {% note alert %}
 
-  Не удаляйте [группы безопасности](../../../vpc/concepts/security-groups.md), привязанные к работающей группе узлов {{ managed-k8s-name }}: это может привести к нарушению ее работы и потере данных.
+  Не удаляйте [группы безопасности](../../../vpc/concepts/security-groups.md), привязанные к работающей группе узлов Managed Service for Kubernetes: это может привести к нарушению ее работы и потере данных.
 
   {% endnote %}
 
-* [Вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и размер [диска](../../../compute/concepts/disk.md) узлов {{ managed-k8s-name }}.
-* Шаблон имени узлов {{ managed-k8s-name }}.
+* [Вычислительные ресурсы](../../../compute/concepts/vm-platforms.md) и размер [диска](../../../compute/concepts/disk.md) узлов Managed Service for Kubernetes.
+* Шаблон имени узлов Managed Service for Kubernetes.
 * Политику [обновлений](../../concepts/release-channels-and-updates.md#updates).
 
-Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) группы узлов приведена в разделе [{#T}](../../tutorials/migration-to-an-availability-zone.md).
+Инструкция по изменению [зоны доступности](../../../overview/concepts/geo-scope.md) группы узлов приведена в разделе [Миграция ресурсов Kubernetes в другую зону доступности](../../tutorials/migration-to-an-availability-zone.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы изменить группу узлов {{ managed-k8s-name }}:
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  Чтобы изменить группу узлов Managed Service for Kubernetes:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера.
-  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Перейдите во вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
   1. В открывшемся окне измените необходимые параметры.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Получите подробную информацию о команде для изменения группы узлов {{ managed-k8s-name }}:
+  Получите подробную информацию о команде для изменения группы узлов Managed Service for Kubernetes:
 
   ```bash
   yc managed-kubernetes node-group update --help
   ```
 
-  Для изменения группы узлов {{ managed-k8s-name }} воспользуйтесь флагами:
+  Для изменения группы узлов Managed Service for Kubernetes воспользуйтесь флагами:
 
   * `--new-name` — изменить имя.
   * `--description` — изменить описание.
   * `--service-account-id`, `--service-account-name` — изменить [сервисный аккаунт](../../../iam/concepts/index.md#sa) для ресурсов.
-  * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов {{ managed-k8s-name }}.
-  * `--version` — изменить версию {{ k8s }}.
+  * `--node-service-account-id`, `--node-service-account-name` — изменить сервисный аккаунт для узлов Managed Service for Kubernetes.
+  * `--version` — изменить версию Kubernetes.
   * `--network-interface` — настройки [сети](../../../vpc/concepts/network.md#network):
 
     * `security-group-ids` — идентификаторы [групп безопасности](../connect/security-groups.md).
@@ -102,11 +102,11 @@ yc managed-kubernetes node-group list
     * `auto` — узлам будут присвоены только внутренние IP-адреса.
     * `nat` — узлам будут присвоены публичные и внутренние IP-адреса.
     
-    Публичные IP-адреса необходимы для [подключения](../connect/index.md) к узлам из интернета и для подключения узлов к внешним ресурсам, например реестрам Docker-образов ([{{ container-registry-name }}](../../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/)), а также бакетам [{{ objstorage-name }}](../../../storage/concepts/bucket.md).
+    Публичные IP-адреса необходимы для [подключения](../connect/index.md) к узлам из интернета и для подключения узлов к внешним ресурсам, например реестрам Docker-образов ([Container Registry](../../../container-registry/concepts/index.md), [Cloud Registry](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/)), а также бакетам [Object Storage](../../../storage/concepts/bucket.md).
     
     Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
     
-    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации {{ vpc-full-name }}](../../../vpc/concepts/routing.md#internet-routes).
+    Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
   * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
     * `standard` — без ускорения.
@@ -114,11 +114,11 @@ yc managed-kubernetes node-group list
 
       {% note warning %}
       
-      Перед включением [программно ускоренной сети](../../../compute/concepts/software-accelerated-network.md) убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md) для создания одного дополнительного [узла {{ managed-k8s-name }}](../../concepts/index.md#node-group).
+      Перед включением [программно ускоренной сети](../../../compute/concepts/software-accelerated-network.md) убедитесь, что у вас достаточно [свободных ресурсов в облаке](../../concepts/limits.md) для создания одного дополнительного [узла Managed Service for Kubernetes](../../concepts/index.md#node-group).
       
       {% endnote %}
 
-  * `--node-name` — изменить шаблон имени узлов {{ managed-k8s-name }}. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+  * `--node-name` — изменить шаблон имени узлов Managed Service for Kubernetes. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     * `{instance_group.id}` — идентификатор группы ВМ.
     * `{instance.index}` — уникальный номер ВМ в группе. Возможные значения: от 1 до N, где N — количество ВМ в группе.
@@ -129,11 +129,11 @@ yc managed-kubernetes node-group list
     Например, `prod-{instance.short_id}-{instance_group.id}`. Если имя не задано, используется значение по умолчанию: `{instance_group.id}-{instance.short_id}`.
 
   * `--template-labels` — изменить [облачные метки группы узлов](../../../resource-manager/concepts/labels.md) в формате `<имя_метки>=<значение_метки>`. Можно указать несколько меток через запятую.
-  * `--latest-revision` — получить все доступные обновления для текущей версии [мастера {{ managed-k8s-name }}](../../concepts/index.md#master).
+  * `--latest-revision` — получить все доступные обновления для текущей версии [мастера Managed Service for Kubernetes](../../concepts/index.md#master).
   * Настройки масштабирования:
 
-    * `--fixed-size` — изменить фиксированное количество узлов в группе узлов {{ managed-k8s-name }}.
-    * `--auto-scale` — изменить настройки [автоматического масштабирования кластера {{ managed-k8s-name }}](../../concepts/node-group/cluster-autoscaler.md):
+    * `--fixed-size` — изменить фиксированное количество узлов в группе узлов Managed Service for Kubernetes.
+    * `--auto-scale` — изменить настройки [автоматического масштабирования кластера Managed Service for Kubernetes](../../concepts/node-group/cluster-autoscaler.md):
 
       * `min` — минимальное количество узлов в группе.
       * `max` — максимальное количество узлов в группе.
@@ -161,13 +161,13 @@ yc managed-kubernetes node-group list
 
   {% endnote %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы изменить группу узлов {{ managed-k8s-name }}:
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  Чтобы изменить группу узлов Managed Service for Kubernetes:
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-  1. Измените параметры в описании группы узлов {{ managed-k8s-name }}.
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+  1. Измените параметры в описании группы узлов Managed Service for Kubernetes.
 
      * Чтобы изменить настройки масштабирования, измените в блоке `scale_policy`:
 
@@ -194,7 +194,7 @@ yc managed-kubernetes node-group list
        }
        ```
 
-     * Чтобы изменить шаблон имени узлов {{ managed-k8s-name }}, измените параметр `instance_template.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+     * Чтобы изменить шаблон имени узлов Managed Service for Kubernetes, измените параметр `instance_template.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
        * `{instance_group.id}` — идентификатор группы ВМ.
        * `{instance.index}` — уникальный номер ВМ в группе. Возможные значения: от 1 до N, где N — количество ВМ в группе.
@@ -236,14 +236,14 @@ yc managed-kubernetes node-group list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -267,7 +267,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -293,11 +293,11 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
-  Чтобы изменить параметры [группы узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group), воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
+  Чтобы изменить параметры [группы узлов Managed Service for Kubernetes](../../concepts/index.md#node-group), воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md).
 
   {% note info %}
   
@@ -307,7 +307,7 @@ yc managed-kubernetes node-group list
 
   Чтобы изменить [облачные метки группы узлов](../../../resource-manager/concepts/labels.md), передайте значения меток в параметре `nodeTemplate.labels`.
 
-  Чтобы изменить шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
+  Чтобы изменить шаблон имени узлов Managed Service for Kubernetes, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
   * `{instance_group.id}` — идентификатор группы ВМ.
   * `{instance.index}` — уникальный номер ВМ в группе. Возможные значения: от 1 до N, где N — количество ВМ в группе.
@@ -329,36 +329,36 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер {{ managed-k8s-name }}.
-  1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
-  1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Откройте раздел **Managed Service for&nbsp;Kubernetes** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где требуется изменить кластер Managed Service for Kubernetes.
+  1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
+  1. Перейдите во вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-  1. Укажите значения параметров в блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**:
+  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. Укажите значения параметров в блоке **В процессе создания и обновления разрешено**:
 
-      * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-expansion }}** — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
-      * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-unavailable }}** — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
+      * **Расширение размера группы, макс.** — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
+      * **Уменьшение размера группы, макс.** — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [{#T}](../../concepts/node-group/deploy-policy.md).
+      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды CLI для изменения группы узлов {{ managed-k8s-name }}:
+  1. Посмотрите описание команды CLI для изменения группы узлов Managed Service for Kubernetes:
 
       ```bash
-      {{ yc-k8s }} node-group update --help
+      yc managed-kubernetes node-group update --help
       ```
 
   1. Выполните команду:
 
       ```bash
-      {{ yc-k8s }} node-group update \
+      yc managed-kubernetes node-group update \
         --name <имя_группы_узлов> \
         --max-expansion <предел_расширения_группы_узлов> \
         --max-unavailable <предел_недоступных_узлов>
@@ -369,15 +369,15 @@ yc managed-kubernetes node-group list
       * `--max-expansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
       * `--max-unavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [{#T}](../../concepts/node-group/deploy-policy.md).
+      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
       Имя группы узлов можно запросить со [списком групп узлов в каталоге](node-group-list.md#list).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-      О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+      О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
 
   1. Укажите значения параметров в блоке `deploy_policy`. Если такого блока нет — добавьте его.
 
@@ -398,18 +398,18 @@ yc managed-kubernetes node-group list
       * `max_expansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
       * `max_unavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
       
-      Подробнее см. в разделе [{#T}](../../concepts/node-group/deploy-policy.md).
+      Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -431,7 +431,7 @@ yc managed-kubernetes node-group list
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -458,62 +458,62 @@ yc managed-kubernetes node-group list
   * Параметр `deployPolicy.maxExpansion` — максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении. Значение по умолчанию — `3`.
   * Параметр `deployPolicy.maxUnavailable` — максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы. Значение по умолчанию — `0`.
   
-  Подробнее см. в разделе [{#T}](../../concepts/node-group/deploy-policy.md).
+  Подробнее см. в разделе [Политика развертывания группы узлов в Managed Service for Kubernetes](../../concepts/node-group/deploy-policy.md).
 
 {% endlist %}
 
 ## Назначить узлам публичные IP-адреса {#node-internet-access}
 
-Публичные IP-адреса необходимы для [подключения](../connect/index.md) к узлам из интернета и для подключения узлов к внешним ресурсам, например реестрам Docker-образов ([{{ container-registry-name }}](../../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/)), а также бакетам [{{ objstorage-name }}](../../../storage/concepts/bucket.md).
+Публичные IP-адреса необходимы для [подключения](../connect/index.md) к узлам из интернета и для подключения узлов к внешним ресурсам, например реестрам Docker-образов ([Container Registry](../../../container-registry/concepts/index.md), [Cloud Registry](../../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/)), а также бакетам [Object Storage](../../../storage/concepts/bucket.md).
 
 Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../../vpc/tutorials/nat-instance/index.md).
 
-Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации {{ vpc-full-name }}](../../../vpc/concepts/routing.md#internet-routes).
+Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации Yandex Virtual Private Cloud](../../../vpc/concepts/routing.md#internet-routes).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
   1. Нажмите на имя нужного кластера.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+  1. Перейдите на вкладку **Группы узлов**.
   1. Выберите нужную группу узлов.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}** в поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`. Узлам будут назначены случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+  1. В блоке **Сетевые настройки** в поле **Публичный адрес** выберите способ назначения адреса `Автоматически`. Узлам будут назначены случайные публичные IP-адреса из пула адресов Yandex Cloud.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Для назначения [узлам {{ managed-k8s-name }}](../../concepts/index.md#node-group) случайных публичных IP-адресов из пула адресов {{ yandex-cloud }}:
+  Для назначения [узлам Managed Service for Kubernetes](../../concepts/index.md#node-group) случайных публичных IP-адресов из пула адресов Yandex Cloud:
 
-  1. Получите подробную информацию о команде для изменения группы узлов {{ managed-k8s-name }}:
+  1. Получите подробную информацию о команде для изменения группы узлов Managed Service for Kubernetes:
 
      ```bash
-     {{ yc-k8s }} node-group update --help
+     yc managed-kubernetes node-group update --help
      ```
 
   1. Выполните команду изменения группы узлов, передав ей параметр `--network-interface`:
 
      ```bash
-     {{ yc-k8s }} node-group update <идентификатор_или_имя_группы_узлов> \
+     yc managed-kubernetes node-group update <идентификатор_или_имя_группы_узлов> \
      ...
        --network-interface security-group-ids=[<идентификаторы_групп_безопасности>],ipv4-address=nat
      ```
 
-     Имена и идентификаторы групп узлов {{ managed-k8s-name }} можно получить со [списком групп узлов в каталоге](node-group-list.md#list).
+     Имена и идентификаторы групп узлов Managed Service for Kubernetes можно получить со [списком групп узлов в каталоге](node-group-list.md#list).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Чтобы назначить узлам случайные публичные IP-адреса из пула адресов {{ yandex-cloud }}:
+  Чтобы назначить узлам случайные публичные IP-адреса из пула адресов Yandex Cloud:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
 
   1. В описание группы узлов добавьте параметр `instance_template.network_interface.nat` со значением `true`:
 
@@ -531,14 +531,14 @@ yc managed-kubernetes node-group list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -562,7 +562,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -588,7 +588,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 
@@ -616,19 +616,19 @@ yc managed-kubernetes node-group list
 
 {% note warning %}
 
-При добавлении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+При добавлении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов Managed Service for Kubernetes удаляется, затем создается группа узлов с новой конфигурацией.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы назначить taint-политику на группу узлов:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
 
   1. В описание группы узлов добавьте блок `node_taints`:
 
@@ -653,14 +653,14 @@ yc managed-kubernetes node-group list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -684,7 +684,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -710,7 +710,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -718,32 +718,32 @@ yc managed-kubernetes node-group list
 
 {% note warning %}
 
-При удалении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов {{ managed-k8s-name }} удаляется, затем создается группа узлов с новой конфигурацией.
+При удалении [taint-политик](../../concepts/index.md#taints-tolerations) текущая группа узлов Managed Service for Kubernetes удаляется, затем создается группа узлов с новой конфигурацией.
 
 {% endnote %}
 
 {% list tabs group=instructions %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы снять taint-политику с группы узлов:
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
 
   1. Удалите из описания группы узлов ненужные taint-политики в блоке `node_taints`.
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -767,7 +767,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -793,13 +793,13 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+     Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
 ## Управлять облачными метками группы узлов {#manage-label}
 
-Вы можете выполнять следующие действия с [облачными метками](../../concepts/index.md#node-labels) группы узлов {{ managed-k8s-name }}:
+Вы можете выполнять следующие действия с [облачными метками](../../concepts/index.md#node-labels) группы узлов Managed Service for Kubernetes:
 * [Добавить](#add-label).
 * [Изменить](#update-label).
 * [Удалить](#remove-label).
@@ -810,21 +810,21 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В поле **Метки** нажмите **Добавить метку**.
     1. Введите ключ и значение и нажмите **Enter**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  Добавьте облачную метку [группе узлов {{ managed-k8s-name }}](../../concepts/index.md#node-group):
+  Добавьте облачную метку [группе узлов Managed Service for Kubernetes](../../concepts/index.md#node-group):
 
   ```bash
   yc managed-kubernetes node-group add-labels my-node-group --labels new_label=test_label
@@ -839,12 +839,12 @@ yc managed-kubernetes node-group list
   ...
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-  1. Добавьте в описание группы узлов {{ managed-k8s-name }} параметр `labels`:
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+  1. Добавьте в описание группы узлов Managed Service for Kubernetes параметр `labels`:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
@@ -859,14 +859,14 @@ yc managed-kubernetes node-group list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -890,7 +890,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -916,7 +916,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -928,19 +928,19 @@ yc managed-kubernetes node-group list
 
   Чтобы изменить облачную метку, потребуется удалить ее и создать заново:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
-    1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите новые ключ и/или значение метки.
-    1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В поле **Метки** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
+    1. Нажмите **Добавить метку** и введите новые ключ и/или значение метки.
+    1. Нажмите **Enter**, а затем — **Сохранить**.
 
 - CLI {#cli}
 
-  Измените облачную метку группы узлов {{ managed-k8s-name }}:
+  Измените облачную метку группы узлов Managed Service for Kubernetes:
 
   {% note warning %}
   
@@ -961,12 +961,12 @@ yc managed-kubernetes node-group list
   ...
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-  1. Измените в описании группы узлов {{ managed-k8s-name }} значения параметра `labels`:
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+  1. Измените в описании группы узлов Managed Service for Kubernetes значения параметра `labels`:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
@@ -982,14 +982,14 @@ yc managed-kubernetes node-group list
 
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1013,7 +1013,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -1039,7 +1039,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -1049,18 +1049,18 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. В поле **Метки** нажмите на крестик рядом с нужной меткой.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Удалите облачную метку группы узлов {{ managed-k8s-name }}:
+  Удалите облачную метку группы узлов Managed Service for Kubernetes:
 
   ```bash
   yc managed-kubernetes node-group remove-labels my-node-group --labels test_label
@@ -1075,22 +1075,22 @@ yc managed-kubernetes node-group list
   ...
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+  1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-     О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
-  1. Удалите из описания группы узлов {{ managed-k8s-name }} ненужные облачные метки в блоке `labels`.
+     О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
+  1. Удалите из описания группы узлов Managed Service for Kubernetes ненужные облачные метки в блоке `labels`.
   1. Проверьте корректность конфигурационных файлов.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -1114,7 +1114,7 @@ yc managed-kubernetes node-group list
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+     Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
      
      * создание и изменение — 60 минут;
      * удаление — 20 минут.
@@ -1140,7 +1140,7 @@ yc managed-kubernetes node-group list
      
      {% endnote %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+  Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 {% endlist %}
 
@@ -1156,126 +1156,126 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
+    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
     1. Измените настройки для способов подключения:
 
-        1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, используйте опцию **{{ ui-key.yacloud.k8s.node-group.access-method.field_os-login-access-method }}**.
+        1. Чтобы включить или выключить доступ к узлам через OS Login, используйте опцию **Доступ по OS Login**.
 
             {% note warning %}
             
-            Если доступ через {{ oslogin }} включен, то доступ по SSH-ключам будет невозможен.
+            Если доступ через OS Login включен, то доступ по SSH-ключам будет невозможен.
             
             {% endnote %}
 
-            Настройка и использование {{ oslogin }} подробно рассмотрены в разделе [{#T}](../node-connect-oslogin.md).
+            Настройка и использование OS Login подробно рассмотрены в разделе [Подключение к узлу через OS Login](../node-connect-oslogin.md).
 
         1. Чтобы включить доступ к узлам с использованием SSH-ключей:
            
-           1. Убедитесь, что доступ через {{ oslogin }} выключен.
+           1. Убедитесь, что доступ через OS Login выключен.
            1. Убедитесь, что в метаданных группы узлов есть хотя бы один SSH-ключ. При необходимости добавьте или удалите ключи, [изменив метаданные](node-group-update.md#update-metadata) с ключом `ssh-keys`.
 
-            Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [{#T}](../node-connect-ssh.md).
+            Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [Подключение к узлу по SSH](../node-connect-ssh.md).
 
         1. Чтобы выключить доступ к узлам с использованием SSH-ключей, выполните одно из действий:
            
-           * Включите доступ через {{ oslogin }}.
+           * Включите доступ через OS Login.
            * [Измените метаданные](node-group-update.md#update-metadata), удалив метаданные с ключом `ssh-keys`.
            
-               После удаления этих метаданных вы не сможете подключиться к узлам кластера {{ managed-k8s-name }}, пока не добавите один или несколько SSH-ключей.
+               После удаления этих метаданных вы не сможете подключиться к узлам кластера Managed Service for Kubernetes, пока не добавите один или несколько SSH-ключей.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
+    1. Чтобы включить или выключить доступ к узлам через OS Login, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
        
        * `true` — доступ включен;
        * `false` — доступ выключен.
        
        {% note warning %}
        
-       Если доступ через {{ oslogin }} включен, то доступ по SSH-ключам будет невозможен.
+       Если доступ через OS Login включен, то доступ по SSH-ключам будет невозможен.
        
        {% endnote %}
        
-       Настройка и использование {{ oslogin }} подробно рассмотрены в разделе [{#T}](../node-connect-oslogin.md).
+       Настройка и использование OS Login подробно рассмотрены в разделе [Подключение к узлу через OS Login](../node-connect-oslogin.md).
 
     1. Чтобы включить доступ к узлам с использованием SSH-ключей:
        
-       1. Убедитесь, что доступ через {{ oslogin }} выключен.
+       1. Убедитесь, что доступ через OS Login выключен.
        1. Убедитесь, что в метаданных группы узлов есть хотя бы один SSH-ключ. При необходимости добавьте или удалите ключи, [изменив метаданные](node-group-update.md#update-metadata) с ключом `ssh-keys`.
 
-        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [{#T}](../node-connect-ssh.md).
+        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [Подключение к узлу по SSH](../node-connect-ssh.md).
 
     1. Чтобы выключить доступ к узлам с использованием SSH-ключей, выполните одно из действий:
        
-       * Включите доступ через {{ oslogin }}.
+       * Включите доступ через OS Login.
        * [Измените метаданные](node-group-update.md#update-metadata), удалив метаданные с ключом `ssh-keys`.
        
-           После удаления этих метаданных вы не сможете подключиться к узлам кластера {{ managed-k8s-name }}, пока не добавите один или несколько SSH-ключей.
+           После удаления этих метаданных вы не сможете подключиться к узлам кластера Managed Service for Kubernetes, пока не добавите один или несколько SSH-ключей.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
+    1. Чтобы включить или выключить доступ к узлам через OS Login, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
        
        * `true` — доступ включен;
        * `false` — доступ выключен.
        
        {% note warning %}
        
-       Если доступ через {{ oslogin }} включен, то доступ по SSH-ключам будет невозможен.
+       Если доступ через OS Login включен, то доступ по SSH-ключам будет невозможен.
        
        {% endnote %}
        
-       Настройка и использование {{ oslogin }} подробно рассмотрены в разделе [{#T}](../node-connect-oslogin.md).
+       Настройка и использование OS Login подробно рассмотрены в разделе [Подключение к узлу через OS Login](../node-connect-oslogin.md).
 
     1. Чтобы включить доступ к узлам с использованием SSH-ключей:
        
-       1. Убедитесь, что доступ через {{ oslogin }} выключен.
+       1. Убедитесь, что доступ через OS Login выключен.
        1. Убедитесь, что в метаданных группы узлов есть хотя бы один SSH-ключ. При необходимости добавьте или удалите ключи, [изменив метаданные](node-group-update.md#update-metadata) с ключом `ssh-keys`.
 
-        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [{#T}](../node-connect-ssh.md).
+        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [Подключение к узлу по SSH](../node-connect-ssh.md).
 
     1. Чтобы выключить доступ к узлам с использованием SSH-ключей, выполните одно из действий:
        
-       * Включите доступ через {{ oslogin }}.
+       * Включите доступ через OS Login.
        * [Измените метаданные](node-group-update.md#update-metadata), удалив метаданные с ключом `ssh-keys`.
        
-           После удаления этих метаданных вы не сможете подключиться к узлам кластера {{ managed-k8s-name }}, пока не добавите один или несколько SSH-ключей.
+           После удаления этих метаданных вы не сможете подключиться к узлам кластера Managed Service for Kubernetes, пока не добавите один или несколько SSH-ключей.
 
 - API {#api}
 
-    1. Чтобы включить или выключить доступ к узлам через {{ oslogin }}, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
+    1. Чтобы включить или выключить доступ к узлам через OS Login, [измените значение метаданных](node-group-update.md#update-metadata) с ключом `enable-oslogin`:
        
        * `true` — доступ включен;
        * `false` — доступ выключен.
        
        {% note warning %}
        
-       Если доступ через {{ oslogin }} включен, то доступ по SSH-ключам будет невозможен.
+       Если доступ через OS Login включен, то доступ по SSH-ключам будет невозможен.
        
        {% endnote %}
        
-       Настройка и использование {{ oslogin }} подробно рассмотрены в разделе [{#T}](../node-connect-oslogin.md).
+       Настройка и использование OS Login подробно рассмотрены в разделе [Подключение к узлу через OS Login](../node-connect-oslogin.md).
 
     1. Чтобы включить доступ к узлам с использованием SSH-ключей:
        
-       1. Убедитесь, что доступ через {{ oslogin }} выключен.
+       1. Убедитесь, что доступ через OS Login выключен.
        1. Убедитесь, что в метаданных группы узлов есть хотя бы один SSH-ключ. При необходимости добавьте или удалите ключи, [изменив метаданные](node-group-update.md#update-metadata) с ключом `ssh-keys`.
 
-        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [{#T}](../node-connect-ssh.md).
+        Подготовка реквизитов, настройка и использование SSH-ключей подробно рассмотрены в разделе [Подключение к узлу по SSH](../node-connect-ssh.md).
 
     1. Чтобы выключить доступ к узлам с использованием SSH-ключей, выполните одно из действий:
        
-       * Включите доступ через {{ oslogin }}.
+       * Включите доступ через OS Login.
        * [Измените метаданные](node-group-update.md#update-metadata), удалив метаданные с ключом `ssh-keys`.
        
-           После удаления этих метаданных вы не сможете подключиться к узлам кластера {{ managed-k8s-name }}, пока не добавите один или несколько SSH-ключей.
+           После удаления этих метаданных вы не сможете подключиться к узлам кластера Managed Service for Kubernetes, пока не добавите один или несколько SSH-ключей.
 
 {% endlist %}
 
@@ -1295,36 +1295,36 @@ yc managed-kubernetes node-group list
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
     1. Нажмите на имя нужного кластера.
-    1. Перейдите во вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
+    1. Перейдите во вкладку **Группы узлов**.
     1. Выберите нужную группу узлов.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. Раскройте блок **{{ ui-key.yacloud.common.metadata }}** и измените, добавьте или удалите метаданные для узлов.
+    1. Нажмите кнопку **Редактировать** в правом верхнем углу.
+    1. Раскройте блок **Метаданные** и измените, добавьте или удалите метаданные для узлов.
 
-        Чтобы добавить метаданные, используйте кнопку **{{ ui-key.yacloud.common.metadata-add-field }}**. Укажите ключ и значение каждого элемента метаданных в отдельном наборе полей.
+        Чтобы добавить метаданные, используйте кнопку **Добавить поле**. Укажите ключ и значение каждого элемента метаданных в отдельном наборе полей.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     1. Чтобы добавить или изменить метаданные с определенным ключом:
 
-        1. Посмотрите описание команды CLI для добавления и обновления метаданных группы узлов {{ managed-k8s-name }}:
+        1. Посмотрите описание команды CLI для добавления и обновления метаданных группы узлов Managed Service for Kubernetes:
 
             ```bash
-            {{ yc-k8s }} node-group add-metadata --help
+            yc managed-kubernetes node-group add-metadata --help
             ```
 
         1. Чтобы добавить новые метаданные или изменить их, если они существуют, выполните команду:
 
             ```bash
-            {{ yc-k8s }} node-group add-metadata \
+            yc managed-kubernetes node-group add-metadata \
               --name <имя_группы_узлов> \
               --metadata <ключ>=<значение>
             ```
@@ -1347,16 +1347,16 @@ yc managed-kubernetes node-group list
 
     1. Чтобы удалить метаданные с определенным ключом:
 
-        1. Посмотрите описание команды CLI для удаления метаданных группы узлов {{ managed-k8s-name }}:
+        1. Посмотрите описание команды CLI для удаления метаданных группы узлов Managed Service for Kubernetes:
 
             ```bash
-            {{ yc-k8s }} node-group remove-metadata --help
+            yc managed-kubernetes node-group remove-metadata --help
             ```
 
         1. Удалите существующие метаданные:
 
             ```bash
-            {{ yc-k8s }} node-group remove-metadata \
+            yc managed-kubernetes node-group remove-metadata \
               --name <имя_группы_узлов> \
               --keys <ключ>
             ```
@@ -1365,11 +1365,11 @@ yc managed-kubernetes node-group list
 
             Перечень существующих метаданных можно запросить вместе с [подробной информацией о группе узлов](node-group-list.md#get).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с описанием группы узлов {{ managed-k8s-name }}.
+    1. Откройте актуальный конфигурационный файл Terraform с описанием группы узлов Managed Service for Kubernetes.
 
-        О том, как создать такой файл, см. в разделе [{#T}](node-group-create.md).
+        О том, как создать такой файл, см. в разделе [Создание группы узлов](node-group-create.md).
 
     1. Чтобы добавить, изменить или удалить метаданные с определенным ключом, измените перечень ключей и значений в параметре `instance_template.metadata`. Если такого параметра нет — добавьте его.
 
@@ -1402,14 +1402,14 @@ yc managed-kubernetes node-group list
 
     1. Проверьте корректность конфигурационных файлов.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1433,7 +1433,7 @@ yc managed-kubernetes node-group list
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер {{ TF }} ограничивает время на выполнение операций с группами узлов кластера {{ managed-k8s-name }}:
+        Провайдер Terraform ограничивает время на выполнение операций с группами узлов кластера Managed Service for Kubernetes:
         
         * создание и изменение — 60 минут;
         * удаление — 20 минут.
@@ -1459,7 +1459,7 @@ yc managed-kubernetes node-group list
         
         {% endnote %}
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-nodegroup }}).
+    Подробнее см. в [документации провайдера Terraform](../../../terraform/resources/kubernetes_node_group.md).
 
 - API {#api}
 

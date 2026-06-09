@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ cdn-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Cloud CDN, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики записывается в метку `name`.
 
-Общие метки для всех метрик сервиса {{ cdn-name }} с подключенным провайдером {{ cdn-full-name }}:
+Общие метки для всех метрик сервиса Cloud CDN с подключенным провайдером Yandex Cloud CDN:
 
 Метка | Значение
 ----|----
@@ -68,4 +68,4 @@ folder_id | Идентификатор [каталога](../resource-manager/co
 
 #### См. также {#see-also}
 
-[{#T}](operations/resources/get-stats.md)
+[Просмотр статистики CDN-ресурса](operations/resources/get-stats.md)

@@ -1,8 +1,8 @@
-# [{{ datalens-full-name }}] Column used in join expression is not a key column
+# [Yandex DataLens] Column used in join expression is not a key column
 
 `ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN`
 
-При использовании подключения CHYT значимыми являются ключевые колонки таблиц в {{ ytsaurus-name }}.
+При использовании подключения CHYT значимыми являются ключевые колонки таблиц в YTsaurus.
 В мультитабличных датасетах разрешается создавать связь таблиц (выполнять `JOIN`) только по ключевым колонкам (`key columns`) этих таблиц.
 Для этого выполните следующие требования:
 

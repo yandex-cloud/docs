@@ -40,9 +40,9 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Все руководства](tutorials/index.md)
 
- - [Поиск событий {{ yandex-cloud }} в {{ objstorage-name }}](tutorials/search-bucket.md)
+ - [Поиск событий Yandex Cloud в Object Storage](tutorials/search-bucket.md)
 
- - [Поиск событий {{ yandex-cloud }} в {{ cloud-logging-name }}](tutorials/search-cloud-logging.md)
+ - [Поиск событий Yandex Cloud в Cloud Logging](tutorials/search-cloud-logging.md)
 
 ### Поиск событий в аудитных логах
 
@@ -52,17 +52,17 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Примеры запросов для поиска событий](tutorials/search-events-audit-logs/examples.md)
 
- - [Настройка работы с {{ yq-full-name }}](tutorials/search-events-audit-logs/query.md)
+ - [Настройка работы с Yandex Query](tutorials/search-events-audit-logs/query.md)
 
- - [Настройка дашбордов и алертов в {{ monitoring-name }}](tutorials/alerts-monitoring.md)
+ - [Настройка дашбордов и алертов в Monitoring](tutorials/alerts-monitoring.md)
 
- - [Настройка реагирования в {{ sf-name }}](tutorials/logging-functions.md)
+ - [Настройка реагирования в Cloud Functions](tutorials/logging-functions.md)
 
- - [Обработка аудитных логов {{ at-name }}](tutorials/audit-trails.md)
+ - [Обработка аудитных логов Audit Trails](tutorials/audit-trails.md)
 
 ### Экспорт аудитных логов в SIEM
 
- - [Загрузка аудитных логов в {{ mos-full-name }}](tutorials/trails-logs-opensearch.md)
+ - [Загрузка аудитных логов в Yandex Managed Service for OpenSearch](tutorials/trails-logs-opensearch.md)
 
 #### Загрузка аудитных логов в MaxPatrol SIEM
 
@@ -70,7 +70,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Консоль управления](tutorials/maxpatrol/console.md)
 
- - [{{ TF }}](tutorials/maxpatrol/terraform.md)
+ - [Terraform](tutorials/maxpatrol/terraform.md)
 
  - [Загрузка аудитных логов в SIEM Splunk](tutorials/export-logs-to-splunk.md)
 
@@ -82,7 +82,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [Консоль управления, CLI, API](tutorials/audit-trails-events-to-kuma/console.md)
 
- - [{{ TF }}](tutorials/audit-trails-events-to-kuma/terraform.md)
+ - [Terraform](tutorials/audit-trails-events-to-kuma/terraform.md)
 
 ## Концепции
 
@@ -162,7 +162,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [update](cli-ref/v0/trail/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -236,7 +236,7 @@ Yandex Audit Trails — сервис сбора и выгрузки аудитн
 
  - [UpdateAccessBindings](api-ref/grpc/Trail/updateAccessBindings.md)
 
- - [Метрики {{ monitoring-name }}](concepts/user-metrics.md)
+ - [Метрики Monitoring](concepts/user-metrics.md)
 
  - [Справочник событий уровня конфигурации](concepts/events.md)
 

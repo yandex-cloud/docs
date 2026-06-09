@@ -5,7 +5,7 @@ Creates an API key for the specified service account.
 ## HTTP request
 
 ```
-POST https://iam.{{ api-host }}/iam/v1/apiKeys
+POST https://iam.api.cloud.yandex.net/iam/v1/apiKeys
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateApiKeyRequest}

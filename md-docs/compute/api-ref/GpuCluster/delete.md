@@ -6,7 +6,7 @@ GPU cluster can be deleted only if it doesn't have any instances associated with
 ## HTTP request
 
 ```
-DELETE https://compute.{{ api-host }}/compute/v1/gpuClusters/{gpuClusterId}
+DELETE https://compute.api.cloud.yandex.net/compute/v1/gpuClusters/{gpuClusterId}
 ```
 
 ## Path parameters

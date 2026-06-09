@@ -1,26 +1,26 @@
-# Контроллер Gwin для {{ managed-k8s-full-name }}
+# Контроллер Gwin для Yandex Managed Service for Kubernetes
 
-{{ alb-full-name }} предоставляет инструмент для создания балансировщиков нагрузки и управления ими в [кластерах {{ managed-k8s-full-name }}](../concepts/index.md#kubernetes-cluster) — Gwin.
+Yandex Application Load Balancer предоставляет инструмент для создания балансировщиков нагрузки и управления ими в [кластерах Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) — Gwin.
 
-Контроллер Gwin, установленный в кластер, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации созданных вами ресурсов {{ k8s }}.
+Контроллер Gwin, установленный в кластер, автоматически разворачивает [L7-балансировщики](../../application-load-balancer/concepts/application-load-balancer.md) на основе конфигурации созданных вами ресурсов Kubernetes.
 
-Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей {{ alb-name }}, выходящих за рамки спецификации {{ k8s }}, реализован механизм [политик](gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md).
+Контроллер поддерживает спецификации [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) и [Gateway API](https://gateway-api.sigs.k8s.io/). Для настройки дополнительных возможностей Application Load Balancer, выходящих за рамки спецификации Kubernetes, реализован механизм [политик](gwin-policies.md), которые управляются с помощью [CustomResourceDefinitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) или аннотаций. К дополнительным возможностям относятся, например, автомасштабирование, логирование и интеграция с [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md).
 
-Поддерживаемые ресурсы {{ k8s }}:
+Поддерживаемые ресурсы Kubernetes:
 
 * [Ingress](../gwin-ref/ingress.md) — стандартный [ресурс Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/), возможности которого расширены с помощью аннотаций.
-* [IngressPolicy](../gwin-ref/ingresspolicy.md) — обеспечивает дополнительные возможности для всех ресурсов {{ alb-name }}.
+* [IngressPolicy](../gwin-ref/ingresspolicy.md) — обеспечивает дополнительные возможности для всех ресурсов Application Load Balancer.
 * [IngressBackendGroup](../gwin-ref/ingressbackendgroup.md) — позволяет настраивать группы бэкендов.
 * [ServicePolicy](../gwin-ref/servicepolicy.md) — позволяет настраивать целевые группы.
-* [Service](../gwin-ref/service.md) — содержит описание сервисов {{ k8s }}, используемых в качестве бэкендов.
+* [Service](../gwin-ref/service.md) — содержит описание сервисов Kubernetes, используемых в качестве бэкендов.
 * [Gateway](../gwin-ref/gateway.md) — содержит правила приема входящего трафика и выбора маршрутов для этого трафика.
 * [GatewayPolicy](../gwin-ref/gatewaypolicy.md) — обеспечивает дополнительные возможности для балансировщиков, роутеров и обработчиков.
 * [HTTPRoute](../gwin-ref/httproute.md) — содержит правила для маршрутизации HTTP- и HTTPS-трафика по бэкендам.
 * [GRPCRoute](../gwin-ref/grpcroute.md) — содержит правила для маршрутизации gRPC-трафика по бэкендам.
 * [TLSRoute](../gwin-ref/tlsroute.md) — содержит правила для маршрутизации TLS-трафика по бэкендам.
 * [RoutePolicy](../gwin-ref/routepolicy.md) — обеспечивает дополнительные возможности для виртуальных хостов и маршрутов.
-* [YCStorageBucket](../gwin-ref/ycstoragebucket.md) — соответствует бакету {{ objstorage-full-name }}.
-* [YCCertificate](../gwin-ref/yccertificate.md) — соответствует сертификату {{ certificate-manager-full-name }}.
+* [YCStorageBucket](../gwin-ref/ycstoragebucket.md) — соответствует бакету Yandex Object Storage.
+* [YCCertificate](../gwin-ref/yccertificate.md) — соответствует сертификату Yandex Certificate Manager.
 
 Схема работы контроллера Gwin:
 
@@ -30,17 +30,17 @@
 
 {% note tip %}
 
-Вы можете использовать существующую инфраструктуру {{ alb-name }} для ресурсов {{ k8s }} через Gwin с помощью механизма [Attachment](gwin-alb-attachment.md).
+Вы можете использовать существующую инфраструктуру Application Load Balancer для ресурсов Kubernetes через Gwin с помощью механизма [Attachment](gwin-alb-attachment.md).
 
 {% endnote %}
 
 ## Примеры конфигурации
 
-Ниже приведены два примера конфигурации — с использованием ресурсов Gateway API и Ingress. В обоих случаях создается балансировщик {{ alb-name }}, который:
+Ниже приведены два примера конфигурации — с использованием ресурсов Gateway API и Ingress. В обоих случаях создается балансировщик Application Load Balancer, который:
 
   * автоматически получает динамический публичный IP-адрес;
   * принимает HTTP-трафик на порт `80`;
-  * принимает HTTPS-трафик на порт `443`, используя сертификат {{ certificate-manager-name }};
+  * принимает HTTPS-трафик на порт `443`, используя сертификат Certificate Manager;
   * отправляет GET-запросы к тестовому сервису `example-service`.
 
 {% list tabs group=instructions %}

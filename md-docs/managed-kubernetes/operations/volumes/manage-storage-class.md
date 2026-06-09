@@ -5,11 +5,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% note alert %}
 
-Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
+Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски Yandex Compute Cloud](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
 
 {% endnote %}
 
-В {{ managed-k8s-name }} доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
+В Managed Service for Kubernetes доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
 * `yc-network-ssd` — хранилище на сетевых SSD-дисках (`network-ssd`).
 * `yc-network-ssd-nonreplicated` — хранилище на нереплицируемых SSD-дисках с повышенной производительностью (`network-ssd-nonreplicated`).
@@ -17,7 +17,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% note alert %}
 
-Нереплицируемые диски не имеют резервирования. При выходе диска из строя данные будут утеряны безвозвратно. Подробнее см. в разделе [{#T}](../../../compute/concepts/disk.md#nr-disks).
+Нереплицируемые диски не имеют резервирования. При выходе диска из строя данные будут утеряны безвозвратно. Подробнее см. в разделе [Нереплицируемые диски и сверхбыстрые сетевые хранилища с тремя репликами (SSD)](../../../compute/concepts/disk.md#nr-disks).
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 Вы можете [создать свой класс хранилищ](#sc-create), а также [изменить класс хранилищ по умолчанию](#sc-default).
 
-Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером {{ managed-k8s-name }}](../connect/index.md#kubectl-connect).
+Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером Managed Service for Kubernetes](../connect/index.md#kubectl-connect).
 
 {% note info %}
 
@@ -178,7 +178,7 @@ reclaimPolicy: <политика_переиспользования>
 
 ### См. также {#see-also}
 
-* [{#T}](../../concepts/volume.md)
-* [{#T}](encrypted-disks.md)
-* [{#T}](dynamic-create-pv.md)
-* [{#T}](static-create-pv.md)
+* [Том](../../concepts/volume.md)
+* [Использование зашифрованных дисков для постоянных томов](encrypted-disks.md)
+* [Динамическая подготовка тома](dynamic-create-pv.md)
+* [Статическая подготовка тома](static-create-pv.md)

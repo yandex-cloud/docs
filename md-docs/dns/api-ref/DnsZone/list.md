@@ -5,7 +5,7 @@ Retrieves the list of DNS zones in the specified folder.
 ## HTTP request
 
 ```
-GET https://dns.{{ api-host }}/dns/v1/zones
+GET https://dns.api.cloud.yandex.net/dns/v1/zones
 ```
 
 ## Query parameters {#yandex.cloud.dns.v1.ListDnsZonesRequest}

@@ -1,6 +1,6 @@
 # Составная (multipart) загрузка объекта
 
-При загрузке [объекта](../../concepts/object.md) в [бакет](../../concepts/bucket.md) {{ objstorage-name }} может произойти сетевой сбой, в результате которого загрузка прервется и файл придется загружать заново. Чем больше размер загружаемого файла, тем дольше длится загрузка и выше риск возникновения сетевых ошибок.
+При загрузке [объекта](../../concepts/object.md) в [бакет](../../concepts/bucket.md) Object Storage может произойти сетевой сбой, в результате которого загрузка прервется и файл придется загружать заново. Чем больше размер загружаемого файла, тем дольше длится загрузка и выше риск возникновения сетевых ошибок.
 
 Поэтому большие файлы эффективнее загружать в бакет частями с помощью [составной (multipart) загрузки](../../concepts/multipart.md). В случае сетевого сбоя при загрузке части файла повторно загружать потребуется только одну эту составную часть, а не весь файл.
 
@@ -39,9 +39,9 @@ total 822368
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -100,7 +100,7 @@ total 822368
 
       ```bash
       aws s3api list-buckets \
-        --endpoint-url=https://{{ s3-storage-host }} 
+        --endpoint-url=https://storage.yandexcloud.net 
       ```
 
       Результат:
@@ -128,7 +128,7 @@ total 822368
 
       ```bash
       aws s3api create-multipart-upload \
-        --endpoint-url=https://{{ s3-storage-host }} \
+        --endpoint-url=https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --key <ключ_объекта>
       ```
@@ -162,7 +162,7 @@ total 822368
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Посмотрите описание команды CLI для загрузки составной части объекта в бакет:
 
@@ -190,7 +190,7 @@ total 822368
 
           Порядковый номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно.
           
-          Если загружаются несколько частей с одинаковым номером, {{ objstorage-name }} сохраняет последнюю поступившую.
+          Если загружаются несколько частей с одинаковым номером, Object Storage сохраняет последнюю поступившую.
           
           Размер каждой части, кроме последней, должен быть не менее 5 МБ
       * `--body` — путь к файлу, в котором сохранена составная часть на компьютере пользователя.
@@ -202,7 +202,7 @@ total 822368
       etag: '"a2c44573954874e1a62a3f59********"'
       ```
 
-      Сохраните значение `etag` — оно понадобится для сборки объекта из частей на стороне бакета {{ objstorage-name }}.
+      Сохраните значение `etag` — оно понадобится для сборки объекта из частей на стороне бакета Object Storage.
 
       Подробнее о команде `yc storage s3api upload-part` читайте в [справочнике CLI](../../../cli/cli-ref/storage/cli-ref/s3api/upload-part.md).
 
@@ -210,7 +210,7 @@ total 822368
 
   ```bash
   aws s3api upload-part \
-    --endpoint-url=https://{{ s3-storage-host }} \
+    --endpoint-url=https://storage.yandexcloud.net \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
     --upload-id <идентификатор_составной_загрузки> \
@@ -227,7 +227,7 @@ total 822368
 
       Порядковый номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно.
       
-      Если загружаются несколько частей с одинаковым номером, {{ objstorage-name }} сохраняет последнюю поступившую.
+      Если загружаются несколько частей с одинаковым номером, Object Storage сохраняет последнюю поступившую.
       
       Размер каждой части, кроме последней, должен быть не менее 5 МБ
   * `--body` — путь к файлу, в котором сохранена составная часть на компьютере пользователя.
@@ -240,7 +240,7 @@ total 822368
   }
   ```
 
-  Сохраните значение `ETag` — оно понадобится для сборки объекта из частей на стороне бакета {{ objstorage-name }}.
+  Сохраните значение `ETag` — оно понадобится для сборки объекта из частей на стороне бакета Object Storage.
 
 - API {#api}
 
@@ -256,7 +256,7 @@ total 822368
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Посмотрите описание команды CLI для завершения составной загрузки объекта в бакет:
 
@@ -294,7 +294,7 @@ total 822368
       bucket: first-bucket
       key: video.mp4
       etag: '"040d1fe80bd1d4f12728b192********-3"'
-      location: https://{{ s3-storage-host }}:443/first-bucket/video.mp4
+      location: https://storage.yandexcloud.net:443/first-bucket/video.mp4
       ```
 
       Подробнее о команде `yc storage s3api complete-multipart-upload` читайте в [справочнике CLI](../../../cli/cli-ref/storage/cli-ref/s3api/complete-multipart-upload.md).
@@ -303,7 +303,7 @@ total 822368
 
   ```bash
   aws s3api complete-multipart-upload \
-    --endpoint-url=https://{{ s3-storage-host }} \
+    --endpoint-url=https://storage.yandexcloud.net \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
     --upload-id <идентификатор_составной_загрузки> \
@@ -327,7 +327,7 @@ total 822368
 
   ```json
   {
-    "Location": "https://{{ s3-storage-host }}/first-bucket/video.mp4",
+    "Location": "https://storage.yandexcloud.net/first-bucket/video.mp4",
     "Bucket": "first-bucket",
     "Key": "video.mp4",
     "ETag": "\"040d1fe80bd1d4f12728b192********-3\""
@@ -340,7 +340,7 @@ total 822368
 
 {% endlist %}
 
-Объект с заданным префиксом создан в бакете {{ objstorage-name }} из загруженных составных частей. Воспользуйтесь [инструкцией](info.md), чтобы получить информацию о созданном объекте.
+Объект с заданным префиксом создан в бакете Object Storage из загруженных составных частей. Воспользуйтесь [инструкцией](info.md), чтобы получить информацию о созданном объекте.
 
 
 ## Завершите составную загрузку с условием (conditional writes) {#conditional-writes}
@@ -366,7 +366,7 @@ total 822368
 
       ```bash
       aws s3api complete-multipart-upload \
-        --endpoint-url=https://{{ s3-storage-host }} \
+        --endpoint-url=https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --key <ключ_объекта> \
         --upload-id <идентификатор_составной_загрузки> \
@@ -393,7 +393,7 @@ total 822368
 
       ```json
       {
-        "Location": "https://{{ s3-storage-host }}/first-bucket/video.mp4",
+        "Location": "https://storage.yandexcloud.net/first-bucket/video.mp4",
         "Bucket": "first-bucket",
         "Key": "video.mp4",
         "ETag": "\"040d1fe80bd1d4f12728b192********-3\""
@@ -419,7 +419,7 @@ total 822368
 
       ```bash
       aws s3api complete-multipart-upload \
-        --endpoint-url=https://{{ s3-storage-host }} \
+        --endpoint-url=https://storage.yandexcloud.net \
         --bucket <имя_бакета> \
         --key <ключ_объекта> \
         --upload-id <идентификатор_составной_загрузки> \
@@ -446,7 +446,7 @@ total 822368
 
       ```json
       {
-        "Location": "https://{{ s3-storage-host }}/first-bucket/video.mp4",
+        "Location": "https://storage.yandexcloud.net/first-bucket/video.mp4",
         "Bucket": "first-bucket",
         "Key": "video.mp4",
         "ETag": "\"040d1fe80bd1d4f12728b192********-3\""

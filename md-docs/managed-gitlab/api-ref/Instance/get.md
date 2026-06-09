@@ -5,7 +5,7 @@ Returns the specified GitLab instance.
 ## HTTP request
 
 ```
-GET https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}
+GET https://gitlab.api.cloud.yandex.net/gitlab/v1/instances/{instanceId}
 ```
 
 ## Path parameters

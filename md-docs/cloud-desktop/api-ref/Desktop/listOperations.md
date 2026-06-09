@@ -5,7 +5,7 @@ Returns list of the operations for the specified desktop.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}/operations
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}/operations
 ```
 
 ## Path parameters

@@ -6,7 +6,7 @@ Deleting an image removes its data permanently and is irreversible.
 ## HTTP request
 
 ```
-DELETE https://compute.{{ api-host }}/compute/v1/images/{imageId}
+DELETE https://compute.api.cloud.yandex.net/compute/v1/images/{imageId}
 ```
 
 ## Path parameters

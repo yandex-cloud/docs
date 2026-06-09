@@ -1,7 +1,7 @@
-# Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}
+# Настройка отказоустойчивой архитектуры в Yandex Cloud
 
 
-С помощью этой инструкции вы настроите [отказоустойчивую архитектуру](../../architecture/fault-tolerance.md) в {{ yandex-cloud }} и проверите ее работу на различных тестовых сценариях.
+С помощью этой инструкции вы настроите [отказоустойчивую архитектуру](../../architecture/fault-tolerance.md) в Yandex Cloud и проверите ее работу на различных тестовых сценариях.
 
 Отказоустойчивость — это свойство системы сохранять свою работоспособность после отказа одной или нескольких ее составных частей.
 
@@ -15,45 +15,45 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичных IP-адресов и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичных IP-адресов и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Настройте тестовый стенд {#prepare}
 
 Описание тестового стенда:
 
-* Приложение упаковано в [Docker-образ](../../container-registry/concepts/docker-image.md) и загружено в {{ container-registry-full-name }}.
+* Приложение упаковано в [Docker-образ](../../container-registry/concepts/docker-image.md) и загружено в Yandex Container Registry.
 
-  Docker-образы развернуты на четырех ВМ на основе [{{ coi }}](../../cos/index.md). ВМ объединены в группу и расположены в двух различных [зонах доступности](../../overview/concepts/geo-scope.md).
+  Docker-образы развернуты на четырех ВМ на основе [Container Optimized Image](../../cos/index.md). ВМ объединены в группу и расположены в двух различных [зонах доступности](../../overview/concepts/geo-scope.md).
 
-* Кластер БД работает под управлением сервиса {{ mpg-name }} и состоит из двух хостов, расположенных в различных зонах доступности.
-* Нагрузка генерируется приложением [{{ load-testing-name }} Tool](https://yandex.cloud/ru/marketplace/products/yc/load-testing) из {{ marketplace-full-name }} и подается на [{{ network-load-balancer-full-name }}](../../network-load-balancer/index.md). Сетевой балансировщик нагрузки распределяет трафик по ВМ.
+* Кластер БД работает под управлением сервиса Managed Service for PostgreSQL и состоит из двух хостов, расположенных в различных зонах доступности.
+* Нагрузка генерируется приложением [Load Testing Tool](https://yandex.cloud/ru/marketplace/products/yc/load-testing) из Yandex Cloud Marketplace и подается на [Yandex Network Load Balancer](../../network-load-balancer/index.md). Сетевой балансировщик нагрузки распределяет трафик по ВМ.
 
 ### Подготовьте контейнеры приложения TodoList {#create-app}
 
-Чтобы подготовить приложение для запуска в {{ yandex-cloud }}:
+Чтобы подготовить приложение для запуска в Yandex Cloud:
 
-1. Скачайте и распакуйте [репозиторий](https://github.com/glebmish/yandex-cloud-fault-tolerance-demo/archive/master.zip) с исходным кодом демо-приложения, {{ TF }}-спецификациями и скриптом для имитации сбоя приложения.
+1. Скачайте и распакуйте [репозиторий](https://github.com/glebmish/yandex-cloud-fault-tolerance-demo/archive/master.zip) с исходным кодом демо-приложения, Terraform-спецификациями и скриптом для имитации сбоя приложения.
 1. Перейдите в репозиторий:
 
    ```bash
    cd yandex-cloud-fault-tolerance-demo-master/app
    ```
 
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в {{ container-registry-name }}:
+1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в Container Registry:
 
    ```bash
    yc container registry configure-docker
@@ -68,34 +68,34 @@
 1. [Создайте Docker-образ](../../container-registry/operations/docker-image/docker-image-create.md) с тегом `v1`:
 
    ```bash
-   docker build . --tag {{ registry }}/<идентификатор_реестра>/todo-demo:v1 --platform linux/amd64
+   docker build . --tag cr.yandex/<идентификатор_реестра>/todo-demo:v1 --platform linux/amd64
    ```
 
 1. Создайте Docker-образ с тегом `v2` (для проверки сценария обновления приложения):
 
    ```bash
-   docker build . --build-arg COLOR_SCHEME=dark --tag {{ registry }}/<идентификатор_реестра>/todo-demo:v2 --platform linux/amd64
+   docker build . --build-arg COLOR_SCHEME=dark --tag cr.yandex/<идентификатор_реестра>/todo-demo:v2 --platform linux/amd64
    ```
 
-1. [Загрузите Docker-образы](../../container-registry/operations/docker-image/docker-image-push.md) в {{ container-registry-name }}:
+1. [Загрузите Docker-образы](../../container-registry/operations/docker-image/docker-image-push.md) в Container Registry:
 
    ```bash
-   docker push {{ registry }}/<идентификатор_реестра>/todo-demo:v1
-   docker push {{ registry }}/<идентификатор_реестра>/todo-demo:v2
+   docker push cr.yandex/<идентификатор_реестра>/todo-demo:v1
+   docker push cr.yandex/<идентификатор_реестра>/todo-demo:v2
    ```
 
 ### Разверните инфраструктуру {#create-environment}
 
-Чтобы подготовить окружение для запуска приложения в {{ yandex-cloud }}:
+Чтобы подготовить окружение для запуска приложения в Yandex Cloud:
 
-1. [Установите {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Установите Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. Перейдите в директорию со спецификацией окружения:
 
    ```bash
    cd ../terraform/app
    ```
 
-1. Инициализируйте {{ TF }} в директории со спецификацией:
+1. Инициализируйте Terraform в директории со спецификацией:
 
    ```bash
    terraform init
@@ -121,12 +121,12 @@
 
    Будут созданы следующие ресурсы:
 
-   * [Сеть](../../vpc/concepts/network.md#network) {{ vpc-name }} с тремя [подсетями](../../vpc/concepts/network.md#subnet) во всех зонах доступности.
+   * [Сеть](../../vpc/concepts/network.md#network) Virtual Private Cloud с тремя [подсетями](../../vpc/concepts/network.md#subnet) во всех зонах доступности.
    * Два [сервисных аккаунта](../../iam/concepts/users/service-accounts.md):
      * Сервисный аккаунт для управления группой ВМ с ролью `editor`.
      * Сервисный аккаунт для скачивания Docker-образа на ВМ с [ролью](../../iam/concepts/access-control/roles.md) `container-registry.images.puller`.
-   * Группа ВМ из четырех ВМ на базе {{ coi }} в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d`.
-   * Кластер {{ mpg-name }} с двумя хостами в зонах доступности `{{ region-id }}-b` и `{{ region-id }}-d`.
+   * Группа ВМ из четырех ВМ на базе Container Optimized Image в зонах доступности `ru-central1-b` и `ru-central1-d`.
+   * Кластер Managed Service for PostgreSQL с двумя хостами в зонах доступности `ru-central1-b` и `ru-central1-d`.
    * Сетевой балансировщик нагрузки для распределения трафика по ВМ группы.
 
    {% endcut %}
@@ -144,21 +144,21 @@
 
 Для доступа к приложению перейдите по адресу `lb_address`, полученному в результате выполнения `terraform apply`.
 
-### Подготовьте и запустите приложение {{ load-testing-name }} Tool {#create-load-testing-tool}
+### Подготовьте и запустите приложение Load Testing Tool {#create-load-testing-tool}
 
 {% note warning %}
 
-Перед созданием {{ load-testing-name }} Tool [подготовьте контейнеры приложения TodoList](#create-app) и [разверните инфраструктуру](#create-environment).
+Перед созданием Load Testing Tool [подготовьте контейнеры приложения TodoList](#create-app) и [разверните инфраструктуру](#create-environment).
 
 {% endnote %}
 
-1. Перейдите в директорию со спецификацией {{ load-testing-name }} Tool:
+1. Перейдите в директорию со спецификацией Load Testing Tool:
 
    ```bash
    cd ../tank
    ```
 
-1. Инициализируйте {{ TF }} в директории со спецификацией {{ load-testing-name }} Tool:
+1. Инициализируйте Terraform в директории со спецификацией Load Testing Tool:
 
    ```bash
    terraform init
@@ -173,8 +173,8 @@
 
    Где:
 
-   * `yc_folder` — каталог, в котором будет развернуто {{ load-testing-name }} Tool.
-   * `yc_token`— IAM-токен пользователя, от имени которого будет развернуто {{ load-testing-name }} Tool.
+   * `yc_folder` — каталог, в котором будет развернуто Load Testing Tool.
+   * `yc_token`— IAM-токен пользователя, от имени которого будет развернуто Load Testing Tool.
    * `overload_token` — токен для подключения к `<overload.yandex.net>`. Для получения токена нужно аутентифицироваться, после чего нажать справа вверху на свой профиль и в выпадающем меню выбрать **My api token**.
 
 1. Подключитесь к созданной ВМ по [SSH](../../glossary/ssh-keygen.md). Адрес для подключения указан в выводе команды `terraform apply`:
@@ -183,7 +183,7 @@
    ssh <имя_пользователя>@<IP-адрес_ВМ>
    ```
 
-1. Запустите {{ load-testing-name }} Tool:
+1. Запустите Load Testing Tool:
 
    ```bash
    sudo yandex-tank -c load.yaml
@@ -208,26 +208,26 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
-  1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
-  1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_delete }}**.
+  1. Перейдите на панель **Виртуальные машины**.
+  1. В строке с нужной ВМ нажмите значок ![image](../../_assets/options.svg) → **Удалить**.
+  1. В открывшемся окне нажмите кнопку **Удалить**.
 
 {% endlist %}
 
 Реакция тестового стенда:
 
-1. Сетевой балансировщик нагрузки и {{ ig-name }} получают информацию о сбое ВМ и выводят ее из балансировки — трафик перестает поступать на эту ВМ и распределяется между оставшимися ВМ в группе.
-1. {{ ig-name }} [автоматически восстанавливается](../../compute/concepts/instance-groups/autohealing.md):
+1. Сетевой балансировщик нагрузки и Instance Groups получают информацию о сбое ВМ и выводят ее из балансировки — трафик перестает поступать на эту ВМ и распределяется между оставшимися ВМ в группе.
+1. Instance Groups [автоматически восстанавливается](../../compute/concepts/instance-groups/autohealing.md):
    1. Удаляет недоступную ВМ (в этом сценарии ВМ уже удалена, шаг будет пропущен).
    1. Создает новую ВМ.
    1. Ожидает запуска приложения на созданной ВМ.
    1. Добавляет ВМ в балансировку.
 
-Балансировщику нагрузки и {{ ig-name }} требуется некоторое время, чтобы обнаружить проблему и отключить подачу трафика на неисправную ВМ. Из-за этого возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге {{ load-testing-name }} Tool).
+Балансировщику нагрузки и Instance Groups требуется некоторое время, чтобы обнаружить проблему и отключить подачу трафика на неисправную ВМ. Из-за этого возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге Load Testing Tool).
 
 После выведения недоступной ВМ из балансировки пользовательская нагрузка обрабатывается корректно.
 
@@ -241,7 +241,7 @@
 * Приложение не может продолжить работу из-за потери связности с БД.
 * Приложение не успевает обрабатывать запросы из-за большой нагрузки.
 
-В соответствии с настройками [проверки состояния](../../compute/concepts/instance-groups/autohealing.md#setting-up-health-checks) {{ ig-name }} опрашивает ВМ группы по HTTP-протоколу. При нормальной работе обращение к конечной точке `/healthy` возвращается HTTP-код `200`. Иначе {{ ig-name }} запускает процедуру восстановления.
+В соответствии с настройками [проверки состояния](../../compute/concepts/instance-groups/autohealing.md#setting-up-health-checks) Instance Groups опрашивает ВМ группы по HTTP-протоколу. При нормальной работе обращение к конечной точке `/healthy` возвращается HTTP-код `200`. Иначе Instance Groups запускает процедуру восстановления.
 
 Для имитации сбоя в репозитории `yandex-cloud-fault-tolerance-demo-master` запустите скрипт:
 
@@ -253,13 +253,13 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 Реакция тестового стенда:
 
-1. {{ ig-name }} получает информацию о сбое приложения и выводит ВМ из балансировки — трафик перестает поступать на эту ВМ и распределяется между оставшимися ВМ в группе.
-1. {{ ig-name }} [автоматически восстанавливается](../../compute/concepts/instance-groups/autohealing.md):
+1. Instance Groups получает информацию о сбое приложения и выводит ВМ из балансировки — трафик перестает поступать на эту ВМ и распределяется между оставшимися ВМ в группе.
+1. Instance Groups [автоматически восстанавливается](../../compute/concepts/instance-groups/autohealing.md):
    1. Перезагружает неисправную ВМ.
    1. Ожидает запуска приложения на созданной ВМ.
    1. Добавляет ВМ в балансировку.
 
-{{ ig-name }} несколько раз опрашивает ВМ прежде чем отключить трафик и запустить восстановление. Из-за этого возможно появление ошибок Service Unavailable (HTTP-код `503` на графиках **Quantities** и **HTTP codes** в мониторинге {{ load-testing-name }} Tool).
+Instance Groups несколько раз опрашивает ВМ прежде чем отключить трафик и запустить восстановление. Из-за этого возможно появление ошибок Service Unavailable (HTTP-код `503` на графиках **Quantities** и **HTTP codes** в мониторинге Load Testing Tool).
 
 После выведения неисправной ВМ из балансировки пользовательская нагрузка обрабатывается корректно.
 
@@ -278,25 +278,25 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** снимите галочку с зоны доступности `{{ region-id }}-b`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+  1. В правом верхнем углу нажмите **Редактировать**.
+  1. В блоке **Распределение** снимите галочку с зоны доступности `ru-central1-b`.
+  1. Нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
 Реакция тестового стенда:
 
-1. {{ ig-name }} выводит из балансировки ВМ в зоне доступности `{{ region-id }}-b`.
-1. Выведенные ВМ удаляются, одновременно с этим создаются ВМ в зоне `{{ region-id }}-d`.
-1. {{ ig-name }} добавляет созданные ВМ в балансировку.
+1. Instance Groups выводит из балансировки ВМ в зоне доступности `ru-central1-b`.
+1. Выведенные ВМ удаляются, одновременно с этим создаются ВМ в зоне `ru-central1-d`.
+1. Instance Groups добавляет созданные ВМ в балансировку.
 
 Количество одновременно создаваемых и удаляемых ВМ определяется [политикой развертывания](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-Во время выведения ВМ из балансировки возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге {{ load-testing-name }} Tool).
+Во время выведения ВМ из балансировки возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге Load Testing Tool).
 
 После выведения ВМ из балансировки пользовательская нагрузка обрабатывается корректно.
 
@@ -308,24 +308,24 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашей группой ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **Группы виртуальных машин**.
   1. Выберите группу `todo-ig`.
-  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
-  1. Выберите необходимый Docker-контейнер и нажмите ![image](../../_assets/options.svg) → **{{ ui-key.yacloud.common.edit }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.compute.instances.create.field_coi-image }}** укажите образ с новой версией приложения (тег `v2`).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}** на странице **{{ ui-key.yacloud.compute.group.edit.label_title }}**.
+  1. В правом верхнем углу нажмите **Редактировать**.
+  1. В блоке **Шаблон виртуальной машины** нажмите значок ![horizontal-ellipsis](../../_assets/horizontal-ellipsis.svg) и выберите **Редактировать**.
+  1. В блоке **Образ загрузочного диска** перейдите на вкладку **Container Solution**.
+  1. Выберите необходимый Docker-контейнер и нажмите ![image](../../_assets/options.svg) → **Редактировать**.
+  1. В открывшемся окне в поле **Docker-образ** укажите образ с новой версией приложения (тег `v2`).
+  1. Нажмите кнопку **Применить**.
+  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **Сохранить** на странице **Изменение группы виртуальных машин**.
 
 {% endlist %}
 
 Реакция тестового стенда:
 
-1. {{ ig-name }} выводит из балансировки две ВМ с устаревшей версией приложения ([статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) таких ВМ `RUNNING_OUTDATED`).
+1. Instance Groups выводит из балансировки две ВМ с устаревшей версией приложения ([статус](../../compute/concepts/instance-groups/statuses.md#vm-statuses) таких ВМ `RUNNING_OUTDATED`).
 1. Удаляет выведенные ВМ, одновременно с этим создает ВМ с новой версией приложения.
 1. Добавляет созданные ВМ в балансировку.
 1. Действия повторяются для оставшихся двух ВМ с устаревшей версией приложения.
@@ -334,7 +334,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 Количество одновременно создаваемых и удаляемых ВМ определяется [политикой развертывания](../../compute/concepts/instance-groups/policies/deploy-policy.md).
 
-Во время выведения ВМ из балансировки возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге {{ load-testing-name }} Tool).
+Во время выведения ВМ из балансировки возможно появление ошибок Connection Timeout (HTTP-код `0` на графиках **Quantities** и **HTTP codes** в мониторинге Load Testing Tool).
 
 После выведения ВМ из балансировки пользовательская нагрузка обрабатывается корректно.
 
@@ -351,18 +351,18 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с вашим кластером БД.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
   1. Выберите кластер `todo-postgresql`.
-  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Нажмите кнопку ![image](../../_assets/pencil.svg) **Редактировать**.
+  1. В блоке **Класс хоста** выберите `s2.medium`.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 {% endlist %}
 
-{{ mpg-name }} запустит операцию изменения кластера.
+Managed Service for PostgreSQL запустит операцию изменения кластера.
 
-При переключении между мастером и репликой (в начале и в конце процесса изменения) возможно появление ошибок Internal Server Error (HTTP-код `500` на графиках **Quantities** и **HTTP codes** в мониторинге {{ load-testing-name }} Tool).
+При переключении между мастером и репликой (в начале и в конце процесса изменения) возможно появление ошибок Internal Server Error (HTTP-код `500` на графиках **Quantities** и **HTTP codes** в мониторинге Load Testing Tool).
 
 После переключения пользовательская нагрузка обрабатывается корректно.
 
@@ -370,11 +370,11 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 
 {% note warning %}
 
-Если создана ВМ с {{ load-testing-name }} Tool, необходимо сначала удалить ее, иначе удаление сети {{ vpc-name }} завершится с ошибкой.
+Если создана ВМ с Load Testing Tool, необходимо сначала удалить ее, иначе удаление сети Virtual Private Cloud завершится с ошибкой.
 
 {% endnote %}
 
-Чтобы удалить приложение {{ load-testing-name }} Tool, перейдите в каталог `yandex-cloud-fault-tolerance-demo-master/terraform/tank` и выполните следующую команду:
+Чтобы удалить приложение Load Testing Tool, перейдите в каталог `yandex-cloud-fault-tolerance-demo-master/terraform/tank` и выполните следующую команду:
 
 ```bash
 terraform destroy -var yc_folder=$YC_FOLDER -var yc_token=$YC_TOKEN -var user=$USER -var overload_token=not-used

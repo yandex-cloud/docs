@@ -7,7 +7,7 @@ To get the list of all available log groups, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/logGroups/{logGroupId}
+GET https://logging.api.cloud.yandex.net/logging/v1/logGroups/{logGroupId}
 ```
 
 ## Path parameters

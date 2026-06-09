@@ -1,16 +1,16 @@
-# Создание подключения к {{ monitoring-name }}
+# Создание подключения к Monitoring
 
 {% note info %}
 
-* Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
+* Для создания подключения требуется [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с [ролью](../../../iam/operations/sa/assign-role-for-sa.md) `monitoring.viewer` (или `viewer`).
 * Для написания запросов в QL-чартах используйте [язык запросов Yandex Monitoring](../../../monitoring/concepts/querying.md).
 * При написании запросов не используйте [метку](../../../monitoring/concepts/data-model.md#label) `folderId`.
 
 {% endnote %}
 
-Чтобы создать подключение к {{ monitoring-name }}:
+Чтобы создать подключение к Monitoring:
 
-1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
+1. Перейдите на [страницу создания нового подключения](https://datalens.ru/connections/new).
 1. В разделе **Файлы и сервисы** выберите подключение **Мониторинг**.
 1. Укажите параметры подключения:
 
@@ -24,4 +24,4 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../tutorials/data-from-monitoring-visualization.md)
+* [Визуализация данных Yandex Monitoring](../../tutorials/data-from-monitoring-visualization.md)

@@ -1,4 +1,4 @@
-# Шардирование таблиц в {{ CH }}
+# Шардирование таблиц в ClickHouse®
 
 
 [Шардирование](../../glossary/sharding.md) обеспечивает [ряд преимуществ](../concepts/sharding.md#advantages) при высокой частоте запросов и работе с большими наборами данных. При этом создается распределенная таблица, которая маршрутизирует запросы к нижележащим таблицам. Обращаться к данным в шардированных таблицах можно как через распределенную таблицу, так и напрямую.
@@ -11,7 +11,7 @@
 
 Далее рассмотрены примеры настройки шардирования для всех трех подходов.
 
-Подробнее читайте в разделе [{#T}](../concepts/sharding.md).
+Подробнее читайте в разделе [Шардирование в Managed Service for ClickHouse®](../concepts/sharding.md).
 
 Чтобы настроить шардирование:
 
@@ -25,8 +25,8 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -37,10 +37,10 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер](../operations/cluster-create.md) {{ mch-name }} с хостами в публичном доступе и настройками:
+    1. [Создайте кластер](../operations/cluster-create.md) Managed Service for ClickHouse® с хостами в публичном доступе и настройками:
 
-        * **{{ ui-key.yacloud.mdb.forms.base_field_name }}** — `chcluster`.
-        * **{{ ui-key.yacloud.mdb.forms.label_diskTypeId }}** — выберите нужный тип дисков.
+        * **Имя кластера** — `chcluster`.
+        * **Тип диска** — выберите нужный тип дисков.
 
             От выбранного типа дисков зависит минимальное количество хостов в каждом шарде:
 
@@ -49,18 +49,18 @@
 
             Дополнительные хосты для этих типов дисков необходимы для обеспечения отказоустойчивости.
 
-            Подробнее см. в разделе [{#T}](../concepts/storage.md).
+            Подробнее см. в разделе [Хранилище в Managed Service for ClickHouse®](../concepts/storage.md).
 
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `tutorial`.
+        * **Имя БД** — `tutorial`.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
     1. [Создайте два дополнительных шарда](../operations/shards.md#add-shard) с именами `shard2`, `shard3`.
-    1. [Добавьте в кластер три хоста {{ ZK }}](../operations/zk-hosts.md#add-zk).
+    1. [Добавьте в кластер три хоста ZooKeeper](../operations/zk-hosts.md#add-zk).
     1. [Создайте группы шардов](../operations/shard-groups.md#create-shard-group). Их количество зависит от типа шардирования:
 
         * [Шардирование с использованием групп шардов](#shard-groups-example) требует одну группу шардов с именем `sgroup`, которая включает шарды `shard1` и `shard2`.
@@ -74,9 +74,9 @@
     1. Если вы используете группы безопасности, [настройте их](../operations/connect/index.md#configuring-security-groups) так, чтобы к кластеру можно было подключаться из интернета.
 
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -92,16 +92,16 @@
         * сеть;
         * подсеть;
         * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру из интернета;
-        * кластер {{ mch-name }} с необходимыми хостами и шардами.
+        * кластер Managed Service for ClickHouse® с необходимыми хостами и шардами.
 
-    1. Укажите в конфигурационном файле имя пользователя и пароль, которые будут использоваться для доступа к кластеру {{ mch-name }}.
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Укажите в конфигурационном файле имя пользователя и пароль, которые будут использоваться для доступа к кластеру Managed Service for ClickHouse®.
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
     1. Создайте необходимую инфраструктуру:
 
         1. Выполните команду для просмотра планируемых изменений:
@@ -122,7 +122,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
@@ -132,9 +132,9 @@
 
 ## Создайте таблицы с данными {#create-tables}
 
-Пусть необходимо включить шардирование для [таблицы]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) `hits_v1`. Текст запроса на создание таблицы зависит от выбранного подхода к шардированию.
+Пусть необходимо включить шардирование для [таблицы](https://clickhouse.com/docs/ru/getting-started/example-datasets/metrica) `hits_v1`. Текст запроса на создание таблицы зависит от выбранного подхода к шардированию.
 
-Структура таблицы, которую нужно подставить вместо обозначения `<структура_таблицы>`, приведена [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables).
+Структура таблицы, которую нужно подставить вместо обозначения `<структура_таблицы>`, приведена [в документации ClickHouse®](https://clickhouse.com/docs/ru/getting-started/example-datasets/star-schema#create-tables).
 
 После включения шардирования любым из способов, вы сможете отправлять `SELECT`- и `INSERT`-запросы к созданной распределенной таблице, и они будут обрабатываться согласно заданной конфигурации.
 
@@ -147,7 +147,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree), которая будет размещена на всех хостах кластера:
+1. Создайте таблицу `hits_v1` на движке [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree), которая будет размещена на всех хостах кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <структура_таблицы> )
@@ -161,7 +161,7 @@
 Чтобы создать распределенную таблицу `hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -170,7 +170,7 @@
 
    Здесь допустимо вместо явного указания структуры таблицы использовать выражение `AS tutorial.hits_v1`, т. к. таблицы `hits_v1_distributed` и `hits_v1` находятся на одних и тех же хостах кластера.
 
-   При создании таблицы на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+   При создании таблицы на движке [Distributed](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -188,7 +188,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree), которая использует все хосты группы шардов `sgroup` кластера:
+1. Создайте таблицу `hits_v1` на движке [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree), которая использует все хосты группы шардов `sgroup` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <структура_таблицы> )
@@ -202,7 +202,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -222,7 +222,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), которая использует все хосты группы шардов `sgroup_data` кластера:
+1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/replication), которая использует все хосты группы шардов `sgroup_data` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <структура_таблицы> )
@@ -238,7 +238,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed](https://clickhouse.com/docs/ru/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура_таблицы> )
@@ -255,7 +255,7 @@
 
    
    ```bash
-   curl https://{{ s3-storage-host }}/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
+   curl https://storage.yandexcloud.net/doc-files/managed-clickhouse/hits_v1.tsv.xz | unxz --threads=`nproc` > hits_v1.tsv
    ```
 
 
@@ -273,7 +273,7 @@
       --max_insert_block_size=100000 < hits_v1.tsv
    ```
 
-    Чтобы узнать имена хостов, посмотрите [список хостов {{ CH }} в кластере](../operations/hosts.md#list-hosts).
+    Чтобы узнать имена хостов, посмотрите [список хостов ClickHouse® в кластере](../operations/hosts.md#list-hosts).
 
 1. Выполните один или несколько тестовых запросов к этой таблице. Например, можно узнать количество строк в ней:
 
@@ -295,16 +295,16 @@
 
 - Вручную {#manual}
 
-    1. [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
+    1. [Удалите кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
     1. Если для доступа к кластеру использовались статические публичные IP-адреса, освободите и [удалите их](../../vpc/operations/address-delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -318,8 +318,8 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

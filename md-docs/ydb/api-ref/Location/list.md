@@ -5,7 +5,7 @@ Returns the list of available locations.
 ## HTTP request
 
 ```
-GET https://ydb.{{ api-host }}/ydb/v1/locations
+GET https://ydb.api.cloud.yandex.net/ydb/v1/locations
 ```
 
 ## Query parameters {#yandex.cloud.ydb.v1.ListLocationsRequest}

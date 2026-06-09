@@ -1,6 +1,6 @@
-# Триггер для {{ iot-short-name }}, который отправляет сообщения в WebSocket-соединения
+# Триггер для Yandex IoT Core, который отправляет сообщения в WebSocket-соединения
 
-[Триггер](index.md) для {{ iot-short-name }} предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для топиков: принимает из них копии сообщений и отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) для обработки.
+[Триггер](index.md) для Yandex IoT Core предназначен для управления сообщениями, которыми обмениваются устройства, реестры и брокеры. Он создается для топиков: принимает из них копии сообщений и отправляет сообщения в [WebSocket-соединения](../extensions/websocket.md) для обработки.
 
 Триггер должен находиться в одном облаке с устройством, реестром или брокером, из топика которого он читает сообщения.
 
@@ -9,22 +9,22 @@
 * Для топика с произвольными [сабтопиками](../../../iot-core/concepts/topic/subtopic.md) и подстановочными символами.
 * Для [алиаса](../../../iot-core/concepts/topic/usage.md#aliases) топика.
  
-Триггеру для {{ iot-short-name }} необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для отправки сообщений в WebSocket-соединения. 
+Триггеру для Yandex IoT Core необходим [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) для отправки сообщений в WebSocket-соединения. 
 
-О том, как создать триггер для {{ iot-short-name }}, читайте в инструкциях [{#T}](../../operations/trigger/iot-core-trigger-create.md) и [{#T}](../../operations/trigger/iot-core-trigger-broker-create.md).
+О том, как создать триггер для Yandex IoT Core, читайте в инструкциях [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика реестра или устройства Yandex IoT Core](../../operations/trigger/iot-core-trigger-create.md) и [Создать триггер, который отправляет сообщения в WebSocket-соединения из топика брокера Yandex IoT Core](../../operations/trigger/iot-core-trigger-broker-create.md).
 
 ## Группирование сообщений {#batching}
 
 Настройки группирования позволяют передавать в WebSocket-соединения сразу несколько сообщений. Эти настройки задают ограничение сверху по размеру группы сообщений и по времени ее накопления. Например, если размер группы сообщений равен 3, то в WebSocket-соединения могут поступать группы, в которых содержится от 1 до 3 сообщений.
 
-## Роли, необходимые для корректной работы триггера для {{ iot-short-name }} {#roles}
+## Роли, необходимые для корректной работы триггера для Yandex IoT Core {#roles}
 
-* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [{{ roles-editor }}](../../../iam/roles-reference.md#editor) и выше.
+* Для создания триггера вам необходимо разрешение на сервисный аккаунт, от имени которого триггер выполняет операцию. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисному аккаунту необходима роль `api-gateway.websocketBroadcaster` на каталог, в котором находится API-шлюз.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера {{ iot-short-name }} {#format}
+## Формат сообщения от триггера Yandex IoT Core {#format}
 
 Перед тем как отправить в WebSocket-соединения копию сообщения, триггер приводит ее к указанному ниже формату.
 
@@ -98,5 +98,5 @@
 
 ## См. также {#see-also}
 
-* [Триггер для {{ iot-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
-* [Триггер для {{ iot-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/concepts/trigger/iot-core-trigger.md)
+* [Триггер для Yandex IoT Core, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/iot-core-trigger.md)
+* [Триггер для Yandex IoT Core, который передает сообщения в функцию Cloud Functions](../../../functions/concepts/trigger/iot-core-trigger.md)

@@ -69,9 +69,9 @@ while:
           url: \(.url)
 ```
 
-### {{ lockbox-full-name }} {#lockbox-extension}
+### Yandex Lockbox {#lockbox-extension}
 
-Специальная jq-функция `lockboxPayload` позволяет получать значение [секрета {{ lockbox-name }}](../../../lockbox/concepts/secret.md) по его идентификатору, ключу и (опционально) [версии](../../../lockbox/concepts/secret.md#version). Чтобы расширение работало корректно, в настройках [рабочего процесса](workflow.md) должен быть указан [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть права на просмотр содержимого секретов (например, с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`). Функция доступна для использования во всех полях интеграционных шагов, кроме поля `input`.
+Специальная jq-функция `lockboxPayload` позволяет получать значение [секрета Yandex Lockbox](../../../lockbox/concepts/secret.md) по его идентификатору, ключу и (опционально) [версии](../../../lockbox/concepts/secret.md#version). Чтобы расширение работало корректно, в настройках [рабочего процесса](workflow.md) должен быть указан [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), у которого есть права на просмотр содержимого секретов (например, с назначенной [ролью](../../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`). Функция доступна для использования во всех полях интеграционных шагов, кроме поля `input`.
 
 Описание аргументов jq-функции `lockboxPayload`:
 

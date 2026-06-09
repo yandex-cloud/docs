@@ -5,7 +5,7 @@ Upserts a repository in the specified registry.
 ## HTTP request
 
 ```
-POST https://container-registry.{{ api-host }}/container-registry/v1/repositories
+POST https://container-registry.api.cloud.yandex.net/container-registry/v1/repositories
 ```
 
 ## Body parameters {#yandex.cloud.containerregistry.v1.UpsertRepositoryRequest}

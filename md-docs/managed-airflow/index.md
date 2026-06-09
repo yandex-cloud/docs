@@ -16,7 +16,7 @@
 
  - [Изменение кластера](operations/cluster-update.md)
 
- - [Обновление версии {{ AF }} и Python](operations/cluster-version-update.md)
+ - [Обновление версии Apache Airflow™ и Python](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
@@ -28,17 +28,17 @@
 
 ### Подключения
 
- - [{{ maf-name }}: подключение к базе данных](operations/update-connections.md)
+ - [Managed Service for Apache Airflow™: подключение к базе данных](operations/update-connections.md)
 
- - [{{ mch-name }}: подключение к базе данных](operations/clickhouse.md)
+ - [Managed Service for ClickHouse®: подключение к базе данных](operations/clickhouse.md)
 
- - [{{ mpg-name }}: подключение к базе данных](operations/postgres-operator.md)
+ - [Managed Service for PostgreSQL: подключение к базе данных](operations/postgres-operator.md)
 
-### Хранение артефактов в {{ lockbox-full-name }}
+### Хранение артефактов в Yandex Lockbox
 
- - [Загрузка переменной из {{ lockbox-name }}](operations/load-variable-from-lockbox.md)
+ - [Загрузка переменной из Yandex Lockbox](operations/load-variable-from-lockbox.md)
 
- - [Хранение подключений {{ AF }} в {{ lockbox-full-name }}](operations/lockbox-secrets-in-maf-cluster.md)
+ - [Хранение подключений Apache Airflow™ в Yandex Lockbox](operations/lockbox-secrets-in-maf-cluster.md)
 
 ### Работа с DAG-файлами
 
@@ -46,15 +46,15 @@
 
  - [Получение IAM-токена](operations/get-iam-token.md)
 
-### Работа с {{ objstorage-full-name }}
+### Работа с Yandex Object Storage
 
- - [Загрузка файла в {{ objstorage-full-name }}](operations/upload-file-to-s3.md)
+ - [Загрузка файла в Yandex Object Storage](operations/upload-file-to-s3.md)
 
- - [Подключение к бакету {{ objstorage-full-name }} с политикой доступа](operations/s3-policy-connect.md)
+ - [Подключение к бакету Yandex Object Storage с политикой доступа](operations/s3-policy-connect.md)
 
- - [Чтение файла из {{ objstorage-full-name }}](operations/read-file-from-dags-bucket.md)
+ - [Чтение файла из Yandex Object Storage](operations/read-file-from-dags-bucket.md)
 
- - [Работа с интерфейсами {{ AF }}](operations/af-interfaces.md)
+ - [Работа с интерфейсами Apache Airflow™](operations/af-interfaces.md)
 
 ### Логи и мониторинг
 
@@ -62,7 +62,7 @@
 
  - [Просмотр логов кластера](operations/cluster-logs.md)
 
- - [Передача логов {{ AF }} в {{ cloud-logging-name }}](operations/af-logging.md)
+ - [Передача логов Apache Airflow™ в Cloud Logging](operations/af-logging.md)
 
  - [Получение логов выполнения DAG](operations/export-dag-logs.md)
 
@@ -72,29 +72,29 @@
 
 ### Работа с кластерами
 
- - [{{ dataproc-name }}: автоматизация работы](tutorials/data-processing-automation.md)
+ - [Yandex Data Processing: автоматизация работы](tutorials/data-processing-automation.md)
 
- - [{{ yq-full-name }}: автоматизация задач](tutorials/airflow-auto-tasks.md)
+ - [Yandex Query: автоматизация задач](tutorials/airflow-auto-tasks.md)
 
- - [{{ msp-name }}: автоматизация работы](tutorials/spark-automation.md)
+ - [Managed Service for Apache Spark™: автоматизация работы](tutorials/spark-automation.md)
 
- - [Запуск PySpark-задания с помощью {{ maf-full-name }}](tutorials/airflow-spark-min.md)
+ - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-spark-min.md)
 
 ### Другие руководства
 
  - [Настройка SMTP-сервера для отправки уведомлений по электронной почте](tutorials/test-smtp-notification.md)
 
- - [Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK](tutorials/using-python-sdk.md)
+ - [Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK](tutorials/using-python-sdk.md)
 
 ## Концепции
 
  - [Взаимосвязь ресурсов сервиса](concepts/index.md)
 
- - [Сеть в {{ maf-name }}](concepts/network.md)
+ - [Сеть в Managed Service for Apache Airflow™](concepts/network.md)
 
- - [Доступные версии {{ AF }}](concepts/versions.md)
+ - [Доступные версии Apache Airflow™](concepts/versions.md)
 
- - [Политика работы с версиями {{ AF }}](concepts/update-policy.md)
+ - [Политика работы с версиями Apache Airflow™](concepts/update-policy.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -172,7 +172,7 @@
 
  - [update](cli-ref/v0/cluster/update.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -254,9 +254,9 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-full-name }}](metrics.md)
+ - [Метрики Yandex Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

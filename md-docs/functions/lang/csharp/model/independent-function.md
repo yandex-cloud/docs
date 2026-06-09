@@ -46,7 +46,7 @@ public class Handler<T> {
 
 {% note warning %}
 
-Функцию необходимо вызывать с помощью [{{ yandex-cloud }} CLI](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
+Функцию необходимо вызывать с помощью [Yandex Cloud CLI](../../../concepts/function-invoke.md) или с помощью HTTP-запроса с параметром `?integration=raw`.
 
 {% endnote %}
 

@@ -3,7 +3,7 @@
 
 ## Описание проблемы {#issue-description}
 
-На [странице пользователей федерации]({{ link-org-users }}) не отображается пользователь, который есть в федерации, которая, в свою очередь, находится в этой организации.
+На [странице пользователей федерации](https://org.yandex.cloud/users) не отображается пользователь, который есть в федерации, которая, в свою очередь, находится в этой организации.
 
 В выводе `yc organization-manager federation saml list-user-accounts --id federation_id` пользователь есть, а в выводе `yc organization-manager user list --organization-id organization_id` - нет.
 
@@ -18,6 +18,6 @@ yc organization-manager federation saml add-user-accounts --id=id_федерац
 
 {% note info %}
 
-Минимальная роль для выполнения этой команды — `{{ roles-organization-admin }}` на организацию.
+Минимальная роль для выполнения этой команды — `organization-manager.admin` на организацию.
 
 {% endnote %}

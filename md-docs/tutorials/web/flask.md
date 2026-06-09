@@ -1,7 +1,7 @@
 # Создание веб-приложения на Python с использованием фреймворка Flask
 
 
-С помощью этого руководства вы с нуля разработаете простое веб-приложение — мини-блог, в котором пользователь сможет создавать, просматривать, редактировать и удалять посты. Для этого в {{ yandex-cloud }} вы создадите виртуальную машину {{ compute-full-name }} и запустите на ней веб-сервер.
+С помощью этого руководства вы с нуля разработаете простое веб-приложение — мини-блог, в котором пользователь сможет создавать, просматривать, редактировать и удалять посты. Для этого в Yandex Cloud вы создадите виртуальную машину Yandex Compute Cloud и запустите на ней веб-сервер.
 
 Веб-приложение написано на языке [Python](https://www.python.org/) и использует СУБД [SQLite](https://sqlite.org/) для работы с данными. Визуальное оформление выполнено с помощью [инструментария Bootstrap](https://getbootstrap.com/). 
 
@@ -36,24 +36,24 @@
 
 ## Перед началом работы {#before-you-begin}
 
-В {{ yandex-cloud }} оплачиваются только потребленные ресурсы и время их фактического использования, а для идентификации пользователя, оплачивающего такие ресурсы, нужен платежный аккаунт.
+В Yandex Cloud оплачиваются только потребленные ресурсы и время их фактического использования, а для идентификации пользователя, оплачивающего такие ресурсы, нужен платежный аккаунт.
 
 В стоимость поддержки создаваемого приложения входят:
 
-* плата за использование публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за использование публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Создайте облачную сеть и подсеть {#create-network}
 
-В {{ yandex-cloud }} ресурсы связаны между собой и с интернетом при помощи [облачных сетей](../../vpc/concepts/network.md#network), в которых ресурсам выделяются [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, а также диапазоны внутренних IP-адресов или [подсети](../../vpc/concepts/network.md#subnet).
+В Yandex Cloud ресурсы связаны между собой и с интернетом при помощи [облачных сетей](../../vpc/concepts/network.md#network), в которых ресурсам выделяются [публичные](../../vpc/concepts/address.md#public-addresses) IP-адреса, а также диапазоны внутренних IP-адресов или [подсети](../../vpc/concepts/network.md#subnet).
 
 Чтобы создать виртуальную сеть и подсеть для вашего веб-сервера:
 
@@ -61,19 +61,19 @@
 
 - Консоль управления {#console} 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `webserver-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `webserver-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `webserver-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Справа сверху нажмите кнопку **Создать сеть**.
+  1. В поле **Имя** укажите `webserver-network`.
+  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
+  1. Нажмите кнопку **Создать сеть**.
+  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. Справа сверху нажмите **Создать**.
+  1. В поле **Имя** укажите `webserver-subnet-ru-central1-b`.
+  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Сеть** выберите облачную сеть `webserver-network`.
+  1. В поле **CIDR** укажите `192.168.1.0/24`.
+  1. Нажмите кнопку **Создать подсеть**.
 
 - CLI {#cli}
 
@@ -95,11 +95,11 @@
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть в зоне доступности `{{ region-id }}-b`:
+  1. Создайте подсеть в зоне доступности `ru-central1-b`:
 
       ```bash
-      yc vpc subnet create webserver-subnet-{{ region-id }}-b \
-        --zone {{ region-id }}-b \
+      yc vpc subnet create webserver-subnet-ru-central1-b \
+        --zone ru-central1-b \
         --network-name webserver-network \
         --range 192.168.1.0/24
       ```
@@ -110,9 +110,9 @@
       id: e2li9tcgi7ii********
       folder_id: b1gt6g8ht345********
       created_at: "2023-12-20T20:11:16Z"
-      name: webserver-subnet-{{ region-id }}-b
+      name: webserver-subnet-ru-central1-b
       network_id: enp1gg8kr3pv********
-      zone_id: {{ region-id }}-b
+      zone_id: ru-central1-b
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -129,7 +129,7 @@
 
 ### Создайте группу безопасности {#create-sg}
 
-[Группы безопасности](../../vpc/concepts/security-groups.md) служат основным механизмом разграничения сетевого доступа в {{ yandex-cloud }} и помогают ограничить для облачных ресурсов несанкционированный трафик на уровне облачной сети.
+[Группы безопасности](../../vpc/concepts/security-groups.md) служат основным механизмом разграничения сетевого доступа в Yandex Cloud и помогают ограничить для облачных ресурсов несанкционированный трафик на уровне облачной сети.
 
 Создайте группу безопасности, разрешающую входящий TCP-трафик для портов `5000` и `22`, а также любой исходящий трафик. Порт `22` необходим для подключения к ВМ по SSH, порт `5000` по умолчанию используется для работы веб-сервера Flask.
 
@@ -137,21 +137,21 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `webserver-sg`.
-  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `webserver-network`.
-  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. На панели слева выберите ![image](../../_assets/vpc/security-group.svg) **Группы безопасности**. 
+  1. Нажмите кнопку **Создать группу безопасности**.
+  1. В поле **Имя** укажите имя `webserver-sg`.
+  1. В поле **Сеть** выберите созданную ранее сеть `webserver-network`.
+  1. В блоке **Правила** [создайте](../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
+      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки |
       | --- | --- | --- | --- | --- | --- |
-      | Входящий | `Flask`           | `5000` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
-      | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | Входящий | `Flask`           | `5000` | `TCP` | `CIDR` | `0.0.0.0/0` |
+      | Входящий | `ssh`            | `22`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
+      | Исходящий | `any`           | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
   
@@ -220,7 +220,7 @@
 
 ## Создайте и настройте виртуальную машину {#create-setup-vm}
 
-[Виртуальная машина](../../compute/concepts/vm.md) — это аналог сервера в облачной инфраструктуре. В {{ yandex-cloud }} вы можете создавать
+[Виртуальная машина](../../compute/concepts/vm.md) — это аналог сервера в облачной инфраструктуре. В Yandex Cloud вы можете создавать
 виртуальные машины с самыми разными аппаратными характеристиками по [производительности](../../compute/concepts/performance-levels.md), объему оперативной памяти и [дискового пространства](../../compute/concepts/disk.md#maximum-disk-size), а также под управлением разных [операционных систем](../../compute/concepts/image.md#public).
  
 Создаваемое веб-приложение будет развернуто на виртуальной машине под управлением OC Linux [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
@@ -233,41 +233,41 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+      1. Перейдите в сервис **Compute Cloud**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+      1. Нажмите кнопку **Создать виртуальную машину**.
+      1. В блоке **Образ загрузочного диска** выберите образ [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+      1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+      1. В блоке **Сетевые настройки**:
 
-          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `webserver-subnet-{{ region-id }}-b`.
-          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
-          * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите созданную ранее группу безопасности `webserver-sg`.
+          * В поле **Подсеть** выберите созданную ранее подсеть `webserver-subnet-ru-central1-b`.
+          * В поле **Публичный IP-адрес** выберите `Автоматически`.
+          * В поле **Группы безопасности** выберите созданную ранее группу безопасности `webserver-sg`.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+      1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-          * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** укажите имя пользователя `yc-user`.
-          * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+          * В поле **Логин** укажите имя пользователя `yc-user`.
+          * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
             
             Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
             
-            1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+            1. Нажмите кнопку **Добавить ключ**.
             1. Задайте имя SSH-ключа.
             1. Выберите вариант:
             
-                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+                * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
                 
                   При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
             
-            1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+            1. Нажмите кнопку **Добавить**.
             
             SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `mywebserver`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      1. В блоке **Общая информация** задайте имя ВМ: `mywebserver`.
+      1. Нажмите кнопку **Создать ВМ**.
 
     - CLI {#cli}
 
@@ -276,8 +276,8 @@
       ```bash
       yc compute instance create \
         --name mywebserver \
-        --zone {{ region-id }}-b \
-        --network-interface subnet-name=webserver-subnet-{{ region-id }}-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+        --zone ru-central1-b \
+        --network-interface subnet-name=webserver-subnet-ru-central1-b,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
         --create-boot-disk image-folder-id=standard-images,image-id=fd8ne6e3etbrr2ve9nlc \
         --ssh-key <файл_открытого_SSH-ключа>
       ```
@@ -292,7 +292,7 @@
       folder_id: b1gt6g8ht345********
       created_at: "2024-03-23T19:17:09Z"
       name: mywebserver
-      zone_id: {{ region-id }}-b
+      zone_id: ru-central1-b
       platform_id: standard-v2
       resources:
         memory: "2147483648"

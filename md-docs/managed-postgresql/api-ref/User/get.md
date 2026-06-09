@@ -7,7 +7,7 @@ To get the list of available PostgreSQL User resources, make a [List](list.md#Li
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters

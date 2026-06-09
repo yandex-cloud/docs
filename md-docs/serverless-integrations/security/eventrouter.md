@@ -1,6 +1,6 @@
-# Сервисные роли для {{ er-name }}
+# Сервисные роли для EventRouter
 
-С помощью сервисных ролей [{{ er-name }}](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам {{ er-name }} — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).
+С помощью сервисных ролей [EventRouter](../concepts/index.md#eventrouter) вы можете управлять доступом пользователей к ресурсам EventRouter — [шинам](../concepts/eventrouter/bus.md), [коннекторам](../concepts/eventrouter/connector.md) и [правилам](../concepts/eventrouter/rule.md).
 
 ```mermaid
 flowchart BT

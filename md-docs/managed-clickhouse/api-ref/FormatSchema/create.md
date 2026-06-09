@@ -5,7 +5,7 @@ Adds a format schema to a cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
 
 ## Path parameters

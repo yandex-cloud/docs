@@ -1,6 +1,6 @@
 # Активировать промокод
 
-Яндекс регулярно проводит маркетинговые кампании, в рамках которых пользователям могут приходить [промокоды](../concepts/promo-code.md). Чтобы воспользоваться промокодом, его необходимо активировать в сервисе {{ billing-name }} или в консоли управления.
+Яндекс регулярно проводит маркетинговые кампании, в рамках которых пользователям могут приходить [промокоды](../concepts/promo-code.md). Чтобы воспользоваться промокодом, его необходимо активировать в сервисе Yandex Cloud Billing или в консоли управления.
 
 {% note info %}
 
@@ -14,21 +14,21 @@
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
-  1. Выберите аккаунт на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.button_activate-grant }}**. Эта кнопка появляется только, когда промокод стал доступен.
-  1. Введите промокод и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-grant-activation_button_activate }}**.
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Выберите аккаунт на странице **Платёжные аккаунты**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/flag.svg) **Аккаунт** и нажмите кнопку **Активировать промокод**. Эта кнопка появляется только, когда промокод стал доступен.
+  1. Введите промокод и нажмите кнопку **Активировать**.
 
-  Вся информация о добавленном промокоде будет доступна в [сервисе {{ billing-name }}]({{ link-console-billing }}) в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**.
+  Вся информация о добавленном промокоде будет доступна в [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) в блоке **Гранты**.
 
 - Консоль управления {#console}
 
-    1. Откройте [консоль управления]({{ link-console-main }}).
+    1. Откройте [консоль управления](https://console.yandex.cloud).
     1. В правом верхнем углу нажмите ![credit-card](../../_assets/console-icons/credit-card.svg).
-    1. В открывшемся виджете нажмите **{{ ui-key.yacloud_billing_account.billing-widget.activate_promocode }}**.
-    1. Введите промокод и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-grant-activation_button_activate }}**.
+    1. В открывшемся виджете нажмите **Активировать промокод**.
+    1. Введите промокод и нажмите кнопку **Активировать**.
 
     В виджете отобразится информация о добавленном промокоде.
 

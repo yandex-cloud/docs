@@ -1,6 +1,6 @@
 # Yandex IoT Core
 
-Сервис {{ iot-full-name }} больше не доступен для новых пользователей.
+Сервис Yandex IoT Core больше не доступен для новых пользователей.
 
 Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу.
 
@@ -26,7 +26,7 @@
 
  - [Подписка устройства или реестра на получение сообщений](operations/subscribe.md)
 
- - [Экспорт сообщений в {{ yds-name }}](operations/yds-export.md)
+ - [Экспорт сообщений в Data Streams](operations/yds-export.md)
 
  - [Просмотр журнала подключений](operations/logs.md)
 
@@ -450,7 +450,7 @@
 
  - [list](cli-ref/v0/registry/yds-export/list.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API Devices
 
@@ -738,9 +738,9 @@
 
  - [Cancel](broker/api-ref/Operation/cancel.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

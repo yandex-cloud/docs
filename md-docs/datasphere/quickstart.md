@@ -1,6 +1,6 @@
-# Как начать работать с {{ ml-platform-name }}
+# Как начать работать с DataSphere
 
-{{ ml-platform-full-name }} — среда для ML-разработки полного цикла, которая сочетает в себе привычные IDE, технологию бессерверных вычислений и возможность бесшовного использования разных конфигураций вычислительных ресурсов {{ yandex-cloud }}. {{ ml-platform-full-name }} является частью платформы данных и предоставляет широкие возможности для простого взаимодействия с сервисами {{ yandex-cloud }}. В качестве IDE {{ ml-platform-name }} предоставляет [{{ jlab }}® Notebook](https://jupyter.org/).
+Yandex DataSphere — среда для ML-разработки полного цикла, которая сочетает в себе привычные IDE, технологию бессерверных вычислений и возможность бесшовного использования разных конфигураций вычислительных ресурсов Yandex Cloud. Yandex DataSphere является частью платформы данных и предоставляет широкие возможности для простого взаимодействия с сервисами Yandex Cloud. В качестве IDE DataSphere предоставляет [Jupyter® Notebook](https://jupyter.org/).
 
 В этом разделе вы научитесь:
 1. [Создавать проект](#create-project).
@@ -11,24 +11,24 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы.
-1. Перейдите в сервис [{{ billing-name }}]({{ link-console-billing }}) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы.
+1. Перейдите в сервис [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) и убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
 1. Примите пользовательское соглашение.
-1. Выберите организацию, в которой вы будете работать с {{ ml-platform-name }}, или создайте новую.
+1. Выберите организацию, в которой вы будете работать с DataSphere, или создайте новую.
 
 ## Создайте проект {#create-project}
 
-1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}.
-1. На панели слева выберите ![image](../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
+1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere.
+1. На панели слева выберите ![image](../_assets/console-icons/circles-concentric.svg) **Сообщества**.
 1. Выберите сообщество, в котором вы хотите создать проект.
-1. На странице сообщества нажмите кнопку ![image](../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
+1. На странице сообщества нажмите кнопку ![image](../_assets/console-icons/folder-plus.svg) **Создать проект**.
 1. В открывшемся окне укажите имя и (опционально) описание проекта.
-1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Запустите проект {#start-project}
 
-Чтобы запустить проект, нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}**.
+Чтобы запустить проект, нажмите кнопку **Открыть проект в JupyterLab**.
 
 ## Настройте окружение {#install-dependencies}
 
@@ -65,9 +65,9 @@
 
 {% endnote %}
 
-Данные небольшого объема (до 100 МБ) можно загрузить в проект {{ ml-platform-name }} через интерфейс {{ jlab }}Lab. Больший объем информации рекомендуем загружать из сетевых хранилищ и баз данных. Также для работы с большим объемом данных используются [датасеты](concepts/dataset.md).
+Данные небольшого объема (до 100 МБ) можно загрузить в проект DataSphere через интерфейс JupyterLab. Больший объем информации рекомендуем загружать из сетевых хранилищ и баз данных. Также для работы с большим объемом данных используются [датасеты](concepts/dataset.md).
 
-Чтобы загрузить данные в проект через интерфейс {{ jlab }}Lab:
+Чтобы загрузить данные в проект через интерфейс JupyterLab:
 
 1. В блоке ![folder](../_assets/datasphere/jupyterlab/folder.svg) **File Browser** выберите папку, в которую нужно загрузить данные.
 1. Слева сверху нажмите кнопку ![upload](../_assets/datasphere/jupyterlab/upload.svg).
@@ -75,13 +75,13 @@
 
 [Подробнее о хранилище проекта](concepts/project.md#storage).
 
-{{ ml-platform-name }} позволяет загружать данные из разных источников:
+DataSphere позволяет загружать данные из разных источников:
 
-* [{#T}](operations/data/connect-to-s3.md).
-* [{#T}](operations/data/connect-to-google-drive.md).
-* [{#T}](operations/data/connect-to-clickhouse.md).
-* [{#T}](operations/data/connect-to-postgresql.md).
-* [{#T}](operations/data/connect-to-ya-disk.md).
+* [Подключение к S3 с помощью библиотеки boto3](operations/data/connect-to-s3.md).
+* [Подключение к Google Drive](operations/data/connect-to-google-drive.md).
+* [Подключение к базе данных ClickHouse®](operations/data/connect-to-clickhouse.md).
+* [Подключение к базе данных PostgreSQL](operations/data/connect-to-postgresql.md).
+* [Подключение к Яндекс Диску](operations/data/connect-to-ya-disk.md).
 
 ## Запустите обучение {#start-ml}
 

@@ -7,11 +7,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать группу размещения дисков.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}**.
-  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.compute.placement-groups.button_create }}** → **{{ ui-key.yacloud.compute.placement-groups.button_menu-create-disk-placement-group }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать группу размещения дисков.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **Группы размещений**.
+  1. Перейдите на вкладку **Группы размещения нереплицируемых дисков**.
+  1. В правом верхнем углу нажмите кнопку **Создать** → **Группу размещения нереплицируемых дисков**.
   1. Введите имя группы размещения дисков. Требования к имени:
 
      * длина — от 3 до 63 символов;
@@ -23,11 +23,11 @@
   1. Выберите стратегию: [распределенное размещение](../../concepts/disk-placement-group.md#spread) (spread) или [размещение разделами](../../concepts/disk-placement-group.md#partition) (partition).
 
      Для размещения разделами укажите количество разделов для нереплицируемых дисков.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -78,8 +78,8 @@
      +----------------------+---------------------+-------------------+--------+---------------+
      |          ID          |        NAME         |       ZONE        | STATUS |   STRATEGY    |
      +----------------------+---------------------+-------------------+--------+---------------+
-     | epd3oalmkmbp******** | drbasic-partition-1 | {{ region-id }}-b | READY  | PARTITION [3] |
-     | epdn7r7co1v4******** | drbasic-spread-2    | {{ region-id }}-b | READY  | SPREAD        |
+     | epd3oalmkmbp******** | drbasic-partition-1 | ru-central1-b | READY  | PARTITION [3] |
+     | epdn7r7co1v4******** | drbasic-spread-2    | ru-central1-b | READY  | SPREAD        |
      +----------------------+---------------------+-------------------+--------+---------------+
      ```
 
@@ -97,7 +97,7 @@
      folder_id: w3qrbj9swoty********
      created_at: "2021-03-23T12:49:59Z"
      name: first-group
-     zone_id: {{ region-id }}-b
+     zone_id: ru-central1-b
      status: READY
      spread_placement_strategy: {}
      ```

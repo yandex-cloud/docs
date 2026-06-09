@@ -10,9 +10,9 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Все инструкции](operations/index.md)
 
- - [Получить информацию о партнерах {{ interconnect-name }}](operations/partner-get-info.md)
+ - [Получить информацию о партнерах Cloud Interconnect](operations/partner-get-info.md)
 
- - [Получить информацию о точках присутствия {{ interconnect-name }}](operations/pop-get-info.md)
+ - [Получить информацию о точках присутствия Cloud Interconnect](operations/pop-get-info.md)
 
  - [Получить информацию о транковых подключениях](operations/trunk-get-info.md)
 
@@ -70,11 +70,11 @@ Yandex Cloud Interconnect позволяет организовать выдел
 
  - [Интеграция с корпоративным сервисом DNS](tutorials/dns-integration.md)
 
- - [Организация доступа через {{ interconnect-name }} к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
+ - [Организация доступа через Cloud Interconnect к облачным сетям, размещенным за NGFW](tutorials/cic-with-ngfw.md)
 
- - [Настройка сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Организация сетевой связности между приватной подсетью {{ baremetal-name }} и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
+ - [Организация сетевой связности между приватной подсетью BareMetal и on-premise-ресурсами](tutorials/bms-cic-onprem.md)
 
 ## Концепции
 

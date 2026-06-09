@@ -1,6 +1,6 @@
-# Предварительная настройка для подключения к кластеру {{ VLK }}
+# Предварительная настройка для подключения к кластеру Valkey™
 
-К хостам кластера {{ mrd-name }} можно подключиться:
+К хостам кластера Yandex Managed Service for Valkey™ можно подключиться:
 
 
 * Через интернет, если выполнены следующие условия:
@@ -10,22 +10,22 @@
     * кластер создан с поддержкой TLS.
 
 
-* С виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети:
+* С виртуальных машин Yandex Cloud, расположенных в той же облачной сети:
 
     1. [Создайте виртуальную машину](../../../compute/operations/vm-create/create-linux-vm.md) с публичным IP-адресом в той же виртуальной сети, что и кластер.
     1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к созданной виртуальной машине через [SSH](../../../glossary/ssh-keygen.md).
-    1. Из виртуальной машины подключитесь к {{ VLK }} с помощью одного из примеров строк подключений.
+    1. Из виртуальной машины подключитесь к Valkey™ с помощью одного из примеров строк подключений.
 
 
 ## Поддержка шифрования {#tls-support}
 
-Для кластеров {{ mrd-short-name }} поддерживается шифрованное SSL-соединение. Чтобы пользоваться SSL, при [создании кластера](../cluster-create.md) включите настройку **{{ ui-key.yacloud.redis.field_tls-support }}**.
+Для кластеров Yandex Managed Service for Valkey™ поддерживается шифрованное SSL-соединение. Чтобы пользоваться SSL, при [создании кластера](../cluster-create.md) включите настройку **Поддержка TLS**.
 
-{{ VLK }} по умолчанию оперирует IP-адресами хостов, а не их [FQDN](../../concepts/network.md#hostname), что может [препятствовать подключению к хостам {{ VLK }}](../../concepts/network.md#fqdn-ip-setting) в кластерах с поддержкой TLS. Чтобы получить возможность подключения к хостам, выполните одно из действий:
+Valkey™ по умолчанию оперирует IP-адресами хостов, а не их [FQDN](../../concepts/network.md#hostname), что может [препятствовать подключению к хостам Valkey™](../../concepts/network.md#fqdn-ip-setting) в кластерах с поддержкой TLS. Чтобы получить возможность подключения к хостам, выполните одно из действий:
 
 * Включите настройку, разрешающую использование FQDN вместо IP-адресов, чтобы IP-адрес хоста подменялся на его FQDN. Эту настройку можно включить при [создании](../cluster-create.md) или [изменении](../update.md#configure-fqdn-ip-behavior) кластера.
 
-    Это позволит [клиенту {{ VLK }}](../../concepts/supported-clients.md) подключаться к хостам {{ VLK }} как с виртуальных машин {{ yandex-cloud }}, так и через интернет, а также при необходимости требовать проверки соответствия FQDN хоста и сертификата.
+    Это позволит [клиенту Valkey™](../../concepts/supported-clients.md) подключаться к хостам Valkey™ как с виртуальных машин Yandex Cloud, так и через интернет, а также при необходимости требовать проверки соответствия FQDN хоста и сертификата.
 
     {% note info %}
     
@@ -33,16 +33,16 @@
     
     {% endnote %}
 
-* Отключите проверку соответствия FQDN хоста и сертификата на стороне клиента {{ VLK }}.
+* Отключите проверку соответствия FQDN хоста и сертификата на стороне клиента Valkey™.
 
-    Это позволит подключаться к хостам {{ VLK }} с виртуальных машин {{ yandex-cloud }}.
+    Это позволит подключаться к хостам Valkey™ с виртуальных машин Yandex Cloud.
 
 
 ## Настройка групп безопасности {#configure-security-groups}
 
 Для подключения к кластеру необходимо, чтобы [группы безопасности](../../../vpc/concepts/security-groups.md) содержали правила, которые разрешают трафик с определенных портов, IP-адресов или из других групп безопасности.
 
-Для подключения к кластеру с ВМ, размещенной в {{ yandex-cloud }}, [создайте в ее группах безопасности](../../../vpc/operations/security-group-add-rule.md) правила, разрешающие:
+Для подключения к кластеру с ВМ, размещенной в Yandex Cloud, [создайте в ее группах безопасности](../../../vpc/operations/security-group-add-rule.md) правила, разрешающие:
 
 * подключение к ВМ из интернета;
 * трафик между ВМ и хостами кластера.
@@ -50,18 +50,18 @@
 Пример правил для ВМ:
 
 * Для входящего трафика:
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `22`.
+    * **Протокол** — `TCP`.
+    * **Источник** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
     Это правило позволяет подключаться к ВМ по протоколу SSH.
 
 * Для исходящего трафика:
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
+    * **Диапазон портов** — `0-65535`.
+    * **Протокол** — `Любой` (`Any`).
+    * **Назначение** — `CIDR`.
+    * **CIDR блоки** — `0.0.0.0/0`.
 
     Это правило разрешает любой исходящий трафик, что позволяет не только подключаться к кластеру, но и устанавливать на ВМ необходимые для этого сертификаты и утилиты.
 
@@ -71,38 +71,38 @@
 
 - Нешардированный кластер {#non-sharded}
 
-    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-mrd }}` для подключения напрямую к мастеру или `{{ port-mrd-sentinel }}` для подключения с помощью Sentinel. Если кластер создан с поддержкой SSL-шифрования, то укажите порт `{{ port-mrd-tls }}` для шифрованного подключения напрямую к мастеру или `{{ port-mrd-sentinel }}` для нешифрованного подключения с помощью Sentinel.
+    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `6379` для подключения напрямую к мастеру или `26379` для подключения с помощью Sentinel. Если кластер создан с поддержкой SSL-шифрования, то укажите порт `6380` для шифрованного подключения напрямую к мастеру или `26379` для нешифрованного подключения с помощью Sentinel.
 
     {% note warning %}
 
-    Подключение к порту `{{ port-mrd-sentinel }}` позволяет запросить информацию о кластере без аутентификации. Чтобы ограничить неавторизованный доступ к кластеру при включенном публичном доступе к хостам, не указывайте этот порт в настройках групп безопасности.
+    Подключение к порту `26379` позволяет запросить информацию о кластере без аутентификации. Чтобы ограничить неавторизованный доступ к кластеру при включенном публичном доступе к хостам, не указывайте этот порт в настройках групп безопасности.
 
     {% endnote %}
 
     Для этого создайте следующее правило для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — создайте отдельное правило для каждого порта:
+    * **Диапазон портов** — создайте отдельное правило для каждого порта:
 
-        * `{{ port-mrd }}` — для подключения напрямую к хостам без использования шифрования.
-        * `{{ port-mrd-tls }}` — для подключения напрямую к хостам с использованием SSL-шифрования.
-        * `{{ port-mrd-sentinel }}` — для работы с кластером через Sentinel.
+        * `6379` — для подключения напрямую к хостам без использования шифрования.
+        * `6380` — для подключения напрямую к хостам с использованием SSL-шифрования.
+        * `26379` — для работы с кластером через Sentinel.
 
-            Для подключения к кластеру с использованием Sentinel требуется также создать правило, разрешающее подключение через порт `{{ port-mrd }}` или `{{ port-mrd-tls }}`.
+            Для подключения к кластеру с использованием Sentinel требуется также создать правило, разрешающее подключение через порт `6379` или `6380`.
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}**.
+    * **Протокол** — `TCP`.
+    * **Источник** — `Группа безопасности`.
+    * **Группа безопасности** — группа безопасности, в которой находится ВМ. Если она совпадает с настраиваемой группой, то укажите **Текущая**.
 
 - Шардированный кластер {#sharded}
 
-    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `{{ port-mrd }}`. Если кластер создан с поддержкой SSL-шифрования, то укажите только порт `{{ port-mrd-tls }}`.
+    [Настройте все группы безопасности](../../../vpc/operations/security-group-add-rule.md) кластера так, чтобы они разрешали входящий трафик из группы безопасности, в которой находится ВМ, на порт `6379`. Если кластер создан с поддержкой SSL-шифрования, то укажите только порт `6380`.
 
     Для этого создайте следующее правило для входящего трафика:
 
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mrd }}` или только `{{ port-mrd-tls }}` для кластера с поддержкой SSL-шифрования.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`. В противном случае укажите группу безопасности ВМ.
+    * **Диапазон портов** — `6379` или только `6380` для кластера с поддержкой SSL-шифрования.
+    * **Протокол** — `TCP`.
+    * **Источник** — `Группа безопасности`.
+    * **Группа безопасности** — если кластер и ВМ находятся в одной и той же группе безопасности, выберите значение `Текущая`. В противном случае укажите группу безопасности ВМ.
 
 {% endlist %}
 
@@ -114,7 +114,7 @@
 
 {% endnote %}
 
-Подробнее о группах безопасности см. в разделе [{#T}](../../concepts/network.md#security-groups).
+Подробнее о группах безопасности см. в разделе [Группы безопасности](../../concepts/network.md#security-groups).
 
 
 ## Получение SSL-сертификата {#get-ssl-cert}
@@ -127,26 +127,26 @@
 
    ```bash
    mkdir -p ~/.redis && \
-   wget "{{ crt-web-path }}" \
-        --output-document ~/.redis/{{ crt-local-file }} && \
-   chmod 0655 ~/.redis/{{ crt-local-file }}
+   wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+        --output-document ~/.redis/YandexInternalRootCA.crt && \
+   chmod 0655 ~/.redis/YandexInternalRootCA.crt
    ```
    
-   Сертификат будет сохранен в файле `~/.redis/{{ crt-local-file }}`.
+   Сертификат будет сохранен в файле `~/.redis/YandexInternalRootCA.crt`.
 
 - Windows (PowerShell) {#windows}
 
    ```powershell
-   mkdir $HOME\.redis; curl.exe -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}
+   mkdir $HOME\.redis; curl.exe -o $HOME\.redis\YandexInternalRootCA.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
    ```
 
-   Сертификат будет сохранен в файле `$HOME\.redis\{{ crt-local-file }}`.
+   Сертификат будет сохранен в файле `$HOME\.redis\YandexInternalRootCA.crt`.
 
    Корпоративные политики и антивирус могут блокировать скачивание сертификата. Подробнее см. в разделе [Вопросы и ответы](../../qa/general.md#get-ssl-error).
 
 {% endlist %}
 
-Для использования графических IDE [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку и укажите путь к нему в настройках подключения.
+Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
 
 ## Что дальше {#whats-next}
 

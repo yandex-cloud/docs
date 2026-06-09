@@ -38,9 +38,9 @@
 
 #### Выгрузить логи
 
- - [{{ objstorage-name }}](operations/export-logs.md)
+ - [Object Storage](operations/export-logs.md)
 
- - [{{ yds-name }}](operations/export-logs-yds.md)
+ - [Data Streams](operations/export-logs-yds.md)
 
  - [Получить список приемников логов](operations/list-sink.md)
 
@@ -56,29 +56,29 @@
 
  - [Передача логов с COI в Cloud Logging](tutorials/coi-fluent-bit-logging.md)
 
- - [Передача логов через HTTP-вход {{ unified-agent-short-name }} в {{ cloud-logging-name }}](tutorials/ua-http-logging.md)
+ - [Передача логов через HTTP-вход Unified Agent в Cloud Logging](tutorials/ua-http-logging.md)
 
- - [Репликация логов в {{ objstorage-name }} с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
+ - [Репликация логов в Object Storage с помощью Fluent Bit](tutorials/replicate-logs-to-storage.md)
 
- - [Репликация логов в {{ objstorage-name }} с помощью {{ yds-name }}](tutorials/replicate-logs-to-storage-via-data-streams.md)
+ - [Репликация логов в Object Storage с помощью Data Streams](tutorials/replicate-logs-to-storage-via-data-streams.md)
 
- - [Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}](tutorials/grafana-logs-plugin.md)
+ - [Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging](tutorials/grafana-logs-plugin.md)
 
- - [Интерактивная отладка функций {{ sf-name }}](tutorials/serverless-live-debug.md)
+ - [Интерактивная отладка функций Cloud Functions](tutorials/serverless-live-debug.md)
 
- - [Запись логов балансировщика в {{ PG }}](tutorials/logging.md)
+ - [Запись логов балансировщика в PostgreSQL](tutorials/logging.md)
 
- - [Настройки логирования для Ingress-контроллеров {{ alb-name }}](tutorials/alb-ingress-controller-log-options.md)
+ - [Настройки логирования для Ingress-контроллеров Application Load Balancer](tutorials/alb-ingress-controller-log-options.md)
 
- - [Обработка логов {{ cloud-logging-name }}](tutorials/cloud-logging.md)
+ - [Обработка логов Cloud Logging](tutorials/cloud-logging.md)
 
- - [Настройка реагирования в {{ cloud-logging-name }} и {{ sf-full-name }}](tutorials/logging-functions.md)
+ - [Настройка реагирования в Cloud Logging и Yandex Cloud Functions](tutorials/logging-functions.md)
 
  - [Поиск событий в аудитных логах](tutorials/search-events-audit-logs/index.md)
 
  - [Мониторинг записи событий в лог-группу](tutorials/log-group-record-monitoring.md)
 
- - [Передача логов кластера {{ mgp-name }} в {{ cloud-logging-full-name }}](tutorials/mgp-to-cloud-logging.md)
+ - [Передача логов кластера Yandex MPP Analytics for PostgreSQL в Yandex Cloud Logging](tutorials/mgp-to-cloud-logging.md)
 
 ## Концепции
 
@@ -212,7 +212,7 @@
 
  - [write](cli-ref/write.md)
 
- - [Справочник {{ TF }}](tf-ref.md)
+ - [Справочник Terraform](tf-ref.md)
 
 ## Справочник API
 
@@ -398,9 +398,9 @@
 
  - [UpdateAccessBindings](api-ref/Sink/updateAccessBindings.md)
 
- - [Метрики {{ monitoring-name }}](metrics.md)
+ - [Метрики Monitoring](metrics.md)
 
- - [Аудитные логи {{ at-name }}](at-ref.md)
+ - [Аудитные логи Audit Trails](at-ref.md)
 
  - [История изменений](release-notes.md)
 

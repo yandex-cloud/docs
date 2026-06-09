@@ -1,30 +1,30 @@
-# Настроить логирование через {{ sws-name }}
+# Настроить логирование через Smart Web Security
 
 {% note info %}
 
-Функциональность сбора логов через {{ sws-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md). Для получения доступа обратитесь в [службу поддержки]({{ link-console-support }}).
+Функциональность сбора логов через Smart Web Security находится на стадии [Preview](../../overview/concepts/launch-stages.md). Для получения доступа обратитесь в [службу поддержки](https://center.yandex.cloud/support).
  
 {% endnote %}
 
-Для записи логов {{ sws-name }} используются сервисы [{{ cloud-logging-short-name }}](../../logging/index.md) и [{{ at-name }}](../../audit-trails/index.md). Они решают разные задачи:
+Для записи логов Smart Web Security используются сервисы [Cloud Logging](../../logging/index.md) и [Audit Trails](../../audit-trails/index.md). Они решают разные задачи:
 
-* {{ cloud-logging-short-name }} — для анализа HTTP-запросов и сработавших правил в профилях безопасности, WAF и ARL.
-* {{ at-name }} — для сбора аудитных событий {{ sws-name }}. Это не полноценные логи {{ sws-name }}, а записи о событиях безопасности и действиях с ресурсами.
+* Cloud Logging — для анализа HTTP-запросов и сработавших правил в профилях безопасности, WAF и ARL.
+* Audit Trails — для сбора аудитных событий Smart Web Security. Это не полноценные логи Smart Web Security, а записи о событиях безопасности и действиях с ресурсами.
 
 ## Логи аудита {#audit-events}
 
-В {{ at-name }} есть два типа событий:
+В Audit Trails есть два типа событий:
 
-* [Уровня конфигурации](../at-ref.md#control-plane-events) — действия, связанные с конфигурированием ресурсов {{ yandex-cloud }}. Например, создание или удаление профиля безопасности.
-* [Уровня сервисов](../at-ref.md#data-plane-events) — действия, которые происходят с ресурсами внутри сервисов {{ yandex-cloud }}. Например, срабатывание правила из профиля WAF.
+* [Уровня конфигурации](../at-ref.md#control-plane-events) — действия, связанные с конфигурированием ресурсов Yandex Cloud. Например, создание или удаление профиля безопасности.
+* [Уровня сервисов](../at-ref.md#data-plane-events) — действия, которые происходят с ресурсами внутри сервисов Yandex Cloud. Например, срабатывание правила из профиля WAF.
 
-Записывать события можно в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }} или поток данных {{ yds-name }}.
+Записывать события можно в бакет Object Storage, лог-группу Cloud Logging или поток данных Data Streams.
 
 ## Логи HTTP-запросов и применения правил {#requests-logging}
 
-Для записи логов доступны два варианта: через {{ sws-name }} и через L7-балансировщик {{ alb-name }}, к которому подключен профиль безопасности. Логирование через {{ sws-name }} предоставляет больше возможностей для анализа, чем логирование через {{ alb-name }}. Логи записываются в лог-группу {{ cloud-logging-name }}.
+Для записи логов доступны два варианта: через Smart Web Security и через L7-балансировщик Application Load Balancer, к которому подключен профиль безопасности. Логирование через Smart Web Security предоставляет больше возможностей для анализа, чем логирование через Application Load Balancer. Логи записываются в лог-группу Cloud Logging.
 
-Анализ логов позволяет настраивать и отслеживать работу {{ sws-name }}:
+Анализ логов позволяет настраивать и отслеживать работу Smart Web Security:
 
 * Тестировать работу правил безопасности, WAF и ARL в режиме **Только логирование** (dry run). В этом режиме запросы пользователей не блокируются, но в логи записывается информация о срабатывании правил.
 * Просматривать количество заблокированных и пропущенных запросов, оценивать и корректировать работу правил.
@@ -34,7 +34,7 @@
 
 ## Работа с логами {#configure-logging}
 
-Чтобы начать работать с логами {{ sws-name }}:
+Чтобы начать работать с логами Smart Web Security:
 
 1. [Включите и настройте запись логов](#enable-logging).
 1. [Посмотрите и отфильтруйте логи](#view-logs).
@@ -56,62 +56,62 @@
 
 {% list tabs group=instructions %}
 
-- {{ cloud-logging-short-name }} {#logging}
+- Cloud Logging {#logging}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
-  1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите **{{ cloud-logging-name }}**.
-  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться логи.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
+  1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Включите **Запись логов**.
+  1. В поле **Записывать логи в** выберите **Cloud Logging**.
+  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться логи.
   1. Для записи в логи можно выбрать только те запросы, для которых сработали:
-     * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
-     * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**.
-     * Правила **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**.
-     * Правила **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}**.
-     * Все выбранные правила применили действие (вердикт) **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
-     * Все выбранные правила применили действие **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}** (легитимные запросы).
+     * **Базовые правила**.
+     * Правила **Smart Protection**.
+     * Правила **Web Application Firewall**.
+     * Правила **Advanced Rate Limiter**.
+     * Все выбранные правила применили действие (вердикт) **DENY и CAPTCHA**.
+     * Все выбранные правила применили действие **ALLOW** (легитимные запросы).
 
-       В нормальной ситуации легитимных запросов гораздо больше, чем нелегитимных. Чтобы уменьшить объем логов, настройте параметр **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowPercentageTitle_3334 }}** — от 1 до 100 процентов. При первой настройке правил рекомендуется анализировать все легитимные запросы. Когда вы убедитесь, что правила работают корректно, можно изменить долю логов или отключить логирование запросов с вердиктом **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}**. 
+       В нормальной ситуации легитимных запросов гораздо больше, чем нелегитимных. Чтобы уменьшить объем логов, настройте параметр **Сколько не записывать логов с вердиктом ALLOW** — от 1 до 100 процентов. При первой настройке правил рекомендуется анализировать все легитимные запросы. Когда вы убедитесь, что правила работают корректно, можно изменить долю логов или отключить логирование запросов с вердиктом **ALLOW**. 
   
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите **Сохранить**.
 
-- {{ at-name }} {#at}
+- Audit Trails {#at}
 
-  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }}, поток данных {{ yds-name }} или шину {{ er-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
+  События Audit Trails можно записывать в бакет Object Storage, лог-группу Cloud Logging, поток данных Data Streams или шину EventRouter. В этой инструкции настроим запись аудитных событий в лог-группу.
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  1. Перейдите в сервис **Audit Trails**.
+  1. Нажмите кнопку **Создать трейл**.
   1. Введите имя трейла, например `trail-sws`.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** выберите объект назначения — **{{ ui-key.yacloud.audit-trails.label_cloudLogging }}**.
-  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-name }}, в которую будут записываться события {{ sws-name }}.
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}** включите сбор событий и выберите сервис **{{ sws-name }}**.
+  1. В блоке **Назначение** выберите объект назначения — **Cloud Logging**.
+  1. Выберите или создайте [лог-группу](../../logging/concepts/log-group.md) Cloud Logging, в которую будут записываться события Smart Web Security.
+  1. В блоке **Сбор событий с уровня сервисов** включите сбор событий и выберите сервис **Smart Web Security**.
 
-      Остальные настройки в этом блоке оставьте по умолчанию. Будут записываться все события {{ sws-name }} уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
+      Остальные настройки в этом блоке оставьте по умолчанию. Будут записываться все события Smart Web Security уровня сервисов в текущем каталоге. События уровня конфигурации записываться не будут.
   
-  1. В блоке **{{ ui-key.yacloud.audit-trails.label_service-account }}** создайте или выберите аккаунт с ролью `logging.writer`.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В блоке **Сервисный аккаунт** создайте или выберите аккаунт с ролью `logging.writer`.
+  1. Нажмите **Создать**.
 
-  Другие способы включения записи событий см. в разделе [{#T}](../../audit-trails/operations/create-trail.md).
+  Другие способы включения записи событий см. в разделе [Создание трейла для загрузки аудитных логов](../../audit-trails/operations/create-trail.md).
 
-  Чтобы {{ sws-full-name }} передавал события в {{ at-name }}:
+  Чтобы Yandex Smart Web Security передавал события в Audit Trails:
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Включите **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}**.
-  1. В поле **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** выберите **{{ at-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **Профили безопасности**.
+  1. В строке с нужным профилем безопасности нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. Включите **Запись логов**.
+  1. В поле **Записывать логи в** выберите **Audit Trails**.
   1. (Опционально) Выберите, по каким правилам или вердиктам передавать события:
-     * **{{ ui-key.yacloud.smart-web-security.baseRulesTitle_xcJEe }}**.
-     * **{{ ui-key.yacloud.smart-web-security.overview.label_smart-protection-rule }}**.
-     * **{{ ui-key.yacloud.smart-web-security.overview.label_waf-rule }}**.
-     * **{{ ui-key.yacloud.smart-web-security.arlTitle_e3MD8 }}**.
-     * **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.denyAndCaptchaTitle_tCthP }}**.
-     * **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.allowTitle_g6CLe }}**.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+     * **Базовые правила**.
+     * **Smart Protection**.
+     * **Web Application Firewall**.
+     * **Advanced Rate Limiter**.
+     * **DENY и CAPTCHA**.
+     * **ALLOW**.
+  1. Нажмите **Создать**.
 
   Таким образом можно настроить передачу только событий из отдельных профилей безопасности или только по отдельным правилам и вердиктам.
 
@@ -121,11 +121,11 @@
 
 {% list tabs group=instructions %}
 
-- {{ cloud-logging-short-name }} {#logging}
+- Cloud Logging {#logging}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  1. Перейдите в сервис **Smart Web Security**.
+  1. Выберите раздел **Логи**.
   1. Выберите лог-группу, если их несколько.
   
   1. Выберите период показа логов одним из способов:
@@ -139,7 +139,7 @@
      
      * Выберите поля логов в выпадающем списке или начните вводить первые буквы названия поля.
 
-       Поля для фильтрации описаны в разделе [{#T}](../concepts/logging.md).
+       Поля для фильтрации описаны в разделе [Логирование](../concepts/logging.md).
   
      * Справа от строки запроса нажмите **</>** и введите запрос в текстовом режиме на [языке фильтрующих выражений](../../logging/concepts/filter.md).
 
@@ -151,13 +151,13 @@
 
      {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**. Чтобы посмотреть содержимое лога, разверните его.
+  1. Нажмите кнопку **Выполнить запрос**. Чтобы посмотреть содержимое лога, разверните его.
 
   ## Примеры готовых фильтров для логов {#filtration}
 
-  Логи поставляются в формате JSON. Одна запись в логах соответствует одному запросу клиента, обработанному {{ sws-name }}.
+  Логи поставляются в формате JSON. Одна запись в логах соответствует одному запросу клиента, обработанному Smart Web Security.
 
-  Запросы для фильтрации логов составляются, исходя из взаимосвязи профилей и правил [{{ sws-name }}](../concepts/profiles.md#profile-rules-schema). Вы можете посмотреть логи активных, работающих правил или правил в режиме **Только логирование** (dry run).
+  Запросы для фильтрации логов составляются, исходя из взаимосвязи профилей и правил [Smart Web Security](../concepts/profiles.md#profile-rules-schema). Вы можете посмотреть логи активных, работающих правил или правил в режиме **Только логирование** (dry run).
 
   ### Фильтры для активных правил {#active-rule-filters}
 
@@ -197,21 +197,21 @@
 
   Таким же образом вы можете добавить в фильтры другие условия и изменять их с учетом особенностей вашего потока трафика.
 
-- {{ at-name }} {#at}
+- Audit Trails {#at}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
-  1. Выберите лог-группу, в которую передаются события {{ at-name }}.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится профиль Smart Web Security.
+  1. Перейдите в сервис **Cloud Logging**.
+  1. Выберите лог-группу, в которую передаются события Audit Trails.
   1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
   1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
 
-     События {{ at-name }} записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+     События Audit Trails записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
 
      ```
      yandex.cloud.audit.smartwebsecurity.<имя_события>
      ```
 
-     Примеры составления запросов см. в разделе [{#T}](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
+     Примеры составления запросов см. в разделе [Примеры запросов для поиска событий в аудитных логах](../../audit-trails/tutorials/search-events-audit-logs/examples.md).
 
   1. Чтобы посмотреть содержимое лога, разверните его.
 

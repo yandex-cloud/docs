@@ -7,7 +7,7 @@ To get the list of available version, make a [ListVersions](listVersions.md#List
 ## HTTP request
 
 ```
-GET https://serverless-functions.{{ api-host }}/functions/v1/versions/{functionVersionId}
+GET https://serverless-functions.api.cloud.yandex.net/functions/v1/versions/{functionVersionId}
 ```
 
 ## Path parameters

@@ -4,10 +4,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
-  1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится канал уведомлений.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В открывшемся окне нажмите **Удалить**.
 
 - AWS CLI {#aws-cli}
 
@@ -55,6 +55,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-platform-application.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
+  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-platform-application.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
 
 {% endlist %}

@@ -5,7 +5,7 @@ Creates a node group in the specified Kubernetes cluster.
 ## HTTP request
 
 ```
-POST https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups
+POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups
 ```
 
 ## Body parameters {#yandex.cloud.k8s.v1.CreateNodeGroupRequest}

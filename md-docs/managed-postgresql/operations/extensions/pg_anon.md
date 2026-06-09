@@ -1,6 +1,6 @@
-# Использование postgresql_anonymizer в {{ mpg-name }}
+# Использование postgresql_anonymizer в Managed Service for PostgreSQL
 
-Расширение `postgresql_anonymizer` позволяет замаскировать или заменить в базе данных {{ PG }} персональные данные или информацию, составляющую коммерческую тайну.
+Расширение `postgresql_anonymizer` позволяет замаскировать или заменить в базе данных PostgreSQL персональные данные или информацию, составляющую коммерческую тайну.
 
 Для анонимизации используется декларативный подход: можно объявить правила маскирования с помощью DDL и задать стратегию анонимизации в определении таблицы.
 
@@ -9,9 +9,9 @@
   * [Статическое маскирование](https://postgresql-anonymizer.readthedocs.io/en/stable/static_masking/) — заменяет конфиденциальные данные другими в соответствии с правилами маскирования. Восстановить исходные данные невозможно.
   * [Обобщение](https://postgresql-anonymizer.readthedocs.io/en/stable/generalization/) — заменяет значение (число или дату) диапазоном, который содержит это значение.
 
-## Установить расширение postgresql_anonymizer в кластер {{ PG }} {#anon-install}
+## Установить расширение postgresql_anonymizer в кластер PostgreSQL {#anon-install}
 
-Чтобы установить расширение `postgresql_anonymizer` в кластер {{ PG }}:
+Чтобы установить расширение `postgresql_anonymizer` в кластер PostgreSQL:
 
 1. [Подключите к кластеру библиотеку общего пользования](cluster-extensions.md#libraries-connection) с именем `anon`.
 1. [Добавьте расширение](cluster-extensions.md#update-extensions) `anon` к базе данных.

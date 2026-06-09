@@ -5,7 +5,7 @@ Retrieves the list of RouteTable resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/routeTables
+GET https://vpc.api.cloud.yandex.net/vpc/v1/routeTables
 ```
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListRouteTablesRequest}

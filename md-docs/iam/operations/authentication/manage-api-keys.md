@@ -1,6 +1,6 @@
 # Управление API-ключами
 
-[API-ключ](../../concepts/authorization/api-key.md) — секретный ключ, используемый для упрощенной аутентификации [сервисного аккаунта](../../concepts/users/service-accounts.md) в [API {{ yandex-cloud }}](../../../api-design-guide/index.md).
+[API-ключ](../../concepts/authorization/api-key.md) — секретный ключ, используемый для упрощенной аутентификации [сервисного аккаунта](../../concepts/users/service-accounts.md) в [API Yandex Cloud](../../../api-design-guide/index.md).
 
 Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [назначьте ему роли](../sa/assign-role-for-sa.md).
 
@@ -10,14 +10,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** отобразится список API-ключей.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
+  1. В блоке **API-ключи** отобразится список API-ключей.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -64,15 +64,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
   1. Выберите сервисный аккаунт, для которого вы хотите создать API-ключ. При необходимости [создайте](../sa/create.md) новый сервисный аккаунт.
-  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. На панели сверху нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите одну или несколько [областей действия](../../concepts/authorization/api-key.md#scoped-api-keys).
-  1. (Опционально) Укажите **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-expires-at }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. В поле **Область действия** выберите одну или несколько [областей действия](../../concepts/authorization/api-key.md#scoped-api-keys).
+  1. (Опционально) Укажите **Срок действия**.
+  1. Нажмите кнопку **Создать**.
   1. Сохраните идентификатор и секретный ключ.
   
     {% note alert %}
@@ -83,7 +83,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -158,14 +158,14 @@
 
       Надежно сохраните полученное значение ключа: повторно получить его будет невозможно.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры ресурсов, которые необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры ресурсов, которые необходимо создать:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -202,11 +202,11 @@
 
       * `expires_at` — дата и время истечения срока действия ключа в формате `YYYY-MM-DDThh:mm:ssZ`. Например: `2026-01-01T21:00:00Z`. Необязательный параметр.
       * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`. Необязательный параметр.
-      * `output_to_lockbox` — описание [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в который будет сохранено значение API-ключа, во избежание его возможной утечки через файл состояния `terraform.tfstate`. Необязательный параметр. Вложенные параметры:
-          * `secret_id` — идентификатор секрета {{ lockbox-full-name }}, в который будет сохранено значение API-ключа. Секрет должен быть [пользовательского типа](../../../lockbox/concepts/secret.md#secret-type).
+      * `output_to_lockbox` — описание [секрета](../../../lockbox/concepts/secret.md) Yandex Lockbox, в который будет сохранено значение API-ключа, во избежание его возможной утечки через файл состояния `terraform.tfstate`. Необязательный параметр. Вложенные параметры:
+          * `secret_id` — идентификатор секрета Yandex Lockbox, в который будет сохранено значение API-ключа. Секрет должен быть [пользовательского типа](../../../lockbox/concepts/secret.md#secret-type).
           * `entry_for_secret_key` — ключ секрета, который будет присвоен сохраняемому значению API-ключа.
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_api_key.md).
 
   1. Создайте ресурсы:
 
@@ -229,7 +229,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -238,7 +238,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/index.md):
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/index.md):
 
       ```bash
       yc iam api-key list --service-account-id <идентификатор_сервисного_аккаунта>
@@ -260,7 +260,7 @@
         \"scopes\": [\"<область_действия_1>\",\"<область_действия_2>\",...,\"<область_действия_n>\"],
         \"expiresAt\": \"<дата_и_время>\"
     }" \
-    https://iam.{{ api-host }}/iam/v1/apiKeys
+    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
   ```
 
   Где:
@@ -296,12 +296,12 @@
 
 - Консоль управления
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+   1. В списке сервисов выберите **Identity and Access Management**.
+   1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
    1. В открывшемся списке выберите сервисный аккаунт, области действия которого хотите посмотреть.
-   1. На вкладке ![flag](../../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** найдите нужный API-ключ.
-   1. В строке с информацией о нем в столбце **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** будут указаны все доступные области действия API-ключа.
+   1. На вкладке ![flag](../../../_assets/console-icons/flag.svg) **Обзор** в блоке **API-ключи** найдите нужный API-ключ.
+   1. В строке с информацией о нем в столбце **Область действия** будут указаны все доступные области действия API-ключа.
 
 - CLI {#cli}
 
@@ -338,7 +338,7 @@
   * `--description` — описание API-ключа. Необязательный параметр.
   * `--scopes` — [области действия](../../concepts/authorization/api-key.md#scoped-api-keys) ключа. Необязательный параметр.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   ```hcl
   resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -370,7 +370,7 @@
         \"description\": \"this API-key is for my-robot\",
         \"scopes\": [\"yc.monitoring.read\",\"yc.postbox.send\",\"yc.serverless.functions.invoke\"]
     }" \
-    https://iam.{{ api-host }}/iam/v1/apiKeys
+    https://iam.api.cloud.yandex.net/iam/v1/apiKeys
   ```
 
   Где:
@@ -389,15 +389,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
-  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** в строке с API-ключом, который нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. В списке сервисов выберите **Identity and Access Management**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
+  1. В блоке **API-ключи** в строке с API-ключом, который нужно удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
   1. В открывшемся окне подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -429,16 +429,16 @@
       yc iam api-key delete <идентификатор_API-ключа>
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации {{ TF }} и удалите секцию с описанием API-ключа.
+  1. Откройте файл конфигурации Terraform и удалите секцию с описанием API-ключа.
 
-      Пример описания API-ключа в конфигурации {{ TF }}:
+      Пример описания API-ключа в конфигурации Terraform:
 
       ```hcl
       resource "yandex_iam_service_account_api_key" "sa-api-key" {
@@ -448,7 +448,7 @@
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_api_key.md).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -459,7 +459,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -471,7 +471,7 @@
 
       1. Подтвердите создание или удаление ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-      После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
+      После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления](https://console.yandex.cloud), а также с помощью команды CLI:
 
       ```bash
       yc iam api-key list --service-account-id <идентификатор_сервисного_аккаунта>
@@ -487,7 +487,7 @@
   curl \
       --request DELETE \
       --header "Authorization: Bearer $IAM_TOKEN" \
-      https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+      https://iam.api.cloud.yandex.net/iam/v1/apiKeys/$APIKEY_ID
   ```
 
   Также API-ключ можно удалить вызовом gRPC API [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md).
@@ -496,5 +496,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/authorization/api-key.md)
-* [Сервисы {{ yandex-cloud }}, поддерживающие API-ключи](../../concepts/authorization/api-key.md#supported-services)
+* [API-ключ](../../concepts/authorization/api-key.md)
+* [Сервисы Yandex Cloud, поддерживающие API-ключи](../../concepts/authorization/api-key.md#supported-services)

@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/extensions
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/extensions
 ```
 
 ## Query parameters {#yandex.cloud.mdb.clickhouse.v1.ListExtensionsRequest}

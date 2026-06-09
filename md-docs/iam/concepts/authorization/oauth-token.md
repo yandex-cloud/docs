@@ -7,9 +7,9 @@
 
 {% endnote %}
 
-OAuth-токен необходим для аутентификации в {{ yandex-cloud }} пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [{{ iam-short-name }}-токен](iam-token.md).
+OAuth-токен необходим для аутентификации в Yandex Cloud пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [IAM-токен](iam-token.md).
 
-Получить OAuth-токен для работы с {{ yandex-cloud }} можно с помощью [запроса]({{ link-cloud-oauth }}) к сервису Яндекс OAuth.
+Получить OAuth-токен для работы с Yandex Cloud можно с помощью [запроса](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) к сервису Яндекс OAuth.
 
 OAuth-токен недоступен для федеративных пользователей и сервисных аккаунтов.
 
@@ -25,7 +25,7 @@ OAuth-токен недоступен для федеративных польз
 
 ## Время жизни {#lifetime}
 
-Срок жизни OAuth-токена — 1 год. После этого необходимо [получить новый OAuth-токен]({{ link-cloud-oauth }}) и повторить процедуру аутентификации.
+Срок жизни OAuth-токена — 1 год. После этого необходимо [получить новый OAuth-токен](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и повторить процедуру аутентификации.
 
 {% note alert %}
 
@@ -36,18 +36,18 @@ OAuth-токен недоступен для федеративных польз
 ## Сервисы и утилиты, поддерживающие аутентификацию с OAuth-токеном {#supported-services}
 
 Эти сервисы и утилиты могут запрашивать IAM-токен автоматически, поэтому для аутентификации можно указывать только OAuth-токен:
-* [{{ yandex-cloud }} CLI](../../../cli/quickstart.md#initialize)
-* [{{ container-registry-full-name }}](../../../container-registry/operations/authentication.md#user)
-* [{{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md)
+* [Yandex Cloud CLI](../../../cli/quickstart.md#initialize)
+* [Yandex Container Registry](../../../container-registry/operations/authentication.md#user)
+* [Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md)
 * [Packer](../../../tutorials/infrastructure-management/packer-quickstart.md)
-* [{{ GL }} CI](../../../tutorials/testing/ci-for-snapshots.md)
+* [GitLab CI](../../../tutorials/testing/ci-for-snapshots.md)
 
 ## Примеры использования {#examples}
 
-* [{#T}](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
-* [{#T}](../../../serverless-containers/tutorials/movies-database.md)
+* [Запуск Docker-образа на виртуальной машине](../../../tutorials/infrastructure-management/run-docker-on-vm/index.md)
+* [Разработка CRUD API для сервиса фильмов](../../../serverless-containers/tutorials/movies-database.md)
 
 #### См. также {#see-also}
 
 * [Подробнее о сервисе Яндекс OAuth](https://yandex.ru/dev/oauth/).
-* [Изменения в поддержке OAuth‑токенов Яндекс ID в {{ yandex-cloud }} с 1 июня](https://yandex.cloud/ru/blog/oauth-deprecation).
+* [Изменения в поддержке OAuth‑токенов Яндекс ID в Yandex Cloud с 1 июня](https://yandex.cloud/ru/blog/oauth-deprecation).

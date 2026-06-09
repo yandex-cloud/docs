@@ -1,16 +1,16 @@
-# Аутентификация в API {{ objstorage-name }}
+# Аутентификация в API Object Storage
 
-Вы можете работать с {{ objstorage-name }} с помощью следующих типов API:
+Вы можете работать с Object Storage с помощью следующих типов API:
 
 * [AWS S3 API](#aws-s3-api);
-* [{{ yandex-cloud }} gRPC и REST API](#yandex-api).
+* [Yandex Cloud gRPC и REST API](#yandex-api).
 
 ## AWS S3 API {#aws-s3-api}
 
 Для аутентификации в [AWS S3 API](../s3/api-ref/index.md) вы можете использовать:
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md);
 * [статический ключ доступа](../../iam/concepts/authorization/access-key.md);
-* [временные ключи {{ sts-name }}](../../iam/concepts/authorization/sts.md);
+* [временные ключи Security Token Service](../../iam/concepts/authorization/sts.md);
 * [эфемерные ключи доступа](../../iam/concepts/authorization/ephemeral-keys.md).
 
 {% note warning %}
@@ -31,7 +31,7 @@
 
 - Аутентификация с помощью статического ключа {#static-key}
 
-  Для аутентификации в [AWS S3 API](../s3/api-ref/index.md) и работы с {{ TF }} и другими [поддерживаемыми инструментами](../tools/index.md) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../s3/index.md).
+  Для аутентификации в [AWS S3 API](../s3/api-ref/index.md) и работы с Terraform и другими [поддерживаемыми инструментами](../tools/index.md) вы можете использовать [статический ключ доступа](../../iam/concepts/authorization/access-key.md). Статический ключ доступа выпускается на [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), и все действия с использованием этого ключа выполняются от имени этого сервисного аккаунта. Подробнее см. [Как пользоваться S3 API](../s3/index.md).
 
   {% note info %}
   
@@ -40,7 +40,7 @@
   {% endnote %}
 
   
-  Статический ключ для доступа к {{ objstorage-name }} можно безопасно хранить в сервисе {{ lockbox-full-name }}. Подробнее см. [{#T}](../tutorials/static-key-in-lockbox/index.md).
+  Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
 
 
   Чтобы использовать AWS S3 API с аутентификацией с помощью статического ключа доступа напрямую, без SDK и приложений, необходимо самостоятельно [подписывать запросы](../s3/signing-requests.md). Процесс формирования запроса и подписи вы можете отработать с помощью AWS CLI в [режиме отладки](../s3/signing-requests.md#debugging).
@@ -61,7 +61,7 @@
 
 {% note warning %}
 
-Убедитесь, что аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее см. [{#T}](../security/overview.md).
+Убедитесь, что аккаунт, от имени которого вы выполняете запрос, имеет необходимые права для выполнения запрашиваемого действия. Например, для загрузки объекта в бакет [назначьте](../../iam/operations/sa/assign-role-for-sa.md) аккаунту [роль](../security/index.md#storage-uploader) `storage.uploader` на бакет. Подробнее см. [Обзор способов управления доступом в Object Storage](../security/overview.md).
 
 {% endnote %}
 
@@ -83,7 +83,7 @@
     --header "Authorization: Bearer ${IAM_TOKEN}" \
     --upload-file "${LOCAL_FILE}" \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -106,7 +106,7 @@
     --header "Authorization: Bearer ${IAM_TOKEN}" \
     --upload-file - \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
@@ -130,10 +130,10 @@
   curl \
     --request PUT \
     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --aws-sigv4 "aws:amz:ru-central1:s3" \
     --upload-file "${LOCAL_FILE}" \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -155,10 +155,10 @@
   tar -cvzf - "${DIRECTORY_PATH}" | curl \
     --request PUT \
     --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-    --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+    --aws-sigv4 "aws:amz:ru-central1:s3" \
     --upload-file - \
     --verbose \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
@@ -182,11 +182,11 @@
     --request PUT \
     --upload-file "${LOCAL_FILE}" \
     --verbose \
-    --header "Host: {{ s3-storage-host }}" \
+    --header "Host: storage.yandexcloud.net" \
     --header "Date: ${DATE_VALUE}" \
     --header "Content-Type: ${CONTENT_TYPE}" \
     --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-    "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+    "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
   ```
 
   Где:
@@ -201,16 +201,16 @@
 
 {% endlist %}
 
-## {{ yandex-cloud }} gRPC и REST API {#yandex-api}
+## Yandex Cloud gRPC и REST API {#yandex-api}
 
 
-Для аутентификации в {{ yandex-cloud }} gRPC и REST API получите [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена для разных типов аккаунтов:
+Для аутентификации в Yandex Cloud gRPC и REST API получите [IAM-токен](../../iam/concepts/authorization/iam-token.md). Подробнее о получении IAM-токена для разных типов аккаунтов:
 
 * [Аккаунт на Яндексе](../../iam/operations/iam-token/create.md).
 * [Федеративный аккаунт](../../iam/operations/iam-token/create-for-federation.md).
 * [Сервисный аккаунт](../../iam/operations/iam-token/create-for-sa.md).
 
-Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -223,9 +223,9 @@ Authorization: Bearer ${IAM_TOKEN}
 ```
 
 
-Полный перечень вызовов и методов {{ yandex-cloud }} API смотрите в справочниках [gRPC API](grpc/index.md) и [REST API](index.md).
+Полный перечень вызовов и методов Yandex Cloud API смотрите в справочниках [gRPC API](grpc/index.md) и [REST API](index.md).
 
-### Пример использования {{ yandex-cloud }} API {#example}
+### Пример использования Yandex Cloud API {#example}
 
 В примере создается бакет со стандартным классом хранилища и размером 50 ГБ.
 
@@ -248,7 +248,7 @@ Authorization: Bearer ${IAM_TOKEN}
         "configRead": false
       }]
     }' \
-    {{ api-host-storage-grpc }} \
+    storage.api.cloud.yandex.net:443 \
     yandex.cloud.storage.v1.BucketService/Create
   ```
 
@@ -274,8 +274,8 @@ Authorization: Bearer ${IAM_TOKEN}
     "createdBy": "ajego134p5h1********",
     "modifiedAt": "2023-08-10T06:32:19.836842Z",
     "done": true,
-    "metadata": {"@type":"type.googleapis.com/{{ at-event-prefix }}.storage.v1.CreateBucketMetadata","name":"<имя_бакета>"},
-    "response": {"@type":"type.googleapis.com/{{ at-event-prefix }}.storage.v1.Bucket","acl":{},"anonymousAccessFlags":{"read":false,"list":false},"createdAt":"2023-08-10T06:32:17.557756Z","defaultStorageClass":"STANDARD","folderId":"b1gmit33ngp3********","maxSize":"53687091200","name":"<имя_бакета>","versioning":"VERSIONING_DISABLED"}
+    "metadata": {"@type":"type.googleapis.com/yandex.cloud.storage.v1.CreateBucketMetadata","name":"<имя_бакета>"},
+    "response": {"@type":"type.googleapis.com/yandex.cloud.storage.v1.Bucket","acl":{},"anonymousAccessFlags":{"read":false,"list":false},"createdAt":"2023-08-10T06:32:17.557756Z","defaultStorageClass":"STANDARD","folderId":"b1gmit33ngp3********","maxSize":"53687091200","name":"<имя_бакета>","versioning":"VERSIONING_DISABLED"}
   }
   ```
 
@@ -299,7 +299,7 @@ Authorization: Bearer ${IAM_TOKEN}
         "configRead": false
       }
     }' \
-    https://storage.{{ api-host }}/storage/v1/buckets
+    https://storage.api.cloud.yandex.net/storage/v1/buckets
   ```
 
   Где:
@@ -320,11 +320,11 @@ Authorization: Bearer ${IAM_TOKEN}
   {
   "done": true,
   "metadata": {
-    "@type": "type.googleapis.com/{{ at-event-prefix }}.storage.v1.CreateBucketMetadata",
+    "@type": "type.googleapis.com/yandex.cloud.storage.v1.CreateBucketMetadata",
     "name": "<имя_бакета>"
   },
   "response": {
-    "@type": "type.googleapis.com/{{ at-event-prefix }}.storage.v1.Bucket",
+    "@type": "type.googleapis.com/yandex.cloud.storage.v1.Bucket",
     "anonymousAccessFlags": {
     "read": false,
     "list": false
@@ -350,4 +350,4 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-* [{#T}](../s3/s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../s3/s3-api-quickstart.md)

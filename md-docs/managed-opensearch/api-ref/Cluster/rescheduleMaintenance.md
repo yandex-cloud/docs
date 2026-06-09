@@ -5,7 +5,7 @@ Reschedules a planned maintenance operation.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:rescheduleMaintenance
+POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}:rescheduleMaintenance
 ```
 
 ## Path parameters

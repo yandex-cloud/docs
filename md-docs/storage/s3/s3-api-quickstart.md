@@ -1,16 +1,16 @@
-# Начало работы с AWS S3 API в {{ objstorage-full-name }}
+# Начало работы с AWS S3 API в Yandex Object Storage
 
-[AWS S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html) — это интерфейс взаимодействия с сервисами AWS, совместимый с {{ objstorage-full-name }}.
+[AWS S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Type_API_Reference.html) — это интерфейс взаимодействия с сервисами AWS, совместимый с Yandex Object Storage.
 
 С помощью AWS S3 API вы создадите бакет, загрузите в него объект, получите список объектов в бакете, скачаете объект из бакета, удалите объект и удалите бакет.
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -19,7 +19,7 @@
 Для аутентификации в [AWS S3 API](api-ref/index.md) вы можете использовать:
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md);
 * [статический ключ доступа](../../iam/concepts/authorization/access-key.md);
-* [временные ключи {{ sts-name }}](../../iam/concepts/authorization/sts.md);
+* [временные ключи Security Token Service](../../iam/concepts/authorization/sts.md);
 * [эфемерные ключи доступа](../../iam/concepts/authorization/ephemeral-keys.md).
 
 {% note warning %}
@@ -37,11 +37,11 @@
 
   1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
   1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-editor) `storage.editor` на каталог. Это позволит работать от имени этого сервисного аккаунта со всеми бакетами в каталоге.
-  1. Получите IAM-токен для созданного сервисного аккаунта. Подробнее читайте в инструкции [{#T}](../../iam/operations/iam-token/create-for-sa.md).
+  1. Получите IAM-токен для созданного сервисного аккаунта. Подробнее читайте в инструкции [Получение IAM-токена для сервисного аккаунта](../../iam/operations/iam-token/create-for-sa.md).
 
       {% note tip %}
       
-      Чтобы быстро получить IAM-токен сервисного аккаунта с помощью [{{ yandex-cloud }} CLI](../../cli/index.md), вы можете [воспользоваться имперсонацией](../../iam/operations/sa/impersonate-sa.md).
+      Чтобы быстро получить IAM-токен сервисного аккаунта с помощью [Yandex Cloud CLI](../../cli/index.md), вы можете [воспользоваться имперсонацией](../../iam/operations/sa/impersonate-sa.md).
       
       {% endnote %}
 
@@ -60,7 +60,7 @@
   1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-editor) `storage.editor` на каталог. Это позволит работать от имени этого сервисного аккаунта со всеми бакетами в каталоге.
   1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
-      В результате вы получите данные статического ключа доступа. Для аутентификации в {{ objstorage-name }} вам понадобятся:
+      В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
       
       * `key_id` — идентификатор статического ключа доступа;
       * `secret` — секретный ключ.
@@ -100,7 +100,7 @@
         --request PUT \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -114,7 +114,7 @@
       < location: /my-sample-bucket
       < x-amz-request-id: cd6bd702********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
 
@@ -167,9 +167,9 @@
       curl \
         --request PUT \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -183,7 +183,7 @@
       < location: /my-sample-bucket
       < x-amz-request-id: a5cf0b8d********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -194,10 +194,10 @@
       curl \
         --request PUT \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -211,7 +211,7 @@
       < location: /my-sample-bucket
       < x-amz-request-id: b8c1bd45********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -250,7 +250,7 @@
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --upload-file "${LOCAL_FILE}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -264,7 +264,7 @@
       < etag: "65a8e27d8879283831b664bd********"
       < x-amz-request-id: 646150ef********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
 
@@ -325,10 +325,10 @@
       curl \
         --request PUT \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --upload-file "${LOCAL_FILE}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -342,7 +342,7 @@
       < etag: "f75a361db63aa4722fb8e083********"
       < x-amz-request-id: 40afeceb********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -354,10 +354,10 @@
         --request PUT \
         --upload-file "${LOCAL_FILE}" \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -371,7 +371,7 @@
       < etag: "f75a361db63aa4722fb8e083********"
       < x-amz-request-id: 67ccce91********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -405,7 +405,7 @@
         --request GET \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}?list-type=2"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}?list-type=2"
       ```
 
       Результат:
@@ -420,7 +420,7 @@
       < x-amz-request-id: 91e2b09f05f16f54
       <
       <?xml version="1.0" encoding="UTF-8"?>
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       <ListBucketResult
           xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
           <KeyCount>1</KeyCount>
@@ -493,9 +493,9 @@
       curl \
         --request GET \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}?list-type=2"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}?list-type=2"
       ```
 
       Результат:
@@ -510,7 +510,7 @@
       < x-amz-request-id: cab0999d********
       <
       <?xml version="1.0" encoding="UTF-8"?>
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       <ListBucketResult
           xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
           <KeyCount>1</KeyCount>
@@ -541,10 +541,10 @@
       curl \
         --request GET \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}?list-type=2"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}?list-type=2"
       ```
 
       Результат:
@@ -559,7 +559,7 @@
       < x-amz-request-id: cb4b9a3d********
       <
       <?xml version="1.0" encoding="UTF-8"?>
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       <ListBucketResult
           xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
           <KeyCount>1</KeyCount>
@@ -617,7 +617,7 @@
         --request GET \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}" \
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}" \
         > ${LOCAL_FILE}
       ```
 
@@ -637,7 +637,7 @@
       <
       { [13 bytes data]
       100    13  100    13    0     0     69      0 --:--:-- --:--:-- --:--:--    69
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
 
@@ -698,9 +698,9 @@
       curl \
         --request GET \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}" \
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}" \
         > ${LOCAL_FILE}
       ```
 
@@ -720,7 +720,7 @@
       <
       { [103 bytes data]
       100   103  100   103    0     0   1925      0 --:--:-- --:--:-- --:--:--  1943
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -731,10 +731,10 @@
       curl \
         --request GET \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}" \
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}" \
         > ${LOCAL_FILE}
       ```
 
@@ -754,7 +754,7 @@
       <
       { [103 bytes data]
       100   103  100   103    0     0   3433      0 --:--:-- --:--:-- --:--:--  3433
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -792,7 +792,7 @@
         --request DELETE \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -804,7 +804,7 @@
       < date: Wed, 14 Jan 2026 11:26:02 GMT
       < x-amz-request-id: dba1c5e2********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
 
@@ -861,9 +861,9 @@
       curl \
         --request DELETE \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -875,7 +875,7 @@
       < date: Thu, 15 May 2025 14:24:01 GMT
       < x-amz-request-id: 7d2f023c********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -886,10 +886,10 @@
       curl \
         --request DELETE \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}/${OBJECT_PATH}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}/${OBJECT_PATH}"
       ```
 
       Результат:
@@ -901,7 +901,7 @@
       < date: Thu, 15 May 2025 14:30:28 GMT
       < x-amz-request-id: 7dc0c426********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -935,7 +935,7 @@
         --request DELETE \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -947,7 +947,7 @@
       < date: Wed, 14 Jan 2026 11:27:40 GMT
       < x-amz-request-id: 2f8de94e********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
 
@@ -1000,9 +1000,9 @@
       curl \
         --request DELETE \
         --user "${AWS_KEY_ID}:${AWS_SECRET_KEY}" \
-        --aws-sigv4 "aws:amz:{{ region-id }}:s3" \
+        --aws-sigv4 "aws:amz:ru-central1:s3" \
         --verbose \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -1014,7 +1014,7 @@
       < date: Thu, 15 May 2025 14:35:57 GMT
       < x-amz-request-id: 6a13b7ae********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -1025,10 +1025,10 @@
       curl \
         --request DELETE \
         --verbose \
-        --header "Host: {{ s3-storage-host }}" \
+        --header "Host: storage.yandexcloud.net" \
         --header "Date: ${DATE_VALUE}" \
         --header "Authorization: AWS ${AWS_KEY_ID}:${SIGNATURE}" \
-        "https://{{ s3-storage-host }}/${BUCKET_NAME}"
+        "https://storage.yandexcloud.net/${BUCKET_NAME}"
       ```
 
       Результат:
@@ -1040,7 +1040,7 @@
       < date: Thu, 15 May 2025 14:39:15 GMT
       < x-amz-request-id: 331b2dc4********
       <
-      * Connection #0 to host {{ s3-storage-host }} left intact
+      * Connection #0 to host storage.yandexcloud.net left intact
       ```
 
       {% endcut %}
@@ -1049,6 +1049,6 @@
 
 #### См. также {#see-also}
 
-* [{#T}](index.md)
-* [{#T}](../api-ref/authentication.md)
-* [{#T}](signing-requests.md)
+* [Как пользоваться S3 API](index.md)
+* [Аутентификация в API Object Storage](../api-ref/authentication.md)
+* [Подписывание запросов](signing-requests.md)

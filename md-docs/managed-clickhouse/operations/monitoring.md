@@ -1,13 +1,13 @@
-# Мониторинг состояния кластера {{ CH }} и его хостов
+# Мониторинг состояния кластера ClickHouse® и его хостов
 
-Данные о состоянии кластера и его хостов доступны в [консоли управления]({{ link-console-main }}). Их можно посмотреть на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером  или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
+Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии кластера представлена в виде графиков.
 
 Период обновления графиков:
 
-* Для хостов стандартной конфигурации и хостов с увеличенным соотношением количества гигабайт RAM к количеству vCPU (`memory-optimized`): {{ graph-update }}.
-* Для хостов с гарантированной долей vCPU ниже 100% (`burstable`): {{ graph-update-burstable }}.
+* Для хостов стандартной конфигурации и хостов с увеличенным соотношением количества гигабайт RAM к количеству vCPU (`memory-optimized`): 15 секунд.
+* Для хостов с гарантированной долей vCPU ниже 100% (`burstable`): 150 секунд.
 
 {% note info %}
 
@@ -15,42 +15,42 @@
 
 {% endnote %}
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе кластера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
-Для просмотра детальной информации о состоянии кластера {{ mch-name }}:
+Для просмотра детальной информации о состоянии кластера Managed Service for ClickHouse®:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**. 
+  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**. 
 
-      На открывшейся странице будут отображены графики работы кластера и хостов {{ CH }}.
+      На открывшейся странице будут отображены графики работы кластера и хостов ClickHouse®.
 
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
 
 {% endlist %}
 
 ### Доступные графики {#monitoring-dashboards}
 
-Если в кластере присутствует сервис координации, то в зависимости от выбранного сервиса на странице **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** доступны следующие вкладки:
+Если в кластере присутствует сервис координации, то в зависимости от выбранного сервиса на странице **Мониторинг** доступны следующие вкладки:
 
-* **{{ ui-key.yacloud.clickhouse.title_clickhouse }}** — информация о состоянии всего кластера и хостов {{ CH }}.
-* **{{ ui-key.yacloud.clickhouse.title_keeper }}** — информация о состоянии хостов {{ CK }}.
-* **{{ ui-key.yacloud.clickhouse.title_zookeeper }}** — информация о состоянии хостов {{ ZK }}.
+* **ClickHouse** — информация о состоянии всего кластера и хостов ClickHouse®.
+* **Keeper** — информация о состоянии хостов ClickHouse® Keeper.
+* **ZooKeeper** — информация о состоянии хостов ZooKeeper.
 
-Если кластер состоит только из хостов {{ CH }}, на странице **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** доступна вкладка **{{ ui-key.yacloud.clickhouse.switch_list }}** с информацией, соответствующей вкладке **{{ ui-key.yacloud.clickhouse.title_clickhouse }}**.
+Если кластер состоит только из хостов ClickHouse®, на странице **Мониторинг** доступна вкладка **Кластеры** с информацией, соответствующей вкладке **ClickHouse**.
 
-При любой конфигурации кластера на странице **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}** также доступна вкладка **Хосты** для [просмотра детальной информации о состоянии хостов](#monitoring-hosts).
+При любой конфигурации кластера на странице **Мониторинг** также доступна вкладка **Хосты** для [просмотра детальной информации о состоянии хостов](#monitoring-hosts).
 
 {% list tabs %}
 
-- {{ ui-key.yacloud.clickhouse.title_clickhouse }}
+- ClickHouse
 
   На вкладке отображаются графики:
 
@@ -62,21 +62,21 @@
     * **Inserted data** — скорость вставки данных для кластера.
     * **Read data** — скорость чтения данных для кластера.
     * **Merged data** — скорость слияния данных для кластера.
-    * **CPU usage** — количество используемых процессорных ядер в подкластере {{ CH }}.
-    * **Memory usage** — использование оперативной памяти в подкластере {{ CH }}.
-    * **Disk space usage** — занятое дисковое пространство в подкластере {{ CH }}.
+    * **CPU usage** — количество используемых процессорных ядер в подкластере ClickHouse®.
+    * **Memory usage** — использование оперативной памяти в подкластере ClickHouse®.
+    * **Disk space usage** — занятое дисковое пространство в подкластере ClickHouse®.
 
   * В блоке **Queries**:
 
     * **Select queries per host** — количество запросов выборки в секунду для каждого хоста в кластере.
     * **Insert queries per host** — количество запросов вставки в секунду для каждого хоста в кластере.
     * **Total queries per host** — общее количество запросов в секунду для каждого хоста в кластере.
-    * **Failed select queries per host** — процент неуспешных запросов выборки для каждого хоста в подкластере {{ CH }}.
-    * **Failed insert queries per host** — процент неуспешных запросов вставки для каждого хоста в подкластере {{ CH }}.
-    * **Failed queries per host** — процент неуспешных запросов для каждого хоста в подкластере {{ CH }}.
-    * **Average select query time per host** — среднее время выполнения запросов выборки для каждого хоста в подкластере {{ CH }}.
-    * **Average insert query time per host** — среднее время выполнения запросов вставки для каждого хоста в подкластере {{ CH }}.
-    * **Average query time per host** — среднее время выполнения запросов для каждого хоста в подкластере {{ CH }}.
+    * **Failed select queries per host** — процент неуспешных запросов выборки для каждого хоста в подкластере ClickHouse®.
+    * **Failed insert queries per host** — процент неуспешных запросов вставки для каждого хоста в подкластере ClickHouse®.
+    * **Failed queries per host** — процент неуспешных запросов для каждого хоста в подкластере ClickHouse®.
+    * **Average select query time per host** — среднее время выполнения запросов выборки для каждого хоста в подкластере ClickHouse®.
+    * **Average insert query time per host** — среднее время выполнения запросов вставки для каждого хоста в подкластере ClickHouse®.
+    * **Average query time per host** — среднее время выполнения запросов для каждого хоста в подкластере ClickHouse®.
 
   * В блоке **Connections and Locks**:
 
@@ -95,12 +95,12 @@
 
   * В блоке **Storage**:
     
-    * **Disk space usage per host, bytes** — занятое дисковое пространство для каждого хоста в подкластере {{ CH }}.
-    * **Disk space usage per host, %** — процент использования дискового пространства для каждого хоста в подкластере {{ CH }}.
-    * **Inode usage, %** — процент использованния inode для каждого хоста в подкластере {{ CH }}.
+    * **Disk space usage per host, bytes** — занятое дисковое пространство для каждого хоста в подкластере ClickHouse®.
+    * **Disk space usage per host, %** — процент использования дискового пространства для каждого хоста в подкластере ClickHouse®.
+    * **Inode usage, %** — процент использованния inode для каждого хоста в подкластере ClickHouse®.
     * **Databases** — количество баз данных для каждого хоста в кластере.
     * **Tables** — количество таблиц для каждого хоста в кластере.
-    * **Rows of MergeTree tables** — количество строк в таблицах семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) для каждого хоста в кластере.
+    * **Rows of MergeTree tables** — количество строк в таблицах семейства [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree) для каждого хоста в кластере.
     * **Data parts** — количество кусков данных для каждого хоста в кластере.
     * **Detached data parts** — количество отдельных кусков данных для каждого хоста в кластере.
 
@@ -109,35 +109,35 @@
     * **Max replication delay across tables** — максимальная задержка репликации таблиц для каждого хоста в кластере. Значения больше нескольких секунд могут указывать на чрезмерную нагрузку или проблемы в работе репликации.
     * **Replication queue** — размер очереди репликации для каждого хоста в кластере.
     * **Max data parts per partition** — максимальное количество кусков данных в партиции для каждого хоста в кластере. Лимит для этой величины определяется [настройками СУБД](../concepts/settings-list.md#setting-merge-tree). Приближение к лимиту указывает на чрезмерную нагрузку или низкую эффективность вставки данных.
-    * **Merges and mutations pool tasks** — количество активных задач слияния и мутаций в фоновом пуле для каждого хоста в подкластере {{ CH }}.
-    * **Fetches pool tasks** — количество активных задач извлечения в фоновом пуле для каждого хоста в подкластере {{ CH }}.
-    * **Move pool tasks** — количество активных задач перемещения в фоновом пуле для каждого хоста в подкластере {{ CH }}.
+    * **Merges and mutations pool tasks** — количество активных задач слияния и мутаций в фоновом пуле для каждого хоста в подкластере ClickHouse®.
+    * **Fetches pool tasks** — количество активных задач извлечения в фоновом пуле для каждого хоста в подкластере ClickHouse®.
+    * **Move pool tasks** — количество активных задач перемещения в фоновом пуле для каждого хоста в подкластере ClickHouse®.
 
   * В блоке **System Resources**:
     
-    * **CPU usage per host, cores** — количество используемых процессорных ядер для каждого хоста в подкластере {{ CH }}.
-    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере {{ CH }}.
-    * **CPU usage per host, %** — процент использования процессорных ядер для каждого хоста в подкластере {{ CH }}.
-    * **Memory usage per host, %** — процент использования оперативной памяти для каждого хоста в подкластере {{ CH }}.
-    * **Disk read per host** — скорость чтения с диска для каждого хоста в подкластере {{ CH }}.
-    * **Disk write per host** — скорость записи на диск для каждого хоста в подкластере {{ CH }}.
-    * **Disk usage per host** — скорость дисковых операций для каждого хоста в подкластере {{ CH }}.
-    * **Network data received per host** — скорость приема данных из сети для каждого хоста в подкластере {{ CH }}.
-    * **Network data sent per host** — скорость отправки данных в сеть для каждого хоста в подкластере {{ CH }}.
-    * **Network usage per host** — скорость обмена данными по сети для каждого хоста в подкластере {{ CH }}.
+    * **CPU usage per host, cores** — количество используемых процессорных ядер для каждого хоста в подкластере ClickHouse®.
+    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере ClickHouse®.
+    * **CPU usage per host, %** — процент использования процессорных ядер для каждого хоста в подкластере ClickHouse®.
+    * **Memory usage per host, %** — процент использования оперативной памяти для каждого хоста в подкластере ClickHouse®.
+    * **Disk read per host** — скорость чтения с диска для каждого хоста в подкластере ClickHouse®.
+    * **Disk write per host** — скорость записи на диск для каждого хоста в подкластере ClickHouse®.
+    * **Disk usage per host** — скорость дисковых операций для каждого хоста в подкластере ClickHouse®.
+    * **Network data received per host** — скорость приема данных из сети для каждого хоста в подкластере ClickHouse®.
+    * **Network data sent per host** — скорость отправки данных в сеть для каждого хоста в подкластере ClickHouse®.
+    * **Network usage per host** — скорость обмена данными по сети для каждого хоста в подкластере ClickHouse®.
 
-- {{ ui-key.yacloud.clickhouse.title_keeper }}
+- Keeper
 
   На вкладке отображаются графики:
 
   * В блоке **Service Metrics**:
 
     * **Transactions** — количество транзакций в секунду.
-    * **Outstanding requests per Keeper host** — количество запросов, находящихся в обработке для каждого хоста {{ CK }}.
-    * **Connections per Keeper host** — количество подключений для каждого хоста {{ CK }}.
-    * **Transactions per {{ CH }} host** — количество транзакций в секунду для каждого хоста {{ CH }}.
-    * **Average transaction time per {{ CH }} host** — среднее время транзакции для каждого хоста {{ CH }}. Показывает время, затрачиваемое {{ CH }} на обращения к {{ CK }}.
-    * **Average latency per Keeper host** — средняя задержка ответа для каждого хоста {{ CK }}.
+    * **Outstanding requests per Keeper host** — количество запросов, находящихся в обработке для каждого хоста ClickHouse® Keeper.
+    * **Connections per Keeper host** — количество подключений для каждого хоста ClickHouse® Keeper.
+    * **Transactions per ClickHouse® host** — количество транзакций в секунду для каждого хоста ClickHouse®.
+    * **Average transaction time per ClickHouse® host** — среднее время транзакции для каждого хоста ClickHouse®. Показывает время, затрачиваемое ClickHouse® на обращения к ClickHouse® Keeper.
+    * **Average latency per Keeper host** — средняя задержка ответа для каждого хоста ClickHouse® Keeper.
     * **Znodes** — количество объектов Znode.
     * **Ephemeral nodes** — количество объектов Ephemeral node.
     * **Watches** — количество объектов Watch.
@@ -145,7 +145,7 @@
   * В блоке **System Metrics**:
 
     * **CPU usage per host, cores** — количество используемых процессорных ядер для каждого хоста.
-    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере {{ CK }}.
+    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере ClickHouse® Keeper.
     * **CPU usage per host, %** — загрузка процессорных ядер для каждого хоста.
     * **Memory usage per host, %** — процент использования оперативной памяти для каждого хоста.
     * **Disk read per host** — скорость чтения с диска для каждого хоста.
@@ -155,32 +155,32 @@
     * **Network data received per host** — скорость приема данных из сети для каждого хоста.
     * **Network data sent per host** — скорость отправки данных в сеть для каждого хоста.
 
-- {{ ui-key.yacloud.clickhouse.title_zookeeper }}
+- ZooKeeper
 
   На вкладке отображаются графики:
 
   * В блоке **Service Metrics**:
 
     * **Transactions** — количество транзакций в секунду.
-    * **Outstanding requests per {{ ZK }} host** — количество запросов, находящихся в обработке для каждого хоста {{ ZK }}.
-    * **Connections per {{ ZK }} host** — количество подключений для каждого хоста {{ ZK }}.
-    * **Transactions per {{ CH }} host** — количество транзакций в секунду для каждого хоста {{ CH }}.
-    * **Average transaction time per {{ CH }} host** — среднее время транзакции для каждого хоста {{ CH }}. Показывает время, затрачиваемое {{ CH }} на обращения к {{ ZK }}.
-    * **Average latency per {{ ZK }} host** — средняя задержка ответа для каждого хоста {{ ZK }}.
+    * **Outstanding requests per ZooKeeper host** — количество запросов, находящихся в обработке для каждого хоста ZooKeeper.
+    * **Connections per ZooKeeper host** — количество подключений для каждого хоста ZooKeeper.
+    * **Transactions per ClickHouse® host** — количество транзакций в секунду для каждого хоста ClickHouse®.
+    * **Average transaction time per ClickHouse® host** — среднее время транзакции для каждого хоста ClickHouse®. Показывает время, затрачиваемое ClickHouse® на обращения к ZooKeeper.
+    * **Average latency per ZooKeeper host** — средняя задержка ответа для каждого хоста ZooKeeper.
     * **Znodes** — количество объектов Znode.
     * **Ephemeral nodes** — количество объектов Ephemeral node.
     * **Watches** — количество объектов Watch.
   
     {% note info %}
 
-    Подробнее об объектах Znode, Ephemeral node и Watch см. в [документации {{ ZK }}](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
+    Подробнее об объектах Znode, Ephemeral node и Watch см. в [документации ZooKeeper](https://zookeeper.apache.org/doc/current/zookeeperOver.html). {#zookeeper-objects}
 
     {% endnote %}
 
   * В блоке **System Metrics**:
 
     * **CPU usage per host, cores** — количество используемых процессорных ядер для каждого хоста.
-    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере {{ ZK }}.
+    * **Memory usage per host, bytes** — использование оперативной памяти для каждого хоста в подкластере ZooKeeper.
     * **CPU usage per host, %** — загрузка процессорных ядер для каждого хоста.
     * **Memory usage per host, %** — процент использования оперативной памяти для каждого хоста.
     * **Disk read per host** — скорость чтения с диска для каждого хоста.
@@ -194,30 +194,30 @@
 
 ## Мониторинг состояния хостов {#monitoring-hosts}
 
-Для просмотра детальной информации о состоянии отдельных хостов {{ mch-name }}:
+Для просмотра детальной информации о состоянии отдельных хостов Managed Service for ClickHouse®:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.clickhouse.cluster.switch_monitoring }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
 
   1. Перейдите на вкладку **Хосты** и выберите хост.
     
       Для каждого хоста указан его тип: `CLICKHOUSE`, `KEEPER` или `ZOOKEEPER`.
 
-      Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе {{ monitoring-full-name }}, нажмите кнопку **{{ ui-key.yacloud.monitoring.button_open-in-monitoring }}** на панели сверху.
+      Чтобы перейти к работе с метриками, дашбордами или алертами в сервисе Yandex Monitoring, нажмите кнопку **Открыть в Monium** на панели сверху.
 
 {% endlist %}
 
 {% list tabs %}
 
-- {{ CH }}
+- ClickHouse®
 
-  Для хостов {{ CH }} отображаются графики:
+  Для хостов ClickHouse® отображаются графики:
 
   * В блоке **Service Metrics**:
 
@@ -233,7 +233,7 @@
     * **Max replication delay across tables** — максимальная задержка репликации таблиц. Значения больше нескольких секунд могут указывать на чрезмерную нагрузку или проблемы в работе репликации.
     * **Replication queue** — размер очереди репликации.
     * **Max data parts per partition** — максимальное количество кусков данных в партиции. Лимит для этой величины определяется [настройками СУБД](../concepts/settings-list.md#setting-merge-tree). Приближение к лимиту указывает на чрезмерную нагрузку или низкую эффективность вставки данных.
-    * **Threads** — количество потоков, используемых {{ CH }}.
+    * **Threads** — количество потоков, используемых ClickHouse®.
 
   * В блоке **System Metrics**:  
     * **CPU usage, %** — процент использования процессорных ядер.
@@ -246,14 +246,14 @@
     * **Disk IOPS** — количество операций чтения и записи для диска.
     * **Network throughput** — пропускная способность сети.
 
-- {{ ui-key.yacloud.clickhouse.title_keeper }}
+- Keeper
 
-  Для хостов {{ CK }} отображаются графики:
+  Для хостов ClickHouse® Keeper отображаются графики:
 
   * В блоке **Service Metrics**:
 
     * **Availability** — доступность хоста.
-    * **Role** — роль хоста Leader или Follower в подкластере {{ CK }}.
+    * **Role** — роль хоста Leader или Follower в подкластере ClickHouse® Keeper.
     * **Objects** — количество объектов Znode, Ephemeral node и Watch.
     * **Connections** — количество активных подключений к хосту.
     * **Outstanding requests** — количество невыполненных запросов.
@@ -271,14 +271,14 @@
     * **Disk IOPS** — количество операций чтения и записи для диска.
     * **Network throughput** — пропускная способность сети.
 
-- {{ ZK }}
+- ZooKeeper
 
-  Для хостов {{ ZK }} отображаются графики:
+  Для хостов ZooKeeper отображаются графики:
 
   * В блоке **Service Metrics**:
 
     * **Availability** — доступность хоста.
-    * **Role** — роль хоста Leader или Follower в подкластере {{ ZK }}.
+    * **Role** — роль хоста Leader или Follower в подкластере ZooKeeper.
     * **Objects** — количество объектов Znode, Ephemeral node и Watch.
     * **Connections** — количество активных подключений к хосту.
     * **Outstanding requests** — количество невыполненных запросов.
@@ -299,22 +299,22 @@
 {% endlist %}
 
 
-## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
+## Настройка алертов в Yandex Monitoring {#monitoring-integration}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите:
-      * **{{ mch-name }} — Cluster Overview** для настройки алертов кластера;
-      * **{{ mch-name }} — ZooKeeper** для настройки алертов хостов ZooKeeper.
-      * **{{ mch-name }} — Host Overview** для настройки алертов хостов.
-  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов [см. в документации {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
-  1. Задайте значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` для срабатывания алерта.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
+  1. Перейдите в сервис ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
+  1. В блоке **Сервисные дашборды** выберите:
+      * **Managed Service for ClickHouse® — Cluster Overview** для настройки алертов кластера;
+      * **Managed Service for ClickHouse® — ZooKeeper** для настройки алертов хостов ZooKeeper.
+      * **Managed Service for ClickHouse® — Host Overview** для настройки алертов хостов.
+  1. На нужном графике с показателями нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Создать алерт**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов [см. в документации Yandex Monitoring](../../monitoring/concepts/querying.md).
+  1. Задайте значения порогов `Alarm` и `Warning` для срабатывания алерта.
+  1. Нажмите кнопку **Создать алерт**.
 
 {% endlist %}
 
@@ -332,7 +332,7 @@
 
 Рекомендуемые значения порогов для некоторых метрик:
 
-| Метрика                                      | Обозначение                                        | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}`                      | `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}`                    |
+| Метрика                                      | Обозначение                                        | `Alarm`                      | `Warning`                    |
 |----------------------------------------------|:--------------------------------------------------:|:----------------------------:|:----------------------------:|
 | Максимальное число кусков данных в разделе   | `ch_system_async_metrics_MaxPartCountForPartition` | `2500`                        | `1500`                        |
 | Количество запросов, завершившихся с ошибкой | `ch_system_events_FailedQuery_rate`                | 20% от общего числа запросов | 10% от общего числа запросов |
@@ -341,17 +341,17 @@
 
 Чтобы определить пороговые значения метрики `ch_system_events_FailedQuery_rate`, используйте значение показателя `Total queries` [для кластера](#monitoring-cluster).
 
-Для метрики `disk.used_bytes` значения порогов `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` и `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
+Для метрики `disk.used_bytes` значения порогов `Alarm` и `Warning` задаются только в байтах. Например, рекомендуемые значения для диска размером в 100 ГБ:
 
-* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}` — `102005473280` байт (95%).
-* `{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}` — `85899345920` байт (75%).
+* `Alarm` — `102005473280` байт (95%).
+* `Warning` — `85899345920` байт (75%).
 
-Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
+Текущий размер хранилища можно посмотреть в [детальной информации о кластере](cluster-list.md#get-cluster). Полный список поддерживаемых метрик см. в [документации Monitoring](../../monitoring/metrics-ref/managed-clickhouse-ref.md).
 
 
 ## Состояние и статус кластера {#cluster-health-and-status}
 
-**{{ ui-key.yacloud.mdb.cluster.overview.label_health }}** кластера указывает на исправность его хостов, а **{{ ui-key.yacloud.mdb.cluster.overview.label_status }}** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
+**Состояние** кластера указывает на исправность его хостов, а **Статус** показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
 
 Для просмотра состояния и статуса кластера:
 
@@ -359,9 +359,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Наведите курсор на индикатор в столбце **{{ ui-key.yacloud.common.availability }}** в строке нужного кластера.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **Managed Service for&nbsp;ClickHouse**.
+  1. Наведите курсор на индикатор в столбце **Доступность** в строке нужного кластера.
 
 {% endlist %}
 
@@ -370,9 +370,9 @@
 Состояние | Описание | Предлагаемые действия
 :--- | :--- | :---
 **ALIVE** | Кластер работает в штатном режиме. | Действий не требуется.
-**DEGRADED** | Кластер работает не на полную мощность: минимум один из хостов имеет состояние, отличное от `ALIVE`. | Выполните диагностику:<ul><li>Перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** и посмотрите, какие из них в нерабочем состоянии.</li><li>Перейдите на вкладку **{{ ui-key.yacloud.common.operations-key-value }}** и убедитесь, что все операции завершились.</li><li>Убедитесь, что кластер не находится в процессе технического обслуживания.</li></ul>Если причины не удалось выяснить самостоятельно, [обратитесь в службу поддержки]({{ link-console-support }}).
-**DEAD** | Кластер неработоспособен:  ни один его хост не работает. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
-**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки]({{ link-console-support }}), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
+**DEGRADED** | Кластер работает не на полную мощность: минимум один из хостов имеет состояние, отличное от `ALIVE`. | Выполните диагностику:<ul><li>Перейдите на вкладку **Хосты** и посмотрите, какие из них в нерабочем состоянии.</li><li>Перейдите на вкладку **Операции** и убедитесь, что все операции завершились.</li><li>Убедитесь, что кластер не находится в процессе технического обслуживания.</li></ul>Если причины не удалось выяснить самостоятельно, [обратитесь в службу поддержки](https://center.yandex.cloud/support).
+**DEAD** | Кластер неработоспособен:  ни один его хост не работает. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `DEAD`.</li></ul>
+**UNKNOWN** | Состояние кластера неизвестно. | [Составьте обращение в службу поддержки](https://center.yandex.cloud/support), указав:<ul><li>Идентификатор кластера.</li><li>Идентификаторы последних операций, которые на нем выполнялись.</li><li>Время по [графикам доступности](#monitoring-cluster), когда кластер перешел в состояние `UNKNOWN`.</li></ul>
 
 ### Статусы кластера {#cluster-status}
 
@@ -384,8 +384,8 @@
 **STOPPED** | Кластер остановлен | Запустите кластер, чтобы вернуть его в работу.
 **STARTING** | Остановленный ранее кластер запускается | Через некоторое время кластеру будет присвоен статус `RUNNING`. Подождите немного и приступайте к работе.
 **UPDATING** | Обновляется конфигурация кластера | По завершении обновления кластеру будет присвоен статус, который был до обновления: `RUNNING` или `STOPPED`.
-**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}). Доступность кластера можно определить по его состоянию.
-**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}).
+**ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support). Доступность кластера можно определить по его состоянию.
+**STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support).
 
 
-_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

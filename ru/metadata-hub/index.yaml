@@ -1,13 +1,3 @@
-title: Yandex MetaData Hub
-description:
-  - >-
-    Yandex MetaData Hub — сервис Yandex Cloud, предоставляющий клиентам
-    возможности управления подключениями к базам данных, хранения схем обмена
-    данными и описания наборов данных, а также систему управления метаданными.
-  - >-
-    <em>Apache® и <a href="https://hive.apache.org/">Apache Hive™</a> являются
-    зарегистрированными товарными знаками или товарными знаками Apache Software
-    Foundation в США и/или других странах.</em>
 meta:
   title: Yandex MetaData Hub
   description: >-
@@ -24,15 +14,9 @@ meta:
     - keyword: управление подключением к базе данных
     - keyword: каталог метаданных в {{ yandex-cloud }}
 blocks:
-  - type: content-layout-block
-    textContent:
-      title: Yandex MetaData Hub
-      text: >-
-        Сервис Yandex Cloud для управления подключениями к базам данных,
-        хранения схем обмена данными и описания наборов данных, а также систему
-        управления метаданными.
-    size: l
   - type: card-layout-block
+    title: Yandex MetaData Hub
+    description: "Сервис Yandex\_Cloud для управления подключениями к базам данных, хранения схем обмена данными и описания наборов данных, а также систему управления метаданными."
     colSizes:
       all: 12
       sm: 6
@@ -45,7 +29,7 @@ blocks:
         text: Технические и организационные ограничения сервиса
         icon: _assets/icons/sliders.svg
         urlTitle: Квоты в Yandex MetaData Hub
-        url: concepts/limits
+        url: ./concepts/limits
         centered: true
         size: s
       - type: basic-card
@@ -53,7 +37,7 @@ blocks:
         text: Как настроить права доступа для работы с сервисом
         icon: _assets/icons/lock.svg
         urlTitle: Управление доступом в Yandex MetaData Hub
-        url: security/index
+        url: ./security/index
         centered: true
         size: s
       - type: basic-card
@@ -86,7 +70,7 @@ blocks:
           Автоматическое создание и управление параметрами подключений к базам
           данных.
         urlTitle: Подключение
-        url: concepts/connection-manager
+        url: ./concepts/connection-manager
         size: s
         icon: _assets/icons/plug-connection.svg
       - type: basic-card
@@ -102,7 +86,7 @@ blocks:
           Централизованное хранилище для управления и проверки схем данных.
           Сервис находится на стадии Preview.
         urlTitle: Реестр схем данных
-        url: concepts/schema-registry
+        url: ./concepts/schema-registry
         size: s
         icon: _assets/icons/layout-cells.svg
       - type: basic-card

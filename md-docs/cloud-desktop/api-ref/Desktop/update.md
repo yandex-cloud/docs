@@ -5,7 +5,7 @@ Sync desktop with group configuration
 ## HTTP request
 
 ```
-PATCH https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}:update
+PATCH https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}:update
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Deletes the specified shards (one or more).
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/shards:batchDelete
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/shards:batchDelete
 ```
 
 ## Path parameters

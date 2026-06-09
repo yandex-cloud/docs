@@ -1,6 +1,6 @@
-# Настройка политики холодного хранилища в {{ mos-full-name }}
+# Настройка политики холодного хранилища в Yandex Managed Service for OpenSearch
 
-# Настройка политики холодного хранилища в {{ mos-full-name }}
+# Настройка политики холодного хранилища в Yandex Managed Service for OpenSearch
 
 
 С помощью [политик](../../managed-opensearch/concepts/index-policy.md) можно автоматически выполнять некоторые операции с индексами. Например, чтобы оптимизировать использование хранилища, вы можете установить политику, которая будет перемещать в определенную группу хостов «холодные» данные, а затем перепаковывать эти данные с помощью [кодека](../../managed-opensearch/concepts/indexing.md#codecs), который обеспечивает большую степень сжатия.
@@ -17,38 +17,38 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infrastructure-prepare}
 
-1. Подготовьте кластер {{ mos-name }}:
+1. Подготовьте кластер Managed Service for OpenSearch:
 
     {% list tabs group=instructions %}
 
     - Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
+        1. [Создайте кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-create.md#create-cluster) любой подходящей конфигурации со следующими настройками:
 
             * Две или более группы хостов с ролью `DATA`. Двум группам присвойте имена `hot` и `cold`.
             * Публичный доступ к любой группе хостов.
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они допускают подключение к кластеру [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
-    - С помощью {{ TF }} {#tf}
+    - С помощью Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -57,21 +57,21 @@
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсети](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch;
+            * кластер Managed Service for OpenSearch.
 
         1. Укажите в файле `opensearch-cold-storage-policy.tf` переменные:
 
-            * `version` — версия {{ OS }}.
-            * `admin_password` — пароль администратора {{ OS }}.
+            * `version` — версия OpenSearch.
+            * `admin_password` — пароль администратора OpenSearch.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -93,7 +93,7 @@
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     {% endlist %}
 
@@ -105,7 +105,7 @@
     curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
-        --request GET 'https://<FQDN_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/'
+        --request GET 'https://<FQDN_хоста_OpenSearch_с_публичным_доступом>:9200/'
     ```
     
     FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
@@ -114,7 +114,7 @@
     
     ```bash
     {
-      "name" : "....{{ dns-zone }}",
+      "name" : "....mdb.yandexcloud.net",
       "cluster_name" : "...",
       "cluster_uuid" : "...",
       "version" : {
@@ -134,7 +134,7 @@ curl \
     --user admin:<пароль> \
     --cacert ~/.opensearch/root.crt \
     --header 'Content-Type: application/json' \
-    --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/policies/archive_policy' \
+    --request PUT 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ism/policies/archive_policy' \
     --data '
         {
             "policy": {
@@ -218,7 +218,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request PUT 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log-000001?pretty' \
+        --request PUT 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/log-000001?pretty' \
         --data '
             {
                 "settings": {
@@ -242,7 +242,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_plugins/_ism/explain/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ism/explain/log-000001?pretty'
     ```
 
     В результатах будет выведено сообщение вида:
@@ -270,7 +270,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request POST 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log-000001/_doc?pretty' \
+        --request POST 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/log-000001/_doc?pretty' \
         --data '
             {
                 "num": "101",
@@ -286,7 +286,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
     ```
 
     В результатах будут выведены шарды индекса `log-000001` и адреса хостов, на которых располагаются шарды:
@@ -303,7 +303,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/nodeattrs/?v&h=node,attr,value&pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/nodeattrs/?v&h=node,attr,value&pretty'
     ```
 
     В результатах будут содержаться строки:
@@ -322,7 +322,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
     ```
 
     1 час — это условие политики для перемещения индекса в группу хостов с именем `cold`.
@@ -341,7 +341,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/nodeattrs/?v&h=node,attr,value&pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/nodeattrs/?v&h=node,attr,value&pretty'
     ```
 
     В результатах будут содержаться строки:
@@ -360,7 +360,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cat/shards/log-000001?pretty'
     ```
 
     2 часа — это условие политики для применения нового кодека (перевод в архив).
@@ -381,7 +381,7 @@ curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
         --header 'Content-Type: application/json' \
-        --request GET 'https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:9200/log-000001/_settings?pretty'
+        --request GET 'https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/log-000001/_settings?pretty'
     ```
 
     Результат:
@@ -415,15 +415,15 @@ curl \
 
 - Вручную {#manual}
 
-    [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+    [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -437,6 +437,6 @@ curl \
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

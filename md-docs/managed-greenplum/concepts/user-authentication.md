@@ -1,6 +1,6 @@
 # Аутентификация пользователей
 
-Аутентификация пользователей в {{ mgp-name }} настраивается с помощью [правил](../operations/user-auth-rules.md) в разделе **{{ ui-key.yacloud.greenplum.cluster.user-auth.title_page-auth-user }}**. Этот раздел представляет собой интерфейс для управления конфигурационным файлом [pg_hba.conf]({{ pg-docs }}/auth-pg-hba-conf.html) с некоторыми ограничениями:
+Аутентификация пользователей в Yandex MPP Analytics for PostgreSQL настраивается с помощью [правил](../operations/user-auth-rules.md) в разделе **Аутентификация пользователей**. Этот раздел представляет собой интерфейс для управления конфигурационным файлом [pg_hba.conf](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html) с некоторыми ограничениями:
 
 * доступны не все типы соединения и методы аутентификации;
 * запрещены системные базы данных и пользователи;
@@ -18,30 +18,30 @@
 
 Доступные типы соединений:
 
-* `{{ ui-key.yacloud.greenplum.cluster.user-auth.value_hba-type-host }}` — TCP/IP с применением шифрования SSL и без него.
-* `{{ ui-key.yacloud.greenplum.cluster.user-auth.value_hba-type-hostssl }}` — TCP/IP с применением шифрования SSL.
-* `{{ ui-key.yacloud.greenplum.cluster.user-auth.value_hba-type-hostnossl }}` — TCP/IP без шифрования SSL.
+* `host` — TCP/IP с применением шифрования SSL и без него.
+* `hostssl` — TCP/IP с применением шифрования SSL.
+* `hostnossl` — TCP/IP без шифрования SSL.
 
 Для баз данных и пользователей недоступны:
 
 * Системные базы данных, например `postgres`.
 * Системные пользователи, например [mdb_admin](cluster-users.md#mdb_admin).
 * Специальные значения, например `all` или `sameuser`.
-* [Регулярные выражения]({{ pg-docs }}/functions-matching.html#POSIX-SYNTAX-DETAILS).
+* [Регулярные выражения](https://www.postgresql.org/docs/current/functions-matching.html#POSIX-SYNTAX-DETAILS).
 
 Имя группы пользователей базы данных должно начинаться с символа `+`, например `+dbwriters`.
 
 В качестве адреса вы можете использовать FQDN хоста, диапазон IP-адресов или специальное значение `all`, которое разрешает подключение с любого хоста:
 
-* `{{ host-name }}.{{ dns-zone }}`
+* `rc1a-goh2a9tr********.mdb.yandexcloud.net`
 * `172.20.143.89/32`
 * `::0/0`
 * `all`
 
 Поддерживаются следующие методы аутентификации:
 
-* `md5` — по паролю. Подробнее см. в [документации {{ PG }}]({{ pg-docs }}/auth-password.html).
+* `md5` — по паролю. Подробнее см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/auth-password.html).
 * `iam` — [с помощью IAM](../operations/connect/clients.md#iam).
 * `reject` — запрещает подключение пользователя.
 
-Подробнее о настройках см. в [документации {{ PG }}]({{ pg-docs }}/auth-pg-hba-conf.html).
+Подробнее о настройках см. в [документации PostgreSQL](https://www.postgresql.org/docs/current/auth-pg-hba-conf.html).

@@ -1,4 +1,4 @@
-# История изменений в {{ video-full-name }}
+# История изменений в Yandex Cloud Video
 
 ## Январь-март 2026 {#jan-mar-2026}
 
@@ -33,11 +33,11 @@
 
 * Чтобы разрешить показ видео только на определенных сайтах, добавлена возможность [указывать домены](operations/channels/settings.md#channel-settings) для показа видео. На других доменах видео отображаться не будут.
 
-* 1 августа 2025 {{ video-name }} перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).
+* 1 августа 2025 Cloud Video перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).
 
 ## Ноябрь-декабрь 2024 {#nov-dec-2024}
 
-* Реализован поиск [канала](concepts/index.md#channels) по имени на [главной странице]({{ link-video-main }}) {{ video-name }}.
+* Реализован поиск [канала](concepts/index.md#channels) по имени на [главной странице](https://video.yandex.cloud/) Cloud Video.
 * Добавлена возможность выдать доступ к видео по [временной ссылке](concepts/videos.md#temporary-link).
 
 ## Октябрь 2024 {#oct-2024}
@@ -66,13 +66,13 @@
 ## Март 2024 {#mar-2024}
 
 * Добавлена возможность получения [статистики просмотров](operations/video/get-statistics.md) видео.
-* Опубликован [справочник {{ video-player-name }} SDK для IFrame](sdk/iframe/index.md).
+* Опубликован [справочник Cloud Video Player SDK для IFrame](sdk/iframe/index.md).
 * Добавлена возможность [настройки публичного доступа](operations/video/publish.md) к видео.
 
 ## Ноябрь 2023 {#nov-2023}
 
-Опубликованы [спецификации gRPC API {{ video-name }}](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video).
+Опубликованы [спецификации gRPC API Cloud Video](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/video).
 
 ## Октябрь 2023 {#oct-2023}
 
-Сервис доступен по запросу на [стадии Preview](../overview/concepts/launch-stages.md) на [отдельной странице]({{ link-video-main }}) {{ video-name }}.
+Сервис доступен по запросу на [стадии Preview](../overview/concepts/launch-stages.md) на [отдельной странице](https://video.yandex.cloud/) Cloud Video.

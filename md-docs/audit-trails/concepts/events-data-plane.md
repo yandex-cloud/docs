@@ -5,45 +5,45 @@
 Общий вид значения:
 
 ```text
-{{ at-event-prefix }}.audit.<имя_сервиса>.<имя_события>
+yandex.cloud.audit.<имя_сервиса>.<имя_события>
 ```
 
 Подробная JSON-структура записи события приведена в справочнике аудитных логов. События в нем отсортированы по алфавиту без разделения на уровни и содержат все возможные поля. В реальных логах набор полей зависит от параметров события и конкретного объекта.
 
 Ниже описаны события для сервисов:
 
-* [{{ alb-full-name }}](events-data-plane.md#alb)
-* [{{ baremetal-full-name }}](events-data-plane.md#baremetal)
-* [{{ certificate-manager-full-name }}](events-data-plane.md#certificate-manager)
-* [{{ cloud-desktop-full-name }}](events-data-plane.md#clouddesktop)
-* [{{ dns-full-name }}](events-data-plane.md#dns)
-* [{{ compute-full-name }}](events-data-plane.md#compute)
-* [{{ ai-studio-full-name }}](events-data-plane.md#ai-studio)
-* [{{ org-full-name }}](events-data-plane.md#organization)
-* [{{ iam-full-name }}](events-data-plane.md#iam)
-* [{{ kms-full-name }}](events-data-plane.md#kms)
-* [{{ lockbox-full-name }}](events-data-plane.md#lockbox)
-* [{{ mkf-full-name }}](events-data-plane.md#mkf)
-* [{{ mch-full-name }}](events-data-plane.md#mch)
-* [{{ managed-k8s-full-name }}](events-data-plane.md#managed-service-for-kubernetes)
-* [{{ mmg-full-name }}](events-data-plane.md#mmg)
-* [{{ mmy-full-name }}](events-data-plane.md#mmy)
-* [{{ mos-full-name }}](events-data-plane.md#mos)
-* [{{ mpg-full-name }}](events-data-plane.md#mpg)
-* [{{ mspqr-full-name }}](events-data-plane.md#spqr)
-* [{{ mrd-full-name }}](events-data-plane.md#mrd)
-* [{{ objstorage-full-name }}](events-data-plane.md#objstorage)
-* [{{ sd-full-name }}](events-data-plane.md#security-deck)
-* [{{ speechkit-full-name }}](events-data-plane.md#speechkit)
-* [{{ speechsense-full-name }}](events-data-plane.md#speechsense)
-* [{{ sws-full-name }}](events-data-plane.md#sws)
-* [{{ translate-full-name }}](events-data-plane.md#translate)
-* [{{ vpc-full-name }}](events-data-plane.md#vpc)
-* [{{ vision-full-name }}](events-data-plane.md#vision)
-* [{{ wiki-full-name }}](events-data-plane.md#wiki)
-* [{{ websql-full-name }}](events-data-plane.md#websql)
+* [Yandex Application Load Balancer](events-data-plane.md#alb)
+* [Yandex BareMetal](events-data-plane.md#baremetal)
+* [Yandex Certificate Manager](events-data-plane.md#certificate-manager)
+* [Yandex Cloud Desktop](events-data-plane.md#clouddesktop)
+* [Yandex Cloud DNS](events-data-plane.md#dns)
+* [Yandex Compute Cloud](events-data-plane.md#compute)
+* [Yandex AI Studio](events-data-plane.md#ai-studio)
+* [Yandex Identity Hub](events-data-plane.md#organization)
+* [Yandex Identity and Access Management](events-data-plane.md#iam)
+* [Yandex Key Management Service](events-data-plane.md#kms)
+* [Yandex Lockbox](events-data-plane.md#lockbox)
+* [Yandex Managed Service for Apache Kafka®](events-data-plane.md#mkf)
+* [Yandex Managed Service for ClickHouse®](events-data-plane.md#mch)
+* [Yandex Managed Service for Kubernetes](events-data-plane.md#managed-service-for-kubernetes)
+* [Yandex StoreDoc](events-data-plane.md#mmg)
+* [Yandex Managed Service for MySQL®](events-data-plane.md#mmy)
+* [Yandex Managed Service for OpenSearch](events-data-plane.md#mos)
+* [Yandex Managed Service for PostgreSQL](events-data-plane.md#mpg)
+* [Yandex Managed Service for Sharded PostgreSQL](events-data-plane.md#spqr)
+* [Yandex Managed Service for Valkey™](events-data-plane.md#mrd)
+* [Yandex Object Storage](events-data-plane.md#objstorage)
+* [Yandex Security Deck](events-data-plane.md#security-deck)
+* [Yandex SpeechKit](events-data-plane.md#speechkit)
+* [Yandex SpeechSense](events-data-plane.md#speechsense)
+* [Yandex Smart Web Security](events-data-plane.md#sws)
+* [Yandex Translate](events-data-plane.md#translate)
+* [Yandex Virtual Private Cloud](events-data-plane.md#vpc)
+* [Yandex Vision OCR](events-data-plane.md#vision)
+* [Яндекс Вики](events-data-plane.md#wiki)
+* [Yandex WebSQL](events-data-plane.md#websql)
 
-## {{ alb-full-name }} {#alb}
+## Yandex Application Load Balancer {#alb}
 
 Имя сервиса — `apploadbalancer`.
 
@@ -52,15 +52,15 @@
 `LoadBalancerHTTPAccessLog` | Логирование HTTP-запросов
 `LoadBalancerTCPAccessLog` | Логирование TCP-запросов
 
-## {{ baremetal-full-name }} {#baremetal}
+## Yandex BareMetal {#baremetal}
 
 Имя сервиса — `baremetal`.
 
 Имя события | Описание
 --- | ---
-`flowlogs.ExternalFlow` | Поток трафика серверов {{ baremetal-name }} во внешние сети
+`flowlogs.ExternalFlow` | Поток трафика серверов BareMetal во внешние сети
 
-## {{ certificate-manager-full-name }} {#certificate-manager}
+## Yandex Certificate Manager {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
 
@@ -69,7 +69,7 @@
 `GetCertificateContent` | Получение содержимого SSL-сертификата
 `GetExCertificateContent` | Получение содержимого истекшего SSL-сертификата
 
-## {{ cloud-desktop-full-name }} {#clouddesktop}
+## Yandex Cloud Desktop {#clouddesktop}
 
 Имя сервиса — `clouddesktop`.
 
@@ -78,7 +78,7 @@
 `GenerateDesktopRDPFile` | Генерация RDP-файла для подключения к рабочему столу
 `ResetDesktopPassword` | Сброс пароля рабочего стола
 
-## {{ dns-full-name }} {#dns}
+## Yandex Cloud DNS {#dns}
 
 Имя сервиса — `dns`.
 
@@ -88,11 +88,11 @@
 
 {% note info %}
 
-Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в полях `client_ip` и `server_ip` в секции `details` будет указано специальное значение: `cloud.yandex`.
+Если действие выполнил один из инфраструктурных сервисов Yandex Cloud или сотрудник поддержки, то в полях `client_ip` и `server_ip` в секции `details` будет указано специальное значение: `cloud.yandex`.
 
 {% endnote %}
 
-## {{ compute-full-name }} {#compute}
+## Yandex Compute Cloud {#compute}
 
 Имя сервиса — `compute`.
 
@@ -103,7 +103,7 @@
 
 \* В аудитный лог попадают события только для ВМ с настроенной [политикой обслуживания](../../compute/concepts/maintenance-policies.md).
 
-## {{ ai-studio-full-name }} {#ai-studio}
+## Yandex AI Studio {#ai-studio}
 
 Имя сервиса — `ai`.
 
@@ -116,7 +116,7 @@
 `searchindex.DeleteSearchIndex` | Удаление поискового индекса
 `searchindex.UploadFilesToSearchIndex` | Загрузка файлов в поисковый индекс
 
-## {{ org-full-name }} {#organization}
+## Yandex Identity Hub {#organization}
 
 Имя сервиса — `organizationmanager`.
 
@@ -124,7 +124,7 @@
 --- | ---
 `idp.AuthenticateByPassword` | Аутентификация по паролю
 
-## {{ iam-full-name }} {#iam}
+## Yandex Identity and Access Management {#iam}
 
 Имя сервиса — `iam`.
 
@@ -139,11 +139,11 @@
 `credential.RevokeRefreshTokenForSubject` | Отзыв refresh-токена у пользователя
 `credential.RevokeSsoSession` | Завершение SSO-сессии
 `mfa.VerifyUserCredential` | Подтверждение учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../../organization/concepts/mfa.md)
-`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
-`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
+`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
+`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
 `RevokeIamToken` | Отзыв IAM-токена
 
-## {{ kms-full-name }} {#kms}
+## Yandex Key Management Service {#kms}
 
 Имя сервиса — `kms`.
 
@@ -154,7 +154,7 @@
 `GenerateDataKey` | Формирование ключа с высокой энтропией для шифрования по схеме Envelope Encryption
 `ReEncrypt` | Расшифрование шифртекста ключом с предыдущей версией и шифрование расшифрованного текста новой версией этого же ключа
 
-## {{ lockbox-full-name }} {#lockbox}
+## Yandex Lockbox {#lockbox}
 
 Имя сервиса — `lockbox`.
 
@@ -163,7 +163,7 @@
 `GetPayload` | Факт доступа к содержимому секрета
 `GetPayloadEx` | Факт доступа к содержимому секрета по каталогу или имени
 
-## {{ mkf-full-name }} {#mkf}
+## Yandex Managed Service for Apache Kafka® {#mkf}
 
 Имя сервиса — `mdb.kafka`.
 
@@ -173,7 +173,7 @@
 `CreateTopicAdminApi` | Создание топика Admin API
 `DeleteTopicAdminApi` | Удаление топика Admin API
 
-## {{ mch-full-name }} {#mch}
+## Yandex Managed Service for ClickHouse® {#mch}
 
 Имя сервиса — `mdb.clickhouse`.
 
@@ -201,7 +201,7 @@
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateUser` | Изменение пользователя базы данных
 
-## {{ managed-k8s-full-name }} {#managed-service-for-kubernetes}
+## Yandex Managed Service for Kubernetes {#managed-service-for-kubernetes}
 
 Имя сервиса — `k8s`.
 
@@ -217,7 +217,7 @@
 `apiserver.ApiServerHead` | Получение метаданных ресурса
 `apiserver.ApiServerImpersonate` | Имперсонация
 `apiserver.ApiServerList` | Получение информации о коллекции ресурсов
-`apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог {{ managed-k8s-name }} содержит нестандартное значение в поле `verb`
+`apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог Managed Service for Kubernetes содержит нестандартное значение в поле `verb`
 `apiserver.ApiServerOptions` | Настройка ресурса
 `apiserver.ApiServerPatch` | Изменение ресурса
 `apiserver.ApiServerPost` | Создание ресурса
@@ -225,7 +225,7 @@
 `apiserver.ApiServerUpdate` | Изменение запроса
 `apiserver.ApiServerWatch` | Отслеживание ресурсов
 
-## {{ mmg-full-name }} {#mmg}
+## Yandex StoreDoc {#mmg}
 
 Имя сервиса — `mdb.mongodb`.
 
@@ -248,7 +248,7 @@
 `UserAuthentication` | Аутентификация пользователя
 `UserLogout` | Отключение пользователя от базы данных
 
-## {{ mmy-full-name }} {#mmy}
+## Yandex Managed Service for MySQL® {#mmy}
 
 Имя сервиса — `mdb.mysql`.
 
@@ -268,9 +268,9 @@
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-^1^ Требуется включение [настроек {{ MY }}](../../managed-mysql/concepts/settings-list.md#dbms-cluster-settings): **Audit log** и **Audit log policy**. Включение этих настроек может создать дополнительную нагрузку на хосты кластера, поэтому рекомендуется предварительно проверить работу системы в dev/stage-средах. Также их включение может потребовать перезапуска сервисов, поэтому для включения рекомендуется выбрать время наименьшей нагрузки на кластер.
+^1^ Требуется включение [настроек MySQL®](../../managed-mysql/concepts/settings-list.md#dbms-cluster-settings): **Audit log** и **Audit log policy**. Включение этих настроек может создать дополнительную нагрузку на хосты кластера, поэтому рекомендуется предварительно проверить работу системы в dev/stage-средах. Также их включение может потребовать перезапуска сервисов, поэтому для включения рекомендуется выбрать время наименьшей нагрузки на кластер.
 
-## {{ mos-full-name }} {#mos}
+## Yandex Managed Service for OpenSearch {#mos}
 
 Имя сервиса — `mdb.opensearch`.
 
@@ -285,7 +285,7 @@
 `MissingPrivilegesTransportEvent` | Недостаточно прав доступа для выполнения внутренних запросов
 `SecurityIndexAttemptTransportEvent` | Попытка доступа к индексу безопасности через внутренний запрос
 
-## {{ mgp-full-name }} {#mgp}
+## Yandex MPP Analytics for PostgreSQL {#mgp}
 
 Имя сервиса — `mdb.greenplum`.
 
@@ -306,7 +306,7 @@
 `UpdateResourceGroup` | Изменение ресурсной группы
 `UpdateUser` | Изменение пользователя базы данных
 
-## {{ mpg-full-name }} {#mpg}
+## Yandex Managed Service for PostgreSQL {#mpg}
 
 Имя сервиса — `mdb.postgresql`.
 
@@ -328,9 +328,9 @@
 `UpdateDatabase` | Изменение базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-^1^ Требуется дополнительная настройка на стороне {{ mpg-name }}. Подробнее см. в разделе [{#T}](../../managed-postgresql/operations/extensions/pgaudit.md)
+^1^ Требуется дополнительная настройка на стороне Managed Service for PostgreSQL. Подробнее см. в разделе [Использование pgaudit в Managed Service for PostgreSQL](../../managed-postgresql/operations/extensions/pgaudit.md)
 
-## {{ mspqr-full-name }} {#spqr}
+## Yandex Managed Service for Sharded PostgreSQL {#spqr}
 
 Имя сервиса — `mdb.spqr`.
 
@@ -344,7 +344,7 @@
 `DeleteUser` | Удаление пользователя базы данных
 `UpdateUser` | Изменение пользователя базы данных
 
-## {{ mrd-full-name }} {#mrd}
+## Yandex Managed Service for Valkey™ {#mrd}
 
 Имя сервиса — `mdb.redis`.
 
@@ -357,7 +357,7 @@
 `DeleteUser` | Удаление пользователя из кластера
 `UpdateUser` | Обновление пользователя в кластере
 
-## {{ objstorage-full-name }} {#objstorage}
+## Yandex Object Storage {#objstorage}
 
 Имя сервиса — `storage`.
 
@@ -372,20 +372,20 @@
 `ObjectUpdate` | Изменение объекта в бакете
 `PresignURLCreate` | Создание подписанной ссылки
 
-## {{ sd-full-name }} {#security-deck}
+## Yandex Security Deck {#security-deck}
 
 Имя сервиса — `securitydeck`.
 
-### Модуль {{ atr-name }} {#sd-access-transparency}
+### Модуль Access Transparency {#sd-access-transparency}
 
 Имя модуля — `securitydeck.accesstransparency`.
 
 Имя события | Описание
 --- | ---
-`ComputeNodeAccess` | Подключение [модуля](../../security-deck/concepts/access-transparency.md) {{ atr-name }} к [подкластеру](../../data-proc/concepts/index.md#resources) {{ dataproc-name }}
-`MDBClusterAccess` | Подключение модуля {{ atr-name }} к кластеру базы данных
+`ComputeNodeAccess` | Подключение [модуля](../../security-deck/concepts/access-transparency.md) Access Transparency к [подкластеру](../../data-proc/concepts/index.md#resources) Yandex Data Processing
+`MDBClusterAccess` | Подключение модуля Access Transparency к кластеру базы данных
 
-### Модуль {{ alerts-name }} {#sd-alerts}
+### Модуль Алерты {#sd-alerts}
 
 Имя модуля — `securitydeck.alerts`.
 
@@ -393,28 +393,28 @@
 --- | ---
 `CreateAlert` | Создание алерта
 
-### Модуль Контроль конфигурации ({{ cspm-name }}) {#sd-cspm}
+### Модуль Контроль конфигурации (CSPM) {#sd-cspm}
 
 Имя модуля — `securitydeck.cspm`.
 
 Имя события | Описание
 --- | ---
-`AssetFailedRuleCheck` | Отчет [модуля](../../security-deck/concepts/cspm.md) {{ cspm-name }} о неудачной проверке объекта
-`AssetPassedRuleCheck` | Отчет модуля {{ cspm-name }} об успешной проверке объекта
-`AssetRuleCheckCouldNotBeExecuted` | Отчет модуля {{ cspm-name }} об ошибке проверки объекта
-`AssetRuleCheckNoLongerInScope` | Отчет модуля {{ cspm-name }} об исключении правила из области действия
+`AssetFailedRuleCheck` | Отчет [модуля](../../security-deck/concepts/cspm.md) CSPM о неудачной проверке объекта
+`AssetPassedRuleCheck` | Отчет модуля CSPM об успешной проверке объекта
+`AssetRuleCheckCouldNotBeExecuted` | Отчет модуля CSPM об ошибке проверки объекта
+`AssetRuleCheckNoLongerInScope` | Отчет модуля CSPM об исключении правила из области действия
 
-### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
+### Модуль Контроль Kubernetes® (KSPM) {#sd-kspm}
 
 Имя модуля — `securitydeck.kspm`.
 
 Имя события | Описание
 --- | ---
-`TriggerAdmissionControl` | Срабатывание [модуля](../../security-deck/concepts/kspm.md) {{ kspm-name }} при проверке создаваемых и изменяемых ресурсов
-`TriggerRuntimeControl` | Срабатывание модуля {{ kspm-name }} при контроле безопасности рабочих нагрузок
-`TriggerRuntimeProcessInfo` | Срабатывание модуля {{ kspm-name }} при получении информации о процессе
+`TriggerAdmissionControl` | Срабатывание [модуля](../../security-deck/concepts/kspm.md) KSPM при проверке создаваемых и изменяемых ресурсов
+`TriggerRuntimeControl` | Срабатывание модуля KSPM при контроле безопасности рабочих нагрузок
+`TriggerRuntimeProcessInfo` | Срабатывание модуля KSPM при получении информации о процессе
 
-## {{ speechkit-full-name }} {#speechkit}
+## Yandex SpeechKit {#speechkit}
 
 Имя сервиса — `ai.speechkit`.
 
@@ -425,7 +425,7 @@
 `stt.RecognizeSpeechStream` | Запрос на потоковое распознавание речи
 `tts.UtteranceSynthesis` | Запрос на синтез речи
 
-## {{ speechsense-full-name }} {#speechsense}
+## Yandex SpeechSense {#speechsense}
 
 Имя сервиса — `speechsense`.
 
@@ -437,7 +437,7 @@
 `SearchTalks` | Поиск диалога
 `UploadTalkToConnection` | Загрузка диалога в подключение
 
-## {{ sws-full-name }} {#sws}
+## Yandex Smart Web Security {#sws}
 
 Имя сервиса — `smartwebsecurity`.
 
@@ -448,7 +448,7 @@
 `WafMatchedExclusionRule` | Срабатывание правила-исключения из профиля WAF
 `WafMatchedRule` | Срабатывание правила из профиля WAF
 
-## {{ translate-full-name }} {#translate}
+## Yandex Translate {#translate}
 
 Имя сервиса — `ai.translate`.
 
@@ -456,7 +456,7 @@
 --- | ---
 `TranslateText` | Запрос на перевод текста
 
-## {{ vpc-full-name }} {#vpc}
+## Yandex Virtual Private Cloud {#vpc}
 
 Имя сервиса — `network`.
 
@@ -464,9 +464,9 @@
 --- | ---
 `CreateIpfix` | Создание записи о сетевой трансляции адреса ([NAT](https://wikipedia.org/wiki/Nat))
 `DeleteIpfix` | Удаление записи о сетевой трансляции адреса (NAT)
-`ExternalFlow` | Поток трафика во внешние сети по отношению к {{ vpc-short-name }}
+`ExternalFlow` | Поток трафика во внешние сети по отношению к VPC
 
-## {{ vision-full-name }} {#vision}
+## Yandex Vision OCR {#vision}
 
 Имя сервиса — `ai.ocr`.
 
@@ -475,7 +475,7 @@
 `RecognizeText` | Запрос на распознавание текста
 `GetRecognition` | Запрос на получение распознанного результата
 
-## {{ wiki-full-name }} {#wiki}
+## Яндекс Вики {#wiki}
 
 Имя сервиса — `wiki`.
 
@@ -534,7 +534,7 @@
 `SubscriptionAdd` | Добавление подписки
 `SubscriptionDelete` | Удаление подписки
 
-## {{ websql-full-name }} {#websql}
+## Yandex WebSQL {#websql}
 
 Имя сервиса — `websql`.
 

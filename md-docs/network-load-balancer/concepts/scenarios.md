@@ -18,9 +18,9 @@
 
 ### Примеры использования {#examples-vm}
 
-* [{#T}](../tutorials/web-service.md)
-* [{#T}](../tutorials/exchange.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [Архитектура и защита базового интернет-сервиса](../tutorials/web-service.md)
+* [Развертывание Microsoft Exchange](../tutorials/exchange.md)
+* [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
 
 
 ## Группа виртуальных машин (Instance Group) {#nlb-ig}
@@ -37,24 +37,24 @@
 
 ### Примеры использования {#examples-ig}
 
-* [{#T}](../tutorials/fault-tolerance.md)
-* [{#T}](../tutorials/updating-under-load.md)
-* [{#T}](../tutorials/exchange.md)
-* [{#T}](../tutorials/mssql-alwayson-lb.md)
-* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)
+* [Настройка отказоустойчивой архитектуры в Yandex Cloud](../tutorials/fault-tolerance.md)
+* [Обновление группы виртуальных машин под нагрузкой](../tutorials/updating-under-load.md)
+* [Развертывание Microsoft Exchange](../tutorials/exchange.md)
+* [Развертывание группы доступности Always On с внутренним сетевым балансировщиком](../tutorials/mssql-alwayson-lb.md)
+* [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
 
 
-## Кластер {{ managed-k8s-name }} {#nlb-mk8s}
+## Кластер Managed Service for Kubernetes {#nlb-mk8s}
 
-На рисунке ниже показан пример использования сетевого балансировщика с сервисом [{{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md).
+На рисунке ниже показан пример использования сетевого балансировщика с сервисом [Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md).
 
 ![NLB-MK8S](../../_assets/network-load-balancer/nlb-mk8s.svg)
 
-Для использования сетевого балансировщика в составе сервисов внутри кластера {{ managed-k8s-name }} необходимо создать сервис с типом `LoadBalancer`. Далее кластер будет самостоятельно создавать объекты сетевого балансировщика в соответствии с предоставленными манифестами и следить за составом целевой группы балансировщика, куда попадут ВМ всех групп узлов этого кластера.
+Для использования сетевого балансировщика в составе сервисов внутри кластера Managed Service for Kubernetes необходимо создать сервис с типом `LoadBalancer`. Далее кластер будет самостоятельно создавать объекты сетевого балансировщика в соответствии с предоставленными манифестами и следить за составом целевой группы балансировщика, куда попадут ВМ всех групп узлов этого кластера.
 
 {% note warning %}
 
-Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера {{ managed-k8s-name }}.
+Не изменяйте и не удаляйте сетевой балансировщик и целевые группы, которые будут автоматически созданы в вашем каталоге, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера Managed Service for Kubernetes.
 
 {% endnote %}
 
@@ -63,4 +63,4 @@
 
 ### Примеры использования {#examples-mk8s}
 
-* [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md)
+* [Миграция сервисов с балансировщика NLB с целевыми ресурсами из кластера Yandex Managed Service for Kubernetes на L7-балансировщик ALB](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-k8s/index.md)

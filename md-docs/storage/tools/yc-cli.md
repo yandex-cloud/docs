@@ -1,8 +1,8 @@
-# Интерфейс командной строки {{ yandex-cloud }} (CLI)
+# Интерфейс командной строки Yandex Cloud (CLI)
 
-[{{ yandex-cloud }} CLI](../../cli/index.md) — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
+[Yandex Cloud CLI](../../cli/index.md) — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
 
-## Установите {{ yandex-cloud }} CLI {#install}
+## Установите Yandex Cloud CLI {#install}
 
 {% list tabs group=operating_system %}
 
@@ -11,7 +11,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
+        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -37,7 +37,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
+        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -61,7 +61,7 @@
         Скрипт установки автоматически дополнит конфигурационный файл `~/.zshrc`:
         
         ```
-        # The next line updates PATH for {{ yandex-cloud }} CLI.
+        # The next line updates PATH for Yandex Cloud CLI.
         if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
@@ -88,7 +88,7 @@
             
             
             ```bash
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
+            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
             ```
 
 
@@ -98,7 +98,7 @@
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
-        1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
+        1. Введите `Y`. После этого Yandex Cloud CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
     - Для установки с помощью командной строки:
 
@@ -108,7 +108,7 @@
             
             
             ```bash
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -125,9 +125,9 @@
 
 Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).
 
-## Аутентифицируйтесь в {{ yandex-cloud }} CLI {#cli-auth}
+## Аутентифицируйтесь в Yandex Cloud CLI {#cli-auth}
 
-Для доступа к {{ yandex-cloud }} CLI выполните аутентификацию, выбрав один из следующих методов:
+Для доступа к Yandex Cloud CLI выполните аутентификацию, выбрав один из следующих методов:
 
 {% list tabs group=authentication %}
 
@@ -163,7 +163,7 @@
      ```text
      You are going to be authenticated via username '<электронная_почта>'.
      Authentication web site will be opened.
-     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+     After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
   
      Press 'enter' to continue...
      ```
@@ -195,10 +195,10 @@
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -206,9 +206,9 @@
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] {{ region-id }}-a
-      [2] {{ region-id }}-b
-      [3] {{ region-id }}-d
+      [1] ru-central1-a
+      [2] ru-central1-b
+      [3] ru-central1-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -228,7 +228,7 @@
      subject-id: b1g159pa15cd********
      username: <электронная_почта>
      folder-id: b1g8o9jbt58********
-     compute-default-zone: {{ region-id }}-b
+     compute-default-zone: ru-central1-b
      ```
 
 - Федеративный аккаунт {#federated-account}
@@ -259,7 +259,7 @@
      ```text
      You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
      Your federation authentication web site will be opened.
-     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+     After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
   
      Press 'enter' to continue...
      ```
@@ -291,10 +291,10 @@
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -302,9 +302,9 @@
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] {{ region-id }}-a
-      [2] {{ region-id }}-b
-      [3] {{ region-id }}-d
+      [1] ru-central1-a
+      [2] ru-central1-b
+      [3] ru-central1-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -325,7 +325,7 @@
      subject-id: ajea53egl28l********
      cloud-id: b1g159pa15cd********
      folder-id: b1g8o9jbt58********
-     compute-default-zone: {{ region-id }}-b
+     compute-default-zone: ru-central1-b
      ```
 
 - Сервисный аккаунт {#service-account}
@@ -445,9 +445,9 @@
      - Электронная почта
   
         1. Получите адрес электронной почты:
-           1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
-           1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
-           1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
+           1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
+           1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **Профиль**.
+           1. В блоке **Контакты** скопируйте адрес электронной почты.
         1. Запустите интерактивное создание профиля:
   
                     
@@ -505,10 +505,10 @@
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -516,9 +516,9 @@
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] {{ region-id }}-a
-      [2] {{ region-id }}-b
-      [3] {{ region-id }}-d
+      [1] ru-central1-a
+      [2] ru-central1-b
+      [3] ru-central1-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -543,7 +543,7 @@
         subject-id: ek00cd1m8hdd8********
         cloud-id: b1g159pa15cd********
         folder-id: b1g8o9jbt58********
-        compute-default-zone: {{ region-id }}-b
+        compute-default-zone: ru-central1-b
         ```
   
   
@@ -554,7 +554,7 @@
         subject-id: b1g159pa15cd********
         username: <электронная_почта>
         folder-id: b1g8o9jbt58********
-        compute-default-zone: {{ region-id }}-b
+        compute-default-zone: ru-central1-b
         ```
   
   
@@ -563,7 +563,7 @@
 
 {% endlist %}
 
-## Проверьте работу {{ yandex-cloud }} CLI с {{ objstorage-name }}
+## Проверьте работу Yandex Cloud CLI с Object Storage
 
 {% note info %}
 
@@ -590,7 +590,7 @@
     Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../concepts/bucket.md#naming).
 
     
-    По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
+    По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../operations/hosting/certificate.md) собственный сертификат безопасности в Object Storage.
 
 
     Результат:
@@ -633,10 +633,10 @@
 
     * Параметры для настройки [ACL](../concepts/acl.md) бакета:
     * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-    * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
+    * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
         * `grant-type` — тип получателя разрешения. Возможные значения:
         * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
-        * `grant-type-all-authenticated-users` — [публичная группа](../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
+        * `grant-type-all-authenticated-users` — [публичная группа](../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
         * `grant-type-all-users` — публичная группа всех пользователей интернета.
         * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
         * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../concepts/acl.md#permissions-types).

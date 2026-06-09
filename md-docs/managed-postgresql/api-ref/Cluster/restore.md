@@ -5,7 +5,7 @@ Creates a new PostgreSQL cluster using the specified backup.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters:restore
+POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters:restore
 ```
 
 ## Body parameters {#yandex.cloud.mdb.postgresql.v1.RestoreClusterRequest}

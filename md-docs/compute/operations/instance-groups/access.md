@@ -8,32 +8,32 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится группа ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Выберите нужную группу.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
+  1. Нажмите кнопку **Назначить роли**.
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к группе ВМ.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые [роли](../../security/index.md#roles-list).
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для назначения роли на группу ВМ:
 
      ```bash
-     {{ yc-compute-ig }} add-access-binding --help
+     yc compute instance-group add-access-binding --help
      ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
      ```bash
-     {{ yc-compute-ig }} list
+     yc compute instance-group list
      ```
      
      Результат:
@@ -49,7 +49,7 @@
   1. Посмотрите список ролей, которые уже назначены на ресурс:
 
      ```bash
-     {{ yc-compute-ig }} list-access-bindings <имя_или_идентификатор_группы_ВМ>
+     yc compute instance-group list-access-bindings <имя_или_идентификатор_группы_ВМ>
      ```
 
   1. Назначьте роль с помощью команды:
@@ -57,7 +57,7 @@
      * Пользователю:
 
        ```bash
-       {{ yc-compute-ig }} add-access-binding <имя_или_идентификатор_группы_ВМ> \
+       yc compute instance-group add-access-binding <имя_или_идентификатор_группы_ВМ> \
          --user-account-id <идентификатор_пользователя> \
          --role <роль>
        ```
@@ -70,7 +70,7 @@
      * Сервисному аккаунту:
 
        ```bash
-       {{ yc-compute-ig }} add-access-binding <имя_или_идентификатор_группы_ВМ> \
+       yc compute instance-group add-access-binding <имя_или_идентификатор_группы_ВМ> \
          --service-account-id <идентификатор_сервисного_аккаунта> \
          --role <роль>
        ```
@@ -92,20 +92,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится группа ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Выберите нужную группу.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
+  1. Нажмите кнопку **Назначить роли**.
   1. В открывшемся окне выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к группе ВМ.
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../../security/index.md#roles-list).
-  1. Добавьте еще роль через кнопку **{{ ui-key.yacloud_components.acl.button.add-role }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите необходимые [роли](../../security/index.md#roles-list).
+  1. Добавьте еще роль через кнопку **Добавить роль**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -120,19 +120,19 @@
   1. Убедитесь, что на ресурс не назначены роли, которые вы не хотите потерять:
 
      ```bash
-     {{ yc-compute-ig }} list-access-bindings <имя_или_идентификатор_группы_ВМ>
+     yc compute instance-group list-access-bindings <имя_или_идентификатор_группы_ВМ>
      ```
 
   1. Посмотрите описание команды CLI для назначения ролей на группу ВМ:
 
      ```bash
-     {{ yc-compute-ig }} set-access-bindings --help
+     yc compute instance-group set-access-bindings --help
      ```
 
   1. Назначьте роли:
 
      ```bash
-     {{ yc-compute-ig }} set-access-bindings <имя_или_идентификатор_группы_ВМ> \
+     yc compute instance-group set-access-bindings <имя_или_идентификатор_группы_ВМ> \
        --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта>
      ```
 
@@ -146,7 +146,7 @@
      Например, назначьте роли нескольким пользователям и сервисному аккаунту:
 
      ```bash
-     {{ yc-compute-ig }} set-access-bindings test-group \
+     yc compute instance-group set-access-bindings test-group \
        --access-binding role=editor,subject=userAccount:gfei8n54hmfh******** \
        --access-binding role=viewer,subject=userAccount:helj89sfj80a******** \
        --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
@@ -164,37 +164,37 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится группа ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится группа ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
   1. Выберите нужную группу.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-  1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/persons.svg) **Права доступа**.
+  1. В строке нужного пользователя нажмите значок ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) и выберите **Изменить роли**.
   1. Нажмите значок ![cross](../../../_assets/console-icons/xmark.svg) рядом с ролью, чтобы удалить ее.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для отзыва роли на группу ВМ:
 
      ```bash
-     {{ yc-compute-ig }} remove-access-binding --help
+     yc compute instance-group remove-access-binding --help
      ```
 
   1. Посмотрите, кому и какие роли назначены на ресурс:
 
      ```bash
-     {{ yc-compute-ig }} list-access-bindings <имя_или_идентификатор_группы_ВМ>
+     yc compute instance-group list-access-bindings <имя_или_идентификатор_группы_ВМ>
      ```
 
   1. Чтобы отозвать права доступа, выполните команду:
 
      ```bash
-     {{ yc-compute-ig }} remove-access-binding <имя_или_идентификатор_группы_ВМ> \
+     yc compute instance-group remove-access-binding <имя_или_идентификатор_группы_ВМ> \
        --role <идентификатор_роли> \
        --subject <тип_субъекта>:<идентификатор_субъекта>
      ```
@@ -204,10 +204,10 @@
      * `--role` — идентификатор роли, которую надо отозвать.
      * `--subject` — [субъект](../../../iam/concepts/access-control/index.md#subject), у которого отзывается роль.
 
-     Например, чтобы отозвать роль `{{ roles-viewer }}` у пользователя с идентификатором `ajel6l0jcb9s********` на группу ВМ:
+     Например, чтобы отозвать роль `viewer` у пользователя с идентификатором `ajel6l0jcb9s********` на группу ВМ:
 
      ```bash
-     {{ yc-compute-ig }} remove-access-binding test-group \
+     yc compute instance-group remove-access-binding test-group \
        --role viewer \
        --subject userAccount:ajel6l0jcb9s********
      ```

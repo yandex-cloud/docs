@@ -21,11 +21,11 @@
 * Не уменьшайте размер дисков ВМ.
 * Используйте в [политике развертывания](policies/deploy-policy.md) значение параметра `max_expansion` (максимальное количество ВМ, на которое можно превысить целевой размер группы) равное `0`.
 * Не удаляйте ВМ через интерфейсы групп ВМ:
-  * В [консоли управления]({{ link-console-main }}) на вкладке ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
-  * Командой [{{ yc-compute-ig }} delete-instances](../../../cli/cli-ref/compute/cli-ref/instance-group/delete-instances.md) CLI.
+  * В [консоли управления](https://console.yandex.cloud) на вкладке ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+  * Командой [yc compute instance-group delete-instances](../../../cli/cli-ref/compute/cli-ref/instance-group/delete-instances.md) CLI.
   * Вызовом gRPC API [InstanceGroupService/DeleteInstances](../../instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md).
   
-  Эти действия удалят дополнительный диск вместе с ВМ. При этом вы можете [удалить](../../operations/vm-control/vm-delete.md) ВМ напрямую в {{ compute-name }}, это не приведет к удалению дополнительного диска.
+  Эти действия удалят дополнительный диск вместе с ВМ. При этом вы можете [удалить](../../operations/vm-control/vm-delete.md) ВМ напрямую в Compute Cloud, это не приведет к удалению дополнительного диска.
 
 Если эти условия выполняются, группа ВМ не будет удалять дополнительные диски, даже если понадобится пересоздать какую-то ВМ. Дополнительный диск будет сохранен и подключен к новой ВМ.
 
@@ -33,5 +33,5 @@
 
 Чтобы без ограничений выполнять операции с виртуальными машинами группы, на которых запущены приложения со Stateful-нагрузкой, сохраняйте состояние приложений в независимых от группы ВМ ресурсах облака:
 * Управляемые базы данных.
-* [Файловые хранилища](../filesystem.md), подробнее см. на странице [{#T}](../../operations/instance-groups/create-with-filesystem.md).
-* [Бакеты](../../../storage/concepts/bucket.md) {{ objstorage-full-name }}, подробнее см. на странице [{#T}](../../operations/instance-groups/create-with-bucket.md).
+* [Файловые хранилища](../filesystem.md), подробнее см. на странице [Создать группу виртуальных машин с подключением к файловому хранилищу](../../operations/instance-groups/create-with-filesystem.md).
+* [Бакеты](../../../storage/concepts/bucket.md) Yandex Object Storage, подробнее см. на странице [Создать группу виртуальных машин с подключением к Yandex Object Storage](../../operations/instance-groups/create-with-bucket.md).

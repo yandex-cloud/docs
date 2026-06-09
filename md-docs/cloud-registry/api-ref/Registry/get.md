@@ -6,7 +6,7 @@ To get the list of available Registry resources, make a [RegistryService.List](l
 ## HTTP request
 
 ```
-GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}
+GET https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}
 ```
 
 ## Path parameters

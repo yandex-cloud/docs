@@ -1,10 +1,10 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ mtr-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
+В этом разделе описаны метрики сервиса Managed Service for Trino, поставляемые в [Monitoring](../monitoring/concepts/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса {{ mtr-name }}: 
+Общие метки для всех метрик сервиса Managed Service for Trino: 
 
 Метка | Значение
 ----|----
@@ -56,4 +56,4 @@ component | Тип компонента: `coordinator`
 
 #### См. также {#see-also}
 
-* [{#T}](operations/monitoring.md)
+* [Мониторинг состояния кластера Managed Service for Trino](operations/monitoring.md)

@@ -1,4 +1,4 @@
-# [{{ datalens-full-name }}] Неверный формат ссылки на Яндекс Документы
+# [Yandex DataLens] Неверный формат ссылки на Яндекс Документы
 
 `ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX`
 

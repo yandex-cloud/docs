@@ -2,7 +2,7 @@
 
 ## Организация публичного соединения {#pub-create}
 
-Чтобы организовать новое публичное соединение в уже созданном транке, создайте [новое обращение в поддержку]({{ link-console-support }}).
+Чтобы организовать новое публичное соединение в уже созданном транке, создайте [новое обращение в поддержку](https://center.yandex.cloud/support).
 
 ### Обращение в поддержку для организации публичное соединения {#pub-ticket}
 
@@ -18,10 +18,10 @@ trunk_id: euus5dfgchu2********
 vlan_id: 101
 ipv4_peering:
   peer_bgp_asn: 65001
-  #cloud_bgp_asn: {{ cic-bgp-asn }}
+  #cloud_bgp_asn: 200350
 allowed-public-services:
-  - {{ s3-storage-host }}
-  - transcribe.{{ api-host }}
+  - storage.yandexcloud.net
+  - transcribe.api.cloud.yandex.net
 is_nat_extra_ip_required: false
 ```
 
@@ -42,27 +42,27 @@ is_nat_extra_ip_required: false
 ```s
 id: cf3qdug4fsf7********
 ipv4_peering:
-  peering_subnet: {{ cic-pbc-subnet }}
-  peer_ip: {{ cic-pbc-subnet-client }}
-  cloud_ip: {{ cic-pbc-subnet-cloud }}
+  peering_subnet: 178.210.118.46/31
+  peer_ip: 178.210.118.46
+  cloud_ip: 178.210.118.47
   peer_bgp_asn: 65001
-  #cloud_bgp_asn: {{ cic-bgp-asn }}
+  #cloud_bgp_asn: 200350
 allowed-public-services:
-  - {{ s3-storage-host }}
-  - transcribe.{{ api-host }}
+  - storage.yandexcloud.net
+  - transcribe.api.cloud.yandex.net
 ```
 где:
 
 * `id` — идентификатор созданного публичного соединения.
-* `peering_subnet` — [стыковая подсеть](../../interconnect/concepts/pub-con.md#pub-address) для BGP-пиринга. Выделяется из [адресного пула](../../vpc/concepts/ips.md) {{ yandex-cloud }}.
-* `peer_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании клиента. Назначается {{ yandex-cloud }}.
-* `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании {{ yandex-cloud }}. Назначается {{ yandex-cloud }}.
-* `nat_subnet` — дополнительная подсеть выделенная из адресного пространства {{ yandex-cloud }} для реализации [функций NAT](../../interconnect/concepts/pub-con.md#pub-nat).
+* `peering_subnet` — [стыковая подсеть](../../interconnect/concepts/pub-con.md#pub-address) для BGP-пиринга. Выделяется из [адресного пула](../../vpc/concepts/ips.md) Yandex Cloud.
+* `peer_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании клиента. Назначается Yandex Cloud.
+* `cloud_ip` — IP адрес из стыковой (пиринговой) подсети на оборудовании Yandex Cloud. Назначается Yandex Cloud.
+* `nat_subnet` — дополнительная подсеть выделенная из адресного пространства Yandex Cloud для реализации [функций NAT](../../interconnect/concepts/pub-con.md#pub-nat).
 * `allowed-public-services` — список `FQDN API Endpoints` из запроса клиента для сервисов, к которым был предоставлен доступ через созданное публичное соединение.
 
 ### Контроль состояния публичного соединения {#pub-check}
 
-* Вы самостоятельно отслеживаете переход BGP-сессии публичного соединения на оборудовании {{ yandex-cloud }} в рабочее состояние с помощью сервиса [мониторинга](../../interconnect/concepts/monitoring.md#private-mon).
-* Поддержка уведомит вас о завершении процесса конфигурации доступа к запрошенным сервисам {{ yandex-cloud }}. Процесс конфигурации обычно выполняется в течение одного рабочего дня.
-* Вы самостоятельно проверяете IP-связность между своим оборудованием и сервисами {{ yandex-cloud }}, которые должны быть доступны через настроенное публичное соединение и сообщаете поддержке о результатах проверки.
+* Вы самостоятельно отслеживаете переход BGP-сессии публичного соединения на оборудовании Yandex Cloud в рабочее состояние с помощью сервиса [мониторинга](../../interconnect/concepts/monitoring.md#private-mon).
+* Поддержка уведомит вас о завершении процесса конфигурации доступа к запрошенным сервисам Yandex Cloud. Процесс конфигурации обычно выполняется в течение одного рабочего дня.
+* Вы самостоятельно проверяете IP-связность между своим оборудованием и сервисами Yandex Cloud, которые должны быть доступны через настроенное публичное соединение и сообщаете поддержке о результатах проверки.
 * При возникновении проблем с IP-связностью свяжитесь с поддержкой для их диагностики и устранения.

@@ -4,28 +4,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится канал уведомлений.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
-  1. Напротив нужного канала push-уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-  1. На вкладке **{{ ui-key.yacloud.cns.type_mobile }}** в зависимости от платформы измените параметры аутентификации:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится канал уведомлений.
+  1. Перейдите в сервис **Cloud Notification Service**.
+  1. Напротив нужного канала push-уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. На вкладке **Мобильные Push-уведомления** в зависимости от платформы измените параметры аутентификации:
 
-      **{{ ui-key.yacloud.cns.select_apns-title }}**
+      **Apple iOS**
       
-      * Выберите **{{ ui-key.yacloud.cns.field_apns-method }}**: `{{ ui-key.yacloud.cns.auth_token }}` или `{{ ui-key.yacloud.cns.auth_certificate }}`.
+      * Выберите **Метод аутентификации**: `Токен` или `Сертификат`.
       
           * Для аутентификации с помощью токена понадобятся:
-            * **{{ ui-key.yacloud.cns.field_apns-key }}** — файл с ключом подписи, которым будет заверяться токен аутентификации.
+            * **Ключ подписи** — файл с ключом подписи, которым будет заверяться токен аутентификации.
                 
                 Создайте и скачайте ключ подписи в своей учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys** → ![image](../../../_assets/console-icons/circle-plus-fill.svg). Скачать файл ключа можно только один раз.
-            * **{{ ui-key.yacloud.cns.field_apns-key-id }}** (Key ID) — узнайте идентификатор в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys**. Убедитесь, что идентификатор соответствует ключу подписи, который вы загрузили на предыдущем шаге. Должен содержать 10 символов.
-            * **{{ ui-key.yacloud.cns.field_apns-team-id }}** (Team ID) — указан в правом верхнем углу вашей учетной записи разработчика Apple. Должен содержать 10 символов: только цифры и буквы латинского алфавита.
-            * **{{ ui-key.yacloud.cns.field_apns-bundle-id }}** — узнайте [Bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Identifiers** или в приложении Xcode: **Target** → **General** → **Identity**. Может содержать только цифры, буквы латинского алфавита, дефисы и точки.
+            * **Идентификатор ключа** (Key ID) — узнайте идентификатор в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Keys**. Убедитесь, что идентификатор соответствует ключу подписи, который вы загрузили на предыдущем шаге. Должен содержать 10 символов.
+            * **Идентификатор разработчика** (Team ID) — указан в правом верхнем углу вашей учетной записи разработчика Apple. Должен содержать 10 символов: только цифры и буквы латинского алфавита.
+            * **Идентификатор приложения (Bundle ID)** — узнайте [Bundle ID](https://developer.apple.com/documentation/appstoreconnectapi/list_bundle_ids) в учетной записи разработчика Apple: **Certificates, Identifiers & Profiles** → **Identifiers** или в приложении Xcode: **Target** → **General** → **Identity**. Может содержать только цифры, буквы латинского алфавита, дефисы и точки.
              
              Подробнее о токене см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/establishing-a-token-based-connection-to-apns).
           
           * Для аутентификации с помощью сертификата понадобятся:
-            * **{{ ui-key.yacloud.cns.field_apns-certificate }}** — файл сертификата SSL в формате `.pem`.
-            * **{{ ui-key.yacloud.cns.field_apns-private-key }}** — файл ключа в формате `.pem`. 
+            * **Сертификат** — файл сертификата SSL в формате `.pem`.
+            * **Закрытый ключ сертификата** — файл ключа в формате `.pem`. 
           
             Подробнее о сертификате см. в [документации Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/establishing_a_certificate-based_connection_to_apns#2947597).
           
@@ -38,15 +38,15 @@
           
           Аутентификация с токеном является предпочтительной, как более современная, быстрая и безопасная.
       
-      * Выберите **{{ ui-key.yacloud.cns.field_apns-environment }}**: `{{ ui-key.yacloud.cns.env_development }}` или `{{ ui-key.yacloud.cns.env_production }}`. Для тестирования приложения используйте `{{ ui-key.yacloud.cns.env_development }}`.
+      * Выберите **Окружение**: `Development` или `Production`. Для тестирования приложения используйте `Development`.
       
-      **{{ ui-key.yacloud.cns.select_gcm-title }}**
+      **Google Android**
       
-      Укажите, какая **{{ ui-key.yacloud.cns.field_gcm-version }}** будет использоваться: `{{ ui-key.yacloud.cns.switch_gcm-api-v1 }}` или `{{ ui-key.yacloud.cns.switch_gcm-api-legacy }}`.
+      Укажите, какая **Версия FCM API** будет использоваться: `HTTP v1` или `Legacy`.
       
       Вы можете аутентифицироваться на мобильной платформе FCM через API:
-      * _HTTP v1 API_ — понадобится **{{ ui-key.yacloud.cns.field_gcm-file }}**. С помощью ключа генерируются временные токены OAuth 2.0 для аутентификации запросов в FCM HTTP v1 API. Можно получить в консоли управления Google Cloud.
-      * _Legacy API_ — понадобится **{{ ui-key.yacloud.cns.field_gcm-api-key }}** (server key). Можно получить в консоли управления Firebase.
+      * _HTTP v1 API_ — понадобится **Ключ сервисного аккаунта Google Cloud в формате JSON**. С помощью ключа генерируются временные токены OAuth 2.0 для аутентификации запросов в FCM HTTP v1 API. Можно получить в консоли управления Google Cloud.
+      * _Legacy API_ — понадобится **API-ключ** (server key). Можно получить в консоли управления Firebase.
       
       {% note info %}
       
@@ -56,22 +56,22 @@
       
       Подробнее см. в [документации Firebase](https://firebase.google.com/docs/cloud-messaging/android/client).
       
-      **{{ ui-key.yacloud.cns.select_hms-title }}**
+      **Huawei Android**
       
       Познакомьтесь с [документацией HMS](https://developer.huawei.com/consumer/en/doc/hmscore-common-Guides/get-started-hmscore-0000001212585589) и получите параметры для аутентификации:
-      * **{{ ui-key.yacloud.cns.field_hms-client-id }}**.
-      * **{{ ui-key.yacloud.cns.field_hms-client-secret }}**.
+      * **Идентификатор ключа**.
+      * **API-ключ**.
       
-      **{{ ui-key.yacloud.cns.select_ru-store-title }}**
+      **RuStore Android**
       
       Познакомьтесь с [документацией RuStore](https://www.rustore.ru/help/sdk/push-notifications/send-push-notifications) и получите параметры для аутентификации:
-      * **{{ ui-key.yacloud.cns.field_rustore-project-id }}**.
-      * **{{ ui-key.yacloud.cns.field_rustore-service-token }}**.
+      * **ID проекта**.
+      * **Сервисный токен**.
       
       Параметры аутентификации можно получить в консоли разработчика RuStore: **Push-уведомления** → **Проекты**.
 
-  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cns.button_add-description }}** и введите описание для канала уведомлений.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить описание** и введите описание для канала уведомлений.
+  1. Нажмите **Сохранить**.
 
 - AWS CLI {#aws-cli}
 
@@ -139,7 +139,7 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-platform-application-attributes.md) для ресурса PlatformApplications сервиса {{ cns-full-name }}.
+  Воспользуйтесь методом HTTP API [setAttributes](../../api-ref/set-platform-application-attributes.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
 
 {% endlist %}
 

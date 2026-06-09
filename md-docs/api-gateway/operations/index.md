@@ -1,23 +1,23 @@
-# Пошаговые инструкции для {{ api-gw-name }}
+# Пошаговые инструкции для API Gateway
 
-* [{#T}](api-gw-create.md)
+* [Создание API-шлюза](api-gw-create.md)
 
 ## Управление API-шлюзом {#manage-api-gw}
 
-* [{#T}](api-gw-update.md)
-* [{#T}](api-gw-domains.md)
-* [{#T}](api-gw-network-add.md)
-* [{#T}](api-gw-vars.md)
-* [{#T}](api-gw-canary.md)
+* [Изменить API-шлюз](api-gw-update.md)
+* [Подключить домен](api-gw-domains.md)
+* [Указать облачную сеть, в которой будет находиться API-шлюз](api-gw-network-add.md)
+* [Настроить переменные](api-gw-vars.md)
+* [Настроить канареечный релиз](api-gw-canary.md)
 * [Добавить метку](label-add.md)
 * [Изменить метку](label-update.md)
 * [Удалить метку](label-delete.md)
 * [Посмотреть графики мониторинга](api-gw-monitoring.md)
 * [Посмотреть журнал выполнения](api-gw-logs.md)
 * [Записать логи в журнал выполнения](api-gw-logs-write.md)
-* [{#T}](api-gw-domain-detach.md)
-* [{#T}](api-gw-migration.md)
-* [{#T}](api-gw-delete.md)
+* [Отключить домен](api-gw-domain-detach.md)
+* [Миграция API-шлюзов в зону ru-central1-d](api-gw-migration.md)
+* [Удалить API-шлюз](api-gw-delete.md)
 
 ## Получение информации о триггере {#trigger-info}
 
@@ -27,14 +27,14 @@
 ## Создание триггера {#trigger-create}
 
 * [Создать таймер](trigger/timer-create.md)
-* [Создать триггер для {{ message-queue-name }}](trigger/ymq-trigger-create.md)
-* [Создать триггер для {{ objstorage-name }}](trigger/os-trigger-create.md)
-* [Создать триггер для {{ container-registry-name }}](trigger/cr-trigger-create.md)
-* [Создать триггер для {{ cloud-logging-name }}](trigger/cloud-logging-trigger-create.md)
-* [Создать триггер для {{ iot-name }} (устройство)](trigger/iot-core-trigger-create.md)
-* [Создать триггер для {{ iot-name }} (брокер)](trigger/iot-core-trigger-broker-create.md)
+* [Создать триггер для Message Queue](trigger/ymq-trigger-create.md)
+* [Создать триггер для Object Storage](trigger/os-trigger-create.md)
+* [Создать триггер для Container Registry](trigger/cr-trigger-create.md)
+* [Создать триггер для Cloud Logging](trigger/cloud-logging-trigger-create.md)
+* [Создать триггер для Yandex IoT Core (устройство)](trigger/iot-core-trigger-create.md)
+* [Создать триггер для Yandex IoT Core (брокер)](trigger/iot-core-trigger-broker-create.md)
 * [Создать триггер для бюджетов](trigger/budget-trigger-create.md)
-* [Создать триггер для {{ yds-name }}](trigger/data-streams-trigger-create.md)
+* [Создать триггер для Data Streams](trigger/data-streams-trigger-create.md)
 * [Создать триггер для почты](trigger/mail-trigger-create.md)
 
 ## Управление триггером {#trigger-manage}
@@ -45,19 +45,19 @@
 
 ## Конструктор спецификаций {#spec-constructor}
 
-* [{{ sf-name }}](spec-constructor/cloud-functions.md)
+* [Cloud Functions](spec-constructor/cloud-functions.md)
 * [Статический ответ](spec-constructor/dummy.md)
-* [{{ objstorage-name }}](spec-constructor/object-storage.md)
-* [{{ serverless-containers-name }}](spec-constructor/containers.md)
+* [Object Storage](spec-constructor/object-storage.md)
+* [Serverless Containers](spec-constructor/containers.md)
 * [Обращение по HTTP](spec-constructor/http.md)
-* [{{ message-queue-name }}](spec-constructor/ymq.md)
-* [{{ yds-name }}](spec-constructor/datastreams.md)
-* [{{ ydb-name }}](spec-constructor/ydb.md)
-* [{{ ml-platform-name }}](spec-constructor/datasphere.md)
-* [{{ ai-studio-full-name }}](spec-constructor/yagpt.md)
-* [{{ sw-full-name }}](spec-constructor/workflows.md)
+* [Message Queue](spec-constructor/ymq.md)
+* [Data Streams](spec-constructor/datastreams.md)
+* [Managed Service for YDB](spec-constructor/ydb.md)
+* [DataSphere](spec-constructor/datasphere.md)
+* [Yandex AI Studio](spec-constructor/yagpt.md)
+* [Yandex Workflows](spec-constructor/workflows.md)
 * [Swagger UI](spec-constructor/swagger.md)
 
 ## Получение дополнительной информации {#get-additional-info}
 
-* [{#T}](operation-logs.md)
+* [Просмотр операций с ресурсами сервиса API Gateway](operation-logs.md)

@@ -1,12 +1,12 @@
-# Установка {{ MP }}
+# Установка Metrics Provider
 
-{{ MP }} транслирует метрики объектов [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики сервиса [{{ monitoring-full-name }}](../../../monitoring/concepts/index.md).
+Metrics Provider транслирует метрики объектов [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) в системы мониторинга и [системы автоматического масштабирования](../../concepts/autoscale.md). Метрики можно транслировать и в обратную сторону: например, объекты кластера могут получать метрики сервиса [Yandex Monitoring](../../../monitoring/concepts/index.md).
 
-Провайдер преобразует запрос на получение внешних метрик от объекта кластера {{ managed-k8s-name }} в нужный {{ monitoring-name }} формат, а также выполняет обратное преобразование — от {{ monitoring-name }} до объекта кластера.
+Провайдер преобразует запрос на получение внешних метрик от объекта кластера Managed Service for Kubernetes в нужный Monitoring формат, а также выполняет обратное преобразование — от Monitoring до объекта кластера.
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -19,7 +19,7 @@
      --output=sa-key.json
    ```
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -27,16 +27,16 @@
     
     {% endnote %}
 
-## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
+## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
-1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [{{ MP }}](https://yandex.cloud/ru/marketplace/products/yc/metric-provider) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+1. Нажмите на имя нужного кластера Managed Service for Kubernetes и выберите вкладку **Marketplace**.
+1. В разделе **Доступные для установки приложения** выберите [Metrics Provider](https://yandex.cloud/ru/marketplace/products/yc/metric-provider) и нажмите кнопку **Перейти к установке**.
 1. Задайте настройки приложения:
-   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `metrics-provider-space`). Если вы оставите пространство имен по умолчанию, {{ MP }} может работать некорректно.
+   * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `metrics-provider-space`). Если вы оставите пространство имен по умолчанию, Metrics Provider может работать некорректно.
    * **Название приложения** — укажите название приложения.
-   * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать {{ MP }}.
+   * **Идентификатор каталога** — укажите [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Metrics Provider.
    * **Ширина временного окна** — укажите ширину временного окна, за которую будут собираться метрики (в формате `DdHhMmSs`, например, `5d10h30m20s`).
    * (Опционально) **Отключение прореживания** — выберите эту опцию, чтобы не применять к данным [функцию прореживания](../../../monitoring/concepts/decimation.md).
    * (Опционально) **Функция агрегации** — выберите [функцию агрегации](../../../monitoring/concepts/querying.md#combine-functions) данных. Значение по умолчанию — `AVG`.
@@ -54,23 +54,23 @@
      {% endnote %}
 
    * **Secret Key** — скопируйте содержимое файла `sa-key.json` или создайте новый ключ доступа для сервисного аккаунта. Сервисный аккаунт должен иметь роль `monitoring.viewer`.
-1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+1. Нажмите кнопку **Установить**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. Добавьте репозиторий `metric-provider`:
 
    ```bash
-   cat sa-key.json | helm registry login {{ registry }} --username 'json_key' --password-stdin && \
-   helm pull oci://{{ mkt-k8s-key.yc_metric-provider.helmChart.name }} \
-     --version {{ mkt-k8s-key.yc_metric-provider.helmChart.tag }} \
+   cat sa-key.json | helm registry login cr.yandex --username 'json_key' --password-stdin && \
+   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/metric-provider/chart/metric-provider \
+     --version 0.1.13 \
      --untar
    ```
 
-   Если вы укажете в параметре `namespace` пространство имен по умолчанию, {{ MP }} может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `metrics-provider-space`).
+   Если вы укажете в параметре `namespace` пространство имен по умолчанию, Metrics Provider может работать некорректно. Рекомендуем указывать значение, отличное от всех существующих пространств имен (например, `metrics-provider-space`).
 
    {% note info %}
    
@@ -78,7 +78,7 @@
    
    {% endnote %}
 
-1. Настройте и установите {{ MP }}:
+1. Настройте и установите Metrics Provider:
 
    ```bash
    helm install \
@@ -119,5 +119,5 @@
 
 ## Примеры использования {#examples}
 
-* [{{ MP }} для автомасштабирования {{ managed-k8s-name }}](../../tutorials/load-testing-grpc-autoscaling.md).
-* [{#T}](../../tutorials/marketplace/metrics-provider.md).
+* [Metrics Provider для автомасштабирования Managed Service for Kubernetes](../../tutorials/load-testing-grpc-autoscaling.md).
+* [Использование Metrics Provider для трансляции метрик](../../tutorials/marketplace/metrics-provider.md).

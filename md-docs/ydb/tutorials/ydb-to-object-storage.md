@@ -1,9 +1,9 @@
-# Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из Yandex Managed Service for YDB в Yandex Object Storage с помощью Yandex Data Transfer
 
-# Загрузка данных из {{ ydb-full-name }} в {{ objstorage-full-name }} с помощью {{ data-transfer-full-name }}
+# Загрузка данных из Yandex Managed Service for YDB в Yandex Object Storage с помощью Yandex Data Transfer
 
 
-Вы можете перенести данные из {{ ydb-name }} в объектное хранилище {{ objstorage-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
+Вы можете перенести данные из Managed Service for YDB в объектное хранилище Object Storage с помощью сервиса Data Transfer. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -14,12 +14,12 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../pricing/index.md)). Стоимость зависит от режима использования:
+* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../pricing/index.md)). Стоимость зависит от режима использования:
 
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
     * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Бакет Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -31,17 +31,17 @@
 
 - Вручную {#manual}
 
-    1. [Создайте базу данных {{ ydb-name }}](../operations/manage-databases.md) любой подходящей конфигурации.
+    1. [Создайте базу данных Managed Service for YDB](../operations/manage-databases.md) любой подходящей конфигурации.
 
-    1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md).
+    1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md).
 
     
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с ролями `storage.editor` и `ydb.editor`. Трансфер будет использовать его для доступа к базе данных и бакету.
 
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -54,7 +54,7 @@
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md);
         * сервисный аккаунт с ролями `storage.editor` и `ydb.editor`;
-        * бакет-приемник {{ objstorage-name }};
+        * бакет-приемник Object Storage;
         * эндпоинты;
         * трансфер.
 
@@ -62,13 +62,13 @@
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md);
         * `bucket_name` — имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -90,13 +90,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Создайте](../operations/crud.md#web-sql) в базе данных {{ ydb-name }} таблицу `seasons`:
+1. [Создайте](../operations/crud.md#web-sql) в базе данных Managed Service for YDB таблицу `seasons`:
 
     ```sql
     CREATE TABLE seasons
@@ -135,31 +135,31 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/object-storage.md) типа `{{ objstorage-name }}` со следующими настройками:
+    1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/target/object-storage.md) типа `Object Storage` со следующими настройками:
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ConnectionSettings.bucket.title }}** — `<имя_созданного_ранее_бакета>`
-
-        
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageConnectionSettings.service_account_id.title }}** — `<имя_созданного_ранее_сервисного_аккаунта>`.
-
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_format.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_CSV.title }}`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.output_encoding.title }}** — `UNCOMPRESSED`.
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageAdvancedSettings.bucket_layout.title }}** — `from_YDB`.
-
-    1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/source/ydb.md) типа `{{ ydb-short-name }}` и укажите в нем параметры подключения к базе данных:
-
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}** — выберите базу данных {{ ydb-short-name }} из списка.
+        * **Бакет** — `<имя_созданного_ранее_бакета>`
 
         
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}** — выберите созданный ранее сервисный аккаунт.
+        * **Сервисный аккаунт** — `<имя_созданного_ранее_сервисного_аккаунта>`.
 
 
-    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot.title }}**, использующий созданные эндпоинты.
+        * **Выходной формат** — `CSV`.
+        * **Формат сжатия** — `UNCOMPRESSED`.
+        * **Имя папки** — `from_YDB`.
 
-    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/source/ydb.md) типа `YDB` и укажите в нем параметры подключения к базе данных:
 
-- {{ TF }} {#tf}
+        * **База данных** — выберите базу данных YDB из списка.
+
+        
+        * **Идентификатор сервисного аккаунта** — выберите созданный ранее сервисный аккаунт.
+
+
+    1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Копирование**, использующий созданные эндпоинты.
+
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_Завершен_**.
+
+- Terraform {#tf}
 
     1. Укажите в файле `ydb-to-object-storage.tf` переменные:
 
@@ -167,13 +167,13 @@
         * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
         * `transfer_enabled` – значение `1` для создания трансфера.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -195,19 +195,19 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}_**.
+    1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **_Завершен_**.
 
 {% endlist %}
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-Убедитесь, что данные перенеслись из базы данных {{ ydb-name }} в бакет {{ objstorage-name }}:
+Убедитесь, что данные перенеслись из базы данных Managed Service for YDB в бакет Object Storage:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный бакет.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный бакет.
+1. Перейдите в сервис **Object Storage**.
 1. Выберите бакет из списка.
-1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-1. Проверьте, что бакет {{ objstorage-name }} содержит папку `from_YDB` с объектом `<seasons.csv>` с тестовыми данными.
+1. Перейдите на вкладку **Объекты**.
+1. Проверьте, что бакет Object Storage содержит папку `from_YDB` с объектом `<seasons.csv>` с тестовыми данными.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -221,20 +221,20 @@
 
    - Вручную {#manual}
 
-       1. [Удалите бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
-       1. [Удалите базу данных {{ ydb-name }}](../operations/manage-databases.md#delete-db).
+       1. [Удалите бакет Object Storage](../../storage/operations/buckets/delete.md).
+       1. [Удалите базу данных Managed Service for YDB](../operations/manage-databases.md#delete-db).
 
        
        1. Если вы создавали сервисный аккаунт, [удалите его](../../iam/operations/sa/delete.md).
 
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -248,6 +248,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}

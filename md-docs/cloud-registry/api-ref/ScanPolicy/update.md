@@ -5,7 +5,7 @@ Updates the specified scan policy.
 ## HTTP request
 
 ```
-PATCH https://registry.{{ api-host }}/cloud-registry/v1/scanPolicies/{scanPolicyId}
+PATCH https://registry.api.cloud.yandex.net/cloud-registry/v1/scanPolicies/{scanPolicyId}
 ```
 
 ## Path parameters

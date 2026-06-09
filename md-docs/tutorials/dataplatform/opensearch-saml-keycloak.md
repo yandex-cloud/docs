@@ -1,6 +1,6 @@
-# Аутентификация в {{ OS }} Dashboards кластера {{ mos-full-name }} с помощью {{ keycloak }}
+# Аутентификация в OpenSearch Dashboards кластера Yandex Managed Service for OpenSearch с помощью Keycloak
 
-Вы можете использовать [{{ keycloak }}](https://www.keycloak.org/) для [аутентификации пользователей](../../managed-opensearch/operations/saml-authentication.md), которые работают с {{ OS }} Dashboards в кластере {{ mos-full-name }}.
+Вы можете использовать [Keycloak](https://www.keycloak.org/) для [аутентификации пользователей](../../managed-opensearch/operations/saml-authentication.md), которые работают с OpenSearch Dashboards в кластере Yandex Managed Service for OpenSearch.
 
 Чтобы настроить аутентификацию:
 
@@ -11,48 +11,48 @@
 
 {% note info %}
 
-Это практическое руководство проверялось для кластера {{ OS }} 2.8 и {{ keycloak }} 24.0.
+Это практическое руководство проверялось для кластера OpenSearch 2.8 и Keycloak 24.0.
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Убедитесь, что вы можете [подключиться к {{ OS }} Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`.
+1. Убедитесь, что вы можете [подключиться к OpenSearch Dashboards](../../managed-opensearch/operations/connect/clients.md#dashboards) с использованием реквизитов пользователя `admin`.
 
-    В этом практическом руководстве предполагается, что веб-интерфейс {{ OS }} Dashboards доступен по URL:
+    В этом практическом руководстве предполагается, что веб-интерфейс OpenSearch Dashboards доступен по URL:
 
     ```url
-    https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
+    https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
     ```
 
-1. Убедитесь, что вы можете работать с {{ keycloak }}:
+1. Убедитесь, что вы можете работать с Keycloak:
 
-    * Проверьте, что есть доступ к {{ keycloak }}.
+    * Проверьте, что есть доступ к Keycloak.
     * Проверьте, что есть доступ к нужному [realm](https://www.keycloak.org/docs/latest/server_admin/#configuring-realms).
     * Проверьте, что есть достаточные права в этом realm для управления:
 
         * Ролями.
         * Пользователями и группами.
-        * Клиентами (так в терминологии {{ keycloak }} называются приложения, с помощью которых происходит аутентификация).
+        * Клиентами (так в терминологии Keycloak называются приложения, с помощью которых происходит аутентификация).
 
     В этом практическом руководстве предполагается, что:
 
-    * Для управления {{ keycloak }} используется [аккаунт суперадминистратора](https://www.keycloak.org/docs/latest/server_admin/index.html#creating-first-admin_server_administration_guide), который позволяет выполнять любые операции в любом realm.
+    * Для управления Keycloak используется [аккаунт суперадминистратора](https://www.keycloak.org/docs/latest/server_admin/index.html#creating-first-admin_server_administration_guide), который позволяет выполнять любые операции в любом realm.
     * Все операции выполняются в realm с именем `master`.
-    * {{ keycloak }} доступен по URL:
+    * Keycloak доступен по URL:
 
         ```url
         http://keycloak.example.com:8080
         ```
 
-    * Консоль администратора {{ keycloak }} доступна по URL:
+    * Консоль администратора Keycloak доступна по URL:
 
         ```url
         http://keycloak.example.com:8080/admin/
@@ -60,17 +60,17 @@
 
 ## Настройте провайдер идентификации {#configure-idp}
 
-1. Подключитесь к консоли управления {{ keycloak }} и выберите realm с именем `master`.
+1. Подключитесь к консоли управления Keycloak и выберите realm с именем `master`.
 
 1. Создайте клиент:
     1. На панели слева выберите **Clients**. Нажмите кнопку **Create client**.
     1. В поле **Client type** выберите вариант **SAML**.
     1. В поле **Client ID** укажите идентификатор клиента.
 
-        Этот идентификатор должен совпадать с URL для подключения к {{ OS }} Dashboards:
+        Этот идентификатор должен совпадать с URL для подключения к OpenSearch Dashboards:
 
         ```url
-        https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
+        https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
         ```
 
     1. Нажмите кнопку **Next**.
@@ -84,7 +84,7 @@
         ACS URL имеет вид:
 
         ```url
-        https://c-{{ cluster-id }}.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
+        https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/_opendistro/_security/saml/acs
         ```
 
     1. Нажмите кнопку **Save**.
@@ -121,13 +121,13 @@
    
    {% endnote %}
    
-    1. Нажмите на URL для подключения к {{ OS }} Dashboards с суффиксом `-dedicated`.
+    1. Нажмите на URL для подключения к OpenSearch Dashboards с суффиксом `-dedicated`.
 
     1. На вкладке **Mappers** нажмите **Configure a new mapper**. Выберите из списка маппер **Role list**.
 
     1. Укажите следующие настройки маппера:
 
-        * **Name** — любое имя маппера, например `{{ OS }} Mapper`.
+        * **Name** — любое имя маппера, например `OpenSearch Mapper`.
         * **Role attribute name** — `roles`.
         * **SAML Attribute NameFormat** — `Basic`;
         * **Single Role Attribute** — убедитесь, что эта опция включена.
@@ -138,9 +138,9 @@
 
 1. Получите метаданные для [созданного ранее клиента](#configure-idp):
 
-    1. Подключитесь к консоли управления {{ keycloak }} и выберите realm с именем `master`.
+    1. Подключитесь к консоли управления Keycloak и выберите realm с именем `master`.
     1. На панели слева выберите **Clients**.
-    1. Нажмите на URL для подключения к {{ OS }} Dashboards.
+    1. Нажмите на URL для подключения к OpenSearch Dashboards.
     1. В правом верхнем углу раскройте меню **Action** и выберите пункт **Download adapter config**.
     1. Выберите формат `Mod Auth Mellon Files` и нажмите кнопку **Download**.
 
@@ -152,21 +152,21 @@
 
     {% note tip %}
 
-    Далее приведены инструкции для консоли управления, но можно [использовать и другие доступные интерфейсы {{ yandex-cloud }}](../../managed-opensearch/operations/saml-authentication.md#configuration-sso).
+    Далее приведены инструкции для консоли управления, но можно [использовать и другие доступные интерфейсы Yandex Cloud](../../managed-opensearch/operations/saml-authentication.md#configuration-sso).
 
     {% endnote %}
 
-    Чтобы настроить источник аутентификации {{ keycloak }}:
+    Чтобы настроить источник аутентификации Keycloak:
 
-    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
-    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку **Источники аутентификации**.
+    1. Нажмите кнопку **Настроить**.
     1. Укажите нужные значения настроек:
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_idp-entity-id }}** — идентификатор провайдера.
+        * **idp_entity_id** — идентификатор провайдера.
 
-            Для {{ keycloak }} этот идентификатор совпадает с URL, который указывает на realm с именем `master`:
+            Для Keycloak этот идентификатор совпадает с URL, который указывает на realm с именем `master`:
 
             ```url
             http://keycloak.example.com:8080/realms/master
@@ -174,35 +174,35 @@
 
         * **idp_metadata_file** — выберите и загрузите файл с метаданными, извлеченный из архива.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_sp-entity-id }}** — идентификатор поставщика услуг.
+        * **sp_entity_id** — идентификатор поставщика услуг.
 
-            Используйте тот же идентификатор, который [был указан при настройке клиента](#configure-idp) {{ keycloak }} в поле **Client ID**:
+            Используйте тот же идентификатор, который [был указан при настройке клиента](#configure-idp) Keycloak в поле **Client ID**:
 
             ```url
-            https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
+            https://c-cat0adul1fj0********.rw.mdb.yandexcloud.net/
             ```
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_dashboards-url }}** — URL для подключения к {{ OS }} Dashboards.
+        * **kibana_url** — URL для подключения к OpenSearch Dashboards.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}** — атрибут, в котором хранится перечень ролей.
+        * **roles_key** — атрибут, в котором хранится перечень ролей.
 
-            Укажите тот же атрибут, который [был настроен для маппера](#configure-idp) {{ keycloak }} — `roles`.
+            Укажите тот же атрибут, который [был настроен для маппера](#configure-idp) Keycloak — `roles`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}** — оставьте поле пустым.
+        * **subject_key** — оставьте поле пустым.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}** — оставьте значение `0`.
+        * **Таймаут сессии** — оставьте значение `0`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}** — убедитесь, что эта опция включена.
+        * **Активировать** — убедитесь, что эта опция включена.
 
-    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_save }}**.
+    1. Нажмите кнопку **Сохранить**.
 
 1. Дождитесь, когда статус кластера изменится на `Running`. Применение настроек может занять несколько минут.
 
 ## Настройте роли для SSO {#map-roles}
 
-1. Настройте {{ keycloak }} так, чтобы его пользователям назначались нужные роли:
+1. Настройте Keycloak так, чтобы его пользователям назначались нужные роли:
 
-    1. Подключитесь к консоли управления {{ keycloak }} и выберите realm с именем `master`.
+    1. Подключитесь к консоли управления Keycloak и выберите realm с именем `master`.
 
     1. Создайте роль:
 
@@ -257,12 +257,12 @@
         1. На вкладке **Members** нажмите кнопку **Add member**, выберите пользователя `kc_demo_user`, затем нажмите кнопку **Add**.
         1. На вкладке **Role mapping** нажмите кнопку **Assign role**, включите фильтр **Filter by realm roles**, выберите роль `kc_demo_role` из списка, затем нажмите кнопку **Assign**.
 
-1. Сопоставьте роли кластера {{ OS }} с ролями на стороне {{ keycloak }}. Это позволит получить доступ к кластеру через SSO.
+1. Сопоставьте роли кластера OpenSearch с ролями на стороне Keycloak. Это позволит получить доступ к кластеру через SSO.
 
     Чтобы сопоставить роли:
 
-    1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards от имени пользователя `admin`.
-    1. В меню слева выберите **{{ OS }} Plugins** → **Security**.
+    1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к OpenSearch Dashboards от имени пользователя `admin`.
+    1. В меню слева выберите **OpenSearch Plugins** → **Security**.
     1. На панели слева выберите **Roles**.
     1. Настройте сопоставления ролей:
 
@@ -272,31 +272,31 @@
 
         1. Перейдите на вкладку **Mapped users**.
         1. Нажмите кнопку **Manage mapping**.
-        1. В блоке **Backend roles** введите имя роли в {{ keycloak }}, с которой будет сопоставлена роль в {{ OS }}, и нажмите кнопку **Map**.
+        1. В блоке **Backend roles** введите имя роли в Keycloak, с которой будет сопоставлена роль в OpenSearch, и нажмите кнопку **Map**.
 
             Далее предполагается, что была выбрана роль `kc_demo_role`.
 
-Теперь пользователи {{ keycloak }}, добавленные в группу `kc_demo_group`, будут получать роль `kc_demo_role`.
+Теперь пользователи Keycloak, добавленные в группу `kc_demo_group`, будут получать роль `kc_demo_role`.
 
-Если при подключении к {{ OS }} Dashboards аутентификация пройдет успешно, то пользователь с ролью `kc_demo_role` получит роль `kibana_user` в {{ OS }}.
+Если при подключении к OpenSearch Dashboards аутентификация пройдет успешно, то пользователь с ролью `kc_demo_role` получит роль `kibana_user` в OpenSearch.
 
 ## Проверьте работу SSO {#test-sso}
 
 1. Откройте браузер в гостевом режиме или режиме инкогнито.
 
-    Это действие нужно выполнять с компьютера, который имеет доступ к {{ keycloak }}.
+    Это действие нужно выполнять с компьютера, который имеет доступ к Keycloak.
 
-1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards.
+1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к OpenSearch Dashboards.
 
     На странице логина нажмите кнопку **Log in with single sign-on** вместо ввода имени пользователя и пароля.
 
-    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в {{ keycloak }}.
+    Если все настроено правильно, браузер перенаправит вас на страницу аутентификации в Keycloak.
 
 1. Введите реквизиты пользователя `kc_demo_user` и нажмите кнопку **Sign in**.
 
-    После успешной аутентификации {{ keycloak }} перенаправит вас на ACS URL, затем вы будете перенаправлены на главную страницу {{ OS }} Dashboards.
+    После успешной аутентификации Keycloak перенаправит вас на ACS URL, затем вы будете перенаправлены на главную страницу OpenSearch Dashboards.
 
-1. Убедитесь, что пользователю назначена роль `kibana_user` в {{ OS }}.
+1. Убедитесь, что пользователю назначена роль `kibana_user` в OpenSearch.
 
     Для этого нажмите на аватар пользователя в верхнем правом углу и выберите пункт **View roles and identities**. Будут показаны назначенные пользователю роли.
 

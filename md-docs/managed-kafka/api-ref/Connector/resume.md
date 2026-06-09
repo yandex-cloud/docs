@@ -5,7 +5,7 @@ Resumes an Apache Kafka® connector.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/connectors/resume/{connectorName}
+POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/connectors/resume/{connectorName}
 ```
 
 ## Path parameters

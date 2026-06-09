@@ -5,7 +5,7 @@ Set the list of cluster extensions. Not specified extensions will be deleted.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/extensions:batchSet
+POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/extensions:batchSet
 ```
 
 ## Path parameters

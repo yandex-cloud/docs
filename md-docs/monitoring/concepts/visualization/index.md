@@ -1,6 +1,6 @@
 # Визуализация
 
-{{ monitoring-full-name }} предоставляет инструменты визуализации:
+Yandex Monitoring предоставляет инструменты визуализации:
 
 * **Обзор метрик** позволяет в реальном времени просматривать метрики и гибко управлять их отображением.
 
@@ -8,6 +8,6 @@
 
 #### См. также {#see-also}
 
-- [{#T}](../../operations/dashboard/create.md)
-- [{#T}](../../operations/dashboard/copy.md)
-- [{#T}](../../operations/dashboard/add-widget.md)
+- [Создание и управление дашбордом в Monitoring](../../operations/dashboard/create.md)
+- [Копирование дашборда](../../operations/dashboard/copy.md)
+- [Добавление виджета на дашборд](../../operations/dashboard/add-widget.md)

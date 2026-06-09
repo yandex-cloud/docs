@@ -5,7 +5,7 @@ Returns the specified resource group at revision.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups/at_rev
+GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/resource_groups/at_rev
 ```
 
 ## Path parameters

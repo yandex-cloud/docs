@@ -5,7 +5,7 @@ Retrieves the list of host groups in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/hostGroups
+GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListHostGroupsRequest}

@@ -7,7 +7,7 @@ To get the list of all available sinks, make a [List](../../../logging/api-ref/S
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/sinks/{sinkId}
+GET https://logging.api.cloud.yandex.net/logging/v1/sinks/{sinkId}
 ```
 
 ## Path parameters

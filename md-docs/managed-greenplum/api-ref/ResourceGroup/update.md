@@ -5,7 +5,7 @@ Update resource group
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/resource_groups
+PATCH https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/resource_groups
 ```
 
 ## Path parameters

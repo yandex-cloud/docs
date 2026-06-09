@@ -5,7 +5,7 @@ Retrieves a list of subclusters in the specified cluster.
 ## HTTP request
 
 ```
-GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters
+GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters
 ```
 
 ## Path parameters

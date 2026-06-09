@@ -5,7 +5,7 @@ Upserts a folder at the specified path within the registry.
 ## HTTP request
 
 ```
-POST https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}/artifacts:upsertFolder
+POST https://registry.api.cloud.yandex.net/cloud-registry/v1/registries/{registryId}/artifacts:upsertFolder
 ```
 
 ## Path parameters

@@ -4,15 +4,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится [коннектор](../../../concepts/eventrouter/connector.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}** и выберите шину. 
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** и выберите коннектор.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о коннекторе.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится [коннектор](../../../concepts/eventrouter/connector.md).
+  1. Перейдите в сервис **Serverless Integrations**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter** и выберите шину. 
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/broadcast-signal.svg) **Коннекторы** и выберите коннектор.
+  1. На странице **Обзор** отобразится подробная информация о коннекторе.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

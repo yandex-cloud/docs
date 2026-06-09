@@ -1,7 +1,7 @@
 # Развертывание отказоустойчивой архитектуры с прерываемыми виртуальными машинами
 
 
-В этом руководстве вы создадите [функцию](../../functions/concepts/function.md) [{{ sf-full-name }}](../../functions/index.md) на языке [Node.js](../../functions/lang/nodejs/index.md), которая будет вызываться по расписанию и запускать [прерываемую ВМ](../../compute/concepts/preemptible-vm.md) {{ compute-full-name }}, если ВМ остановлена.
+В этом руководстве вы создадите [функцию](../../functions/concepts/function.md) [Yandex Cloud Functions](../../functions/index.md) на языке [Node.js](../../functions/lang/nodejs/index.md), которая будет вызываться по расписанию и запускать [прерываемую ВМ](../../compute/concepts/preemptible-vm.md) Yandex Compute Cloud, если ВМ остановлена.
 
 Описанная в руководстве архитектура подходит для [ВМ](../../compute/concepts/vm.md) с некритичной нагрузкой. Архитектура позволяет использовать ценовое преимущество тарифов на прерываемые ВМ и при этом в случае отключения ВМ обеспечивать время простоя не более одной минуты.
 
@@ -16,26 +16,26 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-instance-resources)).
-* Плата за [диски](../../compute/concepts/disk.md) ВМ (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/index.md).
+* Плата за вычислительные ресурсы ВМ (см. [тарифы Compute Cloud](../../compute/pricing.md#prices-instance-resources)).
+* Плата за [диски](../../compute/concepts/disk.md) ВМ (см. [тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../functions/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
 
 ## Подготовьте окружение {#prepare}
 
-1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция, и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../iam/concepts/access-control/roles.md) `{{ roles-functions-invoker }}` и `compute.operator`.
+1. [Создайте](../../iam/operations/sa/create.md) [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), от имени которого будет вызываться функция, и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роли](../../iam/concepts/access-control/roles.md) `functions.functionInvoker` и `compute.operator`.
 1. [Создайте](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) прерываемую ВМ.
 
 ## Подготовьте ZIP-архив с кодом функции {#zip-archive}
@@ -97,26 +97,26 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
+  1. Перейдите в сервис **Cloud Functions**.
   1. Создайте функцию:
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+     1. Нажмите кнопку **Создать функцию**.
      1. В открывшемся окне введите имя функции `function-restart-vms`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+     1. Нажмите кнопку **Создать**.
   1. Создайте [версию функции](../../functions/concepts/function.md#version):
-     1. Выберите среду выполнения `nodejs22`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
-     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите архив `function-js.zip`, который создали ранее.
+     1. Выберите среду выполнения `nodejs22`, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+     1. В поле **Источник кода** выберите `ZIP-архив`.
+     1. В поле **Файл** нажмите кнопку **Прикрепить файл** и выберите архив `function-js.zip`, который создали ранее.
      1. Укажите точку входа `index.handler`.
-     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `3`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-        * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите созданный ранее сервисный аккаунт с правами на вызов функции.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+     1. В блоке **Параметры** укажите:
+        * **Таймаут** — `3`.
+        * **Память** — `128 МБ`.
+        * **Сервисный аккаунт** — выберите созданный ранее сервисный аккаунт с правами на вызов функции.
+        * **Переменные окружения**:
           * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
           * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
-        * Если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}, в блоке **{{ ui-key.yacloud.logging.label_title }}**, в поле **{{ ui-key.yacloud.logging.label_destination }}**, выберите `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`, чтобы отключить логирование.
-     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+        * Если вы не хотите сохранять логи и платить за использование сервиса Cloud Logging, в блоке **Логирование**, в поле **Назначение**, выберите `Не задано`, чтобы отключить логирование.
+     1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
@@ -163,7 +163,7 @@
        * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `--source-path` — путь к созданному ранее ZIP-архиву `function-js.zip`.
-     * (опционально) `--no-logging` — укажите этот флаг, если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}.
+     * (опционально) `--no-logging` — укажите этот флаг, если вы не хотите сохранять логи и платить за использование сервиса Cloud Logging.
 
      Результат:
 
@@ -177,9 +177,9 @@
        folder_id: b1g9d2k0itu4********
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   1. Опишите в конфигурационном файле параметры функции `function-restart-vms` и ее [версии](../../functions/concepts/function.md#version):
 
      ```hcl
@@ -216,7 +216,7 @@
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `zip_filename` — путь к созданному ранее ZIP-архиву `function-js.zip`.
 
-     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
+     Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../terraform/resources/function.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -225,7 +225,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -235,7 +235,7 @@
 
      1. Подтвердите создание функции: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будет создана функция `function-restart-vms`. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будет создана функция `function-restart-vms`. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```bash
         yc serverless function get function-restart-vms
@@ -273,19 +273,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [триггер](../../functions/concepts/trigger/index.md).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [триггер](../../functions/concepts/trigger/index.md).
+  1. Перейдите в сервис **Cloud Functions**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+  1. Нажмите кнопку **Создать триггер**.
+  1. В блоке **Базовые параметры**:
      * Введите имя триггера — `timer`.
-     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
-     * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** введите `* * ? * * *` или выберите `{{ ui-key.yacloud.common.button_cron-1min }}`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию `function-restart-vms` и укажите:
-     * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../functions/concepts/function.md#tag) — `$latest`.
+     * В поле **Тип** выберите `Таймер`.
+     * В поле **Запускаемый ресурс** выберите `Функция`.
+  1. В блоке **Настройки таймера** введите `* * ? * * *` или выберите `Каждую минуту`.
+  1. В блоке **Настройки функции** выберите функцию `function-restart-vms` и укажите:
+     * [**Тег версии функции**](../../functions/concepts/function.md#tag) — `$latest`.
      * Сервисный аккаунт с правами на вызов функции, который создали ранее.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+  1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
@@ -317,7 +317,7 @@
   status: ACTIVE
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   Чтобы создать [триггер](../../functions/concepts/trigger/index.md), который запускает функцию:
   1. Опишите в конфигурационном файле параметры триггера `timer`:
@@ -341,7 +341,7 @@
      * `id` — идентификатор функции, которую будет запускать триггер.
      * `service_account_id` — идентификатор сервисного аккаунта с правами на вызов функции.
 
-     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
+     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/function_trigger.md).
   1. Проверьте корректность конфигурационных файлов.
      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
      1. Выполните проверку с помощью команды:
@@ -350,7 +350,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
   1. Разверните облачные ресурсы.
      1. Если в конфигурации нет ошибок, выполните команду:
 
@@ -360,7 +360,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будет создан триггер `timer`. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
+        После этого в указанном каталоге будет создан триггер `timer`. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
 
         ```bash
         yc serverless trigger get timer
@@ -390,11 +390,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана ваша прерываемая ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создана ваша прерываемая ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите **Виртуальные машины**.
+  1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**. Статус ВМ изменится на `Stopped`.
   1. Проверьте состояние ВМ через 1 минуту или более. Статус ВМ должен измениться на `Running`.
 
 {% endlist %}

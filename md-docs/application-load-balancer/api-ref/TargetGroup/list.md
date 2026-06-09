@@ -5,7 +5,7 @@ Lists target groups in the specified folder.
 ## HTTP request
 
 ```
-GET https://alb.{{ api-host }}/apploadbalancer/v1/targetGroups
+GET https://alb.api.cloud.yandex.net/apploadbalancer/v1/targetGroups
 ```
 
 ## Query parameters {#yandex.cloud.apploadbalancer.v1.ListTargetGroupsRequest}

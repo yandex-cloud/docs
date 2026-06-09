@@ -64,7 +64,7 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
 ## Практические руководства
 
- - [Настройка печати с {{ cloud-desktop-name }} на локальный принтер в Linux](tutorials/desktop-linux-printer.md)
+ - [Настройка печати с Cloud Desktop на локальный принтер в Linux](tutorials/desktop-linux-printer.md)
 
 ## Концепции
 
@@ -392,6 +392,6 @@ Yandex Cloud Desktop — сервис для управления виртуал
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Аудитные логи {{ cloud-desktop-name }}](at-ref.md)
+ - [Аудитные логи Cloud Desktop](at-ref.md)
 
  - [История изменений](release-notes.md)

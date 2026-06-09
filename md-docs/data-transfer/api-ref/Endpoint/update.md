@@ -5,7 +5,7 @@ Updates the specified endpoint.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
+PATCH https://datatransfer.api.cloud.yandex.net/v1/endpoint/{endpointId}
 ```
 
 ## Path parameters

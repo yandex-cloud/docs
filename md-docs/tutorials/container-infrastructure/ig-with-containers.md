@@ -1,18 +1,18 @@
-# Создание группы виртуальных машин с {{ coi }} и несколькими Docker-контейнерами
+# Создание группы виртуальных машин с Container Optimized Image и несколькими Docker-контейнерами
 
-Вы можете создать [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри.
+Вы можете создать [группу виртуальных машин](../../compute/concepts/instance-groups/index.md) на базе [образа](../../compute/concepts/image.md) [Container Optimized Image](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри.
 
 Для создания Docker-контейнеров будет использоваться [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).
 
 {% note alert %}
 
-Создавая группы ВМ, учитывайте [лимиты](../../compute/concepts/limits.md). Чтобы не нарушить работу компонента {{ ig-name }}, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../network-load-balancer/concepts/target-resources.md) {{ network-load-balancer-name }}, ВМ и диски. Вместо этого измените или удалите группу полностью.
+Создавая группы ВМ, учитывайте [лимиты](../../compute/concepts/limits.md). Чтобы не нарушить работу компонента Instance Groups, не изменяйте и не удаляйте вручную созданные им ресурсы: [целевую группу](../../network-load-balancer/concepts/target-resources.md) Network Load Balancer, ВМ и диски. Вместо этого измените или удалите группу полностью.
 
 {% endnote %}
 
 ## Перед началом работы {#before-you-begin}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -24,12 +24,12 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
+     1. Перейдите в сервис **Identity and Access Management**.
+     1. Нажмите кнопку **Создать сервисный аккаунт**.
      1. Введите имя `group-coi`.
-     1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+     1. Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите **Добавить роль** и выберите роль `editor`.
+     1. Нажмите кнопку **Создать**.
 
    - CLI {#cli}
 
@@ -68,12 +68,12 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
+     1. Перейдите в сервис **Virtual Private Cloud**.
+     1. Нажмите кнопку **Создать сеть**.
      1. Задайте имя сети `yc-auto-network`.
-     1. Выберите дополнительную опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+     1. Выберите дополнительную опцию **Создать подсети**.
+     1. Нажмите кнопку **Создать сеть**.
 
    - CLI {#cli}
 
@@ -92,10 +92,10 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
+     1. Создайте подсеть в зоне доступности `ru-central1-a`:
 
         ```bash
-        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone {{ region-id }}-a
+        yc vpc subnet create --network-id enpabce123hd******** --range 192.168.1.0/24 --zone ru-central1-a
         ```
 
         Результат:
@@ -105,7 +105,7 @@
         folder_id: b0g12ga82bcv********
         created_at: "2023-03-13T16:23:12Z"
         network_id: enpabce123hd********
-        zone_id: {{ region-id }}-a
+        zone_id: ru-central1-a
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
@@ -113,15 +113,15 @@
    - API {#api}
 
      1. Создайте сеть с помощью метода [Create](../../vpc/api-ref/Network/create.md) для ресурса `Networks`.
-     1. Создать подсеть в зоне доступности `{{ region-id }}-a` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
+     1. Создать подсеть в зоне доступности `ru-central1-a` с помощью метода [Create](../../vpc/api-ref/Subnet/create.md) для ресурса `Subnets`.
 
    {% endlist %}
 
-## Создайте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#create}
+## Создайте группу ВМ с Container Optimized Image и несколькими Docker-контейнерами {#create}
 
-1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
+1. Узнайте идентификатор последней версии [публичного образа](../../compute/operations/images-with-pre-installed-software/get-list.md) Container Optimized Image.
    
-   Образ {{ coi }} в реестре [{{ container-registry-name }}](../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../compute/concepts/instance-groups/index.md) с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
+   Образ Container Optimized Image в реестре [Container Registry](../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../compute/concepts/instance-groups/index.md) с последней версией Container Optimized Image, необходимо самостоятельно проверить ее наличие:
    
    {% list tabs group=instructions %}
    
@@ -139,16 +139,16 @@
      ...
      ```
    
-   - {{ marketplace-full-name }} {#marketplace}
+   - Yandex Cloud Marketplace {#marketplace}
    
-     1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
-        * [{{ coi }}](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
-        * [{{ coi }} GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
-     1. В блоке **{{ ui-key.yacloud_components.marketplace.label_product-ids }}** скопируйте значение `image_id`.
+     1. Перейдите на страницу Cloud Marketplace и выберите образ с нужной конфигурацией:
+        * [Container Optimized Image](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
+        * [Container Optimized Image GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
+     1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
    
    {% endlist %}
 
-1. Сохраните спецификацию группы ВМ с {{ coi }} и несколькими Docker-контейнерами в файл `specification.yaml`:
+1. Сохраните спецификацию группы ВМ с Container Optimized Image и несколькими Docker-контейнерами в файл `specification.yaml`:
 
    ```yaml
    name: group-coi-containers # Имя группы ВМ, уникальным в рамках каталога.
@@ -198,7 +198,7 @@
        size: 2
    allocation_policy: # Политика распределения ВМ по зонам доступности.
      zones:
-       - zone_id: {{ region-id }}-a
+       - zone_id: ru-central1-a
    ```
 
    {% note info %}
@@ -237,15 +237,15 @@
 
    {% endlist %}
 
-1. Убедитесь, что группа ВМ с {{ coi }} и несколькими Docker-контейнерами создана:
+1. Убедитесь, что группа ВМ с Container Optimized Image и несколькими Docker-контейнерами создана:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-     1. Перейдите в раздел **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
+     1. Перейдите в сервис **Compute Cloud**.
+     1. Перейдите в раздел **Группы виртуальных машин**.
      1. Нажмите на имя группы ВМ `group-coi-containers`.
 
    - CLI {#cli}
@@ -260,8 +260,8 @@
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      |     INSTANCE ID      |           NAME            |            EXTERNAL IP           | INTERNAL IP |         STATUS         | STATUS MESSAGE |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
-     | fhmabcv0de12******** | cl0q12abcs4g********-fmar | {{ external-ip-examples.0 }}                   | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
-     | fhmab0cdqj12******** | cl0q12abcs4g********-fqeg | {{ external-ip-examples.1 }}                   | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
+     | fhmabcv0de12******** | cl0q12abcs4g********-fmar | 84.201.155.117                   | 10.130.0.14 | RUNNING_ACTUAL [2h35m] |                |
+     | fhmab0cdqj12******** | cl0q12abcs4g********-fqeg | 84.252.131.221                   | 10.130.0.47 | RUNNING_ACTUAL [2h35m] |                |
      +----------------------+---------------------------+----------------------------------+-------------+------------------------+----------------+
      ```
 
@@ -271,7 +271,7 @@
 
    {% endlist %}
 
-## Проверьте группу ВМ с {{ coi }} и несколькими Docker-контейнерами {#check}
+## Проверьте группу ВМ с Container Optimized Image и несколькими Docker-контейнерами {#check}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к одной из созданных ВМ по SSH:
 
@@ -280,7 +280,7 @@
    - CLI {#cli}
 
      ```bash
-     ssh yc-user@{{ external-ip-examples.0 }}
+     ssh yc-user@84.201.155.117
      ```
 
      Результат:

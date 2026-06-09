@@ -1,23 +1,23 @@
 # Создать организацию
 
-[_Организация_](../../overview/roles-and-resources.md) — это рабочее пространство, которое объединяет разные типы ресурсов {{ yandex-cloud }} и пользователей. Чтобы сотрудники вашей компании могли использовать ресурсы {{ yandex-cloud }}, создайте организацию и добавьте в нее сотрудников вашей компании. Создать организацию в {{ org-full-name }} может любой пользователь Яндекса.
+[_Организация_](../../overview/roles-and-resources.md) — это рабочее пространство, которое объединяет разные типы ресурсов Yandex Cloud и пользователей. Чтобы сотрудники вашей компании могли использовать ресурсы Yandex Cloud, создайте организацию и добавьте в нее сотрудников вашей компании. Создать организацию в Yandex Identity Hub может любой пользователь Яндекса.
 
-Перед началом работы с {{ org-full-name }} [войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте]({{ support-passport-create }}) его.
+Перед началом работы с Yandex Identity Hub [войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
 
 
 ## Создать первую организацию {#enable-org}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. Перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
   
-  1. Ознакомьтесь с условиями использования {{ yandex-cloud }} и нажмите кнопку **{{ ui-key.yacloud_components.usermenu.label_login }}**.
+  1. Ознакомьтесь с условиями использования Yandex Cloud и нажмите кнопку **Войти**.
   
   1. Введите название и описание организации.
   
-  1. Нажмите кнопку **{{ ui-key.yacloud_components.organization.action.create }}**.
+  1. Нажмите кнопку **Создать новую организацию**.
 
 {% endlist %}
 
@@ -35,15 +35,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ cloud-center }} {#cloud-center}
+- Интерфейс Cloud Center {#cloud-center}
 
-  1. Войдите в сервис [{{ cloud-center }}]({{ cloud-center-link }}) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
+  1. Войдите в сервис [Cloud Center](https://center.yandex.cloud) с учетной записью пользователя, от имени которого вы хотите создать новую организацию.
 
-  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_components.organization.action.create-organization }}**.
+  1. В левом верхнем углу экрана рядом с названием текущей организации нажмите значок ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите ![circle-plus](../../_assets/console-icons/circle-plus.svg) **Создать организацию**.
 
   1. В открывшемся окне введите название и описание организации.
 
-  1. Нажмите **{{ ui-key.yacloud_components.organization.action.create }}**.
+  1. Нажмите **Создать новую организацию**.
 
 {% endlist %}
 

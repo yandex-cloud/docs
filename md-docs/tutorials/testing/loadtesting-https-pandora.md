@@ -2,12 +2,12 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../load-testing/sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../../load-testing/sunset.md).
 
 {% endnote %}
 
 
-{{ load-testing-name }} можно использовать для тестирования сервиса со ступенчатой нагрузкой по протоколу [HTTPS](../../glossary/ssl-certificate.md) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
+Load Testing можно использовать для тестирования сервиса со ступенчатой нагрузкой по протоколу [HTTPS](../../glossary/ssl-certificate.md) с помощью [генератора нагрузки](../../load-testing/concepts/load-generator.md) [Pandora](../../load-testing/concepts/load-generator.md#pandora).
 
 Чтобы провести нагрузочное тестирование:
 1. [Подготовьте облако к работе](#before-begin).
@@ -21,19 +21,19 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-Если [агент](../../load-testing/concepts/agent.md) размещается на платформе {{ yandex-cloud }}, взимается плата за вычислительные ресурсы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+Если [агент](../../load-testing/concepts/agent.md) размещается на платформе Yandex Cloud, взимается плата за вычислительные ресурсы (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
-На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса {{ load-testing-name }} не тарифицируется.
+На стадии [Preview](../../overview/concepts/launch-stages.md) использование сервиса Load Testing не тарифицируется.
 
 ## Подготовьте цель тестирования {#target-prepare}
 
@@ -43,7 +43,7 @@
 
 Убедитесь, что для доступа к сервису по протоколу HTTPS используется порт по умолчанию — `443`.
 
-{{ load-testing-name }} также можно использовать для нагрузочного тестирования сервиса, доступного публично или находящегося в другой подсети и [группе безопасности](../../vpc/concepts/security-groups.md) относительно агента.
+Load Testing также можно использовать для нагрузочного тестирования сервиса, доступного публично или находящегося в другой подсети и [группе безопасности](../../vpc/concepts/security-groups.md) относительно агента.
 
 Для сервиса, доступного публично, разрешите входящий HTTPS-трафик на порт `443`.
 
@@ -58,7 +58,7 @@
 
 ### Настройте сеть {#network-setup}
 
-[Создайте и настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису {{ load-testing-name }}.
+[Создайте и настройте NAT-шлюз](../../vpc/operations/create-nat-gateway.md) в подсети, где размещается цель тестирования и будет размещен агент. Это обеспечит доступ агента к сервису Load Testing.
 
 ### Настройте группы безопасности {#security-group-setup}
 
@@ -66,25 +66,25 @@
 
    1. [Создайте группу безопасности](../../vpc/operations/security-group-create.md) [агента](../../load-testing/concepts/agent.md) `agent-sg`.
    1. [Добавьте правила](../../vpc/operations/security-group-add-rule.md):
-      1. Правило для исходящего HTTPS-трафика к публичному API {{ load-testing-name }}:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+      1. Правило для исходящего HTTPS-трафика к публичному API Load Testing:
+         * **Диапазон портов**: `443`.
+         * **Протокол**: `TCP`.
+         * **Назначение**: `CIDR`.
+         * **CIDR блоки**: `0.0.0.0/0`.
    
-         Это позволит подключить агент к сервису {{ load-testing-name }}, чтобы управлять тестами из интерфейса и получать результаты тестирования.
+         Это позволит подключить агент к сервису Load Testing, чтобы управлять тестами из интерфейса и получать результаты тестирования.
       1. Правило для входящего [SSH-трафика](../../glossary/ssh-keygen.md):
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `22`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+         * **Диапазон портов**: `22`.
+         * **Протокол**: `TCP`.
+         * **Назначение**: `CIDR`.
+         * **CIDR блоки**: `0.0.0.0/0`.
    
          Это позволит подключаться к агенту по протоколу SSH и управлять тестами из консоли или собирать отладочную информацию.
       1. Правило для исходящего трафика при подаче нагрузки к цели тестирования:
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-           Выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
+         * **Диапазон портов**: `0-65535`.
+         * **Протокол**: `Любой`.
+         * **Назначение**: `Группа безопасности`.
+           Выберите `Из списка`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
    
          Создайте такое правило для каждой цели тестирования с уникальной группой безопасности.
 
@@ -92,10 +92,10 @@
 
    1. [Создайте](../../vpc/operations/security-group-create.md) группу безопасности цели тестирования `load-target-sg`.
    1. [Добавьте правило](../../vpc/operations/security-group-add-rule.md) для входящего трафика при подаче нагрузки к цели тестирования:
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
-       * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-         Выберите `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-list }}`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
+       * **Диапазон портов**: `0-65535`.
+       * **Протокол**: `Любой`.
+       * **Назначение**: `Группа безопасности`.
+         Выберите `Из списка`. Укажите [группу безопасности](../../vpc/concepts/security-groups.md), в которой находится нужная цель тестирования.
    
        Это правило позволит агентам подавать нагрузку на эту цель или подключать дополнительные средства мониторинга.
 
@@ -114,18 +114,18 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [агент](../../load-testing/concepts/agent.md).
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-     1. На вкладке **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите кнопку **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [агент](../../load-testing/concepts/agent.md).
+     1. Перейдите в сервис **Load Testing**.
+     1. На вкладке **Агенты** нажмите кнопку **Создать агент**.
      1. Укажите имя агента, например `agent-008`.
      1. Укажите ту же [зону доступности](../../overview/concepts/geo-scope.md), в которой находится цель тестирования.
-     1. В блоке **{{ ui-key.yacloud.load-testing.section_agent }}**:
+     1. В блоке **Агент**:
         * Выберите подходящий тип агента. Подробнее см. в разделе [Производительность агентов](../../load-testing/concepts/agent.md#benchmark).
         * Укажите [подсеть](../../vpc/concepts/network.md#subnet), в которой находится цель тестирования. В подсети должен быть создан и [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md).
         * Если вам доступны [группы безопасности](../../vpc/concepts/security-groups.md), выберите заранее настроенную группу безопасности агента.
-     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите данные для доступа к агенту:
+     1. В блоке **Доступ** укажите данные для доступа к агенту:
         * Выберите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `sa-loadtest`.
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+        * В поле **Логин** введите имя пользователя.
 
           {% note alert %}
 
@@ -133,14 +133,14 @@
 
           {% endnote %}
               
-        * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+        * В поле **SSH-ключ** вставьте содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+     1. Нажмите **Создать**.
      1. Дождитесь завершения процесса создания [виртуальной машины](../../compute/concepts/vm.md). Статус агента должен смениться на `Ready for test`.
 
         {% note info %}
 
         Если процесс создания агента остановился на статусе `Initializing connection`, проверьте выполнение условий:
-        * У агента есть [доступ](../../load-testing/operations/security-groups-agent.md) к `loadtesting.{{ api-host }}:443` и [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
+        * У агента есть [доступ](../../load-testing/operations/security-groups-agent.md) к `loadtesting.api.cloud.yandex.net:443` и [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses).
         * В целевой подсети настроен NAT-шлюз.
         * У сервисного аккаунта, который назначен агенту, есть необходимые [роли](../../load-testing/operations/create-agent.md#infrastructure-prepare).
 
@@ -148,7 +148,7 @@
 
    - CLI {#cli}
 
-     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -174,9 +174,9 @@
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
-        | e2lfkhps7bol******** |   default-{{ region-id }}-b   | enpnf7hajqmd******** |                |   {{ region-id }}-b   | [10.129.0.0/24] |
-        | e9bgnq1bggfa******** |   default-{{ region-id }}-a   | enpnf7hajqmd******** |                |   {{ region-id }}-a   | [10.128.0.0/24] |
-        | fl841n5ilklr******** |   default-{{ region-id }}-d   | enpnf7hajqmd******** |                |   {{ region-id }}-d   | [10.130.0.0/24] |
+        | e2lfkhps7bol******** |   default-ru-central1-b   | enpnf7hajqmd******** |                |   ru-central1-b   | [10.129.0.0/24] |
+        | e9bgnq1bggfa******** |   default-ru-central1-a   | enpnf7hajqmd******** |                |   ru-central1-a   | [10.128.0.0/24] |
+        | fl841n5ilklr******** |   default-ru-central1-d   | enpnf7hajqmd******** |                |   ru-central1-d   | [10.130.0.0/24] |
         +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
         ```
 
@@ -223,7 +223,7 @@
         yc loadtesting agent create \
           --name agent-008 \
           --labels origin=default,label-key=label-value \
-          --zone default-{{ region-id }}-a \
+          --zone default-ru-central1-a \
           --network-interface subnet-id=e9bgnq1bggfa********,security-group-ids=enpctpve7951******** \
           --cores 2 \
           --memory 2G \
@@ -253,13 +253,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен агент.
-     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен агент.
+     1. Перейдите в сервис **Compute Cloud**.
      1. Выберите ВМ с именем `agent-008`.
-     1. В блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **{{ ui-key.yacloud.compute.instance.overview.button_add-public-ip }}**.
+     1. В блоке **Сетевой интерфейс** в правом верхнем углу нажмите ![image](../../_assets/horizontal-ellipsis.svg) и выберите **Добавить публичный IP-адрес**.
      1. В открывшемся окне:
-        * В поле **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.field_external-type }}** выберите получение адреса **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.switch_auto }}**.
-        * Нажмите **{{ ui-key.yacloud.component.compute.one-to-one-nat-form.button_submit }}**.
+        * В поле **Публичный адрес** выберите получение адреса **Автоматически**.
+        * Нажмите **Добавить**.
 
    - CLI {#cli}
    
@@ -322,19 +322,19 @@
 
 ## Создайте и запустите тест {#run-test}
 
-1. Откройте [консоль управления]({{ link-console-main }}).
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
-1. В параметре **{{ ui-key.yacloud.load-testing.label_agents-list }}** выберите агент `agent-008`.
-1. В блоке **{{ ui-key.yacloud.load-testing.test-data-section }}** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.
-1. В блоке **{{ ui-key.yacloud.load-testing.label_test-settings }}** выберите способ настройки: **{{ ui-key.yacloud.load-testing.label_settings-type-form }}** или **{{ ui-key.yacloud.load-testing.label_settings-type-config }}**.
+1. Откройте [консоль управления](https://console.yandex.cloud).
+1. Перейдите в сервис **Load Testing**.
+1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **Тесты**. Нажмите **Создать тест**.
+1. В параметре **Агенты** выберите агент `agent-008`.
+1. В блоке **Прикрепленные файлы** нажмите **Выбрать файлы** и выберите сохраненный ранее файл `data.uri`.
+1. В блоке **Настройки теста** выберите способ настройки: **Форма** или **Конфигурационный файл**.
 1. В зависимости от выбранного способа задайте параметры теста:
 
    {% list tabs %}
 
-   - {{ ui-key.yacloud.load-testing.label_settings-type-form }}
+   - Форма
 
-     1. В поле **{{ ui-key.yacloud.load-testing.field_load-generator }}** выберите **PANDORA**.
+     1. В поле **Генератор нагрузки** выберите **PANDORA**.
      1. В поле **Адрес цели** укажите IP-адрес тестируемого сервиса: `172.17.0.10`.
      1. В поле **Порт цели** укажите `443` (порт для HTTPS по умолчанию). Разрешите использовать защищенное соединение.
      1. В поле **Тестирующие потоки** укажите значение `5000`.
@@ -345,7 +345,7 @@
 
         Для большинства тестов хватит 1000–10 000 [потоков](../../load-testing/concepts/testing-stream.md).
 
-        Использование большего количества тестирующих потоков задействует больше ресурсов [виртуальной машины](../../compute/concepts/vm.md), на которой запущен агент. Также существует ограничение {{ compute-name }} на 50 000 одновременных соединений с ВМ.
+        Использование большего количества тестирующих потоков задействует больше ресурсов [виртуальной машины](../../compute/concepts/vm.md), на которой запущен агент. Также существует ограничение Compute Cloud на 50 000 одновременных соединений с ВМ.
 
         {% endnote %}
 
@@ -359,7 +359,7 @@
 
         Это указание генератору наращивать нагрузку от 1000 до 5000 запросов в секунду с шагом в 1000 запросов, с длительностью каждого шага 120 секунд.
      1. В поле **Тип запросов** выберите `URI`.
-     1. В поле **{{ ui-key.yacloud.load-testing.test-data-section }}** выберите **Прикрепленный файл**.
+     1. В поле **Прикрепленные файлы** выберите **Прикрепленный файл**.
      1. В меню **Автостоп** нажмите ![image](../../_assets/plus-sign.svg) **Автостоп** и введите описание:
         * **Тип автостопа 1** — `QUANTILE`.
         * **Квантиль** — `75`.
@@ -376,9 +376,9 @@
 
         При увеличении нагрузки ожидается, что в какой-то момент тестируемая система начнет деградировать. Дальнейшее повышение нагрузки приведет к увеличению времени ответа или росту количества ошибок. Чтобы избежать существенного увеличения времени тестирования, обязательно выставляйте в таких тестах критерий завершения — **Автостоп**.
      1. В поле **Время принудительной остановки теста** укажите время, после которого сработает автостоп, если тест не будет остановлен по другим причинам. Значение параметра должно быть немного больше ожидаемой продолжительности теста.
-     1. В блоке **{{ ui-key.yacloud.load-testing.meta-section }}** укажите имя, описание и номер тестируемой версии. Это поможет сделать отчет читаемым.
+     1. В блоке **Информация о тесте** укажите имя, описание и номер тестируемой версии. Это поможет сделать отчет читаемым.
 
-   - {{ ui-key.yacloud.load-testing.label_settings-type-config }}
+   - Конфигурационный файл
 
      1. В поле для ввода конфигурации введите настройки тестирующих потоков в формате `yaml`:
 
@@ -431,7 +431,7 @@
           job_name: '[example][pandora][step]'
           job_dsc: 'example'
           ver: '0.5.5'
-          api_address: loadtesting.{{ api-host }}:443
+          api_address: loadtesting.api.cloud.yandex.net:443
         ```
 
      При увеличении нагрузки ожидается, что в какой-то момент тестируемая система начнет деградировать. Дальнейшее повышение нагрузки приведет к увеличению времени ответа или росту количества ошибок. Чтобы избежать существенного увеличения времени тестирования, обязательно выставляйте в таких тестах критерий завершения — **Автостоп**.
@@ -444,11 +444,11 @@
 
     {% endlist %}
 
-1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+1. Нажмите **Создать**.
 
 После этого конфигурация пройдет проверки, и агент начнет нагружать тестируемый сервис.
 
-Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **{{ ui-key.yacloud.load-testing.label_test-report }}**.
+Чтобы наблюдать за результатами выполнения тестирования, выберите созданный тест и перейдите на вкладку **Результаты теста**.
 
 ## Как удалить созданные ресурсы {#clear-out}
 

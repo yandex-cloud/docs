@@ -1,6 +1,6 @@
-# Репликация в {{ mpg-name }}
+# Репликация в Managed Service for PostgreSQL
 
-В кластерах {{ mpg-name }} используется _кворумная репликация_ (quorum-based synchronous replication):
+В кластерах Managed Service for PostgreSQL используется _кворумная репликация_ (quorum-based synchronous replication):
 
 1. Среди хостов кластера выбирается мастер, а все остальные хосты становятся репликами.
 1. Транзакция считается успешной только в том случае, если ее подтвердили хост-мастер и кворум реплик. Кворум составляет половина всех реплик кластера. Реплики для кворума выбираются случайным образом (_кворумные реплики_).
@@ -15,7 +15,7 @@
 
 Количество кворумных реплик обновляется при любом изменении количества доступных хостов кластера, например, [добавлении](../operations/hosts.md#add) и [удалении](../operations/hosts.md#remove) хостов, плановом или внеплановом обслуживании. Добавленный в кластер хост сначала синхронизируется с мастером и только потом может участвовать в кворуме.
 
-Подробнее о том, как организована репликация в {{ PG }}, читайте в [документации СУБД](https://www.postgresql.org/docs/current/static/warm-standby.html).
+Подробнее о том, как организована репликация в PostgreSQL, читайте в [документации СУБД](https://www.postgresql.org/docs/current/static/warm-standby.html).
 
 ## Управление репликацией {#replication}
 
@@ -25,9 +25,9 @@
 
 ### Автоматическое управление потоками репликации {#replication-auto}
 
-После создания кластера {{ PG }} из нескольких хостов в нем находятся один хост-мастер и реплики. Реплики используют хост-мастер в качестве источника репликации.
+После создания кластера PostgreSQL из нескольких хостов в нем находятся один хост-мастер и реплики. Реплики используют хост-мастер в качестве источника репликации.
 
-Особенности автоматической репликации в {{ mpg-name }}:
+Особенности автоматической репликации в Managed Service for PostgreSQL:
 
 * При выходе из строя хоста-мастера наименее отстающая реплика становится новым мастером.
 * При смене мастера источник репликации для всех хостов-реплик автоматически переключается на новый хост-мастер.
@@ -36,7 +36,7 @@
 
 При ручном управлении источником репликации для реплики служит не хост-мастер, а другой хост в кластере.
 
-Таким образом, в кластере {{ PG }} со сложной топологией можно настроить _каскадную репликацию_, при которой часть реплик использует другие хосты кластера в качестве источника потока репликации. Управление потоком репликации для таких хостов-источников может осуществляться как автоматически средствами {{ mpg-name }}, так и вручную.
+Таким образом, в кластере PostgreSQL со сложной топологией можно настроить _каскадную репликацию_, при которой часть реплик использует другие хосты кластера в качестве источника потока репликации. Управление потоком репликации для таких хостов-источников может осуществляться как автоматически средствами Managed Service for PostgreSQL, так и вручную.
 
 {% note warning %}
 
@@ -53,7 +53,7 @@
 
 ## Синхронность записи и консистентность чтения {#write-sync-and-read-consistency}
 
-За синхронизацию записи данных в {{ PG }} отвечает [параметр](settings-list.md#setting-synchronous-commit) `synchronous_commit`, управляющий синхронностью передачи WAL (Write-Ahead Log) — [журнала опережающей записи](https://www.postgresql.org/docs/current/wal-intro.html). По умолчанию установлено значение `synchronous_commit = on`. В этом случае транзакция подтверждается, только если WAL записан и на диск мастера, и на диск каждой кворумной реплики.
+За синхронизацию записи данных в PostgreSQL отвечает [параметр](settings-list.md#setting-synchronous-commit) `synchronous_commit`, управляющий синхронностью передачи WAL (Write-Ahead Log) — [журнала опережающей записи](https://www.postgresql.org/docs/current/wal-intro.html). По умолчанию установлено значение `synchronous_commit = on`. В этом случае транзакция подтверждается, только если WAL записан и на диск мастера, и на диск каждой кворумной реплики.
 
 В зависимости от количества реплик в кластере возможны следующие варианты поведения:
 
@@ -70,11 +70,11 @@
 
 ## Логическое декодирование {#logical-decoding}
 
-Кластер {{ mpg-name }} поддерживает [логическое декодирование](https://www.postgresql.org/docs/current/logicaldecoding.html), которое позволяет передавать во внешние сервисы информацию об изменениях в базе данных. В частности, оно используется для [захвата изменения данных (CDC)](../../data-transfer/concepts/cdc.md).
+Кластер Managed Service for PostgreSQL поддерживает [логическое декодирование](https://www.postgresql.org/docs/current/logicaldecoding.html), которое позволяет передавать во внешние сервисы информацию об изменениях в базе данных. В частности, оно используется для [захвата изменения данных (CDC)](../../data-transfer/concepts/cdc.md).
 
 Информация об изменениях в базе данных в формате WAL передается в [слот репликации](https://www.postgresql.org/docs/current/logicaldecoding-explanation.html), который преобразует ее в понятный внешнему сервису формат с помощью [выходного плагина](https://www.postgresql.org/docs/current/logicaldecoding-output-plugin.html).
 
-{{ mpg-name }} поддерживает следующие плагины WAL:
+Managed Service for PostgreSQL поддерживает следующие плагины WAL:
 
 * [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) — преобразует данные из WAL в текстовое представление.
 * [wal2json](https://github.com/eulerto/wal2json) — преобразует данные из WAL в JSON-представление.
@@ -84,8 +84,8 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/data-migration.md)
-* [{#T}](../tutorials/mmy-to-mpg.md)
-* [{#T}](../tutorials/mpg-to-mmy.md)
-* [{#T}](../tutorials/outbound-replication.md)
-* [{#T}](../tutorials/rdbms-to-clickhouse.md)
+* [Миграция базы данных из стороннего кластера PostgreSQL в Managed Service for PostgreSQL](../tutorials/data-migration.md)
+* [Миграция данных из Yandex Managed Service for MySQL® в Managed Service for PostgreSQL с помощью Yandex Data Transfer](../tutorials/mmy-to-mpg.md)
+* [Миграция данных из Managed Service for PostgreSQL в Yandex Managed Service for MySQL® с помощью Yandex Data Transfer](../tutorials/mpg-to-mmy.md)
+* [Миграция базы данных из Managed Service for PostgreSQL](../tutorials/outbound-replication.md)
+* [Асинхронная репликация данных из PostgreSQL в ClickHouse®](../tutorials/rdbms-to-clickhouse.md)

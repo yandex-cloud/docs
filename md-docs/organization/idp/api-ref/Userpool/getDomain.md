@@ -5,7 +5,7 @@ Returns the specified domain for a userpool.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}/domains/{domain}
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}/domains/{domain}
 ```
 
 ## Path parameters

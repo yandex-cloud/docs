@@ -1,13 +1,13 @@
-# Справочник метрик {{ monitoring-full-name }}
+# Справочник метрик Yandex Monitoring
 
-В этом разделе описаны метрики сервиса {{ si-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
+В этом разделе описаны метрики сервиса Serverless Integrations, поставляемые в [Monitoring](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
 
-## Метрики {{ sw-full-name }} {#workflows}
+## Метрики Yandex Workflows {#workflows}
 
-Общая метка для всех метрик {{ sw-name }}: `workflow` — идентификатор рабочего процесса.
+Общая метка для всех метрик Workflows: `workflow` — идентификатор рабочего процесса.
 
 Имя метрики<br>Тип, единицы измерения | Описание<br>Метки
 --- | ---
@@ -28,9 +28,9 @@
 `workflow_time_milliseconds_sum`<br>`DGAUGE`, миллисекунды | Суммарное время выполнения всех рабочих процессов.
 
 
-## Метрики {{ er-full-name }} {#eventrouter}
+## Метрики Yandex EventRouter {#eventrouter}
 
-Все метрики {{ er-name }} имеют общую метку `bus` — идентификатор [шины](concepts/eventrouter/bus.md).
+Все метрики EventRouter имеют общую метку `bus` — идентификатор [шины](concepts/eventrouter/bus.md).
 
 
 ### Метрики шин {#er-buses}

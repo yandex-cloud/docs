@@ -5,7 +5,7 @@ Creates an endpoint in the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-data-transfer }}/v1/endpoint
+POST https://datatransfer.api.cloud.yandex.net/v1/endpoint
 ```
 
 ## Body parameters {#yandex.cloud.datatransfer.v1.CreateEndpointRequest}

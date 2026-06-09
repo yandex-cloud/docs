@@ -1,8 +1,8 @@
-# Захват изменений {{ MY }} и поставка в {{ DS }}
+# Захват изменений MySQL® и поставка в YDS
 
-Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mmy-name }} и отправлять их в _кластер-приемник_ {{ yds-name }} с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
+Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for MySQL® и отправлять их в _кластер-приемник_ Data Streams с помощью технологии [Change Data Capture](../../data-transfer/concepts/cdc.md) (CDC).
 
-Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
+Чтобы настроить CDC с использованием сервиса Data Transfer:
 
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Активируйте трансфер](#activate-transfer).
@@ -13,14 +13,14 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
     * Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
     * Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервных копий.
 
-* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
+* Сервис Data Streams (см. [тарифы Data Streams](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
     * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
@@ -34,13 +34,13 @@
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-mysql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
-        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
-        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy-user`.
+    1. [Создайте кластер-источник Managed Service for MySQL®](../../managed-mysql/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-mysql/concepts/instance-types.md) с хостами в публичном доступе и следующими настройками:
+        * **Имя БД** — `db1`.
+        * **Имя пользователя** — `mmy-user`.
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
@@ -50,13 +50,13 @@
     1. Настройте [группы безопасности](../../managed-mysql/operations/connect/index.md#configure-security-groups) и убедитесь, что они допускают подключение к кластеру.
 
 
-    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
+    1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#create-db) с именем `ydb-example` любой подходящей конфигурации.
 
-    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `yds-sa` и ролью `yds.editor`. Трансфер будет использовать его для доступа к {{ yds-name }}.
+    1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) с именем `yds-sa` и ролью `yds.editor`. Трансфер будет использовать его для доступа к Data Streams.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -68,21 +68,21 @@
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
         * [группа безопасности](../../vpc/concepts/security-groups.md), необходимая для подключения к кластеру;
-        * кластер-источник {{ mmy-name }};
-        * база данных {{ ydb-name }};
-        * сервисный аккаунт, который будет использоваться для доступа к {{ yds-name }};
+        * кластер-источник Managed Service for MySQL®;
+        * база данных Managed Service for YDB;
+        * сервисный аккаунт, который будет использоваться для доступа к Data Streams;
         * эндпоинт для источника;
         * трансфер.
 
-    1. Укажите в файле `mysql-yds.tf` пароль пользователя {{ MY }}.
+    1. Укажите в файле `mysql-yds.tf` пароль пользователя MySQL®.
 
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -104,15 +104,15 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 {% endlist %}
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
+1. [Создайте поток данных Data Streams](../../data-streams/operations/aws-cli/create.md) с именем `mpg-stream`.
 
-1. [Подключитесь к кластеру {{ mmy-name }}](../../managed-mysql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
+1. [Подключитесь к кластеру Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md), создайте в базе данных `db1` таблицу `measurements` и заполните ее данными:
 
     ```sql
     CREATE TABLE measurements (
@@ -132,11 +132,11 @@
         ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/data-streams.md) типа `{{ yds-name }}` со следующими настройками:
+1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/target/data-streams.md) типа `Data Streams` со следующими настройками:
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — `ydb-example`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — `mpg-stream`.
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — `yds-sa`.
+    * **База данных** — `ydb-example`.
+    * **Поток** — `mpg-stream`.
+    * **Сервисный аккаунт** — `yds-sa`.
 
 1. Создайте эндпоинт-источник и трансфер:
 
@@ -144,30 +144,30 @@
 
     - Вручную {#manual}
 
-        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `{{ MY }}` и укажите в нем параметры подключения к кластеру:
+        1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/source/mysql.md) типа `MySQL®` и укажите в нем параметры подключения к кластеру:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника>` из выпадающего списка.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy-user`.
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — пароль пользователя `mmy-user`.
+            * **Тип подключения** — `Кластер Managed Service for MySQL`.
+            * **Кластер Managed Service for MySQL** — `<имя_кластера-источника>` из выпадающего списка.
+            * **База данных** — `db1`.
+            * **Пользователь** — `mmy-user`.
+            * **Пароль** — пароль пользователя `mmy-user`.
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
         1. Укажите в файле `mysql-yds.tf` переменные:
 
             * `yds_endpoint_id` — значение идентификатора эндпоинта для приемника;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -193,23 +193,23 @@
 
 ## Активируйте трансфер {#activate-transfer}
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус _{{ dt-status-repl }}_.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус _**Реплицируется**_.
 
-Проверьте, что в поток данных {{ yds-name }} перенеслись данные из источника:
+Проверьте, что в поток данных Data Streams перенеслись данные из источника:
 
   {% list tabs group=instructions %}
 
   - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
-      1. Выберите поток-приемник из списка и перейдите в раздел ![image](../../_assets/console-icons/bars.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+      1. Перейдите в сервис **Data Streams**.
+      1. Выберите поток-приемник из списка и перейдите в раздел ![image](../../_assets/console-icons/bars.svg) **Просмотр данных**.
       1. Убедитесь, что в сегменте `shard-000000` появились сообщения, содержащие строки таблицы из источника. Чтобы рассмотреть сообщения подробнее, нажмите на значок ![image](../../_assets/console-icons/eye.svg).
 
   - AWS CLI {#cli}
 
       1. [Установите AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
-      1. [Настройте окружение](../../data-streams/quickstart/index.md) для {{ yds-name }}.
+      1. [Настройте окружение](../../data-streams/quickstart/index.md) для Data Streams.
       1. Прочитайте данные из потока с помощью:
 
           * [AWS CLI](../../data-streams/operations/aws-cli/get-records.md).
@@ -227,7 +227,7 @@
         ('ad02l5ck6sdt********', '2022-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 19, 45);
     ```
 
-1. Убедитесь, что новая строка отобразилась в потоке данных {{ yds-name }}.
+1. Убедитесь, что новая строка отобразилась в потоке данных Data Streams.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -241,7 +241,7 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#delete).
-1. [Удалите поток данных {{ yds-name }}](../../data-streams/operations/manage-streams.md#delete-data-stream).
+1. [Удалите поток данных Data Streams](../../data-streams/operations/manage-streams.md#delete-data-stream).
 1. Остальные ресурсы удалите в зависимости от способа их создания:
 
    {% list tabs group=instructions %}
@@ -249,16 +249,16 @@
    - Вручную {#manual}
 
        1. [Удалите эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#delete).
-       1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
-       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Удалите кластер Managed Service for MySQL®](../../managed-mysql/operations/cluster-delete.md).
+       1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -272,6 +272,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
    {% endlist %}

@@ -5,7 +5,7 @@ Retrieves the list of budgets corresponding to the specified billing account.
 ## HTTP request
 
 ```
-GET https://billing.{{ api-host }}/billing/v1/budgets
+GET https://billing.api.cloud.yandex.net/billing/v1/budgets
 ```
 
 ## Query parameters {#yandex.cloud.billing.v1.ListBudgetsRequest}

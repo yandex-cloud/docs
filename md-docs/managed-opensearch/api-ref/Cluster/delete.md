@@ -5,7 +5,7 @@ Deletes the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}
+DELETE https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

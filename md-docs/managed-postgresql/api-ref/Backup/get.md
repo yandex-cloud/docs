@@ -7,7 +7,7 @@ To get the list of available PostgreSQL Backup resources, make a [List](list.md#
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-postgresql/v1/backups/{backupId}
+GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/backups/{backupId}
 ```
 
 ## Path parameters

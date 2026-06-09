@@ -1,18 +1,18 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ ydb-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
+В Audit Trails для Yandex Managed Service for YDB поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.ydb.<имя_события>
+yandex.cloud.audit.ydb.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 Имя события | Описание
 --- | ---
-`AlterTopic` | Изменение [топика]({{ ydb.docs }}/concepts/glossary#topic)
+`AlterTopic` | Изменение [топика](https://ydb.tech/docs/ru//concepts/glossary#topic)
 `BackupDatabase` | Создание [бэкапа](../glossary/backup.md) базы данных
 `CreateDatabase` | Создание базы данных
 `CreateTopic` | Создание топика

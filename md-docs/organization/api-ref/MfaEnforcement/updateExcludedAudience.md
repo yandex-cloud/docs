@@ -5,7 +5,7 @@ updates specified MFA enforcement's excluded audience
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:updateExcludedAudience
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/mfaEnforcements/{mfaEnforcementId}:updateExcludedAudience
 ```
 
 ## Path parameters

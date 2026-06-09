@@ -1,6 +1,6 @@
-# Остановка и запуск кластера {{ ytsaurus-name }}
+# Остановка и запуск кластера YTsaurus
 
-При необходимости вы можете остановить кластер {{ ytsaurus-name }} и запустить его заново. При остановке кластера все данные в нем сохранятся: они снова станут доступны, когда вы запустите кластер.
+При необходимости вы можете остановить кластер YTsaurus и запустить его заново. При остановке кластера все данные в нем сохранятся: они снова станут доступны, когда вы запустите кластер.
 
 ## Остановить кластер {#stop-cluster}
 
@@ -8,21 +8,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
-    1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
-    1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. Найдите нужный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Остановить**.
+    1. В открывшемся диалоге подтвердите остановку кластера и нажмите кнопку **Остановить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы остановить кластер {{ ytsaurus-name }}, выполните команду:
+    Чтобы остановить кластер YTsaurus, выполните команду:
 
     ```bash
-    {{ yc-ytsaurus }} cluster stop <имя_или_идентификатор_кластера>
+    yc managed-ytsaurus cluster stop <имя_или_идентификатор_кластера>
     ```
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -35,14 +35,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Stop](../api-ref/Cluster/stop.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Stop](../api-ref/Cluster/stop.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters/<идентификатор_кластера>:stop'
+            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/<идентификатор_кластера>:stop'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -65,7 +65,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Stop](../api-ref/grpc/Cluster/stop.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -77,7 +77,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-ytsaurus }}:{{ port-https }} \
+            ytsaurus.api.cloud.yandex.net:443 \
             yandex.cloud.ytsaurus.v1.ClusterService.Stop
         ```
 
@@ -95,21 +95,21 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
-    1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-    1. В открывшемся диалоге нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. Перейдите в сервис **Managed Service for YTsaurus**.
+    1. Найдите нужный остановленный кластер в списке, нажмите значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Запустить**.
+    1. В открывшемся диалоге нажмите кнопку **Запустить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы запустить кластер {{ ytsaurus-name }}, выполните команду:
+    Чтобы запустить кластер YTsaurus, выполните команду:
 
     ```bash
-    {{ yc-ytsaurus }} cluster start <имя_или_идентификатор_кластера>
+    yc managed-ytsaurus cluster start <имя_или_идентификатор_кластера>
     ```
 
     Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -122,14 +122,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Start](../api-ref/Cluster/start.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Start](../api-ref/Cluster/start.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request POST \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-ytsaurus }}/ytsaurus/v1/clusters/<идентификатор_кластера>:start'
+            --url 'https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/<идентификатор_кластера>:start'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -151,7 +151,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Start](../api-ref/grpc/Cluster/start.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -163,7 +163,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-ytsaurus }}:{{ port-https }} \
+            ytsaurus.api.cloud.yandex.net:443 \
             yandex.cloud.ytsaurus.v1.ClusterService.Start
         ```
 

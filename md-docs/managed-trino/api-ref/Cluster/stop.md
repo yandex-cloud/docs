@@ -5,7 +5,7 @@ Stops the specified Trino Cluster resource.
 ## HTTP request
 
 ```
-POST https://trino.{{ api-host }}/managed-trino/v1/clusters/{clusterId}:stop
+POST https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

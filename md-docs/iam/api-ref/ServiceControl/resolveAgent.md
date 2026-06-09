@@ -5,7 +5,7 @@ Resolve agent service account for the service in the specified resource containe
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/service/{serviceId}/microservice/{microserviceId}
+GET https://iam.api.cloud.yandex.net/iam/v1/service/{serviceId}/microservice/{microserviceId}
 ```
 
 ## Path parameters

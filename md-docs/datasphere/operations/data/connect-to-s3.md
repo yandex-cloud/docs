@@ -1,6 +1,6 @@
 # Подключение к S3 с помощью библиотеки boto3
 
-В этой инструкции описано, как подключиться к объектному хранилищу [S3](../../../glossary/s3.md) в {{ jlab }} Notebook с помощью библиотеки `boto3`. Для подключения к объектному хранилищу вы также можете использовать [коннектор S3](s3-connectors.md).
+В этой инструкции описано, как подключиться к объектному хранилищу [S3](../../../glossary/s3.md) в Jupyter Notebook с помощью библиотеки `boto3`. Для подключения к объектному хранилищу вы также можете использовать [коннектор S3](s3-connectors.md).
 
 {% note info %}
 
@@ -11,10 +11,10 @@
 Чтобы настроить подключение к S3 из кода ноутбука:
 
 1. [Создайте секреты](secrets.md#create) `token` с идентификатором и `key_value` с секретной частью [статического ключа доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта.
-1. Откройте проект {{ ml-platform-name }}:
+1. Откройте проект DataSphere:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
-   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
+   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 1. Импортируйте библиотеки:
 
@@ -35,12 +35,12 @@
     ```python
     session = boto3.session.Session()
 
-    ENDPOINT = "https://{{ s3-storage-host }}"
+    ENDPOINT = "https://storage.yandexcloud.net"
 
     session = boto3.Session(
         aws_access_key_id=(os.environ['token']),
         aws_secret_access_key=(os.environ['key_value']),
-        region_name="{{ region-id }}",
+        region_name="ru-central1",
     )
 
     s3 = session.client(

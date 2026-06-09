@@ -5,7 +5,7 @@ Lists operations for the specified placement group.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/placementGroups/{placementGroupId}/operations
+GET https://compute.api.cloud.yandex.net/compute/v1/placementGroups/{placementGroupId}/operations
 ```
 
 ## Path parameters

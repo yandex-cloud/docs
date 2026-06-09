@@ -1,6 +1,6 @@
 # Подключение с помощью IDE
 
-{{ yq-full-name }} позволяет выполнять подключения по протоколу Java DataBase Connectivity ([JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity)), поэтому для работы с подключениями в {{ yq-name }} подходят графические IDE, также поддерживающие этот протокол: например DBeaver, DataGrip или другие.
+Yandex Query позволяет выполнять подключения по протоколу Java DataBase Connectivity ([JDBC](https://ru.wikipedia.org/wiki/Java_Database_Connectivity)), поэтому для работы с подключениями в Query подходят графические IDE, также поддерживающие этот протокол: например DBeaver, DataGrip или другие.
 
 В этом документе описан процесс подключения с помощью DBeaver, но подключение в рамках любой системы, поддерживающей источники данных JDBC, выполняется аналогично.
 
@@ -10,7 +10,7 @@
 
 ### JDBC-драйвер {#jdbc}
 
-Для подключения к {{ yq-full-name }} из DBeaver понадобится JDBC-драйвер. Так как {{ yq-full-name }} построен с помощью [федеративных запросов]({{ ydb.docs }}/concepts/federated_query/) {{ ydb-short-name }}, то для подключения будет использоваться JDBC-драйвер {{ ydb-short-name }}.
+Для подключения к Yandex Query из DBeaver понадобится JDBC-драйвер. Так как Yandex Query построен с помощью [федеративных запросов](https://ydb.tech/docs/ru//concepts/federated_query/) YDB, то для подключения будет использоваться JDBC-драйвер YDB.
 
 Для скачивания драйвера выполните следующие шаги:
 1. Перейдите в [репозиторий ydb-jdbc-driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases).
@@ -31,7 +31,7 @@
 
     ![](../../_assets/query/dbeaver-driver-create-new-driver-set-name_ru.png)
 
-1. Перейдите в раздел **Библиотеки**, нажмите кнопку **Добавить файл**, укажите путь к скачанному ранее JDBC-драйверу {{ ydb-short-name }} и нажмите кнопку **OK**:
+1. Перейдите в раздел **Библиотеки**, нажмите кнопку **Добавить файл**, укажите путь к скачанному ранее JDBC-драйверу YDB и нажмите кнопку **OK**:
 
     ![](../../_assets/query/dbeaver-add-driver_ru.png)
 
@@ -46,7 +46,7 @@
 
     ![](../../_assets/query/dbeaver-driver-management-driver_ru.png)
 
-### Создание подключения к {{ yq-full-name }} {#dbeaver_yq_connection}
+### Создание подключения к Yandex Query {#dbeaver_yq_connection}
 
 Для создания подключения необходимо выполнить предварительные шаги:
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) `dbeaver` с ролью `editor`.
@@ -65,9 +65,9 @@
     ```
 
     Где:
-    - `folder_id` — идентификатор каталога, в котором будут выполняться запросы к {{ yq-full-name }}.
+    - `folder_id` — идентификатор каталога, в котором будут выполняться запросы к Yandex Query.
     - `path_to_auth_key_file.json` — путь к файлу с авторизованным ключом.
-    - `useQueryService` — режим подключения. {{ yq-full-name }} поддерживает только режим `useQueryService=false`.
+    - `useQueryService` — режим подключения. Yandex Query поддерживает только режим `useQueryService=false`.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 
@@ -79,7 +79,7 @@
 
 1. Нажмите кнопку **Готово** для сохранения соединения.
 
-### Работа с {{ yq-full-name }} {#dbeaver_yq_connection}
+### Работа с Yandex Query {#dbeaver_yq_connection}
 
 С помощью DBeaver можно просматривать список и структуру [привязок к данным](../concepts/glossary.md#binding):
 

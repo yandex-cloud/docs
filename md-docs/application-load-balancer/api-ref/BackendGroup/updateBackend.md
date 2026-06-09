@@ -5,7 +5,7 @@ Updates the specified backend.
 ## HTTP request
 
 ```
-POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:updateBackend
+POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}:updateBackend
 ```
 
 ## Path parameters

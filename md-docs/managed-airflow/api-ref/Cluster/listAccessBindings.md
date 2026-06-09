@@ -5,7 +5,7 @@ Retrieves a list of access bindings for the specified Apache Airflow cluster.
 ## HTTP request
 
 ```
-GET https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{resourceId}:listAccessBindings
+GET https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

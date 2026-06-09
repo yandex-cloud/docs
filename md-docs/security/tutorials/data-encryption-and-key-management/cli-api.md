@@ -1,10 +1,10 @@
-# Шифрование данных с помощью CLI и API {{ yandex-cloud }}
+# Шифрование данных с помощью CLI и API Yandex Cloud
 
-В сервисе {{ kms-full-name }} с помощью CLI и API вы можете шифровать и расшифровывать данные небольшого размера (до 32 КБ). Подробнее о возможных способах шифрования читайте в разделе [{#T}](../../../kms/tutorials/encrypt/index.md)
+В сервисе Yandex Key Management Service с помощью CLI и API вы можете шифровать и расшифровывать данные небольшого размера (до 32 КБ). Подробнее о возможных способах шифрования читайте в разделе [Какой способ шифрования выбрать?](../../../kms/tutorials/encrypt/index.md)
 
 ## Перед началом работы {#before-you-begin}
 
-Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
 ## Зашифруйте данные {#encryption}
 
@@ -76,6 +76,6 @@
 #### См. также {#see-also}
 
 * [Интерфейс командной строки CLI](../../../cli/index.md).
-* [Симметричное шифрование в {{ kms-full-name }}](../../../kms/concepts/symmetric-encryption.md).
-* [Асимметричное шифрование в {{ kms-full-name }}](../../../kms/concepts/asymmetric-encryption.md).
-* [Управление ключами в {{ kms-name }}](../../../kms/operations/index.md).
+* [Симметричное шифрование в Yandex Key Management Service](../../../kms/concepts/symmetric-encryption.md).
+* [Асимметричное шифрование в Yandex Key Management Service](../../../kms/concepts/asymmetric-encryption.md).
+* [Управление ключами в Key Management Service](../../../kms/operations/index.md).

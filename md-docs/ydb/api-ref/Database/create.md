@@ -5,7 +5,7 @@ Creates a new database.
 ## HTTP request
 
 ```
-POST https://ydb.{{ api-host }}/ydb/v1/databases
+POST https://ydb.api.cloud.yandex.net/ydb/v1/databases
 ```
 
 ## Body parameters {#yandex.cloud.ydb.v1.CreateDatabaseRequest}

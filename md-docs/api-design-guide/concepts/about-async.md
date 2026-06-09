@@ -7,6 +7,6 @@
 
 {% note info %}
 
-Сервисы искусственного интеллекта {{ ai-studio-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }} и {{ vision-full-name }} не поддерживают идемпотентность.
+Сервисы искусственного интеллекта Yandex AI Studio, Yandex SpeechKit, Yandex Translate и Yandex Vision OCR не поддерживают идемпотентность.
 
 {% endnote %}

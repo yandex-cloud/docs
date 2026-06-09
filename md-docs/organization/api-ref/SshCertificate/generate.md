@@ -6,7 +6,7 @@ Signing certificates for other users requires a special permission
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/sshCertificates:generate
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/sshCertificates:generate
 ```
 
 ## Body parameters {#yandex.cloud.organizationmanager.v1.GenerateSshCertificateRequest}

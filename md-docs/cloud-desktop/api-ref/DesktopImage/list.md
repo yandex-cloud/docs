@@ -5,7 +5,7 @@ Lists desktop images in the specified folder.
 ## HTTP request
 
 ```
-GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images
+GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images
 ```
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest}

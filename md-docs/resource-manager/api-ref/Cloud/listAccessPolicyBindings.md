@@ -5,7 +5,7 @@ Returns list of access policy bindings for the cloud.
 ## HTTP request
 
 ```
-GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{resourceId}:listAccessPolicyBindings
+GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{resourceId}:listAccessPolicyBindings
 ```
 
 ## Path parameters

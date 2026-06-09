@@ -1,1 +1,1 @@
-## Примеры конфигураций и сценариев {{ mch-name }} {#configuration-examples}
+## Примеры конфигураций и сценариев Managed Service for ClickHouse® {#configuration-examples}

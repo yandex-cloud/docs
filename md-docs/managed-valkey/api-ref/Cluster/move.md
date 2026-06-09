@@ -5,7 +5,7 @@ Moves a Redis cluster to the specified folder.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:move
+POST https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:move
 ```
 
 ## Path parameters

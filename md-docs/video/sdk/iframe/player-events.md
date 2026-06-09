@@ -1,6 +1,6 @@
 # События плеера
 
-С помощью механизма `postMessage` SDK для IFrame вы можете подписаться на события [видеоплеера](../../concepts/player.md) {{ video-player-name }}. События отправляются из iframe в родительское окно.
+С помощью механизма `postMessage` SDK для IFrame вы можете подписаться на события [видеоплеера](../../concepts/player.md) Cloud Video Player. События отправляются из iframe в родительское окно.
 
 ## Формат подписки на события {#event-format}
 
@@ -340,6 +340,6 @@ window.addEventListener('message', function(event) {
 
 #### См. также {#see-also}
 
-* [{#T}](index.md)
-* [{#T}](initialization.md)
-* [{#T}](player-methods.md)
+* [Начало работы с SDK видеоплеера для IFrame](index.md)
+* [Параметры инициализации плеера](initialization.md)
+* [Методы плеера](player-methods.md)

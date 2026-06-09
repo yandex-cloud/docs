@@ -4,7 +4,7 @@
 
 Чтобы создать подключение к [Экстрактору 1С](https://bi.denvic.ru/):
 
-1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).
+1. Перейдите на [страницу создания нового подключения](https://datalens.ru/connections/new).
 1. В разделе **Партнерские подключения** выберите подключение **Экстрактор 1С**.
 1. Получите токен для подключения: в 1С откройте раздел **Экстрактор 1С**, выберите **Ключ лицензирования** → **Получить токен** и скопируйте токен. Подробнее см. [инструкцию](https://docs.denvic.tech/extractor_docs/extractor_docs/ustanovka-2/licenzirovanie-i-prava/licenzirovanie-i-token-dlya-konnektora-1s-k-yande/nastroyka-extraktora-1s-dlya-licenzii-datalens/).
 1. В поле **Токен доступа** вставьте скопированный токен.
@@ -13,4 +13,4 @@
 1. Укажите название подключения и нажмите кнопку **Создать**.
 
 
-Подробнее о работе с «Экстрактором 1С» см. [пост в блоге {{ yandex-cloud }}](https://yandex.cloud/ru/blog/posts/2024/08/1c-to-datalens).
+Подробнее о работе с «Экстрактором 1С» см. [пост в блоге Yandex Cloud](https://yandex.cloud/ru/blog/posts/2024/08/1c-to-datalens).

@@ -1,6 +1,6 @@
 # Все сервисы и методы
 
-{{ objstorage-name }} HTTP API предоставляет следующие сервисы:
+Object Storage HTTP API предоставляет следующие сервисы:
 
 Сервис | Описание
 -------|---------
@@ -53,10 +53,10 @@
 
 Метод | Описание
 ----- | -----
-[PutObject](object/upload.md) | Загружает объект в {{ objstorage-name }}.
-[GetObject](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[PutObject](object/upload.md) | Загружает объект в Object Storage.
+[GetObject](object/get.md) | Выгружает объект из Object Storage.
 [patch](object/patch.md) | [Частично изменяет](../../concepts/object-patch.md) объект.
-[CopyObject](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
+[CopyObject](object/copy.md) | Копирует объект, хранящийся в Object Storage.
 [HeadObject](object/getobjectmeta.md) | Выгружает метаданные объекта.
 [DeleteObject](object/delete.md) | Удаляет объект.
 [DeleteObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
@@ -86,8 +86,8 @@
 
 Метод | Описание
 ----- | -----
-[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
-[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
+[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в Object Storage.
+[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из Object Storage.
 [DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS {#cors-service}
@@ -102,9 +102,9 @@
 
 Метод | Описание
 ----- | -----
-[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
-[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
-[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в Object Storage.
+[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из Object Storage.
+[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из Object Storage.
 
 ### Сервис ACL {#acl-service}
 
@@ -125,9 +125,9 @@
 
 ## См. также {#see-also}
 
-* [{#T}](../s3-api-quickstart.md)
-* [{#T}](../index.md)
-* [{#T}](../../tools/index.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../s3-api-quickstart.md)
+* [Как пользоваться S3 API](../index.md)
+* [Поддерживаемые инструменты](../../tools/index.md)
 * [Отладка запросов с помощью утилиты AWS CLI](../signing-requests.md#debugging)
 * [Пример отправки подписанного запроса с помощью утилиты curl](../../api-ref/authentication.md#s3-api-example)
 * [Пример кода для генерации подписи](../../concepts/pre-signed-urls.md#code-examples)

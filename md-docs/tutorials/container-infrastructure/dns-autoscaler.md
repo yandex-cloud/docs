@@ -1,11 +1,11 @@
-# Автоматическое масштабирование кластера {{ managed-k8s-full-name }} DNS по размеру кластера
+# Автоматическое масштабирование кластера Yandex Managed Service for Kubernetes DNS по размеру кластера
 
 # Автоматическое масштабирование DNS по размеру кластера
 
 
-В {{ managed-k8s-name }} поддерживается автоматическое масштабирование сервиса [DNS](../../glossary/dns.md). В [кластере {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
-* Количества [узлов](../../managed-kubernetes/concepts/index.md#node-group) в кластере {{ managed-k8s-name }}.
-* [Количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере {{ managed-k8s-name }}.
+В Managed Service for Kubernetes поддерживается автоматическое масштабирование сервиса [DNS](../../glossary/dns.md). В [кластере Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) работает приложение `kube-dns-autoscaler`, которое регулирует количество реплик CoreDNS в зависимости от:
+* Количества [узлов](../../managed-kubernetes/concepts/index.md#node-group) в кластере Managed Service for Kubernetes.
+* [Количества ядер (vCPU)](../../compute/concepts/performance-levels.md) в кластере Managed Service for Kubernetes.
 
 Количество реплик рассчитывается [с помощью формул](#parameters).
 
@@ -23,20 +23,20 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за каждую ВМ (узлы кластера и ВМ для управления кластером без публичного доступа): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за публичный IP-адрес для узлов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за каждую ВМ (узлы кластера и ВМ для управления кластером без публичного доступа): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за публичный IP-адрес для узлов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. Создайте ресурсы {{ managed-k8s-name }}:
+1. Создайте ресурсы Managed Service for Kubernetes:
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
-     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+     1. [Создайте группы безопасности](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -44,26 +44,26 @@
         
         {% endnote %}
 
-     1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите группы безопасности, подготовленные ранее.
+     1. [Создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes. При создании укажите группы безопасности, подготовленные ранее.
         
-        Если вы планируете работать с кластером в пределах сети {{ yandex-cloud }}, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
+        Если вы планируете работать с кластером в пределах сети Yandex Cloud, выделять кластеру публичный IP-адрес не нужно. Для подключений извне предоставьте кластеру публичный адрес.
 
      1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md). Выделите ей публичный адрес, чтобы предоставить доступ в интернет и возможность скачивать Docker-образы и компоненты. Укажите группы безопасности, подготовленные ранее.
 
-   - {{ TF }} {#tf}
+   - Terraform {#tf}
 
-     1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+     1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
      1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
      1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
      1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-     1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf). В файле описаны:
+     1. Скачайте в ту же рабочую директорию файл конфигурации кластера Managed Service for Kubernetes [k8s-cluster.tf](https://github.com/yandex-cloud-examples/yc-mk8s-cluster-infrastructure/blob/main/k8s-cluster.tf). В файле описаны:
         * [Сеть](../../vpc/concepts/network.md#network).
         * [Подсеть](../../vpc/concepts/network.md#subnet).
-        * Кластер {{ managed-k8s-name }}.
-        * Группа узлов {{ managed-k8s-name }}.
-        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов {{ managed-k8s-name }}.
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
+        * Кластер Managed Service for Kubernetes.
+        * Группа узлов Managed Service for Kubernetes.
+        * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для создания кластера и группы узлов Managed Service for Kubernetes.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](../../managed-kubernetes/operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -72,13 +72,13 @@
             {% endnote %}
 
      1. Укажите в файле конфигурации [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-     1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+     1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
      1. Создайте необходимую инфраструктуру:
 
         1. Выполните команду для просмотра планируемых изменений:
@@ -99,19 +99,19 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
    {% endlist %}
 
    {% note warning %}
    
-   Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+   Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
    
    {% endnote %}
 
-1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
 
-   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ {{ yandex-cloud }}, находящейся в одной сети с кластером.
+   Если для кластера не предоставлен публичный адрес и `kubectl` настроен через внутренний адрес кластера, выполняйте команды `kubectl` на ВМ Yandex Cloud, находящейся в одной сети с кластером.
 
 ## Настройте kube-dns-autoscaler {#configure-autoscaler}
 
@@ -133,7 +133,7 @@ kube-dns-autoscaler  1/1    1           1          52m
 
 ### Определите параметры масштабирования {#parameters}
 
-[Под](../../managed-kubernetes/concepts/index.md#pod) `kube-dns-autoscaler` периодически запрашивает у сервера {{ k8s }} данные о количестве узлов и ядер в кластере {{ managed-k8s-name }}. На основании этих данных выполняется расчет количества реплик CoreDNS.
+[Под](../../managed-kubernetes/concepts/index.md#pod) `kube-dns-autoscaler` периодически запрашивает у сервера Kubernetes данные о количестве узлов и ядер в кластере Managed Service for Kubernetes. На основании этих данных выполняется расчет количества реплик CoreDNS.
 
 Возможны два вида расчета:
 * Linear (линейный режим).
@@ -148,16 +148,16 @@ replicas = max( ceil( cores * 1/coresPerReplica ) , ceil( nodes * 1/nodesPerRepl
 ```
 
 Где:
-* `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера {{ managed-k8s-name }}.
-* `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера {{ managed-k8s-name }}.
-* `cores` — фактическое количество ядер (vCPU) в кластере {{ managed-k8s-name }}.
-* `nodes` — фактическое количество узлов (Node) в кластере {{ managed-k8s-name }}.
+* `coresPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждое ядро (vCPU) кластера Managed Service for Kubernetes.
+* `nodesPerReplica` — параметр конфигурации, количество реплик CoreDNS на каждый узел (Node) кластера Managed Service for Kubernetes.
+* `cores` — фактическое количество ядер (vCPU) в кластере Managed Service for Kubernetes.
+* `nodes` — фактическое количество узлов (Node) в кластере Managed Service for Kubernetes.
 * `ceil` — функция округления дроби до целого.
 * `max` — функция определения максимума из двух значений.
 
-Дополнительный параметр `preventSinglePointFailure` актуален, если в кластере {{ managed-k8s-name }} больше одного узла. Когда параметр установлен в `true`, минимальное количество реплик DNS равно двум.
+Дополнительный параметр `preventSinglePointFailure` актуален, если в кластере Managed Service for Kubernetes больше одного узла. Когда параметр установлен в `true`, минимальное количество реплик DNS равно двум.
 
-Также можно определить параметры конфигурации `min` и `max`, которые задают минимальное и максимальное количество реплик CoreDNS в кластере {{ managed-k8s-name }}:
+Также можно определить параметры конфигурации `min` и `max`, которые задают минимальное и максимальное количество реплик CoreDNS в кластере Managed Service for Kubernetes:
 
 ```text
 replicas = min(replicas, max)
@@ -170,8 +170,8 @@ replicas = max(replicas, min)
 
 1. Проверьте текущие параметры.
 
-   В этом примере создана группа узлов {{ managed-k8s-name }} `node-group-1` с параметрами:
-   * Количество узлов {{ managed-k8s-name }} — `3`.
+   В этом примере создана группа узлов Managed Service for Kubernetes `node-group-1` с параметрами:
+   * Количество узлов Managed Service for Kubernetes — `3`.
    * Количество ядер (vCPU) — `12`.
 
    По умолчанию установлен режим `linear` и следующие параметры масштабирования:
@@ -233,15 +233,15 @@ replicas = max(replicas, min)
 
 ## Проверьте масштабирование {#test-autoscaler}
 
-### Измените размер кластера {{ managed-k8s-name }} {#resize-cluster}
+### Измените размер кластера Managed Service for Kubernetes {#resize-cluster}
 
-Создайте вторую группу узлов {{ managed-k8s-name }} с помощью команды:
+Создайте вторую группу узлов Managed Service for Kubernetes с помощью команды:
 
 ```bash
 yc managed-kubernetes node-group create \
   --name node-group-2 \
   --cluster-name dns-autoscaler \
-  --location zone={{ region-id }}-a \
+  --location zone=ru-central1-a \
   --public-ip \
   --fixed-size 2 \
   --cores 4 \
@@ -255,7 +255,7 @@ done (2m43s)
 ...
 ```
 
-Теперь в кластере {{ managed-k8s-name }} 5 узлов с 20 ядрами. Рассчитайте количество реплик:
+Теперь в кластере Managed Service for Kubernetes 5 узлов с 20 ядрами. Рассчитайте количество реплик:
 
 ```text
 replicas = max( ceil( 20 * 1/4 ), ceil( 5 * 1/2 ) ) = 5
@@ -281,11 +281,11 @@ coredns-7c********-r2lss  1/1    Running  0         49m
 coredns-7c********-s5jgz  1/1    Running  0         57m
 ```
 
-### Настройте уменьшение количества узлов {{ managed-k8s-name }} {#reduce-nodes}
+### Настройте уменьшение количества узлов Managed Service for Kubernetes {#reduce-nodes}
 
-По умолчанию {{ k8s-ca }} не уменьшает количество узлов в группе узлов {{ managed-k8s-name }} с автоматическим масштабированием, если на этих узлах присутствуют поды из пространства имен `kube-system` под управлением контроллеров репликаций приложений [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), например, поды CoreDNS. В этом случае количество узлов {{ managed-k8s-name }} в группе не может стать меньше числа подов CoreDNS.
+По умолчанию Cluster Autoscaler не уменьшает количество узлов в группе узлов Managed Service for Kubernetes с автоматическим масштабированием, если на этих узлах присутствуют поды из пространства имен `kube-system` под управлением контроллеров репликаций приложений [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/), [ReplicaSet](https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/) или [StatefulSet](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/), например, поды CoreDNS. В этом случае количество узлов Managed Service for Kubernetes в группе не может стать меньше числа подов CoreDNS.
 
-Чтобы разрешить уменьшение числа узлов {{ managed-k8s-name }}, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
+Чтобы разрешить уменьшение числа узлов Managed Service for Kubernetes, сконфигурируйте для них объект [PodDisruptionBudget](https://kubernetes.io/docs/tasks/run-application/configure-pdb/), в котором есть возможность останавливать до двух подов CoreDNS одновременно:
 
 ```bash
 kubectl create poddisruptionbudget <имя_pdb> \
@@ -344,15 +344,15 @@ kube-dns-autoscaler  0/0    0           0          3h53m
 
 - Вручную {#manual}
 
-  [Удалите кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
+  [Удалите кластер Managed Service for Kubernetes](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -366,6 +366,6 @@ kube-dns-autoscaler  0/0    0           0          3h53m
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

@@ -5,7 +5,7 @@ Retrieves the list of snapshots created by the specified snapshot schedule.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}/snapshots
+GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}/snapshots
 ```
 
 ## Path parameters

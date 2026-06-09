@@ -14,11 +14,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
-  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_schema-registry }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.schema-registry.SchemaRegistry.Namespaces.label_create-namespace-action_kTxW4 }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** задайте уникальное имя пространства имен.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать подключение.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+  1. Hа панели слева выберите ![image](../../_assets/console-icons/layout-cells.svg) **Schema Registry**.
+  1. Нажмите кнопку **Создать пространство имён**.
+  1. В поле **Имя** задайте уникальное имя пространства имен.
   1. (Опционально) Добавьте описание пространства имен.
   1. В блоке **Параметры совместимости**:
       1. Задайте **Уровень проверки совместимости**
@@ -36,6 +36,6 @@
       1. Выберите политику проверки совместимости для Protobuf-схем:
           * Confluent — основывается на стандартах [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/fundamentals/schema-evolution.html#compatibility-types).
           * buf — основывается на стандартах [Buf](https://buf-build-git-psachs-docs-and-search-bufbuild.vercel.app/docs/build/usage/).
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
 
 {% endlist %}

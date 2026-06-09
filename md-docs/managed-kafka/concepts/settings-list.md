@@ -1,32 +1,32 @@
 # Настройки Apache Kafka®
 
-Для кластера {{ mkf-name }} можно задать настройки, которые относятся к {{ KF }}. Часть настроек задается [на уровне кластера](#cluster-settings), часть — [на уровне топиков](#topic-settings).
+Для кластера Managed Service for Apache Kafka® можно задать настройки, которые относятся к Apache Kafka®. Часть настроек задается [на уровне кластера](#cluster-settings), часть — [на уровне топиков](#topic-settings).
 
-Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md) или {{ TF }}. Метка {{ tag-all }} указывает, что поддерживаются все перечисленные интерфейсы.
+Метки рядом с названием настройки позволяют определить, с помощью какого интерфейса задается значение этой настройки: консоль управления, CLI, [API](../../glossary/rest-api.md) или Terraform. Метка <code><b><small>Все интерфейсы</small></b></code> указывает, что поддерживаются все перечисленные интерфейсы.
 
 В зависимости от выбранного интерфейса одна и та же настройка будет представлена по-разному. Например, **Compression type** в консоли управления соответствует:
 
 * `--compression-type` в CLI;
-* `compression_type` в gRPC API и {{ TF }};
+* `compression_type` в gRPC API и Terraform;
 * `compressionType` в REST API.
 
 ## Настройки уровня кластера {#cluster-settings}
 
 Доступны следующие настройки:
 
-* **Auto create topics enable** {{ tag-all }}{#settings-auto-create-topics}
+* **Auto create topics enable** <code><b><small>Все интерфейсы</small></b></code>{#settings-auto-create-topics}
 
     Управляет автоматическим созданием топиков.
 
     По умолчанию автоматическое создание топиков выключено (`false`).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_auto.create.topics.enable).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_auto.create.topics.enable).
 
-* **Compression type** {{ tag-all }} {#settings-compression-type}    
+* **Compression type** <code><b><small>Все интерфейсы</small></b></code> {#settings-compression-type}    
 
     Кодек, используемый для сжатия сообщений:
 
-    | Консоль управления, {{ TF }} и API | CLI            | Описание                                                                                         |
+    | Консоль управления, Terraform и API | CLI            | Описание                                                                                         |
     | ---------------------------------- | -------------- | ------------------------------------------------------------------------------------------------ |
     | `COMPRESSION_TYPE_UNCOMPRESSED`    | `uncompressed` | Сжатие выключено                                                                                 |
     | `COMPRESSION_TYPE_ZSTD`            | `zstd`         | Кодек [zstd](https://facebook.github.io/zstd/)                                                   |
@@ -37,11 +37,11 @@
 
     По умолчанию кодек для сжатия устанавливается производителем (`COMPRESSION_TYPE_PRODUCER`).
 
-    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-compression-type). В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-compression-type). В консоли управления этой настройке соответствует **Тип сжатия**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_compression.type).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_compression.type).
 
-* **Default replication factor** {{ tag-all }} {#settings-default-replication-factor}
+* **Default replication factor** <code><b><small>Все интерфейсы</small></b></code> {#settings-default-replication-factor}
 
     Количество [копий данных](brokers.md) для топика в кластере.
 
@@ -51,19 +51,19 @@
 
     См. также описание настройки уровня топика [Replication factor](#settings-topic-replication-factor).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_default.replication.factor).
 
-* **Log flush interval messages** {{ tag-all }} {#settings-log-flush-interval-messages}
+* **Log flush interval messages** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-flush-interval-messages}
 
     Количество сообщений топика, которое может накопиться в памяти прежде, чем эти сообщения будут записаны на диск. Например, если параметр равен `1`, запись на диск будет происходить после получения каждого сообщения, а если `5`, то сообщения будут записываться на диск группами по пять.
 
     Минимальное значение — `1`, максимальное значение и значение по умолчанию — `9223372036854775807`.
 
-    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-flush-messages). В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-flush-messages). В консоли управления этой настройке соответствует **Максимальное число сообщений в памяти**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.messages).
 
-* **Log flush interval ms** {{ tag-all }} {#settings-log-flush-interval-ms}
+* **Log flush interval ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-flush-interval-ms}
 
     Максимальное время в миллисекундах, в течение которого сообщение может храниться в памяти перед принудительным сбросом на диск. Если значение не задано, то используется значение настройки [Log flush scheduler interval ms](#settings-log-flush-scheduler-interval-ms).
 
@@ -71,17 +71,17 @@
 
     Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-flush-ms).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.interval.ms).
 
-* **Log flush scheduler interval ms** {{ tag-all }} {#settings-log-flush-scheduler-interval-ms}
+* **Log flush scheduler interval ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-flush-scheduler-interval-ms}
 
     Период времени (в миллисекундах), по истечении которого проверяется наличие логов, которые нужно сбросить на диск. Эта проверка выполняется процессом, ответственным за сброс логов.
 
     Максимальное значение и значение по умолчанию — `9223372036854775807`.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.flush.scheduler.interval.ms).
 
-* **Log preallocate** {{ tag-all }} {#settings-log-preallocate}
+* **Log preallocate** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-preallocate}
 
     Определяет, будет ли заранее выделяться место под файлы сегментов лога.
 
@@ -89,41 +89,41 @@
 
     Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-preallocate).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.preallocate).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.preallocate).
 
-* **Log retention bytes** {{ tag-all }} {#settings-log-retention-bytes}    
+* **Log retention bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-retention-bytes}    
 
-    Максимальный размер (в байтах), до которого может вырасти раздел. Когда раздел достигнет заданного размера, {{ KF }} начнет удалять старые сегменты лога. Настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`.
+    Максимальный размер (в байтах), до которого может вырасти раздел. Когда раздел достигнет заданного размера, Apache Kafka® начнет удалять старые сегменты лога. Настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`.
 
     Минимальное значение и значение по умолчанию — `-1` (размер лога не ограничивается), максимальное значение — `9223372036854775807`.
 
     Используйте эту настройку, если необходимо контролировать размер лога из-за ограниченного дискового пространства.
 
-    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-retention-bytes). В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-retention-bytes). В консоли управления этой настройке соответствует **Максимальный размер раздела, байт**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.bytes).
 
     См. также настройку [Log retention ms](#settings-log-retention-ms).
 
-* **Log retention hours** {{ tag-all }} {#settings-log-retention-hours}
+* **Log retention hours** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-retention-hours}
 
-    Время (в часах), в течение которого {{ KF }} будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
+    Время (в часах), в течение которого Apache Kafka® будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
 
     Значение по умолчанию — `168`.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.hours).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.hours).
 
-* **Log retention minutes** {{ tag-all }} {#settings-log-retention-minutes}
+* **Log retention minutes** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-retention-minutes}
 
-    Время (в минутах), в течение которого {{ KF }} будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
+    Время (в минутах), в течение которого Apache Kafka® будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
 
     Максимальное значение — `2147483647`. Если значение не задано, то используется настройка [Log retention hours](#settings-log-retention-hours).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.minutes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.minutes).
 
-* **Log retention ms** {{ tag-all }} {#settings-log-retention-ms}    
+* **Log retention ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-retention-ms}    
 
-    Время (в миллисекундах), в течение которого {{ KF }} будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
+    Время (в миллисекундах), в течение которого Apache Kafka® будет хранить файл сегмента лога. Эта настройка применяется, если действует [политика очистки лога](#settings-topic-cleanup-policy) `Delete`: по истечении заданного времени файл сегмента будет удален.
 
     Минимальное значение — `-1` (логи хранятся без ограничений по времени), максимальное значение — `9223372036854775807`. Если значение не задано, используется настройка [Log retention minutes](#settings-log-retention-minutes).
 
@@ -133,13 +133,13 @@
 
     {% endnote %}
 
-    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-log-retention-ms). В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
+    Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-log-retention-ms). В консоли управления этой настройке соответствует **Время жизни сегмента лога, мс**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.retention.ms).
 
     См. также настройку [Log retention bytes](#settings-log-retention-bytes).
 
-* **Log segment bytes** {{ tag-all }} {#settings-log-segment-bytes}
+* **Log segment bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-log-segment-bytes}
 
     Размер сегмента для файлов лога (в байтах).
 
@@ -149,9 +149,9 @@
 
     Это глобальная настройка, которая задается на уровне кластера. Ее можно переопределить на [уровне топика](#settings-topic-segment-bytes).
 
-    Полное описание настройки приведено в разделе [{#T}](storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.segment.bytes).
+    Полное описание настройки приведено в разделе [Максимальный размер сегмента логов](storage.md#maximum-log-segment-size) и в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_log.segment.bytes).
 
-* **Message max bytes** {{ tag-all }} {#settings-message-max-bytes}
+* **Message max bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-message-max-bytes}
 
     Максимальный размер сообщения от производителя (в байтах).
 
@@ -160,9 +160,9 @@
 
     Это глобальная настройка, которая задается на уровне кластера.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_message.max.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_message.max.bytes).
 
-* **Num partitions** {{ tag-all }} {#settings-num-partitions}
+* **Num partitions** <code><b><small>Все интерфейсы</small></b></code> {#settings-num-partitions}
 
     Количество разделов лога на топик в кластере.
 
@@ -172,9 +172,9 @@
 
     См. также описание настройки уровня топика [Num partitions](#settings-topic-num-partitions).
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
-* **Offsets retention minutes** {{ tag-all }} {#settings-offsets-retention-minutes}
+* **Offsets retention minutes** <code><b><small>Все интерфейсы</small></b></code> {#settings-offsets-retention-minutes}
 
     Время хранения смещений для неактивных [групп потребителей](producers-consumers.md#consumer-groups) (в минутах).
 
@@ -182,9 +182,9 @@
 
     Это глобальная настройка, которая задается на уровне кластера.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_offsets.retention.minutes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_offsets.retention.minutes).
 
-* **Replica fetch max bytes** {{ tag-all }} {#settings-replica-fetch-max-bytes}
+* **Replica fetch max bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-replica-fetch-max-bytes}
 
     Размер буфера межброкерных сообщений (в байтах).
 
@@ -193,40 +193,40 @@
 
     Это глобальная настройка, которая задается на уровне кластера.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_replica.fetch.max.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_replica.fetch.max.bytes).
 
-* **Sasl enabled mechanisms** {{ tag-all }} {#settings-sasl-enabled-mechanisms}
+* **Sasl enabled mechanisms** <code><b><small>Все интерфейсы</small></b></code> {#settings-sasl-enabled-mechanisms}
 
     Механизмы шифрования, которые можно использовать при подключении к кластеру.
 
     Можно выбрать одно или несколько значений:
 
-    | Консоль управления, {{ TF }} и API | CLI             |
+    | Консоль управления, Terraform и API | CLI             |
     | ---------------------------------- | --------------- |
     | `SASL_MECHANISM_SCRAM_SHA_256`     | `SCRAM-SHA-256` |
     | `SASL_MECHANISM_SCRAM_SHA_512`     | `SCRAM-SHA-512` |
 
     Если настройка не задана пользователем, используется только механизм `SCRAM-SHA-512`.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_sasl.enabled.mechanisms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_sasl.enabled.mechanisms).
 
-* **Socket receive buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-receive-buffer-bytes}
+* **Socket receive buffer bytes** <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>{#settings-socket-receive-buffer-bytes}
 
     Размер буфера для сокета приема (в байтах).
 
     Минимальное значение и значение по умолчанию — `-1` (используются настройки операционной системы), максимальное значение — `2147483647`.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.receive.buffer.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.receive.buffer.bytes).
 
-* **Socket send buffer bytes** {{ tag-con }} {{ tag-tf }} {{ tag-api }}{#settings-socket-send-buffer-bytes}
+* **Socket send buffer bytes** <code><b><small>Консоль управления</small></b></code> <code><b><small>Terraform</small></b></code> <code><b><small>API</small></b></code>{#settings-socket-send-buffer-bytes}
 
     Размер буфера для сокета отправки (в байтах).
 
     Минимальное значение и значение по умолчанию — `-1` (используются настройки операционной системы), максимальное значение — `2147483647`.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_socket.send.buffer.bytes).
 
-* **Ssl cipher suites** {{ tag-all }} {#settings-ssl-cipher-suites}
+* **Ssl cipher suites** <code><b><small>Все интерфейсы</small></b></code> {#settings-ssl-cipher-suites}
 
     Список алгоритмов шифрования кластера.
 
@@ -234,85 +234,85 @@
 
     Это глобальная настройка, которая задается на уровне кластера.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_ssl.cipher.suites).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_ssl.cipher.suites).
 
 ## Настройки отдельных топиков {#topic-settings}
 
 Доступны следующие настройки:
 
-* **Cleanup policy** {{ tag-all }} {#settings-topic-cleanup-policy}
+* **Cleanup policy** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-cleanup-policy}
 
     Политика хранения старых сообщений лога:
 
-    * `Delete` (`CLEANUP_POLICY_DELETE` для {{ TF }} и API) — удалять сегменты лога либо по истечении срока их хранения, либо при достижении предельного размера лога;
-    * `Compact` (`CLEANUP_POLICY_COMPACT` для {{ TF }} и API) — сжимать сообщения в логе;
-    * `CompactAndDelete` (`CLEANUP_POLICY_COMPACT_AND_DELETE` для {{ TF }} и API) — использовать как сжатие сообщений, так и удаление сегментов лога.
+    * `Delete` (`CLEANUP_POLICY_DELETE` для Terraform и API) — удалять сегменты лога либо по истечении срока их хранения, либо при достижении предельного размера лога;
+    * `Compact` (`CLEANUP_POLICY_COMPACT` для Terraform и API) — сжимать сообщения в логе;
+    * `CompactAndDelete` (`CLEANUP_POLICY_COMPACT_AND_DELETE` для Terraform и API) — использовать как сжатие сообщений, так и удаление сегментов лога.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_cleanup.policy). В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-cleanup-policy }}**.
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_cleanup.policy). В консоли управления этой настройке соответствует **Политика очистки лога**.
 
-* **Compression type** {{ tag-all }} {#settings-topic-compression-type}
+* **Compression type** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-compression-type}
 
     Кодек, используемый для сжатия сообщений.
 
     Подробнее в настройке уровня кластера [Compression type](#settings-compression-type).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-compression-type }}**.
+    В консоли управления этой настройке соответствует **Тип сжатия**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_compression.type).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_compression.type).
 
-* **Delete delay, ms** {{ tag-all }} {#settings-topic-file-delete-delay}
+* **Delete delay, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-file-delete-delay}
 
     Время ожидания перед удалением файла из файловой системы.
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-delete-delay }}**.
+    В консоли управления этой настройке соответствует **Задержка удаления, мс**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_file.delete.delay.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_file.delete.delay.ms).
 
-* **Delete retention** {{ tag-all }} {#settings-delete-retention}
+* **Delete retention** <code><b><small>Все интерфейсы</small></b></code> {#settings-delete-retention}
 
     Время (в миллисекундах), в течение которого нужно хранить tombstone-маркеры удаления для топиков со сжатым логом. Эта настройка применяется только в том случае, если [политика очистки лога](#settings-topic-cleanup-policy) установлена в режим `Compact` или `CompactAndDelete`.
 
-    Полное описание настройки см. [в документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
+    Полное описание настройки см. [в документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_delete.retention.ms).
 
-* **Flush messages** {{ tag-all }} {#settings-topic-flush-messages}
+* **Flush messages** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-flush-messages}
 
     Количество сообщений топика, которое может накопиться в памяти прежде, чем эти сообщения будут записаны на диск.
 
     Подробнее в настройке уровня кластера [Log flush interval messages](#settings-log-flush-interval-messages).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-flush-messages }}**.
+    В консоли управления этой настройке соответствует **Максимальное число сообщений в памяти**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.messages).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.messages).
 
-* **Flush, ms** {{ tag-all }} {#settings-topic-flush-ms}
+* **Flush, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-flush-ms}
 
     Максимальное время в миллисекундах, в течение которого сообщение может храниться в памяти перед принудительным сбросом на диск.    
 
     Подробнее в настройке уровня кластера [Log flush interval ms](#settings-log-flush-interval-ms).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-flush-ms }}**.
+    В консоли управления этой настройке соответствует **Время хранения сообщения в памяти, мс**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_flush.ms).
 
-* **Message max bytes** {{ tag-all }} {#settings-topic-message-max-bytes}    
+* **Message max bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-message-max-bytes}    
 
     Максимальный размер сообщения от производителя в байтах.
 
     Минимальное значение — `0` (размер не ограничен), значение по умолчанию — `1048588`. Значение настройки не должно превышать значение **Replica fetch max bytes** более, чем на 12 байт.
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_max-message-bytes }}**.
+    В консоли управления этой настройке соответствует **Максимальный размер группы сообщений**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_max.message.bytes).
 
-* **Min compaction lag, ms** {{ tag-all }} {#settings-topic-max-compaction-lag-ms}    
+* **Min compaction lag, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-max-compaction-lag-ms}    
 
     Минимальное время, в течение которого сообщение в логе будет оставаться несжатым.
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-min-compaction-lag }}**.
+    В консоли управления этой настройке соответствует **Минимальная задержка сжатия, мс**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.compaction.lag.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.compaction.lag.ms).
 
-* **Minimum number of in-sync replicas** {{ tag-all }} {#settings-topic-min-insync-replicas}
+* **Minimum number of in-sync replicas** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-min-insync-replicas}
 
     Минимальное количество реплик, от которых необходимо дождаться подтверждения записи, чтобы запись сообщения в топик считалась успешной. Используйте эту настройку, если производитель (Producer) ожидает подтверждения успешной записи от всех хостов-брокеров кластера слишком долго.
 
@@ -321,11 +321,11 @@
     * для кластеров с одним хостом-брокером — `1`;
     * для кластеров с двумя и более хостами-брокерами — `2`.
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**.
+    В консоли управления этой настройке соответствует **Минимальное число синхронных реплик**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.insync.replicas).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_min.insync.replicas).
 
-* **Num partitions** {{ tag-all }} {#settings-topic-num-partitions}    
+* **Num partitions** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-num-partitions}    
 
     Количество разделов лога на топик.
 
@@ -333,21 +333,21 @@
 
     Подробнее в настройке уровня кластера [Num partitions](#settings-num-partitions).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_partitions }}**.
+    В консоли управления этой настройке соответствует **Количество разделов**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/broker-configs/#brokerconfigs_num.partitions).
 
-* **Pre-allocation of the segment file** {{ tag-all }} {#settings-topic-preallocate}    
+* **Pre-allocation of the segment file** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-preallocate}    
 
     Определяет, будет ли заранее выделяться место под файлы сегментов лога. По умолчанию место под файлы сегментов лога выделяется по мере их заполнения (`false`).
 
     Подробнее в настройке уровня кластера [Log preallocate](#settings-log-preallocate).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-preallocate }}**.
+    В консоли управления этой настройке соответствует **Предварительное выделение файла сегмента**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_preallocate).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_preallocate).
 
-* **Replication factor** {{ tag-all }} {#settings-topic-replication-factor}
+* **Replication factor** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-replication-factor}
 
     Количество [копий данных](brokers.md) для топика.
 
@@ -355,31 +355,31 @@
 
     Подробнее в настройке уровня кластера [Default replication factor](#settings-default-replication-factor).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_replication-factor }}**.
+    В консоли управления этой настройке соответствует **Фактор репликации**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/kafka-streams-configs/#streamsconfigs_replication.factor).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/kafka-streams-configs/#streamsconfigs_replication.factor).
 
-* **Retention, bytes** {{ tag-all }} {#settings-topic-retention-bytes}
+* **Retention, bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-retention-bytes}
 
     Максимальный размер (в байтах), до которого может вырасти раздел.
 
     Подробнее в настройке уровня кластера [Log retention bytes](#settings-log-retention-bytes).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-bytes }}**.
+    В консоли управления этой настройке соответствует **Максимальный размер раздела, байт**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.bytes).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.bytes).
 
-* **Retention, ms** {{ tag-all }} {#settings-topic-log-retention-ms}
+* **Retention, ms** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-log-retention-ms}
 
-    Время (в миллисекундах), в течение которого {{ KF }} будет хранить файл сегмента лога. 
+    Время (в миллисекундах), в течение которого Apache Kafka® будет хранить файл сегмента лога. 
 
     Подробнее в настройке уровня кластера [Log retention ms](#settings-log-retention-ms).
 
-    В консоли управления этой настройке соответствует **{{ ui-key.yacloud.kafka.label_topic-retention-ms }}**.
+    В консоли управления этой настройке соответствует **Время жизни сегмента лога, мс**.
 
-    Полное описание настройки приведено в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.ms).
+    Полное описание настройки приведено в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_retention.ms).
 
-* **Segment bytes** {{ tag-all }} {#settings-topic-segment-bytes}
+* **Segment bytes** <code><b><small>Все интерфейсы</small></b></code> {#settings-topic-segment-bytes}
 
     Размер сегмента для файлов лога (в байтах).
 
@@ -389,4 +389,4 @@
 
     Подробнее в настройке уровня кластера [Log segment bytes](#settings-log-segment-bytes).
 
-    Полное описание настройки приведено в разделе [{#T}](storage.md#maximum-log-segment-size) и в [документации {{ KF }}](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).
+    Полное описание настройки приведено в разделе [Максимальный размер сегмента логов](storage.md#maximum-log-segment-size) и в [документации Apache Kafka®](https://kafka.apache.org/42/configuration/topic-configs/#topicconfigs_segment.bytes).

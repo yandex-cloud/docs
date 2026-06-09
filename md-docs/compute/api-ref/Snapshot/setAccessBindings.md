@@ -5,7 +5,7 @@ Sets access bindings for the snapshot.
 ## HTTP request
 
 ```
-POST https://compute.{{ api-host }}/compute/v1/snapshots/{resourceId}:setAccessBindings
+POST https://compute.api.cloud.yandex.net/compute/v1/snapshots/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

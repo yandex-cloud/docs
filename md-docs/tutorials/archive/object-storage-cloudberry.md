@@ -1,10 +1,10 @@
-# Резервное копирование в {{ objstorage-full-name }} с помощью MSP360 Backup (CloudBerry Desktop Backup)
+# Резервное копирование в Yandex Object Storage с помощью MSP360 Backup (CloudBerry Desktop Backup)
 
-{{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных с помощью утилиты [MSP360 Backup](https://www.msp360.com/msp360-free-backup/).
+Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты [MSP360 Backup](https://www.msp360.com/msp360-free-backup/).
 
 Утилита MSP360 Backup (ранее CloudBerry Desktop Backup) предназначена для резервного копирования и восстановления данных, в том числе в облачных хранилищах. Бесплатная версия MSP360 Backup позволяет создавать резервные копии объемом не более 200 ГБ.
 
-Чтобы настроить резервное копирование в {{ objstorage-name }} с помощью MSP360 Backup:
+Чтобы настроить резервное копирование в Object Storage с помощью MSP360 Backup:
 1. [Подготовьте облако к работе](#prepare-cloud).
 1. [Настройте сервисный аккаунт](#prepare-service-account).
 1. [Создайте бакет](#create-bucket).
@@ -16,11 +16,11 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,13 +29,13 @@
 В стоимость поддержки резервного копирования с помощью MSP360 Backup входят:
 * плата за хранение данных;
 * плата за операции с данными;
-* плата за исходящий трафик из {{ yandex-cloud }} в интернет.
+* плата за исходящий трафик из Yandex Cloud в интернет.
 
-[Подробнее о тарифах {{ objstorage-full-name }}](../../storage/pricing.md#prices).
+[Подробнее о тарифах Yandex Object Storage](../../storage/pricing.md#prices).
 
 ## Настройте сервисный аккаунт {#prepare-service-account}
 
-Резервное копирование в {{ objstorage-name }} выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
+Резервное копирование в Object Storage выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
 
 Чтобы настроить сервисный аккаунт:
 1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../../iam/roles-reference.md#editor) `editor`.
@@ -48,12 +48,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Бакет**.
+  1. В поле **Имя** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
   1. Укажите максимальный размер бакета в ГБ.
-  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Нажмите **Создать бакет**.
 
 {% endlist %}
 
@@ -93,16 +93,16 @@
   1. Выберите **Add Storage Account**.
   1. В списке провайдеров выберите **S3 Compatible**.
   1. В открывшемся окне введите параметры хранилища:
-      * **Display Name** — `{{ yandex-cloud }}`.
+      * **Display Name** — `Yandex Cloud`.
       * **Access Key** — идентификатор статического ключа доступа.
       * **Secret Key** — закрытый ключ.
-      * **Service point** — `http://{{ s3-storage-host }}/`. В поле **Bucket name** должен отобразиться список ваших бакетов.
+      * **Service point** — `http://storage.yandexcloud.net/`. В поле **Bucket name** должен отобразиться список ваших бакетов.
       * **Bucket name** — бакет, в котором будут храниться резервные копии.
 
-      Нажмите **OK**. Если все настроено верно, хранилище `{{ yandex-cloud }}` появится в окне **Storaged accounts**. Закройте окно.
+      Нажмите **OK**. Если все настроено верно, хранилище `Yandex Cloud` появится в окне **Storaged accounts**. Закройте окно.
   1. Перейдите на вкладку **Home**.
   1. Выберите **Local to Cloud**. В открывшемся окне нажмите **Next**.
-  1. Выберите хранилище **{{ yandex-cloud }}** и нажмите **Next**.
+  1. Выберите хранилище **Yandex Cloud** и нажмите **Next**.
   1. Укажите имя плана резервного копирования: `cloud-backup-plan` и нажмите **Next**.
   1. Оставьте опции, установленные по умолчанию, и нажмите **Next**.
   1. В дереве файлов укажите те директории и файлы, которым требуется резервное копирование. Нажмите **Next**.
@@ -126,15 +126,15 @@
   1. Нажмите **Back up files**.
   1. Нажмите **+** и выберите **S3 Compatible**. 
   1. В открывшемся окне введите параметры хранилища:
-     * **Display Name** — `{{ yandex-cloud }}`.
+     * **Display Name** — `Yandex Cloud`.
      * **Access Key** — идентификатор статического ключа доступа.
      * **Secret Key** — закрытый ключ.
-     * **Endpoint** — `http://{{ s3-storage-host }}/`. В поле **Bucket** отобразится список ваших бакетов.
+     * **Endpoint** — `http://storage.yandexcloud.net/`. В поле **Bucket** отобразится список ваших бакетов.
      * **Bucket** — бакет, в котором будут храниться резервные копии.
      * **Advanced settings** — дополнительные настройки. Оставьте значения по умолчанию.
 
-     Нажмите **OK**. Если все настроено верно, в окне **Backup plan: cloud storage** появится хранилище `{{ yandex-cloud }}`.
-  1. Выберите хранилище **{{ yandex-cloud }}** и нажмите **Continue**.
+     Нажмите **OK**. Если все настроено верно, в окне **Backup plan: cloud storage** появится хранилище `Yandex Cloud`.
+  1. Выберите хранилище **Yandex Cloud** и нажмите **Continue**.
   1. Укажите имя плана резервного копирования: `cloud-backup-plan`. Нажмите **Continue**.
   1. В дереве файлов укажите те директории и файлы, которым требуется резервное копирование. Нажмите **Continue**.
   1. Чтобы добавить в резервную копию все файлы из выбранных директорий, оставьте переключатель в положении **Backup all files in selected folders**. Нажмите **Continue**.
@@ -159,16 +159,16 @@
 
   1. В приложении MSP360 Backup выберите вкладку **Backup plans**.
   1. Чтобы запустить резервное копирование, нажмите ![image](../../_assets/console-icons/play-fill.svg) в строке с планом `cloud-backup-plan`.
-  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с резервными копиями.
-  1. Выберите сервис **{{ objstorage-short-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором находится бакет с резервными копиями.
+  1. Выберите сервис **Object Storage**.
   1. В списке бакетов выберите бакет с резервными копиями и проверьте, что все нужные файлы были скопированы.
 
 - Linux/macOS {#linux-macos}
 
   1. В приложении MSP360 Backup на панели слева выберите вкладку **Backup plans**.
   1. Чтобы запустить резервное копирование, выберите план `cloud-backup-plan` и нажмите **Start**.
-  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с резервными копиями.
-  1. Выберите сервис **{{ objstorage-short-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором находится бакет с резервными копиями.
+  1. Выберите сервис **Object Storage**.
   1. В списке бакетов выберите бакет с резервными копиями и проверьте, что все нужные файлы были скопированы.
 
 {% endlist %}

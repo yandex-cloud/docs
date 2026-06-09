@@ -5,7 +5,7 @@ Starts the specified OpenSearch cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:start
+POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}:start
 ```
 
 ## Path parameters

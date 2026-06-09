@@ -1,16 +1,16 @@
-# Обновление версии {{ PG }}
+# Обновление версии PostgreSQL
 
 {% note warning %}
 
-Начиная с 12 августа 2026 года, существующие кластеры {{ PG }} версии {{ pg.versions.console.dpr }} будут автоматически обновляться до версии {{ pg.versions.console.str-last }}. Рекомендуем заранее обновиться самостоятельно.
+Начиная с 12 августа 2026 года, существующие кластеры PostgreSQL версии 14 будут автоматически обновляться до версии 15. Рекомендуем заранее обновиться самостоятельно.
 
 {% endnote %}
 
-Вы можете обновить версию {{ PG }} в кластере {{ mpg-name }} до версии `18` или ниже. При этом обновление мажорной версии возможно только последовательно, по одной версии за раз.
+Вы можете обновить версию PostgreSQL в кластере Managed Service for PostgreSQL до версии `18` или ниже. При этом обновление мажорной версии возможно только последовательно, по одной версии за раз.
 
 Продолжительность обновления зависит от количества баз данных и количества объектов в каждой из них. Чем больше баз данных и объектов, тем дольше будет выполняться обновление.
 
-Подробнее об обновлении версии см. в разделе [Обновление мажорной версии {{ PG }} в {{ mpg-name }}](../concepts/upgrade.md).
+Подробнее об обновлении версии см. в разделе [Обновление мажорной версии PostgreSQL в Managed Service for PostgreSQL](../concepts/upgrade.md).
 
 Об обновлениях в рамках одной версии и обслуживании хостов см. в разделе [Техническое обслуживание](../concepts/maintenance.md).
 
@@ -24,11 +24,11 @@
 
 Убедитесь, что это не нарушит работу ваших приложений:
 
-1. Посмотрите в [истории изменений](https://www.postgresql.org/docs/release/) {{ PG }}, как обновления могут повлиять на работу ваших приложений или установленных [расширений](extensions/cluster-extensions.md).
+1. Посмотрите в [истории изменений](https://www.postgresql.org/docs/release/) PostgreSQL, как обновления могут повлиять на работу ваших приложений или установленных [расширений](extensions/cluster-extensions.md).
 1. Попробуйте обновить версию на тестовом кластере. Его можно [развернуть](cluster-backups.md#restore) из резервной копии основного кластера.
 1. [Создайте резервную копию](cluster-backups.md#create-backup) основного кластера непосредственно перед обновлением версии.
 
-## Обновить версию {{ PG }} {#start-update}
+## Обновить версию PostgreSQL {#start-update}
 
 {% note warning %}
 
@@ -43,67 +43,67 @@
 
 - Консоль управления {#console}  
 
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите номер новой версии.
-  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
+  1. Перейдите в сервис **Managed Service for&nbsp;PostgreSQL**.
+  1. Выберите нужный кластер в списке и нажмите кнопку ![image](../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В поле **Версия** выберите номер новой версии.
+  1. Нажмите кнопку **Сохранить изменения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы обновить кластер до версии {{ PG }} 15 или ниже:
+  Чтобы обновить кластер до версии PostgreSQL 15 или ниже:
 
-  1. Получите список ваших кластеров {{ PG }} командой:
+  1. Получите список ваших кластеров PostgreSQL командой:
 
      ```bash
-     {{ yc-mdb-pg }} cluster list
+     yc managed-postgresql cluster list
      ```
 
-  1. Получите информацию о нужном кластере и проверьте версию {{ PG }}, указанную в свойстве `config.version`:
+  1. Получите информацию о нужном кластере и проверьте версию PostgreSQL, указанную в свойстве `config.version`:
 
      ```bash
-     {{ yc-mdb-pg }} cluster get <имя_или_идентификатор_кластера>
+     yc managed-postgresql cluster get <имя_или_идентификатор_кластера>
      ```
 
-  1. Запустите обновление {{ PG }}:
+  1. Запустите обновление PostgreSQL:
 
      ```bash
-     {{ yc-mdb-pg }} cluster update <имя_или_идентификатор_кластера> \
+     yc managed-postgresql cluster update <имя_или_идентификатор_кластера> \
         --postgresql-version <номер_новой_версии>
      ```
 
-- {{ TF }} {#tf}    
+- Terraform {#tf}    
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-       Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+       Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
 
-    1. Добавьте в блок `cluster_config` нужного кластера {{ mpg-name }} поле `version` или измените его значение, если оно уже существует:
+    1. Добавьте в блок `cluster_config` нужного кластера Managed Service for PostgreSQL поле `version` или измените его значение, если оно уже существует:
 
        ```hcl
        resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
          ...
          cluster_config {
-           version = "<версия_{{ PG }}>"
+           version = "<версия_PostgreSQL>"
          }
        }
        ```
 
     1. Проверьте корректность настроек.
 
-         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+         1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
          1. Выполните команду:
          
             ```bash
             terraform validate
             ```
          
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -127,7 +127,7 @@
 
          {% note warning "Ограничения по времени" %}
          
-         Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
+         Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
          
          * создание, в том числе путем восстановления из резервной копии, — 30 минут;
          * изменение — 60 минут;
@@ -162,7 +162,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
      {% note warning %}
      
@@ -175,11 +175,11 @@
        --request PATCH \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
+       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>' \
        --data '{
                  "updateMask": "configSpec.version",
                  "configSpec": {
-                   "version": "<версия_{{ PG }}>"
+                   "version": "<версия_PostgreSQL>"
                  }
                }'
      ```
@@ -190,7 +190,7 @@
 
        В данном случае передается только один параметр.
 
-     * `configSpec.version` — новая версия {{ PG }}.
+     * `configSpec.version` — новая версия PostgreSQL.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -211,7 +211,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
      {% note warning %}
      
@@ -249,10 +249,10 @@
                ]
              },
              "config_spec": {
-               "version": "<версия_{{ PG }}>"
+               "version": "<версия_PostgreSQL>"
              }
            }' \
-       {{ api-host-mdb }}:{{ port-https }} \
+       mdb.api.cloud.yandex.net:443 \
        yandex.cloud.mdb.postgresql.v1.ClusterService.Update
      ```
 
@@ -262,7 +262,7 @@
 
        В данном случае передается только один параметр.
 
-     * `config_spec.version` — новая версия {{ PG }}.
+     * `config_spec.version` — новая версия PostgreSQL.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -276,7 +276,7 @@
 
 {% note tip %}
 
-Если с переходом на версию 18 возникнут проблемы, обратитесь в [техническую поддержку]({{ link-console-support }}).
+Если с переходом на версию 18 возникнут проблемы, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 {% endnote %}
 
@@ -291,7 +291,7 @@
    1. Чтобы получить список кластеров и узнать их идентификаторы и имена, выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} cluster list
+      yc managed-postgresql cluster list
       ```
 
       ```text
@@ -305,7 +305,7 @@
    1. Чтобы получить информацию о кластере с именем `postgre406`, выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} cluster get postgre406
+      yc managed-postgresql cluster get postgre406
       ```
 
       ```text
@@ -319,7 +319,7 @@
    1. Для обновления кластера `postgre406` до версии 15, выполните команду:
 
       ```bash
-      {{ yc-mdb-pg }} cluster update postgre406 --postgresql-version 15
+      yc managed-postgresql cluster update postgre406 --postgresql-version 15
       ```
 
 {% endlist %}

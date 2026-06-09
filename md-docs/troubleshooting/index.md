@@ -1,32 +1,32 @@
 # Готовые решения для известных сценариев
 
-Известные решения и советы для оптимального использования сервисов {{ yandex-cloud }}.
+Известные решения и советы для оптимального использования сервисов Yandex Cloud.
 
 # Все решения
 
-## {{ alb-name }}
+## Application Load Balancer
 
- - [Все решения для {{ alb-name }}](application-load-balancer/index.md)
+ - [Все решения для Application Load Balancer](application-load-balancer/index.md)
 
- - [Решения для известных проблем {{ alb-name }}](application-load-balancer/known-issues/index.md)
+ - [Решения для известных проблем Application Load Balancer](application-load-balancer/known-issues/index.md)
 
  - [Устранение ошибки `no_route` при открытии адреса](application-load-balancer/known-issues/error-no-route.md)
 
  - [Устранение сложностей с добавлением маршрута](application-load-balancer/known-issues/cannot-add-route.md)
 
- - [Примеры конфигураций и сценариев {{ alb-name }}](application-load-balancer/how-to/index.md)
+ - [Примеры конфигураций и сценариев Application Load Balancer](application-load-balancer/how-to/index.md)
 
  - [Как получить реальный IP-адрес источника в заголовках запросов](application-load-balancer/how-to/getting-external-src-ip-in-x-forwarded-for-headers.md)
 
-## {{ billing-name }}
+## Yandex Cloud Billing
 
- - [Все решения для {{ billing-name }}](billing/index.md)
+ - [Все решения для Yandex Cloud Billing](billing/index.md)
 
- - [Решения для известных проблем {{ billing-name }}](billing/known-issues/index.md)
+ - [Решения для известных проблем Yandex Cloud Billing](billing/known-issues/index.md)
 
- - [В детализации по биллинг-аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md)
+ - [В детализации по биллинг-аккаунту стало отображаться потребление по сервису Cloud Logging](billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 
- - [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
+ - [KMS-ключи продолжают тарифицироваться после удаления](billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
 
  - [Устранение ошибки `Unauthorized` при создании платежного аккаунта](billing/known-issues/unauthorized-error-after-attempt-to-create-billing-account.md)
 
@@ -68,7 +68,7 @@
 
  - [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](billing/known-issues/unable-to-pay-with-sber-card.md)
 
- - [Примеры конфигураций и сценариев {{ billing-name }}](billing/how-to/index.md)
+ - [Примеры конфигураций и сценариев Yandex Cloud Billing](billing/how-to/index.md)
 
  - [Как изменить тип платежного аккаунта](billing/how-to/changing-billing-account-type.md)
 
@@ -78,7 +78,7 @@
 
  - [Как перевести средства между разными платежными аккаунтами](billing/how-to/transfer-funds-between-billing-accounts.md)
 
- - [Как работают гранты и промокоды в {{ billing-name }}](billing/how-to/promocodes-and-grants-features-in-billing.md)
+ - [Как работают гранты и промокоды в Yandex Cloud Billing](billing/how-to/promocodes-and-grants-features-in-billing.md)
 
  - [Как изменить информацию, указанную в свойствах платежного аккаунта](billing/how-to/change-payer-info-or-requisites.md)
 
@@ -114,53 +114,53 @@
 
  - [Как сменить владельца аккаунта для юридических лиц](billing/how-to/changing-account-owner-for-legal-entities.md)
 
-## {{ certificate-manager-name }}
+## Certificate Manager
 
- - [Все решения для {{ certificate-manager-name }}](certificate-manager/index.md)
+ - [Все решения для Certificate Manager](certificate-manager/index.md)
 
- - [Решения для известных проблем {{ certificate-manager-name }}](certificate-manager/known-issues/index.md)
+ - [Решения для известных проблем Certificate Manager](certificate-manager/known-issues/index.md)
 
  - [Устранение проблем с получением и обновлением сертификатов от Let's Encrypt](certificate-manager/known-issues/certificate-issue-or-renewal-failed.md)
 
- - [Примеры конфигураций и сценариев {{ certificate-manager-name }}](certificate-manager/how-to/index.md)
+ - [Примеры конфигураций и сценариев Certificate Manager](certificate-manager/how-to/index.md)
 
-## {{ mch-name }}
+## Managed Service for ClickHouse®
 
- - [Все решения для {{ mch-name }}](clickhouse/index.md)
+ - [Все решения для Managed Service for ClickHouse®](clickhouse/index.md)
 
- - [Решения для известных проблем {{ mch-name }}](clickhouse/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for ClickHouse®](clickhouse/known-issues/index.md)
 
- - [Примеры конфигураций и сценариев {{ mch-name }}](clickhouse/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for ClickHouse®](clickhouse/how-to/index.md)
 
-## {{ cdn-name }}
+## Cloud CDN
 
- - [Все решения для {{ cdn-name }}](cdn/index.md)
+ - [Все решения для Cloud CDN](cdn/index.md)
 
- - [Решения для известных проблем {{ cdn-name }}](cdn/known-issues/index.md)
+ - [Решения для известных проблем Cloud CDN](cdn/known-issues/index.md)
 
- - [Устранение ошибок `no such bucket` и `no such key` при загрузке объектов из {{ cdn-name }}](cdn/known-issues/no-such-bucket-no-such-key.md)
+ - [Устранение ошибок `no such bucket` и `no such key` при загрузке объектов из Cloud CDN](cdn/known-issues/no-such-bucket-no-such-key.md)
 
- - [Сервис {{ cdn-name }} возвращает только один IP-адрес](cdn/known-issues/returning-only-one-ip-address.md)
+ - [Сервис Cloud CDN возвращает только один IP-адрес](cdn/known-issues/returning-only-one-ip-address.md)
 
- - [Примеры конфигураций и сценариев {{ cdn-name }}](cdn/how-to/index.md)
+ - [Примеры конфигураций и сценариев Cloud CDN](cdn/how-to/index.md)
 
- - [Как ограничить доступ к бакету {{ objstorage-name }} диапазоном IP-адресов, принадлежащих {{ cdn-name }}](cdn/how-to/permit-bucket-access-only-to-cdn-networks.md)
+ - [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](cdn/how-to/permit-bucket-access-only-to-cdn-networks.md)
 
-## {{ cloud-logging-name }}
+## Cloud Logging
 
- - [Все решения для {{ cloud-logging-name }}](cloud-logging/index.md)
+ - [Все решения для Cloud Logging](cloud-logging/index.md)
 
- - [Примеры конфигураций и сценариев {{ cloud-logging-name }}](cloud-logging/how-to/index.md)
+ - [Примеры конфигураций и сценариев Cloud Logging](cloud-logging/how-to/index.md)
 
- - [Как настроить отправку журналов работы сторонних приложений в {{ cloud-logging-name }}](cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md)
+ - [Как настроить отправку журналов работы сторонних приложений в Cloud Logging](cloud-logging/how-to/sending-logs-from-third-party-libraries-and-apps.md)
 
-## {{ compute-name }}
+## Compute Cloud
 
- - [Все решения для {{ compute-name }}](compute/index.md)
+ - [Все решения для Compute Cloud](compute/index.md)
 
- - [Решения для известных проблем {{ compute-name }}](compute/known-issues/index.md)
+ - [Решения для известных проблем Compute Cloud](compute/known-issues/index.md)
 
- - [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами {{ TF }}](compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
+ - [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами Terraform](compute/known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
 
  - [Не поддерживается вложенная виртуализация](compute/known-issues/nested-virtualisation-is-not-supported.md)
 
@@ -192,17 +192,17 @@
 
  - [Нет доступа к ВМ по SSH и ping после обновления cloud-init](compute/known-issues/no-ssh-access-and-ping-after-cloud-init-update.md)
 
- - [Примеры конфигураций и сценариев {{ compute-name }}](compute/how-to/index.md)
+ - [Примеры конфигураций и сценариев Compute Cloud](compute/how-to/index.md)
 
- - [Варианты миграции образа виртуальной машины в {{ yandex-cloud }}](compute/how-to/possible-vm-migration-scenarios.md)
+ - [Варианты миграции образа виртуальной машины в Yandex Cloud](compute/how-to/possible-vm-migration-scenarios.md)
 
  - [Как изменить тип загрузочного диска виртуальной машины](compute/how-to/migrate-data-from-hdd-to-ssd.md)
 
- - [Как узнать о потреблении оперативной памяти виртуальными машинами в {{ compute-name }}](compute/how-to/view-ram-usage-in-monitoring.md)
+ - [Как узнать о потреблении оперативной памяти виртуальными машинами в Compute Cloud](compute/how-to/view-ram-usage-in-monitoring.md)
 
  - [Как уменьшить объем диска виртуальной машины](compute/how-to/shrink-instance-disk.md)
 
- - [Как экспортировать образы дисков виртуальных машин {{ compute-name }}](compute/how-to/export-disk-image.md)
+ - [Как экспортировать образы дисков виртуальных машин Compute Cloud](compute/how-to/export-disk-image.md)
 
  - [Как перенести виртуальную машину между разными каталогами или облаками](compute/how-to/transfer-vm-between-clouds.md)
 
@@ -212,7 +212,7 @@
 
  - [Как получить входящий или исходящий трафик виртуальной машины](compute/how-to/incoming-and-outcoming-traffic-logs.md)
 
- - [Как подключиться к виртуальной машине Linux в {{ yandex-cloud }} через WinSCP со сгенерированным при создании ключом](compute/how-to/winscp-and-key-authorization.md)
+ - [Как подключиться к виртуальной машине Linux в Yandex Cloud через WinSCP со сгенерированным при создании ключом](compute/how-to/winscp-and-key-authorization.md)
 
  - [Как создать бэкап виртуальной машины с возможностью отката](compute/how-to/create-vm-backups.md)
 
@@ -228,25 +228,25 @@
 
  - [Как настроить защиту RDP-подключения на Microsoft Windows®](compute/how-to/rdp-protection-for-windows.md)
 
-## {{ container-registry-name }}
+## Container Registry
 
- - [Все решения для {{ container-registry-name }}](container-registry/index.md)
+ - [Все решения для Container Registry](container-registry/index.md)
 
- - [Решения для известных проблем {{ container-registry-name }}](container-registry/known-issues/index.md)
+ - [Решения для известных проблем Container Registry](container-registry/known-issues/index.md)
 
  - [Превышение лимитов на загрузку образов из каталога Docker Hub](container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md)
 
- - [Примеры конфигураций и сценариев {{ container-registry-name }}](container-registry/how-to/index.md)
+ - [Примеры конфигураций и сценариев Container Registry](container-registry/how-to/index.md)
 
-## {{ datalens-short-name }}
+## DataLens
 
- - [Все решения для {{ datalens-short-name }}](datalens/index.md)
+ - [Все решения для DataLens](datalens/index.md)
 
- - [Примеры конфигураций и сценариев {{ datalens-short-name }}](datalens/how-to/index.md)
+ - [Примеры конфигураций и сценариев DataLens](datalens/how-to/index.md)
 
- - [Как подключиться к {{ yandex-direct }} из {{ datalens-short-name }}](datalens/how-to/access-yandex-direct-data.md)
+ - [Как подключиться к Яндекс Директ из DataLens](datalens/how-to/access-yandex-direct-data.md)
 
- - [Как получить токен для подключения к БД Битрикс24 из {{ datalens-short-name }}](datalens/how-to/get-bitrix24-token-connector.md)
+ - [Как получить токен для подключения к БД Битрикс24 из DataLens](datalens/how-to/get-bitrix24-token-connector.md)
 
  - [Как подключиться к коннектору МойСклад](datalens/how-to/marketplace-connector-support.md)
 
@@ -258,7 +258,7 @@
 
  - [Как отфильтровать селектором уже отфильтрованные данные](datalens/how-to/filtering-filtered-data.md)
 
- - [Решения для известных проблем {{ datalens-short-name }}](datalens/known-issues/index.md)
+ - [Решения для известных проблем DataLens](datalens/known-issues/index.md)
 
  - [Устранение ошибки `ERR.DS_API.FIELD.TITLE.CONFLICT`](datalens/known-issues/err-ds-api-field-title-conflict.md)
 
@@ -266,9 +266,9 @@
 
  - [Устранение ошибки `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`](datalens/known-issues/validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md)
 
- - [Устранение проблем при создании подключения к таблице Google Sheets из {{ datalens-short-name }}](datalens/known-issues/unable-to-load-file-when-using-gsheets-as-data-source.md)
+ - [Устранение проблем при создании подключения к таблице Google Sheets из DataLens](datalens/known-issues/unable-to-load-file-when-using-gsheets-as-data-source.md)
 
- - [У табличных чартов {{ datalens-short-name }} не совпадают значения в полях `Итого` с аналогичными данными из Метрики](datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md)
+ - [У табличных чартов DataLens не совпадают значения в полях `Итого` с аналогичными данными из Метрики](datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md)
 
  - [Устранение ошибки `ERR.DS_API.US Not correct folder_id`](datalens/known-issues/err-ds-api-us-not-correct-folder-id.md)
 
@@ -280,7 +280,7 @@
 
  - [Устранение проблем при загрузке CSV-файла в датасет в качестве источника данных](datalens/known-issues/csv-upload-issue.md)
 
- - [Устранение ошибки `Validation error Request failed with status code 500` при сохранении дашборда в {{ datalens-short-name }}](datalens/known-issues/validation-error-request-failed-with-status-code-500.md)
+ - [Устранение ошибки `Validation error Request failed with status code 500` при сохранении дашборда в DataLens](datalens/known-issues/validation-error-request-failed-with-status-code-500.md)
 
  - [Устранение ошибки `Bad Request for url MetrikaHttpApiException direct_client_logins`](datalens/known-issues/client-error-400.md)
 
@@ -288,79 +288,79 @@
 
  - [Устранение ошибки `ERR.DS_API.US.BAD_REQUEST data.key should not start with /`](datalens/known-issues/err-ds-api-us-bad-request-data-key-should-not-start-with.md)
 
- - [В датасетах {{ metrika }} отображаются не все поля](datalens/known-issues/metrika-not-all-fields.md)
+ - [В датасетах Яндекс Метрика отображаются не все поля](datalens/known-issues/metrika-not-all-fields.md)
 
  - [Устранение ошибки `SSL is required`](datalens/known-issues/error-ssl-is-required.md)
 
- - [Устранение ошибки `1043 Bad handshake` при подключении к БД {{ MY }}](datalens/known-issues/err-1043-bad-handshake-mysql.md)
+ - [Устранение ошибки `1043 Bad handshake` при подключении к БД MySQL®](datalens/known-issues/err-1043-bad-handshake-mysql.md)
 
  - [Устранение неверного значения поля `Итого` в сводной таблице](datalens/known-issues/incorrect-value-in-field-total.md)
 
-## {{ dataproc-name }}
+## Yandex Data Processing
 
- - [Все решения для {{ dataproc-name }}](data-processing/index.md)
+ - [Все решения для Yandex Data Processing](data-processing/index.md)
 
- - [Решения для известных проблем {{ dataproc-name }}](data-processing/known-issues/index.md)
+ - [Решения для известных проблем Yandex Data Processing](data-processing/known-issues/index.md)
 
- - [Кластер {{ dataproc-name }} находится в состоянии `UNKNOWN` сразу после создания](data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md)
+ - [Кластер Yandex Data Processing находится в состоянии `UNKNOWN` сразу после создания](data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md)
 
  - [Нет логов в YARN Resource Manager Web UI после выполнения заданий](data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md)
 
- - [Примеры конфигураций и сценариев {{ dataproc-name }}](data-processing/how-to/index.md)
+ - [Примеры конфигураций и сценариев Yandex Data Processing](data-processing/how-to/index.md)
 
-## {{ ml-platform-name }}
+## DataSphere
 
- - [Все решения для {{ ml-platform-name }}](datasphere/index.md)
+ - [Все решения для DataSphere](datasphere/index.md)
 
- - [Решения для известных проблем {{ ml-platform-name }}](datasphere/known-issues/index.md)
+ - [Решения для известных проблем DataSphere](datasphere/known-issues/index.md)
 
- - [Устранение ошибок при запуске проекта в {{ ml-platform-name }}](datasphere/known-issues/datasphere-projects-starting-issue.md)
+ - [Устранение ошибок при запуске проекта в DataSphere](datasphere/known-issues/datasphere-projects-starting-issue.md)
 
- - [Получение доступа к конфигурациям GPU g1.1 и выше в {{ ml-platform-name }}](datasphere/known-issues/getting-access-go-g1-1-config.md)
+ - [Получение доступа к конфигурациям GPU g1.1 и выше в DataSphere](datasphere/known-issues/getting-access-go-g1-1-config.md)
 
- - [Устранение проблем с долгим запуском кода внутри ячеек проекта {{ ml-platform-name }}](datasphere/known-issues/project-cells-dont-load-for-a-long-time.md)
+ - [Устранение проблем с долгим запуском кода внутри ячеек проекта DataSphere](datasphere/known-issues/project-cells-dont-load-for-a-long-time.md)
 
- - [Устранение ошибки `Servant not allocated` при запуске кода внутри ячеек проекта {{ ml-platform-name }}](datasphere/known-issues/servant-not-allocated-issue.md)
+ - [Устранение ошибки `Servant not allocated` при запуске кода внутри ячеек проекта DataSphere](datasphere/known-issues/servant-not-allocated-issue.md)
 
  - [Устранение ошибки `ConnectTimeoutError` при установке пакетов через pip](datasphere/known-issues/error-connect-timeout-when-installing-via-pip.md)
 
  - [Устранение ошибки `Device or resource busy`](datasphere/known-issues/error-device-or-resource-busy.md)
 
- - [Примеры конфигураций и сценариев {{ ml-platform-name }}](datasphere/how-to/index.md)
+ - [Примеры конфигураций и сценариев DataSphere](datasphere/how-to/index.md)
 
-## {{ dns-name }}
+## Cloud DNS
 
- - [Все решения для {{ dns-name }}](dns/index.md)
+ - [Все решения для Cloud DNS](dns/index.md)
 
- - [Решения для известных проблем {{ dns-name }}](dns/known-issues/index.md)
+ - [Решения для известных проблем Cloud DNS](dns/known-issues/index.md)
 
  - [Устранение ошибки `Incorrect format. Text string too long`](dns/known-issues/error-incorrect-format-text-string-too-long.md)
 
  - [Устранение ошибки `Incorrect format expected an integer` при создании MX-записи](dns/known-issues/error-incorrect-format-expected-an-integer.md)
 
- - [Примеры конфигураций и сценариев {{ dns-name }}](dns/how-to/index.md)
+ - [Примеры конфигураций и сценариев Cloud DNS](dns/how-to/index.md)
 
- - [Как делегировать домен на серверы {{ dns-name }}](dns/how-to/delegate-public-zone.md)
+ - [Как делегировать домен на серверы Cloud DNS](dns/how-to/delegate-public-zone.md)
 
-## {{ data-transfer-name }}
+## Data Transfer
 
- - [Все решения для {{ data-transfer-name }}](data-transfer/index.md)
+ - [Все решения для Data Transfer](data-transfer/index.md)
 
- - [Решения для известных проблем {{ data-transfer-name }}](data-transfer/known-issues/index.md)
+ - [Решения для известных проблем Data Transfer](data-transfer/known-issues/index.md)
 
  - [Устранение ошибки `failed to connect to the destination cluster to get type information`](data-transfer/known-issues/failed-to-connect-to-the-destination-cluster-to-get-type-information.md)
 
- - [Примеры конфигураций и сценариев {{ data-transfer-name }}](data-transfer/how-to/index.md)
+ - [Примеры конфигураций и сценариев Data Transfer](data-transfer/how-to/index.md)
 
-## {{ sf-name }}
+## Cloud Functions
 
- - [Все решения для {{ sf-name }}](functions/index.md)
+ - [Все решения для Cloud Functions](functions/index.md)
 
- - [Решения для известных проблем {{ sf-name }}](functions/known-issues/index.md)
+ - [Решения для известных проблем Cloud Functions](functions/known-issues/index.md)
 
- - [Устранение ошибки `CORS` при обращении к API {{ speechkit-short-name }}, {{ vision-short-name }} или {{ translate-short-name }} из фронтенда веб-приложения](functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md)
+ - [Устранение ошибки `CORS` при обращении к API SpeechKit, Vision OCR или Translate из фронтенда веб-приложения](functions/known-issues/cors-error-when-querying-api-fron-webapp-frontend.md)
 
- - [Устранение ошибок с HTTP 499 при работе облачной функции или контейнера {{ serverless-containers-name }}](functions/known-issues/errors-499-in-function-or-container-logs.md)
+ - [Устранение ошибок с HTTP 499 при работе облачной функции или контейнера Serverless Containers](functions/known-issues/errors-499-in-function-or-container-logs.md)
 
  - [Устранение ошибки `No node can serve the request (Too many reschedules)`](functions/known-issues/too-many-reschedules.md)
 
@@ -368,7 +368,7 @@
 
  - [Устранение ошибки Permission denied при создании новых ресурсов](functions/known-issues/permission-denied-when-creating-new-resources.md)
 
- - [Примеры конфигураций и сценариев {{ sf-name }}](functions/how-to/index.md)
+ - [Примеры конфигураций и сценариев Cloud Functions](functions/how-to/index.md)
 
  - [Как подключиться к функции из MDB](functions/how-to/accessing-function-from-mdb.md)
 
@@ -376,13 +376,13 @@
 
  - [Как работать с облачными функциями асинхронно](functions/how-to/async-functions-invokes.md)
 
-## {{ iam-name }}
+## Identity and Access Management
 
- - [Все решения для {{ iam-short-name }}](iam/index.md)
+ - [Все решения для IAM](iam/index.md)
 
- - [Решения для известных проблем {{ iam-short-name }}](iam/known-issues/index.md)
+ - [Решения для известных проблем IAM](iam/known-issues/index.md)
 
- - [Устранение ошибок при назначении роли `{{ roles-cloud-owner }}` пользователю облака](iam/known-issues/resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
+ - [Устранение ошибок при назначении роли `resource-manager.clouds.owner` пользователю облака](iam/known-issues/resource-manager-clouds-owner-is-only-applicable-to-resources-of-type-resource-manager-cloud.md)
 
  - [Устранение ошибок при работе с приглашениями в облачную организацию](iam/known-issues/error-when-users-accepts-invite-to-organisation.md)
 
@@ -404,7 +404,7 @@
 
  - [В списке пользователей организации не отображается федеративный пользователь](iam/known-issues/federative-user-is-not-visible.md)
 
- - [Пользователь не видит приглашение в организацию или роль `{{ roles-admin }}`](iam/known-issues/invitation-or-admin-role-not-seen.md)
+ - [Пользователь не видит приглашение в организацию или роль `admin`](iam/known-issues/invitation-or-admin-role-not-seen.md)
 
  - [Появление неизвестного пользователя в организации](iam/known-issues/unknown-user.md)
 
@@ -414,7 +414,7 @@
 
  - [Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта](iam/known-issues/error-forbidden.md)
 
- - [Примеры конфигураций и сценариев {{ iam-short-name }}](iam/how-to/index.md)
+ - [Примеры конфигураций и сценариев IAM](iam/how-to/index.md)
 
  - [Как отменить удаление облака](iam/how-to/cancel-pending-deletion.md)
 
@@ -428,39 +428,39 @@
 
  - [Какую минимальную роль необходимо выдать пользователю для доступа к Консоли управления](iam/how-to/minimal-accessing-role-for-console.md)
 
-## {{ kms-name }}
+## Key Management Service
 
- - [Все решения для {{ kms-short-name }}](kms/index.md)
+ - [Все решения для KMS](kms/index.md)
 
- - [Решения для известных проблем {{ kms-short-name }}](kms/known-issues/index.md)
+ - [Решения для известных проблем KMS](kms/known-issues/index.md)
 
- - [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](kms/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
+ - [KMS-ключи продолжают тарифицироваться после удаления](kms/known-issues/kms-keys-are-charged-in-billing-after-deletion.md)
 
- - [Примеры конфигураций и сценариев {{ kms-short-name }}](kms/how-to/index.md)
+ - [Примеры конфигураций и сценариев KMS](kms/how-to/index.md)
 
-## {{ managed-k8s-name }}
+## Managed Service for Kubernetes
 
- - [Все решения для {{ managed-k8s-name }}](managed-kubernetes/index.md)
+ - [Все решения для Managed Service for Kubernetes](managed-kubernetes/index.md)
 
- - [Решения для известных проблем {{ managed-k8s-name }}](managed-kubernetes/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for Kubernetes](managed-kubernetes/known-issues/index.md)
 
  - [Устранение ошибки `Timed out waiting for the condition` при монтировании PVC](managed-kubernetes/known-issues/error-unable-to-attach-or-mount-volumes-timed-out-waiting-for-the-condition.md)
 
  - [Устранение ошибки `Timed out waiting for the condition` при монтировании тома с большим количеством файлов](managed-kubernetes/known-issues/unable-to-mount-volume-with-a-large-number-of-files.md)
 
- - [Хосты группы узлов {{ managed-k8s-name }} долго находятся в статусе `RECONCILING`](managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md)
+ - [Хосты группы узлов Managed Service for Kubernetes долго находятся в статусе `RECONCILING`](managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md)
 
- - [Не уменьшается количество нод в группе {{ managed-k8s-name }}](managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md)
+ - [Не уменьшается количество нод в группе Managed Service for Kubernetes](managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md)
 
- - [Не увеличивается количество узлов в группе {{ managed-k8s-name }}](managed-kubernetes/known-issues/autoscaler-node-enlarging-issues.md)
+ - [Не увеличивается количество узлов в группе Managed Service for Kubernetes](managed-kubernetes/known-issues/autoscaler-node-enlarging-issues.md)
 
  - [Устранение ошибки `Multi-Attach error for volume`](managed-kubernetes/known-issues/multi-attach-error-for-volume.md)
 
  - [Устранение ошибки `DEADLINE_EXCEEDED`](managed-kubernetes/known-issues/error-504.md)
 
- - [Устранение ошибок с синхронизацией времени на узлах кластера {{ managed-k8s-name }}](managed-kubernetes/known-issues/ntp-time-sync-issues.md)
+ - [Устранение ошибок с синхронизацией времени на узлах кластера Managed Service for Kubernetes](managed-kubernetes/known-issues/ntp-time-sync-issues.md)
 
- - [Устранение проблем с разрешением DNS-имен в {{ managed-k8s-name }}](managed-kubernetes/known-issues/dns-name-resolving-issues.md)
+ - [Устранение проблем с разрешением DNS-имен в Managed Service for Kubernetes](managed-kubernetes/known-issues/dns-name-resolving-issues.md)
 
  - [Устранение ошибки `0/10 nodes are available - node(s) had untolerated taint`](managed-kubernetes/known-issues/untolerated-taints-issue.md)
 
@@ -468,59 +468,59 @@
 
  - [Поды кластера слишком долго находятся в состоянии `PENDING`](managed-kubernetes/known-issues/pods-stuck-in-pending-state.md)
 
- - [Устранение проблем с работой HPA в {{ managed-k8s-name }}](managed-kubernetes/known-issues/hpa-and-metrics-server-issues.md)
+ - [Устранение проблем с работой HPA в Managed Service for Kubernetes](managed-kubernetes/known-issues/hpa-and-metrics-server-issues.md)
 
- - [Устранение проблем с монтированием томов к подам кластера {{ managed-k8s-name }} средствами Container Storage Interface для S3](managed-kubernetes/known-issues/unable-to-mount-volume-to-pods-via-csi-s3.md)
+ - [Устранение проблем с монтированием томов к подам кластера Managed Service for Kubernetes средствами Container Storage Interface для S3](managed-kubernetes/known-issues/unable-to-mount-volume-to-pods-via-csi-s3.md)
 
- - [Примеры конфигураций и сценариев {{ managed-k8s-name }}](managed-kubernetes/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for Kubernetes](managed-kubernetes/how-to/index.md)
 
- - [Как выдать узлам {{ k8s }} доступа в интернет](managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md)
+ - [Как выдать узлам Kubernetes доступа в интернет](managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md)
 
  - [Как создать внутренний Ingress-контроллер](managed-kubernetes/how-to/create-internal-ingress-balancer.md)
 
- - [Как настроить автоматическое удаление старых образов с узлов {{ managed-k8s-name }}](managed-kubernetes/how-to/configuring-automatic-image-deletion.md)
+ - [Как настроить автоматическое удаление старых образов с узлов Managed Service for Kubernetes](managed-kubernetes/how-to/configuring-automatic-image-deletion.md)
 
- - [Как узнать внешний IP-адрес узла {{ managed-k8s-name }}](managed-kubernetes/how-to/finding-out-node-external-ip.md)
+ - [Как узнать внешний IP-адрес узла Managed Service for Kubernetes](managed-kubernetes/how-to/finding-out-node-external-ip.md)
 
- - [Как использовать сертификаты из {{ certificate-manager-name }} в балансировщиках нагрузки или в {{ managed-k8s-name }}](managed-kubernetes/how-to/uploading-cert-from-yc-certmgr-to-k8s.md)
+ - [Как использовать сертификаты из Certificate Manager в балансировщиках нагрузки или в Managed Service for Kubernetes](managed-kubernetes/how-to/uploading-cert-from-yc-certmgr-to-k8s.md)
 
- - [Как изменить часовой пояс на узлах кластера {{ managed-k8s-name }}](managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md)
+ - [Как изменить часовой пояс на узлах кластера Managed Service for Kubernetes](managed-kubernetes/how-to/setting-timezone-on-mk8s-worker-nodes.md)
 
- - [Как выяснить размер эфемерного хранилища узла {{ managed-k8s-name }}](managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md)
+ - [Как выяснить размер эфемерного хранилища узла Managed Service for Kubernetes](managed-kubernetes/how-to/finding-out-ephemeral-storage-size.md)
 
-## {{ mkf-name }}
+## Managed Service for Apache Kafka®
 
- - [Все решения для {{ mkf-name }}](managed-kafka/index.md)
+ - [Все решения для Managed Service for Apache Kafka®](managed-kafka/index.md)
 
- - [Примеры конфигураций и сценариев {{ mkf-name }}](managed-kafka/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for Apache Kafka®](managed-kafka/how-to/index.md)
 
  - [Как отслеживать процесс чтения топиков](managed-kafka/how-to/process-read-topic.md)
 
- - [Решения для известных проблем {{ mkf-name }}](managed-kafka/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for Apache Kafka®](managed-kafka/known-issues/index.md)
 
  - [Устранение ошибки `Failed authentication with /`](managed-kafka/known-issues/error-failed-authentification.md)
 
-## {{ mgl-name }}
+## Managed Service for GitLab
 
- - [Все решения для {{ mgl-name }}](managed-gitlab/index.md)
+ - [Все решения для Managed Service for GitLab](managed-gitlab/index.md)
 
- - [Решения для известных проблем  {{ mgl-name }}](managed-gitlab/known-issues/index.md)
+ - [Решения для известных проблем  Managed Service for GitLab](managed-gitlab/known-issues/index.md)
 
- - [Устранение ошибки HTTP 500 в {{ mgl-name }}](managed-gitlab/known-issues/error-500.md)
+ - [Устранение ошибки HTTP 500 в Managed Service for GitLab](managed-gitlab/known-issues/error-500.md)
 
  - [Устранение ошибки 413 при выполнении операции `git push`](managed-gitlab/known-issues/error-413.md)
 
- - [Примеры конфигураций и сценариев {{ mgl-name }}](managed-gitlab/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for GitLab](managed-gitlab/how-to/index.md)
 
- - [Как обновить ПО на инстансе {{ mgl-name }}](managed-gitlab/how-to/update-gitlab-software-version.md)
+ - [Как обновить ПО на инстансе Managed Service for GitLab](managed-gitlab/how-to/update-gitlab-software-version.md)
 
  - [Как настроить миграцию проектов](managed-gitlab/how-to/migrate-projects.md)
 
-## {{ ydb-name }}
+## Managed Service for YDB
 
- - [Все решения для {{ ydb-name }}](managed-ydb/index.md)
+ - [Все решения для Managed Service for YDB](managed-ydb/index.md)
 
- - [Решения для известных проблем {{ ydb-name }}](managed-ydb/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for YDB](managed-ydb/known-issues/index.md)
 
  - [Устранение ошибки `RESOURCE_EXHAUSTED`](managed-ydb/known-issues/resource-exhausted.md)
 
@@ -528,19 +528,19 @@
 
  - [Устранение ошибки 503 `Service Unavailable`](managed-ydb/known-issues/error-503.md)
 
- - [Примеры конфигураций и сценариев {{ ydb-name }}](managed-ydb/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for YDB](managed-ydb/how-to/index.md)
 
-## {{ network-load-balancer-name }}
+## Network Load Balancer
 
- - [Все решения для {{ network-load-balancer-name }}](network-load-balancer/index.md)
+ - [Все решения для Network Load Balancer](network-load-balancer/index.md)
 
- - [Решения для известных проблем {{ network-load-balancer-name }}](network-load-balancer/known-issues/index.md)
+ - [Решения для известных проблем Network Load Balancer](network-load-balancer/known-issues/index.md)
 
- - [Примеры конфигураций и сценариев {{ network-load-balancer-name }}](network-load-balancer/how-to/index.md)
+ - [Примеры конфигураций и сценариев Network Load Balancer](network-load-balancer/how-to/index.md)
 
- - [Устранение проблем с доступом к подам {{ managed-k8s-name }} через {{ network-load-balancer-name }}](network-load-balancer/known-issues/cannot-access-mk8s-pods.md)
+ - [Устранение проблем с доступом к подам Managed Service for Kubernetes через Network Load Balancer](network-load-balancer/known-issues/cannot-access-mk8s-pods.md)
 
- - [Устранение ошибки `Permission denied to create UDP listener in folder` при создании {{ network-load-balancer-name }}](network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md)
+ - [Устранение ошибки `Permission denied to create UDP listener in folder` при создании Network Load Balancer](network-load-balancer/known-issues/permission-denied-to-create-udp-listener-in-folder.md)
 
  - [Устранение ошибки `One of the targets already a part of the another target group`](network-load-balancer/known-issues/one-of-the-targets-already-a-part-of-the-another-target-group.md)
 
@@ -552,17 +552,17 @@
 
  - [Примеры конфигураций и сценариев Legal](legal/how-to/index.md)
 
- - [Как узнать физический адрес ЦОД {{ yandex-cloud }}](legal/how-to/data-centers-physical-addresses.md)
+ - [Как узнать физический адрес ЦОД Yandex Cloud](legal/how-to/data-centers-physical-addresses.md)
 
  - [Нужно ли заключать отдельный договор по № 152-ФЗ для размещения персональных данных](legal/how-to/fl-152.md)
 
  - [Как стать поставщиком услуг для Яндекса](legal/how-to/becoming-a-service-supplier.md)
 
-## {{ objstorage-name }}
+## Object Storage
 
- - [Все решения для {{ objstorage-name }}](storage/index.md)
+ - [Все решения для Object Storage](storage/index.md)
 
- - [Решения для известных проблем {{ objstorage-name }}](storage/known-issues/index.md)
+ - [Решения для известных проблем Object Storage](storage/known-issues/index.md)
 
  - [Устранение ошибки `Bucket is not empty` при удалении бакета](storage/known-issues/bucket-deletion-issue.md)
 
@@ -572,7 +572,7 @@
 
  - [Устранение ошибки 409 `BucketAlreadyExists`](storage/known-issues/error-409-bucket-already-exists.md)
 
- - [Устранение ошибки доступа к бакетам S3 из кластера {{ dataproc-name }} 1.4](storage/known-issues/cannot-access-buckets.md)
+ - [Устранение ошибки доступа к бакетам S3 из кластера Yandex Data Processing 1.4](storage/known-issues/cannot-access-buckets.md)
 
  - [Устранение ошибки 403 (не отдается заголовок при использовании метода `OPTION`)](storage/known-issues/error-403-cors-header.md)
 
@@ -580,19 +580,19 @@
 
  - [Устранение ошибки `GATEWAY_REQUEST_ERROR`](storage/known-issues/error-gateway-request.md)
 
- - [Устранение проблем с некорректным MIME-типов объектов при их загрузке в {{ objstorage-name }}](storage/known-issues/incorrect-mime-type.md)
+ - [Устранение проблем с некорректным MIME-типов объектов при их загрузке в Object Storage](storage/known-issues/incorrect-mime-type.md)
 
  - [Устранение проблем с загрузкой новых объектов в бакет](storage/known-issues/objects-uploading-issue.md)
 
- - [Примеры конфигураций и сценариев {{ objstorage-name }}](storage/how-to/index.md)
+ - [Примеры конфигураций и сценариев Object Storage](storage/how-to/index.md)
 
- - [Как перенести данные из бакета {{ objstorage-name }} в ледяное хранилище](storage/how-to/moving-objects-to-glacier-storage-type.md)
+ - [Как перенести данные из бакета Object Storage в ледяное хранилище](storage/how-to/moving-objects-to-glacier-storage-type.md)
 
- - [Как ограничить доступ к бакету {{ objstorage-name }} диапазоном IP-адресов, принадлежащих {{ cdn-name }}](storage/how-to/permit-bucket-access-only-to-cdn-networks.md)
+ - [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](storage/how-to/permit-bucket-access-only-to-cdn-networks.md)
 
  - [Как перенести содержимое бакета в другой бакет в пределах организации](storage/how-to/moving-data-to-other-bucket-within-organisation.md)
 
- - [Как работать напрямую с API {{ objstorage-name }} без использования SDK](storage/how-to/curl-api-request-example.md)
+ - [Как работать напрямую с API Object Storage без использования SDK](storage/how-to/curl-api-request-example.md)
 
  - [Как просматривать и удалять незавершенные загрузки](storage/how-to/incomplete-downloads.md)
 
@@ -606,27 +606,27 @@
 
  - [Как восстановить удаленные данные из бакета](storage/how-to/recover-deleted-objects.md)
 
-## {{ mmy-name }}
+## Managed Service for MySQL®
 
- - [Все решения для {{ mmy-name }}](managed-mysql/index.md)
+ - [Все решения для Managed Service for MySQL®](managed-mysql/index.md)
 
- - [Решения для известных проблем {{ mmy-name }}](managed-mysql/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for MySQL®](managed-mysql/known-issues/index.md)
 
- - [Кластер {{ mmy-name }} переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами](managed-mysql/known-issues/free-space-in-cluster-storage-is-exhausted-with-temp-files.md)
+ - [Кластер Managed Service for MySQL® переходит в режим `Read Only` из-за быстрого исчерпания свободного места временными файлами](managed-mysql/known-issues/free-space-in-cluster-storage-is-exhausted-with-temp-files.md)
 
- - [Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера {{ mmy-name }}](managed-mysql/known-issues/mysqldump-needs-reload-or-flush-talbes-privileges.md)
+ - [Устранение ошибки `Access denied` при сохранении SQL-дампа базы при помощи утилиты mysqldump из кластера Managed Service for MySQL®](managed-mysql/known-issues/mysqldump-needs-reload-or-flush-talbes-privileges.md)
 
- - [Примеры конфигураций и сценариев {{ mmy-name }}](managed-mysql/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for MySQL®](managed-mysql/how-to/index.md)
 
-## {{ mpg-name }}
+## Managed Service for PostgreSQL
 
- - [Все решения для {{ mpg-name }}](managed-postgresql/index.md)
+ - [Все решения для Managed Service for PostgreSQL](managed-postgresql/index.md)
 
- - [Решения для известных проблем {{ mpg-name }}](managed-postgresql/known-issues/index.md)
+ - [Решения для известных проблем Managed Service for PostgreSQL](managed-postgresql/known-issues/index.md)
 
- - [Восстановление работоспособности кластера {{ mpg-name }} после исчерпания свободного места в хранилище данных](managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md)
+ - [Восстановление работоспособности кластера Managed Service for PostgreSQL после исчерпания свободного места в хранилище данных](managed-postgresql/known-issues/restoring-health-of-a-cluster-after-switching-its-disks-to-read-only-mode.md)
 
- - [Не удается удалить кластер {{ mpg-name }} в состоянии `DEAD`, если на нем включена защита от удаления](managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md)
+ - [Не удается удалить кластер Managed Service for PostgreSQL в состоянии `DEAD`, если на нем включена защита от удаления](managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md)
 
  - [Устранение проблем изменения конфигурации кластеров с дисками `local-ssd`](managed-postgresql/known-issues/unprocessable-entity-issue-when-enlarging-local-disk.md)
 
@@ -642,7 +642,7 @@
 
  - [Устранение ошибки `422 UNPROCESSABLE ENTITY The specified extension <'ext_name'> is not present in shared_preload_libraries`](managed-postgresql/known-issues/error-422.md)
 
- - [Примеры конфигураций и сценариев {{ mpg-name }}](managed-postgresql/how-to/index.md)
+ - [Примеры конфигураций и сценариев Managed Service for PostgreSQL](managed-postgresql/how-to/index.md)
 
  - [Как работает параметр `Conn limit`](managed-postgresql/how-to/conn-limit-parameter.md)
 
@@ -650,23 +650,23 @@
 
  - [Как включить логирование SQL-запросов](managed-postgresql/how-to/sql-queries-logging.md)
 
-## {{ monitoring-name }}
+## Monitoring
 
- - [Все решения для {{ monitoring-name }}](monitoring/index.md)
+ - [Все решения для Monitoring](monitoring/index.md)
 
- - [Решения для известных проблем {{ monitoring-name }}](monitoring/known-issues/index.md)
+ - [Решения для известных проблем Monitoring](monitoring/known-issues/index.md)
 
- - [Не приходят оповещения о событиях после настройки канала уведомлений в {{ monitoring-name }}](monitoring/known-issues/no-incoming-sms-and-emails-after-alert-config.md)
+ - [Не приходят оповещения о событиях после настройки канала уведомлений в Monitoring](monitoring/known-issues/no-incoming-sms-and-emails-after-alert-config.md)
 
  - [Графики мониторинга имеют разрывы и пустоты при нормальной работе облачных ресурсов](monitoring/known-issues/gaps-in-chart-lines.md)
 
- - [Примеры конфигураций и сценариев {{ monitoring-name }}](monitoring/how-to/index.md)
+ - [Примеры конфигураций и сценариев Monitoring](monitoring/how-to/index.md)
 
-## {{ serverless-containers-name }}
+## Serverless Containers
 
- - [Все решения для {{ serverless-containers-name }}](serverless-containers/index.md)
+ - [Все решения для Serverless Containers](serverless-containers/index.md)
 
- - [Решения для известных проблем {{ serverless-containers-name }}](serverless-containers/known-issues/index.md)
+ - [Решения для известных проблем Serverless Containers](serverless-containers/known-issues/index.md)
 
  - [Устранение ошибки `Code 502 Message Error during function invocation`](serverless-containers/known-issues/serverless-container-invoking-error-502.md)
 
@@ -678,43 +678,43 @@
 
  - [Устранение ошибки 403 `Permission denied`](serverless-containers/known-issues/permission-denied.md)
 
- - [Примеры конфигураций и сценариев {{ serverless-containers-name }}](serverless-containers/how-to/index.md)
+ - [Примеры конфигураций и сценариев Serverless Containers](serverless-containers/how-to/index.md)
 
  - [Как настроить статический IP-адрес](serverless-containers/how-to/static-ip-address.md)
 
-## {{ captcha-name }}
+## SmartCaptcha
 
- - [Все решения для {{ captcha-name }}](smartcaptcha/index.md)
+ - [Все решения для SmartCaptcha](smartcaptcha/index.md)
 
- - [Решения для известных проблем {{ captcha-name }}](smartcaptcha/known-issues/index.md)
+ - [Решения для известных проблем SmartCaptcha](smartcaptcha/known-issues/index.md)
 
  - [Устранение ошибки `Ключ не может использоваться на домене captcha-api.yandex.ru`](smartcaptcha/known-issues/error-captcha-cannot-be-used-on-domain.md)
 
- - [Примеры конфигураций и сценариев {{ captcha-name }}](smartcaptcha/how-to/index.md)
+ - [Примеры конфигураций и сценариев SmartCaptcha](smartcaptcha/how-to/index.md)
 
  - [Как получить информацию о количестве использованных проверок за определенный период](smartcaptcha/how-to/learning-about-monitoring-and-tarification.md)
 
-## {{ speechkit-name }}
+## SpeechKit
 
- - [Все решения для {{ speechkit-name }}](speechkit/index.md)
+ - [Все решения для SpeechKit](speechkit/index.md)
 
- - [Решения для известных проблем {{ speechkit-name }}](speechkit/known-issues/index.md)
+ - [Решения для известных проблем SpeechKit](speechkit/known-issues/index.md)
 
  - [Устранение ошибки `audio duration should be less than 30s`](speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md)
 
- - [Примеры конфигураций и сценариев {{ speechkit-name }}](speechkit/how-to/index.md)
+ - [Примеры конфигураций и сценариев SpeechKit](speechkit/how-to/index.md)
 
  - [Как включить автоматическую расстановку знаков препинания в распознанном тексте](speechkit/how-to/enabling-punctuator-in-speechkit.md)
 
-## {{ vpc-short-name }}
+## VPC
 
- - [Все решения для {{ vpc-short-name }}](vpc/index.md)
+ - [Все решения для VPC](vpc/index.md)
 
- - [Решения для известных проблем {{ vpc-short-name }}](vpc/known-issues/index.md)
+ - [Решения для известных проблем VPC](vpc/known-issues/index.md)
 
  - [Устранение ошибок при удалении облачной сети](vpc/known-issues/unable-to-delete-cloud-network.md)
 
- - [Ошибочно определяется географическая принадлежность IP-адресов ресурсов {{ yandex-cloud }}](vpc/known-issues/external-ip-address-country-affiliation-issue.md)
+ - [Ошибочно определяется географическая принадлежность IP-адресов ресурсов Yandex Cloud](vpc/known-issues/external-ip-address-country-affiliation-issue.md)
 
  - [Устранение проблем со скоростью сетевого соединения при работе с облачными ресурсами](vpc/known-issues/network-perfomance-issue.md)
 
@@ -726,7 +726,7 @@
 
  - [Устранение ошибки `Quota limit vpc.routeTables.count exceeded`](vpc/known-issues/error-quota-limit-vpc-routetables-count-exceeded.md)
 
- - [Примеры конфигураций и сценариев {{ vpc-short-name }}](vpc/how-to/index.md)
+ - [Примеры конфигураций и сценариев VPC](vpc/how-to/index.md)
 
  - [Как отключить защиту от DDoS](vpc/how-to/disable-ddos-protection-on-external-ip.md)
 
@@ -756,31 +756,31 @@
 
  - [Как заблокировать IP-адрес](vpc/how-to/block-ip-address.md)
 
-## {{ console-name }}
+## Cloud Console
 
- - [Все решения для {{ console-name }}](console/index.md)
+ - [Все решения для Cloud Console](console/index.md)
 
- - [Решения для известных проблем {{ console-name }}](console/known-issues/index.md)
+ - [Решения для известных проблем Cloud Console](console/known-issues/index.md)
 
- - [Устранение ошибки подключения к {{ console-name }}](console/known-issues/console-connection-timeout.md)
+ - [Устранение ошибки подключения к Cloud Console](console/known-issues/console-connection-timeout.md)
 
- - [Примеры сценариев использования {{ console-name }}](console/how-to/index.md)
+ - [Примеры сценариев использования Cloud Console](console/how-to/index.md)
 
  - [Как увеличить квоты](console/how-to/increase-quota.md)
 
-## {{TF}}-провайдер {{ yandex-cloud }}
+## Terraform-провайдер Yandex Cloud
 
- - [Все решения для {{ TF }}-провайдера {{ yandex-cloud }}](terraform/index.md)
+ - [Все решения для Terraform-провайдера Yandex Cloud](terraform/index.md)
 
- - [Решения для известных проблем c {{ TF }}-провайдером {{ yandex-cloud }}](terraform/known-issues/index.md)
+ - [Решения для известных проблем c Terraform-провайдером Yandex Cloud](terraform/known-issues/index.md)
 
- - [Устранение ошибки `Failed to query available provider packages при использовании` {{ TF }}](terraform/known-issues/failed-to-quety-available-provider-packages.md)
+ - [Устранение ошибки `Failed to query available provider packages при использовании` Terraform](terraform/known-issues/failed-to-quety-available-provider-packages.md)
 
  - [Зона создается публичной и приватной одновременно](terraform/known-issues/zone-private-and-public.md)
 
  - [Устранение ошибки `Invalid provider registry host`](terraform/known-issues/invalid-provider-registry-host.md)
 
- - [Примеры конфигураций и сценариев {{ TF }}-провайдера {{ yandex-cloud }}](terraform/how-to/index.md)
+ - [Примеры конфигураций и сценариев Terraform-провайдера Yandex Cloud](terraform/how-to/index.md)
 
 ## Partner
 

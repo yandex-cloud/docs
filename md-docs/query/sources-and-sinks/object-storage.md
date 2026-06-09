@@ -1,6 +1,6 @@
-# Чтение данных из {{ objstorage-name }} с помощью соединений с {{ yq-name }}
+# Чтение данных из Object Storage с помощью соединений с Query
 
-При работе с {{ objstorage-full-name }} с помощью соединений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
+При работе с Yandex Object Storage с помощью соединений удобно выполнять прототипирование, первоначальную настройку подключений к данным.
 
 Пример запроса для чтения данных:
 
@@ -22,36 +22,36 @@ WITH
 
 ## Настройка соединения {#create_connection}
 
-Чтобы создать соединение с {{ objstorage-short-name }}:
+Чтобы создать соединение с Object Storage:
 
-1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать соединение.
-1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
-1. На панели слева перейдите на вкладку **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
-1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **{{ ui-key.yql.yq-connection-form.action_create-new }}**.
+1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать соединение.
+1. Перейдите в сервис **Yandex Query**.
+1. На панели слева перейдите на вкладку **Соединения**.
+1. Нажмите кнопку ![info](../../_assets/console-icons/plus.svg) **Создать**.
 1. Укажите параметры соединения:
 
-   1. В блоке **{{ ui-key.yql.yq-connection-form.general-parameters.section-title }}**:
+   1. В блоке **Общие параметры**:
 
-      * **{{ ui-key.yql.yq-connection-form.connection-name.input-label }}** — название соединения с {{ objstorage-short-name }}.
-      * **{{ ui-key.yql.yq-connection-form.connection-type.input-label }}** — `{{ ui-key.yql.yq-connection.action_object-storage }}`.
+      * **Имя** — название соединения с Object Storage.
+      * **Тип** — `Object Storage`.
   
-   1. В блоке **{{ ui-key.yql.yq-connection-form.connection-type-parameters.section-title }}**:
+   1. В блоке **Параметры типа соединения**:
 
-      * **{{ ui-key.yql.yq-connection-form.bucket-auth.input-label }}** — выберите `{{ ui-key.yql.yq-connection-form.public.button-text }}` или `{{ ui-key.yql.yq-connection-form.private.button-text }}` в зависимости от типа доступа к чтению объектов в бакете.
+      * **Аутентификация бакета** — выберите `Публичный` или `Приватный` в зависимости от типа доступа к чтению объектов в бакете.
 
-        Для публичного бакета введите имя в поле **{{ ui-key.yql.yq-connection-form.bucket.input-label }}**.
+        Для публичного бакета введите имя в поле **Бакет**.
         Для приватного бакета выберите:
-        * **{{ ui-key.yql.yq-connection-form.cloud.input-label }}**, в котором находится источник данных.
+        * **Облако и каталог**, в котором находится источник данных.
         * Выберите или создайте новый бакет.
         * Выберите или создайте новый [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью [`storage.viewer`](../../storage/security/index.md#storage-viewer), от имени которого будет выполняться доступ к данным.
 
           Чтобы использовать сервисный аккаунт, пользователю нужна [роль](../../iam/security/index.md#iam-serviceAccounts-user) `iam.serviceAccounts.user`.
 
-1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
+1. Нажмите кнопку **Создать**.
 
 ## Модель данных {#data_model}
 
-В {{ objstorage-short-name }} данные хранятся в файлах в бинарном виде. Для чтения данных используйте SQL-выражение:
+В Object Storage данные хранятся в файлах в бинарном виде. Для чтения данных используйте SQL-выражение:
 
 ```sql
 SELECT
@@ -119,7 +119,7 @@ WHERE
 
 ### Форматы путей к данным {#path_format}
 
-В {{ yq-full-name }} поддерживаются следующие пути к данным:
+В Yandex Query поддерживаются следующие пути к данным:
 
 |Формат пути|Описание|Пример|
 |----|----|---|
@@ -129,7 +129,7 @@ WHERE
 
 ## Пример чтения данных c помощью соединений {#read_example}
 
-Пример запроса для чтения данных из {{ objstorage-short-name }}:
+Пример запроса для чтения данных из Object Storage:
 
 ```sql
 SELECT
@@ -150,6 +150,6 @@ WITH(
 
 Где:
 
-* `connection` — название соединения с {{ objstorage-short-name }}.
-* `folder/filename.csv` — путь к файлу в бакете {{ objstorage-short-name }}.
+* `connection` — название соединения с Object Storage.
+* `folder/filename.csv` — путь к файлу в бакете Object Storage.
 * `SCHEMA` — описание схемы данных в файле.

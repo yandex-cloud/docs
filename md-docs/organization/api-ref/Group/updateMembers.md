@@ -5,7 +5,7 @@ Update group members.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}:updateMembers
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}:updateMembers
 ```
 
 ## Path parameters

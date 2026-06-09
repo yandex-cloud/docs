@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-DELETE https://{{ api-host-mdb }}/managed-greenplum/v1/backups/{backupId}
+DELETE https://mdb.api.cloud.yandex.net/managed-greenplum/v1/backups/{backupId}
 ```
 
 ## Path parameters

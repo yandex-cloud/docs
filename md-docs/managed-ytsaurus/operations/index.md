@@ -1,4 +1,4 @@
-# Пошаговые инструкции для {{ myt-name }}
+# Пошаговые инструкции для Managed Service for YTsaurus
 
 ## Кластеры {#clusters}
 

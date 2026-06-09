@@ -1,6 +1,6 @@
 # Создать ключ доступа
 
-Для работы с {{ objstorage-name }} через S3 API необходим ключ доступа. Ключи доступа создаются через {{ iam-name }} с использованием сервисных аккаунтов.
+Для работы с Object Storage через S3 API необходим ключ доступа. Ключи доступа создаются через Identity and Access Management с использованием сервисных аккаунтов.
 
 ## Перед началом работы {#before-you-begin}
 
@@ -66,7 +66,7 @@
       export AWS_SECRET_ACCESS_KEY=$(kubectl get secret -n <название_проекта> <имя_сервисного_аккаунта>-s3-credentials -o jsonpath='{.data.secretAccessKey}' | base64 -d)
       ```
 
-  1. Проверьте подключение к {{ objstorage-name }}:
+  1. Проверьте подключение к Object Storage:
 
       ```bash
       export CLUSTER_DOMAIN=$(kubectl get platformenvironments main -o jsonpath='{.status.clusterDomain}')
@@ -104,9 +104,9 @@
 
 * `storage.viewer` — позволяет читать объекты и получать список бакетов.
 * `storage.editor` — позволяет читать, создавать, изменять и удалять объекты.
-* `storage.admin` — полный доступ к {{ objstorage-name }}, включая управление настройками бакетов.
+* `storage.admin` — полный доступ к Object Storage, включая управление настройками бакетов.
 
 ## Что дальше {#what-next}
 
-* Узнайте больше об [управлении доступом](../../concepts/components/storage.md#access-management) в {{ objstorage-name }}.
-* Ознакомьтесь с документацией [{{ iam-name }}](../../concepts/components/iam.md).
+* Узнайте больше об [управлении доступом](../../concepts/components/storage.md#access-management) в Object Storage.
+* Ознакомьтесь с документацией [Identity and Access Management](../../concepts/components/iam.md).

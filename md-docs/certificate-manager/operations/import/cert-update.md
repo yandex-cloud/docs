@@ -1,6 +1,6 @@
 # Обновить пользовательский сертификат
 
-{{ certificate-manager-name }} не управляет [пользовательскими сертификатами](../../concepts/imported-certificate.md). Чтобы обеспечить бесперебойную работу ресурсов с сертификатом, своевременно обновляйте его.
+Certificate Manager не управляет [пользовательскими сертификатами](../../concepts/imported-certificate.md). Чтобы обеспечить бесперебойную работу ресурсов с сертификатом, своевременно обновляйте его.
 
 Чтобы получить новую версию пользовательского сертификата:
 
@@ -8,24 +8,24 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
+  1. Перейдите в сервис **Certificate Manager**.
   1. Выберите сертификат, который необходимо обновить.
-  1. Нажмите кнопку ![arrows-rotate](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_reimport }}**.
-  1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
-     1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` или `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**.
-     1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` или `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
-     1. Выберите способ добавления: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` или `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
-     1. Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.button_update }}**.
+  1. Нажмите кнопку ![arrows-rotate](../../../_assets/console-icons/arrows-rotate-right.svg) **Обновить сертификат**.
+  1. В открывшемся окне в поле **Сертификат** нажмите кнопку **Добавить сертификат**.
+     1. Выберите способ добавления: `Файл` или `Текст`.
+     1. Нажмите кнопку **Добавить**.
+  1. В поле **Цепочка промежуточных сертификатов** нажмите кнопку **Добавить цепочку**.
+     1. Выберите способ добавления: `Файл` или `Текст`.
+     1. Нажмите кнопку **Добавить**.
+  1. В поле **Приватный ключ** нажмите кнопку **Добавить приватный ключ**.
+     1. Выберите способ добавления: `Файл` или `Текст`.
+     1. Нажмите кнопку **Добавить**.
+  1. Нажмите кнопку **Обновить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -77,16 +77,16 @@
      not_before: "2020-09-15T08:12:57Z"
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигурации {{ TF }} и измените параметры `certificate` и `private_key` сертификата:
+  1. Откройте файл конфигурации Terraform и измените параметры `certificate` и `private_key` сертификата:
 
-     {% cut "Пример описания сертификата в конфигурации {{ TF }}" %}
+     {% cut "Пример описания сертификата в конфигурации Terraform" %}
 
      ```hcl
      ...
@@ -133,7 +133,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -142,7 +142,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  Проверить изменение сертификата можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/index.md):
+  Проверить изменение сертификата можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/index.md):
 
   ```bash
   yc certificate-manager certificate get <имя_сертификата>

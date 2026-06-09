@@ -1,16 +1,16 @@
-# Обзор начала работы с {{ yq-name }}
+# Обзор начала работы с Query
 
-{{ yq-full-name }} позволяет выполнять [аналитическую обработку](../concepts/batch-processing.md) хранимых в [{{ objstorage-full-name }}](../../storage/index.md) данных, а также [потоковую обработку](../concepts/stream-processing.md) данных реального времени из [{{ yds-full-name }}](../../data-streams/index.md). {{ yq-name }} разработан в концепции [объединенных потоковых и аналитических вычислений](../concepts/unified-processing.md), это позволяет с помощью единого запроса обрабатывать как потоковые, так и аналитические данные.
+Yandex Query позволяет выполнять [аналитическую обработку](../concepts/batch-processing.md) хранимых в [Yandex Object Storage](../../storage/index.md) данных, а также [потоковую обработку](../concepts/stream-processing.md) данных реального времени из [Yandex Data Streams](../../data-streams/index.md). Query разработан в концепции [объединенных потоковых и аналитических вычислений](../concepts/unified-processing.md), это позволяет с помощью единого запроса обрабатывать как потоковые, так и аналитические данные.
 
-{{ yq-name }} выполняет запросы к данным на диалекте SQL — [YQL]({{ ydb.docs }}/yql/reference/syntax/).
+Query выполняет запросы к данным на диалекте SQL — [YQL](https://ydb.tech/docs/ru//yql/reference/syntax/).
 
-Чтобы ознакомиться с возможностями {{ yq-name }}, выполните следующие инструкции:
+Чтобы ознакомиться с возможностями Query, выполните следующие инструкции:
 
-* [{#T}](batch-example.md).
-* [{#T}](streaming-example.md).
-* [{#T}](unified-example.md).
+* [Аналитическая обработка данных из Yandex Object Storage](batch-example.md).
+* [Потоковая обработка данных из Yandex Data Streams](streaming-example.md).
+* [Единый анализ потоковых и аналитических данных](unified-example.md).
 
-Обработка данных из {{ objstorage-full-name }} с помощью {{ yq-full-name }}:
+Обработка данных из Yandex Object Storage с помощью Yandex Query:
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvjempmq5jgv2oycex?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>

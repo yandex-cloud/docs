@@ -6,10 +6,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
+  1. Перейдите в сервис **Smart Web Security**.
   1. На панели слева выберите **Шаблоны ответов**.
-  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
   1. В открывшемся окне измените параметры:
 
        * **Имя страницы**.
@@ -29,7 +29,7 @@
        * Добавьте или удалите из тела ответа пресеты — дополнительные параметры, которые могут передаваться клиенту на странице ответа.
 
   1. Чтобы увидеть финальную страницу на стороне клиента, вверху справа нажмите **Предпросмотр**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+  1. Нажмите кнопку **Сохранить**.
 
 {% endlist %}
 
@@ -39,11 +39,11 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
+  1. Перейдите в сервис **Smart Web Security**.
   1. На панели слева выберите **Шаблоны ответов**.
   1. Выберите нужный шаблон.
-  1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о шаблоне.
+  1. На странице **Обзор** отобразится подробная информация о шаблоне.
 
 {% endlist %}
 
@@ -54,10 +54,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) с шаблоном.
+  1. Перейдите в сервис **Smart Web Security**.
   1. На панели слева выберите **Шаблоны ответов**.
-  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В строке с нужным шаблоном нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
 
    Если шаблон добавлен в профиль или правило, удалить его нельзя. При попытке удаления появится список объектов с этим шаблоном. Перейдите в настройки каждого объекта и выберите другой шаблон.
 

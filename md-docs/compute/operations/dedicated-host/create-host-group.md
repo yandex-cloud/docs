@@ -1,9 +1,9 @@
 # Создание группы выделенных хостов
 
 
-Вы можете создать группу [выделенных хостов](../../concepts/dedicated-host.md), предназначенных для размещения исключительно ваших виртуальных машин в {{ yandex-cloud }}.
+Вы можете создать группу [выделенных хостов](../../concepts/dedicated-host.md), предназначенных для размещения исключительно ваших виртуальных машин в Yandex Cloud.
 
-По умолчанию в облаке установлена [нулевая квота](../../concepts/limits.md#compute-quotas) на использование выделенных хостов. Чтобы изменить [квоту]({{ link-console-quotas }}), обратитесь в [техническую поддержку]({{ link-console-support }}).
+По умолчанию в облаке установлена [нулевая квота](../../concepts/limits.md#compute-quotas) на использование выделенных хостов. Чтобы изменить [квоту](https://console.yandex.cloud/cloud?section=quotas), обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
 
 Чтобы создать группу выделенных хостов:
 
@@ -11,10 +11,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа выделенных хостов.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.compute.host-groups_eKsBm }}**.
-  1. Справа сверху нажмите **{{ ui-key.yacloud.compute.host-groups.button_create-host-group }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана группа выделенных хостов.
+  1. В списке сервисов выберите **Compute Cloud**.
+  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы выделенных хостов**.
+  1. Справа сверху нажмите **Создать группу выделенных хостов**.
   1. Введите имя и описание группы выделенных хостов. Требования к имени:
 
       * длина — от 3 до 63 символов;
@@ -25,11 +25,11 @@
   1. Выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться группа выделенных хостов.
   1. Выберите [тип хоста](../../concepts/dedicated-host.md#host-types).
   1. Укажите количество выделенных хостов в группе.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -72,7 +72,7 @@
       id: abcdefg1hi23********
       folder_id: m4n56op78mev********
       created_at: "2020-10-13T07:36:49Z"
-      zone_id: {{ region-id }}-a
+      zone_id: ru-central1-a
       status: READY
       type_id: intel-6230-c66-m454
       maintenance_policy: RESTART
@@ -90,5 +90,5 @@
 
 #### См. также {#see-also}
 
-* [{#T}](running-host-group-vms.md)
-* [{#T}](running-host-vms.md)
+* [Создание виртуальной машины в группе выделенных хостов](running-host-group-vms.md)
+* [Создание виртуальной машины на выделенном хосте](running-host-vms.md)

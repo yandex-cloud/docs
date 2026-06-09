@@ -4,7 +4,7 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg).
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg).
   1. В открывшемся списке выберите нужное облако или каталог внутри этого облака.
   1. На дашборде указана основная информация об облаке и каталоге. [Идентификатор](get-id.md) облака указан сверху, под именем облака.
 

@@ -5,7 +5,7 @@ List operations for the specified gateway.
 ## HTTP request
 
 ```
-GET https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}/operations
+GET https://vpc.api.cloud.yandex.net/vpc/v1/gateways/{gatewayId}/operations
 ```
 
 ## Path parameters

@@ -1,11 +1,11 @@
 # Настройка хостинга
 
 
-Вы можете разместить свой статический сайт в {{ objstorage-name }}. Статический сайт строится на клиентских технологиях, таких как HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера. 
+Вы можете разместить свой статический сайт в Object Storage. Статический сайт строится на клиентских технологиях, таких как HTML, CSS и JavaScript. Он не может содержать каких-либо скриптов, требующих запуска на стороне веб-сервера. 
 
-Страницы статического сайта — это [объекты](../../concepts/object.md) в [бакете](../../concepts/bucket.md), [ключи](../../concepts/object.md#key) объектов соответствуют пути к странице на сайте, а полный URL страницы имеет вид `http(s)://{{ s3-web-host }}/<имя_бакета>/<ключ_объекта>`. {#static-site-information}
+Страницы статического сайта — это [объекты](../../concepts/object.md) в [бакете](../../concepts/bucket.md), [ключи](../../concepts/object.md#key) объектов соответствуют пути к странице на сайте, а полный URL страницы имеет вид `http(s)://website.yandexcloud.net/<имя_бакета>/<ключ_объекта>`. {#static-site-information}
 
-В бакетах {{ objstorage-name }} поддерживаются:
+В бакетах Object Storage поддерживаются:
 
 * [Хостинг статического сайта](#hosting).
 * [Переадресация всех запросов](#redirects).
@@ -20,7 +20,7 @@
 * Настроены [политики доступа](../../concepts/policy.md), ограничивающие доступ к объектам и их списку анонимным пользователям. [Измените](../buckets/policy.md#apply-policy) политику доступа.
 * Включен доступ только из [сервисных подключений VPC](../../security/overview.md#pe-vpc). [Восстановите](../buckets/access-via-vpc.md#disable) доступ к бакету из публичной сети.
 
-Подробнее см. на странице [{#T}](../../security/overview.md).
+Подробнее см. на странице [Обзор способов управления доступом в Object Storage](../../security/overview.md).
 
 {% endnote %}
 
@@ -36,16 +36,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить хостинг.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}**.
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
-  1. Нажмите **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
-      * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Перейдите на вкладку **Основные**.
+  1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
+  1. Нажмите **Сохранить**.
+  1. Выберите вкладку **Веб-сайт**.
+  1. В разделе **Хостинг**:
+      * В поле **Главная страница** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
   
         {% note warning %}
         
@@ -53,7 +53,7 @@
         
         {% endnote %}
   
-      * (опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+      * (опционально) В поле **Страница ошибки** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию Object Storage возвращает собственную страницу.
   
         {% note tip %}
         
@@ -61,13 +61,13 @@
         
         {% endnote %}
   
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. Нажмите кнопку **Сохранить**.
   
-  Проверить хостинг можно, перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
+  Проверить хостинг можно, перейдя по ссылке в поле **Ссылка**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -142,24 +142,24 @@
     redirect_all_requests: {}
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   {% note info %}
   
-  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
+  Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в Object Storage.
 
   {% note info %}
   
-  Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](../buckets/create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+  Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](../buckets/create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
   
   {% endnote %}
 
@@ -170,7 +170,7 @@
      provider "yandex" {
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
-       zone      = "{{ region-id }}-a"
+       zone      = "ru-central1-a"
      }
 
      resource "yandex_iam_service_account" "sa" {
@@ -248,7 +248,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -257,7 +257,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+  Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -279,19 +279,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить переадресацию всех запросов.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** хоста, на который будут перенаправляться все запросы к бакету.
-      * (Опционально) **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, если указанный хост принимает запросы строго по определенному протоколу.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Выберите вкладку **Веб-сайт**.
+  1. В разделе **Переадресация** укажите:
+      * **Доменное имя** хоста, на который будут перенаправляться все запросы к бакету.
+      * (Опционально) **Протокол**, если указанный хост принимает запросы строго по определенному протоколу.
+  1. Нажмите кнопку **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -339,25 +339,25 @@
      created_at: "2022-12-14T08:42:16.273717Z"
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
  
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
   Чтобы настроить переадресацию всех запросов:
 
-  1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
+  1. Откройте файл конфигурации Terraform и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
 
      ```hcl
      ...
@@ -381,7 +381,7 @@
 
         {% note info %}
         
-        Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](../buckets/create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+        Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](../buckets/create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
         
         {% endnote %}
 
@@ -393,7 +393,7 @@
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
        * `redirect_all_requests_to` — доменное имя хоста, на который будут перенаправляться все запросы к текущему бакету. Вы можете указать префикс протокола (`http://` или `https://`). По умолчанию используется протокол из исходного запроса.
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#static-website-hosting).
 
   1. Создайте ресурсы:
 
@@ -416,7 +416,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -425,7 +425,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить настройку переадресации запросов можно в [консоли управления]({{ link-console-main }}).
+     Проверить настройку переадресации запросов можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -443,28 +443,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для которого хотите настроить условную переадресацию запросов.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
-  1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
-  1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_redirect }}** нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_add-routing-rule }}**.
-  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-condition }}** укажите как минимум одно условие переадресации:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** — HTTP-код, которым {{ objstorage-name }} должен был бы ответить на запрос без переадресации.
-      * **{{ ui-key.yacloud.storage.bucket.website.select_condition_prefix }}** — начало ключа объекта в запросе. [Подробнее о ключах и устройстве статического сайта](#static-site-information).
+  1. На панели слева выберите ![image](../../../_assets/console-icons/wrench.svg) **Настройки**.
+  1. Выберите вкладку **Веб-сайт**.
+  1. В разделе **Хостинг** в блоке **Переадресация** нажмите кнопку **Добавить правило переадресации**.
+  1. В блоке **Условие** укажите как минимум одно условие переадресации:
+      * **Код ответа** — HTTP-код, которым Object Storage должен был бы ответить на запрос без переадресации.
+      * **Начало ключа** — начало ключа объекта в запросе. [Подробнее о ключах и устройстве статического сайта](#static-site-information).
     
      Если запрос соответствует условиям нескольких правил переадресации, сработает последнее подходящее правило. При этом глубина совпадения ключа объекта с указанным в условии префиксом не имеет значения.
     
-  1. В блоке **{{ ui-key.yacloud.storage.bucket.website.label_routing-redirect }}** задайте параметры переадресации:
-      * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}**, по которому должен быть отправлен переадресованный запрос.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_host-name }}** хоста, на который должны перенаправляться запросы, удовлетворившие условию.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_http-redirect-code }}** для определения типа редиректа.
-      * **{{ ui-key.yacloud.storage.bucket.website.field_redirect_change }}** — **{{ ui-key.yacloud.storage.bucket.website.select_redirect_none }}**, **{{ ui-key.yacloud.storage.bucket.website.select_redirect_key }}** или **{{ ui-key.yacloud.storage.bucket.website.select_redirect_prefix }}**, указанное в условии.
-  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
+  1. В блоке **Переадресация** задайте параметры переадресации:
+      * **Протокол**, по которому должен быть отправлен переадресованный запрос.
+      * **Доменное имя** хоста, на который должны перенаправляться запросы, удовлетворившие условию.
+      * **Код ответа** для определения типа редиректа.
+      * **Заменять ключ** — **Не заменять**, **Весь ключ** или **Только начало**, указанное в условии.
+  1. Нажмите кнопку **Сохранить**.
   
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -546,25 +546,25 @@
      created_at: "2022-12-14T08:42:16.273717Z"
      ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
  
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
     
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
 
   Чтобы настроить условную переадресацию запросов:
 
-  1. Откройте файл конфигурации {{ TF }} и добавьте параметр `routing_rules` в описание бакета:
+  1. Откройте файл конфигурации Terraform и добавьте параметр `routing_rules` в описание бакета:
 
      ```hcl
      ...
@@ -605,7 +605,7 @@
 
         {% note info %}
         
-        Кроме статических ключей доступа для аутентификации в {{ objstorage-name }} можно использовать IAM-токен. Подробнее смотрите в разделе [{#T}](../buckets/create.md) и в [документации провайдера]({{ tf-provider-resources-link }}/storage_object). 
+        Кроме статических ключей доступа для аутентификации в Object Storage можно использовать IAM-токен. Подробнее смотрите в разделе [Создание бакета](../buckets/create.md) и в [документации провайдера](../../../terraform/resources/storage_object.md). 
         
         {% endnote %}
 
@@ -617,7 +617,7 @@
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
        * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
 
-     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в Terraform см. в [документации провайдера](../../../terraform/resources/storage_bucket.md#static-website-hosting).
   1. Создайте ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -639,7 +639,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -648,7 +648,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить настройку условной переадресации запросов можно в [консоли управления]({{ link-console-main }}).
+     Проверить настройку условной переадресации запросов можно в [консоли управления](https://console.yandex.cloud).
 
 - API {#api}
 
@@ -660,7 +660,7 @@
 
 ### См. также {#see-also}
 
-* [{#T}](../../qa.md#qa-mime-type)
-* [{#T}](own-domain.md)
-* [{#T}](multiple-domains/index.md)
-* [{#T}](certificate.md)
+* [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](../../qa.md#qa-mime-type)
+* [Собственный домен](own-domain.md)
+* [Поддержка нескольких доменных имен](multiple-domains/index.md)
+* [Настройка HTTPS](certificate.md)

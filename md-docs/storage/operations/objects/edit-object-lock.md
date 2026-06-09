@@ -17,22 +17,22 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите бакет, для объектов которого хотите настроить блокировку.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
-  1. В открывшемся окне включите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
-  1. Выберите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_mode_61kxf }}**:
-     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-governance }}** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
-     * **{{ ui-key.yacloud.storage.file.value_object-lock-mode-compliance }}** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
-  1. Установите **{{ ui-key.yacloud.storage.form.BucketObjectLockFormContent.field_retention-period_jJYhy }}** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **Показать версии**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Блокировка**.
+  1. В открывшемся окне включите опцию **Временная блокировка**.
+  1. Выберите **Тип блокировки по умолчанию**:
+     * **Временная управляемая (governance)** — пользователь с ролью `storage.admin` может обойти блокировку, изменить ее срок или снять ее.
+     * **Временная строгая (compliance)** — пользователь с ролью `storage.admin` может только продлить блокировку. Обойти, сократить или снять блокировку до ее окончания нельзя.
+  1. Установите **Срок блокировки по умолчанию** в днях или годах. Отсчитывается от момента, когда версия объекта загружена в бакет.
+  1. Нажмите **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -122,7 +122,7 @@
   1. Выполните команду:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     aws --endpoint-url=https://storage.yandexcloud.net/ \
        s3api put-object-retention \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -165,18 +165,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
-  1. В открывшемся окне выключите опцию **{{ ui-key.yacloud.storage.field_temp-object-lock-enabled }}**.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **Показать версии**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Блокировка**.
+  1. В открывшемся окне выключите опцию **Временная блокировка**.
+  1. Нажмите **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -253,7 +253,7 @@
   1. Выполните команду:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     aws --endpoint-url=https://storage.yandexcloud.net/ \
        s3api put-object-retention \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -287,18 +287,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Object Storage**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
-  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **{{ ui-key.yacloud.storage.bucket.switch_file-versions }}**.
-  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **{{ ui-key.yacloud.storage.bucket.button_object-lock }}**.
-  1. В открывшемся окне включите или выключите опцию **{{ ui-key.yacloud.storage.field_perm-object-lock-enabled }}**.
-  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. Чтобы видеть все версии объектов в списке, справа от поля поиска объекта в бакете включите опцию **Показать версии**.
+  1. В списке объектов выберите нужный, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **Блокировка**.
+  1. В открывшемся окне включите или выключите опцию **Бессрочная блокировка**.
+  1. Нажмите **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -381,7 +381,7 @@
   1. Выполните команду:
 
      ```bash
-     aws --endpoint-url=https://{{ s3-storage-host }}/ \
+     aws --endpoint-url=https://storage.yandexcloud.net/ \
        s3api put-object-legal-hold \
        --bucket <имя_бакета> \
        --key <ключ_объекта> \
@@ -415,7 +415,7 @@
 
 {% list tabs group=instructions %}
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   > ```bash
   > yc storage s3api put-object-retention \
@@ -428,7 +428,7 @@
 - AWS CLI {#aws-cli}
 
   > ```bash
-  > aws --endpoint-url=https://{{ s3-storage-host }}/ \
+  > aws --endpoint-url=https://storage.yandexcloud.net/ \
   >   s3api put-object-retention \
   >   --bucket test-bucket \
   >   --key object-key/ \

@@ -5,7 +5,7 @@ Reactivates a previously suspended SAML application.
 ## HTTP request
 
 ```
-POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/application/saml/applications/{applicationId}:reactivate
+POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/application/saml/applications/{applicationId}:reactivate
 ```
 
 ## Path parameters

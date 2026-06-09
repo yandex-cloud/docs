@@ -5,7 +5,7 @@ Updates the access policy binding parameters for the folder.
 ## HTTP request
 
 ```
-PATCH https://resource-manager.{{ api-host }}/resource-manager/v1/folders/{resourceId}:updateAccessPolicyBindingParameters
+PATCH https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/{resourceId}:updateAccessPolicyBindingParameters
 ```
 
 ## Path parameters

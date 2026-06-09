@@ -1,8 +1,8 @@
 # Преобразование входных данных
 
-На данный момент {{ monium-name }} поддерживает прием данных только в формате [OpenTelemetry](https://opentelemetry.io/). Формат API и данных см. в [proto-спецификации](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38).
+На данный момент Monium поддерживает прием данных только в формате [OpenTelemetry](https://opentelemetry.io/). Формат API и данных см. в [proto-спецификации](https://github.com/open-telemetry/opentelemetry-proto/blob/main/opentelemetry/proto/collector/logs/v1/logs_service.proto#L33C14-L33C38).
 
-Поскольку модель данных OpenTelemetry не полностью соответствует логической модели данных в {{ monium-name }}, например нет разделения на `labels` и `meta`, используется ряд правил и преобразований.
+Поскольку модель данных OpenTelemetry не полностью соответствует логической модели данных в Monium, например нет разделения на `labels` и `meta`, используется ряд правил и преобразований.
 
 ## Преобразования атрибутов {#transformations}
 

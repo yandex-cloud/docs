@@ -2,9 +2,9 @@
 
 ## Встроенные утилиты диагностики {#monitoring-tools}
 
-В {{ SD }} есть утилиты получения данных о производительности:
+В Yandex StoreDoc есть утилиты получения данных о производительности:
 
-* `mongostat` — собирает статистику утилизации ресурсов CPU и памяти процессами {{ SD }},
+* `mongostat` — собирает статистику утилизации ресурсов CPU и памяти процессами Yandex StoreDoc,
 * `mongotop` — собирает статистику чтения/записи данных по каждой коллекции.
 
 При вызове этих утилит используйте строку подключения с логином и паролем пользователя с ролью `mdbMonitor`, например:
@@ -19,7 +19,7 @@ mongotop 5 --uri="mongodb://{<имя_пользователя_с_ролью_mdbM
 
 ### Профилировщик {#explore-profiler}
 
-В {{ SD }} есть встроенный профилировщик. Он собирает данные о запросах. Затем на основе этих данных формируется стратегия оптимизации запросов. Работой профилировщика управляют [настройки {{ SD }}](../concepts/settings-list.md), которые вы можете задать при [создании кластера](cluster-create.md) или [изменении настроек СУБД](update.md#change-mongod-config):
+В Yandex StoreDoc есть встроенный профилировщик. Он собирает данные о запросах. Затем на основе этих данных формируется стратегия оптимизации запросов. Работой профилировщика управляют [настройки Yandex StoreDoc](../concepts/settings-list.md), которые вы можете задать при [создании кластера](cluster-create.md) или [изменении настроек СУБД](update.md#change-mongod-config):
 
 * [operationProfiling.mode](../concepts/settings-list.md#setting-operation-profiling);
 * [operationProfiling.slowOpThreshold](../concepts/settings-list.md#setting-slow-op-threshold).
@@ -49,19 +49,19 @@ db.currentOp({ "$ownOps": true })
 
 ## Логи {#explore-logs}
 
-Наиболее подробная информация о работе {{ SD }} содержится в логах.
+Наиболее подробная информация о работе Yandex StoreDoc содержится в логах.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}).
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.mongodb.cluster.switch_logs }}**.
+    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+    1. Перейдите в сервис **Yandex StoreDoc**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -70,13 +70,13 @@ db.currentOp({ "$ownOps": true })
     1. Посмотрите описание команды CLI для просмотра логов:
 
         ```bash
-        {{ yc-mdb-mg }} cluster list-logs --help
+        yc managed-mongodb cluster list-logs --help
         ```
 
     1. Для получения всех логов кластера выполните команду:
 
         ```bash
-        {{ yc-mdb-mg }} cluster list-logs --id <идентификатор_кластера>
+        yc managed-mongodb cluster list-logs --id <идентификатор_кластера>
         ```
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -89,13 +89,13 @@ db.currentOp({ "$ownOps": true })
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.ListLogs](../api-ref/Cluster/listLogs.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/<идентификатор_кластера>:logs' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/<идентификатор_кластера>:logs' \
             --url-query serviceType=<тип_сервиса> \
             --url-query columnFilter=<список_колонок> \
             --url-query fromTime=<левая_граница_временного_диапазона> \
@@ -106,7 +106,7 @@ db.currentOp({ "$ownOps": true })
 
         * `serviceType` — тип сервиса, логи которого нужно получить:
         
-          * `MONGOD` — лог операций {{ SD }}.
+          * `MONGOD` — лог операций Yandex StoreDoc.
           * `AUDIT` — лог аудита.
 
         * `columnFilter` — список колонок для вывода информации:
@@ -120,7 +120,7 @@ db.currentOp({ "$ownOps": true })
 
           В одном параметре `columnFilter` можно указать только одну колонку. Если необходимо отфильтровать логи по нескольким колонкам, передайте перечень нужных колонок в нескольких параметрах.
         
-            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+            * `fromTime` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
             * `toTime` — правая граница временного диапазона, формат аналогичен `fromTime`.
 
@@ -143,7 +143,7 @@ db.currentOp({ "$ownOps": true })
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.ListLogs](../api-ref/grpc/Cluster/listLogs.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -161,7 +161,7 @@ db.currentOp({ "$ownOps": true })
                 "from_time": "<левая_граница_временного_диапазона>",
                 "to_time": "<правая_граница_временного_диапазона>"
               }' \
-          {{ api-host-mdb }}:{{ port-https }} \
+          mdb.api.cloud.yandex.net:443 \
           yandex.cloud.mdb.mongodb.v1.ClusterService.ListLogs
         ```
 
@@ -169,7 +169,7 @@ db.currentOp({ "$ownOps": true })
 
         * `service_type` — тип сервиса, логи которого нужно получить:
 
-          * `MONGOD` — лог операций {{ SD }}.
+          * `MONGOD` — лог операций Yandex StoreDoc.
           * `AUDIT` — лог аудита.
 
         * `column_filter`  — список колонок для вывода информации:
@@ -183,7 +183,7 @@ db.currentOp({ "$ownOps": true })
 
           В параметре `column_filter` можно указать несколько колонок, если нужно отфильтровать логи по нескольким колонкам.
 
-            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `{{ sample-rfc3339-timestamp }}`.
+            * `from_time` — левая граница временного диапазона в формате [RFC-3339](https://www.ietf.org/rfc/rfc3339.html). Пример: `2006-01-02T15:04:05Z`.
 
             * `to_time` — правая граница временного диапазона, формат аналогичен `from_time`.
 

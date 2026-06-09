@@ -5,7 +5,7 @@ Updates the specified regression dashboard.
 ## HTTP request
 
 ```
-PATCH https://loadtesting.{{ api-host }}/loadtesting/api/v1/regressionDashboards/{dashboardId}
+PATCH https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/regressionDashboards/{dashboardId}
 ```
 
 ## Path parameters

@@ -6,19 +6,19 @@
 
 {% note alert %}
 
-Пока облако находится в статусе `PENDING_DELETION`, ваши диски, зарезервированные IP-адреса и другие данные продолжают храниться. Стоимость хранения рассчитывается по прежнему тарифу. Следите за тарификацией ресурсов в [сервисе {{ billing-name }}]({{ link-console-billing }}).
+Пока облако находится в статусе `PENDING_DELETION`, ваши диски, зарезервированные IP-адреса и другие данные продолжают храниться. Стоимость хранения рассчитывается по прежнему тарифу. Следите за тарификацией ресурсов в [сервисе Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts).
 
 {% endnote %}
 
-Чтобы отменить удаление облака, у вас должна быть роль `{{ roles-cloud-owner }}` на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
+Чтобы отменить удаление облака, у вас должна быть роль `resource-manager.clouds.owner` на это облако. Если вы не можете выполнить эту операцию, обратитесь к [владельцу облака](../../concepts/resources-hierarchy.md#owner).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
   
-  1. В правом верхнем углу нажмите значок ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
+  1. В правом верхнем углу нажмите значок ![***](../../../_assets/console-icons/ellipsis.svg) и выберите **Отменить удаление**.
 
   Начатая ранее операция удаления облака будет отменена.
 

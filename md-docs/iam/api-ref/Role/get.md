@@ -6,7 +6,7 @@ To get the list of available Role resources, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
+GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
 ```
 
 ## Path parameters

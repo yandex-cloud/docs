@@ -2,11 +2,11 @@
 
 {% note info %}
 
-Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
+Функциональность находится на стадии [Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ, обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
-_Политики авторизации_ (политики) — это механизм контроля доступа {{ iam-full-name }}, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами {{ yandex-cloud }}](../../../overview/roles-and-resources.md). Политики дополняют систему [ролей](roles.md) и позволяют сделать [управление доступом](index.md) более гибким.
+_Политики авторизации_ (политики) — это механизм контроля доступа Yandex Identity and Access Management, который позволяет управлять разрешениями на выполнение определенных операций с [ресурсами Yandex Cloud](../../../overview/roles-and-resources.md). Политики дополняют систему [ролей](roles.md) и позволяют сделать [управление доступом](index.md) более гибким.
 
 Политики авторизации создаются для [ресурсов](#resources) на основе [шаблонов](#supported-policies) политик авторизации.
 
@@ -32,7 +32,7 @@ _Политики авторизации_ (политики) — это меха
 * [облако](../../../resource-manager/concepts/resources-hierarchy.md#cloud) — политика применяется к ресурсам во всех каталогах в пределах облака;
 * [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder) — политика применяется только к ресурсам в определенном каталоге.
 
-Политики авторизации, созданные на верхних уровнях [иерархии ресурсов {{ yandex-cloud }}](../../../resource-manager/concepts/resources-hierarchy.md), [наследуются](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) нижестоящими уровнями.
+Политики авторизации, созданные на верхних уровнях [иерархии ресурсов Yandex Cloud](../../../resource-manager/concepts/resources-hierarchy.md), [наследуются](../../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) нижестоящими уровнями.
 
 Для одного ресурса можно создать одновременно несколько политик.
 
@@ -58,11 +58,11 @@ _Политики авторизации_ (политики) — это меха
 
 #### backup.denyActivation {#backup-denyActivation}
 
-Политика запрещает подключать [защищаемые ресурсы](../../../backup/concepts/index.md) к сервису {{ backup-full-name }}, а также привязывать и отвязывать их от [политик резервного копирования](../../../backup/concepts/policy.md).
+Политика запрещает подключать [защищаемые ресурсы](../../../backup/concepts/index.md) к сервису Yandex Cloud Backup, а также привязывать и отвязывать их от [политик резервного копирования](../../../backup/concepts/policy.md).
 
 #### backup.denyRemoveProtection {#backup-denyRemoveProtection}
 
-Политика запрещает изменять и удалять [политики резервного копирования](../../../backup/concepts/policy.md) {{ backup-full-name }}, отвязывать [защищаемые ресурсы](../../../backup/concepts/index.md) от таких политик, а также удалять [резервные копии](../../../backup/concepts/backup.md) защищаемых ресурсов.
+Политика запрещает изменять и удалять [политики резервного копирования](../../../backup/concepts/policy.md) Yandex Cloud Backup, отвязывать [защищаемые ресурсы](../../../backup/concepts/index.md) от таких политик, а также удалять [резервные копии](../../../backup/concepts/backup.md) защищаемых ресурсов.
 
 #### iam.denyServiceAccountAccessKeysCreation {#iam-denyServiceAccountAccessKeysCreation}
 
@@ -125,7 +125,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 
-Политика запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) Yandex Serverless Containers и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -134,7 +134,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.containers.restrictResourceVPCNetwork {#serverless-containers-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [контейнерам](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [контейнерам](../../../serverless-containers/concepts/container.md) Yandex Serverless Containers любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 
@@ -142,7 +142,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.functions.restrictNetworkAccess {#serverless-functions-restrictNetworkAccess}
 
-Политика запрещает вызов [функций](../../../functions/concepts/function.md) {{ sf-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает вызов [функций](../../../functions/concepts/function.md) Yandex Cloud Functions и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -151,7 +151,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.functions.restrictResourceVPCNetwork {#serverless-functions-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [функциям](../../../functions/concepts/function.md) {{ sf-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [функциям](../../../functions/concepts/function.md) Yandex Cloud Functions любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 
@@ -159,7 +159,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.mcpGateways.restrictNetworkAccess {#serverless-mcpGateways-restrictNetworkAccess}
 
-Политика запрещает вызов [MCP-серверов]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) {{ mcp-hub-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает вызов [MCP-серверов](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) MCP Hub и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -168,7 +168,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.mcpGateways.restrictResourceVPCNetwork {#serverless-mcpGateways-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [MCP-серверам]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/#servers) {{ mcp-hub-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [MCP-серверам](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/mcp-hub/#servers) MCP Hub любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 
@@ -176,16 +176,16 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.responses.restrictNetworkAccess {#serverless-responses-restrictNetworkAccess}
 
-Политика запрещает вызов методов [{{ responses-api }}]({{ link-docs-ai }}ai-studio/responses/) {{ ai-studio-full-name }} с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает вызов методов [Responses API](https://aistudio.yandex.ru/docs/ru/ai-studio/responses/) Yandex AI Studio с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
-* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов методов {{ responses-api }}.
-* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов методов {{ responses-api }} через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
+* `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов методов Responses API.
+* `allowed_vpc_network_ids` — список идентификаторов облачных сетей, в которых разрешен вызов методов Responses API через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
 
 #### serverless.workflows.restrictNetworkAccess {#serverless-workflows-restrictNetworkAccess}
 
-Политика запрещает запуск [рабочих процессов](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
+Политика запрещает запуск [рабочих процессов](../../../serverless-integrations/concepts/workflows/workflow.md) Yandex Serverless Integrations и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) Yandex Virtual Private Cloud.
 
 Настраиваемые параметры (применяются с логикой `ИЛИ`):
 
@@ -194,7 +194,7 @@ _Политики авторизации_ (политики) — это меха
 
 #### serverless.workflows.restrictResourceVPCNetwork {#serverless-workflows-restrictResourceVPCNetwork}
 
-Политика запрещает привязку к [рабочим процессам](../../../serverless-integrations/concepts/workflows/workflow.md) {{ si-full-name }} любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
+Политика запрещает привязку к [рабочим процессам](../../../serverless-integrations/concepts/workflows/workflow.md) Yandex Serverless Integrations любых [облачных сетей](../../../vpc/concepts/network.md#network) за исключением заданных явно.
 
 Настраиваемый параметр:
 
@@ -202,8 +202,8 @@ _Политики авторизации_ (политики) — это меха
 
 #### См. также {#see-also}
 
-* [{#T}](roles.md)
-* [{#T}](../../operations/access-policies/list.md)
-* [{#T}](../../operations/access-policies/assign.md)
-* [{#T}](../../operations/access-policies/view-assigned.md)
-* [{#T}](../../operations/access-policies/revoke.md)
+* [Роли](roles.md)
+* [Получение списка поддерживаемых шаблонов политик авторизации](../../operations/access-policies/list.md)
+* [Создание политики авторизации для ресурса](../../operations/access-policies/assign.md)
+* [Просмотр политик авторизации, созданных для ресурса](../../operations/access-policies/view-assigned.md)
+* [Удаление политики авторизации](../../operations/access-policies/revoke.md)

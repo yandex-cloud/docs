@@ -1,17 +1,17 @@
-# Техническое обслуживание кластера {{ TR }}
+# Техническое обслуживание кластера Trino
 
-Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера {{ mtr-full-name }}.
+Вы можете управлять [техническим обслуживанием](../concepts/maintenance.md) кластера Yandex Managed Service for Trino.
 
 ## Получить список обслуживаний {#list-maintenance}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
 
-  Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **{{ ui-key.yacloud.mdb.maintenance.label_task-status }}** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
+  Чтобы просмотреть обслуживания с определенным статусом, нажмите кнопку **Статус** над списком обслуживаний и в выпадающем меню выберите нужный статус. Чтобы найти конкретное обслуживание, введите его идентификатор или имя задания в поле над списком обслуживаний.
 
 {% endlist %}
 
@@ -21,17 +21,17 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. Нажмите на идентификатор нужного обслуживания.
-  1. Нажмите ссылку **{{ ui-key.yacloud.mdb.maintenance.label_task-logs }}**.
+  1. Нажмите ссылку **Логи задания**.
 
 {% endlist %}
 
 ## Перенести запланированное обслуживание {#postpone-planned-maintenance}
 
-Обслуживание в статусе **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** назначено на определенную дату и время, которые указаны в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**. При необходимости их можно перенести на новую дату и время.
+Обслуживание в статусе **Запланировано** назначено на определенную дату и время, которые указаны в столбце **Дата начала**. При необходимости их можно перенести на новую дату и время.
 
 Чтобы перенести обслуживание на новую дату и время:
 
@@ -39,20 +39,20 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}**.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_change-task-time }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке обслуживания со статусом **Запланировано**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) **Перенести**.
   1. В открывшемся окне:
-      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_next-available-window }}** и затем **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
-      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **{{ ui-key.yacloud.component.maintenance-alert.value_specific-time }}**, затем выберите новую дату и время и нажмите **{{ ui-key.yacloud.component.maintenance-alert.button_reschedule }}**.
+      * Чтобы перенести обслуживание вперед на следующее окно обслуживания, нажмите **На следующее окно** и затем **Перенести**.
+      * Чтобы перенести обслуживание вперед или назад на определенную дату и время по UTC, нажмите **Выбрать дату (UTC)**, затем выберите новую дату и время и нажмите **Перенести**.
 
 {% endlist %}
 
 ## Провести запланированное обслуживание немедленно {#exec-planned-maintenance}
 
-Обслуживание со статусом **{{ ui-key.yacloud.mdb.maintenance.label_task-status-planned }}** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **{{ ui-key.yacloud.mdb.maintenance.label_task-start-time }}**.
+Обслуживание со статусом **Запланировано** при необходимости можно провести немедленно, не дожидаясь момента, указанного в столбце **Дата начала**.
 
 Чтобы провести запланированное обслуживание кластера немедленно:
 
@@ -60,11 +60,11 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного обслуживания.
-  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.mdb.maintenance.action_exec-task-now }}**.
+  1. В выпадающем меню выберите ![image](../../_assets/console-icons/triangle-right.svg) **Провести сейчас**.
 
 {% endlist %}
 
@@ -82,12 +82,12 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**.
-  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **{{ ui-key.yacloud.mdb.maintenance.action_maintenance-window-setup }}**.
+  1. Перейдите на [страницу каталога](https://console.yandex.cloud).
+  1. Перейдите в сервис **Managed Service for&nbsp;Trino**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Обслуживание**.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/calendar.svg) **Настроить окно обслуживания**.
   1. В открывшемся окне:
-     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
-     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и час по UTC.
+     * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **В любое время** (по умолчанию).
+     * Чтобы разрешить проведение технического обслуживания раз в неделю в определенное время суток, выберите пункт **По расписанию** и укажите день недели и час по UTC.
 
 {% endlist %}

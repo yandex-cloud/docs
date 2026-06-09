@@ -5,7 +5,7 @@ Returns the list of access bindings for the specified subject in chosen organiza
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/listSubjectAccessBindings
+GET https://iam.api.cloud.yandex.net/iam/v1/listSubjectAccessBindings
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListSubjectAccessBindingsRequest}

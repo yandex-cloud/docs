@@ -5,7 +5,7 @@ Modifies all HBA rules for the specified Greenplum cluster.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/hbaRules:batchUpdate
+POST https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/hbaRules:batchUpdate
 ```
 
 ## Path parameters

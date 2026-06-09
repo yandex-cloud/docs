@@ -5,7 +5,7 @@ Returns the latest image that is part of an image family.
 ## HTTP request
 
 ```
-GET https://compute.{{ api-host }}/compute/v1/images:latestByFamily
+GET https://compute.api.cloud.yandex.net/compute/v1/images:latestByFamily
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.GetImageLatestByFamilyRequest}

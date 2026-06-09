@@ -1,48 +1,48 @@
-# Создание триггеров, которые вызывают функции {{ sf-name }} для остановки ВМ и отправки уведомлений в Telegram
+# Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram
 
 
 В этом руководстве вы создадите serverless-инфраструктуру, которая при превышении пороговых значений [бюджета](../../billing/concepts/budget.md) будет останавливать запущенные виртуальные машины и отправлять пользователю уведомления в Telegram.
 
-[Триггер для бюджетов](../../functions/concepts/trigger/budget-trigger.md) будет вызывать [функцию](../../functions/concepts/function.md) {{ sf-name }}, а функция — останавливать [виртуальные машины](../concepts/vm.md#project) {{ compute-name }} и отправлять сообщение в [очередь](../../message-queue/concepts/queue.md) {{ message-queue-full-name }}. 
+[Триггер для бюджетов](../../functions/concepts/trigger/budget-trigger.md) будет вызывать [функцию](../../functions/concepts/function.md) Cloud Functions, а функция — останавливать [виртуальные машины](../concepts/vm.md#project) Compute Cloud и отправлять сообщение в [очередь](../../message-queue/concepts/queue.md) Yandex Message Queue. 
 
-[Триггер для {{ message-queue-name }}](../../functions/concepts/trigger/ymq-trigger.md) будет передавать поступившие в очередь сообщения во вторую функцию {{ sf-name }}, которая будет отправлять уведомления в Telegram с помощью специально созданного бота.
+[Триггер для Message Queue](../../functions/concepts/trigger/ymq-trigger.md) будет передавать поступившие в очередь сообщения во вторую функцию Cloud Functions, которая будет отправлять уведомления в Telegram с помощью специально созданного бота.
 
 Чтобы развернуть проект:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бюджет](#create-budget).
-1. [Создайте очередь {{ message-queue-name }}](#create-queue).
-1. [Создайте функцию {{ sf-name }}, которую будет вызывать триггер для бюджетов](#create-budget-function).
+1. [Создайте очередь Message Queue](#create-queue).
+1. [Создайте функцию Cloud Functions, которую будет вызывать триггер для бюджетов](#create-budget-function).
 1. [Создайте триггер для бюджетов](#create-budget-trigger).
 1. [Зарегистрируйте Telegram-бота](#register-bot).
-1. [Создайте функцию {{ sf-name }}, которую будет вызывать триггер для {{ message-queue-name }}](#create-queue-function).
-1. [Создайте триггер для {{ message-queue-name }}](#create-queue-trigger).
-1. [Создайте виртуальные машины {{ compute-name }}](#create-vms).
+1. [Создайте функцию Cloud Functions, которую будет вызывать триггер для Message Queue](#create-queue-function).
+1. [Создайте триггер для Message Queue](#create-queue-trigger).
+1. [Создайте виртуальные машины Compute Cloud](#create-vms).
 1. [Убедитесь, что по триггеру останавливаются ВМ и отправляются уведомления в Telegram](#test).
 
-Создавайте все указанные ресурсы {{ yandex-cloud }} в одном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
+Создавайте все указанные ресурсы Yandex Cloud в одном [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
-* Плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-name }}](../pricing.md#prices-instance-resources)).
-* Плата за [диски](../concepts/disk.md) ВМ (см. [тарифы {{ compute-name }}](../pricing.md#prices-storage)).
-* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md#prices-public-ip)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../../functions/pricing.md)).
-* Плата за количество запросов к очередям и исходящий трафик (см. [тарифы {{ message-queue-name }}](../../message-queue/pricing.md)).
-* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)), если вы используете сервис [{{ cloud-logging-name }}](../../logging/index.md).
+* Плата за вычислительные ресурсы ВМ (см. [тарифы Compute Cloud](../pricing.md#prices-instance-resources)).
+* Плата за [диски](../concepts/disk.md) ВМ (см. [тарифы Compute Cloud](../pricing.md#prices-storage)).
+* Плата за использование динамического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../../functions/pricing.md)).
+* Плата за количество запросов к очередям и исходящий трафик (см. [тарифы Message Queue](../../message-queue/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
 
 
 ### Скачайте проект {#download}
@@ -62,16 +62,16 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите имя `service-account-for-budget`.
-      1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_roles }}** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+      1. Перейдите в сервис **Identity and Access Management**.
+      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В поле **Имя** укажите имя `service-account-for-budget`.
+      1. В поле **Роли в каталоге** нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
+      1. Нажмите кнопку **Создать**.
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -106,7 +106,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
           Где:
 
-          * `<имя_каталога>` — имя вашего каталога в {{ yandex-cloud }}.
+          * `<имя_каталога>` — имя вашего каталога в Yandex Cloud.
           * `<идентификатор_сервисного_аккаунта>` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта, сохраненный ранее.
 
           Результат:
@@ -138,12 +138,12 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+      1. Перейдите в сервис **Identity and Access Management**.
+      1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
       1. В открывшемся списке выберите сервисный аккаунт `service-account-for-budget`.
-      1. На верхней панели нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
-      1. При необходимости задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+      1. На верхней панели нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
+      1. При необходимости задайте описание ключа и нажмите кнопку **Создать**.
       1. Сохраните идентификатор и секретный ключ.
 
           {% note alert %}
@@ -189,19 +189,19 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - Консоль управления {#console} 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `my-sample-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
-  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
-  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** укажите `sample-subnet-{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** выберите зону доступности `{{ region-id }}-b`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_network }}** выберите облачную сеть `my-sample-network`.
-  1. В поле **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** укажите `192.168.1.0/24`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Virtual Private Cloud**.
+  1. Справа сверху нажмите кнопку **Создать сеть**.
+  1. В поле **Имя** укажите `my-sample-network`.
+  1. В поле **Дополнительно** отключите опцию **Создать подсети**.
+  1. Нажмите кнопку **Создать сеть**.
+  1. На панели слева выберите ![subnets](../../_assets/vpc/subnets.svg) **Подсети**.
+  1. Справа сверху нажмите кнопку **Создать**.
+  1. В поле **Имя** укажите `sample-subnet-ru-central1-b`.
+  1. В поле **Зона доступности** выберите зону доступности `ru-central1-b`.
+  1. В поле **Сеть** выберите облачную сеть `my-sample-network`.
+  1. В поле **CIDR** укажите `192.168.1.0/24`.
+  1. Нажмите кнопку **Создать подсеть**.
 
 - CLI {#cli}
 
@@ -223,11 +223,11 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
       Подробнее о команде `yc vpc network create` читайте в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/network/create.md).
 
-  1. Создайте подсеть `sample-subnet-{{ region-id }}-b` в зоне доступности `{{ region-id }}-b`:
+  1. Создайте подсеть `sample-subnet-ru-central1-b` в зоне доступности `ru-central1-b`:
 
       ```bash
-      yc vpc subnet create sample-subnet-{{ region-id }}-b \
-        --zone {{ region-id }}-b \
+      yc vpc subnet create sample-subnet-ru-central1-b \
+        --zone ru-central1-b \
         --network-name my-sample-network \
         --range 192.168.1.0/24
       ```
@@ -238,9 +238,9 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       id: e2l1ejkvq4jv********
       folder_id: b1g9d2k0itu4********
       created_at: "2024-02-23T18:40:26Z"
-      name: sample-subnet-ru-{{ region-id }}-b
+      name: sample-subnet-ru-ru-central1-b
       network_id: enp2gjcvrd59********
-      zone_id: {{ region-id }}-b
+      zone_id: ru-central1-b
       v4_cidr_blocks:
         - 192.168.1.0/24
       ```
@@ -262,29 +262,29 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 {% list tabs group=instructions %}
 
-- {{ billing-interface }} {#billing}
+- Интерфейс Yandex Cloud Billing {#billing}
 
-  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
   1. Выберите [платежный аккаунт](../../billing/concepts/billing-account.md).
-  1. В секции **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}**, в поле **{{ ui-key.yacloud.common.id }}**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании [триггера](../../functions/concepts/trigger/index.md) для бюджетов.
-  1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.switch_budgets }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.budgets.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
-     * **{{ ui-key.yacloud.common.name }}** — `vm-budget`.
-     * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_amount }}** — сумму расходов на потребление, например `10 ₽`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_reset-period }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.reset-period_value_monthly }}`.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_expire }}** — дату окончания действия бюджета.
+  1. В секции **Общие сведения**, в поле **Идентификатор**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании [триггера](../../functions/concepts/trigger/index.md) для бюджетов.
+  1. Перейдите на вкладку **Бюджеты** и нажмите кнопку **Создать бюджет**.
+  1. В блоке **Общая информация** укажите:
+     * **Имя** — `vm-budget`.
+     * **Тип** — `К оплате`.
+     * **Сумма** — сумму расходов на потребление, например `10 ₽`.
+     * **Период расчета** — `Месячный`.
+     * **Дата окончания** — дату окончания действия бюджета.
 
        Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
-     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}** — выберите себя.
-  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу, и сервис **{{ compute-name }}**.
-  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.label_limits }}** укажите пороговые значения в процентах, при достижении которых:
+     * **Уведомить** — выберите себя.
+  1. В блоке **Область действия** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу, и сервис **Compute Cloud**.
+  1. В блоке **Пороги** укажите пороговые значения в процентах, при достижении которых:
      * Указанным пользователям будут приходить уведомления.
      * Будет срабатывать триггер для бюджетов.
 
      Например, можно указать два порога — `50%` и `100%`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. В открывшемся окне появился новый бюджет `vm-budget`. В поле **{{ ui-key.yacloud.common.id }}** скопируйте идентификатор созданного бюджета. Он пригодится позднее при создании триггера.
+  1. Нажмите кнопку **Создать**.
+  1. В открывшемся окне появился новый бюджет `vm-budget`. В поле **Идентификатор** скопируйте идентификатор созданного бюджета. Он пригодится позднее при создании триггера.
 
 - API {#api}
 
@@ -293,25 +293,25 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 {% endlist %}
 
 
-## Создайте очередь {{ message-queue-name }} {#create-queue}
+## Создайте очередь Message Queue {#create-queue}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
   
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.ymq.queue.form.section_base }}** укажите:
-      * **{{ ui-key.yacloud.common.name }}** — `budget-queue`.  
-      * **{{ ui-key.yacloud.ymq.queue.form.switch_fifo-queue }}** — `{{ ui-key.yacloud.ymq.queue.form.type_switch_standard }}`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Message Queue**.
+  1. Нажмите кнопку **Создать очередь**.
+  1. В блоке **Базовые параметры** укажите:
+      * **Имя** — `budget-queue`.  
+      * **Тип** — `Стандартная`.
 
       Остальные параметры оставьте без изменений.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **Создать**.
   1. Нажмите на имя созданной очереди `budget-queue` и в открывшемся окне скопируйте значения полей:
-      * **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** — URL очереди.
-      * **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** — идентификатор очереди.
+      * **URL** — URL очереди.
+      * **ARN** — идентификатор очереди.
 
       Сохраните эти значения: они пригодятся на следующих шагах.
 
@@ -324,14 +324,14 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       ```bash
       aws sqs create-queue \
         --queue-name budget-queue \
-        --endpoint https://message-queue.{{ api-host }}/
+        --endpoint https://message-queue.api.cloud.yandex.net/
       ```
 
       Результат:
 
       ```json
       {
-          "QueueUrl": "https://message-queue.{{ api-host }}/b1glti4eser3********/dj600000001c********/budget-queue"
+          "QueueUrl": "https://message-queue.api.cloud.yandex.net/b1glti4eser3********/dj600000001c********/budget-queue"
       }
       ```
 
@@ -343,7 +343,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       aws sqs get-queue-attributes \
         --queue-url <URL_очереди> \
         --attribute-names QueueArn \
-        --endpoint https://message-queue.{{ api-host }}/
+        --endpoint https://message-queue.api.cloud.yandex.net/
       ```
 
       Результат:
@@ -351,7 +351,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
       ```json
       {
           "Attributes": {
-              "QueueArn": "yrn:yc:ymq:{{ region-id }}:b1g9d2k0itu4********:budget-queue"
+              "QueueArn": "yrn:yc:ymq:ru-central1:b1g9d2k0itu4********:budget-queue"
           }
       }
       ```
@@ -361,7 +361,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 {% endlist %}
 
 
-## Создайте функцию {{ sf-name }}, которую будет вызывать триггер для бюджетов {#create-budget-function}
+## Создайте функцию Cloud Functions, которую будет вызывать триггер для бюджетов {#create-budget-function}
 
 1. Подготовьте ZIP-архив с кодом функции.
 
@@ -377,29 +377,29 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+      1. Перейдите в сервис **Cloud Functions**.
       1. Создайте функцию:
-          1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+          1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-trigger-handler`.
-          1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          1. Нажмите кнопку **Создать**.
 
       1. Создайте версию функции:
-          1. Выберите среду выполнения `golang119`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-          1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и прикрепите архив `src_bgt.zip`, который создали на предыдущем шаге.
+          1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+          1. Укажите способ загрузки **ZIP-архив** и прикрепите архив `src_bgt.zip`, который создали на предыдущем шаге.
           1. Укажите точку входа `budget_trigger_handler.Handler`.
-          1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`;
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
-              * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `service-account-for-budget`;
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+          1. В блоке **Параметры** укажите:
+              * **Таймаут** — `5`;
+              * **Память** — `512 МБ`;
+              * **Сервисный аккаунт** — `service-account-for-budget`;
+              * **Переменные окружения**:
                   * `FOLDER_ID` — идентификатор каталога, в котором вы хотите останавливать виртуальные машины.
                   * `TAG` — `target-for-stop`.
                   * `AWS_ACCESS_KEY_ID` — значение идентификатора статического ключа доступа, сохраненное ранее.
                   * `AWS_SECRET_ACCESS_KEY` — значение секретного ключа статического ключа доступа, сохраненное ранее.
                   * `BUDGET_QUEUE_URL` — значение URL очереди `budget-queue`, сохраненное ранее.
 
-          1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+          1. Нажмите кнопку **Сохранить изменения**.
 
     - CLI {#cli}
 
@@ -417,7 +417,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           folder_id: b1g9d2k0itu4********
           created_at: "2024-02-23T20:15:06.456Z"
           name: budget-trigger-handler
-          http_invoke_url: https://{{ sf-url }}/d4e4aigfdm0b********
+          http_invoke_url: https://functions.yandexcloud.net/d4e4aigfdm0b********
           status: ACTIVE
           ```
 
@@ -472,7 +472,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           environment:
             AWS_ACCESS_KEY_ID: YCAJEK_r3Z_EvxRAR********
             AWS_SECRET_ACCESS_KEY: YCPQhHFMx6rnWXQC9ID425gk3V9YnUc0********
-            BUDGET_QUEUE_URL: https://message-queue.{{ api-host }}/b1glti4eser3********/dj600000001c********/budget-queue
+            BUDGET_QUEUE_URL: https://message-queue.api.cloud.yandex.net/b1glti4eser3********/dj600000001c********/budget-queue
             FOLDER_ID: b1g9d2k0itu4********
             TAG: target-for-stop
           log_options:
@@ -496,19 +496,19 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** укажите имя триггера `trigger-for-budget-from-yc`.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Cloud Functions**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+  1. Нажмите кнопку **Создать триггер**.
+  1. В блоке **Базовые параметры**:
+      * В поле **Имя** укажите имя триггера `trigger-for-budget-from-yc`.
+      * В поле **Тип** выберите `Бюджет`.
+      * В поле **Запускаемый ресурс** выберите `Функция`.
 
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}** выберите ваш платежный аккаунт и бюджет `vm-budget`, который создали ранее.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию `budget-trigger-handler` и укажите сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
+  1. В блоке **Настройки бюджета** выберите ваш платежный аккаунт и бюджет `vm-budget`, который создали ранее.
+  1. В блоке **Настройки функции** выберите функцию `budget-trigger-handler` и укажите сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+  1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
@@ -624,7 +624,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     1. Вернитесь в терминал и завершите работу бота с помощью сочетания клавиш **Ctrl** + **C**.
 
-## Создайте функцию {{ sf-name }}, которую будет вызывать триггер для {{ message-queue-name }} {#create-queue-function}
+## Создайте функцию Cloud Functions, которую будет вызывать триггер для Message Queue {#create-queue-function}
 
 1. Подготовьте ZIP-архив с кодом функции.
 
@@ -640,26 +640,26 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+      1. Перейдите в сервис **Cloud Functions**.
       1. Создайте функцию:
-          1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
+          1. Нажмите кнопку **Создать функцию**.
           1. Введите имя функции `budget-queue-handler`.
-          1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          1. Нажмите кнопку **Создать**.
 
       1. Создайте версию функции:
-          1. Выберите среду выполнения `golang119`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-          1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и прикрепите архив `src_queue.zip`, который создали на предыдущем шаге.
+          1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+          1. Укажите способ загрузки **ZIP-архив** и прикрепите архив `src_queue.zip`, который создали на предыдущем шаге.
           1. Укажите точку входа `budget_queue_handler.HandleBudgetQueueMessage`.
-          1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`;
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
-              * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `service-account-for-budget`;
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
+          1. В блоке **Параметры** укажите:
+              * **Таймаут** — `5`;
+              * **Память** — `512 МБ`;
+              * **Сервисный аккаунт** — `service-account-for-budget`;
+              * **Переменные окружения**:
                   * `TELEGRAM_BOT_API_TOKEN` — API-токен Telegram-бота, сохраненный ранее.
                   * `TELEGRAM_BOT_CHAT_ID` — идентификатор `ChatID` пользователя Telegram, сохраненный ранее.
 
-          1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+          1. Нажмите кнопку **Сохранить изменения**.
 
     - CLI {#cli}
 
@@ -677,7 +677,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
           folder_id: b1g9d2k0itu4********
           created_at: "2024-02-24T07:36:04.092Z"
           name: budget-queue-handler
-          http_invoke_url: https://{{ sf-url }}/d4e6r2g9trt5********
+          http_invoke_url: https://functions.yandexcloud.net/d4e6r2g9trt5********
           status: ACTIVE
           ```
 
@@ -739,32 +739,32 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
     {% endlist %}
 
 
-## Создайте триггер для {{ message-queue-name }} {#create-queue-trigger}
+## Создайте триггер для Message Queue {#create-queue-trigger}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** укажите имя триггера `budget-queue-trigger`.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите ваш каталог.
+  1. Перейдите в сервис **Cloud Functions**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+  1. Нажмите кнопку **Создать триггер**.
+  1. В блоке **Базовые параметры**:
+      * В поле **Имя** укажите имя триггера `budget-queue-trigger`.
+      * В поле **Тип** выберите `Message Queue`.
+      * В поле **Запускаемый ресурс** выберите `Функция`.
 
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите созданные ранее ресурсы:
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_queue }}** — `budget-queue`.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}** — `service-account-for-budget`.
+  1. В блоке **Настройки сообщений Message Queue** выберите созданные ранее ресурсы:
+      * В поле **Очередь сообщений** — `budget-queue`.
+      * В поле **Сервисный аккаунт** — `service-account-for-budget`.
 
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию `budget-queue-handler` и укажите сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
+  1. В блоке **Настройки функции** выберите функцию `budget-queue-handler` и укажите сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
+  1. Нажмите кнопку **Создать триггер**.
 
 - CLI {#cli}
 
-  Чтобы создать триггер для {{ message-queue-name }}, который вызывает функцию `budget-queue-handler`, выполните команду:
+  Чтобы создать триггер для Message Queue, который вызывает функцию `budget-queue-handler`, выполните команду:
 
   ```bash
   yc serverless trigger create message-queue \
@@ -792,7 +792,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   name: budget-queue-trigger
   rule:
     message_queue:
-      queue_id: yrn:yc:ymq:{{ region-id }}:b1g9d2k0itu4********:budget-queue
+      queue_id: yrn:yc:ymq:ru-central1:b1g9d2k0itu4********:budget-queue
       service_account_id: ajed1o6dd581********
       batch_settings:
         size: "1"
@@ -808,55 +808,55 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
 
 - API {#api}
 
-  Чтобы создать триггер для {{ message-queue-name }}, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для Message Queue, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
 
-## Создайте виртуальные машины {{ compute-name }} {#create-vms}
+## Создайте виртуальные машины Compute Cloud {#create-vms}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-b`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите [Ubuntu 22.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-22-04-lts).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-b`.
+  1. В блоке **Сетевые настройки**: 
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите созданную ранее подсеть `sample-subnet-{{ region-id }}-b`.
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`.
+      * В поле **Подсеть** выберите созданную ранее подсеть `sample-subnet-ru-central1-b`.
+      * В поле **Публичный IP-адрес** выберите `Автоматически`.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, например, `yc-user`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}**:
+  1. В блоке **Общая информация**:
 
       * Укажите имя ВМ: `target-instance-1`.
-      * В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите кнопку **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите `target-for-stop:true`. Нажмите **Enter**, чтобы сохранить метку.
+      * В поле **Метки** нажмите кнопку **Добавить метку** и введите `target-for-stop:true`. Нажмите **Enter**, чтобы сохранить метку.
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
 
@@ -866,8 +866,8 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   yc compute instance create \
     --name target-instance-1 \
     --labels target-for-stop=true \
-    --zone {{ region-id }}-b \
-    --network-interface subnet-name=sample-subnet-{{ region-id }}-b,nat-ip-version=ipv4 \
+    --zone ru-central1-b \
+    --network-interface subnet-name=sample-subnet-ru-central1-b,nat-ip-version=ipv4 \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts \
     --ssh-key ~/.ssh/<имя_ключа>.pub
   ```
@@ -884,7 +884,7 @@ git clone https://github.com/yandex-cloud-examples/yc-telegram-bot-with-trigger-
   name: target-instance-1
   labels:
     target-for-stop: "true"
-  zone_id: {{ region-id }}-b
+  zone_id: ru-central1-b
   platform_id: standard-v2
   resources:
     memory: "2147483648"
@@ -944,8 +944,8 @@ Budget trigger was triggered!
 
 Чтобы перестать платить за созданные ресурсы:
 
-1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггеры {{ sf-name }}.
-1. [Удалите](../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
+1. [Удалите](../../functions/operations/trigger/trigger-delete.md) триггеры Cloud Functions.
+1. [Удалите](../../functions/operations/function/function-delete.md) функции Cloud Functions.
 1. [Удалите](../operations/vm-control/vm-delete.md) виртуальные машины.
-1. [Удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь {{ message-queue-name }}.
+1. [Удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь Message Queue.
 1. [Удалите](../../vpc/operations/subnet-delete.md) подсеть, затем [удалите](../../vpc/operations/network-delete.md) облачную сеть.

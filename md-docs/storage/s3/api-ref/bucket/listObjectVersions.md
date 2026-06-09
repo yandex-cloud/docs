@@ -23,12 +23,12 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 
 Параметр | Описание
 ----- | -----
-`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то {{ objstorage-name }} рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то {{ objstorage-name }} вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
-`encoding-type` | Кодировка ответа от сервера.<br/><br/>{{ objstorage-name }} по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
-`key-marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит ключи, начиная со следующего за `key-marker`.
-`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию {{ objstorage-name }} выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к {{ objstorage-name }} с параметром `key-marker`, где для каждого запроса `key-marker` и `version-id-marker` равны значениям элементов `NextKeyMarker` и `NextVersionIdMarker` из предыдущего ответа.
-`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>{{ objstorage-name }} выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи становится той, что указана в описании параметра `delimiter`.
-`version-id-marker` | Версия объекта, с которой начинается выдача.<br/><br/>В результирующей выдаче {{ objstorage-name }} оставит версии, начиная со следующей за `version-id-marker`.
+`delimiter` | Символ-разделитель.<br/><br/>Если параметр указан, то Object Storage рассматривает ключ как путь к файлу, где каталоги разделяются символом `delimiter`. В ответе на запрос пользователь увидит перечень <q>файлов</q> и <q>каталогов</q> в бакете. <q>Файлы</q> будут выведены в элементах `Contents`, а <q>каталоги</q> в элементах `CommonPrefixes`.<br/><br/>Если в запросе указан еще и параметр `prefix`, то Object Storage вернет перечень <q>файлов</q> и <q>каталогов</q> в <q>каталоге</q> `prefix`.
+`encoding-type` | Кодировка ответа от сервера.<br/><br/>Object Storage по требованию клиента может закодировать ответ в требуемом виде.<br/><br/>Возможные значения: `url`.
+`key-marker` | Ключ, с которого начнется выдача.<br/><br/>В результирующей выдаче Object Storage оставит ключи, начиная со следующего за `key-marker`.
+`max-keys` | Максимальное количество элементов в ответе.<br/><br/>По умолчанию Object Storage выдает не более 1000 элементов `Contents` и `CommonPrefixes`. Параметр следует использовать, если вам нужно получать менее 1000 элементов в одном ответе.<br/><br/>Если под критерии отбора попадает больше ключей, чем поместилось в выдаче, то ответ содержит `<IsTruncated>true</IsTruncated>`.<br/><br/>Чтобы получить все элементы выдачи, если их больше `max-keys`, необходимо выполнить несколько последовательных запросов к Object Storage с параметром `key-marker`, где для каждого запроса `key-marker` и `version-id-marker` равны значениям элементов `NextKeyMarker` и `NextVersionIdMarker` из предыдущего ответа.
+`prefix` | Строка, с которой должен начинаться ключ.<br/><br/>Object Storage выберет только те ключи, которые начинаются с `prefix`.<br/><br/>Может использоваться одновременно с параметром `delimiter`. В этом случае логика выдачи становится той, что указана в описании параметра `delimiter`.
+`version-id-marker` | Версия объекта, с которой начинается выдача.<br/><br/>В результирующей выдаче Object Storage оставит версии, начиная со следующей за `version-id-marker`.
 
 ### Заголовки {#request-headers}
 Используйте в запросе только [общие заголовки](../common-request-headers.md).
@@ -41,7 +41,7 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
 
@@ -98,8 +98,8 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 `CommonPrefixes` | Часть имени ключа, которая определяется при обработке query параметров `delimiter` и `prefix`.<br/><br/>Путь: `/ListVersionsResult/CommonPrefixes`.
 `DeleteMarker` | Контейнер для объекта, который является маркером удаления.<br/><br/>Путь: `/ListVersionsResult/DeleteMarker`.
 `Delimiter` | Значение query параметра `delimiter`.<br/><br/>Путь: `/ListVersionsResult/Delimiter`.
-`EncodingType` | Кодировка, в которой {{ objstorage-name }} представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListVersionsResult/EncodingType`.
-`IsTruncated` | Признак неполноты списка.<br/><br/>Если `IsTruncated` — `true`, то это означает, что {{ objstorage-name }} вернул не полный список частей.<br/><br/>Путь: `/ListVersionsResult/IsTruncated`.
+`EncodingType` | Кодировка, в которой Object Storage представляет ключ в XML-ответе.<br/><br/>Появляется, если клиент при запросе передал параметр `encoding-type`.<br/><br/>Путь: `/ListVersionsResult/EncodingType`.
+`IsTruncated` | Признак неполноты списка.<br/><br/>Если `IsTruncated` — `true`, то это означает, что Object Storage вернул не полный список частей.<br/><br/>Путь: `/ListVersionsResult/IsTruncated`.
 `KeyMarker` | Последний ключ, возвращенный в неполном ответе.<br/><br/>Путь: `/ListVersionsResult/KeyMarker`.
 `MaxKeys` | Значение query параметра `max-keys`.<br/><br/>Путь: `/ListBucketResult/MaxKeys`.
 `Name` | Название бакета.<br/><br/>Путь: `/ListBucketResult/Name`.
@@ -111,15 +111,15 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 
 #### Связанные статьи {#related-articles}
 
-* [{#T}](../../../concepts/bucket.md)
+* [Бакет в Object Storage](../../../concepts/bucket.md)
 
-* [{#T}](../../../concepts/object-lock.md)
+* [Блокировка версии объекта (object lock)](../../../concepts/object-lock.md)
 
-* [{#T}](../../../operations/objects/restore-object-version.md)
+* [Восстановление версии объекта в версионируемом бакете](../../../operations/objects/restore-object-version.md)
 
 #### См. также {#see-also}
 
-* [{#T}](../../s3-api-quickstart.md)
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

@@ -5,7 +5,7 @@ Sets access bindings for specified community.
 ## HTTP request
 
 ```
-POST https://datasphere.{{ api-host }}/datasphere/v2/communities/{resourceId}:setAccessBindings
+POST https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

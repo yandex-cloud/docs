@@ -1,14 +1,14 @@
-# Как начать работать с {{ baremetal-full-name }}
+# Как начать работать с Yandex BareMetal
 
 Арендуйте свой первый [физический сервер](concepts/servers.md) и подключитесь к нему. Все ресурсы арендованного сервера выделяются только вам и могут обеспечить лучшую производительность, чем аналогичная [виртуальная машина](../glossary/vm.md).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
@@ -18,9 +18,9 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](concepts/server-configurations.md) сервера {{ baremetal-name }}. Например: `BA-i103-S-10G`.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите арендовать сервер.
+  1. Перейдите в сервис **BareMetal**.
+  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](concepts/server-configurations.md) сервера BareMetal. Например: `BA-i103-S-10G`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
       
@@ -34,7 +34,7 @@
       
       Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](concepts/server-custom-configurations.md#assembly).
       
-      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
+      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
       
       При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
       
@@ -42,65 +42,65 @@
 
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В блоках **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, **{{ ui-key.yacloud.baremetal.title_section-location }}** и **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
+      1. В блоках **Конфигурация**, **Расположение** и **Условия аренды** убедитесь, что параметры выбранной конфигурации сервера соответствуют вашим потребностям.
          
-         Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../_assets/console-icons/arrow-left.svg) в блоке **{{ ui-key.yacloud.baremetal.title_section-server-config }}**, чтобы вернуться к выбору конфигурации.
-      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](concepts/servers.md#server-lease), на который вы будете арендовать сервер.
+         Если выбранные параметры вам не подходят, нажмите значок ![arrow-left](../_assets/console-icons/arrow-left.svg) в блоке **Конфигурация**, чтобы вернуться к выбору конфигурации.
+      1. В поле **Период аренды** выберите [период](concepts/servers.md#server-lease), на который вы будете арендовать сервер.
 
           {% note tip %}
 
           Для первоначального тестирования достаточно арендовать сервер сроком на 1 день или 1 месяц. Если этого времени окажется недостаточно, аренда сервера будет автоматически продлена на следующий период той же продолжительности.
 
           {% endnote %}
-      1. В поле **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** оставьте `1`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` и образ с операционной системой `Ubuntu 24.04 LTS`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**, чтобы задать конфигурацию разделов [дисковых устройств](concepts/disks/disk-types.md), имеющихся на сервере.
+      1. В поле **Количество серверов** оставьте `1`.
+      1. В блоке **Образ** выберите вариант `Marketplace` и образ с операционной системой `Ubuntu 24.04 LTS`.
+      1. В блоке **Диск** нажмите кнопку **Настроить разделы диска**, чтобы задать конфигурацию разделов [дисковых устройств](concepts/disks/disk-types.md), имеющихся на сервере.
 
-          В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 1** выберите [приватную подсеть](concepts/private-network.md#private-subnet) в той [зоне доступности](../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
+          В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **Сохранить**.
+      1. В блоке **Сетевые интерфейсы** в разделе **Интерфейс 1** выберите [приватную подсеть](concepts/private-network.md#private-subnet) в той [зоне доступности](../overview/concepts/geo-scope.md), в которой вы арендуете сервер.
          
-         Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **{{ ui-key.yacloud.common.create }}** и в открывшемся окне задайте параметры подсети по инструкции [{#T}](operations/subnet-create.md).
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 2** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+         Если в зоне доступности арендуемого сервера еще нет приватной подсети или вы хотите создать новую приватную подсеть, нажмите кнопку **Создать** и в открывшемся окне задайте параметры подсети по инструкции [Создать приватную подсеть](operations/subnet-create.md).
+      1. В блоке **Сетевые интерфейсы** в разделе **Интерфейс 2** в поле **Публичный адрес** выберите `Из эфемерной подсети`.
+      1. В блоке **Доступ**:
 
-          1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+          1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
           
-              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
+              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
           
                   {% note warning %}
                   
-                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
+                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
                   
                   {% endnote %}
           
-              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
+              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
           
-                  В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+                  В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
                   
-                  Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
+                  Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
           
-                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
+                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
           
-          1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../organization/concepts/membership.md).
+          1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../organization/concepts/membership.md).
           
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+              1. Нажмите кнопку **Добавить ключ**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+              1. Нажмите кнопку **Добавить**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** введите **{{ ui-key.yacloud.baremetal.field_name }}** сервера — `bm-server`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
+      1. В блоке **Информация о сервере** введите **Имя** сервера — `bm-server`.
+      1. Нажмите кнопку **Заказать сервер**.
 
 {% endlist %}
 
@@ -110,13 +110,13 @@
 
 - KVM-консоль {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
-  1. Перейдите в сервис **{{ baremetal-name }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервер.
+  1. Перейдите в сервис **BareMetal**.
   1. В строке с нужным сервером нажмите значок ![image](../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
 
 - Linux/macOS {#linux-macos}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **Публичный IP-адрес** блока **Сетевые интерфейсы** на странице сервера.
 
   В терминале выполните команду:
 
@@ -137,7 +137,7 @@
 
 - Windows 10/11 {#windows}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **Публичный IP-адрес** блока **Сетевые интерфейсы** на странице сервера.
 
   Убедитесь, что учетная запись Windows обладает правами на чтение файлов в папке с ключами.
 
@@ -159,7 +159,7 @@
 
 - Windows 7/8 {#windows7-8}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **Публичный IP-адрес** блока **Сетевые интерфейсы** на странице сервера.
 
   Установите соединение с помощью приложения PuTTY:
 

@@ -5,7 +5,7 @@ Deletes the specified security group.
 ## HTTP request
 
 ```
-DELETE https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}
+DELETE https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}
 ```
 
 ## Path parameters

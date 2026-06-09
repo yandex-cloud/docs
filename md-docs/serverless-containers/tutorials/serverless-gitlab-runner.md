@@ -1,17 +1,17 @@
-# Запуск {{ GLR }} в {{ serverless-containers-full-name }}
+# Запуск GitLab Runner в Yandex Serverless Containers
 
 
-В этом практическом руководстве вы научитесь запускать [{{ GLR }}]({{ gl.docs }}/runner/) в инфраструктуре {{ yandex-cloud }} с использованием [{{ serverless-containers-full-name }}](../index.md).
+В этом практическом руководстве вы научитесь запускать [GitLab Runner](https://docs.gitlab.com/runner/) в инфраструктуре Yandex Cloud с использованием [Yandex Serverless Containers](../index.md).
 
-Чтобы запустить {{ GLR }} в {{ serverless-containers-name }}:
+Чтобы запустить GitLab Runner в Serverless Containers:
 
 1. [Подготовьте облако к работе](#before-begin).
-1. [Создайте {{ GLR }} и получите токен](#create-gitlab-runner).
+1. [Создайте GitLab Runner и получите токен](#create-gitlab-runner).
 1. [Создайте секрет](#create-secret).
 1. [Создайте сервисные аккаунты](#create-sa).
 1. [Создайте API-ключ сервисного аккаунта](#create-api-key).
 1. [Создайте контейнер](#create-container).
-1. [Настройте вебхук в {{ GL }}](#configure-webhook-gitlab).
+1. [Настройте вебхук в GitLab](#configure-webhook-gitlab).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -20,9 +20,9 @@
 
 ![image](../../_assets/tutorials/serverless-gitlab-runner.svg)
 
-После создания задания (Job) {{ GL }} отправляет вебхук-запрос в созданный контейнер {{ serverless-containers-name }}. Контейнер запускается на базе публичного образа из [{{ container-registry-full-name }}](../../container-registry/index.md) и получает необходимые секреты из [{{ lockbox-full-name }}](../../lockbox/index.md). В контейнере разворачивается {{ GLR }}, который подключается к {{ GL }}, забирает задание на исполнение, запускает выполнение в изолированном Docker-контейнере и по итогу завершает свою работу. Такой подход позволяет отказаться от поддержки постоянно работающих [виртуальных машин](../../compute/concepts/vm.md), оплачивая лишь фактическое время выполнения каждого задания.
+После создания задания (Job) GitLab отправляет вебхук-запрос в созданный контейнер Serverless Containers. Контейнер запускается на базе публичного образа из [Yandex Container Registry](../../container-registry/index.md) и получает необходимые секреты из [Yandex Lockbox](../../lockbox/index.md). В контейнере разворачивается GitLab Runner, который подключается к GitLab, забирает задание на исполнение, запускает выполнение в изолированном Docker-контейнере и по итогу завершает свою работу. Такой подход позволяет отказаться от поддержки постоянно работающих [виртуальных машин](../../compute/concepts/vm.md), оплачивая лишь фактическое время выполнения каждого задания.
 
-Вы можете ознакомиться с исходным кодом в [репозитории]({{ link-src-main }}/yandex-cloud-examples/serverless-gitlab-runner) {{ src-full-name }}.
+Вы можете ознакомиться с исходным кодом в [репозитории](https://sourcecraft.dev/yandex-cloud-examples/serverless-gitlab-runner) SourceCraft.
 
 **Ключевые этапы работы**
 
@@ -49,7 +49,7 @@
 
 **Принцип работы внутри контейнера**
 
-Внутри контейнера запускается HTTP-сервер и процесс {{ GLR }}, который берет новое CI/CD-задание из {{ GL }} и исполняет его в отдельных изолированных docker-контейнерах.
+Внутри контейнера запускается HTTP-сервер и процесс GitLab Runner, который берет новое CI/CD-задание из GitLab и исполняет его в отдельных изолированных docker-контейнерах.
 
 **Переменные окружения**
 
@@ -57,8 +57,8 @@
 
 Переменная              | По умолчанию         | Обязательно | Описание
 ----------------------- | -------------------- | ----------- | ---
-`RUNNER_TOKEN`          | —                    | Да          | Токен {{ GLR }} (Project/Group/Instance).
-`CI_SERVER_URL`         | `https://gitlab.com` | Нет         | Адрес {{ GL }} CI.
+`RUNNER_TOKEN`          | —                    | Да          | Токен GitLab Runner (Project/Group/Instance).
+`CI_SERVER_URL`         | `https://gitlab.com` | Нет         | Адрес GitLab CI.
 `PORT`                  | `8080`               | Нет         | HTTP-порт.
 `WEBHOOK_PATH`          | `/`                  | Нет         | Путь эндпоинта вебхука.
 `GITLAB_SECRET`         | —                    | Нет         | Секрет для проверки заголовка `X-Gitlab-Token`.
@@ -75,11 +75,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -88,13 +88,13 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}](../pricing.md)).
-* Плата за хранение секретов (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы Serverless Containers](../pricing.md)).
+* Плата за хранение секретов (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
 
-## Создайте {{ GLR }} и получите токен {#create-gitlab-runner}
+## Создайте GitLab Runner и получите токен {#create-gitlab-runner}
 
-1. В [{{ GL }}](https://gitlab.com) создайте и откройте проект.
+1. В [GitLab](https://gitlab.com) создайте и откройте проект.
 1. На панели слева выберите ![image](../../_assets/console-icons/gear.svg) **Settings** → **CI/CD**.
 1. Раскройте раздел **Runners** и нажмите **Create project runner**.
 1. В поле **Tags** укажите теги задач, которые должен обрабатывать этот раннер.
@@ -104,29 +104,29 @@
 
 ## Создайте секрет {#create-secret}
 
-Создайте секрет [{{ lockbox-full-name }}](../../lockbox/index.md) с аутентификационным токеном раннера.
+Создайте секрет [Yandex Lockbox](../../lockbox/index.md) с аутентификационным токеном раннера.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя [секрета](../../lockbox/concepts/secret.md) `gitlab-runner-token`.
-  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите **Создать секрет**.
+  1. В поле **Имя** укажите имя [секрета](../../lockbox/concepts/secret.md) `gitlab-runner-token`.
+  1. В блоке **Данные секрета**:
 
-      1. Выберите тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-      1. Добавьте значение токена {{ GLR }}:
+      1. Выберите тип секрета `Пользовательский`.
+      1. Добавьте значение токена GitLab Runner:
 
-          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите `gitlab_runner_token`.
-          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите аутентификационный токен раннера, который вы [получили ранее](#create-gitlab-runner).
+          * В поле **Ключ** укажите `gitlab_runner_token`.
+          * В поле **Значение** укажите аутентификационный токен раннера, который вы [получили ранее](#create-gitlab-runner).
 
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите **Создать**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -172,11 +172,11 @@
 
 Создайте два сервисных аккаунта:
 
-* `gitlab-runner-lockbox-payload-viewer` с [ролью](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}` для доступа к секрету {{ lockbox-short-name }}.
-* `gitlab-runner-caller` с [ролью](../security/index.md#serverless-containers-containerinvoker) `{{ roles-serverless-containers-invoker }}` на каталог. Этот сервисный аккаунт будет выполнять две функции:
+* `gitlab-runner-lockbox-payload-viewer` с [ролью](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` для доступа к секрету Lockbox.
+* `gitlab-runner-caller` с [ролью](../security/index.md#serverless-containers-containerinvoker) `serverless-containers.containerInvoker` на каталог. Этот сервисный аккаунт будет выполнять две функции:
 
-    * От его имени {{ GL }} будет вызывать контейнер. API-ключ [будет указан](#configure-webhook-gitlab) в заголовке `Authorization`.
-    * Его идентификатор будет использоваться {{ GL }} для постановки задачи раннеру на выполнение, чтобы вызов контейнера выполнялся асинхронно. Идентификатор будет передан при [создании](#create-container) ревизии контейнера.
+    * От его имени GitLab будет вызывать контейнер. API-ключ [будет указан](#configure-webhook-gitlab) в заголовке `Authorization`.
+    * Его идентификатор будет использоваться GitLab для постановки задачи раннеру на выполнение, чтобы вызов контейнера выполнялся асинхронно. Идентификатор будет передан при [создании](#create-container) ревизии контейнера.
 
     При необходимости вы можете разделить эти функции между двумя разными сервисными аккаунтами.
 
@@ -184,25 +184,25 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
   1. Укажите имя сервисного аккаунта `gitlab-runner-caller`.
-  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `{{ roles-serverless-containers-invoker }}`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `serverless-containers.containerInvoker`.
+  1. Нажмите **Создать**.
   1. Аналогичным способом создайте сервисный аккаунт `gitlab-runner-lockbox-payload-viewer` без назначения роли.
   1. Назначьте сервисному аккаунту `gitlab-runner-lockbox-payload-viewer` роль на секрет:
 
-      1. Откройте [консоль управления]({{ link-console-main }}).
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+      1. Откройте [консоль управления](https://console.yandex.cloud).
+      1. Перейдите в сервис **Lockbox**.
       1. Выберите секрет `gitlab-runner-token`.
-      1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+      1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **Права доступа**.
+      1. Нажмите **Назначить роли**.
       1. Найдите и выберите сервисный аккаунт `gitlab-runner-lockbox-payload-viewer`.
-      1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-lockbox-payloadviewer }}`.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `lockbox.payloadViewer`.
+      1. Нажмите **Сохранить**.
 
-- {{ yandex-cloud }} CLI {#cli}
+- Yandex Cloud CLI {#cli}
 
   1. Создайте сервисные аккаунты:
 
@@ -230,12 +230,12 @@
       ```bash
       yc lockbox secret add-access-binding \
         --name gitlab-runner-token \
-        --role {{ roles-lockbox-payloadviewer }} \
+        --role lockbox.payloadViewer \
         --service-account-name gitlab-runner-lockbox-payload-viewer
 
       yc resource-manager folder add-access-binding \
         --id <идентификатор_каталога> \
-        --role {{ roles-serverless-containers-invoker }} \
+        --role serverless-containers.containerInvoker \
         --service-account-name gitlab-runner-caller
       ```
 
@@ -254,7 +254,7 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: {{ roles-serverless-containers-invoker }}
+            role_id: serverless-containers.containerInvoker
             subject:
               id: ajetqjm00ji8********
               type: serviceAccount
@@ -264,27 +264,27 @@
 
   Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
 
-  Чтобы назначить сервисному аккаунту роль `{{ roles-lockbox-payloadviewer }}` на секрет, воспользуйтесь методом REST API [updateAccessBindings](../../lockbox/api-ref/Secret/updateAccessBindings.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/UpdateAccessBindings](../../lockbox/api-ref/grpc/Secret/updateAccessBindings.md).
+  Чтобы назначить сервисному аккаунту роль `lockbox.payloadViewer` на секрет, воспользуйтесь методом REST API [updateAccessBindings](../../lockbox/api-ref/Secret/updateAccessBindings.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/UpdateAccessBindings](../../lockbox/api-ref/grpc/Secret/updateAccessBindings.md).
 
-  Чтобы назначить сервисному аккаунту роль `{{ roles-serverless-containers-invoker }}` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+  Чтобы назначить сервисному аккаунту роль `serverless-containers.containerInvoker` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
 
 {% endlist %}
 
 
 ## Создайте API-ключ сервисного аккаунта {#create-api-key}
 
-Создайте [API-ключ](../../iam/concepts/authorization/api-key.md) для сервисного аккаунта, который будет использоваться при вызове контейнера. API-ключ понадобится для настройки вебхука в {{ GL }}.
+Создайте [API-ключ](../../iam/concepts/authorization/api-key.md) для сервисного аккаунта, который будет использоваться при вызове контейнера. API-ключ понадобится для настройки вебхука в GitLab.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Identity and Access Management**.
   1. Выберите созданный ранее сервисный аккаунт `gitlab-runner-caller`.
-  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
-  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.containers.invoke`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
+  1. В поле **Область действия** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.containers.invoke`.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
@@ -325,7 +325,7 @@
 
 ## Создайте контейнер {#create-container}
 
-Создайте [контейнер](../concepts/container.md) и [ревизию контейнера](../concepts/container.md#revision) с Docker-образом для запуска {{ GLR }}.
+Создайте [контейнер](../concepts/container.md) и [ревизию контейнера](../concepts/container.md#revision) с Docker-образом для запуска GitLab Runner.
 
 {% note info %}
 
@@ -335,7 +335,7 @@
 
 {% note info %}
 
-Если указать сеть в настройках контейнера, в каждой зоне доступности будет создана служебная подсеть из диапазона `198.19.0.0/16`. Такие подсети не отображаются в интерфейсе {{ yandex-cloud }}. Учитывайте это при [настройке](../../managed-gitlab/operations/configure-security-group.md) правил групп безопасности. Подробнее читайте в разделе [Сетевое взаимодействие](../concepts/networking.md).
+Если указать сеть в настройках контейнера, в каждой зоне доступности будет создана служебная подсеть из диапазона `198.19.0.0/16`. Такие подсети не отображаются в интерфейсе Yandex Cloud. Учитывайте это при [настройке](../../managed-gitlab/operations/configure-security-group.md) правил групп безопасности. Подробнее читайте в разделе [Сетевое взаимодействие](../concepts/networking.md).
 
 {% endnote %}
 
@@ -343,47 +343,47 @@
 
 - Консоль управления {#console}
 
-  1. Откройте [консоль управления]({{ link-console-main }}).
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
-  1. Нажмите **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
+  1. Откройте [консоль управления](https://console.yandex.cloud).
+  1. Перейдите в сервис **Serverless Containers**.
+  1. Нажмите **Создать контейнер**.
   1. Укажите имя контейнера `serverless-gitlab-runner`.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
+  1. Нажмите **Создать**.
+  1. Перейдите на вкладку **Редактор**.
 
-      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_resources }}** укажите нужный объем RAM, например `1024 {{ ui-key.yacloud.common.units.label_megabyte }}`.
-      1. В блоке **{{ ui-key.yacloud.serverless-containers.section_image }}**:
+      1. В блоке **Ресурсы** укажите нужный объем RAM, например `1024 МБ`.
+      1. В блоке **Параметры образа**:
 
-          1. Нажмите **{{ ui-key.yacloud.component.image-field.button_custom-image }}** и в поле **{{ ui-key.yacloud.serverless-containers.label_image-url }}** укажите `{{ registry }}/yc/serverless/gitlab-runner`.
-          1. В поле **{{ ui-key.yacloud.serverless-containers.label_environment }}** добавьте переменные:
+          1. Нажмите **Укажите ссылку** и в поле **URL образа** укажите `cr.yandex/yc/serverless/gitlab-runner`.
+          1. В поле **Переменные окружения** добавьте переменные:
 
               * `CI_SERVER_URL` — `https://gitlab.com`.
               * `WEBHOOK_PATH` — `/webhook`.
 
-          1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}** укажите:
+          1. В поле **Секреты Lockbox** укажите:
 
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** — `RUNNER_TOKEN`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** — `gitlab-runner-token`.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** — идентификатор текущей версии.
-              * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** — `gitlab_runner_token`.
+              * **Переменная окружения** — `RUNNER_TOKEN`.
+              * **Идентификатор секрета** — `gitlab-runner-token`.
+              * **Идентификатор версии** — идентификатор текущей версии.
+              * **Ключ секрета** — `gitlab_runner_token`.
 
-        1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
+        1. В блоке **Настройки**:
 
-            1. В поле **{{ ui-key.yacloud.serverless-containers.label_service-account }}** укажите `gitlab-runner-lockbox-payload-viewer`.
-            1. (Опционально) В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите или [создайте](../../vpc/operations/network-create.md) сеть, в которой будет размещаться контейнер.
-            1. В поле **{{ ui-key.yacloud.serverless-containers.label_timeout }}** укажите нужное значение, например `600 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
+            1. В поле **Сервисный аккаунт** укажите `gitlab-runner-lockbox-payload-viewer`.
+            1. (Опционально) В поле **Сеть** укажите или [создайте](../../vpc/operations/network-create.md) сеть, в которой будет размещаться контейнер.
+            1. В поле **Таймаут** укажите нужное значение, например `600 секунд`.
 
-        1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
+        1. В блоке **Смонтированный эфемерный диск**:
 
-            1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.label_add-ephemeral-storage }}**.
-            1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_mount-point-path }}** укажите `/mnt`.
-            1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_ephemeral-storage-size }}** укажите нужное значение, например `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+            1. Нажмите **Добавить эфемерный диск**.
+            1. В поле **Путь монтирования** укажите `/mnt`.
+            1. В поле **Размер диска** укажите нужное значение, например `10 ГБ`.
 
-        1. В блоке **{{ ui-key.yacloud.serverless-containers.section_async }}**:
+        1. В блоке **Асинхронный вызов**:
 
-            1. Нажмите **{{ ui-key.yacloud.serverless-containers.label_async-enable }}**.
-            1. В поле **{{ ui-key.yacloud.forms.label_service-account-select }}** выберите `gitlab-runner-caller`.
+            1. Нажмите **Включить**.
+            1. В поле **Сервисный аккаунт** выберите `gitlab-runner-caller`.
 
-  1. Нажмите **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
+  1. Нажмите **Создать ревизию**.
 
 - CLI {#cli}
 
@@ -400,7 +400,7 @@
       folder_id: b1g681qpemb4********
       created_at: "2025-09-16T06:10:03.153Z"
       name: serverless-gitlab-runner
-      url: https://bba83i1mrb5s********.{{ serverless-containers-host }}/
+      url: https://bba83i1mrb5s********.containers.yandexcloud.net/
       status: ACTIVE
       ```
 
@@ -412,7 +412,7 @@
         --runtime=http \
         --cores <количество_ядер> \
         --memory <объем_RAM> \
-        --image {{ registry }}/yc/serverless/gitlab-runner \
+        --image cr.yandex/yc/serverless/gitlab-runner \
         --environment CI_SERVER_URL=https://gitlab.com \
         --environment WEBHOOK_PATH=/webhook \
         --secret id=<идентификатор_секрета>,version-id=<идентификатор_версии_секрета>,key=gitlab_runner_token,environment-variable=RUNNER_TOKEN \
@@ -431,10 +431,10 @@
       * `--image` — URL Docker-образа `gitlab-runner`.
       * `--environment` — переменные окружения:
 
-          * `CI_SERVER_URL` — адрес {{ GL }} CI.
+          * `CI_SERVER_URL` — адрес GitLab CI.
           * `WEBHOOK_PATH` — путь эндпоинта вебхука.
 
-      * `--secret` — секрет {{ lockbox-short-name }}.
+      * `--secret` — секрет Lockbox.
 
       * `--service-account-id` — идентификатор сервисного аккаунта `gitlab-runner-lockbox-payload-viewer`.
       * `--execution-timeout` — таймаут, например `600s`.
@@ -503,12 +503,12 @@
 {% endlist %}
 
 
-## Настройте вебхук в {{ GL }} {#configure-webhook-gitlab}
+## Настройте вебхук в GitLab {#configure-webhook-gitlab}
 
-1. В [{{ GL }}](https://gitlab.com) откройте проект.
+1. В [GitLab](https://gitlab.com) откройте проект.
 1. На панели слева выберите ![image](../../_assets/console-icons/gear.svg) **Settings** → **Webhooks**.
 1. Нажмите **Add new webhook**.
-1. В поле **URL** укажите публичный эндпоинт {{ serverless-containers-name }}: `https://<идентификатор_контейнера>.{{ serverless-containers-host }}/webhook`.
+1. В поле **URL** укажите публичный эндпоинт Serverless Containers: `https://<идентификатор_контейнера>.containers.yandexcloud.net/webhook`.
 1. В разделе **Custom headers** нажмите **Add custom header** и добавьте заголовки:
 
     Header name | Header value | Описание
@@ -519,13 +519,13 @@
 1. В разделе **Trigger** убедитесь, что опция `Job events` включена.
 1. Нажмите **Add webhook**.
 
-После этого вы можете пользоваться Serverless {{ GLR }}s.
+После этого вы можете пользоваться Serverless GitLab Runners.
 
 {% note tip %}
 
-{{ GLR }} можно дополнительно конфигурировать через переменные окружения и флаги.
+GitLab Runner можно дополнительно конфигурировать через переменные окружения и флаги.
 
-Посмотрите доступные опции с помощью команды `gitlab-runner run-single -h`, а также раздел документации [{{ GLR }} commands]({{ gl.docs }}/runner/commands/).
+Посмотрите доступные опции с помощью команды `gitlab-runner run-single -h`, а также раздел документации [GitLab Runner commands](https://docs.gitlab.com/runner/commands/).
 
 {% endnote %}
 

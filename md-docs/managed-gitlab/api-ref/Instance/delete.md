@@ -5,7 +5,7 @@ Deletes the specified GitLab instance.
 ## HTTP request
 
 ```
-DELETE https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}
+DELETE https://gitlab.api.cloud.yandex.net/gitlab/v1/instances/{instanceId}
 ```
 
 ## Path parameters

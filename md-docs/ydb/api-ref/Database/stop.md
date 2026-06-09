@@ -5,7 +5,7 @@ Stops the specified database.
 ## HTTP request
 
 ```
-POST https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}:stop
+POST https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}:stop
 ```
 
 ## Path parameters

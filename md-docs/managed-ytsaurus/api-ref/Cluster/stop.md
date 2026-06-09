@@ -5,7 +5,7 @@ Stops the specified cluster.
 ## HTTP request
 
 ```
-POST https://ytsaurus.{{ api-host }}/ytsaurus/v1/clusters/{clusterId}:stop
+POST https://ytsaurus.api.cloud.yandex.net/ytsaurus/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Updates the specified symmetric KMS key.
 ## HTTP request
 
 ```
-PATCH https://{{ api-host-kms }}/kms/v1/keys/{keyId}
+PATCH https://kms.api.cloud.yandex.net/kms/v1/keys/{keyId}
 ```
 
 ## Path parameters

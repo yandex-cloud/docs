@@ -1,10 +1,10 @@
-# История изменений в {{ at-full-name }}
+# История изменений в Yandex Audit Trails
 
 ## I квартал 2026 {#q1-2026}
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ ai-studio-full-name }}" %}
+  {% cut "Yandex AI Studio" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -19,7 +19,7 @@
 
   {% endcut %}
 
-  {% cut "{{ baremetal-name }}" %}
+  {% cut "BareMetal" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -29,7 +29,7 @@
 
   {% endcut %}
 
-  {% cut "{{ cloud-registry-name }}" %}
+  {% cut "Cloud Registry" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -40,7 +40,7 @@
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -55,7 +55,7 @@
 
   {% endcut %}
   
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -66,7 +66,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mkf-short-name }}" %}
+  {% cut "Managed Service for Apache Kafka®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -78,7 +78,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -90,7 +90,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mos-name }}" %}
+  {% cut "Managed Service for OpenSearch" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -107,7 +107,7 @@
 
   {% endcut %}
 
-  {% cut "{{ metastore-full-name }}" %}
+  {% cut "Apache Hive™ Metastore" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -117,7 +117,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mspqr-name }}" %}
+  {% cut "Managed Service for Sharded PostgreSQL" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -150,7 +150,7 @@
 
   {% endcut %}
 
-  {% cut "{{ objstorage-name }}" %}
+  {% cut "Object Storage" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -160,7 +160,7 @@
 
   {% endcut %}
 
-  {% cut "{{ sd-name }}" %}
+  {% cut "Security Deck" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -174,16 +174,16 @@
 
   Имя события | Описание
   --- | ---
-  `AssetFailedRuleCheck` | Отчет [модуля](../security-deck/concepts/cspm.md) {{ cspm-name }} о неудачной проверке объекта
-  `AssetPassedRuleCheck` | Отчет модуля {{ cspm-name }} об успешной проверке объекта
-  `AssetRemovedFromScope` | Отчет модуля {{ cspm-name }} о прекращении проверок объекта
-  `AssetRuleCheckCouldNotBeExecuted` | Отчет модуля {{ cspm-name }} об ошибке проверки объекта
-  `AssetRuleCheckNoLongerInScope` | Отчет модуля {{ cspm-name }} об исключении правила из области действия
-  `TriggerRuntimeProcessInfo` | Срабатывание модуля {{ kspm-name }} при получении информации о процессе
+  `AssetFailedRuleCheck` | Отчет [модуля](../security-deck/concepts/cspm.md) CSPM о неудачной проверке объекта
+  `AssetPassedRuleCheck` | Отчет модуля CSPM об успешной проверке объекта
+  `AssetRemovedFromScope` | Отчет модуля CSPM о прекращении проверок объекта
+  `AssetRuleCheckCouldNotBeExecuted` | Отчет модуля CSPM об ошибке проверки объекта
+  `AssetRuleCheckNoLongerInScope` | Отчет модуля CSPM об исключении правила из области действия
+  `TriggerRuntimeProcessInfo` | Срабатывание модуля KSPM при получении информации о процессе
 
   {% endcut %}
 
-  {% cut "{{ sws-name }}" %}
+  {% cut "Smart Web Security" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -194,7 +194,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mmg-short-name }}" %}
+  {% cut "Yandex StoreDoc" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -207,7 +207,7 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -221,7 +221,7 @@
 
   {% endcut %}
 
-  {% cut "{{ websql-name }}" %}
+  {% cut "WebSQL" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -232,13 +232,13 @@
 
   {% endcut %}
 
-  {% cut "{{ ydb-name }}" %}
+  {% cut "Managed Service for YDB" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `AlterTopic` | Изменение [топика]({{ ydb.docs }}/concepts/glossary#topic)
+  `AlterTopic` | Изменение [топика](https://ydb.tech/docs/ru//concepts/glossary#topic)
   `CreateTopic` | Создание топика
   `DeleteTopic` | Удаление топика
 
@@ -246,7 +246,7 @@
 
 * Удалены события для сервисов:
 
-  {% cut "{{ cloud-registry-name }}" %}
+  {% cut "Cloud Registry" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -259,13 +259,13 @@
 
 ## IV квартал 2025 {#q4-2025}
 
-* Добавлена настройка сжатия потока событий при записи событий в {{ yds-name }}. Рекомендуется включать сжатие, если скорость записи более 1 МБ/с.
+* Добавлена настройка сжатия потока событий при записи событий в Data Streams. Рекомендуется включать сжатие, если скорость записи более 1 МБ/с.
 
-  Настройка сжатия доступна при [создании](operations/create-trail.md) или [изменении](operations/manage-trail.md) трейла через интерфейсы CLI, API или {{ TF }}. Можно указать метод сжатия `GZIP` или `ZSTD`, по умолчанию сжатия нет (`RAW`).
+  Настройка сжатия доступна при [создании](operations/create-trail.md) или [изменении](operations/manage-trail.md) трейла через интерфейсы CLI, API или Terraform. Можно указать метод сжатия `GZIP` или `ZSTD`, по умолчанию сжатия нет (`RAW`).
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ ai-studio-full-name }}" %}
+  {% cut "Yandex AI Studio" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -275,7 +275,7 @@
 
   {% endcut %}
 
-  {% cut "{{ api-gw-name }}" %}
+  {% cut "API Gateway" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -286,7 +286,7 @@
 
   {% endcut %}
 
-  {% cut "{{ cloud-registry-name }}" %}
+  {% cut "Cloud Registry" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -297,7 +297,7 @@
 
   {% endcut %}
 
-  {% cut "{{ video-name }}" %}
+  {% cut "Cloud Video" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -307,7 +307,7 @@
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -318,7 +318,7 @@
 
   {% endcut %}
 
-  {% cut "{{ datalens-name }}" %}
+  {% cut "DataLens" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -328,7 +328,7 @@
 
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -339,7 +339,7 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -360,7 +360,7 @@
   
   {% endcut %}
 
-  {% cut "{{ iot-name }}" %}
+  {% cut "Yandex IoT Core" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -385,7 +385,7 @@
   {% endcut %}
 
 
-  {% cut "{{ maf-name }}" %}
+  {% cut "Managed Service for Apache Airflow™" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -395,7 +395,7 @@
 
   {% endcut %}
 
-  {% cut "{{ msp-name }}" %}
+  {% cut "Managed Service for Apache Spark™" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -405,7 +405,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -418,7 +418,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mgp-name }}" %}
+  {% cut "Yandex MPP Analytics for PostgreSQL" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -446,7 +446,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mmy-short-name }}" %}
+  {% cut "Managed Service for MySQL®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -459,7 +459,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mpg-name }}" %}
+  {% cut "Managed Service for PostgreSQL" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -472,7 +472,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mtr-name }}" %}
+  {% cut "Managed Service for Trino" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -482,7 +482,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mrd-name }}" %}
+  {% cut "Yandex Managed Service for Valkey™" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -494,7 +494,7 @@
 
   {% endcut %}
 
-  {% cut "{{ message-queue-name }}" %}
+  {% cut "Message Queue" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -506,7 +506,7 @@
 
   {% endcut %}
 
-  {% cut "{{ resmgr-short-name }}" %}
+  {% cut "Resource Manager" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -521,15 +521,15 @@
 
   {% endcut %}
 
-  {% cut "{{ sd-name }}" %}
+  {% cut "Security Deck" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Имя события | Описание
   --- | ---
   `CreateAlert` | Создание алерта
-  `TriggerAdmissionControl` | Срабатывание [модуля](../security-deck/concepts/kspm.md) {{ kspm-name }} при проверке создаваемых и изменяемых ресурсов
-  `TriggerRuntimeControl` | Срабатывание модуля {{ kspm-name }} при контроле безопасности рабочих нагрузок
+  `TriggerAdmissionControl` | Срабатывание [модуля](../security-deck/concepts/kspm.md) KSPM при проверке создаваемых и изменяемых ресурсов
+  `TriggerRuntimeControl` | Срабатывание модуля KSPM при контроле безопасности рабочих нагрузок
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -550,7 +550,7 @@
   `DeleteScopeFilter` | Удаление фильтра области действия
   `DeleteWorkspace` | Удаление окружения
   `EnableProject` | Включение проекта
-  `EnableSDProject` | Включение проекта {{ sd-name }}
+  `EnableSDProject` | Включение проекта Security Deck
   `UpdateConnector` | Изменение коннектора
   `UpdateException` | Изменение параметров исключения
   `UpdateProject` | Изменение параметров проекта
@@ -561,7 +561,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mmg-short-name }}" %}
+  {% cut "Yandex StoreDoc" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -574,7 +574,7 @@
 
   {% endcut %}
 
-  {% cut "{{ ytsaurus-name }}" %}
+  {% cut "YTsaurus" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -591,7 +591,7 @@
 
 * Переименованы события для сервисов:
 
-  {% cut "{{ message-queue-name }}" %}
+  {% cut "Message Queue" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -603,13 +603,13 @@
 
   {% endcut %}
 
-С 1 декабря 2025 года события `DisableTenantBilling` и `EnableTenantBilling` сервиса {{ datalens-name }} не доставляются в связи с прекращением действия [тарифа Business](../datalens/pricing.md).
+С 1 декабря 2025 года события `DisableTenantBilling` и `EnableTenantBilling` сервиса DataLens не доставляются в связи с прекращением действия [тарифа Business](../datalens/pricing.md).
 
 ## III квартал 2025 {#q3-2025}
 
 Добавлены новые события для сервисов:
 
-  {% cut "{{ foundation-models-name }}" %}
+  {% cut "AI Studio" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -621,17 +621,17 @@
 
   {% endcut %}
   
-  {% cut "{{ baremetal-name }}" %}
+  {% cut "BareMetal" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `DeleteServer` | Полное удаление сервера {{ baremetal-name }}, очистка дисков и всех пользовательских данных
+  `DeleteServer` | Полное удаление сервера BareMetal, очистка дисков и всех пользовательских данных
 
   {% endcut %}
   
-  {% cut "{{ cdn-name }}" %}
+  {% cut "Cloud CDN" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -643,13 +643,13 @@
 
   {% endcut %}
 
-  {% cut "{{ cloud-desktop-name }}" %}
+  {% cut "Cloud Desktop" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `CopyDesktopImage` | Создание образа рабочего стола с помощью копирования образа {{ compute-name }}
+  `CopyDesktopImage` | Создание образа рабочего стола с помощью копирования образа Compute Cloud
   `CopyDesktopImageFromDesktop` | Создание образа рабочего стола с помощью копирования образа существующего рабочего стола
   `DeleteDesktopImage` | Удаление образа рабочего стола
   `SetDesktopGroupAccessBindings` | Назначение прав доступа к группе рабочих столов
@@ -670,7 +670,7 @@
 
   {% endcut %}
 
-  {% cut "{{ datalens-name }}" %}
+  {% cut "DataLens" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -680,21 +680,21 @@
 
   {% endcut %}
   
-  {% cut "{{ ml-platform-name }}" %}
+  {% cut "DataSphere" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `CreateCluster` | Создание кластера {{ SPRK }}
-  `DeleteCluster` | Удаление кластера {{ SPRK }}
-  `StartCluster` | Запуск кластера {{ SPRK }}
-  `StopCluster` | Остановка кластера {{ SPRK }}
-  `UpdateCluster` | Изменение кластера {{ SPRK }}
+  `CreateCluster` | Создание кластера Apache Spark™
+  `DeleteCluster` | Удаление кластера Apache Spark™
+  `StartCluster` | Запуск кластера Apache Spark™
+  `StopCluster` | Остановка кластера Apache Spark™
+  `UpdateCluster` | Изменение кластера Apache Spark™
   
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -712,7 +712,7 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -725,7 +725,7 @@
 
   {% endcut %}
 
-  {% cut "{{ network-load-balancer-name }}" %}
+  {% cut "Network Load Balancer" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -736,7 +736,7 @@
 
   {% endcut %}
 
-  {% cut "{{ objstorage-name }}" %}
+  {% cut "Object Storage" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -747,7 +747,7 @@
 
   {% endcut %}
 
-  {% cut "{{ sws-name }}" %}
+  {% cut "Smart Web Security" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -759,7 +759,7 @@
 
   {% endcut %}
 
-  {% cut "{{ vpc-name }}" %}
+  {% cut "Virtual Private Cloud" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -775,7 +775,7 @@
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ alb-name }}" %}
+  {% cut "Application Load Balancer" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -793,7 +793,7 @@
 
   {% endcut %}
 
-  {% cut "{{ baremetal-name }}" %}
+  {% cut "BareMetal" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -812,7 +812,7 @@
 
   {% endcut %}
 
-  {% cut "{{ certificate-manager-name }}" %}
+  {% cut "Certificate Manager" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -822,7 +822,7 @@
 
   {% endcut %}
 
-  {% cut "{{ video-name }}" %}
+  {% cut "Cloud Video" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -834,7 +834,7 @@
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -847,7 +847,7 @@
 
   {% endcut %}
 
-  {% cut "{{ datalens-name }}" %}
+  {% cut "DataLens" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -858,7 +858,7 @@
 
   {% endcut %}
 
-  {% cut "{{ foundation-models-name }}" %}
+  {% cut "AI Studio" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -869,7 +869,7 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -918,7 +918,7 @@
 
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -939,7 +939,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -957,7 +957,7 @@
 
   {% endcut %}
   
-  {% cut "{{ managed-k8s-name }}" %}
+  {% cut "Managed Service for Kubernetes" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -967,7 +967,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mtr-name }}" %}
+  {% cut "Managed Service for Trino" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -983,7 +983,7 @@
 
   {% endcut %}
   
-  {% cut "{{ message-queue-name }}" %}
+  {% cut "Message Queue" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -995,7 +995,7 @@
 
   {% endcut %}
 
-  {% cut "{{ speechkit-name }}" %}
+  {% cut "SpeechKit" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1008,7 +1008,7 @@
 
   {% endcut %}
 
-  {% cut "{{ sws-name }}" %}
+  {% cut "Smart Web Security" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1029,7 +1029,7 @@
 
   {% endcut %}
 
-  {% cut "{{ translate-name }}" %}
+  {% cut "Translate" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1039,7 +1039,7 @@
 
   {% endcut %}
   
-  {% cut "{{ vision-name }}" %}
+  {% cut "Vision OCR" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1050,7 +1050,7 @@
 
   {% endcut %}
 
-  {% cut "{{ wiki-name }}" %}
+  {% cut "Вики" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1067,7 +1067,7 @@
 
 * Переименованы события для сервисов:
 
-  {% cut "{{ baremetal-name }}" %}
+  {% cut "BareMetal" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1078,7 +1078,7 @@
   
   {% endcut %}
 
-  {% cut "{{ message-queue-name }}" %}
+  {% cut "Message Queue" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1094,34 +1094,34 @@
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ baremetal-name }}" %}
+  {% cut "BareMetal" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `BatchCreateServer` | Аренда одновременно нескольких [серверов](../baremetal/concepts/servers.md) {{ baremetal-name }}
+  `BatchCreateServer` | Аренда одновременно нескольких [серверов](../baremetal/concepts/servers.md) BareMetal
   `CreateExternalConnection` | Создание [приватного соединения](../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
   `CreatePrivateSubnet` | Создание [приватной подсети](../baremetal/concepts/private-network.md#private-subnet)
-  `CreateServer` | Аренда сервера {{ baremetal-name }}
+  `CreateServer` | Аренда сервера BareMetal
   `CreateVRF` | Создание [виртуального сегмента сети](../baremetal/concepts/private-network.md#vrf-segment) (VRF)
   `DeleteExternalConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
   `DeletePrivateSubnet` | Удаление приватной подсети
   `DeleteVRF` | Удаление виртуального сегмента сети (VRF)
-  `PowerOffServer` | Выключение питания сервера {{ baremetal-name }}
-  `PowerOnServer` | Включение питания сервера {{ baremetal-name }}
-  `RebootServer` | Перезапуск сервера {{ baremetal-name }}
-  `RegisterServerBackupAgent` | Регистрация [агента](../backup/concepts/agent.md) {{ backup-full-name }} на сервере {{ baremetal-name }}
-  `ReinstallServer` | Переустановка операционной системы сервера {{ baremetal-name }}
-  `StartServerProlongation` | Включение автопродления аренды сервера {{ baremetal-name }}
-  `StopServerProlongation` | Выключение автопродления аренды сервера {{ baremetal-name }}
+  `PowerOffServer` | Выключение питания сервера BareMetal
+  `PowerOnServer` | Включение питания сервера BareMetal
+  `RebootServer` | Перезапуск сервера BareMetal
+  `RegisterServerBackupAgent` | Регистрация [агента](../backup/concepts/agent.md) Yandex Cloud Backup на сервере BareMetal
+  `ReinstallServer` | Переустановка операционной системы сервера BareMetal
+  `StartServerProlongation` | Включение автопродления аренды сервера BareMetal
+  `StopServerProlongation` | Выключение автопродления аренды сервера BareMetal
   `UpdatePrivateSubnet` | Изменение приватной подсети
-  `UpdateServer` | Изменение сервера {{ baremetal-name }}
+  `UpdateServer` | Изменение сервера BareMetal
   `UpdateVRF` | Изменение виртуального сегмента сети (VRF)
 
   {% endcut %}
 
-  {% cut "{{ backup-name }}" %}
+  {% cut "Cloud Backup" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1131,7 +1131,7 @@
 
   {% endcut %}
 
-  {% cut "{{ cdn-name }}" %}
+  {% cut "Cloud CDN" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1144,7 +1144,7 @@
 
   {% endcut %}
 
-  {% cut "{{ ml-platform-name }}" %}
+  {% cut "DataSphere" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1155,23 +1155,23 @@
   `CreateS3Connector` | Создание [коннектора S3](../datasphere/concepts/s3-connector.md)
   `CreateSecret` | Создание [секрета](../datasphere/concepts/secrets.md)
   `CreateSparkConnector` | Создание [коннектора Spark](../datasphere/concepts/spark-connector.md)
-  `CreateYandexDataProcessing` | Создание [шаблона {{ dataproc-name }}](../datasphere/concepts/data-processing-template.md)
+  `CreateYandexDataProcessing` | Создание [шаблона Yandex Data Processing](../datasphere/concepts/data-processing-template.md)
   `DeleteFilestore` | Удаление файлового хранилища
   `DeleteModel` | Удаление модели
   `DeleteS3Connector` | Удаление коннектора S3
   `DeleteSecret` | Удаление секрета
   `DeleteSparkConnector` | Удаление коннектора Spark
-  `DeleteYandexDataProcessing` | Удаление шаблона {{ dataproc-name }}
+  `DeleteYandexDataProcessing` | Удаление шаблона Yandex Data Processing
   `UpdateFilestore` | Изменение файлового хранилища
   `UpdateModel` | Изменение модели
   `UpdateS3Connector` | Изменение коннектора S3
   `UpdateSecret` | Изменение секрета
   `UpdateSparkConnector` | Изменение коннектора Spark
-  `UpdateYandexDataProcessing` | Изменение шаблона {{ dataproc-name }}
+  `UpdateYandexDataProcessing` | Изменение шаблона Yandex Data Processing
 
   {% endcut %}
 
-  {% cut "{{ cloud-desktop-name }}" %}
+  {% cut "Cloud Desktop" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1185,7 +1185,7 @@
 
   {% endcut %}
 
-  {% cut "{{ video-name }}" %}
+  {% cut "Cloud Video" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1230,7 +1230,7 @@
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1242,7 +1242,7 @@
 
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1254,7 +1254,7 @@
 
   {% endcut %}
   
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1264,21 +1264,21 @@
 
   {% endcut %}
 
-  {% cut "{{ mgl-name }}" %}
+  {% cut "Managed Service for GitLab" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `CreateRunner` | Создание {{ GLR }}
-  `DeleteRunner` | Удаление {{ GLR }}
-  `StartRunner` | Запуск {{ GLR }}
-  `StopRunner` | Остановка {{ GLR }}
-  `UpdateRunner` | Изменение {{ GLR }}
+  `CreateRunner` | Создание GitLab Runner
+  `DeleteRunner` | Удаление GitLab Runner
+  `StartRunner` | Запуск GitLab Runner
+  `StopRunner` | Остановка GitLab Runner
+  `UpdateRunner` | Изменение GitLab Runner
 
   {% endcut %}
 
-  {% cut "{{ managed-k8s-name }}" %}
+  {% cut "Managed Service for Kubernetes" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1315,7 +1315,7 @@
   `apiserver.ApiServerHead` | Получение метаданных ресурса
   `apiserver.ApiServerImpersonate` | Имперсонация
   `apiserver.ApiServerList` | Получение информации о коллекции ресурсов
-  `apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог {{ managed-k8s-name }} содержит нестандартное значение в поле `verb`
+  `apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог Managed Service for Kubernetes содержит нестандартное значение в поле `verb`
   `apiserver.ApiServerOptions` | Настройка ресурса
   `apiserver.ApiServerPatch` | Изменение ресурса
   `apiserver.ApiServerPost` | Создание ресурса
@@ -1325,7 +1325,7 @@
   
   {% endcut %}
 
-  {% cut "{{ mos-name }}" %}
+  {% cut "Managed Service for OpenSearch" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1336,7 +1336,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mrd-name }}" %}
+  {% cut "Yandex Managed Service for Valkey™" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1354,7 +1354,7 @@
 
   {% endcut %}
 
-  {% cut "{{ vpc-name }}" %}
+  {% cut "Virtual Private Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1366,7 +1366,7 @@
 
   {% endcut %}
 
-  {% cut "{{ billing-name }}" %}
+  {% cut "Yandex Cloud Billing" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1377,7 +1377,7 @@
 
   {% endcut %}
 
-  {% cut "{{ lockbox-name }}" %}
+  {% cut "Yandex Lockbox" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1388,29 +1388,29 @@
 
   {% endcut %}
 
-  {% cut "{{ metadata-hub-name }}" %}
+  {% cut "Yandex MetaData Hub" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Событие | Описание
   --- | ---
-  `CreateCluster` | Создание [кластера](../metadata-hub/concepts/metastore.md) {{ metastore-full-name }}
-  `DeleteCluster` | Удаление кластера {{ metastore-full-name }}
-  `StartCluster` | Запуск кластера {{ metastore-full-name }}
-  `StopCluster` | Остановка кластера {{ metastore-full-name }}
-  `UpdateCluster` | Изменение кластера {{ metastore-full-name }}
+  `CreateCluster` | Создание [кластера](../metadata-hub/concepts/metastore.md) Apache Hive™ Metastore
+  `DeleteCluster` | Удаление кластера Apache Hive™ Metastore
+  `StartCluster` | Запуск кластера Apache Hive™ Metastore
+  `StopCluster` | Остановка кластера Apache Hive™ Metastore
+  `UpdateCluster` | Изменение кластера Apache Hive™ Metastore
 
   {% endcut %}
 
 * Удалены события для сервисов:
 
-  {% cut "{{ managed-k8s-name }}" %}
+  {% cut "Managed Service for Kubernetes" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Имя события | Описание
   --- | ---
-  `ApiServerAuditEvent` | Событие аудита кластера {{ managed-k8s-name }}
+  `ApiServerAuditEvent` | Событие аудита кластера Managed Service for Kubernetes
 
   {% endcut %}
 
@@ -1418,7 +1418,7 @@
 
 Добавлены новые события для сервисов:
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1428,7 +1428,7 @@
 
   {% endcut %}
 
-  {% cut "{{ ml-platform-name }}" %}
+  {% cut "DataSphere" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1444,7 +1444,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mos-short-name }}" %}
+  {% cut "Managed Service for OpenSearch" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1454,7 +1454,7 @@
 
   {% endcut %}
 
-  {% cut "{{ objstorage-name }} " %}
+  {% cut "Object Storage " %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1470,7 +1470,7 @@
 * Добавлена возможность фильтрации по типам событий. Подробнее см. в разделе [Настройки трейла](concepts/trail.md#trail-settings).
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ certificate-manager-name }}" %}
+  {% cut "Certificate Manager" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1480,7 +1480,7 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1490,7 +1490,7 @@
 
   {% endcut %}
 
-  {% cut "{{ ml-platform-name }}" %}
+  {% cut "DataSphere" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1506,7 +1506,7 @@
 
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1526,7 +1526,7 @@
 
   {% endcut %}
 
-  {% cut "{{ load-testing-name }}" %}
+  {% cut "Load Testing" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1538,7 +1538,7 @@
 
   {% endcut %}
 
-  {% cut "{{ maf-name }}" %}
+  {% cut "Managed Service for Apache Airflow™" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1552,7 +1552,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1563,7 +1563,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mgp-name }}" %}
+  {% cut "Yandex MPP Analytics for PostgreSQL" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1573,17 +1573,17 @@
 
   {% endcut %}
 
-  {% cut "{{ managed-k8s-name }}" %}
+  {% cut "Managed Service for Kubernetes" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Имя события | Описание
   --- | ---
-  `ApiServerAuditEvent` | Событие аудита кластера {{ managed-k8s-name }}
+  `ApiServerAuditEvent` | Событие аудита кластера Managed Service for Kubernetes
 
   {% endcut %}
 
-  {% cut "{{ mmy-name }}" %}
+  {% cut "Managed Service for MySQL®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1593,18 +1593,18 @@
 
   {% endcut %}
 
-  {% cut "{{ sd-name }}" %}
+  {% cut "Security Deck" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Имя события | Описание
   --- | ---
-  `ComputeNodeAccess` | Подключение [модуля](../security-deck/concepts/access-transparency.md) {{ atr-name }} к [подкластеру](../data-proc/concepts/index.md#resources) {{ dataproc-name }}
-  `MDBClusterAccess` | Подключение модуля {{ atr-name }} к кластеру базы данных
+  `ComputeNodeAccess` | Подключение [модуля](../security-deck/concepts/access-transparency.md) Access Transparency к [подкластеру](../data-proc/concepts/index.md#resources) Yandex Data Processing
+  `MDBClusterAccess` | Подключение модуля Access Transparency к кластеру базы данных
 
   {% endcut %}
 
-  {% cut "{{ sws-name }}" %}
+  {% cut "Smart Web Security" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1630,7 +1630,7 @@
 
   {% endcut %}
 
-  {% cut "{{ postbox-name }}" %}
+  {% cut "Yandex Cloud Postbox" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1649,7 +1649,7 @@
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ api-gw-name }}" %}
+  {% cut "API Gateway" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1660,18 +1660,18 @@
 
   {% endcut %}
 
-  {% cut "{{ backup-name }}" %}
+  {% cut "Cloud Backup" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
   Событие | Описание
   --- | ---
-  `InitResource` | Инициализация подключения ВМ к сервису {{ backup-name }}
-  `UpdateResource`| Обновление статуса подключения ВМ к сервису {{ backup-name }}
+  `InitResource` | Инициализация подключения ВМ к сервису Cloud Backup
+  `UpdateResource`| Обновление статуса подключения ВМ к сервису Cloud Backup
 
   {% endcut %}
 
-  {% cut "{{ certificate-manager-name }}" %}
+  {% cut "Certificate Manager" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1682,7 +1682,7 @@
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1693,7 +1693,7 @@
 
   {% endcut %}
 
-  {% cut "{{ ml-platform-name }}" %}
+  {% cut "DataSphere" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1704,7 +1704,7 @@
 
   {% endcut %}
 
-  {% cut "{{ sf-name }}" %}
+  {% cut "Cloud Functions" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1717,7 +1717,7 @@
 
   {% endcut %}
 
-  {% cut "{{ iam-name }}" %}
+  {% cut "Identity and Access Management" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1730,12 +1730,12 @@
   Событие | Описание
   --- | ---
   `CreateIamToken` | Создание IAM-токена
-  `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
-  `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
+  `oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
+  `oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
 
   {% endcut %}
 
-  {% cut "{{ mch-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1745,7 +1745,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mgl-name }}" %}
+  {% cut "Managed Service for GitLab" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1758,7 +1758,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mpg-name }}" %}
+  {% cut "Managed Service for PostgreSQL" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1768,7 +1768,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mrd-name }}" %}
+  {% cut "Yandex Managed Service for Valkey™" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1778,7 +1778,7 @@
 
   {% endcut %}
 
-  {% cut "{{ marketplace-name }}" %}
+  {% cut "Cloud Marketplace" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1789,7 +1789,7 @@
 
   {% endcut %}
 
-  {% cut "{{ speechsense-name }}" %}
+  {% cut "SpeechSense" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1818,7 +1818,7 @@
 
   {% endcut %}
 
-  {% cut "{{ websql-name }}" %}
+  {% cut "WebSQL" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1841,7 +1841,7 @@
 
   {% endcut %}
 
-  {% cut "{{ wiki-name }}" %}
+  {% cut "Вики" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -1899,7 +1899,7 @@
 
 * Добавлены новые события для сервисов:
 
-  {% cut "{{ certificate-manager-name }}" %}
+  {% cut "Certificate Manager" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1909,7 +1909,7 @@
 
   {% endcut %}
 
-  {% cut "{{ cloud-apps-name }}" %}
+  {% cut "Cloud Apps" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1921,7 +1921,7 @@
 
   {% endcut %}
 
-  {% cut "{{ dns-name }}" %}
+  {% cut "Cloud DNS" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1931,7 +1931,7 @@
 
   {% endcut %}
 
-  {% cut "{{ cloud-logging-name }}" %}
+  {% cut "Cloud Logging" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1956,24 +1956,24 @@
 
   {% endcut %}
 
-  {% cut "{{ org-full-name }}" %}
+  {% cut "Yandex Identity Hub" %}
 
   [События уровня конфигурации](concepts/format.md):
 
   Событие | Описание
   --- | ---
-  `CreateOsLoginProfile` | Создание профиля {{ oslogin }}
+  `CreateOsLoginProfile` | Создание профиля OS Login
   `CreateUserSshKey` | Создание SSH-ключа пользователя
-  `UpdateOsLoginProfile` | Изменение профиля {{ oslogin }}
-  `UpdateOsLoginSettings` | Изменение настроек {{ oslogin }}
+  `UpdateOsLoginProfile` | Изменение профиля OS Login
+  `UpdateOsLoginSettings` | Изменение настроек OS Login
   `UpdateUserSshKey` | Изменение SSH-ключа пользователя
   `SetDefaultProfile` | Назначение профиля по умолчанию
-  `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
+  `DeleteOsLoginProfile` | Удаление профиля OS Login
   `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 
   {% endcut %}
 
-  {% cut "{{ compute-name }}" %}
+  {% cut "Compute Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1986,7 +1986,7 @@
 
   {% endcut %}
 
-  {% cut "{{ kms-name }}" %}
+  {% cut "Key Management Service" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -1997,7 +1997,7 @@
 
   {% endcut %}
 
-  {% cut "{{ load-testing-name }}" %}
+  {% cut "Load Testing" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2020,7 +2020,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mgl-name }}" %}
+  {% cut "Managed Service for GitLab" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2033,7 +2033,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mch-short-name }}" %}
+  {% cut "Managed Service for ClickHouse®" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2044,7 +2044,7 @@
   {% endcut %}
 
 
-  {% cut "{{ mgp-short-name }}" %}
+  {% cut "Yandex MPP Analytics for PostgreSQL" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2060,7 +2060,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mmg-short-name }}" %}
+  {% cut "Yandex StoreDoc" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2070,7 +2070,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mmy-short-name }}" %}
+  {% cut "Managed Service for MySQL®" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -2081,7 +2081,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mos-short-name }}" %}
+  {% cut "Managed Service for OpenSearch" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2092,7 +2092,7 @@
 
   {% endcut %}
 
-  {% cut "{{ mpg-short-name }}" %}
+  {% cut "Managed Service for PostgreSQL" %}
 
   [События уровня сервисов](concepts/format-data-plane.md):
 
@@ -2104,7 +2104,7 @@
 
   {% endcut %}
 
-  {% cut "{{ TR }}" %}
+  {% cut "Trino" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2121,7 +2121,7 @@
 
   {% endcut %}
 
-  {% cut "{{ vpc-name }}" %}
+  {% cut "Virtual Private Cloud" %}
 
   [События уровня конфигурации](concepts/format.md):
 
@@ -2133,4 +2133,4 @@
 
 * Исправлена ошибка, из-за которой события поставлялись с задержкой, когда трейл находился в статусе `Error`.
 
-* Изменен механизм доставки событий управления базами данных и пользователями внутри баз данных от сервисов {{ mpg-full-name }}, {{ mmy-full-name }} и {{ mmg-full-name }}. Теперь они относятся к [событиям уровня сервисов](concepts/format-data-plane.md).
+* Изменен механизм доставки событий управления базами данных и пользователями внутри баз данных от сервисов Yandex Managed Service for PostgreSQL, Yandex Managed Service for MySQL® и Yandex StoreDoc. Теперь они относятся к [событиям уровня сервисов](concepts/format-data-plane.md).

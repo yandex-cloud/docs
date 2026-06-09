@@ -10,7 +10,7 @@ then the existing record will be deleted, and a new one added.
 ## HTTP request
 
 ```
-POST https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:updateRecordSets
+POST https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:updateRecordSets
 ```
 
 ## Path parameters

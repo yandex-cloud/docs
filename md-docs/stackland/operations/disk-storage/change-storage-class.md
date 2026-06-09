@@ -1,6 +1,6 @@
 # Переключить компонент на другой класс хранилища
 
-При развёртывании {{ stackland-name }} назначает класс хранилища по умолчанию — тот, который указан в `StacklandClusterConfig.spec.storage.defaultStorageClass`. Этот класс получает аннотацию `storageclass.kubernetes.io/is-default-class: "true"` и используется для всех PVC, в которых класс хранилища не задан явно.
+При развёртывании Stackland назначает класс хранилища по умолчанию — тот, который указан в `StacklandClusterConfig.spec.storage.defaultStorageClass`. Этот класс получает аннотацию `storageclass.kubernetes.io/is-default-class: "true"` и используется для всех PVC, в которых класс хранилища не задан явно.
 
 Для баз данных обычно предпочтительнее SSD или NVMe, а для объектного хранилища — HDD. Если компоненту нужен класс хранилища, отличный от указанного при установке, пропишите его явно в конфигурации этого компонента.
 
@@ -62,9 +62,9 @@
 
 #### Управляемые БД {#postgresql-platform}
 
-{{ PG }}, {{ CH }} и {{ KF }} не требуют настройки класса хранилища на уровне компонента. Кластеры используют класс хранилища по умолчанию. Чтобы задать класс хранилища, отличный от класса по умолчанию, укажите его в манифесте при создании кластера.
+PostgreSQL, ClickHouse® и Apache Kafka® не требуют настройки класса хранилища на уровне компонента. Кластеры используют класс хранилища по умолчанию. Чтобы задать класс хранилища, отличный от класса по умолчанию, укажите его в манифесте при создании кластера.
 
-#### {{ objstorage-name }} {#object-storage-platform}
+#### Object Storage {#object-storage-platform}
 
 ```yaml
 apiVersion: stackland.yandex.cloud/v1alpha1
@@ -85,9 +85,9 @@ spec:
 
 Кластеры баз данных используют класс хранилища по умолчанию, если атрибут `storageClass` не указан в спецификации кластера. Чтобы задать класс хранилища для конкретного кластера, укажите его в манифесте при создании.
 
-Для уже созданных кластеров {{ PG }}, {{ CH }} и {{ KF }} нельзя сменить класс хранилища.
+Для уже созданных кластеров PostgreSQL, ClickHouse® и Apache Kafka® нельзя сменить класс хранилища.
 
-### {{ PG }} {#postgresql}
+### PostgreSQL {#postgresql}
 
 Укажите поле `spec.storage.storageClass` в ресурсе `PostgresqlCluster`:
 
@@ -105,7 +105,7 @@ spec:
 
 Подробнее о создании кластера см. в разделе [Создать кластер PostgreSQL](../postgresql/create-cluster.md).
 
-### {{ CH }} {#clickhouse}
+### ClickHouse® {#clickhouse}
 
 Укажите поля `spec.clickhouse.storage.storageClass` и `spec.keeper.storage.storageClass` в ресурсе `ClickhouseCluster`:
 
@@ -126,9 +126,9 @@ spec:
       storageClass: "stackland-ssd"
 ```
 
-Подробнее о создании кластера см. в разделе [Создать кластер {{ mch-name }}](../clickhouse/create-cluster.md).
+Подробнее о создании кластера см. в разделе [Создать кластер Managed Service for ClickHouse®](../clickhouse/create-cluster.md).
 
-### {{ KF }} {#kafka}
+### Apache Kafka® {#kafka}
 
 Укажите поля `spec.controller.storage.storageClass` и `spec.broker.storage.storageClass` в ресурсе `KafkaCluster`:
 
@@ -192,7 +192,7 @@ spec:
         storageClass: "stackland-ssd"
 ```
 
-### {{ datalens-name }} {#datalens}
+### DataLens {#datalens}
 
 Укажите поле `spec.settings.database.storageClass` в ресурсе `DataLensConfig`:
 
@@ -209,7 +209,7 @@ spec:
       storageClass: "stackland-ssd"
 ```
 
-#### {{ objstorage-name }} {#object-storage-platform}
+#### Object Storage {#object-storage-platform}
 
 Укажите поле `spec.settings.storage.storageClass` в ресурсе `StorageConfig`:
 

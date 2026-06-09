@@ -5,7 +5,7 @@ Lists operations for the specified export.
 ## HTTP request
 
 ```
-GET https://logging.{{ api-host }}/logging/v1/exports/{exportId}/operations
+GET https://logging.api.cloud.yandex.net/logging/v1/exports/{exportId}/operations
 ```
 
 ## Path parameters

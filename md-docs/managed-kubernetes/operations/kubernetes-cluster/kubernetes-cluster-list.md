@@ -1,16 +1,16 @@
-# Информация об имеющихся кластерах {{ managed-k8s-name }}
+# Информация об имеющихся кластерах Managed Service for Kubernetes
 
-Чтобы узнать `ID` или `NAME` [кластера {{ k8s }}](../../concepts/index.md#kubernetes-cluster), получите список кластеров {{ k8s }} в каталоге или подробную информацию об кластере {{ k8s }}.
+Чтобы узнать `ID` или `NAME` [кластера Kubernetes](../../concepts/index.md#kubernetes-cluster), получите список кластеров Kubernetes в каталоге или подробную информацию об кластере Kubernetes.
 
-## Получить список кластеров {{ k8s }} в каталоге {#list}
+## Получить список кластеров Kubernetes в каталоге {#list}
 
-Получите список кластеров {{ k8s }} в каталоге по умолчанию.
+Получите список кластеров Kubernetes в каталоге по умолчанию.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  Чтобы получить список кластеров {{ k8s }}, в [консоли управления]({{ link-console-main }}) выберите каталог и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  Чтобы получить список кластеров Kubernetes, в [консоли управления](https://console.yandex.cloud) выберите каталог и Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
 
 - CLI {#cli}
 
@@ -36,21 +36,21 @@
 
 {% endlist %}
 
-## Получить подробную информацию о кластере {{ k8s }} {#get}
+## Получить подробную информацию о кластере Kubernetes {#get}
 
-Для обращения к кластеру {{ k8s }} используйте параметры `ID` или `NAME` из [предыдущего](kubernetes-cluster-list.md#list) пункта.
+Для обращения к кластеру Kubernetes используйте параметры `ID` или `NAME` из [предыдущего](kubernetes-cluster-list.md#list) пункта.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Нажмите на имя нужного кластера {{ k8s }}.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+  1. Нажмите на имя нужного кластера Kubernetes.
 
 - CLI {#cli}
 
-  Получите подробную информацию о кластере {{ k8s }}:
+  Получите подробную информацию о кластере Kubernetes:
 
   ```bash
   yc managed-kubernetes cluster get test-k8s-cluster
@@ -68,22 +68,22 @@
     service_ipv4_cidr_block: 10.14.0.0/16
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Чтобы получить информацию о кластере {{ managed-k8s-name }}:
+  Чтобы получить информацию о кластере Managed Service for Kubernetes:
 
-  1. Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
      
      
-     Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+     Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Создайте конфигурационный файл {{ TF }} с описанием источника данных `yandex_kubernetes_cluster` в блоке `data` и запрашиваемыми параметрами в блоках `output`, по одному параметру на блок. Например:
+  1. Создайте конфигурационный файл Terraform с описанием источника данных `yandex_kubernetes_cluster` в блоке `data` и запрашиваемыми параметрами в блоках `output`, по одному параметру на блок. Например:
 
       ```hcl
       data "yandex_kubernetes_cluster" "my_cluster" {
@@ -100,7 +100,7 @@
       * `external_v4_endpoint` — имя переменной, значение которой будет выводиться в результате.
       * `data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint` — запрашиваемый параметр. В этом случае — публичный IP-адрес кластера.
 
-      Список параметров кластера, которые можно запросить таким образом, см. в [документации провайдера {{ TF }}]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+      Список параметров кластера, которые можно запросить таким образом, см. в [документации провайдера Terraform](../../../terraform/data-sources/kubernetes_cluster.md).
 
       {% note tip %}
 
@@ -116,7 +116,7 @@
 
   1. Проверьте корректность конфигурационных файлов:
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }}.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform.
 
       1. Выполните команду:
 
@@ -124,7 +124,7 @@
           terraform validate
           ```
 
-          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+          Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Выполните команду:
 
@@ -132,7 +132,7 @@
       terraform apply
       ```
 
-      {{ TF }} отобразит значения выходных переменных в терминале.
+      Terraform отобразит значения выходных переменных в терминале.
 
   1. Чтобы проверить результат, выполните следующую команду с указанием нужной переменной, например:
 
@@ -148,6 +148,6 @@
 
 - API {#api}
 
-  Чтобы получить подробную информацию о кластере {{ k8s }}, воспользуйтесь методом REST API [get](../../managed-kubernetes/api-ref/Cluster/get.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../../managed-kubernetes/api-ref/grpc/Cluster/get.md).
+  Чтобы получить подробную информацию о кластере Kubernetes, воспользуйтесь методом REST API [get](../../managed-kubernetes/api-ref/Cluster/get.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/index.md) или вызовом gRPC API [ClusterService/Get](../../managed-kubernetes/api-ref/grpc/Cluster/get.md).
 
 {% endlist %}

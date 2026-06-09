@@ -5,7 +5,7 @@ Retrieves the list of external group linked subject container
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/external_groups
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/external_groups
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.ListExternalGroupsRequest}

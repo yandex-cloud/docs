@@ -5,7 +5,7 @@ Retrieves the list of SPQR Database resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters

@@ -9,7 +9,7 @@
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/coi-fluent-bit-logging.md)
-* [{#T}](../tutorials/deploy-app-container.md)
-* [{#T}](../tutorials/docker-compose.md)
-* [{#T}](../tutorials/ig-with-containers.md)
+* [Передача логов с Container Optimized Image в Yandex Cloud Logging](../tutorials/coi-fluent-bit-logging.md)
+* [Запуск контейнерного приложения в Yandex Serverless Containers](../tutorials/deploy-app-container.md)
+* [Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами](../tutorials/docker-compose.md)
+* [Создание группы виртуальных машин с Container Optimized Image и несколькими Docker-контейнерами](../tutorials/ig-with-containers.md)

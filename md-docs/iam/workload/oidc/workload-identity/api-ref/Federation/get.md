@@ -6,7 +6,7 @@ To get the list of available OIDC workload identity federation, make a [List](li
 ## HTTP request
 
 ```
-GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
+GET https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{federationId}
 ```
 
 ## Path parameters

@@ -1,7 +1,7 @@
-# Окружения {{ sd-full-name }}
+# Окружения Yandex Security Deck
 
-* [{#T}](create.md).
-* [{#T}](view-dashboard.md).
-* [{#T}](update.md).
-* [{#T}](manage-access.md).
-* [{#T}](delete.md).
+* [Создать окружение Security Deck](create.md).
+* [Посмотреть дашборд и операции с окружением Security Deck](view-dashboard.md).
+* [Изменить окружение Security Deck и его компоненты](update.md).
+* [Настроить права доступа к окружению Security Deck](manage-access.md).
+* [Удалить окружение Security Deck](delete.md).

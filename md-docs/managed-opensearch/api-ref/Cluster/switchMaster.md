@@ -5,7 +5,7 @@ Switches current master or ensures that master not on specified hosts.
 ## HTTP request
 
 ```
-POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/{clusterId}:switch_master
+POST https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/{clusterId}:switch_master
 ```
 
 ## Path parameters

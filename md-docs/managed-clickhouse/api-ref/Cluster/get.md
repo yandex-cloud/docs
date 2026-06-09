@@ -6,7 +6,7 @@ To get the list of available ClickHouse clusters, make a [List](list.md#List) re
 ## HTTP request
 
 ```
-GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}
+GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

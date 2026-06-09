@@ -1,4 +1,4 @@
-# Сопоставление {{ cos-name }} с другими сервисами {{ yandex-cloud }}
+# Сопоставление Container Solution с другими сервисами Yandex Cloud
 
 **Критерий \ Сервис** | **Container<br/>Solution** | **Managed<br/>Service for<br/>Kubernetes** | **Cloud<br/>Functions** | **Serverless<br/>Containers**
 --- | --- | --- | --- | ---

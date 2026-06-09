@@ -5,7 +5,7 @@ Updates the access policy binding parameters for the organization.
 ## HTTP request
 
 ```
-PATCH https://organization-manager.{{ api-host }}/organization-manager/v1/organizations/{resourceId}:updateAccessPolicyBindingParameters
+PATCH https://organization-manager.api.cloud.yandex.net/organization-manager/v1/organizations/{resourceId}:updateAccessPolicyBindingParameters
 ```
 
 ## Path parameters

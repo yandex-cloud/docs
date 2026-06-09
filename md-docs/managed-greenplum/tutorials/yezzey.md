@@ -1,9 +1,9 @@
-# Выгрузка данных {{ GP }} в холодное хранилище {{ objstorage-full-name }}
+# Выгрузка данных Greenplum® в холодное хранилище Yandex Object Storage
 
-# Выгрузка данных {{ GP }} в холодное хранилище
+# Выгрузка данных Greenplum® в холодное хранилище
 
 
-В кластере {{ GP }} можно включить [гибридное хранилище](../concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения {{ YZ }}](../operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в холодное хранилище.
+В кластере Greenplum® можно включить [гибридное хранилище](../concepts/hybrid-storage.md) для [таблиц типа AO и AOCO](../concepts/tables.md) (append-optimized storage). Тогда с помощью [расширения Yezzey](../operations/extensions/yezzey.md) данные этих таблиц можно перенести из хранилища кластера в холодное хранилище.
 
 Холодное хранилище удобно, если данные нужно хранить долго, а работать с ними планируется редко. Так хранение [будет дешевле](../pricing/index.md#rules-storage).
 
@@ -17,7 +17,7 @@
 
 Чтобы перенести данные из хранилища кластера в холодное хранилище:
 
-1. [Выгрузите таблицу {{ GP }} в холодное хранилище](#transfer).
+1. [Выгрузите таблицу Greenplum® в холодное хранилище](#transfer).
 1. [Проверьте результат](#check).
 
 Также есть возможность [перенести данные обратно](#offload-to-local-storage) в хранилище кластера.
@@ -27,13 +27,13 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../pricing/index.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Yandex MPP Analytics for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Yandex MPP Analytics for PostgreSQL](../pricing/index.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Создайте кластер](../operations/cluster-create.md) {{ GP }}. При создании убедитесь, что включена опция **{{ ui-key.yacloud.greenplum.section_cloud-storage }}**.
+1. [Создайте кластер](../operations/cluster-create.md) Greenplum®. При создании убедитесь, что включена опция **Гибридное хранилище**.
 
    {% note info %}
 
@@ -41,7 +41,7 @@
 
    {% endnote %}
 
-1. Получите SSL-сертификат для подключения к базе данных {{ GP }}:
+1. Получите SSL-сертификат для подключения к базе данных Greenplum®:
 
    {% list tabs group=operating_system %}
    
@@ -49,7 +49,7 @@
    
       ```bash
       mkdir -p ~/.postgresql && \
-      wget "{{ crt-web-path }}" \
+      wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
            --output-document ~/.postgresql/root.crt && \
       chmod 0655 ~/.postgresql/root.crt
       ```
@@ -59,7 +59,7 @@
    - Windows (PowerShell) {#windows}
    
       ```powershell
-      mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
+      mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt https://storage.yandexcloud.net/cloud-certs/CA.pem
       ```
    
       Сертификат будет сохранен в файле `$HOME\.postgresql\root.crt`.
@@ -68,15 +68,15 @@
    
    {% endlist %}
 
-   Для использования графических IDE [сохраните сертификат]({{ crt-web-path-root }}) в локальную папку и укажите путь к нему в настройках подключения.
+   Для использования графических IDE [сохраните сертификат](https://storage.yandexcloud.net/cloud-certs/RootCA.pem) в локальную папку и укажите путь к нему в настройках подключения.
 
-## Выгрузите таблицу {{ GP }} в холодное хранилище {#transfer}
+## Выгрузите таблицу Greenplum® в холодное хранилище {#transfer}
 
 1. Подключитесь к кластеру:
 
    ```bash
-   psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-   port={{ port-mgp }} \
+   psql "host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net \
+   port=6432 \
    sslmode=verify-full \
    dbname=postgres \
    user=<имя_пользователя> \
@@ -97,7 +97,7 @@
    \connect db_with_yezzey
    ```
 
-1. Создайте расширение {{ YZ }}:
+1. Создайте расширение Yezzey:
 
    ```bash
    CREATE EXTENSION yezzey;

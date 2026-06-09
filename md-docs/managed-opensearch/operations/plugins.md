@@ -1,6 +1,6 @@
-# Управление плагинами {{ OS }}
+# Управление плагинами OpenSearch
 
-При создании кластера в {{ mos-short-name }} вы можете указать желаемый список плагинов, и они будут автоматически установлены в кластер. Полный список доступных плагинов приведен в разделе [Дополнительные плагины](../concepts/plugins.md#opensearch).
+При создании кластера в Managed Service for OpenSearch вы можете указать желаемый список плагинов, и они будут автоматически установлены в кластер. Полный список доступных плагинов приведен в разделе [Дополнительные плагины](../concepts/plugins.md#opensearch).
 
 ## Получить список установленных плагинов {#list}
 
@@ -8,20 +8,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
     1. Нажмите на имя нужного кластера.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы получить список установленных плагинов, запросите информацию о кластере {{ OS }}:
+    Чтобы получить список установленных плагинов, запросите информацию о кластере OpenSearch:
 
     ```bash
-    {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
+    yc managed-opensearch cluster get <имя_или_идентификатор_кластера>
     ```
 
     Список плагинов указан в параметре `config.opensearch.plugins`.
@@ -36,13 +36,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>'
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -66,7 +66,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         ```bash
         grpcurl \
@@ -78,7 +78,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            {{ api-host-mdb }}:{{ port-https }} \
+            mdb.api.cloud.yandex.net:443 \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
@@ -96,22 +96,22 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
-    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите плагины, которые должны быть установлены.
-    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
+    1. Перейдите в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите кластер и нажмите кнопку ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать** на панели сверху.
+    1. В блоке **Базовые параметры** укажите плагины, которые должны быть установлены.
+    1. Нажмите кнопку **Сохранить**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить список установленных плагинов {{ OS }}, выполните команду:
+    Чтобы изменить список установленных плагинов OpenSearch, выполните команду:
 
     ```bash
-    {{ yc-mdb-os }} cluster update <имя_или_идентификатор_кластера> \
+    yc managed-opensearch cluster update <имя_или_идентификатор_кластера> \
        --plugins <плагины>
     ```
 
@@ -119,13 +119,13 @@
 
     Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
+        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
 
     1. Измените в описании кластера список плагинов для параметра `plugins` в блоке `config`. Если такого параметра нет, добавьте его.
 
@@ -141,14 +141,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -178,7 +178,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
 
         {% note warning %}
         
@@ -191,16 +191,16 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>' \
             --data '{
                         "updateMask": "configSpec.opensearchSpec.plugins",
                         "configSpec": {
                             "opensearchSpec": {
                                 "plugins": [
-                                    "<плагин_{{ OS }}_1>",
-                                    "<плагин_{{ OS }}_2>",
+                                    "<плагин_OpenSearch_1>",
+                                    "<плагин_OpenSearch_2>",
                                     ...
-                                    "<плагин_{{ OS }}_N>"
+                                    "<плагин_OpenSearch_N>"
                                 ]
                             }
                         }
@@ -213,7 +213,7 @@
 
             В данном случае передается только один параметр.
 
-        * `configSpec.opensearchSpec.plugins` — новый список [плагинов {{ OS }}](../concepts/plugins.md).
+        * `configSpec.opensearchSpec.plugins` — новый список [плагинов OpenSearch](../concepts/plugins.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -234,7 +234,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
 
         {% note warning %}
         
@@ -274,15 +274,15 @@
                     "config_spec": {
                         "opensearch_spec": {
                             "plugins": [
-                                "<плагин_{{ OS }}_1>",
-                                "<плагин_{{ OS }}_2>",
+                                "<плагин_OpenSearch_1>",
+                                "<плагин_OpenSearch_2>",
                                 ...
-                                "<плагин_{{ OS }}_N>"
+                                "<плагин_OpenSearch_N>"
                             ]
                         }
                     }
                 }' \
-        {{ api-host-mdb }}:{{ port-https }} \
+        mdb.api.cloud.yandex.net:443 \
         yandex.cloud.mdb.opensearch.v1.ClusterService.Update
         ```
 
@@ -292,7 +292,7 @@
 
             В данном случае передается только один параметр.
 
-        * `config_spec.opensearch_spec.plugins` — новый список [плагинов {{ OS }}](../concepts/plugins.md).
+        * `config_spec.opensearch_spec.plugins` — новый список [плагинов OpenSearch](../concepts/plugins.md).
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

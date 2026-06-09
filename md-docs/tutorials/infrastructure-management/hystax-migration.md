@@ -1,6 +1,6 @@
-# Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура
+# Миграция в Yandex Cloud с помощью Хайстекс Акура
 
-Вы можете мигрировать вашу облачную инфраструктуру с другой облачной платформы в {{ yandex-cloud }} с помощью Хайстекс Акура. Для миграции в вашем облаке нужно создать ВМ с Хайстекс Акура, под управлением которой будет настраиваться и осуществляться миграция. Саму миграцию будет выполнять служебная ВМ с облачным агентом Хайстекс Акура, которая перенесет мигрируемые ВМ в ваше облако. Перед миграцией ВМ будут созданы реплики ВМ, которые будут использованы в процессе миграции для развертывания инфраструктуры.
+Вы можете мигрировать вашу облачную инфраструктуру с другой облачной платформы в Yandex Cloud с помощью Хайстекс Акура. Для миграции в вашем облаке нужно создать ВМ с Хайстекс Акура, под управлением которой будет настраиваться и осуществляться миграция. Саму миграцию будет выполнять служебная ВМ с облачным агентом Хайстекс Акура, которая перенесет мигрируемые ВМ в ваше облако. Перед миграцией ВМ будут созданы реплики ВМ, которые будут использованы в процессе миграции для развертывания инфраструктуры.
 
 Чтобы произвести миграцию:
 1. [Подготовьте облако к работе](#before-begin).
@@ -17,11 +17,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -29,17 +29,17 @@
 
 {% note info %}
 
-Обратите внимание, что оплачиваться и учитываться в [квотах]({{ link-console-quotas }}) будут как инфраструктура для Хайстекс Акура и облачного агента Хайстекс Акура, так и все мигрированные ВМ.
+Обратите внимание, что оплачиваться и учитываться в [квотах](https://console.yandex.cloud/cloud?section=quotas) будут как инфраструктура для Хайстекс Акура и облачного агента Хайстекс Акура, так и все мигрированные ВМ.
 * ВМ для Хайстекс Акура использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * ВМ для облачного агента Хайстекс Акура использует 2 ядра vCPU, 4 ГБ памяти и диск на 8 ГБ.
 
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Миграция» входят:
-* Плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за хранение образов (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-* Плата за использование динамического или статического публичного IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за каждую проведенную миграцию (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в {{ marketplace-name }}).
+* Плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за хранение образов (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+* Плата за использование динамического или статического публичного IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за каждую проведенную миграцию (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в Cloud Marketplace).
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
 
@@ -58,87 +58,87 @@
 
 Если группа безопасности доступна, [добавьте](../../vpc/operations/security-group-add-rule.md) в нее следующие правила:
 
-Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
+Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки
 --- | --- | --- | --- | --- | ---
-Входящий | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `https` | `4443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `udp` | `12201` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Входящий | `tcp` | `15000` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
-Исходящий | `udp` | `12201` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `https` | `4443` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `UDP` | `CIDR` | `0.0.0.0/0`
+Входящий | `iSCSI` | `3260` | `TCP` | `CIDR` | `0.0.0.0/0`
+Входящий | `udp` | `12201` | `UDP` | `CIDR` | `0.0.0.0/0`
+Входящий | `tcp` | `15000` | `TCP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `TCP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `UDP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `iSCSI` | `3260` | `TCP` | `CIDR` | `0.0.0.0/0`
+Исходящий | `udp` | `12201` | `UDP` | `CIDR` | `0.0.0.0/0`
 
 Сохраните идентификатор группы безопасности. Он понадобится при создании ВМ с Хайстекс Акура.
 
 ## Создайте ВМ с Хайстекс Акура {#create-acura-vm}
 
-Создайте ВМ с загрузочным диском из образа [«Хайстекс Акура — Миграция» в {{ yandex-cloud }}](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration):
+Создайте ВМ с загрузочным диском из образа [«Хайстекс Акура — Миграция» в Yandex Cloud](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска**:
 
-      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
-      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
-      * В списке публичных образов выберите [«Хайстекс Акура — Миграция» в {{ yandex-cloud }}](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+      * Перейдите на вкладку **Marketplace**.
+      * Нажмите кнопку **Показать все продукты Marketplace**.
+      * В списке публичных образов выберите [«Хайстекс Акура — Миграция» в Yandex Cloud](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) и нажмите кнопку **Использовать**.
 
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию с `8 vCPU` и `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Диски и файловые хранилища** укажите размер загрузочного [диска](../../compute/concepts/disk.md): `200 ГБ`.
+  1. В блоке **Вычислительные ресурсы** выберите конфигурацию с `8 vCPU` и `16 ГБ`.
+  1. В блоке **Сетевые настройки**: 
 
-      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+      * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+          * Если сети нет, нажмите **Создать сеть** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
-              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+              * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **Создать сеть**.
 
-      * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
+      * Если доступен список **Группы безопасности**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
 
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **Логин** введите имя пользователя, например, `yc-user`.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `hystax-acura-vm`.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. В блоке **Общая информация** задайте имя ВМ: `hystax-acura-vm`.
+  1. В блоке **Дополнительно** выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -159,7 +159,7 @@
    Где:
 
    * `name` — имя ВМ, например, `hystax-acura-vm`.
-   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
+   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `ru-central1-a`.
    * `cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
    * `memory` — [размер оперативной памяти](../../compute/concepts/vm.md) ВМ.
    * `network-interface` — описание сетевого интерфейса ВМ:
@@ -175,7 +175,7 @@
      * `size` — размер диска.
      * `image-id` — идентификатор образа диска.
 
-        В данном случае используйте `image_id` из [описания продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в {{ marketplace-name }}.
+        В данном случае используйте `image_id` из [описания продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-live-cloud-migration) в Cloud Marketplace.
 
    * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa).
 
@@ -186,7 +186,7 @@
 
 ## Настройте Хайстекс Акура {#setup-hystax-acura}
 
-1. Откройте в [консоли управления]({{ link-console-main }}) страницу ВМ `hystax-acura-vm` и найдите ее публичный IP-адрес.
+1. Откройте в [консоли управления](https://console.yandex.cloud) страницу ВМ `hystax-acura-vm` и найдите ее публичный IP-адрес.
 1. Введите в браузере публичный IP-адрес ВМ `hystax-acura-vm`. Откроется экран начальной настройки Хайстекс Акура.
 
    {% note info %}
@@ -202,7 +202,7 @@
    * **Пароль** — пароль администратора.
    * **Подтвердите пароль** — пароль администратора повторно.
 1. Нажмите кнопку **Далее**.
-1. Задайте настройки подключения к {{ yandex-cloud }}:
+1. Задайте настройки подключения к Yandex Cloud:
    * **ID сервисного аккаунта** — идентификатор сервисного аккаунта.
    * **ID ключа** — идентификатор авторизованного ключа сервисного аккаунта.
    * **Приватный ключ** — приватный ключ сервисного аккаунта.
@@ -224,7 +224,7 @@
 
 ## Подготовьте и установите агенты для миграции {#prepare-agent}
 
-Агенты устанавливаются на ВМ, которые предстоит мигрировать в {{ yandex-cloud }}. Чтобы получить и установить агент:
+Агенты устанавливаются на ВМ, которые предстоит мигрировать в Yandex Cloud. Чтобы получить и установить агент:
 1. Если миграция производится с VMware ESXi, Microsoft Hyper-V или иного гипервизора, отличного от KVM, то перед миграцией [установите virtio-драйверы](../../compute/operations/image-create/custom-image.md#virtio) на виртуальную машину.
 1. В административной панели Хайстекс Акура выберите вкладку **Загрузка агента**.
 1. Выберите один из типов агентов для ОС:
@@ -285,7 +285,7 @@
 1. В меню редактирования репликации можно указать дополнительные параметры тома `network-ssd`.
 1. Нажмите кнопку **Групповые действия** и в открывшемся меню выберите **Запуск репликации**.
 
-Реплика ВМ будет включать в себя все данные исходной ВМ, поэтому репликация может занять продолжительное время (около 40 минут). Статус репликации будет отображаться в столбце **Статус** блока **Группы машин**. Дождитесь статуса `Synced` и убедитесь, что в вашем каталоге в списке ВМ сервиса {{ compute-name }} появились реплики выбранных машин.
+Реплика ВМ будет включать в себя все данные исходной ВМ, поэтому репликация может занять продолжительное время (около 40 минут). Статус репликации будет отображаться в столбце **Статус** блока **Группы машин**. Дождитесь статуса `Synced` и убедитесь, что в вашем каталоге в списке ВМ сервиса Compute Cloud появились реплики выбранных машин.
 
 ## Создайте план миграции {#prepare-migration-plan}
 

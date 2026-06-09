@@ -1,4 +1,4 @@
-# Решение проблем в {{ compute-name }}
+# Решение проблем в Compute Cloud
 
 * [Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами](#unable-to-connect-to-new-multi-interface-vm)
 
@@ -20,7 +20,7 @@
 
 * [ВМ не запускается после изменения сети](#not-starting-after-network-change)
 
-В этом разделе описаны типичные проблемы, которые могут возникнуть при работе {{ compute-name }}, и методы их решения.
+В этом разделе описаны типичные проблемы, которые могут возникнуть при работе Compute Cloud, и методы их решения.
 
 #### Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами {#unable-to-connect-to-new-multi-interface-vm}
 
@@ -28,7 +28,7 @@
 
 {% note alert %}
 
-Доступ к содержимому ВМ возможен только через учетные данные пользователя, например с помощью SSH-ключей, поэтому техническая поддержка {{ yandex-cloud }} не имеет доступа к операционной системе внутри ВМ из соображений безопасности и конфиденциальности пользовательских данных.
+Доступ к содержимому ВМ возможен только через учетные данные пользователя, например с помощью SSH-ключей, поэтому техническая поддержка Yandex Cloud не имеет доступа к операционной системе внутри ВМ из соображений безопасности и конфиденциальности пользовательских данных.
 
 {% endnote %}
 
@@ -38,7 +38,7 @@
 
 - Консоль управления {#console}
 
-  Раскройте секцию **{{ ui-key.yacloud.common.metadata }}** и добавьте ключ `user-data` со следующей конфигурацией:
+  Раскройте секцию **Метаданные** и добавьте ключ `user-data` со следующей конфигурацией:
 
   {% cut "Для ОС Ubuntu" %}
 
@@ -252,7 +252,7 @@
 
       ```bash
       yc compute instance create --name=multi-net-vm --hostname=multi-net-vm \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --create-boot-disk image-folder-id=standard-images,image-id=fd8bi0vgcf8vco49q3bm \
         --cores=2 --memory=4G --core-fraction=100 \
         --network-interface subnet-name=subnet1,ipv4-address=auto,nat-ip-version=ipv4 \
@@ -263,15 +263,15 @@
 
       {% note info %}
       
-      Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+      Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
       
       Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
       
-      Подробнее см. в разделе [{#T}](../concepts/metadata/sending-metadata.md#environment-variables).
+      Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../concepts/metadata/sending-metadata.md#environment-variables).
       
       {% endnote %}
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Создайте файл с конфигурацией cloud-init, например `vm-init.tpl`:
 
@@ -381,7 +381,7 @@
       resource "yandex_compute_instance" "multi-net-vm" {
         name        = "multi-net-vm"
         platform_id = "standard-v2"
-        zone        = "{{ region-id }}-a"
+        zone        = "ru-central1-a"
        
         resources {
           cores  = "2"

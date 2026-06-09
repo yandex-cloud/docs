@@ -6,7 +6,7 @@ Creation may take up to 15 minutes.
 ## HTTP request
 
 ```
-POST https://cdn.{{ api-host }}/cdn/v1/resources
+POST https://cdn.api.cloud.yandex.net/cdn/v1/resources
 ```
 
 ## Body parameters {#yandex.cloud.cdn.v1.CreateResourceRequest}

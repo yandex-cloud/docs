@@ -5,7 +5,7 @@ Update host
 ## HTTP request
 
 ```
-PATCH https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/hosts/{hostId}
+PATCH https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/hosts/{hostId}
 ```
 
 ## Path parameters

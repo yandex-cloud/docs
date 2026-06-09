@@ -1,8 +1,8 @@
-# Создание сайта на WordPress с кластером базы данных {{ MY }} с помощью {{ TF }}
+# Создание сайта на WordPress с кластером базы данных MySQL® с помощью Terraform
 
-Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных {{ MY }}](index.md) c помощью {{ TF }}:
+Чтобы создать инфраструктуру для [сайта на WordPress с кластером базы данных MySQL®](index.md) c помощью Terraform:
 
-Чтобы настроить сайт на WordPress с кластером {{ MY }}:
+Чтобы настроить сайт на WordPress с кластером MySQL®:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру](#deploy).
 1. [Настройте веб-сервер Nginx](#configure-nginx).
@@ -14,32 +14,32 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../../compute/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../../compute/pricing.md)).
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
+* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../../vpc/pricing.md)).
+* Публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
 
 ## Создайте инфраструктуру {#deploy}
 
-[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-Для создания инфраструктуры c помощью {{ TF }}:
-1. [Установите {{ TF }}](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры c помощью Terraform:
+1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -47,7 +47,7 @@
    - Готовый архив {#ready}
 
      1. Создайте папку для файлов.
-     1. Скачайте [архив](https://{{ s3-storage-host }}/doc-files/wordpress-mysql.zip) (1 КБ).
+     1. Скачайте [архив](https://storage.yandexcloud.net/doc-files/wordpress-mysql.zip) (1 КБ).
      1. Разархивируйте архив в папку. В результате в ней должен появиться конфигурационный файл `wordpress-mysql.tf`.
 
    - Вручную {#manual}
@@ -68,13 +68,13 @@
         }
         
         provider "yandex" {
-          zone = "{{ region-id }}-a"
+          zone = "ru-central1-a"
         }
         
         resource "yandex_compute_disk" "boot-disk" {
           name     = "bootvmdisk"
           type     = "network-hdd"
-          zone     = "{{ region-id }}-a"
+          zone     = "ru-central1-a"
           size     = "20"
           image_id = "<идентификатор_образа>"
         }
@@ -82,7 +82,7 @@
         resource "yandex_compute_instance" "vm-wordpress-mysql" {
           name        = "wp-mysql-tutorial-web"
           platform_id = "standard-v3"
-          zone        = "{{ region-id }}-a"
+          zone        = "ru-central1-a"
         
           resources {
             core_fraction = 20
@@ -119,19 +119,19 @@
           }
         
           host {
-            zone             = "{{ region-id }}-a"
+            zone             = "ru-central1-a"
             subnet_id        = yandex_vpc_subnet.subnet-1.id
             assign_public_ip = false
           }
         
           host {
-            zone             = "{{ region-id }}-b"
+            zone             = "ru-central1-b"
             subnet_id        = yandex_vpc_subnet.subnet-2.id
             assign_public_ip = false
           }
         
           host {
-            zone             = "{{ region-id }}-d"
+            zone             = "ru-central1-d"
             subnet_id        = yandex_vpc_subnet.subnet-3.id
             assign_public_ip = false
           }
@@ -199,21 +199,21 @@
         
         resource "yandex_vpc_subnet" "subnet-1" {
           name           = "subnet1"
-          zone           = "{{ region-id }}-a"
+          zone           = "ru-central1-a"
           network_id     = yandex_vpc_network.network-1.id
           v4_cidr_blocks = ["192.168.1.0/24"]
         }
         
         resource "yandex_vpc_subnet" "subnet-2" {
           name           = "subnet2"
-          zone           = "{{ region-id }}-b"
+          zone           = "ru-central1-b"
           network_id     = yandex_vpc_network.network-1.id
           v4_cidr_blocks = ["192.168.2.0/24"]
         }
         
         resource "yandex_vpc_subnet" "subnet-3" {
           name           = "subnet3"
-          zone           = "{{ region-id }}-d"
+          zone           = "ru-central1-d"
           network_id     = yandex_vpc_network.network-1.id
           v4_cidr_blocks = ["192.168.3.0/24"]
         }
@@ -246,19 +246,19 @@
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
 
-    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
-    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
-    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group]({{ tf-provider-resources-link }}/vpc_security_group).
-    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance]({{ tf-provider-resources-link }}/compute_instance).
-    * [Кластер {{ MY }}](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster]({{ tf-provider-resources-link }}/mdb_mysql_cluster).
-    * [БД {{ PG }}](../../../managed-mysql/index.md) — [yandex_mdb_mysql_database]({{ tf-provider-resources-link }}/mdb_mysql_database).
-    * [Пользователь БД](../../../managed-mysql/concepts/user-rights.md) — [yandex_mdb_mysql_user]({{ tf-provider-resources-link }}/mdb_mysql_user).
-    * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone).
-    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset).
+    * [Сеть](../../../vpc/concepts/network.md#network) — [yandex_vpc_network](../../../terraform/resources/vpc_network.md).
+    * [Подсети](../../../vpc/concepts/network.md#subnet) — [yandex_vpc_subnet](../../../terraform/resources/vpc_subnet.md).
+    * [Группы безопасности](../../../vpc/concepts/security-groups.md) — [yandex_vpc_security_group](../../../terraform/resources/vpc_security_group.md).
+    * [Виртуальная машина](../../../compute/concepts/vm.md) — [yandex_compute_instance](../../../terraform/resources/compute_instance.md).
+    * [Кластер MySQL®](../../../managed-mysql/concepts/index.md) — [yandex_mdb_mysql_cluster](../../../terraform/resources/mdb_mysql_cluster.md).
+    * [БД PostgreSQL](../../../managed-mysql/index.md) — [yandex_mdb_mysql_database](../../../terraform/resources/mdb_mysql_database.md).
+    * [Пользователь БД](../../../managed-mysql/concepts/user-rights.md) — [yandex_mdb_mysql_user](../../../terraform/resources/mdb_mysql_user.md).
+    * [Зона DNS](../../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../../terraform/resources/dns_zone.md).
+    * [Ресурсная запись DNS](../../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../../terraform/resources/dns_recordset.md).
 
-1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее см. в разделе [{#T}](../../../compute/concepts/metadata/public-image-keys.md).
+1. В блоке `metadata` укажите [метаданные](../../../compute/concepts/vm-metadata.md) для создания ВМ `<имя_пользователя>:<содержимое_SSH-ключа>`. Указанное имя пользователя не играет роли, ключ будет присвоен пользователю, который задан в конфигурации образа. В разных образах это разные пользователи. Подробнее см. в разделе [Ключи, обрабатываемые в публичных образах Yandex Cloud](../../../compute/concepts/metadata/public-image-keys.md).
 1. В блоке `boot_disk` укажите идентификатор одного из [образов](../../../compute/operations/images-with-pre-installed-software/get-list.md) ВМ с нужным набором компонентов:
    * [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11).
    * [Ubuntu 20.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts).
@@ -284,7 +284,7 @@
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -297,7 +297,7 @@
 ## Настройте веб-сервер Nginx {#configure-nginx}
 
 После того как ВМ `wp-mysql-tutorial-web` перейдет в статус `RUNNING`:
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    Рекомендуемый способ аутентификации при подключении по SSH — с помощью пары ключей. Не забудьте настроить использование созданной пары ключей: закрытый ключ должен соответствовать открытому ключу, переданному на ВМ.
@@ -538,17 +538,17 @@
 1. Перейдите к блоку конфигурации подключения к кластеру `wp-mysql-tutorial-db-cluster`:
 
    ```php
-   // ** {{ MY }} settings - You can get this info from your web host. ** //
+   // ** MySQL® settings - You can get this info from your web host. ** //
    /** The name of the database for WordPress. */
 
    define( 'DB_NAME', '<DB_NAME>' );
-   /** {{ MY }} database username. */
+   /** MySQL® database username. */
    define( 'DB_USER', '<DB_USER>' );
 
-   /** {{ MY }} database password. */
+   /** MySQL® database password. */
    define( 'DB_PASSWORD', '<DB_PASSWORD>' );
 
-   /** {{ MY }} hostname. */
+   /** MySQL® hostname. */
    define( 'DB_HOST', '<DB_HOST>' );
    ```
 
@@ -556,24 +556,24 @@
    * `<DB_NAME>` — имя БД `wp-mysql-tutorial-db`.
    * `<DB_USER>` — имя пользователя `wordpress`.
    * `<DB_PASSWORD>` — пароль, заданный при создании кластера БД.
-   * `<DB_HOST>` — имя хоста {{ MY }} вида `XXXX-XXXXXXXXXX.{{ dns-zone }}`.
+   * `<DB_HOST>` — имя хоста MySQL® вида `XXXX-XXXXXXXXXX.mdb.yandexcloud.net`.
 
-     Чтобы узнать FQDN хоста {{ MY }}:
+     Чтобы узнать FQDN хоста MySQL®:
 
 	 {% list tabs group=instructions %}
 
 	 - Консоль управления {#console}
 
-	   1. Перейдите на страницу кластера {{ MY }} в [консоли управления]({{ link-console-main }}).
-       1. На вкладке **{{ ui-key.yacloud.mysql.cluster.switch_databases }}** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**.
-       1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}`, где `ХХХХ-ХХХХХХХХХХ.{{ dns-zone }}` — это FQDN хоста с ролью `MASTER`.
+	   1. Перейдите на страницу кластера MySQL® в [консоли управления](https://console.yandex.cloud).
+       1. На вкладке **Базы данных** рядом с БД нажмите значок ![image](../../../_assets/options.svg) → **Подключиться**.
+       1. Найдите строчку `mysql --host=ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net`, где `ХХХХ-ХХХХХХХХХХ.mdb.yandexcloud.net` — это FQDN хоста с ролью `MASTER`.
 
      - CLI {#cli}
 
        [Получите список хостов](../../../managed-mysql/operations/hosts.md#list) и скопируйте `NAME` хоста с ролью `MASTER`:
 
        ```bash
-       yc managed-mysql host list --cluster-name <имя_кластера_{{ MY }}>
+       yc managed-mysql host list --cluster-name <имя_кластера_MySQL®>
        ```
 
        
@@ -581,8 +581,8 @@
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        |           NAME         |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID      | PUBLIC IP |
        +------------------------+----------------------+---------+--------+-------------------+-----------+
-       | rc1a-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | {{ region-id }}-a | false     |
-       | rc1b-...{{ dns-zone }} | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | {{ region-id }}-b | false     |
+       | rc1a-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | MASTER  | ALIVE  | ru-central1-a | false     |
+       | rc1b-...mdb.yandexcloud.net | c9quhb1l32unm1sdn0in | REPLICA | ALIVE  | ru-central1-b | false     |
        +------------------------+----------------------+---------+--------+-------------------+-----------+
        ```
 
@@ -611,7 +611,7 @@
 
 ## Завершите настройку WordPress {#configure-wordpress}
 
-1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
+1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
 1. Перейдите по адресу ВМ в браузере.
 1. Выберите язык и нажмите кнопку **Продолжить**.
 1. Заполните информацию для доступа к сайту:
@@ -657,7 +657,7 @@
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -668,4 +668,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](console.md)
+* [Создание сайта на WordPress с кластером базы данных MySQL® с помощью консоли управления](console.md)

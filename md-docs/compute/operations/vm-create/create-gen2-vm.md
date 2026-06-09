@@ -11,11 +11,11 @@
 
 ## Создайте образ с закреплением поколения оборудования Gen 2 {#create-image}
 
-Создать образ виртуальной машины с закреплением поколения оборудования `Gen 2` вы можете как из собственного образа, [предварительно загруженного](#upload-own-image) в {{ yandex-cloud }}, так и на основе [уже имеющихся](#create-image-from-existing-source) в {{ yandex-cloud }} образов, снимков и дисков.
+Создать образ виртуальной машины с закреплением поколения оборудования `Gen 2` вы можете как из собственного образа, [предварительно загруженного](#upload-own-image) в Yandex Cloud, так и на основе [уже имеющихся](#create-image-from-existing-source) в Yandex Cloud образов, снимков и дисков.
 
-### Загрузите свой образ диска в {{ yandex-cloud }} {#upload-own-image}
+### Загрузите свой образ диска в Yandex Cloud {#upload-own-image}
 
-Вы можете загрузить в {{ compute-name }} свой собственный образ виртуальной машины с поддержкой UEFI и GPT, чтобы на его основе создавать виртуальные машины, работающие на оборудовании поколения `Gen 2`. Создать образ в {{ compute-name }} можно из подготовленного файла образа, загруженного в [{{ objstorage-full-name }}](../../../storage/index.md).
+Вы можете загрузить в Compute Cloud свой собственный образ виртуальной машины с поддержкой UEFI и GPT, чтобы на его основе создавать виртуальные машины, работающие на оборудовании поколения `Gen 2`. Создать образ в Compute Cloud можно из подготовленного файла образа, загруженного в [Yandex Object Storage](../../../storage/index.md).
 
 #### Подготовьте файл с образом {#prepare-file}
 
@@ -37,48 +37,48 @@
 
 Поддерживаемые форматы: `Qcow2`, `VMDK`, `RAW` и `VHD`.
 
-Инструкции по настройке см. в разделе [{#T}](../image-create/custom-image.md).
+Инструкции по настройке см. в разделе [Подготовить свой образ диска](../image-create/custom-image.md).
 
-#### Загрузите файл образа в {{ objstorage-name }} {#upload-file}
+#### Загрузите файл образа в Object Storage {#upload-file}
 
-Загрузите файл с образом в сервис {{ objstorage-name }} и получите ссылку на загруженный образ:
+Загрузите файл с образом в сервис Object Storage и получите ссылку на загруженный образ:
 
-1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в {{ objstorage-name }}, [создайте](../../../storage/operations/buckets/create.md) его с ограниченным доступом.
-1. Загрузите образ в ваш бакет, например, [через консоль управления](../../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../../storage/tools/aws-cli.md) или [WinSCP](../../../storage/tools/winscp.md). В терминах {{ objstorage-name }} загружаемый файл образа будет называться _объектом_.
-1. [Получите](../../../storage/operations/objects/link-for-download.md) подписанную [ссылку](../../../storage/concepts/pre-signed-urls.md) на скачивание образа из бакета. Используйте эту ссылку при создании образа в {{ compute-name }}.
+1. Если у вас еще нет [бакета](../../../storage/concepts/bucket.md) в Object Storage, [создайте](../../../storage/operations/buckets/create.md) его с ограниченным доступом.
+1. Загрузите образ в ваш бакет, например, [через консоль управления](../../../storage/operations/objects/upload.md), с помощью [AWS CLI](../../../storage/tools/aws-cli.md) или [WinSCP](../../../storage/tools/winscp.md). В терминах Object Storage загружаемый файл образа будет называться _объектом_.
+1. [Получите](../../../storage/operations/objects/link-for-download.md) подписанную [ссылку](../../../storage/concepts/pre-signed-urls.md) на скачивание образа из бакета. Используйте эту ссылку при создании образа в Compute Cloud.
 
-#### Создайте в {{ compute-name }} образ с закреплением поколения оборудования Gen 2 {#create-image-from-link}
+#### Создайте в Compute Cloud образ с закреплением поколения оборудования Gen 2 {#create-image-from-link}
 
-Чтобы создать новый образ по ссылке, полученной в [{{ objstorage-name }}](../../../storage/index.md):
+Чтобы создать новый образ по ссылке, полученной в [Object Storage](../../../storage/index.md):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать образ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.images.button_upload }}** и в открывшемся окне:
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![layers](../../../_assets/console-icons/layers.svg) **Образы**.
+  1. Нажмите кнопку **Загрузить образ** и в открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя образа. Требования к имени:
+      1. В поле **Имя** задайте имя образа. Требования к имени:
 
           * длина — от 3 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      1. (Опционально) В полях **{{ ui-key.yacloud.common.description }}** и **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте произвольное описание и [метки](../../../resource-manager/concepts/labels.md) создаваемого образа.
-      1. В поле **{{ ui-key.yacloud.compute.images.popup-upload_field_url }}** вставьте ссылку на файл с образом, полученную ранее в {{ objstorage-name }}.
-      1. В поле **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** выберите [поколение оборудования](../../concepts/hardware-generations.md) `{{ ui-key.yacloud.compute.hardware-gen2-title_a2Gfq }}`.
-      1. Чтобы включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания, раскройте секцию **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** и включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.button_upload }}**.
+      1. (Опционально) В полях **Описание** и **Метки** добавьте произвольное описание и [метки](../../../resource-manager/concepts/labels.md) создаваемого образа.
+      1. В поле **Ссылка на образ в Object Storage** вставьте ссылку на файл с образом, полученную ранее в Object Storage.
+      1. В поле **Поколение оборудования** выберите [поколение оборудования](../../concepts/hardware-generations.md) `Gen 2 (GPT, UEFI)`.
+      1. Чтобы включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания, раскройте секцию **Дополнительно** и включите опцию **Оптимизация**.
+      1. Нажмите кнопку **Загрузить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды {{ yandex-cloud }} CLI для создания образа:
+  1. Посмотрите описание команды Yandex Cloud CLI для создания образа:
 
       ```bash
       yc compute image create --help
@@ -100,7 +100,7 @@
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
       
-      * `--source-uri` — ссылка на образ, полученная в {{ objstorage-name }}.
+      * `--source-uri` — ссылка на образ, полученная в Object Storage.
       * `--pooled` — параметр, позволяющий включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания. Необязательный параметр. По умолчанию оптимизация отключена.
 
       Результат:
@@ -122,18 +122,18 @@
 
   Подробнее о команде `yc compute image create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/image/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   Чтобы создать образ:
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_image`.
@@ -159,7 +159,7 @@
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      * `source_url` — ссылка на образ в {{ objstorage-name }}.
+      * `source_url` — ссылка на образ в Object Storage.
       * `pooled` — параметр, позволяющий включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания. Возможные значения:
       
           * `true` — оптимизация включена.
@@ -167,7 +167,7 @@
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
+      Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
   1. Создайте ресурсы:
 
       1. В терминале перейдите в директорию с конфигурационным файлом.
@@ -189,7 +189,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -198,7 +198,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
       ```bash
       yc compute image list
@@ -211,7 +211,7 @@
   Например, чтобы создать образ с закреплением поколения оборудования `Gen 2` с помощью REST API:
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
@@ -246,7 +246,7 @@
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      * `uri` — ссылка на образ в {{ objstorage-name }}.
+      * `uri` — ссылка на образ в Object Storage.
       * `pooled` — параметр, позволяющий включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания. Возможные значения:
       
           * `true` — оптимизация включена.
@@ -262,7 +262,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/images
+        https://compute.api.cloud.yandex.net/compute/v1/images
       ```
 
       Результат:
@@ -290,11 +290,11 @@
 
 По умолчанию при создании образа за ним закрепляется то [поколение оборудования](../../concepts/hardware-generations.md), которое [закреплено](../../concepts/hardware-generations.md#locking-generations) за исходным образом, снимком или диском, на основе которых создается этот образ. При этом вы можете явно задать для образа поколение оборудования, отличное от поколения, закрепленного за исходными образом, снимком или диском.
 
-За [публичными образами](../../concepts/image.md#public), доступными для установки на ВМ в [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace), по умолчанию закреплено поколение оборудования `Gen 1.1` или `Gen 1.2`. В то же время некоторые публичные образы (например, образы с операционной системой Linux [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts)) поддерживают оборудование поколения `Gen 2` с режимом загрузки [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface) и таблицей разделов [GPT](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID), и из таких образов вы можете создать диск или собственный образ с закрепленным поколением оборудования `Gen 2`. Другие публичные образы не поддерживают UEFI-загрузку и поэтому создать на их основе виртуальную машину, работающую на оборудовании поколения `Gen 2`, нельзя.
+За [публичными образами](../../concepts/image.md#public), доступными для установки на ВМ в [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace), по умолчанию закреплено поколение оборудования `Gen 1.1` или `Gen 1.2`. В то же время некоторые публичные образы (например, образы с операционной системой Linux [Ubuntu 24.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-24-04-lts)) поддерживают оборудование поколения `Gen 2` с режимом загрузки [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface) и таблицей разделов [GPT](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID), и из таких образов вы можете создать диск или собственный образ с закрепленным поколением оборудования `Gen 2`. Другие публичные образы не поддерживают UEFI-загрузку и поэтому создать на их основе виртуальную машину, работающую на оборудовании поколения `Gen 2`, нельзя.
 
 {% note info %}
 
-Создать новый образ с закреплением поколения оборудования `Gen 2` из [публичного образа](../../concepts/image.md#public) в [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace) можно только с помощью [{{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/image/create.md), [{{ TF }}]({{ tf-provider-resources-link }}/compute_image) или [API](../../api-ref/Image/create.md).
+Создать новый образ с закреплением поколения оборудования `Gen 2` из [публичного образа](../../concepts/image.md#public) в [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace) можно только с помощью [Yandex Cloud CLI](../../../cli/cli-ref/compute/cli-ref/image/create.md), [Terraform](../../../terraform/resources/compute_image.md) или [API](../../api-ref/Image/create.md).
 
 {% endnote %}
 
@@ -305,18 +305,18 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. В зависимости от того, из какого источника вы хотите создать новый образ, на панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}**, ![picture](../../../_assets/console-icons/picture.svg) **{{ ui-key.yacloud.compute.snapshots_81jHX }}** или ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
-  1. В зависимости от выбранного типа источника в открывшемся списке в строке с нужным образом, снимком или диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![layers](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.disks.button_action-image }}**. В открывшемся окне:
+  1. Перейдите в сервис **Compute Cloud**.
+  1. В зависимости от того, из какого источника вы хотите создать новый образ, на панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **Диски и хранилища**, ![picture](../../../_assets/console-icons/picture.svg) **Снимки дисков** или ![layers](../../../_assets/console-icons/layers.svg) **Образы**.
+  1. В зависимости от выбранного типа источника в открывшемся списке в строке с нужным образом, снимком или диском нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![layers](../../../_assets/console-icons/layers.svg) **Создать образ**. В открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.common.name }}** задайте имя создаваемого образа. Требования к имени:
+      1. В поле **Имя** задайте имя создаваемого образа. Требования к имени:
 
           * длина — от 3 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      1. (Опционально) В полях **{{ ui-key.yacloud.common.description }}** и **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте произвольное описание и [метки](../../../resource-manager/concepts/labels.md) образа.
-      1. Разверните секцию **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** и в поле **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** выберите `{{ ui-key.yacloud.compute.hardware-gen2-title_a2Gfq }}`.
+      1. (Опционально) В полях **Описание** и **Метки** добавьте произвольное описание и [метки](../../../resource-manager/concepts/labels.md) образа.
+      1. Разверните секцию **Дополнительно** и в поле **Поколение оборудования** выберите `Gen 2 (GPT, UEFI)`.
 
           {% note alert %}
           
@@ -324,12 +324,12 @@
           
           {% endnote %}
 
-      1. Чтобы включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания, включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Чтобы включить [оптимизацию](../../concepts/image.md#images-optimized-for-deployment) образа для развертывания, включите опцию **Оптимизация**.
+      1. Нажмите кнопку **Создать**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -339,7 +339,7 @@
   
   {% endnote %}
 
-  1. Посмотрите описание команды {{ yandex-cloud }} CLI для создания образа:
+  1. Посмотрите описание команды Yandex Cloud CLI для создания образа:
 
       ```bash
       yc compute image create --help
@@ -399,18 +399,18 @@
 
   Подробнее о команде `yc compute image create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/image/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_image`.
 
@@ -462,7 +462,7 @@
           
           Необязательный параметр. По умолчанию оптимизация выключена.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_image).
+          Подробную информацию о параметрах ресурса `yandex_compute_image` см. в [документации провайдера Terraform](../../../terraform/resources/compute_image.md).
           
   1. Создайте ресурсы:
 
@@ -485,7 +485,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -494,7 +494,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
       ```bash
       yc compute image list
@@ -507,7 +507,7 @@
   Например, чтобы создать образ с закреплением поколения оборудования `Gen 2` с помощью REST API:
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
@@ -577,7 +577,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/images
+        https://compute.api.cloud.yandex.net/compute/v1/images
       ```
 
       Результат:
@@ -641,7 +641,7 @@
 
 - Другие ОС {#other}
 
-  1. Остановите виртуальную машину (см. раздел [{#T}](../vm-control/vm-stop-and-start.md#stop)).
+  1. Остановите виртуальную машину (см. раздел [Остановить](../vm-control/vm-stop-and-start.md#stop)).
   1. Дождитесь, когда статус машины изменится на `STOPPED`.
 
 {% endlist %}
@@ -652,7 +652,7 @@
 
 {% note info %}
 
-Закрепить за снимком поколение, отличное от поколения, которое закреплено за исходным диском, можно только с помощью [{{ yandex-cloud }} CLI](../../../cli/cli-ref/compute/cli-ref/snapshot/create.md), [{{ TF }}]({{ tf-provider-resources-link }}/compute_snapshot) и [API](../../api-ref/Snapshot/create.md).
+Закрепить за снимком поколение, отличное от поколения, которое закреплено за исходным диском, можно только с помощью [Yandex Cloud CLI](../../../cli/cli-ref/compute/cli-ref/snapshot/create.md), [Terraform](../../../terraform/resources/compute_snapshot.md) и [API](../../api-ref/Snapshot/create.md).
 
 {% endnote %}
 
@@ -660,7 +660,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -708,18 +708,18 @@
 
   Подробнее о команде `yc compute snapshot create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/snapshot/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_snapshot`.
 
@@ -744,7 +744,7 @@
 
       * `source_disk_id` — идентификатор диска, для которого вы создаете снимок.
 
-      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_snapshot).
+      Подробную информацию о параметрах ресурса `yandex_compute_snapshot` см. в [документации провайдера Terraform](../../../terraform/resources/compute_snapshot.md).
           
   1. Создайте ресурсы:
 
@@ -767,7 +767,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -776,7 +776,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
       ```bash
       yc compute snapshot list
@@ -789,7 +789,7 @@
   Например, чтобы создать снимок с закреплением поколения оборудования `Gen 2` с помощью REST API:
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
@@ -833,7 +833,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/snapshots
+        https://compute.api.cloud.yandex.net/compute/v1/snapshots
       ```
 
       Результат:
@@ -870,33 +870,33 @@
 - Консоль управления {#console}
 
   1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать образ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.compute.storage_uisyT }}** и нажмите кнопку **{{ ui-key.yacloud.compute.storage.button_create-disk }}**. В открывшемся окне:
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![archive](../../../_assets/console-icons/archive.svg) **Диски и хранилища** и нажмите кнопку **Создать диск**. В открывшемся окне:
 
-      1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя диска. Требования к имени:
+      1. В поле **Имя** задайте имя диска. Требования к имени:
 
           * длина — от 3 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
-      1. В поле **{{ ui-key.yacloud.compute.disk-form.field_zone }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой вы создаете диск.
-      1. В зависимости от источника, на основе которого вы создаете диск, в поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}` или `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}` и в появившемся списке выберите нужный снимок или образ.
-      1. В поле **{{ ui-key.yacloud.compute.disk-form.field_type }}** выберите [тип](../../concepts/disk.md#disks-types) диска. Доступные значения:
+      1. В поле **Зона доступности** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой вы создаете диск.
+      1. В зависимости от источника, на основе которого вы создаете диск, в поле **Наполнение** выберите `Снимок` или `Образ` и в появившемся списке выберите нужный снимок или образ.
+      1. В поле **Тип** выберите [тип](../../concepts/disk.md#disks-types) диска. Доступные значения:
 
-          * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
-          * `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
-          * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-io-m3_pPfnG }}` — сетевой диск с повышенной производительностью, обеспечивающий избыточность.
-          * `{{ ui-key.yacloud.compute.value_disk-type-network-ssd-nonreplicated_d7W56 }}` — сетевой диск с повышенной производительностью без избыточности.
-      1. В поле **{{ ui-key.yacloud.compute.disk-form.field_size }}** задайте нужный размер диска.
-      1. Разверните секцию **{{ ui-key.yacloud.compute.section_additional_7yvYG }}** и в поле **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** выберите `{{ ui-key.yacloud.compute.hardware-gen2-title_a2Gfq }}`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.disks.create.button_create }}**.
+          * `SSD` — быстрый сетевой диск, сетевое блочное хранилище на SSD-накопителе.
+          * `HDD` — стандартный сетевой диск, сетевое блочное хранилище на HDD-накопителе.
+          * `SSD IO` — сетевой диск с повышенной производительностью, обеспечивающий избыточность.
+          * `Нереплицируемый SSD` — сетевой диск с повышенной производительностью без избыточности.
+      1. В поле **Размер** задайте нужный размер диска.
+      1. Разверните секцию **Дополнительно** и в поле **Поколение оборудования** выберите `Gen 2 (GPT, UEFI)`.
+      1. Нажмите кнопку **Создать диск**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  1. Посмотрите описание команды {{ yandex-cloud }} CLI для создания диска:
+  1. Посмотрите описание команды Yandex Cloud CLI для создания диска:
 
       ```bash
       yc compute disk create --help
@@ -950,7 +950,7 @@
       created_at: "2025-12-04T08:15:45Z"
       name: ununtu2404-gen2-disk
       type_id: network-hdd
-      zone_id: {{ region-id }}-a
+      zone_id: ru-central1-a
       size: "34359738368"
       block_size: "4096"
       product_ids:
@@ -964,18 +964,18 @@
 
   Подробнее о команде `yc compute disk create` читайте в [справочнике CLI](../../../cli/cli-ref/compute/cli-ref/disk/create.md).
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
 
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
   
   
-  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
+  Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурса `yandex_compute_disk`.
 
@@ -1023,7 +1023,7 @@
 
           {% endnote %}
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
           
   1. Создайте ресурсы:
 
@@ -1046,7 +1046,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -1055,7 +1055,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
       ```bash
       yc compute disk list
@@ -1068,7 +1068,7 @@
   Например, чтобы создать диск с закреплением поколения оборудования `Gen 2` с помощью REST API:
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
@@ -1134,7 +1134,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/disks
+        https://compute.api.cloud.yandex.net/compute/v1/disks
       ```
 
       Результат:
@@ -1172,10 +1172,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![server](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
 
       {% note info %}
 
@@ -1183,62 +1183,62 @@
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и нажмите кнопку **{{ ui-key.yacloud.common.select }}**. В открывшемся окне:
+  1. В блоке **Образ загрузочного диска** перейдите на вкладку **Пользовательский** и нажмите кнопку **Выбрать**. В открывшемся окне:
 
       * Чтобы создать ВМ из [подготовленного ранее снимка](#create-snapshot):
       
-          1. Убедитесь, что в верхней части экрана выбрана опция `{{ ui-key.yacloud.compute.component.instance-storage-dialog.value_disk-attach-type-create-new }}`, а в поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выбрана опция `{{ ui-key.yacloud.compute.instances.create-disk.value_source-snapshot }}`.
+          1. Убедитесь, что в верхней части экрана выбрана опция `Создать`, а в поле **Наполнение** выбрана опция `Снимок`.
           1. В списке снимков выберите нужный. При необходимости воспользуйтесь фильтром.
-          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя загрузочного диска ВМ. Требования к имени:
+          1. В поле **Имя** задайте имя загрузочного диска ВМ. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
-          1. В полях **{{ ui-key.yacloud.compute.disk-form.field_type }}** и **{{ ui-key.yacloud.compute.disk-form.field_size }}** выберите нужные [тип](../../concepts/disk.md#disks-types) и размер создаваемого диска.
-          1. (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
-          1. Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+          1. В полях **Тип** и **Размер** выберите нужные [тип](../../concepts/disk.md#disks-types) и размер создаваемого диска.
+          1. (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
+          1. Нажмите кнопку **Добавить диск**.
       * Чтобы создать ВМ из [подготовленного ранее образа](#create-image):
       
-          1. Убедитесь, что в верхней части экрана выбрана опция `{{ ui-key.yacloud.compute.component.instance-storage-dialog.value_disk-attach-type-create-new }}`.
-          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите опцию `{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}`.
+          1. Убедитесь, что в верхней части экрана выбрана опция `Создать`.
+          1. В поле **Наполнение** выберите опцию `Образ`.
           1. В списке образов выберите нужный. При необходимости воспользуйтесь фильтром.
-          1. В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_name }}** задайте имя загрузочного диска ВМ. Требования к имени:
+          1. В поле **Имя** задайте имя загрузочного диска ВМ. Требования к имени:
 
               * длина — от 3 до 63 символов;
               * может содержать строчные буквы латинского алфавита, цифры и дефисы;
               * первый символ — буква, последний — не дефис.
-          1. В полях **{{ ui-key.yacloud.compute.disk-form.field_type }}** и **{{ ui-key.yacloud.compute.disk-form.field_size }}** выберите нужные [тип](../../concepts/disk.md#disks-types) и размер создаваемого диска.
-          1. (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
-          1. Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+          1. В полях **Тип** и **Размер** выберите нужные [тип](../../concepts/disk.md#disks-types) и размер создаваемого диска.
+          1. (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
+          1. Нажмите кнопку **Добавить диск**.
       * Чтобы создать ВМ из [подготовленного ранее диска](#create-disk):
       
-          1. В верхней части экрана выберите опцию `{{ ui-key.yacloud.compute.component.instance-storage-dialog.value_disk-attach-type-attach-existing }}`.
+          1. В верхней части экрана выберите опцию `Подключить существующий`.
           1. В списке дисков выберите нужный. При необходимости воспользуйтесь фильтром.
-          1. (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
-          1. Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
+          1. (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, чтобы включить автоудаление создаваемого загрузочного диска вместе с ВМ.
+          1. Нажмите кнопку **Добавить диск**.
+  1. В блоке **Вычислительные ресурсы** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
      
-     * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
+     * Перейдите на вкладку **Своя конфигурация**.
      * Выберите [платформу](../../concepts/vm-platforms.md).
      * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
      * При необходимости включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
      * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+  1. В блоке **Сетевые настройки**:
      
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка.
+     * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка.
      
-         * У каждой сети должна быть как минимум одна [подсеть](../../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-         * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+         * У каждой сети должна быть как минимум одна [подсеть](../../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+         * Если сети нет, нажмите **Создать сеть** и создайте ее:
      
              * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-             * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
-             * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+             * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
+             * Нажмите **Создать сеть**.
      
-     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+     * В поле **Публичный IP-адрес** выберите способ назначения адреса:
      
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции ниже.
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
+         * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов Yandex Cloud. В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи опции ниже.
+         * `Список` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [Сделать динамический публичный IP-адрес статическим](../../../vpc/operations/set-static-ip.md).
+         * `Без адреса` — чтобы не назначать публичный IP-адрес.
      
      * Выберите [подходящие группы безопасности](../../../vpc/concepts/security-groups.md):
      
@@ -1248,23 +1248,23 @@
          
          Если оставить поле пустым, виртуальной машине будет автоматически назначена [группа безопасности по умолчанию](../../../vpc/concepts/security-groups.md#default-security-group), позволяющая подключаться к ВМ по `SSH` и `RDP`.
      
-     * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
+     * Разверните блок **Дополнительно** и в поле **Внутренний IPv4 адрес** выберите способ назначения внутренних адресов:
      
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-         * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы задать внутренний IP-адрес ВМ вручную.
-         * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
+         * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+         * `Вручную` — чтобы задать внутренний IP-адрес ВМ вручную.
+         * При необходимости включите опцию **Защита от DDoS-атак**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
      
      * (Опционально) Создайте записи для ВМ в [зоне DNS](../../../dns/concepts/dns-zone.md):
      
-         * Разверните блок **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** и нажмите **{{ ui-key.yacloud.dns.button_add-record }}**.
-         * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `{{ ui-key.yacloud.dns.label_auto-select-zone }}`.
+         * Разверните блок **Настройки DNS для внутренних адресов** и нажмите **Добавить запись**.
+         * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `Определять автоматически`.
            Вы можете добавить несколько записей во [внутренние зоны](../../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../../dns/concepts/compute-integration.md).
-         * Чтобы создать еще одну запись, нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
+         * Чтобы создать еще одну запись, нажмите кнопку **Добавить запись**.
      
-     Если вы хотите добавить на ВМ дополнительный [сетевой интерфейс](../../concepts/network.md), нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и в появившемся блоке настроек нового интерфейса повторите действия, описанные выше в этом шаге. На одну ВМ можно добавить до восьми сетевых интерфейсов.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+     Если вы хотите добавить на ВМ дополнительный [сетевой интерфейс](../../concepts/network.md), нажмите кнопку **Добавить сетевой интерфейс** и в появившемся блоке настроек нового интерфейса повторите действия, описанные выше в этом шаге. На одну ВМ можно добавить до восьми сетевых интерфейсов.
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
   
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+      * В поле **Логин** введите имя пользователя.
   
           {% note alert %}
   
@@ -1272,25 +1272,25 @@
   
           {% endnote %}
   
-      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+        1. Нажмите кнопку **Добавить ключ**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+        1. Нажмите кнопку **Добавить**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
+  1. В блоке **Общая информация** задайте имя ВМ:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
@@ -1302,7 +1302,7 @@
       
       {% endnote %}
 
-  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+  1. Нажмите кнопку **Создать ВМ**.
 
 - CLI {#cli}
 
@@ -1381,11 +1381,11 @@
 
                       {% endnote %}
 
-              * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+              * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [Автоудаление дисков](../../concepts/disk.md#autodelete-disks).
           * `--use-boot-disk` — параметр, позволяющий использовать в ВМ существующий загрузочный диск, [подготовленный ранее](#create-disk):
 
               * `disk-id` — идентификатор существующего загрузочного диска.
-              * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+              * `auto-delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [Автоудаление дисков](../../concepts/disk.md#autodelete-disks).
       * `--ssh-key` — путь к файлу с [публичным SSH-ключом](../vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
 
       Результат:
@@ -1396,7 +1396,7 @@
       folder_id: b1gt6g8ht345********
       created_at: "2025-12-05T18:23:55Z"
       name: my-first-gen2-vm
-      zone_id: {{ region-id }}-a
+      zone_id: ru-central1-a
       platform_id: standard-v2
       resources:
         memory: "2147483648"
@@ -1435,7 +1435,7 @@
       application: {}
       ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -1511,7 +1511,7 @@
               * `image_id` — идентификатор [подготовленного ранее образа](#create-image), на основе которого будет создан загрузочный диск ВМ.
               * `snapshot_id` — идентификатор [подготовленного ранее снимка](#create-snapshot), на основе которого будет создан загрузочный диск ВМ.
 
-          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_disk).
+          Подробную информацию о параметрах ресурса `yandex_compute_disk` см. в [документации провайдера Terraform](../../../terraform/resources/compute_disk.md).
 
       * `yandex_compute_instance` — описание ВМ:
           * `name` — имя ВМ. Требования к имени:
@@ -1528,7 +1528,7 @@
           * `boot_disk` — настройки загрузочного диска:
           
               * `disk_id` — идентификатор диска. Если в новой ВМ вы будете использовать существующий загрузочный диск, [подготовленный ранее](#create-disk), укажите его идентификатор в этом параметре.
-              * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+              * `auto_delete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [Автоудаление дисков](../../concepts/disk.md#autodelete-disks).
           * `network_interface` — настройки [сетевого интерфейса](../../concepts/network.md) ВМ:
           
               * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в той же зоне доступности, в которой создается виртуальная машина.
@@ -1536,9 +1536,9 @@
 
               Если вы хотите добавить на ВМ несколько [сетевых интерфейсов](../../concepts/network.md), задайте блок `network_interface` необходимое количество раз.
 
-          * `metadata` — в метаданных необходимо передать имя пользователя и открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+          * `metadata` — в метаданных необходимо передать имя пользователя и открытый SSH-ключ для доступа на ВМ. Подробнее в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
 
-      Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/compute_instance).
+      Подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера Terraform](../../../terraform/resources/compute_instance.md).
           
   1. Создайте ресурсы:
 
@@ -1561,7 +1561,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -1570,7 +1570,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды CLI:
+      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды CLI:
 
       ```bash
       yc compute instance list
@@ -1583,7 +1583,7 @@
   Например, чтобы создать виртуальную машину с помощью REST API:
 
   1. Установите утилиту [cURL](https://curl.haxx.se).
-  1. Получите [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
+  1. Получите [IAM-токен](../../../iam/concepts/authorization/iam-token.md), используемый для аутентификации в API:
       * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
       * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md).
       * [Инструкция](../../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
@@ -1646,10 +1646,10 @@
           Зона доступности виртуальной машины должна совпадать с зоной доступности используемой подсети, а также с зоной доступности загрузочного диска, если вы создаете ВМ из [подготовленного ранее диска](#create-disk).
       * `platformId` — [платформа](../../concepts/vm-platforms.md) виртуальной машины.
       * `resourceSpec` — количество ядер vCPU и объем RAM, доступные ВМ. Значения должны соответствовать выбранной [платформе](../../concepts/vm-platforms.md).
-      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [{#T}](../../concepts/vm-metadata.md).
+      * `metadata` — в метаданных необходимо передать открытый ключ для SSH-доступа на ВМ. Подробнее в разделе [Метаданные виртуальной машины](../../concepts/vm-metadata.md).
       * `bootDiskSpec` — настройки загрузочного диска виртуальной машины:
 
-          * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [{#T}](../../concepts/disk.md#autodelete-disks).
+          * `autoDelete` — настройка автоудаления загрузочного диска вместе с ВМ. См. [Автоудаление дисков](../../concepts/disk.md#autodelete-disks).
 
           {% note info %}
 
@@ -1693,7 +1693,7 @@
         --header "Content-Type: application/json" \
         --header "Authorization: Bearer ${IAM_TOKEN}" \
         --data '@body.json' \
-        https://compute.{{ api-host }}/compute/v1/instances
+        https://compute.api.cloud.yandex.net/compute/v1/instances
       ```
 
       Результат:
@@ -1717,4 +1717,4 @@
 
 #### См. также {#see-also}
 
-* [{#T}](../../concepts/hardware-generations.md)
+* [Поколения оборудования](../../concepts/hardware-generations.md)

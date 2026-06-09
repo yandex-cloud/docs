@@ -26,11 +26,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -40,10 +40,10 @@
 
 В стоимость поддержки инфраструктуры входит:
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за объем дисков виртуальных машин (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за использование динамических или статических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../pricing.md));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* плата за постоянно запущенные виртуальные машины (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за объем дисков виртуальных машин (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
+* плата за использование динамических или статических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../pricing.md));
+* стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
 
 ## Создайте подсеть {#create-subnet}
 
@@ -54,11 +54,11 @@
 - Консоль управления {#console}
 
   Чтобы создать подсеть:
-  1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется создать подсеть.
+  1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
   1. Нажмите на имя облачной сети `ad-network`.
   1. Нажмите кнопку **Добавить подсеть**.
   1. Заполните форму:
-      * Укажите название подсети: `test-subnet-1`. Выберите зону доступности `{{ region-id }}-a`.
+      * Укажите название подсети: `test-subnet-1`. Выберите зону доступности `ru-central1-a`.
       * Введите CIDR подсети: `10.128.0.0/24`. Подробнее про диапазоны IP-адресов в подсетях читайте в разделе [Облачные сети и подсети](../concepts/network.md).
   1. Задайте **Настройки DHCP**:
       * В поле **Доменное имя** укажите DNS-суффикс: `yantoso.net`.
@@ -67,7 +67,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   Выполните следующую команду:
 
@@ -76,7 +76,7 @@
     --description "My test subnet" \
     --folder-id <идентификатор_каталога> \
     --network-name ad-network \
-    --zone {{ region-id }}-a \
+    --zone ru-central1-a \
     --range 10.128.0.0/24 \
     --domain-name yantoso.net \
     --domain-name-server 10.1.0.3,10.2.0.3
@@ -93,7 +93,7 @@
   name: test-subnet-1
   description: My test subnet
   network_id: enpl0t90hept********
-  zone_id: {{ region-id }}-a
+  zone_id: ru-central1-a
   v4_cidr_blocks:
   - 10.128.0.0/24
   dhcp_options:
@@ -115,21 +115,21 @@
     
     - Консоль управления {#console}
 
-      1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку `{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}` и выберите образ **Windows Server**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
-      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a`, в которой будет создана ВМ.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+      1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
+      1. В блоке **Образ загрузочного диска** перейдите на вкладку `Пользовательский` и выберите образ **Windows Server**. Как загрузить свой образ для продуктов Microsoft подробнее см. в разделе [Импортировать нужный образ](../../microsoft/byol.md#how-to-import).
+      1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md) `ru-central1-a`, в которой будет создана ВМ.
+      1. В блоке **Диски и файловые хранилища** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `50 ГБ`.
+      1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
-          * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `4 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+          * **Платформа** — `Intel Cascade Lake`.
+          * **vCPU** — `2`.
+          * **Гарантированная доля vCPU** — `100%`.
+          * **RAM** — `4 ГБ`.
           * При необходимости сделайте виртуальную машину [прерываемой](../../compute/concepts/preemptible-vm.md).
 
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите сеть `ad-network` и подсеть `test-subnet-1`.
-      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `vm-for-tests-in-subnet`.
-      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+      1. В блоке **Сетевые настройки** выберите сеть `ad-network` и подсеть `test-subnet-1`.
+      1. В блоке **Общая информация** задайте имя ВМ: `vm-for-tests-in-subnet`.
+      1. Нажмите кнопку **Создать ВМ**.
 
       1. Дождитесь, когда статус ВМ сменится на `Running`, и сбросьте пароль:
          
@@ -141,7 +141,7 @@
 
     - CLI {#cli}
     
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
     
       Чтобы установить на виртуальной машине пароль, подготовьте файл metadata.yaml со следующим содержимым:
 
@@ -156,7 +156,7 @@
       yc compute instance create \
         --name vm-for-tests-in-subnet \
         --metadata-from-file user-data=metadata.yaml \
-        --zone {{ region-id }}-a \
+        --zone ru-central1-a \
         --cores 2 \
         --memory 4 \
         --network-interface subnet-name=test-subnet-1,nat-ip-version=ipv4 \
@@ -167,11 +167,11 @@
 
       {% note info %}
       
-      Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+      Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
       
       Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
       
-      Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+      Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
       
       {% endnote %}
 
@@ -279,14 +279,14 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ. 
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ. 
+      1. Перейдите в сервис **Compute Cloud**.
       1. Выберите виртуальную машину → нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → выберите пункт **Удалить**.
       1. Подтвердите удаление.
 
     - CLI {#cli}
     
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -304,7 +304,7 @@
 
     - Консоль управления {#console}
     
-      1. Откройте раздел **{{ vpc-name }}** в каталоге, где требуется удалить подсеть.
+      1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется удалить подсеть.
       1. Нажмите на имя облачной сети, в которой находится подсеть: `ad-network`.
       1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке подсети `test-subnet-1`.
       1. В открывшемся меню нажмите кнопку **Удалить**.
@@ -312,7 +312,7 @@
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

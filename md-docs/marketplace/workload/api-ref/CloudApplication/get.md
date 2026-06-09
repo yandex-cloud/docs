@@ -5,7 +5,7 @@ Get Current Application
 ## HTTP request
 
 ```
-GET https://cloudapps.{{ api-host }}/cloudapps/workload/v1/cloud-applications
+GET https://cloudapps.api.cloud.yandex.net/cloudapps/workload/v1/cloud-applications
 ```
 
 ## Response {#yandex.cloud.cloudapps.workload.v1.CloudApplication}

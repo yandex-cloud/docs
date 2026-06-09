@@ -1,84 +1,84 @@
-# Доступ к API {{ yandex-cloud }} из кластера {{ managed-k8s-name }} с помощью федерации сервисных аккаунтов {{ iam-name }}
+# Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management
 
-В {{ managed-k8s-name }} реализована интеграция с _федерациями сервисных аккаунтов_ {{ iam-name }}.
+В Managed Service for Kubernetes реализована интеграция с _федерациями сервисных аккаунтов_ Identity and Access Management.
 
-[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами {{ yandex-cloud }} от имени [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) {{ iam-short-name }} без использования [авторизованных ключей](../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
 
-При включении опции {{ managed-k8s-name }} автоматически создает для конкретного кластера OIDC-провайдер и предоставляет следующие параметры для интеграции с федерациями сервисных аккаунтов:
-* `{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}`.
-* `{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}`.
+При включении опции Managed Service for Kubernetes автоматически создает для конкретного кластера OIDC-провайдер и предоставляет следующие параметры для интеграции с федерациями сервисных аккаунтов:
+* `URL эмитента`.
+* `URL набора ключей JWKS`.
 
 ![image](../../_assets/managed-kubernetes/mk8s-wlif.svg)
 
-В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) {{ lockbox-full-name }} со стороны кластера {{ managed-k8s-name }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) {{ iam-name }}. 
+В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) Yandex Lockbox со стороны кластера Managed Service for Kubernetes от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) Identity and Access Management. 
 
-Аналогичным образом можно выполнить любое действие через [{{ yandex-cloud }} CLI](../../cli/quickstart.md), [{{ TF }}](../../terraform/quickstart.md), [SDK](../../overview/sdk/overview.md) или [API](../../api-design-guide/index.md).
+Аналогичным образом можно выполнить любое действие через [Yandex Cloud CLI](../../cli/quickstart.md), [Terraform](../../terraform/quickstart.md), [SDK](../../overview/sdk/overview.md) или [API](../../api-design-guide/index.md).
 
 {% note info %}
 
-В руководстве представлен пример интеграции кластера {{ managed-k8s-name }} с федерацией сервисных аккаунтов. Руководство по интеграции пользовательской инсталляции {{ k8s }} см. на странице [Получение значения секрета {{ lockbox-full-name }} на стороне пользовательской инсталляции {{ k8s }}](wlif-k8s-integration.md).
+В руководстве представлен пример интеграции кластера Managed Service for Kubernetes с федерацией сервисных аккаунтов. Руководство по интеграции пользовательской инсталляции Kubernetes см. на странице [Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes](wlif-k8s-integration.md).
 
 {% endnote %}
 
-Чтобы с помощью федерации сервисных аккаунтов настроить доступ к секрету {{ lockbox-name }} из кластера {{ managed-k8s-name }} через API {{ yandex-cloud }}:
+Чтобы с помощью федерации сервисных аккаунтов настроить доступ к секрету Yandex Lockbox из кластера Managed Service for Kubernetes через API Yandex Cloud:
 
 1. [Подготовьте облако к работе](#prepare-cloud).
-1. [Настройте кластер {{ managed-k8s-name }}](#prepare-cluster).
+1. [Настройте кластер Managed Service for Kubernetes](#prepare-cluster).
 1. [Создайте федерацию сервисных аккаунтов](#create-wlif).
-1. [Подготовьте сервисный аккаунт {{ iam-short-name }}](#prepare-sa).
-1. [Подготовьте сервисный аккаунт {{ k8s }}](#prepare-sa-k8s).
-1. [Привяжите сервисный аккаунт {{ iam-short-name }} к федерации](#connect-sa).
-1. [Создайте секрет {{ lockbox-name }}](#create-secret).
+1. [Подготовьте сервисный аккаунт IAM](#prepare-sa).
+1. [Подготовьте сервисный аккаунт Kubernetes](#prepare-sa-k8s).
+1. [Привяжите сервисный аккаунт IAM к федерации](#connect-sa).
+1. [Создайте секрет Yandex Lockbox](#create-secret).
 1. [Проверьте работу интеграции](#check-integration).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера {{ managed-k8s-name }} (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) {{ managed-k8s-name }} и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
-* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера {{ managed-k8s-name }} (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
-* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+* Плата за вычислительные ресурсы и диски [узлов](../../managed-kubernetes/concepts/index.md#node-group) кластера Managed Service for Kubernetes (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Плата за использование [мастера](../../managed-kubernetes/concepts/index.md#master) Managed Service for Kubernetes и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
+* Плата за [публичные IP-адреса](../../vpc/concepts/address.md#public-addresses) кластера Managed Service for Kubernetes (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
 
-## Настройте кластер {{ managed-k8s-name }} {#prepare-cluster}
+## Настройте кластер Managed Service for Kubernetes {#prepare-cluster}
 
-1. Если у вас еще нет кластера {{ managed-k8s-name }}:
+1. Если у вас еще нет кластера Managed Service for Kubernetes:
     1. [Создайте](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) кластер.
 
     1. [Создайте](../../managed-kubernetes/operations/node-group/node-group-create.md) группу узлов.
     1. [Настройте](../../managed-kubernetes/operations/connect/security-groups.md) группы безопасности для кластера и группы узлов.
-1. Для доступа к API {{ yandex-cloud }} у узлов кластера должен быть доступ в интернет. Убедитесь, что узлам кластера назначены публичные IP-адреса, или в подсети, где размещаются узлы, настроен [NAT-шлюз](../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../routing/nat-instance/index.md). Также убедитесь, что правилами группы безопасности разрешен весь исходящий трафик для узлов кластера.
+1. Для доступа к API Yandex Cloud у узлов кластера должен быть доступ в интернет. Убедитесь, что узлам кластера назначены публичные IP-адреса, или в подсети, где размещаются узлы, настроен [NAT-шлюз](../../vpc/concepts/gateways.md#nat-gateway) или [NAT-инстанс](../routing/nat-instance/index.md). Также убедитесь, что правилами группы безопасности разрешен весь исходящий трафик для узлов кластера.
 1. Настройте интеграцию с федерацией сервисных аккаунтов для кластера и группы узлов:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен кластер.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-      1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-      1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-      1. На обзорной странице кластера в блоке **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** скопируйте значения параметров **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}** и **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**. Они понадобятся для дальнейшей интеграции.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}**.
-      1. Напротив группы узлов нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
-      1. В поле **{{ ui-key.yacloud.k8s.IAMService.section-title_4Cx2E }}** включите федерацию сервисных аккаунтов.
-      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен кластер.
+      1. Перейдите в сервис **Managed Service for&nbsp;Kubernetes**.
+      1. Напротив кластера нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
+      1. Нажмите **Сохранить**.
+      1. На обзорной странице кластера в блоке **Управление идентификацией и доступом** скопируйте значения параметров **URL эмитента** и **URL набора ключей JWKS**. Они понадобятся для дальнейшей интеграции.
+      1. Перейдите на вкладку **Группы узлов**.
+      1. Напротив группы узлов нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+      1. В поле **Управление идентификацией и доступом** включите федерацию сервисных аккаунтов.
+      1. Нажмите **Сохранить**.
 
     - CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -97,8 +97,8 @@
           ...
           workload_identity_federation:
             enabled: true
-            issuer: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/catc7433801j********
-            jwks_uri: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/catc7433801j********/jwks.json
+            issuer: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/catc7433801j********
+            jwks_uri: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/catc7433801j********/jwks.json
           ```
 
           Скопируйте значения параметров `workload_identity_federation.issuer` и `workload_identity_federation.jwks_uri`. Они понадобятся для дальнейшей интеграции.
@@ -120,20 +120,20 @@
             enabled: true
           ```
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
-      [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+      [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
       
-      {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+      Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
       
-      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
+      Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
 
-      Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+      Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
       
       
-      Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
+      Чтобы управлять инфраструктурой с помощью Terraform от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-      1. В конфигурационном файле {{ TF }} добавьте в манифест кластера блок `workload_identity_federation`:
+      1. В конфигурационном файле Terraform добавьте в манифест кластера блок `workload_identity_federation`:
 
           ```hcl
           resource "yandex_kubernetes_cluster" "my_cluster" {
@@ -144,7 +144,7 @@
           }
           ```
 
-      1. В конфигурационном файле {{ TF }} добавьте в манифест группы узлов блок `workload_identity_federation`:
+      1. В конфигурационном файле Terraform добавьте в манифест группы узлов блок `workload_identity_federation`:
 
           ```hcl
           resource "yandex_kubernetes_node_group" "my_node_group" {
@@ -157,14 +157,14 @@
 
       1. Проверьте корректность конфигурационных файлов.
 
-          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
           1. Выполните команду:
           
              ```bash
              terraform validate
              ```
           
-             Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+             Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите изменение ресурсов.
 
@@ -186,9 +186,9 @@
              1. Подтвердите изменение ресурсов.
              1. Дождитесь завершения операции.
 
-      1. Получите URL эмитента (`issuer`) и URL набора ключей JWKS (`jwks_uri`) для настройки федерации сервисных аккаунтов с помощью источника данных {{ TF }} [yandex_kubernetes_cluster]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+      1. Получите URL эмитента (`issuer`) и URL набора ключей JWKS (`jwks_uri`) для настройки федерации сервисных аккаунтов с помощью источника данных Terraform [yandex_kubernetes_cluster](../../terraform/data-sources/kubernetes_cluster.md).
 
-          Также вы можете [узнать](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#get) эти параметры в [консоли управления]({{ link-console-main }}), с помощью CLI или API.
+          Также вы можете [узнать](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md#get) эти параметры в [консоли управления](https://console.yandex.cloud), с помощью CLI или API.
 
     - API {#api}
 
@@ -229,15 +229,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, к которому вы хотите получить доступ через API {{ yandex-cloud }}.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** также введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
-  1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя федерации, например `test-iam-federation`.
-  1. Нажмите **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, к которому вы хотите получить доступ через API Yandex Cloud.
+  1. Перейдите в сервис **Identity and Access Management**.
+  1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
+  1. Нажмите **Создать федерацию**.
+  1. В поле **Значение Issuer (iss)** введите значение **URL эмитента**, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
+  1. В поле **Допустимые значения Audience (aud)** также введите значение **URL эмитента**.
+  1. В поле **Адрес JWKS** введите значение **URL набора ключей JWKS**, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
+  1. В поле **Имя** введите имя федерации, например `test-iam-federation`.
+  1. Нажмите **Создать**.
 
 - CLI {#cli}
 
@@ -253,8 +253,8 @@
 
   Где:
   * `--name` — имя создаваемой федерации, например `test-iam-federation`.
-  * `--issuer` и `--audiences` — значение URL эмитента, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
-  * `--jwks-url` — значение URL набора ключей JWKS, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
+  * `--issuer` и `--audiences` — значение URL эмитента, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
+  * `--jwks-url` — значение URL набора ключей JWKS, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
 
   Результат:
 
@@ -264,17 +264,17 @@
   folder_id: b1gfq9pe6rd2********
   enabled: true
   audiences:
-    - https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
-  issuer: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
-  jwks_url: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json
+    - https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********
+  issuer: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********
+  jwks_url: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json
   created_at: "2024-12-28T16:04:31.530652473Z"
   ```
 
   Сохраните идентификатор федерации, он понадобится в дальнейшем.
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры федерации, которую необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры федерации, которую необходимо создать:
 
       ```hcl
       resource "yandex_iam_workload_identity_oidc_federation" "wlif" {
@@ -289,19 +289,19 @@
       Где:
       * `name` — имя создаваемой федерации, например `test-iam-federation`.
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором создается федерация сервисных аккаунтов.
-      * `issuer` и `audiences` — значение URL эмитента, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
-      * `jwks_url` — значение URL набора ключей JWKS, полученное ранее, например `https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
+      * `issuer` и `audiences` — значение URL эмитента, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********`.
+      * `jwks_url` — значение URL набора ключей JWKS, полученное ранее, например `https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********/jwks.json`.
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите создание ресурсов.
 
@@ -333,19 +333,19 @@
 
 {% endlist %}
 
-## Подготовьте сервисный аккаунт {{ iam-short-name }} {#prepare-sa}
+## Подготовьте сервисный аккаунт IAM {#prepare-sa}
 
-1. Создайте сервисный аккаунт {{ iam-short-name }}:
+1. Создайте сервисный аккаунт IAM:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором размещен секрет {{ lockbox-name }}.
-      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором размещен секрет Yandex Lockbox.
+      1. Перейдите в сервис **Identity and Access Management**.
+      1. Нажмите **Создать сервисный аккаунт**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
-      1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+      1. Нажмите **Создать**.
       1. Выберите созданный сервисный аккаунт и сохраните его идентификатор, он понадобится в дальнейшем.
 
     - CLI {#cli}
@@ -366,9 +366,9 @@
       name: sa-lockbox
       ```
 
-      Сохраните идентификатор сервисного аккаунта {{ iam-short-name }}, он понадобится в дальнейшем.
+      Сохраните идентификатор сервисного аккаунта IAM, он понадобится в дальнейшем.
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
     
@@ -385,14 +385,14 @@
     
       1. Проверьте корректность конфигурационных файлов.
 
-          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
           1. Выполните команду:
           
              ```bash
              terraform validate
              ```
           
-             Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+             Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите создание ресурсов.
 
@@ -414,7 +414,7 @@
              1. Подтвердите изменение ресурсов.
              1. Дождитесь завершения операции.
 
-          Сохраните идентификатор сервисного аккаунта {{ iam-short-name }}, он понадобится в дальнейшем.
+          Сохраните идентификатор сервисного аккаунта IAM, он понадобится в дальнейшем.
 
     - API {#api}
 
@@ -422,19 +422,19 @@
 
     {% endlist %}
 
-1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-lockbox-payloadviewer }}` на каталог: 
+1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `lockbox.payloadViewer` на каталог: 
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан сервисный аккаунт.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
+      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создан сервисный аккаунт.
+      1. Перейдите на вкладку **Права доступа**.
+      1. Нажмите **Настроить доступ**.
+      1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
       1. Выберите сервисный аккаунт, созданный ранее.
-      1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}`.
-      1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
+      1. Нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите **Сохранить**.
 
     - CLI {#cli}
 
@@ -442,37 +442,37 @@
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
-        --role {{ roles-lockbox-payloadviewer }} \
+        --role lockbox.payloadViewer \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-    - {{ TF }} {#tf}
+    - Terraform {#tf}
 
       1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
           ```hcl
           resource "yandex_resourcemanager_folder_iam_member" "lockbox" {
             folder_id   = "<идентификатор_каталога>"
-            role        = "{{ roles-lockbox-payloadviewer }}"
+            role        = "lockbox.payloadViewer"
             member      = "serviceAccount:<идентификатор_сервисного_аккаунта>"
           }
           ```
 
           Где:
           * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-          * `role` — назначаемая роль, например `{{ roles-lockbox-payloadviewer }}`.
+          * `role` — назначаемая роль, например `lockbox.payloadViewer`.
           * `member` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), которому назначается роль. Указывается в виде `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
       1. Проверьте корректность конфигурационных файлов.
 
-          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+          1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
           1. Выполните команду:
           
              ```bash
              terraform validate
              ```
           
-             Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+             Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
       1. Подтвердите создание ресурсов.
 
@@ -500,10 +500,10 @@
 
     {% endlist %}
 
-## Подготовьте сервисный аккаунт {{ k8s }} {#prepare-sa-k8s}
+## Подготовьте сервисный аккаунт Kubernetes {#prepare-sa-k8s}
 
-1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру {{ managed-k8s-name }} с помощью `kubectl`.
-1. Создайте манифест сервисного аккаунта {{ k8s }} `service-account.yaml` со следующим содержимым:
+1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру Managed Service for Kubernetes с помощью `kubectl`.
+1. Создайте манифест сервисного аккаунта Kubernetes `service-account.yaml` со следующим содержимым:
 
     ```yaml
     apiVersion: v1
@@ -536,22 +536,22 @@
 
 1. Сохраните значения полей `Name` и `Namespace`, они понадобятся в дальнейшем.
 
-## Привяжите сервисный аккаунт {{ iam-short-name }} к федерации {#connect-sa}
+## Привяжите сервисный аккаунт IAM к федерации {#connect-sa}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
+  1. Перейдите в сервис **Identity and Access Management**.
   1. В списке выберите сервисный аккаунт `sa-lockbox`.
-  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
-  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
-  1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор сервисного аккаунта {{ k8s }}, созданного ранее, в формате `system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>`, где:
-      * `пространство_имен` — значение поля `Namespace` сервисного аккаунта {{ k8s }}, например `default`.
-      * `имя_аккаунта` — значение поля `Name` сервисного аккаунта {{ k8s }}, например `wlif`.
+  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **Привязать к федерации**.
+  1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.
+  1. В поле **Значение Subject (sub)** укажите идентификатор сервисного аккаунта Kubernetes, созданного ранее, в формате `system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_Kubernetes>`, где:
+      * `пространство_имен` — значение поля `Namespace` сервисного аккаунта Kubernetes, например `default`.
+      * `имя_аккаунта` — значение поля `Name` сервисного аккаунта Kubernetes, например `wlif`.
 
-  1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
+  1. Нажмите **Привязать**.
 
 - CLI {#cli}
 
@@ -559,17 +559,17 @@
 
   ```bash
   yc iam workload-identity federated-credential create \
-    --service-account-id <идентификатор_сервисного_аккаунта_{{ iam-short-name }}> \
+    --service-account-id <идентификатор_сервисного_аккаунта_IAM> \
     --federation-id <идентификатор_федерации> \
-    --external-subject-id "system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>"
+    --external-subject-id "system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_Kubernetes>"
   ```
 
   Где:
-  * `--service-account-id` — идентификатор сервисного аккаунта {{ iam-short-name }}, полученный ранее.
+  * `--service-account-id` — идентификатор сервисного аккаунта IAM, полученный ранее.
   * `--federation-id` — идентификатор федерации сервисных аккаунтов, полученный ранее.
   * `--external-subject-id` — идентификатор внешнего субъекта, где:
-    * `пространство_имен` — значение поля `Namespace` сервисного аккаунта {{ k8s }}, например `default`.
-    * `имя_сервисного_аккаунта_{{ k8s }}` — значение поля `Name` сервисного аккаунта {{ k8s }}, например `wlif`.
+    * `пространство_имен` — значение поля `Namespace` сервисного аккаунта Kubernetes, например `default`.
+    * `имя_сервисного_аккаунта_Kubernetes` — значение поля `Name` сервисного аккаунта Kubernetes, например `wlif`.
 
   Результат:
 
@@ -581,35 +581,35 @@
   created_at: "2024-12-28T16:33:47.057632267Z"
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
-  1. Опишите в конфигурационном файле {{ TF }} параметры привязки, которую необходимо создать:
+  1. Опишите в конфигурационном файле Terraform параметры привязки, которую необходимо создать:
 
       ```hcl
       resource "yandex_iam_workload_identity_federated_credential" "fc" {
         service_account_id  = "<идентификатор_сервисного_аккаунта>"
         federation_id       = "<идентификатор_федерации>"
-        external_subject_id = "system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>"
+        external_subject_id = "system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_Kubernetes>"
       }
       ```
 
       Где:
-      * `service_account_id` — идентификатор сервисного аккаунта {{ iam-short-name }}, полученный ранее.
+      * `service_account_id` — идентификатор сервисного аккаунта IAM, полученный ранее.
       * `federation_id` — идентификатор федерации сервисных аккаунтов, полученный ранее.
       * `external-subject-id` — идентификатор внешнего субъекта, где:
-        * `пространство_имен` — значение поля `Namespace` сервисного аккаунта {{ k8s }}, например `default`.
-        * `external_subject_id` — значение поля `Name` сервисного аккаунта {{ k8s }}, например `wlif`.
+        * `пространство_имен` — значение поля `Namespace` сервисного аккаунта Kubernetes, например `default`.
+        * `external_subject_id` — значение поля `Name` сервисного аккаунта Kubernetes, например `wlif`.
 
   1. Проверьте корректность конфигурационных файлов.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите создание ресурсов.
 
@@ -637,20 +637,20 @@
 
 {% endlist %}
 
-## Создайте секрет {{ lockbox-name }} {#create-secret}
+## Создайте секрет Yandex Lockbox {#create-secret}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
-  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Нажмите **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
-  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
-  1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите неконфиденциальный идентификатор, например `test-secret`.
-  1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите конфиденциальные данные для хранения, например `hello-world`.
-  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан секрет.
+  1. Перейдите в сервис **Lockbox**.
+  1. Нажмите **Создать секрет**.
+  1. В поле **Имя** введите имя секрета `MY_SECRET`.
+  1. Выберите **Тип секрета** `Пользовательский`.
+  1. В поле **Ключ** введите неконфиденциальный идентификатор, например `test-secret`.
+  1. В поле **Значение** введите конфиденциальные данные для хранения, например `hello-world`.
+  1. Нажмите **Создать**.
   1. Сохраните идентификатор секрета, он понадобится в дальнейшем.
 
 - CLI {#cli}
@@ -685,7 +685,7 @@
       - test-secret
   ```
 
-- {{ TF }} {#tf}
+- Terraform {#tf}
 
   1. Опишите в конфигурационном файле параметры секрета:
 
@@ -700,14 +700,14 @@
 
   1. Проверьте корректность конфигурации секрета.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите создание секрета.
 
@@ -750,14 +750,14 @@
 
   1. Проверьте корректность конфигурации содержимого секрета.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
   1. Подтвердите создание содержимого секрета.
 
@@ -787,7 +787,7 @@
 
 ## Проверьте работу интеграции {#check-integration}
 
-1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру {{ managed-k8s-name }} с помощью `kubectl`.
+1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру Managed Service for Kubernetes с помощью `kubectl`.
 1. Создайте манифест тестового пода `pod.yaml` со следующим содержимым:
 
     ```yaml
@@ -802,7 +802,7 @@
       serviceAccountName: wlif
     ```
 
-    Где `spec:serviceAccountName` — имя сервисного аккаунта {{ k8s }}, созданного ранее.
+    Где `spec:serviceAccountName` — имя сервисного аккаунта Kubernetes, созданного ранее.
 
 1. Примените манифест:
 
@@ -843,11 +843,11 @@
       | jq -r '.access_token')
     ```
 
-1. Получите секрет {{ lockbox-name }}:
+1. Получите секрет Yandex Lockbox:
 
     ```bash
     curl -sH "Authorization: Bearer ${IAMTOKEN}" \
-      "https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/<идентификатор_секрета>/payload"
+      "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/<идентификатор_секрета>/payload"
     ```
 
     Результат:
@@ -864,9 +864,9 @@
     }
     ```
 
-### Ручной обмен токена сервисного аккаунта {{ k8s }} на IAM-токен {#manual-token-exchange}
+### Ручной обмен токена сервисного аккаунта Kubernetes на IAM-токен {#manual-token-exchange}
 
-1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру {{ managed-k8s-name }} с помощью `kubectl`.
+1. [Подключитесь](../../managed-kubernetes/operations/connect/index.md#kubectl-connect) к кластеру Managed Service for Kubernetes с помощью `kubectl`.
 1. Создайте манифест тестового пода `pod.yaml` со следующим содержимым:
 
     ```yaml
@@ -889,12 +889,12 @@
               - serviceAccountToken:
                   path: sa-token
                   expirationSeconds: 7200
-                  audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
+                  audience: https://storage.yandexcloud.net/mk8s-oidc/v1/clusters/c49i54tk66ob********
     ```
 
     Где:
-    * `spec:serviceAccountName` — имя сервисного аккаунта {{ k8s }}, созданного ранее.
-    * `spec:volumes:projected:sources:serviceAccountToken:audience` — значение **{{ ui-key.yacloud.iam.federations.field_audiences }}**, заданное при создании федерации.
+    * `spec:serviceAccountName` — имя сервисного аккаунта Kubernetes, созданного ранее.
+    * `spec:volumes:projected:sources:serviceAccountToken:audience` — значение **Допустимые значения Audience (aud)**, заданное при создании федерации.
 
 1. Примените манифест:
 
@@ -924,15 +924,15 @@
 1. Задайте необходимые переменные:
 
     ```bash
-    SA_ID="<идентификатор_сервисного_аккаунта_{{ iam-short-name }}>" && \
-    SECRET_ID="<идентификатор_секрета_{{ lockbox-short-name }}>" && \
+    SA_ID="<идентификатор_сервисного_аккаунта_IAM>" && \
+    SECRET_ID="<идентификатор_секрета_Lockbox>" && \
     SA_TOKEN="$(cat /var/run/secrets/tokens/sa-token)"
     ```
 
     Где:
-    * `SA_ID` — идентификатор сервисного аккаунта {{ iam-short-name }}, полученный ранее.
-    * `SECRET_ID` — идентификатор секрета {{ lockbox-name }}, полученный ранее.
-    * `SA_TOKEN` — токен сервисного аккаунта {{ k8s }}.
+    * `SA_ID` — идентификатор сервисного аккаунта IAM, полученный ранее.
+    * `SECRET_ID` — идентификатор секрета Yandex Lockbox, полученный ранее.
+    * `SA_TOKEN` — токен сервисного аккаунта Kubernetes.
 
 1. Установите вспомогательную утилиту `jq`:
 
@@ -945,14 +945,14 @@
     ```bash
     IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" \
       -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=${SA_ID}&subject_token=${SA_TOKEN}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" \
-      -X POST https://{{ auth-main-host }}/oauth/token | jq -r '.access_token')
+      -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')
     ```
 
-1. Получите секрет {{ lockbox-name }}:
+1. Получите секрет Yandex Lockbox:
 
     ```bash
     curl -sH "Authorization: Bearer ${IAMTOKEN}" \
-      "https://{{ api-host-lockbox-payload }}/lockbox/v1/secrets/${SECRET_ID}/payload"
+      "https://payload.lockbox.api.cloud.yandex.net/lockbox/v1/secrets/${SECRET_ID}/payload"
     ```
 
     Результат:
@@ -972,11 +972,11 @@
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.
-* [Удалите](../../managed-kubernetes/operations/node-group/node-group-delete.md) группу узлов {{ managed-k8s-name }}.
-* [Удалите](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
+* [Удалите](../../lockbox/operations/secret-delete.md) секрет Yandex Lockbox.
+* [Удалите](../../managed-kubernetes/operations/node-group/node-group-delete.md) группу узлов Managed Service for Kubernetes.
+* [Удалите](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер Managed Service for Kubernetes.
 
 ### См. также {#see-also}
 
-* [{#T}](../../iam/concepts/workload-identity.md)
-* [Получение значения секрета {{ lockbox-full-name }} на стороне пользовательской инсталляции {{ k8s }}](wlif-k8s-integration.md)
+* [Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md)
+* [Получение значения секрета Yandex Lockbox на стороне пользовательской инсталляции Kubernetes](wlif-k8s-integration.md)

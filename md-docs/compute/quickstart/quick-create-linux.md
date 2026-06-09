@@ -1,12 +1,12 @@
 # Создание виртуальной машины Linux
 
-Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса {{ compute-name }} в консоли управления {{ yandex-cloud }} и подключитесь к ней.
+Создайте [ВМ](../concepts/vm.md) Linux с помощью сервиса Compute Cloud в консоли управления Yandex Cloud и подключитесь к ней.
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать в {{ yandex-cloud }}:
-1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
+Чтобы начать работать в Yandex Cloud:
+1. Войдите в [консоль управления](https://console.yandex.cloud). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. В сервисе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../billing/concepts/billing-account.md), и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../../resource-manager/operations/folder/create.md).
 1. Если у вас еще нет пары SSH-ключей, [создайте их](../operations/vm-connect/ssh.md#creating-ssh-keys).
 
@@ -20,23 +20,23 @@
 
 {% endnote %}
 
-1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. Перейдите в сервис **{{ compute-name }}**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите один из [образов](../concepts/image.md) и версию операционной системы на базе Linux.
+1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. Перейдите в сервис **Compute Cloud**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+1. Нажмите кнопку **Создать виртуальную машину**.
+1. В блоке **Образ загрузочного диска** выберите один из [образов](../concepts/image.md) и версию операционной системы на базе Linux.
 
-    Если вы хотите создать ВМ из существующего загрузочного диска, перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и выберите нужный загрузочный диск. Нажмите ![image](../../_assets/console-icons/pencil.svg) напротив имени диска, если вы хотите изменить его настройки.
+    Если вы хотите создать ВМ из существующего загрузочного диска, перейдите на вкладку **Пользовательский** и выберите нужный загрузочный диск. Нажмите ![image](../../_assets/console-icons/pencil.svg) напротив имени диска, если вы хотите изменить его настройки.
 
-1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** настройте загрузочный [диск](../concepts/disk.md):
+1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. (Опционально) В блоке **Диски и файловые хранилища** настройте загрузочный [диск](../concepts/disk.md):
 
     * Выберите [тип диска](../concepts/disk.md#disks_types).
     * Задайте нужный размер диска.
-    * (Опционально) Чтобы [зашифровать](../concepts/encryption.md) загрузочный или дополнительный диск, в блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** справа от имени диска нажмите значок ![image](../../_assets/console-icons/pencil.svg) и задайте параметры шифрования для диска:
+    * (Опционально) Чтобы [зашифровать](../concepts/encryption.md) загрузочный или дополнительный диск, в блоке **Диски и файловые хранилища** справа от имени диска нажмите значок ![image](../../_assets/console-icons/pencil.svg) и задайте параметры шифрования для диска:
       
-      * Выберите опцию **{{ ui-key.yacloud.compute.disk-form.label_disk-encryption }}**.
-      * В поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}** выберите [ключ](../../kms/concepts/key.md), которым вы хотите зашифровать диск. Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **{{ ui-key.yacloud.component.symmetric-key-select.button_create-key-new }}**.
+      * Выберите опцию **Зашифрованный диск**.
+      * В поле **Ключ KMS** выберите [ключ](../../kms/concepts/key.md), которым вы хотите зашифровать диск. Чтобы [создать](../../kms/operations/key.md#create) новый ключ, нажмите кнопку **Создать**.
       
       Для создания зашифрованного диска нужна [роль](../../kms/security/index.md#kms-keys-user) `kms.keys.user` или выше.
       
@@ -54,52 +54,52 @@
       
       {% endnote %}
 
-        Если вы создаете ВМ из существующего загрузочного диска, измените настройки этого диска на вкладке **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** в блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** вверху формы.
+        Если вы создаете ВМ из существующего загрузочного диска, измените настройки этого диска на вкладке **Пользовательский** в блоке **Образ загрузочного диска** вверху формы.
 
 1. (Опционально) Добавьте дополнительный [диск](../concepts/disk.md):
    
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
-   * В открывшемся окне выберите **{{ ui-key.yacloud.compute.instances.create-disk.value_source-disk }}**. Вы можете выбрать существующий диск или создать новый диск — пустой или из снимка / образа.
+   * В блоке **Диски и файловые хранилища** нажмите кнопку **Добавить**.
+   * В открывшемся окне выберите **Диск**. Вы можете выбрать существующий диск или создать новый диск — пустой или из снимка / образа.
    
        Например, чтобы создать новый пустой диск:
    
        * Выберите `Создать новый`.
-       * В поле **{{ ui-key.yacloud.compute.instances.create-disk.field_source }}** выберите `{{ ui-key.yacloud.compute.instances.create-disk.value_source-none }}`.
+       * В поле **Наполнение** выберите `Пустой`.
        * Укажите имя диска.
        * Выберите [тип диска](../concepts/disk.md#disks_types).
        * Задайте нужные размер диска и размер блока.
-       * (Опционально) В поле **{{ ui-key.yacloud.compute.field_additional_vt356 }}** включите опцию **{{ ui-key.yacloud.compute.field_disk-autodelete_qZn4x }}**, если вы хотите автоматически удалять этот диск при удалении ВМ.
-       * Нажмите кнопку **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
+       * (Опционально) В поле **Дополнительно** включите опцию **Удалять вместе с виртуальной машиной**, если вы хотите автоматически удалять этот диск при удалении ВМ.
+       * Нажмите кнопку **Добавить диск**.
 1. (Опционально) Подключите [файловое хранилище](../concepts/filesystem.md):
    
-   * В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create-disk.button_create }}**.
+   * В блоке **Диски и файловые хранилища** нажмите кнопку **Добавить**.
    
        * В открывшемся окне выберите **Файловое хранилище** и в появившемся списке выберите хранилище, которое требуется подключить.
    
        * Нажмите кнопку **Добавить файловое хранилище**.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
+1. В блоке **Вычислительные ресурсы** выберите одну из готовых конфигураций или создайте свою. Чтобы создать свою конфигурацию:
    
-   * Перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}**.
+   * Перейдите на вкладку **Своя конфигурация**.
    * Выберите [платформу](../concepts/vm-platforms.md).
    * Укажите [гарантированную долю](../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
    * При необходимости включите [программно ускоренную сеть](../concepts/software-accelerated-network.md).
    * При необходимости сделайте ВМ [прерываемой](../concepts/preemptible-vm.md).
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
+1. В блоке **Сетевые настройки**:
    
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+   * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
    
-       * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
-       * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
+       * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
+       * Если сети нет, нажмите **Создать сеть** и создайте ее:
    
            * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-           * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
-           * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
+           * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
+           * Нажмите **Создать сеть**.
    
-   * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+   * В поле **Публичный IP-адрес** выберите способ назначения адреса:
    
-       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае можно включить [защиту от DDoS-атак](../../vpc/ddos-protection/index.md) при помощи опции ниже.
-       * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../vpc/operations/set-static-ip.md).
-       * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — чтобы не назначать публичный IP-адрес.
+       * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов Yandex Cloud. В этом случае можно включить [защиту от DDoS-атак](../../vpc/ddos-protection/index.md) при помощи опции ниже.
+       * `Список` — чтобы выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [Сделать динамический публичный IP-адрес статическим](../../vpc/operations/set-static-ip.md).
+       * `Без адреса` — чтобы не назначать публичный IP-адрес.
    
    * Выберите [подходящие группы безопасности](../../vpc/concepts/security-groups.md):
    
@@ -109,29 +109,29 @@
        
        Если оставить поле пустым, виртуальной машине будет автоматически назначена [группа безопасности по умолчанию](../../vpc/concepts/security-groups.md#default-security-group), позволяющая подключаться к ВМ по `SSH` и `RDP`.
    
-   * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
+   * Разверните блок **Дополнительно** и в поле **Внутренний IPv4 адрес** выберите способ назначения внутренних адресов:
    
-       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
-       * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы задать внутренний IP-адрес ВМ вручную.
-       * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
+       * `Автоматически` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+       * `Вручную` — чтобы задать внутренний IP-адрес ВМ вручную.
+       * При необходимости включите опцию **Защита от DDoS-атак**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
    
    * (Опционально) Создайте записи для ВМ в [зоне DNS](../../dns/concepts/dns-zone.md):
    
-       * Разверните блок **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** и нажмите **{{ ui-key.yacloud.dns.button_add-record }}**.
-       * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `{{ ui-key.yacloud.dns.label_auto-select-zone }}`.
+       * Разверните блок **Настройки DNS для внутренних адресов** и нажмите **Добавить запись**.
+       * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `Определять автоматически`.
          Вы можете добавить несколько записей во [внутренние зоны](../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../dns/concepts/compute-integration.md).
-       * Чтобы создать еще одну запись, нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
+       * Чтобы создать еще одну запись, нажмите кнопку **Добавить запись**.
    
-   Если вы хотите добавить на ВМ дополнительный [сетевой интерфейс](../concepts/network.md), нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.label_add-network-interface }}** и в появившемся блоке настроек нового интерфейса повторите действия, описанные выше в этом шаге. На одну ВМ можно добавить до восьми сетевых интерфейсов.
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
+   Если вы хотите добавить на ВМ дополнительный [сетевой интерфейс](../concepts/network.md), нажмите кнопку **Добавить сетевой интерфейс** и в появившемся блоке настроек нового интерфейса повторите действия, описанные выше в этом шаге. На одну ВМ можно добавить до восьми сетевых интерфейсов.
+1. В блоке **Доступ**:
    
-   * Выберите **{{ ui-key.yacloud.compute.instance.access-method.field_os-login-access-method }}**, чтобы [подключаться](../operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [{{ oslogin }}](../../organization/concepts/os-login.md) в {{ org-full-name }}.
+   * Выберите **Доступ по OS Login**, чтобы [подключаться](../operations/vm-connect/os-login.md) к создаваемой ВМ и управлять доступом к ней с помощью [OS Login](../../organization/concepts/os-login.md) в Yandex Identity Hub.
    
-       Используя {{ oslogin }}, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [интерфейса командной строки {{ yandex-cloud }}](../../cli/quickstart.md). {{ oslogin }} позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
+       Используя OS Login, вы сможете подключаться к ВМ по SSH-ключам и SSH-сертификатам с помощью стандартного SSH-клиента или [интерфейса командной строки Yandex Cloud](../../cli/quickstart.md). OS Login позволяет ротировать SSH-ключи, используемые для доступа к ВМ, и является наиболее [безопасным](../../security/domains/iaas-checklist.md#vm-security) вариантом доступа.
    
-   * Если доступ по {{ oslogin }} вам не подходит, выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
+   * Если доступ по OS Login вам не подходит, выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
    
-       * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+       * В поле **Логин** введите имя пользователя.
    
            {% note alert %}
    
@@ -139,47 +139,47 @@
    
            {% endnote %}
    
-       * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+       * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
          
          Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
          
-         1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
+         1. Нажмите кнопку **Добавить ключ**.
          1. Задайте имя SSH-ключа.
          1. Выберите вариант:
          
-             * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-             * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-             * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
+             * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+             * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+             * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
              
                При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
          
-         1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+         1. Нажмите кнопку **Добавить**.
          
          SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
    
-   Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../concepts/metadata/sending-metadata.md) данные этих пользователей в блоке **{{ ui-key.yacloud.common.metadata }}**. С помощью метаданных вы также можете [установить дополнительное ПО](../operations/vm-create/create-with-cloud-init-scripts.md) на ВМ при ее создании.
+   Если вы хотите добавить на ВМ одновременно нескольких пользователей с SSH-ключами, [задайте](../concepts/metadata/sending-metadata.md) данные этих пользователей в блоке **Метаданные**. С помощью метаданных вы также можете [установить дополнительное ПО](../operations/vm-create/create-with-cloud-init-scripts.md) на ВМ при ее создании.
    
-   В публичных образах Linux, предоставляемых {{ yandex-cloud }}, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
-1. (Опционально) Включите опцию **{{ ui-key.yacloud.compute.components.BackupSection.section_backup_1MXwy }}** и в поле **{{ ui-key.yacloud.backup.title_select-vm-backup-policies-row }}** выберите или создайте [политику резервного копирования](../../backup/concepts/policy.md), чтобы автоматически создавать резервные копии ВМ с помощью сервиса [{{ backup-name }}](../../backup/index.md).
+   В публичных образах Linux, предоставляемых Yandex Cloud, возможность подключения по протоколу SSH с использованием логина и пароля по умолчанию отключена.
+1. (Опционально) Включите опцию **Резервное копирование** и в поле **Политики резервного копирования** выберите или создайте [политику резервного копирования](../../backup/concepts/policy.md), чтобы автоматически создавать резервные копии ВМ с помощью сервиса [Cloud Backup](../../backup/index.md).
    
-   Чтобы создать новую ВМ с подключением к {{ backup-name }}, вашему аккаунту должна быть назначена [роль](../../backup/security/index.md#backup-user) `backup.user` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете ВМ.
+   Чтобы создать новую ВМ с подключением к Cloud Backup, вашему аккаунту должна быть назначена [роль](../../backup/security/index.md#backup-user) `backup.user` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете ВМ.
    
    {% note info %}
    
-   Если у вашего аккаунта нет назначенной роли `backup.user` или выше, вы можете подключить ВМ к {{ backup-name }} с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому назначена такая роль. 
+   Если у вашего аккаунта нет назначенной роли `backup.user` или выше, вы можете подключить ВМ к Cloud Backup с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому назначена такая роль. 
    
-   Для этого разверните блок **{{ ui-key.yacloud.compute.instances.create.section_additional }}** и в поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** выберите подходящий сервисный аккаунт. При необходимости [создайте](../../iam/operations/sa/create.md) новый сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../backup/security/index.md#backup-user) `backup.user`.
+   Для этого разверните блок **Дополнительно** и в поле **Сервисный аккаунт** выберите подходящий сервисный аккаунт. При необходимости [создайте](../../iam/operations/sa/create.md) новый сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../../backup/security/index.md#backup-user) `backup.user`.
    
    {% endnote %}
    
    {% note tip %}
    
-   Установка агента {{ backup-name }} является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента {{ backup-name }} увеличить ресурсы ВМ.
+   Установка агента Cloud Backup является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента Cloud Backup увеличить ресурсы ВМ.
    
    {% endnote %}
    
-   Подробнее читайте в разделе [{#T}](../../backup/concepts/vm-connection.md).    
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ:
+   Подробнее читайте в разделе [Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup](../../backup/concepts/vm-connection.md).    
+1. В блоке **Общая информация** задайте имя ВМ:
 
     * длина — от 3 до 63 символов;
     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
@@ -191,17 +191,17 @@
     
     {% endnote %}
 
-1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}**:
+1. В блоке **Дополнительно**:
    
    * (Опционально) Выберите или создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md). Использование сервисного аккаунта позволяет гибко настраивать права доступа к ресурсам.
    * (Опционально) Разрешите доступ к [серийной консоли](../concepts/serial-console.md).
-   * (Опционально) Чтобы настроить поставку [системных метрик Linux](../../monitoring/operations/unified-agent/linux_metrics.md) и дополнительных метрик ваших приложений, в блоке **{{ ui-key.yacloud.compute.instances.create.section_monitoring }}** включите опцию **{{ ui-key.yacloud.compute.instances.create.unified-agent }}** и выберите:
-     * **{{ monitoring-full-name }}** — [установить агент](../../monitoring/concepts/data-collection/unified-agent/index.md) для сбора дополнительных метрик ВМ и приложений.
-     * **{{ managed-prometheus-name }}** — [установить и настроить агент](../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате {{ prometheus-name }}:
+   * (Опционально) Чтобы настроить поставку [системных метрик Linux](../../monitoring/operations/unified-agent/linux_metrics.md) и дополнительных метрик ваших приложений, в блоке **Мониторинг** включите опцию **Агент сбора метрик** и выберите:
+     * **Yandex Monitoring** — [установить агент](../../monitoring/concepts/data-collection/unified-agent/index.md) для сбора дополнительных метрик ВМ и приложений.
+     * **Yandex Managed Service for Prometheus®** — [установить и настроить агент](../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) для сбора дополнительных метрик ВМ и приложений в формате Prometheus:
         * Выберите или создайте воркспейс, в котором будут храниться метрики.
         * (Опционально) Опишите в формате JSON [параметры поставки](../../monitoring/operations/prometheus/ingestion/prometheus-agent.md) собственных метрик.
-   * (Опционально) В блоке **{{ ui-key.yacloud.compute.instances.create.section_placement }}** выберите [группу размещения](../concepts/placement-groups.md) ВМ.
-1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+   * (Опционально) В блоке **Размещение** выберите [группу размещения](../concepts/placement-groups.md) ВМ.
+1. Нажмите кнопку **Создать ВМ**.
 
 ВМ появится в списке. При создании ВМ назначаются [IP-адрес](../../vpc/concepts/address.md) и [имя хоста](../../vpc/concepts/address.md#fqdn) (FQDN).
 
@@ -217,14 +217,14 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 {% note info %}
 
-При создании ВМ с доступом по [{{ oslogin }}](../operations/vm-connect/os-login.md) указывайте SSH-ключи в [метаданных](../concepts/metadata/sending-metadata.md). Так вы сможете [подключиться к ВМ по SSH](#vm-connect), даже если отключите для нее доступ по {{ oslogin }}.
+При создании ВМ с доступом по [OS Login](../operations/vm-connect/os-login.md) указывайте SSH-ключи в [метаданных](../concepts/metadata/sending-metadata.md). Так вы сможете [подключиться к ВМ по SSH](#vm-connect), даже если отключите для нее доступ по OS Login.
 
 {% endnote %}
 
 Чтобы подключиться к ВМ Linux по SSH:
 
 1. [Создайте пару SSH-ключей](#creating-ssh-keys).
-1. [Скопируйте открытый ключ](#copy-key) в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** на странице создания ВМ.
+1. [Скопируйте открытый ключ](#copy-key) в поле **SSH-ключ** на странице создания ВМ.
 1. [Подключитесь к ВМ](#vm-connect).
 
 
@@ -268,12 +268,12 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../operations/vm-create/create-linux-vm.md) ВМ.
-  1. Перейдите в сервис **{{ compute-name }}**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
-  1. Нажмите **{{ ui-key.yacloud.compute.instances.button_create }}**.
-  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** нажмите **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
-  1. В открывшемся окне выберите `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` и нажмите **{{ ui-key.yacloud.common.add }}**.
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет [создана](../operations/vm-create/create-linux-vm.md) ВМ.
+  1. Перейдите в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
+  1. Нажмите **Создать виртуальную машину**.
+  1. В блоке **Доступ** нажмите **Добавить ключ**.
+  1. В открывшемся окне выберите `Сгенерировать ключ` и нажмите **Добавить**.
   
       При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
   
@@ -419,7 +419,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 {% endlist %}
 
-После этого вставьте открытый ключ в поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** при создании ВМ через [консоль управления]({{ link-console-main }}).
+После этого вставьте открытый ключ в поле **SSH-ключ** при создании ВМ через [консоль управления](https://console.yandex.cloud).
 
 ## Подключение к ВМ {#vm-connect}
 
@@ -427,9 +427,9 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 [Группы безопасности](../../vpc/concepts/security-groups.md) ВМ должны разрешать входящий трафик по протоколу TCP на порт 22.
 
-Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../operations/vm-control/vm-attach-public-ip.md).
+Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../operations/vm-control/vm-attach-public-ip.md).
 
-Также можно использовать [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../vpc/concepts/network.md#network) {{ yandex-cloud }}.
+Также можно использовать [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../vpc/concepts/network.md#network) Yandex Cloud.
 
 {% list tabs group=operating_system %}
 
@@ -445,7 +445,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
   * `<имя_пользователя>` — имя учетной записи пользователя ВМ. Если ВМ создавалась через CLI, то пользователь по умолчанию — `yc-user`.
   * `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
   
-      Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+      Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
   Если у вас несколько закрытых ключей, укажите нужный:
 
@@ -479,7 +479,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
   * `<имя_пользователя>` — имя учетной записи пользователя ВМ. Если ВМ создавалась через CLI, то пользователь по умолчанию — `yc-user`.
   * `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
 
-      Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+      Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
   Если у вас несколько закрытых ключей, укажите нужный:
 
@@ -507,7 +507,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
   1. Запустите приложение PuTTY.
      1. В поле **Host Name (or IP address)** введите [публичный IP-адрес ВМ](../../vpc/concepts/address.md#public-addresses), к которой вы хотите подключиться. Укажите порт `22` и тип соединения **SSH**.
         
-        Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+        Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
         ![ssh_add_ip](../../_assets/compute/ssh-putty/ssh_add_ip.png)
 
@@ -541,17 +541,17 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
   1. Выберите пункт меню **Saved sessions**.
   1. В списке сохраненных сессий выберите нужную сессию.
 
-- {{ cloud-shell-full-name }} {#console}
+- Yandex Cloud Shell {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** или найдите его с помощью строки поиска на дашборде.
+  1. В [консоли управления](https://console.yandex.cloud) на панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите **Compute Cloud** или найдите его с помощью строки поиска на дашборде.
   1. Перейдите в ВМ, к которой хотите подключиться.
-  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../_assets/console-icons/play.svg) **{{ ui-key.yacloud.compute.instances.button_gr-action-start }}** и дождитесь перехода ВМ в статус `Running`.
-  1. Справа вверху нажмите ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.overview.button_action-ssh }}**.
+  1. Убедитесь, что ВМ находится в статусе `Running`. Если ВМ не запущена, в правом верхнем углу нажмите ![image](../../_assets/console-icons/play.svg) **Запустить** и дождитесь перехода ВМ в статус `Running`.
+  1. Справа вверху нажмите ![image](../../_assets/console-icons/terminal.svg) **Подключиться в Cloud Shell**.
   1. Введите логин пользователя. По умолчанию введен логин, указанный при создании ВМ.
   1. Вставьте содержимое или загрузите файл закрытого SSH-ключа.
-  1. Нажмите **{{ ui-key.yacloud.compute.components.SshViaPrivateKeyDialog.connect-via-private-key_6DKKe }}**.
+  1. Нажмите **Подключиться**.
   
-  Внизу откроется терминал ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}** с открытым подключением к ВМ по SSH.
+  Внизу откроется терминал ![image](../../_assets/console-icons/terminal.svg) **Cloud Shell** с открытым подключением к ВМ по SSH.
   
   Чтобы закрыть подключение, нажмите ![image](../../_assets/console-icons/xmark.svg) или используйте команду `exit`.
 
@@ -628,18 +628,18 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
    Где `<публичный_IP-адрес_ВМ>` — [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) виртуальной машины для доступа к ней через интернет.
 
-   Публичный IP-адрес ВМ можно узнать в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** сетевого интерфейса в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
+   Публичный IP-адрес ВМ можно узнать в поле **Публичный IPv4-адрес** сетевого интерфейса в блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) или с помощью команды [YC CLI](../../cli/quickstart.md) `yc compute instance get <имя_ВМ>`.
 
 #### Что дальше {#what-is-next}
 
-* [Узнайте, как работать с {{ yandex-cloud }} изнутри ВМ](../operations/vm-connect/auth-inside-vm.md).
+* [Узнайте, как работать с Yandex Cloud изнутри ВМ](../operations/vm-connect/auth-inside-vm.md).
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/vm-connect/cloud-shell.md)
-* [{#T}](../operations/vm-connect/rdp.md)
-* [{#T}](../operations/vm-connect/powershell.md)
-* [{#T}](../operations/vm-connect/os-login.md)
+* [Подключиться к виртуальной машине Linux по SSH с помощью Yandex Cloud Shell](../operations/vm-connect/cloud-shell.md)
+* [Подключиться к виртуальной машине Windows по RDP](../operations/vm-connect/rdp.md)
+* [Подключиться к виртуальной машине Windows через PowerShell](../operations/vm-connect/powershell.md)
+* [Подключиться к виртуальной машине по OS Login](../operations/vm-connect/os-login.md)
 
 ## Настройте серийную консоль {#serial-console}
 
@@ -653,7 +653,7 @@ _© 2025 Linux Foundation. Все права защищены. Linux Foundation 
 
 ## Что дальше {#what-is-next}
 
-* Посмотрите [сценарии создания веб-сервисов в {{ yandex-cloud }}](../../tutorials/applied/index.md#web).
+* Посмотрите [сценарии создания веб-сервисов в Yandex Cloud](../../tutorials/applied/index.md#web).
 * Узнайте, [как работать с ВМ](../operations/index.md).
 * Узнайте, [как создать ВМ с GPU](../operations/vm-create/create-vm-with-gpu.md).
 * Прочитайте [ответы на часто задаваемые вопросы](../qa/general.md).

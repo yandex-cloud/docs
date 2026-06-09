@@ -1,6 +1,6 @@
 # Работа с историей запросов
 
-В сервисе {{ websql-full-name }} доступна [история запросов](../concepts/index.md#query-log). Вы можете:
+В сервисе Yandex WebSQL доступна [история запросов](../concepts/index.md#query-log). Вы можете:
    * [просмотреть выполненные запросы](#view-executed-queries);
    * [повторить запрос](#re-run-query);
    * [опубликовать запрос](#publish-query);

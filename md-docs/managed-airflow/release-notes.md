@@ -1,4 +1,4 @@
-# История изменений в {{ maf-full-name }}
+# История изменений в Yandex Managed Service for Apache Airflow™
 
 ## Октябрь 2025 {#oct-2025}
 
@@ -7,7 +7,7 @@
 
 ## Май 2025 {#may-2025}
 
-В консоли управления добавлен раздел [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md).
+В консоли управления добавлен раздел [**Обслуживание**](operations/cluster-maintenance.md).
 
 ## Ноябрь 2024 {#nov-2024}
 
@@ -15,17 +15,17 @@
 
 ## Сентябрь 2024 {#sep-2024}
 
-* 16 сентября 2024 {{ maf-name }} перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).
-* Добавлена возможность совершать операции над кластером {{ AF }} с помощью [CLI {{ yandex-cloud }}](../cli/cli-ref/managed-airflow/cli-ref/index.md), [{{ TF }}](tf-ref.md) и [API](api-ref/authentication.md).
+* 16 сентября 2024 Managed Service for Apache Airflow™ перешел на стадию [General Availability](../overview/concepts/launch-stages.md), и за его использование начала взиматься плата в соответствии с [правилами тарификации](pricing.md).
+* Добавлена возможность совершать операции над кластером Apache Airflow™ с помощью [CLI Yandex Cloud](../cli/cli-ref/managed-airflow/cli-ref/index.md), [Terraform](tf-ref.md) и [API](api-ref/authentication.md).
 
 ## Июнь 2024 {#jun-2024}
 
-* Логи заданий {{ AF }} теперь сохраняются в {{ objstorage-full-name }}. Это решает проблему с недоступностью логов на выключенных воркерах после отработавшего автомасштабирования.
-* Добавлена возможность хранить подключения, переменные и конфигурационные данные, которые используются в DAG-файлах, в {{ lockbox-full-name }}. Подробнее в инструкции [Хранение подключений в {{ lockbox-full-name }}](operations/lockbox-secrets-in-maf-cluster.md).
+* Логи заданий Apache Airflow™ теперь сохраняются в Yandex Object Storage. Это решает проблему с недоступностью логов на выключенных воркерах после отработавшего автомасштабирования.
+* Добавлена возможность хранить подключения, переменные и конфигурационные данные, которые используются в DAG-файлах, в Yandex Lockbox. Подробнее в инструкции [Хранение подключений в Yandex Lockbox](operations/lockbox-secrets-in-maf-cluster.md).
 
 ## Май 2024 {#may-2024}
 
-Добавлена возможность назначить кластеру сервисный аккаунт, от имени которого кластер будет обращаться к другим сервисам {{ yandex-cloud }}, например {{ cloud-logging-name }}, {{ monitoring-full-name }} и {{ lockbox-full-name }}. Также это дает возможность использовать весь функционал {{ yandex-cloud }} SDK при написании DAG-скриптов без необходимости дополнительной настройки авторизации.
+Добавлена возможность назначить кластеру сервисный аккаунт, от имени которого кластер будет обращаться к другим сервисам Yandex Cloud, например Cloud Logging, Yandex Monitoring и Yandex Lockbox. Также это дает возможность использовать весь функционал Yandex Cloud SDK при написании DAG-скриптов без необходимости дополнительной настройки авторизации.
 
 ## Апрель 2024 {#apr-2024}
 

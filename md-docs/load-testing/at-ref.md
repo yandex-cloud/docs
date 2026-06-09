@@ -1,18 +1,18 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
 {% note warning %}
 
-С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](sunset.md).
+С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](sunset.md).
 
 {% endnote %}
 
 
-В {{ at-name }} поддерживается отслеживание событий уровня конфигурации (Control Plane) для {{ load-testing-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
+В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex Load Testing. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.loadtesting.<имя_события>
+yandex.cloud.audit.loadtesting.<имя_события>
 ```
 
 Имя события | Описание

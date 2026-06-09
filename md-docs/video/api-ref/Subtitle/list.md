@@ -6,7 +6,7 @@ Results can be filtered and sorted using the provided parameters.
 ## HTTP request
 
 ```
-GET https://video.{{ api-host }}/video/v1/subtitles
+GET https://video.api.cloud.yandex.net/video/v1/subtitles
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListSubtitlesRequest}

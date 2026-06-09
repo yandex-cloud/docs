@@ -18,7 +18,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -27,7 +27,7 @@
       ```bash
       yc baremetal server update --help
       ```
-  1. Получите список серверов {{ baremetal-name }} в каталоге по умолчанию:
+  1. Получите список серверов BareMetal в каталоге по умолчанию:
 
       ```bash
       yc baremetal server list
@@ -229,7 +229,7 @@
         +----------------------+------+---------------+-------------------+
         |          ID          | NAME |    ZONE-ID    | HARDWARE-POOL-IDS |
         +----------------------+------+---------------+-------------------+
-        | ly57sgipg23b******** |      | {{ region-id }}-m | {{ region-id }}-m4    |
+        | ly57sgipg23b******** |      | ru-central1-m | ru-central1-m4    |
         +----------------------+------+---------------+-------------------+
         ```
 
@@ -264,7 +264,7 @@
 
       {% note info %}
       
-      Чтобы изменить тип сети, подключенной к сетевому интерфейсу сервера {{ baremetal-name }}, необходима роль [baremetal.editor](../../security/index.md#baremetal-editor) или выше.
+      Чтобы изменить тип сети, подключенной к сетевому интерфейсу сервера BareMetal, необходима роль [baremetal.editor](../../security/index.md#baremetal-editor) или выше.
       
       {% endnote %}
 
@@ -343,7 +343,7 @@
 
 - API {#api}
 
-  Чтобы воспользоваться примерами, установите утилиту [cURL](https://curl.haxx.se) и [получите](../../../iam/operations/index.md#authentication) IAM-токен, необходимый для аутентификации в [API](../../../api-design-guide/index.md) {{ yandex-cloud }}.
+  Чтобы воспользоваться примерами, установите утилиту [cURL](https://curl.haxx.se) и [получите](../../../iam/operations/index.md#authentication) IAM-токен, необходимый для аутентификации в [API](../../../api-design-guide/index.md) Yandex Cloud.
 
   {% note tip %}
 
@@ -363,7 +363,7 @@
         curl \
           --request GET \
           --header "Authorization: Bearer <IAM-токен>" \
-          "https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/<идентификатор_сервера>"
+          "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>"
         ```
 
         Результат:
@@ -401,8 +401,8 @@
             "cloudId": "b1gia87mbaom********",
             "folderId": "b1gt6g8ht345********",
             "name": "sample-server",
-            "zoneId": "{{ region-id }}-m",
-            "hardwarePoolId": "{{ region-id }}-m4",
+            "zoneId": "ru-central1-m",
+            "hardwarePoolId": "ru-central1-m4",
             "status": "RUNNING",
             "configurationId": "ly5tdlrmwezt********",
             "createdAt": "2026-05-15T11:46:38.842525Z"
@@ -421,7 +421,7 @@
         curl \
           --request GET \
           --header "Authorization: Bearer <IAM-токен>" \
-          "https://baremetal.{{ api-host }}/baremetal/v1alpha/configurations/ly5tdlrmwezt********"
+          "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/configurations/ly5tdlrmwezt********"
         ```
 
         Результат:
@@ -484,7 +484,7 @@
         curl \
           --request GET \
           --header "Authorization: Bearer <IAM-токен>" \
-          "https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/<идентификатор_сервера>"
+          "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>"
         ```
 
         Результат:
@@ -564,8 +564,8 @@
           "cloudId": "b1gia87mbaom********",
           "folderId": "b1gt6g8ht345********",
           "name": "sample-server",
-          "zoneId": "{{ region-id }}-m",
-          "hardwarePoolId": "{{ region-id }}-m4",
+          "zoneId": "ru-central1-m",
+          "hardwarePoolId": "ru-central1-m4",
           "status": "RUNNING",
           "createdAt": "2026-05-15T11:46:38.842525Z"
         }
@@ -585,7 +585,7 @@
 
       {% note info %}
       
-      Чтобы изменить тип сети, подключенной к сетевому интерфейсу сервера {{ baremetal-name }}, необходима роль [baremetal.editor](../../security/index.md#baremetal-editor) или выше.
+      Чтобы изменить тип сети, подключенной к сетевому интерфейсу сервера BareMetal, необходима роль [baremetal.editor](../../security/index.md#baremetal-editor) или выше.
       
       {% endnote %}
 
@@ -607,7 +607,7 @@
         curl \
           --request PATCH \
           --header "Authorization: Bearer <IAM-токен>" \
-          "https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/<идентификатор_сервера>" \
+          "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>" \
           --data \
                   '''
                   {
@@ -652,7 +652,7 @@
         curl \
           --request PATCH \
           --header "Authorization: Bearer <IAM-токен>" \
-          "https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/<идентификатор_сервера>" \
+          "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<идентификатор_сервера>" \
           --data \
                   '''
                   {
@@ -701,7 +701,7 @@
 
 {% endlist %}
 
-[*server_id]: Получить идентификатор сервера можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/server/list.md) `yc baremetal server list`.
+[*server_id]: Получить идентификатор сервера можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [Yandex Cloud CLI](../../../cli/cli-ref/baremetal/cli-ref/server/list.md) `yc baremetal server list`.
 
-[*subnets]: * Получить идентификаторы приватных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/private-subnet/list.md) `yc baremetal private-subnet list`.
-* Получить идентификаторы публичных подсетей можно в [консоли управления]({{ link-console-main }}) или с помощью команды [{{ yandex-cloud }} CLI](../../../cli/cli-ref/baremetal/cli-ref/public-subnet/list.md) `yc baremetal public-subnet list`.
+[*subnets]: * Получить идентификаторы приватных подсетей можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [Yandex Cloud CLI](../../../cli/cli-ref/baremetal/cli-ref/private-subnet/list.md) `yc baremetal private-subnet list`.
+* Получить идентификаторы публичных подсетей можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [Yandex Cloud CLI](../../../cli/cli-ref/baremetal/cli-ref/public-subnet/list.md) `yc baremetal public-subnet list`.

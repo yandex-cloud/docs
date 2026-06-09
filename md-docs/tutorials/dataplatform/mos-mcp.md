@@ -1,10 +1,10 @@
-# Подключение MCP-клиента к кластеру {{ OS }}
+# Подключение MCP-клиента к кластеру OpenSearch
 
-В этом практическом руководстве вы настроите подключение MCP-клиента к кластеру {{ OS }}: включите встроенный MCP-сервер, зарегистрируете инструменты и добавите сервер в конфигурацию клиента.
+В этом практическом руководстве вы настроите подключение MCP-клиента к кластеру OpenSearch: включите встроенный MCP-сервер, зарегистрируете инструменты и добавите сервер в конфигурацию клиента.
 
 {% note info %}
 
-MCP-сервер в {{ OS }} доступен начиная с версии 3.0.
+MCP-сервер в OpenSearch доступен начиная с версии 3.0.
 
 {% endnote %}
 
@@ -23,8 +23,8 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
 
 В стоимость поддержки описываемого решения входят:
 
-* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Кластер Managed Service for OpenSearch: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for OpenSearch](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -35,19 +35,19 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
 
     - Вручную {#manual}
 
-        1. [Создайте кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к любой группе хостов.
+        1. [Создайте кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-create.md#create-cluster) нужной вам конфигурации с публичным доступом к любой группе хостов.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
-        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [{{ mos-name }}](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+        1. Если вы используете группы безопасности в кластере, убедитесь, что они настроены правильно и допускают подключение к кластеру [Managed Service for OpenSearch](../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
-    - С помощью {{ TF }} {#tf}
+    - С помощью Terraform {#tf}
 
-        1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+        1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
         1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
         1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
         1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -56,21 +56,21 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
 
             * [сеть](../../vpc/concepts/network.md#network);
             * [подсеть](../../vpc/concepts/network.md#subnet);
-            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mos-name }};
-            * кластер {{ mos-name }}.
+            * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for OpenSearch;
+            * кластер Managed Service for OpenSearch.
 
         1. Укажите в файле `opensearch-mcp.tf` переменные:
 
-            * `version` — версия {{ OS }}.
-            * `admin_password` — пароль администратора {{ OS }}.
+            * `version` — версия OpenSearch.
+            * `admin_password` — пароль администратора OpenSearch.
 
-        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -92,7 +92,7 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
                1. Подтвердите изменение ресурсов.
                1. Дождитесь завершения операции.
 
-            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+            В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
 
     {% endlist %}
 
@@ -104,7 +104,7 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
     curl \
         --user admin:<пароль> \
         --cacert ~/.opensearch/root.crt \
-        --request GET 'https://<FQDN_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/'
+        --request GET 'https://<FQDN_хоста_OpenSearch_с_публичным_доступом>:9200/'
     ```
     
     FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
@@ -113,7 +113,7 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
     
     ```bash
     {
-      "name" : "....{{ dns-zone }}",
+      "name" : "....mdb.yandexcloud.net",
       "cluster_name" : "...",
       "cluster_uuid" : "...",
       "version" : {
@@ -126,14 +126,14 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
 
 1. Создайте отдельного пользователя для MCP-клиента.
 
-    Внутреннего пользователя можно создать либо через {{ OS }} Dashboards, либо через Security REST API.
+    Внутреннего пользователя можно создать либо через OpenSearch Dashboards, либо через Security REST API.
 
     {% list tabs group=mcp-user-create %}
 
     - OpenSearch Dashboards {#dashboards}
 
-        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к {{ OS }} Dashboards от имени `admin`.
-        1. В меню слева выберите **{{ OS }} Plugins** → **Security**.
+        1. [Подключитесь](../../managed-opensearch/operations/connect/clients.md#dashboards) к OpenSearch Dashboards от имени `admin`.
+        1. В меню слева выберите **OpenSearch Plugins** → **Security**.
         1. На панели слева выберите **Internal users** и нажмите **Create internal user**.
         1. Укажите имя пользователя и пароль, например `mcp-client`.
         1. Нажмите **Submit**.
@@ -153,7 +153,7 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
           --user admin:<пароль> \
           --request PUT \
           --header "Content-Type: application/json" \
-          "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_security/api/internalusers/mcp-client" \
+          "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_security/api/internalusers/mcp-client" \
           --data '{
             "password": "<пароль_пользователя>",
             "opendistro_security_roles": [
@@ -169,14 +169,14 @@ MCP-сервер в {{ OS }} доступен начиная с версии 3.0
           --cacert ~/.opensearch/root.crt \
           --user admin:<пароль> \
           --request GET \
-          "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_security/api/internalusers/mcp-client"
+          "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_security/api/internalusers/mcp-client"
         ```
 
     {% endlist %}
 
     {% note info %}
 
-    Если вы планируете регистрировать другие инструменты, создайте роль с нужными правами. Подробнее о настройке прав в [документации OpenSearch по пользователям и ролям]({{ os.docs }}/security/access-control/users-roles/) и [списке поддерживаемых инструментов]({{ os.docs }}/ml-commons-plugin/agents-tools/tools/index/).
+    Если вы планируете регистрировать другие инструменты, создайте роль с нужными правами. Подробнее о настройке прав в [документации OpenSearch по пользователям и ролям](https://opensearch.org/docs/latest/security/access-control/users-roles/) и [списке поддерживаемых инструментов](https://opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
 
     {% endnote %}
 
@@ -199,7 +199,7 @@ curl \
   --user admin:<пароль> \
   --request PUT \
   --header "Content-Type: application/json" \
-  "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_cluster/settings" \
+  "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_cluster/settings" \
   --data '{
     "persistent": {
       "plugins.ml_commons.mcp_server_enabled": true
@@ -211,9 +211,9 @@ curl \
 
 После включения MCP-сервера зарегистрируйте инструменты, которые будут доступны MCP-клиенту.
 
-Полный список встроенных инструментов приведен в [документации OpenSearch]({{ os.docs }}/ml-commons-plugin/agents-tools/tools/index/).
+Полный список встроенных инструментов приведен в [документации OpenSearch](https://opensearch.org/docs/latest/ml-commons-plugin/agents-tools/tools/index/).
 
-Формат запроса на регистрацию описан в [документации OpenSearch]({{ os.docs }}/ml-commons-plugin/api/mcp-server-apis/register-mcp-tools/).
+Формат запроса на регистрацию описан в [документации OpenSearch](https://opensearch.org/docs/latest/ml-commons-plugin/api/mcp-server-apis/register-mcp-tools/).
 
 Например, можно зарегистрировать базовый набор инструментов для просмотра индексов, схемы и поиска:
 
@@ -223,7 +223,7 @@ curl \
   --user mcp-client:<пароль> \
   --request POST \
   --header "Content-Type: application/json" \
-  "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp/tools/_register" \
+  "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp/tools/_register" \
   --data '{
     "tools": [
       {
@@ -303,7 +303,7 @@ curl \
   --cacert ~/.opensearch/root.crt \
   --user mcp-client:<пароль> \
   --request GET \
-  "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp/tools/_list"
+  "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp/tools/_list"
 ```
 
 Если регистрация прошла успешно, в ответе вернется массив `tools`.
@@ -323,7 +323,7 @@ echo -n 'mcp-client:<пароль>' | base64
 Во всех примерах ниже используется адрес:
 
 ```text
-https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp
+https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp
 ```
 
 Если клиент не позволяет отдельно указать путь к CA-сертификату, заранее установите [SSL-сертификат](../../managed-opensearch/operations/connect/index.md#ssl-certificate) в системное хранилище сертификатов.
@@ -339,7 +339,7 @@ https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:
       "opensearch": {
         "enabled": true,
         "type": "remote",
-        "url": "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp",
+        "url": "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp",
         "headers": {
           "Authorization": "Basic <base64-basic-token>"
         }
@@ -353,7 +353,7 @@ https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:
 
     ```bash
     claude mcp add --transport http opensearch \
-      "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp" \
+      "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp" \
       --header "Authorization: Basic <base64-basic-token>"
     ```
 
@@ -381,7 +381,7 @@ https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:
 
     async def main():
         async with Client(
-            "https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:{{ port-mos }}/_plugins/_ml/mcp",
+            "https://<адрес_хоста_OpenSearch_с_публичным_доступом>:9200/_plugins/_ml/mcp",
             auth=auth,
             verify="/path/to/root.crt",
         ) as client:
@@ -425,15 +425,15 @@ https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:
 
 - Вручную {#manual}
 
-    [Удалите кластер {{ mos-name }}](../../managed-opensearch/operations/cluster-delete.md).
+    [Удалите кластер Managed Service for OpenSearch](../../managed-opensearch/operations/cluster-delete.md).
 
-- С помощью {{ TF }} {#tf}
+- С помощью Terraform {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -447,6 +447,6 @@ https://<адрес_хоста_{{ OS }}_с_публичным_доступом>:
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
 
 {% endlist %}

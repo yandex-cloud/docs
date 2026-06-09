@@ -5,7 +5,7 @@ Lists operations for the specified group.
 ## HTTP request
 
 ```
-GET https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{groupId}/operations
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{groupId}/operations
 ```
 
 ## Path parameters

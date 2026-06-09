@@ -1,11 +1,11 @@
-# Справочник аудитных логов {{ at-full-name }}
+# Справочник аудитных логов Yandex Audit Trails
 
-В {{ at-name }} для {{ managed-k8s-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В Audit Trails для Yandex Managed Service for Kubernetes поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-{{ at-event-prefix }}.audit.k8s.<имя_события>
+yandex.cloud.audit.k8s.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -44,7 +44,7 @@
 `apiserver.ApiServerHead` | Получение метаданных ресурса
 `apiserver.ApiServerImpersonate` | Имперсонация
 `apiserver.ApiServerList` | Получение информации о коллекции ресурсов
-`apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог {{ managed-k8s-name }} содержит нестандартное значение в поле `verb`
+`apiserver.ApiServerNonstandardVerb` | Событие генерируется, если аудитный лог Managed Service for Kubernetes содержит нестандартное значение в поле `verb`
 `apiserver.ApiServerOptions` | Настройка ресурса
 `apiserver.ApiServerPatch` | Изменение ресурса
 `apiserver.ApiServerPost` | Создание ресурса

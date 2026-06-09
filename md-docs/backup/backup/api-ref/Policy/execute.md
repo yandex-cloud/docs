@@ -7,7 +7,7 @@ applied to the Compute Cloud instance.
 ## HTTP request
 
 ```
-POST https://backup.{{ api-host }}/backup/v1/policies/{policyId}:execute
+POST https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}:execute
 ```
 
 ## Path parameters

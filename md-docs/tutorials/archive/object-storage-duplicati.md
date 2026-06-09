@@ -1,8 +1,8 @@
-# Резервное копирование в {{ objstorage-full-name }} с помощью Duplicati
+# Резервное копирование в Yandex Object Storage с помощью Duplicati
 
-{{ objstorage-full-name }} можно использовать для резервного копирования и восстановления данных с помощью утилиты [Duplicati](https://www.duplicati.com/).
+Yandex Object Storage можно использовать для резервного копирования и восстановления данных с помощью утилиты [Duplicati](https://www.duplicati.com/).
 
-Чтобы настроить резервное копирование в {{ objstorage-name }} с помощью  Duplicati:
+Чтобы настроить резервное копирование в Object Storage с помощью  Duplicati:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте бакет](#create-bucket).
@@ -15,11 +15,11 @@
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
-1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -27,9 +27,9 @@
 
 В стоимость поддержки резервного копирования с помощью Duplicati входит:
 
-* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-operations));
-* стоимость исходящего трафика из {{ yandex-cloud }} в интернет (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md#prices-traffic)).
+* плата за хранение данных (см. [тарифы Yandex Object Storage](../../storage/pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы Yandex Object Storage](../../storage/pricing.md#prices-operations));
+* стоимость исходящего трафика из Yandex Cloud в интернет (см. [тарифы Yandex Object Storage](../../storage/pricing.md#prices-traffic)).
 
 ## Создайте бакет {#create-bucket}
 
@@ -39,18 +39,18 @@
 
 - Консоль управления {#console}
  
-  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Бакет**.
+  1. В поле **Имя** укажите имя [бакета](../../storage/concepts/bucket.md) в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
+  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
   1. Укажите максимальный размер бакета в ГБ.
-  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
+  1. Нажмите **Создать бакет**.
 
 {% endlist %}
 
 ## Настройте сервисный аккаунт {#configure-service-account}
 
-Резервное копирование в {{ objstorage-name }} выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
+Резервное копирование в Object Storage выполняется от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте](../../iam/operations/sa/create.md) его.
 
 Чтобы настроить сервисный аккаунт:
 
@@ -75,16 +75,16 @@
 
 ## Настройте Duplicati {#configure-duplicati}
 
-Чтобы настроить Duplicati для работы с {{ objstorage-name }}:
+Чтобы настроить Duplicati для работы с Object Storage:
 
 1. Запустите Duplicati. Если требуется, установите пароль на свой аккаунт.
 1. Нажмите **Add backup**.
 1. Выберите **Add a new backup** ![image](../../_assets/plus.svg).
-1. На шаге **General** введите имя плана резервного копирования: `{{ yandex-cloud }}`. Если вы выбрали шифрование резервной копии (`AES-256 encryption` или `GNU Privacy Guard`), введите пароль и подтвердите его. Нажмите **Continue**.
+1. На шаге **General** введите имя плана резервного копирования: `Yandex Cloud`. Если вы выбрали шифрование резервной копии (`AES-256 encryption` или `GNU Privacy Guard`), введите пароль и подтвердите его. Нажмите **Continue**.
 1. На шаге **Destination** выберите `S3 Compatible` и нажмите **Choose**:
    1. В поле **Bucket name** укажите имя вашего бакета.
    1. В поле **Folder path** укажите путь внутри бакета (префикс). Если нужно использовать корень бакета, оставьте поле пустым.
-   1. В поле **Server** укажите адрес `{{ s3-storage-host }}/`. При возникновении ошибки подключения к бакету попробуйте указать адрес без слеша — `{{ s3-storage-host }}`.
+   1. В поле **Server** укажите адрес `storage.yandexcloud.net/`. При возникновении ошибки подключения к бакету попробуйте указать адрес без слеша — `storage.yandexcloud.net`.
    1. В поле **Access Key ID** вставьте идентификатор статического ключа доступа.
    1. В поле **Secret Access Key** вставьте секретный ключ. Нажмите **Continue**.
 1. Чтобы убедиться, что настройки заданы верно, в появившемся окне нажмите **Test now**.
@@ -100,9 +100,9 @@
 
 Чтобы протестировать резервное копирование:
 
-1. В списке планов резервного копирования рядом с планом `{{ yandex-cloud }}` нажмите **Start**. Дождитесь окончания выполнения операции.
-1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с резервными копиями.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. В списке планов резервного копирования рядом с планом `Yandex Cloud` нажмите **Start**. Дождитесь окончания выполнения операции.
+1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором находится бакет с резервными копиями.
+1. Выберите сервис **Object Storage**.
 1. Откройте бакет с резервными копиями и убедитесь, что все нужные файлы были скопированы.
 
 Подробности о восстановлении данных из резервной копии см. в [документации Duplicati](https://duplicati.readthedocs.io/en/latest/03-using-the-graphical-user-interface/#restoring-files-from-a-backup).   

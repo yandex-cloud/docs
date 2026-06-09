@@ -5,7 +5,7 @@ Returns the specified quota request.
 ## HTTP request
 
 ```
-GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests/{quotaRequestId}
+GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests/{quotaRequestId}
 ```
 
 ## Path parameters
