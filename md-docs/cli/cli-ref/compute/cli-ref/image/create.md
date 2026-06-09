@@ -88,9 +88,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -118,14 +115,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Зашифровать диск](../../../../../compute/operations/disk-control/disk-encrypt.md#cli_1)
- * [Зашифровать образ](../../../../../compute/operations/image-control/encrypt.md#cli_1)
- * [Импортировать образ из другого облака или каталога](../../../../../compute/operations/image-control/import.md)
- * [Создать образ из диска](../../../../../compute/operations/image-create/create-from-disk.md#cli_1)
- * [Создать образ из другого пользовательского образа](../../../../../compute/operations/image-create/create-from-image.md#cli_1)
- * [Создать образ из снимка диска](../../../../../compute/operations/image-create/create-from-snapshot.md#cli_1)
- * [Создайте образ в Compute Cloud](../../../../../compute/operations/image-create/upload.md#cli_1)
- * [Перенести виртуальную машину в другое облако](../../../../../compute/operations/vm-control/vm-change-cloud.md#cli_3)
- * [Создайте в Compute Cloud образ с закреплением поколения оборудования Gen 2](../../../../../compute/operations/vm-create/create-gen2-vm.md#cli_1)

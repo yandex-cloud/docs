@@ -10,7 +10,7 @@
 
 После этого основным становится «зеленый» бэкенд, а на «синем» бэкенде можно тестировать следующую версию сервиса. Также, пока на «синем» бэкенде остается предыдущая версия, на нее можно откатить сервис, снова поменяв бэкенды ролями.
 
-В данном руководстве в качестве бэкендов используются бакеты Yandex Object Storage, а за переключение между ними отвечает L7-балансировщик Yandex Application Load Balancer. Запросы пользователей передаются балансировщику через сеть распространения контента Yandex Cloud CDN, чтобы сократить время доставки контента.
+В данном руководстве в качестве бэкендов используются бакеты {{ objstorage-full-name }}, а за переключение между ними отвечает L7-балансировщик {{ alb-full-name }}. Запросы пользователей передаются балансировщику через сеть распространения контента {{ cdn-full-name }}, чтобы сократить время доставки контента.
 
 В качестве примеров будут использованы доменные имена `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example`.
 
@@ -19,11 +19,11 @@
 Чтобы построить архитектуру для сине-зеленого и канареечного развертывания:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Добавьте сертификат в Certificate Manager](#add-certificate)
+1. [Добавьте сертификат в {{ certificate-manager-name }}](#add-certificate)
 1. [Создайте облачную сеть и подсети](#create-network).
-1. [Создайте бакеты в Object Storage](#create-buckets).
+1. [Создайте бакеты в {{ objstorage-name }}](#create-buckets).
 1. [Загрузите файлы сервиса в бакеты](#upload-files).
-1. [Создайте группы бэкендов в Application Load Balancer](#create-l7backend).
+1. [Создайте группы бэкендов в {{ alb-name }}](#create-l7backend).
 1. [Создайте HTTP-роутер и виртуальные хосты](#create-route-hosts).
 1. [Создайте L7-балансировщик](#create-balancer).
 1. [Создайте CDN-ресурс](#create-cdn-resource).
@@ -34,23 +34,23 @@
 
 ## Поддерживаемые инструменты {#supported-tools}
 
-Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления](https://console.yandex.cloud), интерфейсов командной строки (CLI) [Yandex Cloud](../../cli/index.md) и [AWS](../../storage/tools/aws-cli.md), Terraform и [API Yandex Cloud](../../api-design-guide/index.md). В каждом шаге перечислены поддерживаемые для него инструменты.
+Бо́льшую часть шагов можно выполнить с помощью любого из стандартных инструментов: [консоли управления]({{ link-console-main }}), интерфейсов командной строки (CLI) [{{ yandex-cloud }}](../../cli/index.md) и [AWS](../../storage/tools/aws-cli.md), {{ TF }} и [API {{ yandex-cloud }}](../../api-design-guide/index.md). В каждом шаге перечислены поддерживаемые для него инструменты.
 
 Некоторые инструменты поддерживаются не для всех шагов:
 
-* Через CLI и Terraform сейчас нельзя:
-  * [создать группу бэкендов в Application Load Balancer с бакетами в качестве бэкендов](#create-l7backend);
+* Через CLI и {{ TF }} сейчас нельзя:
+  * [создать группу бэкендов в {{ alb-name }} с бакетами в качестве бэкендов](#create-l7backend);
   * получить доменное имя CDN-балансировщика при [настройке DNS для сервиса](#configure-dns);
   * отключать и включать кеширование CDN-ресурса при [проверке работы сервиса и переключения между версиями](#check).
 * Через API сейчас нельзя получить доменное имя CDN-балансировщика при [настройке DNS для сервиса](#configure-dns).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -61,14 +61,14 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (см. [тарифы Object Storage](../../storage/pricing.md));
-* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md));
-* плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../cdn/pricing.md));
-* плата за публичные DNS-запросы и DNS-зоны, если вы используете Yandex Cloud DNS (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md));
+* плата за использование вычислительных ресурсов L7-балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md));
+* плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md));
+* плата за публичные DNS-запросы и DNS-зоны, если вы используете {{ dns-full-name }} (см. [тарифы {{ dns-name }}](../../dns/pricing.md)).
 
-## Добавьте сертификат в Certificate Manager {#add-certificate}
+## Добавьте сертификат в {{ certificate-manager-name }} {#add-certificate}
 
-Поддерживаются сертификаты из [Yandex Certificate Manager](../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../certificate-manager/operations/import/cert-create.md).
+Поддерживаются сертификаты из [{{ certificate-manager-full-name }}](../../certificate-manager/index.md). Вы можете [выпустить новый сертификат Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный](../../certificate-manager/operations/import/cert-create.md).
 
 Сертификат должен находиться в том же [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором расположен ваш CDN-ресурс.
 
@@ -83,16 +83,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-    1. Справа сверху нажмите кнопку **Создать сеть**.
-    1. В поле **Имя** укажите `canary-network`.
-    1. В поле **Дополнительно** выберите опцию **Создать подсети**.
-    1. Нажмите кнопку **Создать сеть**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+    1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+    1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `canary-network`.
+    1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -116,11 +116,11 @@
 
   1. Создайте подсети во всех зонах доступности:
 
-     * В `ru-central1-a`:
+     * В `{{ region-id }}-a`:
 
        ```bash
-       yc vpc subnet create canary-subnet-ru-central1-a \
-         --zone ru-central1-a \
+       yc vpc subnet create canary-subnet-{{ region-id }}-a \
+         --zone {{ region-id }}-a \
          --network-name canary-network \
          --range 10.1.0.0/16
        ```
@@ -131,18 +131,18 @@
        id: e9bnnssj8sc8********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:00Z"
-       name: canary-subnet-ru-central1-a
+       name: canary-subnet-{{ region-id }}-a
        network_id: enptrcle5q3d********
-       zone_id: ru-central1-a
+       zone_id: {{ region-id }}-a
        v4_cidr_blocks:
        - 10.1.0.0/16
        ```
 
-     * В `ru-central1-b`:
+     * В `{{ region-id }}-b`:
 
        ```bash
-       yc vpc subnet create canary-subnet-ru-central1-b \
-         --zone ru-central1-b \
+       yc vpc subnet create canary-subnet-{{ region-id }}-b \
+         --zone {{ region-id }}-b \
          --network-name canary-network \
          --range 10.2.0.0/16
        ```
@@ -153,18 +153,18 @@
        id: e2lghukd9iqo********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:27:39Z"
-       name: canary-subnet-ru-central1-b
+       name: canary-subnet-{{ region-id }}-b
        network_id: enptrcle5q3d********
-       zone_id: ru-central1-b
+       zone_id: {{ region-id }}-b
        v4_cidr_blocks:
        - 10.2.0.0/16
        ```
 
-     * В `ru-central1-d`:
+     * В `{{ region-id }}-d`:
 
        ```bash
-       yc vpc subnet create canary-subnet-ru-central1-d \
-         --zone ru-central1-d \
+       yc vpc subnet create canary-subnet-{{ region-id }}-d \
+         --zone {{ region-id }}-d \
          --network-name canary-network \
          --range 10.3.0.0/16
        ```
@@ -175,20 +175,23 @@
        id: b0c3pte4o2kn********
        folder_id: b1g9hv2loamq********
        created_at: "2021-11-03T09:28:08Z"
-       name: canary-subnet-ru-central1-d
+       name: canary-subnet-{{ region-id }}-d
        network_id: enptrcle5q3d********
-       zone_id: ru-central1-d
+       zone_id: {{ region-id }}-d
        v4_cidr_blocks:
        - 10.3.0.0/16
        ```
 
      Подробнее о команде `yc vpc subnet create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/subnet/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-d`:
+  1. Опишите в конфигурационном файле параметры сети `canary-network` и ее подсетей `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d`:
 
      ```hcl
      resource "yandex_vpc_network" "canary-network" {
@@ -196,28 +199,28 @@
      }
 
      resource "yandex_vpc_subnet" "canary-subnet-a" {
-       name           = "canary-subnet-ru-central1-a"
-       zone           = "ru-central1-a"
+       name           = "canary-subnet-{{ region-id }}-a"
+       zone           = "{{ region-id }}-a"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.1.0.0/16"]
      }
 
      resource "yandex_vpc_subnet" "canary-subnet-b" {
-       name           = "canary-subnet-ru-central1-b"
-       zone           = "ru-central1-b"
+       name           = "canary-subnet-{{ region-id }}-b"
+       zone           = "{{ region-id }}-b"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.2.0.0/16"]
      }
 
      resource "yandex_vpc_subnet" "canary-subnet-d" {
-       name           = "canary-subnet-ru-central1-d"
-       zone           = "ru-central1-d"
+       name           = "canary-subnet-{{ region-id }}-d"
+       zone           = "{{ region-id }}-d"
        network_id     = "${yandex_vpc_network.canary-network.id}"
        v4_cidr_blocks = ["10.3.0.0/16"]
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_vpc_network](../../terraform/resources/vpc_network.md) и [yandex_vpc_subnet](../../terraform/resources/vpc_subnet.md) в документации провайдера Terraform.
+     Подробнее см. в описаниях ресурсов [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network) и [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -228,7 +231,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -243,24 +246,24 @@
 - API {#api}
 
   1. Создайте сеть `canary-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md).
-  1. Создайте подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-d` в трех зонах доступности с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
+  1. Создайте подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d` в трех [зонах доступности](../../overview/concepts/geo-scope.md) с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md).
 
 {% endlist %}
 
-## Создайте бакеты в Object Storage {#create-buckets}
+## Создайте бакеты в {{ objstorage-name }} {#create-buckets}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте «синий» бакет для стабильной версии бэкенда:
 
-     1. Справа сверху нажмите кнопку **Создать бакет**.
-     1. В поле **Имя** укажите имя бакета.
-     1. В полях **Чтение объектов** и **Чтение списка объектов** выберите `Для всех`.
-     1. Нажмите кнопку **Создать бакет**.
+     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
+     1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   1. Таким же образом создайте «зеленый» бакет для тестовой версии бэкенда.
 
@@ -269,7 +272,7 @@
   1. Создайте «синий» бакет для стабильной версии бэкенда:
 
      ```bash
-     aws --endpoint-url https://storage.yandexcloud.net \
+     aws --endpoint-url https://{{ s3-storage-host }} \
        s3 mb s3://<имя_синего_бакета>
      ```
 
@@ -282,7 +285,7 @@
   1. Включите публичный доступ к чтению объектов и их списка:
 
      ```bash
-     aws --endpoint-url https://storage.yandexcloud.net \
+     aws --endpoint-url https://{{ s3-storage-host }} \
        s3api put-bucket-acl \
        --bucket <имя_синего_бакета> \
        --acl public-read
@@ -290,11 +293,11 @@
 
   1. Аналогично создайте «зеленый» бакет для тестовой версии бэкенда и включите публичный доступ к нему.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
@@ -341,7 +344,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -352,7 +355,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -412,10 +415,10 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
      1. Выберите «синий» бакет.
-     1. Нажмите кнопку **Загрузить** и выберите для загрузки файл `index.html` версии 1.
+     1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}** и выберите для загрузки файл `index.html` версии 1.
      1. Таким же образом загрузите в «зеленый» бакет файл `index.html` версии 2.
 
    - AWS CLI {#cli}
@@ -423,7 +426,7 @@
      1. Загрузите в «синий» бакет файл `index.html` версии 1:
 
         ```bash
-        aws --endpoint-url https://storage.yandexcloud.net \
+        aws --endpoint-url https://{{ s3-storage-host }} \
           s3 cp v1/index.html s3://<имя_синего_бакета>/index.html
         ```
 
@@ -436,7 +439,7 @@
      1. Загрузите в «зеленый» бакет файл `index.html` версии 2:
 
         ```bash
-        aws --endpoint-url https://storage.yandexcloud.net \
+        aws --endpoint-url https://{{ s3-storage-host }} \
           s3 cp v2/index.html s3://<имя_зеленого_бакета>/index.html
         ```
 
@@ -446,7 +449,7 @@
         upload: v2/index.html to s3://<имя_зеленого_бакета>/index.html
         ```
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
      1. Добавьте в конфигурационный файл параметры файлов `v1/index.html` и `v2/index.html`, загружаемых в бакеты «синий» и «зеленый» соответственно:
 
@@ -466,7 +469,7 @@
         }
         ```
 
-        Подробнее о ресурсе `yandex_storage_object` см. в [документации](../../terraform/resources/storage_object.md) провайдера Terraform.
+        Подробнее о ресурсе `yandex_storage_object` см. в [документации]({{ tf-provider-resources-link }}/storage_object) провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -477,7 +480,7 @@
            terraform plan
            ```
 
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
      1. Разверните облачные ресурсы.
 
@@ -505,34 +508,34 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **Группы безопасности**.
-  1. Справа сверху нажмите кнопку **Создать группу безопасности**.
-  1. В поле **Имя** укажите `canary-sg`.
-  1. В поле **Сеть** выберите `canary-network`.
-  1. В блоке **Правила** создайте правила по инструкции под таблицей:
+  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите `canary-sg`.
+  1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите `canary-network`.
+  1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте правила по инструкции под таблицей:
 
-      | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>назначение | CIDR блоки |
+      | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | Источник /<br/>назначение | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
       | --- | --- | --- | --- | --- | --- |
-      | `Исходящий` | `any` | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
-      | `Входящий` | `ext-http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
-      | `Входящий` | `ext-https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0` |
-      | `Входящий` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
+      | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      | `Входящий` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
-     1. Перейдите на вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-     1. В поле **Протокол** укажите нужный протокол или оставьте `Любой`.
-     1. В поле **Назначение** или **Источник** выберите назначение правила:
+     1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
 
-        * `CIDR` — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-        * `Проверки состояния балансировщика` — правило, которое позволяет балансировщику проверять состояние ВМ.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
 
-     1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните следующую команду:
 
@@ -594,7 +597,7 @@
 
   Подробнее о команде `yc vpc security-group create` см. в [справочнике CLI](../../cli/cli-ref/vpc/cli-ref/security-group/create.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры группы безопасности `canary-sg`:
 
@@ -629,7 +632,7 @@
      }
      ```
 
-     Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/vpc_security_group.md).
+     Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/vpc_security_group).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -640,7 +643,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -660,7 +663,7 @@
 
 {% endlist %}
 
-## Создайте группы бэкендов в Application Load Balancer {#create-l7backend}
+## Создайте группы бэкендов в {{ alb-name }} {#create-l7backend}
 
 {% list tabs group=instructions %}
 
@@ -668,28 +671,28 @@
 
   1. Создайте группу бэкендов `canary-bg-production` с бэкендами `canary-backend-blue` и `canary-backend-green`:
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
-     1. Справа сверху нажмите кнопку **Создать группу бэкендов**.
-     1. В поле **Имя** укажите `canary-bg-production`.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
+     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-bg-production`.
      1. Создайте бэкенд `canary-backend-blue`:
-         1. В блоке **Бэкенды** нажмите **Добавить**.
-         1. В поле **Имя** укажите `canary-backend-blue`.
-         1. В поле **Вес** укажите `100`.
-         1. В поле **Тип** выберите `Бакет`.
-         1. В поле **Бакет** выберите «синий» бакет.
+         1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-backend-blue`.
+         1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
+         1. В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.alb.label_bucket }}`.
+         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите «синий» бакет.
      1. Создайте бэкенд `canary-backend-green`:
-         1. В блоке **Бэкенды** нажмите **Добавить**.
-         1. В поле **Имя** укажите `canary-backend-green`.
-         1. В поле **Вес** укажите `0`.
-         1. В поле **Тип** выберите `Бакет`.
-         1. В поле **Бакет** выберите «зеленый» бакет.
-     1. Нажмите кнопку **Создать**.
+         1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите **{{ ui-key.yacloud.common.add }}**.
+         1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-backend-green`.
+         1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `0`.
+         1. В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.alb.label_bucket }}`.
+         1. В поле **{{ ui-key.yacloud.alb.label_bucket }}** выберите «зеленый» бакет.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   1. Аналогично создайте группу бэкендов `canary-bg-staging`. Для бэкенда `canary-backend-blue` установите вес `0`, для `canary-backend-green` — `100`.
   
-  Если вы будете выполнять следующие шаги с помощью Terraform, скопируйте идентификаторы групп бэкендов `canary-bg-production` и `canary-bg-staging` со вкладки ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+  Если вы будете выполнять следующие шаги с помощью {{ TF }}, скопируйте идентификаторы групп бэкендов `canary-bg-production` и `canary-bg-staging` со вкладки ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
 
 - API {#api}
 
@@ -703,34 +706,34 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **HTTP-роутеры**.
-  1. Справа сверху нажмите кнопку **Создать HTTP-роутер**.
-  1. В поле **Имя** укажите `canary-router`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-router`.
   1. Создайте виртуальный хост `canary-vh-production`:
 
-     1. В блоке **Виртуальные хосты** нажмите кнопку **Добавить виртуальный хост**.
-     1. В поле **Имя** укажите `canary-vh-production`.
-     1. В поле **Authority** укажите `cdn.yandexcloud.example`.
-     1. Нажмите кнопку **Добавить маршрут**.
-     1. В поле **Имя** укажите `canary-route-production`.
-     1. В поле **Путь** выберите `Начинается с` и укажите путь `/`.
-     1. В списке **Методы HTTP** выберите `GET`.
-     1. В поле **Действие** оставьте `Маршрутизация`.
-     1. В списке **Группа бэкендов** выберите `canary-bg-production`.
+     1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-vh-production`.
+     1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите `cdn.yandexcloud.example`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-route-production`.
+     1. В поле **{{ ui-key.yacloud.alb.label_path }}** выберите `{{ ui-key.yacloud.alb.label_match-prefix }}` и укажите путь `/`.
+     1. В списке **{{ ui-key.yacloud.alb.label_http-methods }}** выберите `GET`.
+     1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** оставьте `{{ ui-key.yacloud.alb.label_route-action-route }}`.
+     1. В списке **{{ ui-key.yacloud.alb.label_backend-group }}** выберите `canary-bg-production`.
 
   1. Создайте виртуальный хост `canary-vh-staging`:
 
-     * **Имя** — `canary-vh-production`.
-     * **Authority** — `cdn-staging.yandexcloud.example`.
-     * **Имя** маршрута — `canary-route-staging`.
-     * **Группа бэкендов** — `canary-bg-staging`.
+     * **{{ ui-key.yacloud.common.name }}** — `canary-vh-production`.
+     * **{{ ui-key.yacloud.alb.label_authority }}** — `cdn-staging.yandexcloud.example`.
+     * **{{ ui-key.yacloud.common.name }}** маршрута — `canary-route-staging`.
+     * **{{ ui-key.yacloud.alb.label_backend-group }}** — `canary-bg-staging`.
      * Остальные параметры — как у `canary-vh-production`.
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте HTTP-роутер `canary-router`:
 
@@ -841,7 +844,7 @@
            backend_group_id: ds765atleota********
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры HTTP-роутера `canary-router`, его виртуальных хостов и маршрутов:
 
@@ -883,7 +886,7 @@
      }
      ```
 
-     Подробнее см. в описаниях ресурсов [yandex_alb_http_router](../../terraform/resources/alb_http_router.md) и [yandex_alb_virtual_host](../../terraform/resources/alb_virtual_host.md) в документации провайдера Terraform.
+     Подробнее см. в описаниях ресурсов [yandex_alb_http_router]({{ tf-provider-resources-link }}/alb_http_router) и [yandex_alb_virtual_host]({{ tf-provider-resources-link }}/alb_virtual_host) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -894,7 +897,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -919,27 +922,27 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. Справа сверху нажмите кнопку **Создать L7-балансировщик**.
-  1. В поле **Имя** укажите `canary-balancer`.
-  1. В блоке **Сетевые настройки**:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-balancer`.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
 
-     1. В поле **Сеть** выберите `canary-network`.
-     1. В поле **Группы безопасности** выберите `canary-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
+     1. В поле **{{ ui-key.yacloud.mdb.forms.label_network }}** выберите `canary-network`.
+     1. В поле **{{ ui-key.yacloud.mdb.forms.field_security-group }}** выберите `canary-sg`. Если этого поля нет, для балансировщика будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **Размещение** выберите три подсети для узлов балансировщика — `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-d` — и включите передачу трафика в эти подсети.
-  1. В блоке **Обработчики** нажмите **Добавить обработчик** и задайте настройки обработчика:
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите три подсети для узлов балансировщика — `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d` — и включите передачу трафика в эти подсети.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите **{{ ui-key.yacloud.alb.button_add-listener }}** и задайте настройки обработчика:
 
-     1. В поле **Имя** укажите `canary-listener`.
-     1. В блоке **Публичный IP-адрес**:
-        * В поле **Порт** укажите `80`.
-        * В поле **Тип** выберите `Автоматически`.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-listener`.
+     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}**:
+        * В поле **{{ ui-key.yacloud.alb.label_port }}** укажите `80`.
+        * В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.alb.label_address-auto }}`.
 
-     1. В поле **HTTP-роутер** выберите `canary-router`.
-  1. Нажмите кнопку **Создать**.
+     1. В поле **{{ ui-key.yacloud.alb.label_http-router }}** выберите `canary-router`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Получите идентификаторы подсетей сети `canary-network`:
 
@@ -953,9 +956,9 @@
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      |          ID          |            NAME             |      FOLDER ID       |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |     RANGE     |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
-     | e9bnnssj8sc8******** | canary-subnet-ru-central1-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-d | [10.1.0.0/16] |
-     | e2lghukd9iqo******** | canary-subnet-ru-central1-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-b | [10.2.0.0/16] |
-     | b0c3pte4o2kn******** | canary-subnet-ru-central1-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | ru-central1-a | [10.3.0.0/16] |
+     | e9bnnssj8sc8******** | canary-subnet-{{ region-id }}-d | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-d | [10.1.0.0/16] |
+     | e2lghukd9iqo******** | canary-subnet-{{ region-id }}-b | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-b | [10.2.0.0/16] |
+     | b0c3pte4o2kn******** | canary-subnet-{{ region-id }}-a | b1g9hv2loamq******** | enptrcle5q3d******** |                | {{ region-id }}-a | [10.3.0.0/16] |
      +----------------------+-----------------------------+----------------------+----------------------+----------------+---------------+---------------+
      ```
 
@@ -981,9 +984,9 @@
      yc alb load-balancer create canary-balancer \
        --network-name canary-network \
        --security-group-id <идентификатор_группы_безопасности_canary-sg> \
-       --location zone=ru-central1-a,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-a> \
-       --location zone=ru-central1-b,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-b> \
-       --location zone=ru-central1-d,subnet-id=<идентификатор_подсети_canary-subnet-ru-central1-d>
+       --location zone={{ region-id }}-a,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-a> \
+       --location zone={{ region-id }}-b,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-b> \
+       --location zone={{ region-id }}-d,subnet-id=<идентификатор_подсети_canary-subnet-{{ region-id }}-d>
      ```
 
      Результат:
@@ -994,15 +997,15 @@
      name: canary-balancer
      folder_id: b1g9hv2loamq********
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: enptrcle5q3d********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-d
+       - zone_id: {{ region-id }}-d
          subnet_id: b0c3pte4o2kn********
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: e2lghukd9iqo********
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8********
      log_group_id: ckg23vr4dlks********
      security_group_ids:
@@ -1030,7 +1033,7 @@
      name: canary-balancer
      folder_id: b1g9hv2loamq********
      status: ACTIVE
-     region_id: ru-central1
+     region_id: {{ region-id }}
      network_id: enptrcle5q3d********
      listeners:
      - name: canary-listener
@@ -1045,11 +1048,11 @@
            http_router_id: ds7qd0vj01dj********
      allocation_policy:
        locations:
-       - zone_id: ru-central1-d
+       - zone_id: {{ region-id }}-d
          subnet_id: b0c3pte4o2kn********
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-b
          subnet_id: e2lghukd9iqo********
-       - zone_id: ru-central1-a
+       - zone_id: {{ region-id }}-a
          subnet_id: e9bnnssj8sc8********
      log_group_id: ckg23vr4dlks********
      security_group_ids:
@@ -1059,7 +1062,7 @@
 
      Подробнее о команде `yc alb load-balancer add-listener` см. в [справочнике CLI](../../cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-listener.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры L7-балансировщика `canary-balancer`:
 
@@ -1073,18 +1076,18 @@
 
        allocation_policy {
          location {
-           zone_id   = "ru-central1-a"
-           subnet_id = ${yandex_vpc_subnet.canary-subnet-ru-central1-a.id}
+           zone_id   = "{{ region-id }}-a"
+           subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-a.id}
          }
 
          location {
-           zone_id   = "ru-central1-b"
-           subnet_id = ${yandex_vpc_subnet.canary-subnet-ru-central1-b.id}
+           zone_id   = "{{ region-id }}-b"
+           subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-b.id}
          }
 
          location {
-           zone_id   = "ru-central1-d"
-           subnet_id = ${yandex_vpc_subnet.canary-subnet-ru-central1-d.id}
+           zone_id   = "{{ region-id }}-d"
+           subnet_id = ${yandex_vpc_subnet.canary-subnet-{{ region-id }}-d.id}
          }
        }
 
@@ -1106,7 +1109,7 @@
      }
      ```
 
-     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации](../../terraform/resources/alb_load_balancer.md) провайдера Terraform.
+     Подробнее о ресурсе `yandex_alb_load_balancer` см. в [документации]({{ tf-provider-resources-link }}/alb_load_balancer) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1117,7 +1120,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -1141,19 +1144,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. Нажмите кнопку **Создать ресурс**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
-      * В блоке **Контент**:
-        * Включите **Доступ к контенту**.
-        * В поле **Запрос контента** выберите `Из одного источника`.
-        * В поле **Тип источника** выберите `L7-балансировщик`.
-        * В поле **L7-балансировщик** выберите `canary-balancer`.
-        * В поле **IP-адрес** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
-        * В поле **Протокол для источников** выберите `HTTP`.
-        * В поле **Доменное имя** укажите `cdn.yandexcloud.example`.
-        * Нажмите кнопку **Добавить доменное имя** и укажите `cdn-staging.yandexcloud.example`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-balancer }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_balancer }}** выберите `canary-balancer`.
+        * В поле **{{ ui-key.yacloud.cdn.label_ip-address }}** выберите IP-адрес, назначенный балансировщику (будет единственным в списке).
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите `{{ ui-key.yacloud.common.label_http }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите `cdn.yandexcloud.example`.
+        * Нажмите кнопку **{{ ui-key.yacloud.cdn.button_add-domain }}** и укажите `cdn-staging.yandexcloud.example`.
 
           {% note alert %}
 
@@ -1161,16 +1164,16 @@
 
           {% endnote %}
 
-      * В блоке **Дополнительно**:
-        * В поле **Переадресация клиентов** выберите `С HTTP на HTTPS`.
-        * В поле **Тип сертификата** укажите `Сертификат из Certificate Manager` и выберите [сертификат](#add-certificate) для доменных имен `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example`.
-        * В поле **Заголовок Host** выберите `Как у клиента`.
-  1. Нажмите **Продолжить**.
-  1. В разделе **Кеширование** в блоке **CDN** включите опцию **Кеширование в CDN**.
-  1. Нажмите **Продолжить**.
-  1. В разделах **HTTP-заголовки и методы** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_redirect-http-to-https }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** укажите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и выберите [сертификат](#add-certificate) для доменных имен `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-resend }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделе **{{ ui-key.yacloud.cdn.label_resource-cache }}** в блоке **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache }}** включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте группу источников `canary-origin-group`, указав IP-адрес балансировщика:
       
@@ -1231,7 +1234,7 @@
      yc cdn resource update <идентификатор_ресурса> --redirect-http-to-https
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Добавьте в конфигурационный файл параметры CDN-ресурсов:
       
@@ -1268,7 +1271,7 @@
       }
       ```
 
-      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group](../../terraform/resources/cdn_origin_group.md) и [yandex_cdn_resource](../../terraform/resources/cdn_resource.md) в документации провайдера Terraform.
+      Подробнее см. в описаниях ресурсов [yandex_cdn_origin_group]({{ tf-provider-resources-link }}/cdn_origin_group) и [yandex_cdn_resource]({{ tf-provider-resources-link }}/cdn_resource) в документации провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -1279,7 +1282,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -1291,7 +1294,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
   1. Включите переадресацию клиентов для ресурса. Добавьте в начало блока `options` для CDN-ресурса следующее поле:
 
@@ -1308,7 +1311,7 @@
       terraform plan
       ```
 
-     Если конфигурация описана верно, в терминале отобразится список обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список обновляемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
   
   1. Если ошибок нет, выполните команду:
 
@@ -1338,10 +1341,10 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. В списке CDN-ресурсов выберите ресурс с основным доменным именем `cdn.yandexcloud.example`.
-     1. Из блока **Настройки DNS** внизу страницы скопируйте доменное имя вида `e1b83ae3********.topology.gslb.yccdn.ru`.
+     1. Из блока **{{ ui-key.yacloud.cdn.label_dns-settings_title }}** внизу страницы скопируйте доменное имя вида `{{ cname-example-yc }}`.
 
    {% endlist %}
 
@@ -1349,8 +1352,8 @@
 1. Создайте или измените CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` таким образом, чтобы они указывали на скопированное доменное имя:
 
    ```
-   cdn CNAME e1b83ae3********.topology.gslb.yccdn.ru
-   cdn-staging CNAME e1b83ae3********.topology.gslb.yccdn.ru
+   cdn CNAME {{ cname-example-yc }}
+   cdn-staging CNAME {{ cname-example-yc }}
    ```
 
    {% note info %}
@@ -1359,36 +1362,36 @@
    
    {% endnote %} 
 
-   Если вы пользуетесь Cloud DNS, настройте запись по следующей инструкции:
+   Если вы пользуетесь {{ dns-name }}, настройте запись по следующей инструкции:
 
-   {% cut "Инструкция по настройке DNS-записей для Cloud DNS" %}
+   {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+     1. Откройте [консоль управления]({{ link-console-main }}).
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
-        1. Нажмите кнопку **Создать зону**.
-        1. В поле **Зона** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`
-        1. В поле **Тип** выберите `Публичная`.
-        1. В поле **Имя** укажите `canary-dns-zone`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+        1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите доменное имя сайта с точкой в конце: `yandexcloud.example.`
+        1. В поле **{{ ui-key.yacloud.common.type }}** выберите `{{ ui-key.yacloud.dns.label_public }}`.
+        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `canary-dns-zone`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
      1. Создайте в зоне CNAME-запись для `cdn.yandexcloud.example`:
 
         1. Выберите зону `canary-dns-zone`.
-        1. Нажмите кнопку **Создать запись**.
-        1. В поле **Имя** укажите `cdn`.
-        1. В поле **Тип** укажите `CNAME`.
-        1. В поле **Значение** вставьте скопированное значение вида `e1b83ae3********.topology.gslb.yccdn.ru`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+        1. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn`.
+        1. В поле **{{ ui-key.yacloud.common.type }}** укажите `CNAME`.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированное значение вида `{{ cname-example-yc }}`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-     1. Аналогично создайте в той же зоне CNAME-запись для `cdn-staging.yandexcloud.example`. В поле **Имя** укажите `cdn-staging`.
+     1. Аналогично создайте в той же зоне CNAME-запись для `cdn-staging.yandexcloud.example`. В поле **{{ ui-key.yacloud.common.name }}** укажите `cdn-staging`.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Если у вас нет публичной зоны DNS, создайте ее:
 
@@ -1412,18 +1415,18 @@
 
         Подробнее о команде `yc dns zone create` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/create.md).
 
-     1. Создайте в зоне CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` со скопированным значением вида `e1b83ae3********.topology.gslb.yccdn.ru`:
+     1. Создайте в зоне CNAME-записи для `cdn.yandexcloud.example` и `cdn-staging.yandexcloud.example` со скопированным значением вида `{{ cname-example-yc }}`:
 
         ```bash
         yc dns zone add-records \
           --name canary-dns-zone \
-          --record "cdn CNAME e1b83ae3********.topology.gslb.yccdn.ru" \
-          --record "cdn-staging CNAME e1b83ae3********.topology.gslb.yccdn.ru"
+          --record "cdn CNAME {{ cname-example-yc }}" \
+          --record "cdn-staging CNAME {{ cname-example-yc }}"
         ```
 
         Подробнее о команде `yc dns zone add-records` см. в [справочнике CLI](../../cli/cli-ref/dns/cli-ref/zone/add-records.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
      1. Добавьте в конфигурационный файл параметры DNS-зоны `canary-dns-zone` и CNAME-записей в ней:
 
@@ -1440,18 +1443,18 @@
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_e1b83ae3********.topology.gslb.yccdn.ru>"]
+          data    = ["<скопированное_значение_вида_{{ cname-example-yc }}>"]
         }
 
         resource "yandex_dns_recordset" "canary-recordset-staging" {
           zone_id = ${yandex_dns_zone.canary-dns-zone.id}
           name    = "cdn-staging"
           type    = "CNAME"
-          data    = ["<скопированное_значение_вида_e1b83ae3********.topology.gslb.yccdn.ru"]
+          data    = ["<скопированное_значение_вида_{{ cname-example-yc }}"]
         }
         ```
 
-        Подробнее см. в описаниях ресурсов [yandex_dns_zone](../../terraform/resources/dns_zone.md) и [yandex_dns_recordset](../../terraform/resources/dns_recordset.md) в документации провайдера Terraform.
+        Подробнее см. в описаниях ресурсов [yandex_dns_zone]({{ tf-provider-resources-link }}/dns_zone) и [yandex_dns_recordset]({{ tf-provider-resources-link }}/dns_recordset) в документации провайдера {{ TF }}.
 
      1. Проверьте корректность конфигурационных файлов.
 
@@ -1462,7 +1465,7 @@
            terraform plan
            ```
 
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
      1. Разверните облачные ресурсы.
 
@@ -1477,7 +1480,7 @@
    - API {#api}
 
      1. Создайте DNS-зону `canary-dns-zone` с помощью вызова gRPC API [DnsZoneService/Create](../../dns/api-ref/grpc/DnsZone/create.md) или метода REST API [create](../../dns/api-ref/DnsZone/create.md).
-     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `e1b83ae3********.topology.gslb.yccdn.ru` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
+     1. Добавьте в зону CNAME-записи `cdn` и `cdn-staging` со скопированным значением вида `{{ cname-example-yc }}` с помощью вызова gRPC API [DnsZoneService/UpdateRecordSets](../../dns/api-ref/grpc/DnsZone/updateRecordSets.md) или метода REST API [updateRecordSets](../../dns/api-ref/DnsZone/updateRecordSets.md).
 
    {% endlist %}
 
@@ -1498,16 +1501,16 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Контент**.
-     1. Нажмите кнопку **Очистить кеш**.
-     1. В поле **Тип очистки** выберите `Выборочная`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+     1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** выберите `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Укажите путь к загруженному файлу: `/index.html`.
-     1. Нажмите кнопку **Очистить кеш**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1568,13 +1571,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Кеширование**.
-     1. Нажмите кнопку **Редактировать**.
-     1. Отключите опцию **Кеширование в CDN**.
-     1. Нажмите кнопку **Сохранить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+     1. Отключите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - API {#api}
 
@@ -1589,16 +1592,16 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Контент**.
-     1. Нажмите кнопку **Очистить кеш**.
-     1. В поле **Тип очистки** выберите `Выборочная`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+     1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** выберите `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Укажите путь к загруженному файлу: `/index.html`.
-     1. Нажмите кнопку **Очистить кеш**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1651,20 +1654,20 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
 
-        1. В блоке **Бэкенды** найдите бэкенд `canary-backend-blue`, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-        1. В поле **Вес** укажите `80`.
-        1. Нажмите **Сохранить**.
+        1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** найдите бэкенд `canary-backend-blue`, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+        1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `80`.
+        1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
      1. Аналогично для бэкенда `canary-backend-green` установите вес 20 вместо 0.
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Для бэкенда `canary-backend-blue` установите вес 80 вместо 100:
 
@@ -1737,13 +1740,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Кеширование**.
-     1. Нажмите кнопку **Редактировать**.
-     1. Включите опцию **Кеширование в CDN**.
-     1. Нажмите кнопку **Сохранить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - API {#api}
 
@@ -1760,13 +1763,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Кеширование**.
-     1. Нажмите кнопку **Редактировать**.
-     1. Отключите опцию **Кеширование в CDN**.
-     1. Нажмите кнопку **Сохранить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+     1. Отключите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - API {#api}
 
@@ -1781,16 +1784,16 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Контент**.
-     1. Нажмите кнопку **Очистить кеш**.
-     1. В поле **Тип очистки** выберите `Выборочная`.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-content }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
+     1. В поле **{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type }}** выберите `{{ ui-key.yacloud.cdn.label_resource-content-purging-cache-type-selective }}`.
      1. Укажите путь к загруженному файлу: `/index.html`.
-     1. Нажмите кнопку **Очистить кеш**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.cdn.button_resource-content-purge-cache }}**.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Получите идентификатор созданного CDN-ресурса:
 
@@ -1843,20 +1846,20 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**.
      1. Выберите `canary-bg-production`.
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
 
-        1. В блоке **Бэкенды** найдите бэкенд `canary-backend-blue`, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
-        1. В поле **Вес** укажите `100`.
-        1. Нажмите кнопку **Сохранить**.
+        1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** найдите бэкенд `canary-backend-blue`, нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
+        1. В поле **{{ ui-key.yacloud.alb.label_backend-weight }}** укажите `100`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
      1. Аналогично для бэкенда `canary-backend-green` установите вес 0 вместо 100.
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-   - Yandex Cloud CLI {#cli}
+   - {{ yandex-cloud }} CLI {#cli}
 
      1. Для бэкенда `canary-backend-blue` установите вес 100 вместо 0:
 
@@ -1922,13 +1925,13 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
      1. Выберите созданный CDN-ресурс (в списке ресурсов будет указано его основное доменное имя — `cdn.yandexcloud.example`).
-     1. Перейдите на вкладку **Кеширование**.
-     1. Нажмите кнопку **Редактировать**.
-     1. Включите опцию **Кеширование в CDN**.
-     1. Нажмите кнопку **Сохранить**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-cache }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+     1. Включите опцию **{{ ui-key.yacloud.cdn.label_resource-cache-cdn-cache-enabled }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
    - API {#api}
 
@@ -1941,10 +1944,10 @@
 
 Чтобы остановить работу инфраструктуры и перестать платить за созданные ресурсы:
 
-1. Если вы настраивали CNAME-записи в Cloud DNS, [удалите](../../dns/operations/zone-delete.md) зону DNS `canary-dns-zone`.
+1. Если вы настраивали CNAME-записи в {{ dns-name }}, [удалите](../../dns/operations/zone-delete.md) зону DNS `canary-dns-zone`.
 1. [Удалите](../../cdn/operations/resources/delete-resource.md) CDN-ресурс с основным доменным именем `cdn.yandexcloud.example`.
 1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) L7-балансировщик `canary-balancer`.
 1. [Удалите](../../storage/operations/objects/delete.md) все объекты из «синего» и «зеленого» бакетов.
 1. [Удалите](../../storage/operations/buckets/delete.md) «синий» и «зеленый» бакеты.
-1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-ru-central1-a`, `canary-subnet-ru-central1-b` и `canary-subnet-ru-central1-d`.
+1. [Удалите](../../vpc/operations/subnet-delete.md) подсети `canary-subnet-{{ region-id }}-a`, `canary-subnet-{{ region-id }}-b` и `canary-subnet-{{ region-id }}-d`.
 1. [Удалите](../../vpc/operations/network-delete.md) сеть `canary-network`.

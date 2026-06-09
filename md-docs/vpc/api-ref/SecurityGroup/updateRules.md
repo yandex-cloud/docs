@@ -5,7 +5,7 @@ Updates the rules of the specified security group.
 ## HTTP request
 
 ```
-PATCH https://vpc.api.cloud.yandex.net/vpc/v1/securityGroups/{securityGroupId}/rules
+PATCH https://vpc.{{ api-host }}/vpc/v1/securityGroups/{securityGroupId}/rules
 ```
 
 ## Path parameters

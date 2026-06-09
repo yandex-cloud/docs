@@ -1,4 +1,4 @@
-# Начало работы с Serverless Containers
+# Начало работы с {{ serverless-containers-name }}
 
 Выберите сценарий для знакомства:
 

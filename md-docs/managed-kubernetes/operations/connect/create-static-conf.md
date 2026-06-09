@@ -1,18 +1,18 @@
 # Создание статического файла конфигурации
 
-Статические файлы конфигурации позволяют получить доступ к [кластеру Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.
+Статические файлы конфигурации позволяют получить доступ к [кластеру {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) без использования [CLI](../../../glossary/cli.md), например из систем непрерывной интеграции.
 
 {% note tip %}
 
-Для интеграции с GitLab рекомендуем использовать установленное в кластере приложение GitLab Runner. Подробнее см. в разделе [Непрерывное развертывание контейнеризованных приложений с помощью GitLab](../../tutorials/gitlab-containers.md).
+Для интеграции с {{ GL }} рекомендуем использовать установленное в кластере приложение {{ GLR }}. Подробнее см. в разделе [{#T}](../../tutorials/gitlab-containers.md).
 
 {% endnote %}
 
-Также с помощью статического файла конфигурации можно настроить доступ к нескольким кластерам Managed Service for Kubernetes. Между описанными в конфигурациях кластерами Managed Service for Kubernetes можно быстро переключаться с помощью команды `kubectl config use-context`. Подробнее о настройке доступа к нескольким кластерам Managed Service for Kubernetes читайте в [документации Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
+Также с помощью статического файла конфигурации можно настроить доступ к нескольким кластерам {{ managed-k8s-name }}. Между описанными в конфигурациях кластерами {{ managed-k8s-name }} можно быстро переключаться с помощью команды `kubectl config use-context`. Подробнее о настройке доступа к нескольким кластерам {{ managed-k8s-name }} читайте в [документации {{ k8s }}](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 Чтобы создать файл конфигурации:
 * [Получите уникальный идентификатор кластера](#k8s-id).
-* [Подготовьте сертификат кластера Managed Service for Kubernetes](#prepare-cert).
+* [Подготовьте сертификат кластера {{ managed-k8s-name }}](#prepare-cert).
 * [Создайте объект ServiceAccount](#create-sa).
 * [Подготовьте токен объекта ServiceAccount](#prepare-token).
 * [Создайте и заполните файл конфигурации](#create-conf-file).
@@ -23,24 +23,24 @@
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md).
-1. [Создайте кластер Managed Service for Kubernetes](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) любой подходящей конфигурации.
+1. [Создайте кластер {{ managed-k8s-name }}](../kubernetes-cluster/kubernetes-cluster-create.md#kubernetes-cluster-create) любой подходящей конфигурации.
 1. [Создайте группу узлов](../node-group/node-group-create.md) любой подходящей конфигурации.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью параметра `--kubeconfig=test.kubeconfig`.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](index.md#kubectl-connect). Учетные данные добавьте в конфигурационный файл `test.kubeconfig` с помощью параметра `--kubeconfig=test.kubeconfig`.
 
 ## Получите уникальный идентификатор кластера {#k8s-id}
 
-Для обращения к кластеру Managed Service for Kubernetes используйте его уникальный идентификатор. Запишите его в переменную для использования в других командах.
-1. Узнайте уникальный идентификатор кластера Managed Service for Kubernetes:
+Для обращения к кластеру {{ managed-k8s-name }} используйте его уникальный идентификатор. Запишите его в переменную для использования в других командах.
+1. Узнайте уникальный идентификатор кластера {{ managed-k8s-name }}:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-     1. Нажмите на имя нужного кластера Managed Service for Kubernetes.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
 
-     В поле **Идентификатор** отобразится уникальный идентификатор кластера Managed Service for Kubernetes.
+     В поле **{{ ui-key.yacloud.common.id }}** отобразится уникальный идентификатор кластера {{ managed-k8s-name }}.
 
    - CLI {#cli}
 
@@ -60,7 +60,7 @@
 
     {% endlist %}
 
-1. Запишите уникальный идентификатор кластера Managed Service for Kubernetes в переменную:
+1. Запишите уникальный идентификатор кластера {{ managed-k8s-name }} в переменную:
 
    {% list tabs group=programming_language %}
 
@@ -80,14 +80,14 @@
 
 ## Подготовьте сертификат кластера {#prepare-cert}
 
-Сохраните сертификат кластера Managed Service for Kubernetes в файл `ca.pem`. С помощью этого сертификата подтверждается подлинность кластера Managed Service for Kubernetes.
+Сохраните сертификат кластера {{ managed-k8s-name }} в файл `ca.pem`. С помощью этого сертификата подтверждается подлинность кластера {{ managed-k8s-name }}.
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
   Выполните команду, которая:
-  * Получает информацию о кластере Managed Service for Kubernetes в формате JSON.
+  * Получает информацию о кластере {{ managed-k8s-name }} в формате JSON.
   * Оставляет только информацию о сертификате и убирает лишние кавычки из содержимого сертификата.
   * Убирает лишние символы из содержимого сертификата.
   * Сохраняет сертификат в файл `ca.pem`.
@@ -100,13 +100,13 @@
 
 - PowerShell {#powershell}
 
-  1. Получите подробную информацию о кластере Managed Service for Kubernetes в формате JSON и сохраните ее в переменную `$CLUSTER`:
+  1. Получите подробную информацию о кластере {{ managed-k8s-name }} в формате JSON и сохраните ее в переменную `$CLUSTER`:
 
      ```shell script
      $CLUSTER = yc managed-kubernetes cluster get --id $CLUSTER_ID --format json | ConvertFrom-Json
      ```
 
-  1. Получите сертификат кластера Managed Service for Kubernetes и сохраните его в файл `ca.pem`:
+  1. Получите сертификат кластера {{ managed-k8s-name }} и сохраните его в файл `ca.pem`:
 
      ```shell script
      $CLUSTER.master.master_auth.cluster_ca_certificate | Set-Content ca.pem
@@ -116,14 +116,14 @@
 
 ## Создайте объект ServiceAccount {#create-sa}
 
-Создайте объект `ServiceAccount` для взаимодействия с API Kubernetes внутри кластера Managed Service for Kubernetes.
+Создайте объект `ServiceAccount` для взаимодействия с API {{ k8s }} внутри кластера {{ managed-k8s-name }}.
 1. Сохраните следующую спецификацию для создания объекта `ServiceAccount` и секрета для него в YAML-файл с названием `sa.yaml`.
 
-   Подробную спецификацию объекта `ServiceAccount` читайте в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
+   Подробную спецификацию объекта `ServiceAccount` читайте в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/authentication-resources/service-account-v1/).
 
    {% list tabs %}
 
-   - Версия Kubernetes 1.24 и выше
+   - Версия {{ k8s }} 1.24 и выше
 
      ```yaml
      apiVersion: v1
@@ -155,7 +155,7 @@
          kubernetes.io/service-account.name: "admin-user"
      ```
 
-   - Версия Kubernetes 1.23 и ниже
+   - Версия {{ k8s }} 1.23 и ниже
 
      ```yaml
      apiVersion: v1
@@ -188,7 +188,7 @@
 
 ## Подготовьте токен объекта ServiceAccount {#prepare-token}
 
-Токен необходим для аутентификации объекта `ServiceAccount` в кластере Managed Service for Kubernetes.
+Токен необходим для аутентификации объекта `ServiceAccount` в кластере {{ managed-k8s-name }}.
 
 {% list tabs group=programming_language %}
 
@@ -229,19 +229,19 @@
 
 ## Получите IP-адрес кластера {#get-cluster-ip}
 
-Получите [IP-адрес](../../../vpc/concepts/address.md) кластера Managed Service for Kubernetes и добавьте его в переменную `MASTER_ENDPOINT` для дальнейшего использования.
+Получите [IP-адрес](../../../vpc/concepts/address.md) кластера {{ managed-k8s-name }} и добавьте его в переменную `MASTER_ENDPOINT` для дальнейшего использования.
 
 {% list tabs group=programming_language %}
 
 - Bash {#bash}
 
   Выполните команду, которая:
-  * Получает в формате JSON информацию о кластере Managed Service for Kubernetes по его уникальному идентификатору.
-  * Оставляет только IP-адрес кластера Managed Service for Kubernetes.
+  * Получает в формате JSON информацию о кластере {{ managed-k8s-name }} по его уникальному идентификатору.
+  * Оставляет только IP-адрес кластера {{ managed-k8s-name }}.
   * Убирает лишние кавычки из содержимого.
   * Записывает IP-адрес в переменную `MASTER_ENDPOINT`.
 
-  Для подключения к API кластера Managed Service for Kubernetes из интернета (вне Yandex Cloud).
+  Для подключения к API кластера {{ managed-k8s-name }} из интернета (вне {{ yandex-cloud }}).
 
   ```bash
   MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
@@ -249,7 +249,7 @@
     jq -r .master.endpoints.external_v4_endpoint)
   ```
 
-  Для подключения к API кластера Managed Service for Kubernetes для подключения к [мастеру](../../concepts/index.md#master) из [облачных сетей](../../../vpc/concepts/network.md#network).
+  Для подключения к API кластера {{ managed-k8s-name }} для подключения к [мастеру](../../concepts/index.md#master) из [облачных сетей](../../../vpc/concepts/network.md#network).
 
   ```bash
   MASTER_ENDPOINT=$(yc managed-kubernetes cluster get --id $CLUSTER_ID \
@@ -259,13 +259,13 @@
 
 - PowerShell {#powershell}
 
-  Выполните команду для подключения к API кластера Managed Service for Kubernetes из интернета (вне Yandex Cloud):
+  Выполните команду для подключения к API кластера {{ managed-k8s-name }} из интернета (вне {{ yandex-cloud }}):
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.external_v4_endpoint
   ```
 
-  Для подключения к API кластера Managed Service for Kubernetes из облачных сетей выполните команду:
+  Для подключения к API кластера {{ managed-k8s-name }} из облачных сетей выполните команду:
 
   ```shell script
   $MASTER_ENDPOINT = $CLUSTER.master.endpoints.internal_v4_endpoint
@@ -275,7 +275,7 @@
 
 ## Дополните файл конфигурации {#create-conf-file}
 
-1. Добавьте сведения о кластере Managed Service for Kubernetes в файл конфигурации.
+1. Добавьте сведения о кластере {{ managed-k8s-name }} в файл конфигурации.
 
    {% list tabs group=programming_language %}
 

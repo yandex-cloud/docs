@@ -18,7 +18,9 @@ Returns the specified YandexPassportUserAccount resource.
 ||Field | Description ||
 || login | **string**
 
-Required field. Login of the YandexPassportUserAccount resource to return. ||
+Required field. Login of the YandexPassportUserAccount resource to return.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## UserAccount {#yandex.cloud.iam.v1.UserAccount}

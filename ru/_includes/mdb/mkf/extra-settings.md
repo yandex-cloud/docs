@@ -14,7 +14,7 @@
 
    * Чтобы использовать созданный ранее ключ, выберите его в поле **{{ ui-key.yacloud.compute.disk-form.label_disk-kms-key }}**.
 
-   Подробнее о шифровании дисков см. в разделе [Хранилище](../../../managed-kafka/concepts/storage.md#disk-encryption).
+   Подробнее о шифровании дисков читайте в разделе [Хранилище](../../../managed-kafka/concepts/storage.md#disk-encryption).
 
    {% note warning %}
    

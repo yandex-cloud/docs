@@ -1,4 +1,4 @@
-# Правила тарификации для Yandex Audit Trails
+# Правила тарификации для {{ at-full-name }}
 
 Чтобы рассчитать стоимость использования сервиса, ознакомьтесь с тарифами в этом разделе.
 
@@ -18,17 +18,15 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга                                             | Цена              | Ед. тарификации  | Действует с  | Действует до |
-| -------------------------------------------------- | ----------------- | ---------------- | ------------ | ------------ |
-| Audit Trails. Доставка событий уровня конфигурации | Не тарифицируется | 100 тыс. событий | 14 июля 2023 | —            |
-| Audit Trails. Доставка событий уровня сервисов     | 39,52 ₽           | 100 тыс. событий | 1 мая 2026   | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
@@ -45,15 +43,15 @@
 
 - Стоимость в рублях {#prices-rub}
 
-  > (17&nbsp;000 / 100&nbsp;000) × 39,52 ₽ = 0,17 × 39,52 ₽ = 6,7184 ₽
+  > (17&nbsp;000 / 100&nbsp;000) × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = {% calc [currency=RUB] 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
   >
-  > Итого: 6,7184 ₽
+  > Итого: {% calc [currency=RUB] 0,17 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
 
 - Стоимость в тенге {#prices-kzt}
 
-  > (17&nbsp;000 / 100&nbsp;000) × 197,6 ₸ = 0,17 × 197,6 ₸ = 33,592 ₸
+  > (17&nbsp;000 / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
   > 
-  > Итого: 33,592 ₸
+  > Итого: {% calc [currency=KZT] 0,17 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
 
 {% endlist %}
 
@@ -66,8 +64,8 @@
 
 ##### Пример 1
 
-  Расчет стоимости доставки событий получения содержимого секрета Yandex Lockbox, зашифрованного ключом шифрования Yandex Key Management Service:
-  * При каждом обращении к секрету доставляются два события: событие [доступа к содержимому секрета](concepts/events-data-plane.md#lockbox) Lockbox и событие [расшифрования](concepts/events-data-plane.md#kms) содержимого секрета с помощью ключа KMS.
+  Расчет стоимости доставки событий получения содержимого секрета {{ lockbox-full-name }}, зашифрованного ключом шифрования {{ kms-full-name }}:
+  * При каждом обращении к секрету доставляются два события: событие [доступа к содержимому секрета](concepts/events-data-plane.md#lockbox) {{ lockbox-short-name }} и событие [расшифрования](concepts/events-data-plane.md#kms) содержимого секрета с помощью ключа {{ kms-short-name }}.
   * Количество обращений к секрету: 7 000.
 
   
@@ -75,28 +73,28 @@
 
   - Расчет в рублях {#prices-rub}
 
-    > (2 × 7&nbsp;000 / 100&nbsp;000) × 39,52 ₽ = 0,14 × 39,52 ₽ = 5,5328 ₽
+    > (2 × 7&nbsp;000 / 100&nbsp;000) × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = 0,14 × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = {% calc [currency=RUB] 0,14 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
     >
-    > Итого: 5,5328 ₽
+    > Итого: {% calc [currency=RUB] 0,14 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
     
     Где:
     
     * 2 — количество доставляемых событий при одном обращении к секрету.
     * 7&nbsp;000 — количество обращений к секрету.
-    * 39,52 ₽ — цена за доставку 100&nbsp;000 событий.
+    * {{ sku|RUB|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
     * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.
 
   - Расчет в тенге {#prices-kzt}
 
-    > (2 × 7&nbsp;000 / 100&nbsp;000) × 197,6 ₸ = 0,14 × 197,6 ₸ = 27,664 ₸
+    > (2 × 7&nbsp;000 / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
     >
-    > Итого: 27,664 ₸
+    > Итого: {% calc [currency=KZT] 0,14 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
     
     Где:
     
     * 2 — количество доставляемых событий при одном обращении к секрету.
     * 7&nbsp;000 — количество обращений к секрету.
-    * 197,6 ₸ — цена за доставку 100&nbsp;000 событий.
+    * {{ sku|KZT|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
     * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.
 
   {% endlist %}
@@ -108,7 +106,7 @@
 
 ##### Пример 2
 
-  Расчет стоимости доставки событий при работе с бакетами Yandex Object Storage.
+  Расчет стоимости доставки событий при работе с бакетами {{ objstorage-full-name }}.
 
   Общее количество доставленных событий: 25 000. Из них:
   * Количество событий [уровня конфигурации](concepts/events.md#objstorage), переданных при работе с бакетами: 1 000.
@@ -122,28 +120,28 @@
 
   - Расчет в рублях {#prices-rub}
 
-    > ((25&nbsp;000 - 1&nbsp;000) / 100&nbsp;000) × 39,52 ₽ = 0,24 × 39,52 ₽ = 9,4848 ₽
+    > ((25&nbsp;000 - 1&nbsp;000) / 100&nbsp;000) × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = 0,24 × {{ sku|RUB|audit-trails.events.data_plane.v1|string }} = {% calc [currency=RUB] 0,24 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
     >
-    > Итого: 9,4848 ₽
+    > Итого: {% calc [currency=RUB] 0,24 × {{ sku|RUB|audit-trails.events.data_plane.v1|number }} %}
     
     Где:
     
-    * 25&nbsp;000 — общее количество доставленных событий Object Storage.
+    * 25&nbsp;000 — общее количество доставленных событий {{ objstorage-name }}.
     * 1&nbsp;000 — количество доставленных событий уровня конфигурации, которые не тарифицируются.
-    * 39,52 ₽ — цена за доставку 100&nbsp;000 событий.
+    * {{ sku|RUB|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
     * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.
 
   - Расчет в тенге {#prices-kzt}
 
-    > ((25&nbsp;000 - 1&nbsp;000) / 100&nbsp;000) × 197,6 ₸ = 0,24 × 197,6 ₸ = 47,424 ₸
+    > ((25&nbsp;000 - 1&nbsp;000) / 100&nbsp;000) × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|string }} = {% calc [currency=KZT] 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
     >
-    > Итого: 47,424 ₸
+    > Итого: {% calc [currency=KZT] 0,24 × {{ sku|KZT|audit-trails.events.data_plane.v1|number }} %}
     
     Где:
     
-    * 25&nbsp;000 — общее количество доставленных событий Object Storage.
+    * 25&nbsp;000 — общее количество доставленных событий {{ objstorage-name }}.
     * 1&nbsp;000 — количество доставленных событий уровня конфигурации, которые не тарифицируются.
-    * 197,6 ₸ — цена за доставку 100&nbsp;000 событий.
+    * {{ sku|KZT|audit-trails.events.data_plane.v1|string }} — цена за доставку 100&nbsp;000 событий.
     * 100&nbsp;000 — делим, чтобы привести количество событий к единице тарификации.
 
   {% endlist %}

@@ -1,6 +1,6 @@
 # Подписывание запросов
 
-Многие запросы к Yandex Cloud Postbox аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке. Yandex Cloud Postbox поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Она используется в заголовке `Authorization`.
+Многие запросы к {{ postbox-name }} аутентифицируются на стороне сервиса, поэтому запросы нужно подписывать при отправке. {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). Она используется в заголовке `Authorization`.
 
 {% note tip %}
 
@@ -58,7 +58,7 @@
    Пример: 
 
    ```
-   host:postbox.cloud.yandex.net
+   host:{{ postbox-host }}
    x-amz-date:20240920T091646Z
    ```
 
@@ -88,7 +88,7 @@
 ```text
 "AWS4-HMAC-SHA256" + "\n" +
 "<время_в_формате_ISO_8601>" + "\n" +
-"<дата_в_формате_YYYYMMDD>/ru-central1/ses/aws4_request" + "\n" +
+"<дата_в_формате_YYYYMMDD>/{{ region-id }}/ses/aws4_request" + "\n" +
 Hex(SHA256Hash(<канонический_запрос>))
 ```
 
@@ -110,7 +110,7 @@ Hex(SHA256Hash(<канонический_запрос>))
 1. Закодируйте регион с помощью полученного на предыдущем шаге ключа `DateKey`:
 
     ```
-    RegionKey = sign(DateKey, "ru-central1")
+    RegionKey = sign(DateKey, "{{ region-id }}")
     ```
 
 1. Закодируйте сервис с помощью полученного на предыдущем шаге ключа `RegionKey`:
@@ -145,7 +145,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
    ```bash
    aws sesv2 create-configuration-set \
-      --endpoint-url=https://postbox.cloud.yandex.net \
+      --endpoint-url={{ postbox-endpoint }} \
       --profile default \
       --configuration-set-name <имя_конфигурации> \
       --debug
@@ -166,7 +166,7 @@ signature = Hex(sign(SigningKey, StringToSign))
    /v2/email/configuration-sets
 
    content-type:application/json
-   host:postbox.cloud.yandex.net
+   host:{{ postbox-host }}
    x-amz-date:20240920T091646Z
 
    content-type;host;x-amz-date
@@ -174,7 +174,7 @@ signature = Hex(sign(SigningKey, StringToSign))
    2024-09-02 13:16:46,063 - MainThread - botocore.auth - DEBUG - StringToSign:
    AWS4-HMAC-SHA256
    20240920T091646Z
-   20240902/ru-central1/ses/aws4_request
+   20240902/{{ region-id }}/ses/aws4_request
    bcbaab5d2a5f44555276ec63a07e4141a04d72b886b419fe280ca07d********
    2024-09-02 13:16:46,063 - MainThread - botocore.auth - DEBUG - Signature:
    d88f587982912662d886c77de0c110aad8fa2899bc2e733ff4f03f7e********
@@ -188,7 +188,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 Сформируйте заголовок `Authorization` по следующему формату:
 
 ```text
-Authorization: AWS4-HMAC-SHA256 Credential=<идентификатор_статического_ключа>/<дата>/ru-central1/ses/aws4_request, SignedHeaders=<подписанные_заголовки>, Signature=<подпись>
+Authorization: AWS4-HMAC-SHA256 Credential=<идентификатор_статического_ключа>/<дата>/{{ region-id }}/ses/aws4_request, SignedHeaders=<подписанные_заголовки>, Signature=<подпись>
 ```
 
 Используйте такой заголовок, если обращаетесь к API напрямую, без [AWS CLI](../tools/aws-cli.md) и приложений.

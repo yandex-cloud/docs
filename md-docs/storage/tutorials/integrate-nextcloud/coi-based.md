@@ -1,13 +1,13 @@
-# Развертывание Nextcloud на виртуальной машине Yandex Compute Cloud из образа Container Optimized Image в интеграции с Object Storage
+# Развертывание Nextcloud на виртуальной машине {{ compute-full-name }} из образа {{ coi }} в интеграции с {{ objstorage-name }}
 
-В этом руководстве вы развернете решение Nextcloud на [виртуальной машине](../../../compute/concepts/vm.md) Compute Cloud с помощью образа [Container Optimized Image](../../../cos/concepts/index.md) и подключите к нему [бакет](../../concepts/bucket.md) Object Storage. Для реализации этого решения вам потребуется [доменное имя](https://ru.wikipedia.org/wiki/Доменное_имя), по которому будет осуществляться доступ к ресурсам в Nextcloud.
+В этом руководстве вы развернете решение Nextcloud на [виртуальной машине](../../../compute/concepts/vm.md) {{ compute-name }} с помощью образа [{{ coi }}](../../../cos/concepts/index.md) и подключите к нему [бакет](../../concepts/bucket.md) {{ objstorage-name }}. Для реализации этого решения вам потребуется [доменное имя](https://ru.wikipedia.org/wiki/Доменное_имя), по которому будет осуществляться доступ к ресурсам в Nextcloud.
 
-Чтобы развернуть Nextcloud с интеграцией бакета Object Storage на ВМ с помощью образа Container Optimized Image:
+Чтобы развернуть Nextcloud с интеграцией бакета {{ objstorage-name }} на ВМ с помощью образа {{ coi }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте и настройте облачную сеть](#setup-network).
 1. [Создайте сервисный аккаунт и статический ключ доступа](#setup-sa).
-1. [Создайте бакет Object Storage](#create-bucket).
+1. [Создайте бакет {{ objstorage-name }}](#create-bucket).
 1. [Создайте виртуальную машину](#create-vm).
 1. [Создайте ресурсную A-запись в публичной зоне DNS вашего домена](#create-a-record).
 1. [Настройте Nextcloud на виртуальной машине](#setup-nextcloud).
@@ -17,21 +17,21 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость предлагаемого решения входят: 
-* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md));
-* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md));
-* плата за [хранение данных](../../concepts/bucket.md) в Object Storage и [операции](../../operations/index.md) с ними (см. [тарифы Yandex Object Storage](../../pricing.md));
-* при использовании Yandex Cloud DNS плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* плата за [диски](../../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md));
+* плата за использование [публичных IP-адресов](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
+* плата за [хранение данных](../../concepts/bucket.md) в {{ objstorage-name }} и [операции](../../operations/index.md) с ними (см. [тарифы {{ objstorage-full-name }}](../../pricing.md));
+* при использовании {{ dns-full-name }} плата за [DNS-зоны](../../../dns/concepts/dns-zone.md#public-zones) и публичные DNS-запросы (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
 
 ## Создайте и настройте облачную сеть {#setup-network}
 
@@ -41,11 +41,11 @@
    
    - Консоль управления {#console}
    
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-     1. В правом верхнем углу нажмите **Создать сеть**.
-     1. В поле **Имя** укажите имя сети `nextcloud-network`.
-     1. Убедитесь, что опция **Создать подсети** включена, и нажмите **Создать сеть**.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети `nextcloud-network`.
+     1. Убедитесь, что опция **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** включена, и нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    
    {% endlist %}
 1. Создайте [группу безопасности](../../../vpc/concepts/security-groups.md), разрешающую необходимый для работы инфраструктуры Nextcloud трафик:
@@ -54,27 +54,27 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-      1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **Группы безопасности**. 
-      1. Нажмите **Создать группу безопасности**.
-      1. В поле **Имя** укажите имя `nextcloud-sg`.
-      1. В поле **Сеть** выберите созданную ранее сеть `nextcloud-network`.
-      1. В блоке **Правила** [создайте](../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. На панели слева выберите ![shield](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
+      1. Нажмите **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** укажите имя `nextcloud-sg`.
+      1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** выберите созданную ранее сеть `nextcloud-network`.
+      1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** [создайте](../../../vpc/operations/security-group-add-rule.md) следующие правила для управления трафиком:
 
-          | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки |
+          | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
           | --- | --- | --- | --- | --- | --- |
-          | Входящий | `http`           | `8080` | `TCP` | `CIDR` | `0.0.0.0/0` |
-          | Входящий | `https`           | `443` | `TCP` | `CIDR` | `0.0.0.0/0` |
-          | Входящий | `ssh`            | `22`   | `TCP`  | `CIDR` | `0.0.0.0/0` |
-          | Исходящий | `any`           | `Весь` | `Любой` | `CIDR` | `0.0.0.0/0` |
-      1. Нажмите **Создать**.
+          | Входящий | `http`           | `8080` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+          | Входящий | `https`           | `443` | `TCP` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+          | Входящий | `ssh`            | `22`   | `TCP`  | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+          | Исходящий | `any`           | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+      1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}
 
 ## Создайте сервисный аккаунт и статический ключ доступа {#setup-sa}
 
-Чтобы обеспечить доступ из Nextcloud к бакету Object Storage, создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и [статический ключ доступа](../../../iam/concepts/authorization/access-key.md).
+Чтобы обеспечить доступ из Nextcloud к бакету {{ objstorage-name }}, создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) и [статический ключ доступа](../../../iam/concepts/authorization/access-key.md).
 
 1. Создайте сервисный аккаунт:
 
@@ -82,12 +82,12 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Укажите имя сервисного аккаунта — `nextcloud-sa`.
-      1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../../iam/roles-reference.md#editor) `editor`.
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../../iam/roles-reference.md#editor) `editor`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
     {% endlist %}
 
@@ -97,11 +97,11 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
-      1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
-      1. Нажмите кнопку **Создать**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите созданный ранее сервисный аккаунт `nextcloud-sa`.
+      1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
       1. Сохраните идентификатор и секретный ключ.
 
           {% note alert %}
@@ -112,20 +112,20 @@
 
     {% endlist %}
 
-## Создайте бакет Object Storage {#create-bucket}
+## Создайте бакет {{ objstorage-name }} {#create-bucket}
 
-Создайте бакет Object Storage, который вы будете подключать к Nextcloud:
+Создайте бакет {{ objstorage-name }}, который вы будете подключать к Nextcloud:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Справа сверху нажмите **Создать бакет**.
-  1. В поле **Имя** укажите имя бакета. Например: `my-nextcloud-bucket`. Имя бакета должно быть [уникальным](../../concepts/bucket.md#naming) в пределах Yandex Object Storage.
-  1. В поле **Макс. размер** задайте нужный размер бакета или включите опцию **Без ограничения**.
-  1. Значения остальных параметров оставьте без изменений и нажмите **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Справа сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета. Например: `my-nextcloud-bucket`. Имя бакета должно быть [уникальным](../../concepts/bucket.md#naming) в пределах {{ objstorage-full-name }}.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** задайте нужный размер бакета или включите опцию **{{ ui-key.yacloud.storage.bucket.settings.label_size-limit-disabled }}**.
+  1. Значения остальных параметров оставьте без изменений и нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -137,45 +137,45 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
-  1. В блоке **Образ загрузочного диска** перейдите на вкладку **Container Solution** и нажмите кнопку **Настроить**. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**. В открывшемся окне:
 
-      1. Перейдите на вкладку **Docker-compose** и в открывшееся поле скопируйте [спецификацию docker compose](https://github.com/nextcloud/all-in-one/blob/main/compose.yaml) `compose.yaml` из официального репозитория Nextcloud на GitHub.
-      1. Нажмите кнопку **Применить**.
-  1. В блоке **Расположение** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет создана ваша виртуальная машина.
-  1. В блоке **Диски и файловые хранилища** задайте размер диска не менее `40 ГБ`.
-  1. В блоке **Вычислительные ресурсы** выберите конфигурацию `2 vCPU 4 ГБ RAM`.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.value_docker-compose-yaml }}** и в открывшееся поле скопируйте [спецификацию docker compose](https://github.com/nextcloud/all-in-one/blob/main/compose.yaml) `compose.yaml` из официального репозитория Nextcloud на GitHub.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../../overview/concepts/geo-scope.md), в которой будет создана ваша виртуальная машина.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер диска не менее `40 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию `2 {{ ui-key.yacloud.component.compute.resources.field_cores }} 4 {{ ui-key.yacloud.common.units.label_gigabyte }} {{ ui-key.yacloud.component.compute.resources.field_memory }}`.
 
       Указанной конфигурации будет достаточно для одновременной работы до 10 пользователей. Если активных пользователей решения будет больше, увеличьте объем доступных виртуальной машине ресурсов.
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **Подсеть** выберите сеть `nextcloud-network` и подсеть в зоне доступности создаваемой виртуальной машины.
-      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный публичный IP-адрес из пула Yandex Cloud.
-      * В поле **Группы безопасности** выберите группу безопасности `nextcloud-sg`.
-  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть `nextcloud-network` и подсеть в зоне доступности создаваемой виртуальной машины.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный публичный IP-адрес из пула {{ yandex-cloud }}.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** выберите группу безопасности `nextcloud-sg`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-      * В поле **Логин** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например: `yc-user`. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
-  1. В блоке **Общая информация** задайте имя ВМ: `nextcloud-vm`.
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `nextcloud-vm`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 {% endlist %}
 
@@ -189,17 +189,17 @@
 
 Для выполнения этого шага вам понадобится зарегистрированное доменное имя. Например: `example.com`.
 
-Для того чтобы запросы, поступающие к вашему домену, направлялись на созданную ранее виртуальную машину, создайте в вашей [публичной зоне DNS](../../../dns/concepts/dns-zone.md#public-zones) ресурсную [A-запись](../../../dns/concepts/resource-record.md#a), указывающую на публичный IP-адрес виртуальной машины. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис [Yandex Cloud DNS](../../../dns/index.md) или сторонний DNS-провайдер.
+Для того чтобы запросы, поступающие к вашему домену, направлялись на созданную ранее виртуальную машину, создайте в вашей [публичной зоне DNS](../../../dns/concepts/dns-zone.md#public-zones) ресурсную [A-запись](../../../dns/concepts/resource-record.md#a), указывающую на публичный IP-адрес виртуальной машины. Порядок действий на этом шаге будет зависеть от того, управляет вашим доменом сервис [{{ dns-full-name }}](../../../dns/index.md) или сторонний DNS-провайдер.
 
-{% cut "**Если вашим доменом управляет сервис Yandex Cloud DNS**" %}
+{% cut "**Если вашим доменом управляет сервис {{ dns-full-name }}**" %}
  
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
-  1. Выберите нужную зону DNS, нажмите кнопку **Создать запись** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. Выберите нужную зону DNS, нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}** и в открывшемся окне:
 
       {% note info %}
 
@@ -207,12 +207,12 @@
 
       {% endnote %}
 
-      1. В поле **Имя** выберите `Создать поддомен` и введите `nextcloud`, чтобы создать поддомен (например, `nextcloud.example.com`) в вашей доменной зоне.
-      1. В поле **Тип** выберите `A`.
-      1. В поле **Значение** укажите публичный IP-адрес виртуальной машины.
+      1. В поле **{{ ui-key.yacloud.common.name }}** выберите `{{ ui-key.yacloud.dns.label_create-subdomain }}` и введите `nextcloud`, чтобы создать поддомен (например, `nextcloud.example.com`) в вашей доменной зоне.
+      1. В поле **{{ ui-key.yacloud.common.type }}** выберите `A`.
+      1. В поле **{{ ui-key.yacloud.dns.label_records }}** укажите публичный IP-адрес виртуальной машины.
 
-          Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления](https://console.yandex.cloud) на странице с информацией о ВМ в блоке **Сеть** в поле **Публичный IPv4-адрес**.
-      1. Значения других параметров оставьте без изменения и нажмите кнопку **Создать**.
+          Узнать публичный IP-адрес виртуальной машины вы можете в [консоли управления]({{ link-console-main }}) на странице с информацией о ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}**.
+      1. Значения других параметров оставьте без изменения и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -230,7 +230,7 @@
 
 ## Настройте Nextcloud на виртуальной машине {#setup-nextcloud}
 
-В рамках этого руководства вы выполните базовую настройку вашего экземпляра Nextcloud и интеграцию в Nextcloud бакета Object Storage.
+В рамках этого руководства вы выполните базовую настройку вашего экземпляра Nextcloud и интеграцию в Nextcloud бакета {{ objstorage-name }}.
 
 ### Выполните базовую настройку Nextcloud {#initialize}
 
@@ -258,7 +258,7 @@
 1. После запуска всех контейнеров в окне браузера в поле **Initial Nextcloud password:** отобразится пароль администратора вашего экземпляра Nextcloud. Сохраните этот пароль и нажмите кнопку **Open your Nextcloud**.
 1. В окне аутентификации введите имя пользователя `admin` и пароль, полученный на предыдущем шаге. Затем нажмите кнопку **Log in**.
 
-### Настройте интеграцию бакета Object Storage {#integrate-bucket}
+### Настройте интеграцию бакета {{ objstorage-name }} {#integrate-bucket}
 
 1. Откройте меню управления приложениями. Для этого в правом верхнем углу экрана нажмите на значок пользователя и в открывшемся контекстном меню выберите ![plus](../../../_assets/console-icons/plus.svg) **Apps**.
 1. В открывшемся окне на панели слева выберите ![person](../../../_assets/console-icons/person.svg) **Your apps**.
@@ -266,14 +266,14 @@
 
     При необходимости для подтверждения действия во всплывающем окне введите ваш пароль администратора Nextcloud.
 1. Откройте основное меню настроек. Для этого в правом верхнем углу экрана нажмите на значок пользователя и в открывшемся контекстном меню выберите ![admin-icon](../../../_assets/tutorials/integrate-nextcloud/admin-icon.svg) **Administration settings**.
-1. В открывшемся окне на панели слева в блоке **Administration** выберите ![app-dark-icon](../../../_assets/tutorials/integrate-nextcloud/app-dark-icon.svg) **External storage** и в открывшемся окне в блоке **External storage** задайте настройки интеграции с Object Storage:
+1. В открывшемся окне на панели слева в блоке **Administration** выберите ![app-dark-icon](../../../_assets/tutorials/integrate-nextcloud/app-dark-icon.svg) **External storage** и в открывшемся окне в блоке **External storage** задайте настройки интеграции с {{ objstorage-name }}:
 
     1. В секции **External storage** выберите `Amazon S3`.
     1. В секции **Authentication** выберите `Access key`.
     1. В секции **Configuration**:
 
         * В поле **Bucket** укажите имя созданного ранее бакета. Например: `my-nextcloud-bucket`.
-        * В поле **Hostname** укажите `storage.yandexcloud.net`.
+        * В поле **Hostname** укажите `{{ s3-storage-host }}`.
         * В поле **Port** укажите `443`.
         * В поле **Access key** вставьте идентификатор созданного ранее статического ключа доступа.
         * В поле **Secret key** вставьте секретный ключ созданного ранее статического ключа доступа.
@@ -284,7 +284,7 @@
 
 ## Протестируйте работу решения {#test}
 
-Чтобы проверить работу интеграции Object Storage с Nextcloud:
+Чтобы проверить работу интеграции {{ objstorage-name }} с Nextcloud:
 
 1. На вашем локальном компьютере откройте браузер и в адресной строке введите имя домена, на котором развернут ваш экземпляр Nextcloud:
 
@@ -298,14 +298,14 @@
 1. Выберите файл на локальном компьютере и загрузите его в хранилище.
 
     Загруженный файл отобразится в хранилище `AmazonS3` Nextcloud.
-1. В сервисе Yandex Object Storage [убедитесь](../../operations/objects/list.md), что файл был загружен в бакет.
+1. В сервисе {{ objstorage-full-name }} [убедитесь](../../operations/objects/list.md), что файл был загружен в бакет.
 
-На этом завершено развертывание экземпляра решения Nextcloud и его интеграция с хранилищем Object Storage.
+На этом завершено развертывание экземпляра решения Nextcloud и его интеграция с хранилищем {{ objstorage-name }}.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
-1. Удалите ресурсную запись [в Yandex Cloud DNS](../../../dns/operations/resource-record-delete.md) или в личном кабинете вашего регистратора доменных имен.
-1. Если вы создавали публичную зону DNS, удалите ее в [Yandex Cloud DNS](../../../dns/operations/zone-delete.md) или в личном кабинете вашего регистратора доменных имен.
+1. Удалите ресурсную запись [в {{ dns-full-name }}](../../../dns/operations/resource-record-delete.md) или в личном кабинете вашего регистратора доменных имен.
+1. Если вы создавали публичную зону DNS, удалите ее в [{{ dns-full-name }}](../../../dns/operations/zone-delete.md) или в личном кабинете вашего регистратора доменных имен.
 1. [Удалите](../../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
 1. [Удалите](../../operations/objects/delete.md) созданные в бакете объекты, затем [удалите](../../operations/buckets/delete.md) сам бакет.
 1. [Удалите](../../../iam/operations/sa/delete.md) сервисный аккаунт.
@@ -313,5 +313,5 @@
 
 #### См. также {#see-also}
 
-* [Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Yandex Compute Cloud в интеграции с Object Storage](fault-tolerant.md)
-* [Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Yandex Compute Cloud в интеграции с Object Storage с помощью Terraform](terraform.md)
+* [{#T}](fault-tolerant.md)
+* [{#T}](terraform.md)

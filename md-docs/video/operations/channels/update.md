@@ -2,12 +2,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
-  1. В строке нужного канала нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Редактировать**.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
+  1. В строке нужного канала нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_video.common.action_edit }}**.
   1. Измените имя и описание канала.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
 
 - API {#api}
 
@@ -17,4 +17,4 @@
 
 #### См. также {#see-also}
 
-[Загрузить видео](../video/upload.md)
+[{#T}](../video/upload.md)

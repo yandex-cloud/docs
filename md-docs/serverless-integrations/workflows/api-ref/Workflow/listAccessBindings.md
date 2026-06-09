@@ -5,7 +5,7 @@ Lists existing access bindings for the specified Workflow.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{resourceId}:listAccessBindings
+GET https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{resourceId}:listAccessBindings
 ```
 
 ## Path parameters

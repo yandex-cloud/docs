@@ -1,15 +1,19 @@
 # Отказаться от аренды сервера
 
-После отказа от аренды сервер проработает до конца оплаченного периода, а затем будет удален.
+{% note warning %}
+
+Отказ от аренды отменяет только дальнейшее автоматическое продление. Прервать аренду в течение текущего оплаченного периода нельзя — сервер проработает до конца этого периода, а затем будет удален.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Выключить автопродление**.
-  1. В открывшемся окне нажмите кнопку **Выключить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.action_stop-prolongation-server }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.baremetal.action_stop-prolongation-server-dialog }}**.
 
 - API {#api}
 

@@ -2,15 +2,15 @@
 
 ## Список доступных голосов {#voices}
 
-В SpeechKit Hybrid доступны [премиум-голоса](https://aistudio.yandex.ru/docs/ru/speechkit/tts/voices#premium) и [Brand Voice](https://aistudio.yandex.ru/docs/ru/speechkit/tts/brand-voice/).
+В {{ sk-hybrid-name }} доступны [премиум-голоса]({{ link-docs-ai }}{{ speechkit-slug }}/tts/voices#premium) и [Brand Voice]({{ link-docs-ai }}{{ speechkit-slug }}/tts/brand-voice/).
 
 ## Перед началом работы {#before-you-begin}
 
 1. Установите на сервер [Docker Engine](https://docs.docker.com/engine/install/) и [Docker Compose](https://docs.docker.com/compose/install/).
 
-1. [Аутентифицируйтесь](../../container-registry/operations/authentication.md) в Container Registry.
+1. [Аутентифицируйтесь]({{ link-docs }}/container-registry/operations/authentication) в Container Registry.
 
-Рекомендуемую конфигурацию оборудования см. в разделе [Системные требования](../system-requirements.md).
+Рекомендуемую конфигурацию оборудования см. в разделе [{#T}](../system-requirements.md).
 
 ## Установка и настройка сервиса синтеза речи {#installing}
 
@@ -30,7 +30,7 @@
    docker-compose pull
    ```
 
-1. Запустите сервис SpeechKit:
+1. Запустите сервис {{ speechkit-name }}:
 
    ```bash
    docker-compose up -d

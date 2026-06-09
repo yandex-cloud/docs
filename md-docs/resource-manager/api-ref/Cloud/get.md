@@ -1,13 +1,12 @@
 # Resource Manager API, REST: Cloud.Get
 
 Returns the specified Cloud resource.
-
 To get the list of available Cloud resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/clouds/{cloudId}
+GET https://resource-manager.{{ api-host }}/resource-manager/v1/clouds/{cloudId}
 ```
 
 ## Path parameters

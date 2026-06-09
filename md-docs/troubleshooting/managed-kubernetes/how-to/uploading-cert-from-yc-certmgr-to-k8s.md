@@ -1,14 +1,14 @@
-# Как использовать сертификаты из Certificate Manager в балансировщиках нагрузки или в Managed Service for Kubernetes
+# Как использовать сертификаты из {{ certificate-manager-name }} в балансировщиках нагрузки или в {{ managed-k8s-name }}
 
 
 ## Описание сценария {#case-description}
 
-* Необходимо использовать сертификат, выпущенный в Certificate Manager для приложения, запущенного в кластере Managed Service for Kubernetes;
-* Необходимо получить сертификат, выпущенный в Certificate Manager для его загрузки в Managed Service for Kubernetes.
+* Необходимо использовать сертификат, выпущенный в {{ certificate-manager-name }} для приложения, запущенного в кластере {{ managed-k8s-name }};
+* Необходимо получить сертификат, выпущенный в {{ certificate-manager-name }} для его загрузки в {{ managed-k8s-name }}.
 
 ## Решение {#case-resolution}
 
-Сертификаты, выпущенные в Certificate Manager, не подгружаются автоматически в приложения, запущенные в кластерах Managed Service for Kubernetes, а также внутри Application Load Balancer и Network Load Balancer.
+Сертификаты, выпущенные в {{ certificate-manager-name }}, не подгружаются автоматически в приложения, запущенные в кластерах {{ managed-k8s-name }}, а также внутри {{ alb-name }} и {{ network-load-balancer-name }}.
 
 Однократно получить файл с цепочкой сертификатов в формате PEM вы можете с помощью команды:
 
@@ -16,12 +16,12 @@
 yc certificate-manager certificate content --id <CERTIFICATE_ID> --chain CERT_FILE_NAME_HERE.PEM
 ```
 
-Этот вариант не предусматривает автоматического обновления сертификата в веб-приложении при перевыпуске сертификата. Если сертификат требуется автоматически перевыпускать и загружать в ваше приложение, следует воспользоваться сценарием, описывающим установку Ingress-контроллера NGINX с сертификатом из Certificate Manager. Описание сценария и последовательность действий вы можете найти [по этой ссылке](../../../certificate-manager/tutorials/nginx-ingress-certificate-manager.md).
+Этот вариант не предусматривает автоматического обновления сертификата в веб-приложении при перевыпуске сертификата. Если сертификат требуется автоматически перевыпускать и загружать в ваше приложение, следует воспользоваться сценарием, описывающим установку Ingress-контроллера NGINX с сертификатом из {{ certificate-manager-name }}. Описание сценария и последовательность действий вы можете найти [по этой ссылке](../../../certificate-manager/tutorials/nginx-ingress-certificate-manager.md).
 
 ## Если ничего не получилось {#if-issue-still-persists}
 
-Если вышеописанные действия не помогли решить задачу, [создайте запрос в техническую поддержку](https://center.yandex.cloud/support). При создании запроса укажите следующую информацию:
+Если вышеописанные действия не помогли решить задачу, [создайте запрос в техническую поддержку]({{ link-console-support }}). При создании запроса укажите следующую информацию:
 
-1. Идентификатор сертификата в Certificate Manager.
-1. Идентификатор кластера Managed Service for Kubernetes, Application Load Balancer или Network Load Balancer.
+1. Идентификатор сертификата в {{ certificate-manager-name }}.
+1. Идентификатор кластера {{ managed-k8s-name }}, {{ alb-name }} или {{ network-load-balancer-name }}.
 1. Описание желаемого результата.

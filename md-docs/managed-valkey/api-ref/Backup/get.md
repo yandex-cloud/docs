@@ -1,13 +1,12 @@
 # Managed Service for Redis API, REST: Backup.Get
 
 Returns the specified Redis backup.
-
-To get the list of available Redis backups, make a [List](list.md#List) request.
+To get the list of available Redis backups, make a [List](../../../managed-redis/api-ref/Backup/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-redis/v1/backups/{backupId}
 ```
 
 ## Path parameters
@@ -17,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/backups/{backupId}
 || backupId | **string**
 
 Required field. ID of the Redis backup to return.
-To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request. ||
+To get the backup ID, use a [ClusterService.ListBackups](../../../managed-redis/api-ref/Cluster/listBackups#ListBackups) request. ||
 |#
 
 ## Response {#yandex.cloud.mdb.redis.v1.Backup}
@@ -39,19 +38,19 @@ To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.
 ```
 
 Description of a Redis backup. For more information, see
-the Managed Service for Redis [documentation](../../concepts/backup.md).
+the Managed Service for Redis [documentation](../../../managed-redis/concepts/backup).
 
 #|
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folderId | **string**
 
-ID of the folder that the backup belongs to. ||
+Required field. ID of the folder that the backup belongs to. ||
 || createdAt | **string** (date-time)
 
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was completed).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -62,10 +61,10 @@ To work with values in this field, use the APIs described in the
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 || sourceClusterId | **string**
 
-ID of the Redis cluster that the backup was created for. ||
+Required field. ID of the Redis cluster that the backup was created for. ||
 || startedAt | **string** (date-time)
 
-Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
+Required field. Start timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format
 (i.e. when the backup operation was started).
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from

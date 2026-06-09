@@ -6,7 +6,7 @@
 
 Также с помощью защищенных токенов можно задать доверенный IP-адрес, с которого будет разрешен доступ к CDN-ресурсу.
 
-Вы можете [включить](../operations/resources/enable-secure-token.md#enable-secure-token) для CDN-ресурса доступ по защищенному токену с помощью [консоли управления](https://console.yandex.cloud), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), [Terraform](../../terraform/resources/cdn_resource.md) или [API](../api-ref/Resource/update.md). Для вступления изменений в силу может потребоваться до 15 минут.
+Вы можете [включить](../operations/resources/enable-secure-token.md#enable-secure-token) для CDN-ресурса доступ по защищенному токену с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md), [{{ TF }}]({{ tf-provider-resources-link }}/cdn_resource) или [API](../api-ref/Resource/update.md). Для вступления изменений в силу может потребоваться до 15 минут.
 
 Если для CDN-ресурса включен доступ по защищенному токену, контент доступен только по подписанным ссылкам. Чтобы сохранить доступ к части контента по обычным ссылкам, [создайте](../operations/resources/create-resource.md) для этого контента еще один CDN-ресурс с отдельным [источником](origins.md).
 
@@ -189,7 +189,7 @@ _Подписанная ссылка_ [генерируется](#link-generatio
 
 ### См. также {#see-also}
 
-* [Настройка доступа по защищенному токену](../operations/resources/enable-secure-token.md)
-* [Создание ресурса](../operations/resources/create-resource.md)
-* [Изменение основных настроек ресурса](../operations/resources/configure-basics.md)
-* [Организация защищенного доступа к контенту в Cloud CDN](../tutorials/protected-access-to-content/index.md)
+* [{#T}](../operations/resources/enable-secure-token.md)
+* [{#T}](../operations/resources/create-resource.md)
+* [{#T}](../operations/resources/configure-basics.md)
+* [{#T}](../tutorials/protected-access-to-content/index.md)

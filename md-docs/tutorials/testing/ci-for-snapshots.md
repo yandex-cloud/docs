@@ -1,15 +1,15 @@
-# Создание тестовых виртуальных машин через GitLab CI
+# Создание тестовых виртуальных машин через {{ GL }} CI
 
 
-С помощью Yandex Cloud вы можете автоматизировать рутинные действия, например, запускать определенный скрипт после каждого коммита в ветку `master` репозитория Git. В примере ниже после каждого коммита создается и тестируется [ВМ](../../compute/concepts/vm.md).
+С помощью {{ yandex-cloud }} вы можете автоматизировать рутинные действия, например, запускать определенный скрипт после каждого коммита в ветку `master` репозитория Git. В примере ниже после каждого коммита создается и тестируется [ВМ](../../compute/concepts/vm.md).
 
 Чтобы настроить непрерывную интеграцию ([Continuous Integration](https://yandex.cloud/ru/blog/posts/2022/10/ci-cd), CI) для [снимков дисков](../../compute/concepts/snapshot.md) ВМ:
 1. [Создайте ВМ для тестового приложения](#create-vm) — создайте новую ВМ, снимок диска которой будет использоваться для создания новых ВМ с помощью CI.
 1. [Подготовьте ВМ с тестовым приложением](#configure-vm) — установите на ВМ веб-сервер и набор компонентов для работы тестового приложения. Напишите тестовое приложение, которое будет переворачивать слова в переданном на сервер тексте.
 1. [Проверьте работу приложения](#test-app) — проверьте настройки сервера и работу приложения с помощью пробного запроса.
 1. [Создайте снимок диска ВМ](#create-snapshot) — создайте снимок диска ВМ из которого CI будет создавать новые ВМ.
-1. [Создайте ВМ с GitLab](#create-gitlab-vm) — создайте ВМ с [GitLab](https://about.gitlab.com/), где в репозитории будут храниться настройки CI и скрипт функционального тестирования.
-1. [Настройте GitLab](#configure-gitlab) — создайте репозиторий для файлов и получите необходимые для конфигурации параметры.
+1. [Создайте ВМ с {{ GL }}](#create-gitlab-vm) — создайте ВМ с [{{ GL }}](https://about.gitlab.com/), где в репозитории будут храниться настройки CI и скрипт функционального тестирования.
+1. [Настройте {{ GL }}](#configure-gitlab) — создайте репозиторий для файлов и получите необходимые для конфигурации параметры.
 1. [Настройте раннер](#configure-runner) — инструмент для выполнения задач.
 1. [Настройте CI](#configure-ci) — задайте конфигурацию CI, указав необходимые параметры для команд и тестирования.
 1. [Проверьте работу приложения на ВМ, созданной с помощью CI](#test-new-vm) — убедитесь, что создающиеся с помощью CI и снимка ВМ создаются, а тестовое приложение работает.
@@ -18,46 +18,46 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 Перед тем, как создавать ВМ:
-1. Перейдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-1. Убедитесь, что в выбранном каталоге есть [сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet), к которой можно подключить ВМ. Для этого на странице каталога [перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
+1. Перейдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+1. Убедитесь, что в выбранном каталоге есть [сеть](../../vpc/concepts/network.md#network) с [подсетью](../../vpc/concepts/network.md#subnet), к которой можно подключить ВМ. Для этого на странице каталога Перейдите в сервис **{{ vpc-name }}**. Если в списке есть сеть — нажмите на нее, чтобы увидеть список подсетей. Если ни одной подсети или сети нет, [создайте их](../../vpc/quickstart.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* Плата за постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение созданных образов (см. [тарифы Compute Cloud](../../compute/pricing.md#prices-storage)).
-* Плата за использование динамических публичных IP-адресов (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение созданных образов (см. [тарифы {{ compute-name }}](../../compute/pricing.md#prices-storage)).
+* Плата за использование динамических публичных IP-адресов (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Создайте виртуальную машину для тестового приложения {#create-vm}
 
 Создайте ВМ, на которой будут установлены тестовое приложение, набор необходимых для его работы компонентов и веб-сервер:
 
-1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-1. Нажмите кнопку **Создать виртуальную машину**.
-1. В блоке **Образ загрузочного диска** выберите публичный образ [Ubuntu 18.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-18-04-lts).
-1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите параметры:
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [Ubuntu 18.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-18-04-lts).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
 
-    * **Платформа** — `Intel Ice Lake`.
-    * **vCPU** — `2`.
-    * **Гарантированная доля vCPU** — `20%`.
-    * **RAM** — `1 ГБ`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-    * В поле **Логин** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
 
       {% note alert %}
 
@@ -65,26 +65,26 @@
 
       {% endnote %}
 
-    * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
       
       Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
       
-      1. Нажмите кнопку **Добавить ключ**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
       1. Задайте имя SSH-ключа.
       1. Выберите вариант:
       
-          * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-          * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
           
             При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
       
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       
       SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-1. В блоке **Общая информация** задайте имя ВМ: `ci-tutorial-test-app`.
-1. Нажмите кнопку **Создать ВМ**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ci-tutorial-test-app`.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете перейти к ее настройке.
 
@@ -93,7 +93,7 @@
 ## Подготовьте виртуальную машину с тестовым приложением {#configure-vm}
 
 На созданную ВМ нужно установить набор необходимых для работы тестового приложения компонентов и веб-сервер для обработки запросов. Само приложение будет написано на языке Python 2.
-1. В блоке **Сеть** на странице ВМ в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес ВМ.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH. Для этого можно использовать утилиту `ssh` в Linux и macOS и программу [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/) для Windows.
 
    ```bash
@@ -291,37 +291,37 @@
 ## Подготовьте снимок диска виртуальной машины {#create-snapshot}
 
 Чтоб легко переносить созданное приложение и конфигурацию веб-сервера на создаваемые с помощью CI ВМ, нужно сделать снимок диска тестовой ВМ.
-1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором создана ВМ.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Найдите ВМ `ci-tutorial-test-app` и выберите ее.
-1. Нажмите кнопку **Остановить**.
-1. В открывшемся окне нажмите кнопку **Остановить**.
-1. После остановки ВМ выберите вкладку **Диски**.
-1. В строке диска нажмите кнопку ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **Создать снимок**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.stop }}**.
+1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
+1. После остановки ВМ выберите вкладку **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
+1. В строке диска нажмите кнопку ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) и выберите пункт **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
 1. В открывшемся окне введите имя снимка: `test-app-snap`.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-## Создайте виртуальную машину с GitLab {#create-gitlab-vm}
+## Создайте виртуальную машину с {{ GL }} {#create-gitlab-vm}
 
-Один из способов настроить CI в Yandex Cloud — воспользоваться публичным образом с предустановленной системой GitLab. В GitLab входит набор инструментов для управления репозиториями Git и средства для настройки CI.
+Один из способов настроить CI в {{ yandex-cloud }} — воспользоваться публичным образом с предустановленной системой {{ GL }}. В {{ GL }} входит набор инструментов для управления репозиториями Git и средства для настройки CI.
 
-1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-1. Нажмите кнопку **Создать виртуальную машину**.
-1. В блоке **Образ загрузочного диска** перейдите на вкладку **Marketplace**, нажмите кнопку **Показать все продукты Marketplace** и выберите образ [GitLab](https://yandex.cloud/ru/marketplace/products/yc/gitlab).
-1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-1. В блоке **Вычислительные ресурсы** перейдите на вкладку **Своя конфигурация** и укажите параметры:
+1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**, нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}** и выберите образ [{{ GL }}](https://yandex.cloud/ru/marketplace/products/yc/gitlab).
+1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** и укажите параметры:
 
-    * **Платформа** — `Intel Ice Lake`.
-    * **vCPU** — `2`.
-    * **Гарантированная доля vCPU** — `100%`.
-    * **RAM** — `2 ГБ`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `100%`.
+    * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-1. В блоке **Сетевые настройки** выберите, к какой подсети необходимо подключить ВМ при создании.
-1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите, к какой подсети необходимо подключить ВМ при создании.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-    * В поле **Логин** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, который будет создан на виртуальной машине, например `yc-user`.
 
       {% note alert %}
 
@@ -329,45 +329,45 @@
 
       {% endnote %}
 
-    * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+    * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
       
       Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
       
-      1. Нажмите кнопку **Добавить ключ**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
       1. Задайте имя SSH-ключа.
       1. Выберите вариант:
       
-          * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-          * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-          * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+          * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
           
             При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
       
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
       
       SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-1. В блоке **Общая информация** задайте имя ВМ: `ci-tutorial-gitlab`.
-1. Нажмите кнопку **Создать ВМ**.
+1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `ci-tutorial-gitlab`.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 Создание ВМ может занять несколько минут. Когда ВМ перейдет в статус `RUNNING`, вы можете перейти к ее настройке.
 
 При создании ВМ назначаются [IP-адрес и имя хоста (FQDN)](../../vpc/concepts/address.md). Эти данные можно использовать для доступа по SSH.
 
-## Настройте GitLab {#configure-gitlab}
+## Настройте {{ GL }} {#configure-gitlab}
 
-Чтобы настроить GitLab и подготовить процесс CI, создайте новый проект и введите параметры для аутентификации в CI:
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**. 
+Чтобы настроить {{ GL }} и подготовить процесс CI, создайте новый проект и введите параметры для аутентификации в CI:
+1. Перейдите в сервис **{{ compute-name }}**. 
 1. Выберите созданную ВМ и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
-1. Получите пароль администратора GitLab с помощью команды ВМ:
+1. Получите пароль администратора {{ GL }} с помощью команды ВМ:
 
    ```bash
    sudo cat /etc/gitlab/initial_root_password
    ```
 
 1. Скопируйте пароль из строки `Password` (исключая пробелы) в буфер обмена или отдельный файл.
-1. Откройте в браузере ссылку `http://<публичный_IP-адрес_ВМ>`. Откроется веб-интерфейс GitLab.
+1. Откройте в браузере ссылку `http://<публичный_IP-адрес_ВМ>`. Откроется веб-интерфейс {{ GL }}.
 1. Войдите в систему с учетной записью администратора:
    * **Username or email** — `root`.
    * **Password** — пароль, скопированный ранее.
@@ -378,7 +378,7 @@
 1. Выберите **Create a project**.
 1. Задайте имя проекта: `gitlab-test`.
 1. Нажмите кнопку **Create project**.
-1. Получите OAuth-токен в сервисе Яндекс OAuth. Для этого перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и нажмите **Разрешить**.
+1. Получите OAuth-токен в сервисе Яндекс OAuth. Для этого перейдите по [ссылке]({{ link-cloud-oauth }}) и нажмите **Разрешить**.
 1. Откройте в браузере ссылку вида `http://<публичный_IP-адрес_ВМ>/root`.
 1. Выберите проект `gitlab-test`.
 1. На открывшемся экране выберите слева вкладку **Settings**, а во всплывающем меню — **CI/CD**.
@@ -392,12 +392,12 @@
 
 ## Настройте раннер {#configure-runner}
 
-Раннер — это инструмент для выполнения задач, которые создает пользователь. Раннер необходимо установить на ВМ и зарегистрировать его в GitLab. Чтобы раннер мог выполнять задачи, подготовьте дополнительные компоненты: установите Yandex Cloud CLI и создайте тест для проверки созданной ВМ.
+Раннер — это инструмент для выполнения задач, которые создает пользователь. Раннер необходимо установить на ВМ и зарегистрировать его в {{ GL }}. Чтобы раннер мог выполнять задачи, подготовьте дополнительные компоненты: установите {{ yandex-cloud }} CLI и создайте тест для проверки созданной ВМ.
 
-1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ с GitLab по SSH:
+1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ с {{ GL }} по SSH:
 
    ```bash
-   ssh <логин>@<публичный_IP-адрес_ВМ_с_GitLab>
+   ssh <логин>@<публичный_IP-адрес_ВМ_с_{{ GL }}>
    ```
 
 1. Добавьте новый репозиторий в менеджер пакетов:
@@ -413,7 +413,7 @@
    ```
 
 1. Зарегистрируйте раннер:
-   * На шаге `Please enter the gitlab-ci coordinator URL` укажите IP-адрес сервера GitLab.
+   * На шаге `Please enter the gitlab-ci coordinator URL` укажите IP-адрес сервера {{ GL }}.
    * На шаге `Please enter the gitlab-ci token for this runner` укажите токен раннера.
    * На шаге `Please enter the gitlab-ci description for this runner` введите описание `gitlab test runner`.
    * На шаге `Please enter the gitlab-ci tags for this runner` не вводите ничего, нажмите **Enter**.
@@ -425,7 +425,7 @@
    Running in system-mode.
 
    Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-   http://<IP-адрес_CI_GitLab>/
+   http://<IP-адрес_CI_{{ GL }}>/
    Please enter the gitlab-ci token for this runner:
    <токен_раннера>
    Please enter the gitlab-ci description for this runner:
@@ -438,10 +438,10 @@
    Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded!
    ```
 
-1. Чтобы скрипт CI мог создавать ВМ, установите Yandex Cloud CLI:
+1. Чтобы скрипт CI мог создавать ВМ, установите {{ yandex-cloud }} CLI:
 
    ```bash
-   curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh --output install.sh
+   curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} --output install.sh
    sudo bash install.sh -n -i /opt/yc
    ```
 
@@ -491,11 +491,11 @@
 1. Откройте главную страницу репозитория `gitlab-test`:
 
    ```http
-   http://<публичный_IP-адрес_ВМ_c_GitLab>/root/gitlab-test
+   http://<публичный_IP-адрес_ВМ_c_{{ GL }}>/root/gitlab-test
    ```
 
 1. Нажмите кнопку **Set up CI/CD**. Откроется экран добавления нового файла.
-1. GitLab автоматически даст файлу имя `.gitlab-ci.yml` — не изменяйте его. Скопируйте в файл следующую конфигурацию:
+1. {{ GL }} автоматически даст файлу имя `.gitlab-ci.yml` — не изменяйте его. Скопируйте в файл следующую конфигурацию:
 
    ```yaml
    #.gitlab-ci.yml
@@ -517,7 +517,7 @@
          --format json
          --name $instance_name
          --folder-id $folder_id
-         --zone ru-central1-d
+         --zone {{ region-id }}-d
          --network-interface subnet-name=$subnet_name,nat-ip-version=ipv4
          --create-boot-disk name=$instance_name-boot,type=network-ssd,size=15,snapshot-name=$snapshot_name,auto-delete=true
          --memory 1
@@ -542,7 +542,7 @@
 
 1. В поле `snapshot_name` укажите имя снимка первой ВМ.
    В поле `folder_id` укажите идентификатор каталога, в котором создаются ВМ.
-   В поле `subnet_name` укажите имя подсети, к которой будут подключаться ВМ — имя можно получить в консоли управления, открыв нужный каталог и перейдя на страницу сервиса Virtual Private Cloud.
+   В поле `subnet_name` укажите имя подсети, к которой будут подключаться ВМ — имя можно получить в консоли управления, открыв нужный каталог и перейдя на страницу сервиса {{ vpc-name }}.
 1. Нажмите кнопку **Commit changes**.
 
 ## Проверьте работу приложения на виртуальной машине, созданной с помощью CI {#test-new-vm}
@@ -550,8 +550,8 @@
 После коммита необходимо убедиться в том, что CI отработал корректно. В нужной директории должна появиться новая ВМ, на которой развернуты тестовое приложение и веб-сервер.
 
 Чтобы проверить созданную ВМ:
-1. Откройте консоль управления Yandex Cloud.
-1. В каталоге, где создавались ВМ, [перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+1. Откройте консоль управления {{ yandex-cloud }}.
+1. В каталоге, где создавались ВМ, Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Если все было настроено верно, в списке ВМ должна появиться новая ВМ с именем вида `ci-tutorial-test-app-1543910277`.
 1. Выберите созданную ВМ и скопируйте публичный IP-адрес созданной ВМ.
 1. В браузере откройте ссылку вида:

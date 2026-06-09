@@ -3,7 +3,7 @@
 
 В этом руководстве вы разработаете [навык Алисы](https://yandex.ru/dev/dialogs/alice/doc/ru/about) и развернете веб-приложение, которое позволит создавать, читать и редактировать списки дел с помощью Алисы, а также делиться списками с другими пользователями на сайте.
 
-Данные проекта хранятся в бакете [Yandex Object Storage](../index.md) и базе данных [Yandex Managed Service for YDB](../../ydb/index.md). Функции [Yandex Cloud Functions](../../functions/index.md) обрабатывают запросы, а [Yandex API Gateway](../../api-gateway/index.md) обеспечивает взаимодействие сервисов.
+Данные проекта хранятся в бакете [{{ objstorage-full-name }}](../index.md) и базе данных [{{ ydb-full-name }}](../../ydb/index.md). Функции [{{ sf-full-name }}](../../functions/index.md) обрабатывают запросы, а [{{ api-gw-full-name }}](../../api-gateway/index.md) обеспечивает взаимодействие сервисов.
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplv75t2gtff4pps5fx2?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -27,11 +27,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -41,11 +41,11 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за количество вызовов функций, вычислительные ресурсы, выделенные для выполнения функций, и исходящий трафик (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md));
-* плата за операции с YDB и хранение данных (см. [тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за хранение данных в бакете (см. [тарифы Yandex Object Storage](../pricing.md));
-* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за запись и хранение данных в лог-группе (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)).
+* плата за количество вызовов функций, вычислительные ресурсы, выделенные для выполнения функций, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за операции с {{ ydb-short-name }} и хранение данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../pricing.md));
+* плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за запись и хранение данных в лог-группе (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md)).
 
 
 
@@ -75,14 +75,14 @@
 
   1. Установите и настройте следующие программы:
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md)
-     * [YDB CLI](https://ydb.tech/docs/ru/reference/ydb-cli/install)
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md)
+     * [{{ ydb-short-name }} CLI](https://ydb.tech/docs/{{ lang }}/reference/ydb-cli/install)
      * [Командный интерпретатор Bash](http://www.gnu.org/software/bash/)
      * [AWS CLI](../tools/aws-cli.md)
      * [Утилита jq](https://stedolan.github.io/jq/download/)
      * [Node.js](https://nodejs.org/en/download/package-manager/)
-     * [Пакетный менеджер npm](https://ru.wikipedia.org/wiki/Npm)
-     * [Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md)
+     * [Пакетный менеджер npm](https://{{ lang }}.wikipedia.org/wiki/Npm)
+     * [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md)
      * [Язык программирования Go](https://go.dev/doc/install)
 
   1. (Опционально) Для доработки проекта дополнительно установите:
@@ -103,12 +103,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **Создать ресурс** и выберите **Бакет**.
-  1. В поле **Имя** укажите имя [бакета](../concepts/bucket.md) в соответствии с [правилами именования](../concepts/bucket.md#naming).
-  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
+  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. На странице каталога нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя [бакета](../concepts/bucket.md) в соответствии с [правилами именования](../concepts/bucket.md#naming).
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
   1. Укажите максимальный размер бакета в ГБ.
-  1. Нажмите **Создать бакет**.
+  1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -121,53 +121,53 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы выполняете руководство.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-  1. Нажмите **Создать API-шлюз**.
-  1. В поле **Имя** введите `gate-1`.
-  1. Нажмите **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите `gate-1`.
+  1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
   1. Дождитесь, когда статус API-шлюза изменится на `Active`.
   1. Выберите созданный API-шлюз.
-  1. Найдите поля **Идентификатор** и **Служебный домен** и сохраните их значения. Они понадобятся при настройке навыка.
+  1. Найдите поля **{{ ui-key.yacloud.common.id }}** и **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** и сохраните их значения. Они понадобятся при настройке навыка.
 
 {% endlist %}
 
 
 ### Создайте базу данных {#db-create}
 
-Создайте базу данных YDB в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless):
+Создайте базу данных {{ ydb-short-name }} в [режиме Serverless](../../ydb/concepts/serverless-and-dedicated.md#serverless):
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создали бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;YDB**.
-  1. Нажмите **Создать базу данных**.
-  1. Введите **Имя** базы. Требования к имени:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. Нажмите **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-  1. В блоке **Тип базы данных** выберите `Serverless`.
-  1. Нажмите **Создать базу данных**.
+  1. В блоке **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type }}`.
+  1. Нажмите **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
   1. Дождитесь, когда статус базы данных изменится на `Running`.
   1. Выберите созданную БД.
-  1. В блоке **Соединение** найдите поле **Эндпоинт** и сохраните его значение. Оно понадобится при создании функций.
+  1. В блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** найдите поле **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** и сохраните его значение. Оно понадобится при создании функций.
 
 {% endlist %}
 
 
 ### Создайте приложение {#create-app}
 
-[Создайте](https://yandex.ru/dev/id/doc/ru/register-client) приложение в сервисе Яндекс.OAuth:
+[Создайте](https://yandex.ru/dev/id/doc/ru/register-client) приложение в сервисе {{ yandex-oauth }}:
 
 {% list tabs %}
 
-- Интерфейс Яндекс.OAuth
+- Интерфейс {{ yandex-oauth }}
 
-  1. Перейдите на [сайт сервиса](https://oauth.yandex.ru) и авторизуйтесь.
+  1. Перейдите на [сайт сервиса]({{ ya-oauth-url }}) и авторизуйтесь.
   1. Нажмите **Создать приложение**.
   1. Выберите подходящее имя приложения и загрузите иконку.
   1. В разделе **Для каких платформ нужно приложение** выберите `Веб-сервисы` и нажмите **Сохранить и продолжить**.
@@ -183,7 +183,7 @@
   1. В разделе **Почта для связи** укажите адрес своей почты и нажмите **Сохранить и продолжить**.
   1. Проверьте данные и нажмите **Всё верно, создать приложение**.
 
-  Подробнее о возможностях сервиса Яндекс.OAuth читайте в [документации](https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html).
+  Подробнее о возможностях сервиса {{ yandex-oauth }} читайте в [документации](https://yandex.ru/dev/oauth/doc/dg/tasks/register-client.html).
 
 {% endlist %}
 
@@ -246,10 +246,10 @@
 
       * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) в облаке.
       * `domain` — служебный домен API-шлюза `gate-1` без `https://`. Например `d5dbo25bol8n********.apigw.yandexcloud.net`.
-      * `oauth-client-id` — значение поля **ClientID** приложения, зарегистрированного в [Яндекс.OAuth](https://oauth.yandex.ru).
-      * `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **Эндпоинт** (часть после вхождения `/?database=`). Например, `/ru-central1/r1gra875baom********/g5n22e7ejfr1********`.
-      * `database-endpoint` — первая часть сохраненного ранее значения поля **Эндпоинт** (часть после вхождения `grpcs://` и до вхождения `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
-      * `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) Yandex Cloud CLI.
+      * `oauth-client-id` — значение поля **ClientID** приложения, зарегистрированного в [{{ yandex-oauth }}]({{ ya-oauth-url }}).
+      * `database` — размещение базы данных: вторая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `/?database=`). Например, `/{{ region-id }}/r1gra875baom********/g5n22e7ejfr1********`.
+      * `database-endpoint` — первая часть сохраненного ранее значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть после вхождения `grpcs://` и до вхождения `/?database=`). Например, `ydb.serverless.yandexcloud.net:2135`.
+      * `yc-profile` — [название профиля](../../cli/operations/profile/profile-list.md) {{ yandex-cloud }} CLI.
       * `secure-config-path` — путь к [файлу секретов](#set-variables-secure-config) `secure-config.json`.
       * `storage-bucket` — имя созданного бакета для хранения статических данных.
       * `gateway-id` — идентификатор API-шлюза `gate-1`.
@@ -258,7 +258,7 @@
 
 ## Разверните проект {#deploy}
 
-Перенесите файлы проекта в Yandex Cloud и обновите конфигурацию.
+Перенесите файлы проекта в {{ yandex-cloud }} и обновите конфигурацию.
 
 
 ### Примените схему данных {#deploy-schema}
@@ -276,29 +276,24 @@
 {% endlist %}
 
 
-### Получите OAuth-токен {#get-oauth-token}
+### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
-Получите [OAuth-токен](../../iam/concepts/authorization/oauth-token.md):
-
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [Яндекс.OAuth](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb). Перед выдачей токена сервис может запросить доступ к данным.
-1. Сохраните полученный токен, он понадобится для загрузки кода.
-
-
-### Загрузите код бэкенда в Cloud Functions {#deploy-backend}
-
-Используйте Terraform для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
 
 {% list tabs group=instructions %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. В папке с конфигурационным файлом `app.tf` выполните команду:
 
@@ -308,24 +303,24 @@
 
       {% note info %}
 
-      В случае ошибки инициализации провайдера Terraform вида `permission denied` выполните команду `sudo chown $(whoami) ~/yc-serverless-alice-shareable-todolist` для изменения прав доступа текущего пользователя к папке проекта.
+      В случае ошибки инициализации провайдера {{ TF }} вида `permission denied` выполните команду `sudo chown $(whoami) ~/yc-serverless-alice-shareable-todolist` для изменения прав доступа текущего пользователя к папке проекта.
 
       {% endnote %}
 
-  1. После успешной инициализации создайте ресурсы, передав значение OAuth-токена для аутентификации в Yandex Cloud:
+  1. После успешной инициализации создайте ресурсы и передайте значение IAM-токена для аутентификации в {{ yandex-cloud }}:
 
       ```bash
-      terraform apply -var-file ./variables.json -var yc-token=<OAuth-токен>
+      terraform apply -var-file ./variables.json -var yc-token="$(yc iam create-token)"
       ```
 
-      Terraform автоматически создаст или обновит требуемые ресурсы.
+      {{ TF }} автоматически создаст или обновит требуемые ресурсы.
 
 {% endlist %}
 
 
-### Загрузите код фронтенда в Object Storage {#deploy-frontend}
+### Загрузите код фронтенда в {{ objstorage-name }} {#deploy-frontend}
 
-Чтобы развернуть веб-приложение фронтенда, скомпилируйте статические файлы и загрузите их в Object Storage.
+Чтобы развернуть веб-приложение фронтенда, скомпилируйте статические файлы и загрузите их в {{ objstorage-name }}.
 
 {% list tabs group=programming_language %}
 
@@ -378,7 +373,7 @@
         serve -s build
       ```
 
-  1. Чтобы загрузить файлы в Object Storage, выполните команду:
+  1. Чтобы загрузить файлы в {{ objstorage-name }}, выполните команду:
 
       ```bash
       cd ../
@@ -411,7 +406,7 @@
 
 ### Обновите конфигурацию API-шлюза {#deploy-gateway}
 
-Чтобы загрузить актуальную спецификацию в API Gateway, выполните команду:
+Чтобы загрузить актуальную спецификацию в {{ api-gw-name }}, выполните команду:
 
 {% list tabs group=programming_language %}
 
@@ -430,7 +425,7 @@
   created_at: "2024-10-22T16:01:54.777Z"
   name: gate-1
   status: ACTIVE
-  domain: d5dm1lba80md********.i9******.apigw.yandexcloud.net
+  domain: {{ api-host-apigw }}
   connectivity:
     network_id: enp3srbi9u49********
   log_options:
@@ -452,7 +447,7 @@
   1. Перейдите в [Яндекс Диалоги](https://dialogs.yandex.ru/) и авторизуйтесь в консоли.
   1. Нажмите **Создать диалог** и выберите тип диалога `Навык`.
   1. В поле **Имя навыка** укажите `Списки дел`.
-  1. В поле **Backend** включите опцию **Функция в Яндекс Облаке** и выберите из списка функцию `todolist-alice`, которую вы ранее создали в сервисе Cloud Functions.
+  1. В поле **Backend** включите опцию **Функция в Яндекс Облаке** и выберите из списка функцию `todolist-alice`, которую вы ранее создали в сервисе {{ sf-name }}.
   1. Включите опцию **Использовать хранилище данных в навыке**.
   1. Заполните обязательные поля в разделе **Публикация в каталоге**. Остальные параметры задайте по своим предпочтениям. Например, можно задать разные словоформы для активации навыка, выбрать голос или тип доступа к навыку.
   1. Нажмите **Сохранить** внизу страницы.
@@ -471,11 +466,11 @@
   1. Перейдите на вкладку **Связка аккаунтов**.
   1. Введите:
 
-      * **Идентификатор приложения** — значение поля `ClientID` приложения, зарегистрированного в [Яндекс.OAuth](https://oauth.yandex.ru).
-      * **Секрет приложения** — значение поля `Client secret` приложения, зарегистрированного в [Яндекс.OAuth](https://oauth.yandex.ru).
-      * **URL авторизации** — `https://oauth.yandex.ru/authorize`.
-      * **URL для получения токена** — `https://oauth.yandex.ru/token`.
-      * **URL для обновления токена** — `https://oauth.yandex.ru/token`.
+      * **Идентификатор приложения** — значение поля `ClientID` приложения, зарегистрированного в [{{ yandex-oauth }}]({{ ya-oauth-url }}).
+      * **Секрет приложения** — значение поля `Client secret` приложения, зарегистрированного в [{{ yandex-oauth }}]({{ ya-oauth-url }}).
+      * **URL авторизации** — `{{ ya-oauth-url }}/authorize`.
+      * **URL для получения токена** — `{{ ya-oauth-url }}/token`.
+      * **URL для обновления токена** — `{{ ya-oauth-url }}/token`.
 
   1. Нажмите **Сохранить**.
 
@@ -560,7 +555,7 @@
 
 - На сайте
 
-  В браузере перейдите по адресу, который указан в поле **Служебный домен** API-шлюза `gate-1`, и авторизуйтесь. Откроется страница **Мои списки**. При переходе в любой из списков можно добавить или удалить пункты, а также предоставить доступ к списку другим пользователям.
+  В браузере перейдите по адресу, который указан в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** API-шлюза `gate-1`, и авторизуйтесь. Откроется страница **Мои списки**. При переходе в любой из списков можно добавить или удалить пункты, а также предоставить доступ к списку другим пользователям.
 
 {% endlist %}
 

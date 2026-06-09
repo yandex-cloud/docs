@@ -1,32 +1,32 @@
-# Самостоятельное развертывание веб-интерфейса Apache Kafka®
+# Самостоятельное развертывание веб-интерфейса {{ KF }}
 
-# Самостоятельное развертывание веб-интерфейса Apache Kafka®
+# Самостоятельное развертывание веб-интерфейса {{ KF }}
 
 
 
 {% note info %}
 
-Managed Service for Apache Kafka® имеет [встроенную поддержку веб-интерфейса Kafka UI](../../managed-kafka/concepts/kafka-ui.md). Если вам по какой-то причине не подходит такой вариант, используйте информацию из этого руководства.
+{{ mkf-name }} имеет [встроенную поддержку веб-интерфейса {{ kafka-ui }}](../../managed-kafka/concepts/kafka-ui.md). Если вам по какой-то причине не подходит такой вариант, используйте информацию из этого руководства.
 
 {% endnote %}
 
 
-Вы можете установить [веб-интерфейс Apache Kafka®](https://ui.docs.kafbat.io/) для своего кластера Managed Service for Apache Kafka®. С помощью веб-интерфейса можно отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../../managed-kafka/concepts/brokers.md), кластером, [производителями и потребителями](../../managed-kafka/concepts/producers-consumers.md).
+Вы можете установить [веб-интерфейс {{ KF }}]({{ kafka-ui-kafbat }}) для своего кластера {{ mkf-name }}. С помощью веб-интерфейса можно отслеживать потоки данных, находить и устранять неисправности, управлять [брокерами](../../managed-kafka/concepts/brokers.md), кластером, [производителями и потребителями](../../managed-kafka/concepts/producers-consumers.md).
 
 
-Развернуть веб-интерфейс Apache Kafka® можно двумя способами:
+Развернуть веб-интерфейс {{ KF }} можно двумя способами:
 
-* В [Docker-контейнере](#docker) на виртуальной машине Yandex Cloud. Этот вариант дешевле, но менее надежный, поэтому подходит для знакомства с веб-интерфейсом Apache Kafka®.
-* В [кластере Yandex Managed Service for Kubernetes](#kubernetes). Этот вариант дороже, но более надежный, поэтому подходит для постоянного и длительного использования веб-интерфейса.
+* В [Docker-контейнере](#docker) на виртуальной машине {{ yandex-cloud }}. Этот вариант дешевле, но менее надежный, поэтому подходит для знакомства с веб-интерфейсом {{ KF }}.
+* В [кластере {{ managed-k8s-full-name }}](#kubernetes). Этот вариант дороже, но более надежный, поэтому подходит для постоянного и длительного использования веб-интерфейса.
 
 
 ## Развертывание в Docker-контейнере {#docker}
 
-Чтобы развернуть веб-интерфейс Apache Kafka® в Docker-контейнере:
+Чтобы развернуть веб-интерфейс {{ KF }} в Docker-контейнере:
 
 1. [Установите дополнительные зависимости](#infra-for-docker).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-docker).
-1. [Подготовьте веб-интерфейс Apache Kafka®](#prepare-ui-via-docker).
+1. [Подготовьте веб-интерфейс {{ KF }}](#prepare-ui-via-docker).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -35,9 +35,9 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
+* Плата за ВМ: использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса для ВМ и хостов кластера, если для них включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
 
 
 ### Перед началом работы {#before-you-begin-to-work-with-docker}
@@ -49,16 +49,16 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 - Вручную {#manual}
 
    
-   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера Managed Service for Apache Kafka® и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
+   1. [Настройте группу безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для кластера {{ mkf-name }} и ВМ так, чтобы к топикам можно было подключаться с ВМ в Облаке.
 
 
-   1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) Managed Service for Apache Kafka®. При создании укажите настроенную группу безопасности.
-   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) Apache Kafka®.
-   1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 22.04, публичным IP-адресом и настроенной группой безопасности.
+   1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
+   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }}.
+   1. В той же сети, что и кластер {{ mkf-name }}, [создайте ВМ](../../compute/operations/vm-create/create-linux-vm.md) с Ubuntu 22.04, публичным IP-адресом и настроенной группой безопасности.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-   1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -74,17 +74,17 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
       * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
 
 
-      * кластер Managed Service for Apache Kafka®;
-      * пользователь Apache Kafka®.
+      * кластер {{ mkf-name }};
+      * пользователь {{ KF }}.
 
    1. Укажите значения переменных в файле `kafka-ui-via-docker.tf`.
-   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -106,7 +106,7 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -118,19 +118,19 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
    ssh <имя_пользователя>@<публичный_IP-адрес_ВМ>
    ```
 
-   Где `<имя_пользователя>` — имя учетной записи пользователя ВМ. Публичный IP-адрес ВМ доступен в [консоли управления](https://console.yandex.cloud), на странице ВМ.
+   Где `<имя_пользователя>` — имя учетной записи пользователя ВМ. Публичный IP-адрес ВМ доступен в [консоли управления]({{ link-console-main }}), на странице ВМ.
 
-1. Чтобы проверить доступность кластера Managed Service for Apache Kafka®, подключитесь к одному из его хостов с ролью `KAFKA`:
+1. Чтобы проверить доступность кластера {{ mkf-name }}, подключитесь к одному из его хостов с ролью `KAFKA`:
 
    ```bash
-   telnet <FQDN_хоста> 9091
+   telnet <FQDN_хоста> {{ port-mkf-ssl }}
    ```
 
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **Хосты**.
-      1. Скопируйте значение в столбце **FQDN хоста**, в строке хоста с ролью `KAFKA`.
+      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
 
@@ -154,21 +154,21 @@ Managed Service for Apache Kafka® имеет [встроенную поддер
 
 ### Создайте хранилище сертификатов TrustStore {#truststore-for-docker}
 
-При развертывании Apache Kafka® в Docker-контейнере команды для TrustStore выполняются на ВМ.
+При развертывании {{ KF }} в Docker-контейнере команды для TrustStore выполняются на ВМ.
 
 TrustStore — это хранилище доверенных сертификатов, которое используется в файлах JKS (Java KeyStore). Оно применяется для аутентификации клиента при его подключении к серверу. Сервер валидирует клиента с помощью сертификатов, которые хранятся в TrustStore. При этом клиент хранит приватный ключ и сертификат на своей стороне, в хранилище KeyStore.
 
-В примере ниже TrustStore используется, чтобы подключиться к кластеру Managed Service for Apache Kafka®. Без создания TrustStore в веб-интерфейсе Apache Kafka® не появится информация о кластере.
+В примере ниже TrustStore используется, чтобы подключиться к кластеру {{ mkf-name }}. Без создания TrustStore в веб-интерфейсе {{ KF }} не появится информация о кластере.
 
 Чтобы использовать TrustStore:
 
 1. Создайте SSL-сертификат:
 
    ```bash
-   sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-        --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-   sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   sudo mkdir -p {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path }}" \
+        --output-document {{ crt-local-dir }}YandexCA.crt && \
+   sudo chmod 0655 {{ crt-local-dir }}YandexCA.crt
    ```
 
 1. Создайте директорию `/truststore`:
@@ -183,14 +183,14 @@ TrustStore — это хранилище доверенных сертифика
 
    ```bash
    sudo keytool -import \
-                -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+                -file {{ crt-local-dir }}YandexCA.crt \
                 -alias "kafka-ui-cert" \
                 -keystore /truststore/truststore.jks
    ```
 
-   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса Apache Kafka®.
+   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса {{ KF }}.
 
-### Подготовьте веб-интерфейс Apache Kafka® {#prepare-ui-via-docker}
+### Подготовьте веб-интерфейс {{ KF }} {#prepare-ui-via-docker}
 
 1. В ВМ запустите Docker-контейнер, в котором будет развернут веб-интерфейс:
 
@@ -198,7 +198,7 @@ TrustStore — это хранилище доверенных сертифика
    sudo docker run -it -p 8080:8080 \
       -e DYNAMIC_CONFIG_ENABLED=true \
       -e KAFKA_CLUSTERS_0_NAME=<имя_кластера> \
-      -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=<FQDN_хоста>:9091 \
+      -e KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS=<FQDN_хоста>:{{ port-mkf-ssl }} \
       -e KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL=SASL_SSL \
       -e KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM=PLAIN \
       -e KAFKA_CLUSTERS_0_PROPERTIES_CLIENT_DNS_LOOKUP=use_all_dns_ips \
@@ -211,26 +211,26 @@ TrustStore — это хранилище доверенных сертифика
 
    Укажите в переменных окружения:
 
-   * `KAFKA_CLUSTERS_0_NAME` — имя кластера Managed Service for Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS` — FQDN хоста с ролью `KAFKA` в кластере Managed Service for Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username` — логин пользователя Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password` — пароль пользователя Apache Kafka®.
+   * `KAFKA_CLUSTERS_0_NAME` — имя кластера {{ mkf-name }}.
+   * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS` — FQDN хоста с ролью `KAFKA` в кластере {{ mkf-name }}.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username` — логин пользователя {{ KF }}.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password` — пароль пользователя {{ KF }}.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD` — пароль, который вы задали во время создания файла `truststore.jks`.
 
-   После запуска команда не завершается. Пока она работает, доступен веб-интерфейс Apache Kafka®.
+   После запуска команда не завершается. Пока она работает, доступен веб-интерфейс {{ KF }}.
 
-1. На локальной машине в браузере перейдите по адресу `http://<публичный_IP-адрес_ВМ>:8080`. Откроется веб-интерфейс Apache Kafka® с данными о кластере Managed Service for Apache Kafka®.
+1. На локальной машине в браузере перейдите по адресу `http://<публичный_IP-адрес_ВМ>:8080`. Откроется веб-интерфейс {{ KF }} с данными о кластере {{ mkf-name }}.
 
    Публичный IP-адрес ВМ доступен в консоли управления, на странице ВМ.
 
 
-## Развертывание в кластере Managed Service for Kubernetes {#kubernetes}
+## Развертывание в кластере {{ managed-k8s-name }} {#kubernetes}
 
-Чтобы развернуть веб-интерфейс Apache Kafka® в кластере Managed Service for Kubernetes:
+Чтобы развернуть веб-интерфейс {{ KF }} в кластере {{ managed-k8s-name }}:
 
 1. [Установите дополнительные зависимости](#infra-for-kubernetes).
 1. [Создайте хранилище сертификатов TrustStore](#truststore-for-kubernetes).
-1. [Разверните приложение с веб-интерфейсом Apache Kafka® в поде Kubernetes](#application-in-pod).
+1. [Разверните приложение с веб-интерфейсом {{ KF }} в поде {{ k8s }}](#application-in-pod).
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -240,10 +240,10 @@ TrustStore — это хранилище доверенных сертифика
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../../managed-kubernetes/pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Apache Kafka® и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../../managed-kubernetes/pricing.md)).
+* Плата за узлы кластера {{ managed-k8s-name }} (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера {{ mkf-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ### Перед началом работы {#before-you-begin-to-work-with-kubernetes}
@@ -256,17 +256,17 @@ TrustStore — это хранилище доверенных сертифика
 
    1. Настройте единую группу безопасности:
 
-      * [Для кластера Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы можно было подключаться к топикам через интернет.
-      * [Для кластера и группы узлов](../../managed-kubernetes/operations/connect/security-groups.md) Managed Service for Kubernetes.
+      * [Для кластера {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups) так, чтобы можно было подключаться к топикам через интернет.
+      * [Для кластера и группы узлов](../../managed-kubernetes/operations/connect/security-groups.md) {{ managed-k8s-name }}.
 
-   1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) Managed Service for Apache Kafka®. При создании укажите настроенную группу безопасности.
-   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) Apache Kafka®.
-   1. В той же сети, что и кластер Managed Service for Apache Kafka®, [создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes. При создании укажите настроенную группу безопасности и предоставьте кластеру публичный адрес.
-   1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в кластере Managed Service for Kubernetes. При создании укажите настроенную группу безопасности.
+   1. [Создайте кластер](../../managed-kafka/operations/cluster-create.md) {{ mkf-name }}. При создании укажите настроенную группу безопасности.
+   1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }}.
+   1. В той же сети, что и кластер {{ mkf-name }}, [создайте кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите настроенную группу безопасности и предоставьте кластеру публичный адрес.
+   1. [Создайте группу узлов](../../managed-kubernetes/operations/node-group/node-group-create.md) в кластере {{ managed-k8s-name }}. При создании укажите настроенную группу безопасности.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-   1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+   1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
    1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
    1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -278,23 +278,23 @@ TrustStore — это хранилище доверенных сертифика
       * Подсеть.
       * Группа безопасности по умолчанию и правила, необходимые для подключения из интернета:
 
-         * к кластеру Managed Service for Apache Kafka®;
-         * к кластеру Managed Service for Kubernetes;
-         * к группе узлов Managed Service for Kubernetes.
+         * к кластеру {{ mkf-name }};
+         * к кластеру {{ managed-k8s-name }};
+         * к группе узлов {{ managed-k8s-name }}.
 
-      * Кластер Managed Service for Apache Kafka®.
-      * Пользователь Apache Kafka®.
-      * Кластер Managed Service for Kubernetes.
-      * Группа узлов Managed Service for Kubernetes.
+      * Кластер {{ mkf-name }}.
+      * Пользователь {{ KF }}.
+      * Кластер {{ managed-k8s-name }}.
+      * Группа узлов {{ managed-k8s-name }}.
 
    1. Укажите значения переменных в файле `kafka-ui-via-kubernetes.tf`.
-   1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+   1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
    1. Создайте необходимую инфраструктуру:
 
@@ -316,7 +316,7 @@ TrustStore — это хранилище доверенных сертифика
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -324,18 +324,18 @@ TrustStore — это хранилище доверенных сертифика
 
 На локальной машине:
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
-1. Чтобы проверить доступность кластера Managed Service for Apache Kafka®, подключитесь к одному из его хостов с ролью `KAFKA`:
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../../managed-kubernetes/operations/connect/index.md#kubectl-connect).
+1. Чтобы проверить доступность кластера {{ mkf-name }}, подключитесь к одному из его хостов с ролью `KAFKA`:
 
    ```bash
-   telnet <FQDN_хоста> 9091
+   telnet <FQDN_хоста> {{ port-mkf-ssl }}
    ```
 
    FQDN доступен в консоли управления:
 
       1. Перейдите на страницу кластера.
-      1. Перейдите в раздел **Хосты**.
-      1. Скопируйте значение в столбце **FQDN хоста**, в строке хоста с ролью `KAFKA`.
+      1. Перейдите в раздел **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
+      1. Скопируйте значение в столбце **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}**, в строке хоста с ролью `KAFKA`.
 
    Если кластер доступен, появится сообщение:
 
@@ -353,21 +353,21 @@ TrustStore — это хранилище доверенных сертифика
 
 ### Создайте хранилище сертификатов TrustStore {#truststore-for-kubernetes}
 
-При развертывании Apache Kafka® в кластере Managed Service for Kubernetes команды для TrustStore выполняются на локальной машине.
+При развертывании {{ KF }} в кластере {{ managed-k8s-name }} команды для TrustStore выполняются на локальной машине.
 
 TrustStore — это хранилище доверенных сертификатов, которое используется в файлах JKS (Java KeyStore). Оно применяется для аутентификации клиента при его подключении к серверу. Сервер валидирует клиента с помощью сертификатов, которые хранятся в TrustStore. При этом клиент хранит приватный ключ и сертификат на своей стороне, в хранилище KeyStore.
 
-В примере ниже TrustStore используется, чтобы подключиться к кластеру Managed Service for Apache Kafka®. Без создания TrustStore в веб-интерфейсе Apache Kafka® не появится информация о кластере.
+В примере ниже TrustStore используется, чтобы подключиться к кластеру {{ mkf-name }}. Без создания TrustStore в веб-интерфейсе {{ KF }} не появится информация о кластере.
 
 Чтобы использовать TrustStore:
 
 1. Создайте SSL-сертификат:
 
    ```bash
-   sudo mkdir -p /usr/local/share/ca-certificates/Yandex/ && \
-   sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
-        --output-document /usr/local/share/ca-certificates/Yandex/YandexCA.crt && \
-   sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexCA.crt
+   sudo mkdir -p {{ crt-local-dir }} && \
+   sudo wget "{{ crt-web-path }}" \
+        --output-document {{ crt-local-dir }}YandexCA.crt && \
+   sudo chmod 0655 {{ crt-local-dir }}YandexCA.crt
    ```
 
 1. Создайте директорию `/truststore`:
@@ -382,22 +382,22 @@ TrustStore — это хранилище доверенных сертифика
 
    ```bash
    sudo keytool -import \
-                -file /usr/local/share/ca-certificates/Yandex/YandexCA.crt \
+                -file {{ crt-local-dir }}YandexCA.crt \
                 -alias "kafka-ui-cert" \
                 -keystore /truststore/truststore.jks
    ```
 
-   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса Apache Kafka®.
+   Команда предложит создать пароль. Запомните его — он понадобится для развертывания веб-интерфейса {{ KF }}.
 
-### Разверните приложение с веб-интерфейсом Apache Kafka® в поде Kubernetes {#application-in-pod}
+### Разверните приложение с веб-интерфейсом {{ KF }} в поде {{ k8s }} {#application-in-pod}
 
-1. Чтобы передать поду Kubernetes файл `truststore.jks`, создайте [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с этим файлом:
+1. Чтобы передать поду {{ k8s }} файл `truststore.jks`, создайте [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с этим файлом:
 
    ```bash
    kubectl create secret generic truststore --from-file=/truststore/truststore.jks
    ```
 
-1. Создайте файл `kafka-ui-configMap.yaml` с конфигурацией [configMap](https://kubernetes.io/docs/concepts/configuration/configmap/). Она содержит информацию о кластере Managed Service for Apache Kafka® и хранилище TrustStore:
+1. Создайте файл `kafka-ui-configMap.yaml` с конфигурацией [configMap](https://kubernetes.io/docs/concepts/configuration/configmap/). Она содержит информацию о кластере {{ mkf-name }} и хранилище TrustStore:
 
    ```yaml
    apiVersion: v1
@@ -405,8 +405,8 @@ TrustStore — это хранилище доверенных сертифика
    metadata:
       name: kafka-ui-values
    data:
-      KAFKA_CLUSTERS_0_NAME: <имя_кластера_Apache Kafka®>
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: <FQDN_хоста>:9091
+      KAFKA_CLUSTERS_0_NAME: <имя_кластера_{{ KF }}>
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: <FQDN_хоста>:{{ port-mkf-ssl }}
       KAFKA_CLUSTERS_0_PROPERTIES_SECURITY_PROTOCOL: SASL_SSL
       KAFKA_CLUSTERS_0_PROPERTIES_SASL_MECHANISM: PLAIN
       KAFKA_CLUSTERS_0_PROPERTIES_CLIENT_DNS_LOOKUP: use_all_dns_ips
@@ -419,13 +419,13 @@ TrustStore — это хранилище доверенных сертифика
 
    Укажите в переменных окружения:
 
-   * `KAFKA_CLUSTERS_0_NAME` — имя кластера Managed Service for Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS` — FQDN хоста с ролью `KAFKA` в кластере Managed Service for Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username` — логин пользователя Apache Kafka®.
-   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password` — пароль пользователя Apache Kafka®.
+   * `KAFKA_CLUSTERS_0_NAME` — имя кластера {{ mkf-name }}.
+   * `KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS` — FQDN хоста с ролью `KAFKA` в кластере {{ mkf-name }}.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `username` — логин пользователя {{ KF }}.
+   * `KAFKA_CLUSTERS_0_PROPERTIES_SASL_JAAS_CONFIG`, `password` — пароль пользователя {{ KF }}.
    * `KAFKA_CLUSTERS_0_PROPERTIES_SSL_TRUSTSTORE_PASSWORD` — пароль, который вы задали во время создания файла `truststore.jks`.
 
-1. Создайте файл `kafka-ui-pod.yaml` с конфигурацией пода, в котором будет развернуто приложение с веб-интерфейсом Apache Kafka®:
+1. Создайте файл `kafka-ui-pod.yaml` с конфигурацией пода, в котором будет развернуто приложение с веб-интерфейсом {{ KF }}:
 
    ```yaml
    apiVersion: v1
@@ -466,7 +466,7 @@ TrustStore — это хранилище доверенных сертифика
 
 ### Проверьте результат {#check-result}
 
-1. Посмотрите логи пода и убедитесь, что веб-интерфейс Apache Kafka® развернут успешно:
+1. Посмотрите логи пода и убедитесь, что веб-интерфейс {{ KF }} развернут успешно:
 
    ```bash
    kubectl logs kafka-ui-pod
@@ -487,13 +487,13 @@ TrustStore — это хранилище доверенных сертифика
    2024-01-23 12:13:25,747 INFO  [main] c.p.k.u.KafkaUiApplication: No active profile set, falling back to 1 default profile: "default"
    ```
 
-1. Назначьте веб-интерфейс Apache Kafka® на порт `8080`:
+1. Назначьте веб-интерфейс {{ KF }} на порт `8080`:
 
    ```bash
    kubectl --namespace default port-forward kafka-ui-pod 8080:8080
    ```
 
-1. В браузере перейдите по адресу `http://127.0.0.1:8080/`. Откроется веб-интерфейс Apache Kafka® с данными о кластере Managed Service for Apache Kafka®.
+1. В браузере перейдите по адресу `http://127.0.0.1:8080/`. Откроется веб-интерфейс {{ KF }} с данными о кластере {{ mkf-name }}.
 
 
 ## Удалите созданные ресурсы {#clear-out}
@@ -507,19 +507,19 @@ TrustStore — это хранилище доверенных сертифика
    Удалите:
 
    
-   1. [Кластер](../../managed-kafka/operations/cluster-delete.md) Managed Service for Apache Kafka®.
+   1. [Кластер](../../managed-kafka/operations/cluster-delete.md) {{ mkf-name }}.
    1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
-   1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) Managed Service for Kubernetes.
-   1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) Managed Service for Kubernetes.
+   1. [Группу узлов](../../managed-kubernetes/operations/node-group/node-group-delete.md) {{ managed-k8s-name }}.
+   1. [Кластер](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md) {{ managed-k8s-name }}.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
    1. В терминале перейдите в директорию с планом инфраструктуры.
    
        {% note warning %}
    
-       Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+       Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
    
        {% endnote %}
    
@@ -533,6 +533,6 @@ TrustStore — это хранилище доверенных сертифика
    
        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
    
-       Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+       Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

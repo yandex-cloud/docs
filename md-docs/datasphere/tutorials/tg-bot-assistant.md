@@ -5,13 +5,13 @@
 
 {% note info %}
 
-Функциональность AI Assistant API не рекомендуется использовать в новых проектах. Для создания AI-агентов используйте Responses API.
+Функциональность {{ assistant-api }} не рекомендуется использовать в новых проектах. Для создания AI-агентов используйте {{ responses-api }}.
 
 {% endnote %}
 
-С помощью Yandex AI Studio SDK, [RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском) и [AI Assistant API](https://aistudio.yandex.ru/docs/ru/ai-studio/responses/index) языковые модели могут поддерживать контекст диалога и обращаться к поиску в базе знаний.
+С помощью {{ ml-sdk-full-name }}, [RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском) и [{{ assistant-api }}]({{ link-docs-ai }}ai-studio/responses/index) языковые модели могут поддерживать контекст диалога и обращаться к поиску в базе знаний.
 
-В этом руководстве вы создадите чат-ассистента по продаже вин на основе модели YandexGPT 5. Используя возможности [function calling](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/function-call) и RAG, ассистент получит доступ к базе данных по винам и регионам, а также прайс-листу с ценами и данными о наличии вин. Настройка ассистента пройдет в ноутбуке Yandex DataSphere, общение с ассистентом будет осуществляться через Telegram.
+В этом руководстве вы создадите чат-ассистента по продаже вин на основе модели {{ yagpt-name }} 5. Используя возможности [function calling]({{ link-docs-ai }}ai-studio/concepts/generation/function-call) и RAG, ассистент получит доступ к базе данных по винам и регионам, а также прайс-листу с ценами и данными о наличии вин. Настройка ассистента пройдет в ноутбуке {{ ml-platform-full-name }}, общение с ассистентом будет осуществляться через Telegram.
 
 Чтобы создать интеллектуального ассистента для Telegram:
 
@@ -26,28 +26,28 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
+Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
 1. [Создайте сообщество](../operations/community/create.md).
-1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
+1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для создания интеллектуального ассистента входит:
 
-* плата за использование [вычислительных ресурсов DataSphere](../pricing.md);
-* плата за [генерацию текста](https://aistudio.yandex.ru/docs/ru/pricing) моделью.
+* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../pricing.md);
+* плата за [генерацию текста]({{ link-docs-ai }}pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
 
-Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
+Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
 
 {% endnote %}
 
@@ -57,13 +57,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**Создать каталог**.
+  1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
   1. Введите имя каталога, например `data-folder`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для проекта DataSphere {#create-sa}
+### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
 Для обращения к модели из ноутбука нужно создать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
@@ -72,11 +72,11 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите сервис **Identity and Access Management** или введите название сервиса в строке поиска на дашборде.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `gpt-user`.
-  1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роль `ai.languageModels.user`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -88,9 +88,9 @@
 
 - Консоль управления {#console}
 
-  1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-  1. На вкладке **Участники** нажмите **Добавить участника**.
-  1. Выберите аккаунт `gpt-user` и нажмите **Добавить**.
+  1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+  1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+  1. Выберите аккаунт `gpt-user` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 {% endlist %}
 
@@ -102,13 +102,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **Все сервисы** и выберите сервис **Identity and Access Management** или введите название сервиса в строке поиска на дашборде.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `gpt-user`.
-  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
-  1. В поле **Область действия** выберите `yc.ai.languageModels.execute`.
-  1. Нажмите кнопку **Создать**.
+  1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите `yc.ai.languageModels.execute`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
 {% endlist %}
@@ -123,18 +123,18 @@
 
 Чтобы использовать API-ключ, идентификатор каталога и токен доступа к боту из ноутбука, создайте [секреты](../concepts/secrets.md) с соответствующими значениями.
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите ![secret](../../_assets/console-icons/shield-check.svg) **Секрет**.
-1. Нажмите **Создать**.
-1. В поле **Имя** задайте имя секрета — `api_key`.
-1. В поле **Значение** вставьте идентификатор ключа.
-1. Нажмите **Создать**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![secret](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yc-ui-datasphere.resources.secret }}**.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
+1. В поле **{{ ui-key.yc-ui-datasphere.secret.name }}** задайте имя секрета — `api_key`.
+1. В поле **{{ ui-key.yc-ui-datasphere.secret.content }}** вставьте идентификатор ключа.
+1. Нажмите **{{ ui-key.yc-ui-datasphere.common.create }}**.
 1. По аналогии создайте секреты `folder_id` с идентификатором каталога и `tg_token` с токеном Telegram-бота.
 
 ## Клонируйте репозиторий {#clone-repo}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
 1. На панели слева в разделе ![folder](../../_assets/datasphere/jupyterlab/folder.svg) **File Browser** создайте или выберите папку, в которой вы хотите разместить клон репозитория, и перейдите в нее.
 1. В верхнем меню нажмите **Git** и выберите **Clone a Repository**.
 1. В открывшемся окне введите URI репозитория — `https://github.com/yandex-cloud-examples/yc-ai-wine-assistant`.

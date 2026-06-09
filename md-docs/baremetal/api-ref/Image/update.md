@@ -5,7 +5,7 @@ Updates the specified image.
 ## HTTP request
 
 ```
-PATCH https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/images/{imageId}
+PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
 ```
 
 ## Path parameters

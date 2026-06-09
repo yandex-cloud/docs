@@ -21,28 +21,7 @@
    
      {% note info %}
    
-     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов.
-   
-     {% endnote %}
-   
-   - OAuth-токен {#oauth-token}
-   
-     1. [Получите](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-     1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
-   
-         ```bash
-         export REGISTRY_USERNAME="oauth"
-         export REGISTRY_PASSWORD="<OAuth-токен>"
-         ```
-   
-         Где:
-   
-         * `REGISTRY_USERNAME` — способ аутентификации.
-         * `REGISTRY_PASSWORD` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md).
-   
-     {% note info %}
-   
-     [Время жизни](../../../iam/concepts/authorization/oauth-token.md#lifetime) OAuth-токена — 1 год.
+     [Время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше {{ iam-token-lifetime }}.
    
      {% endnote %}
    
@@ -68,7 +47,7 @@
      {% endnote %}
    
    {% endlist %}
-1. Загрузите [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://ru.wikipedia.org/wiki/HTTP)-запроса методом POST:
+1. Загрузите [binary-артефакт](../../concepts/artifacts/binary.md) с помощью [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP)-запроса методом POST:
 
     ```bash
     curl \
@@ -76,7 +55,7 @@
       --user "$REGISTRY_USERNAME:$REGISTRY_PASSWORD" \
       --header "X-Checksum-SHA256: <хеш_файла>" \
       --upload-file <локальный_путь_к_файлу> \
-      https://registry.yandexcloud.net/binaries/<идентификатор_реестра>/<имя_артефакта>/<версия_артефакта>/<имя_файла_в_реестре>
+      https://{{ cloud-registry }}/binaries/<идентификатор_реестра>/<имя_артефакта>/<версия_артефакта>/<имя_файла_в_реестре>
     ```
 
     Где:
@@ -95,5 +74,5 @@
     * URL запроса содержит URL реестра, имя и версию артефакта, а также имя файла в реестре. Например:
 
         ```bash
-        https://registry.yandexcloud.net/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh
+        https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh
         ```

@@ -1,26 +1,26 @@
-# Защита API Gateway при помощи Smart Web Security
+# Защита {{ api-gw-name }} при помощи {{ sws-name }}
 
-# Защита API Gateway при помощи Smart Web Security
+# Защита {{ api-gw-name }} при помощи {{ sws-name }}
 
 
-Yandex API Gateway поддерживает интеграцию с сервисом [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md). Благодаря этому вы можете настроить для API-шлюза защиту от [DDoS-атак](../../glossary/ddos.md) и ботов на прикладном уровне L7 [модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI).
+{{ api-gw-full-name }} поддерживает интеграцию с сервисом [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md). Благодаря этому вы можете настроить для API-шлюза защиту от [DDoS-атак](../../glossary/ddos.md) и ботов на прикладном уровне L7 [модели OSI](https://ru.wikipedia.org/wiki/Сетевая_модель_OSI).
 
-Профили безопасности Smart Web Security позволяют настроить защиту с различными условиями. Например, вы можете установить [лимит запросов](../../smartwebsecurity/concepts/arl.md) с группировкой запросов по параметрам, а также настроить блокировку запросов по IP-адресу пользователя. Для этого:
+Профили безопасности {{ sws-name }} позволяют настроить защиту с различными условиями. Например, вы можете установить [лимит запросов](../../smartwebsecurity/concepts/arl.md) с группировкой запросов по параметрам, а также настроить блокировку запросов по IP-адресу пользователя. Для этого:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте API-шлюз](#create-api-gateway).
-1. [Создайте профиль ARL и профиль безопасности Smart Web Security](#create-arl-and-sws-profiles).
+1. [Создайте профиль ARL и профиль безопасности {{ sws-name }}](#create-arl-and-sws-profiles).
 1. [Проверьте работу созданных ресурсов](#check-rules).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,7 +30,7 @@ Yandex API Gateway поддерживает интеграцию с сервис
 
 - Консоль управления {#console}
 
-  [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) `my-gateway`. При создании добавьте в поле **Спецификация** следующую спецификацию:
+  [Создайте API-шлюз](../../api-gateway/operations/api-gw-create.md) `my-gateway`. При создании добавьте в поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** следующую спецификацию:
 
   ```yaml
   openapi: "3.0.0"
@@ -52,9 +52,9 @@ Yandex API Gateway поддерживает интеграцию с сервис
 
   Остальные параметры оставьте без изменений.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+  1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
   
   1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
   1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
@@ -66,21 +66,21 @@ Yandex API Gateway поддерживает интеграцию с сервис
       В этом файле описаны:
 
       * Профиль ARL, устанавливающий лимит запросов и группировку запросов по параметру `token`.
-      * Профиль безопасности Smart Web Security, который использует профиль ARL и дополнительно устанавливает блокировку по IP-адресу.
-      * API-шлюз, настроенный на работу с профилем безопасности Smart Web Security.
+      * Профиль безопасности {{ sws-name }}, который использует профиль ARL и дополнительно устанавливает блокировку по IP-адресу.
+      * API-шлюз, настроенный на работу с профилем безопасности {{ sws-name }}.
   
   1. В блоке с локальными переменными файла api-gw-sws-integration.tf укажите следующие параметры:
   
       * `api-gw-name` — имя API-шлюза.
       * `create-api-gw = 1`
 
-  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Создайте необходимую инфраструктуру:
 
@@ -102,11 +102,11 @@ Yandex API Gateway поддерживает интеграцию с сервис
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
-## Создайте профиль ARL и профиль безопасности Smart Web Security {#create-arl-and-sws-profiles}
+## Создайте профиль ARL и профиль безопасности {{ sws-name }} {#create-arl-and-sws-profiles}
 
 {% list tabs group=instructions %}
 
@@ -117,47 +117,47 @@ Yandex API Gateway поддерживает интеграцию с сервис
   1. [Добавьте в профиль правило](../../smartwebsecurity/operations/arl-rule-add.md) с лимитом запросов и группировкой запросов по параметру `token`. Укажите следующие параметры:
 
       * **Имя** — `query-limit-rule`;
-      * **Приоритет** — `999900`;
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** — `999900`;
       * **Группировать запросы** — **По характеристикам**;
       * **Характеристика** — `Query params`;
       * **Группировать по** — `token`;
       * **Лимит запросов на группу** — `1` за `1 минуту`.
 
-  1. [Создайте профиль безопасности](../../smartwebsecurity/operations/profile-create.md) `sws-profile` по преднастроенному шаблону. При создании выберите в поле **Профиль ARL** созданный ранее профиль `arl-profile`.
+  1. [Создайте профиль безопасности](../../smartwebsecurity/operations/profile-create.md) `sws-profile` по преднастроенному шаблону. При создании выберите в поле **{{ ui-key.yacloud.smart-web-security.form.label_arl-profile }}** созданный ранее профиль `arl-profile`.
 
   1. [Подключите API-шлюз](../../smartwebsecurity/operations/host-connect.md#gateway) `my-gateway` к профилю безопасности.
 
-  1. Чтобы настроить блокировку по IP-адресу пользователя, [добавьте правило](../../smartwebsecurity/operations/rule-add.md) к профилю безопасности Smart Web Security со следующими параметрами:
+  1. Чтобы настроить блокировку по IP-адресу пользователя, [добавьте правило](../../smartwebsecurity/operations/rule-add.md) к профилю безопасности {{ sws-name }} со следующими параметрами:
 
       * **Имя** — `ip-block-rule`;
-      * **Приоритет** — `999700`;
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-priority }}** — `999700`;
       * **Тип правила** — **Базовое**;
-      * **Действие** — **Разрешить**;
-      * **Условия на трафик**:
+      * **{{ ui-key.yacloud.smart-web-security.overview.column_action-type }}** — **Разрешить**;
+      * **{{ ui-key.yacloud.smart-web-security.arl.column_rule-conditions }}**:
 
           * **Трафик** — **При условии**;
-          * **Условия** — `IP`;
+          * **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** — `IP`;
           * **Условия на IP** — `Совпадает или принадлежит диапазону`;
           * **IP совпадает или принадлежит диапазону** — укажите ваш IP-адрес.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. В блоке с локальными переменными файла `api-gw-sws-integration.tf` укажите следующие параметры:
 
       * `arl_name` — имя профиля ARL.
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создан профиль ARL.
-      * `sws_name` — имя профиля Smart Web Security.
+      * `sws_name` — имя профиля {{ sws-name }}.
       * `allowed_ips` — список IP-адресов, с которых разрешен доступ к API-шлюзу.
 
   1. В параметре `securityProfileId` спецификации API-шлюза укажите идентификатор профиля безопасности.
   
-  1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
       ```bash
       terraform validate
       ```
 
-      Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Создайте необходимую инфраструктуру:
 
@@ -179,13 +179,13 @@ Yandex API Gateway поддерживает интеграцию с сервис
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+      В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Проверьте работу созданных ресурсов {#check-rules}
 
-Протестируйте работу настроек Smart Web Security:
+Протестируйте работу настроек {{ sws-name }}:
 
 * [Лимит запросов](#check-requests-limiter).
 * [Группировка запросов](#check-query-groupping).
@@ -245,7 +245,7 @@ Yandex API Gateway поддерживает интеграцию с сервис
 
 ### Проверка блокировки по IP {#check-ip-block}
 
-1. Выполните GET-запрос к API-шлюзу с IP-адреса, который вы указали в профиле безопасности Smart Web Security:
+1. Выполните GET-запрос к API-шлюзу с IP-адреса, который вы указали в профиле безопасности {{ sws-name }}:
 
     ```bash
     curl <служебный_домен_API-шлюза>
@@ -263,7 +263,7 @@ Yandex API Gateway поддерживает интеграцию с сервис
     curl --verbose <служебный_домен_API-шлюза>
     ```
 
-    В ответ вы получите веб-страницу с капчей. Это значит, что Smart Web Security заблокировал запрос с IP-адреса, который не входит в список разрешенных.
+    В ответ вы получите веб-страницу с капчей. Это значит, что {{ sws-name }} заблокировал запрос с IP-адреса, который не входит в список разрешенных.
 
 # Удалите созданные ресурсы {#clear-out}
 
@@ -274,16 +274,16 @@ Yandex API Gateway поддерживает интеграцию с сервис
 - Консоль управления {#console}
 
   1. [Удалите API-шлюз](../../api-gateway/operations/api-gw-delete.md).
-  1. [Удалите профиль безопасности Smart Web Security](../../smartwebsecurity/operations/profile-delete.md).
+  1. [Удалите профиль безопасности {{ sws-name }}](../../smartwebsecurity/operations/profile-delete.md).
   1. [Удалите профиль ARL](../../smartwebsecurity/operations/arl-profile-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -297,6 +297,6 @@ Yandex API Gateway поддерживает интеграцию с сервис
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

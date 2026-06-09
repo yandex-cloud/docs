@@ -6,7 +6,7 @@ Results can be filtered and sorted using the provided parameters.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/stylePresets
+GET https://video.{{ api-host }}/video/v1/stylePresets
 ```
 
 ## Query parameters {#yandex.cloud.video.v1.ListStylePresetsRequest}

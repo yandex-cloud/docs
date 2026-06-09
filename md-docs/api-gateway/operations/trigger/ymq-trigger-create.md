@@ -1,6 +1,6 @@
-# Создать триггер для Message Queue, который отправляет сообщения в WebSocket-соединения
+# Создать триггер для {{ message-queue-name }}, который отправляет сообщения в WebSocket-соединения
 
-Создайте [триггер для очереди сообщений](../../concepts/trigger/ymq-trigger.md) сервиса Message Queue, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md).
+Создайте [триггер для очереди сообщений](../../concepts/trigger/ymq-trigger.md) сервиса {{ message-queue-short-name }}, который будет отправлять сообщения в [WebSocket-соединения](../../concepts/extensions/websocket.md).
 
 {% note warning %}
 
@@ -38,39 +38,39 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать триггер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать триггер.
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя и описание триггера.
-        * В поле **Тип** выберите `Message Queue`.
-        * В поле **Запускаемый ресурс** выберите `API-шлюз`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_ymq }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_gateway-broadcast }}`.
 
-    1. В блоке **Настройки сообщений Message Queue** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_ymq }}** выберите очередь сообщений и сервисный аккаунт с правами на чтение из нее.
 
-    1. В блоке **Настройки группирования сообщений** укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}** укажите:
 
         * размер группы сообщений. Допустимые значения от 1 до 1000, значение по умолчанию — 1.
         * максимальное время ожидания. Допустимые значения от 0 до 20 секунд, значение по умолчанию — 10 секунд.
 
         Триггер группирует сообщения не дольше указанного времени ожидания и отправляет их в WebSocket-соединения. Число сообщений при этом не превышает указанный размер группы.
 
-    1. В блоке **Настройки API-шлюза**:
-       * В поле **API-шлюз** выберите API-шлюз.
-       * В поле **Путь** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
-       * В поле **Сервисный аккаунт** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_gateway-broadcast }}**:
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_api-gateway }}** выберите API-шлюз.
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_gateway-path }}** укажите путь в OpenAPI-спецификации. Через WebSocket-соединения, которые установлены по этому пути, будут отправляться сообщения.
+       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого в WebSocket-соединения будут отправляться сообщения.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -95,10 +95,10 @@
 
         Чтобы узнать идентификатор очереди:
         
-        1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится очередь.
-        1. Выберите сервис **Message Queue**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится очередь.
+        1. Выберите сервис **{{ message-queue-name }}**.
         1. Выберите очередь.
-        1. Идентификатор очереди будет в блоке **Общая информация**, в поле **ARN**.
+        1. Идентификатор очереди будет в блоке **{{ ui-key.yacloud.ymq.queue.overview.section_base }}**, в поле **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}**.
 
     * `--queue-service-account-id` — сервисный аккаунт с правами на чтение из очереди сообщений.
 
@@ -118,7 +118,7 @@
     name: ymq-trigger
     rule:
       message_queue:
-        queue_id: yrn:yc:ymq:ru-central1:b1gmit33ngh2********:my-mq
+        queue_id: yrn:yc:ymq:{{ region-id }}:b1gmit33ngh2********:my-mq
         service_account_id: bfbqqeo6jkh2********
         batch_settings:
           size: "1"
@@ -132,7 +132,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Message Queue, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ message-queue-name }}, воспользуйтесь методом REST API [create](../../triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -140,22 +140,22 @@
 
 {% list tabs %}
 
-- Yandex API Gateway
+- {{ api-gw-full-name }}
 
     Проверьте, что триггер работает корректно. Для этого посмотрите [логи API-шлюза](../api-gw-logs.md), в них отображается информация об обращениях к нему.
 
-- Message Queue
+- {{ message-queue-name }}
 
     Проверьте, что количество сообщений в очереди уменьшается. Для этого посмотрите статистику очереди:
 
-   1. В [консоли управления](https://console.yandex.cloud) [перейдите](../../../console/operations/select-service.md#select-service) в сервис **Message Queue**.
+   1. В [консоли управления]({{ link-console-main }}) Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ymq }}**.
    1. Выберите очередь, для которой создали триггер.
-   1. Перейдите в раздел **Мониторинг**. Посмотрите график **Сообщений в очереди**.
+   1. Перейдите в раздел **{{ ui-key.yacloud.common.monitoring }}**. Посмотрите график **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}**.
 
 {% endlist %}
 
 
 ## См. также {#see-also}
 
-* [Триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../../functions/operations/trigger/ymq-trigger-create.md)
-* [Триггер для Message Queue, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/operations/ymq-trigger-create.md)
+* [Триггер для {{ message-queue-name }}, который передает сообщения в функцию {{ sf-name }}](../../../functions/operations/trigger/ymq-trigger-create.md)
+* [Триггер для {{ message-queue-name }}, который передает сообщения в контейнер {{ serverless-containers-name }}](../../../serverless-containers/operations/ymq-trigger-create.md)

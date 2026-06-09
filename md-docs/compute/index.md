@@ -36,7 +36,7 @@
 
  - [Создать ВМ с метаданными из переменных окружения](operations/vm-create/create-with-env-variables.md)
 
- - [Создать ВМ с доступом к секрету Yandex Lockbox](operations/vm-create/create-with-lockbox-secret.md)
+ - [Создать ВМ с доступом к секрету {{ lockbox-full-name }}](operations/vm-create/create-with-lockbox-secret.md)
 
  - [Создать ВМ с GPU](operations/vm-create/create-vm-with-gpu.md)
 
@@ -148,13 +148,13 @@
 
  - [Создать ВМ с метаданными из переменных окружения](operations/vm-create/create-with-env-variables.md)
 
- - [Создать ВМ с доступом к секрету Yandex Lockbox](operations/vm-create/create-with-lockbox-secret.md)
+ - [Создать ВМ с доступом к секрету {{ lockbox-full-name }}](operations/vm-create/create-with-lockbox-secret.md)
 
 ### Работа на виртуальной машине
 
  - [Подключиться к ВМ по SSH](operations/vm-connect/ssh.md)
 
- - [Подключиться к ВМ по SSH с помощью Cloud Shell](operations/vm-connect/cloud-shell.md)
+ - [Подключиться к ВМ по SSH с помощью {{ cloud-shell-name }}](operations/vm-connect/cloud-shell.md)
 
  - [Обмен файлами с ВМ](operations/vm-connect/scp-sftp.md)
 
@@ -162,17 +162,17 @@
 
  - [Подключиться к ВМ через PowerShell](operations/vm-connect/powershell.md)
 
-#### OS Login
+#### {{ oslogin }}
 
- - [Создать ВМ с OS Login](operations/vm-connect/os-login-create-vm.md)
+ - [Создать ВМ с {{ oslogin }}](operations/vm-connect/os-login-create-vm.md)
 
- - [Настроить OS Login на существующей ВМ](operations/vm-connect/enable-os-login.md)
+ - [Настроить {{ oslogin }} на существующей ВМ](operations/vm-connect/enable-os-login.md)
 
  - [Экспортировать SSH-сертификат](operations/vm-connect/os-login-export-certificate.md)
 
- - [Подключиться к ВМ по OS Login](operations/vm-connect/os-login.md)
+ - [Подключиться к ВМ по {{ oslogin }}](operations/vm-connect/os-login.md)
 
- - [Работа с Yandex Cloud изнутри ВМ](operations/vm-connect/auth-inside-vm.md)
+ - [Работа с {{ yandex-cloud }} изнутри ВМ](operations/vm-connect/auth-inside-vm.md)
 
  - [Установить NVIDIA-драйверы](operations/vm-operate/install-nvidia-drivers.md)
 
@@ -298,17 +298,13 @@
 
  - [Удалить файловое хранилище](operations/filesystem/delete.md)
 
-### Управление серийной консолью
+### Серийная консоль
 
- - [Начало работы](operations/serial-console/index.md)
+ - [Управлять доступом к серийной консоли](operations/serial-console/index.md)
 
- - [Подключиться к серийной консоли по SSH](operations/serial-console/connect-ssh.md)
+ - [Подключиться к серийной консоли ВМ с ОС Linux](operations/serial-console/connect-ssh.md)
 
- - [Подключиться к серийной консоли с помощью CLI](operations/serial-console/connect-cli.md)
-
- - [Запустить командную оболочку в Windows SAC](operations/serial-console/windows-sac.md)
-
- - [Отключить доступ к серийной консоли](operations/serial-console/disable.md)
+ - [Подключиться к серийной консоли ВМ с ОС Windows](operations/serial-console/windows-sac.md)
 
 ### Создание группы виртуальных машин
 
@@ -332,7 +328,7 @@
 
  - [Создать группу ВМ с подключением к файловому хранилищу](operations/instance-groups/create-with-filesystem.md)
 
- - [Создать группу ВМ с подключением к Object Storage](operations/instance-groups/create-with-bucket.md)
+ - [Создать группу ВМ с подключением к {{ objstorage-name }}](operations/instance-groups/create-with-bucket.md)
 
 ### Получение информации о группе виртуальных машин
 
@@ -424,13 +420,15 @@
 
  - [Проверить пропускную способность InfiniBand](operations/gpu-cluster/test-infiniband-bandwidth.md)
 
+ - [Включить программно ускоренную сеть](operations/enable-software-accelerated-network.md)
+
  - [Посмотреть операции с ресурсами сервиса](operations/operation-logs.md)
 
- - [Посмотреть метрики в Monitoring](operations/metrics-pull.md)
+ - [Посмотреть метрики в {{ monitoring-name }}](operations/metrics-pull.md)
 
  - [Рекомендации по обновлению драйверов NVIDIA](operations/gpu-driver-update.md)
 
- - [Yandex Container Solution](../cos/index.md)
+ - [{{ cos-full-name }}](../cos/index.md)
 
 ## Практические руководства
 
@@ -444,7 +442,7 @@
 
  - [Консоль управления](tutorials/vm-autoscale/console.md)
 
- - [Terraform](tutorials/vm-autoscale/terraform.md)
+ - [{{ TF }}](tutorials/vm-autoscale/terraform.md)
 
 ### Масштабирование группы виртуальных машин по расписанию
 
@@ -452,7 +450,7 @@
 
  - [Консоль управления, CLI и API](tutorials/vm-scale-scheduled/console.md)
 
- - [Terraform](tutorials/vm-scale-scheduled/terraform.md)
+ - [{{ TF }}](tutorials/vm-scale-scheduled/terraform.md)
 
  - [Автомасштабирование группы ВМ для обработки сообщений из очереди](tutorials/autoscale-monitoring.md)
 
@@ -462,11 +460,11 @@
 
  - [Начало работы с Packer](tutorials/packer-quickstart.md)
 
- - [Передача логов с ВМ в Yandex Cloud Logging](tutorials/vm-fluent-bit-logging.md)
+ - [Передача логов с ВМ в {{ cloud-logging-full-name }}](tutorials/vm-fluent-bit-logging.md)
 
  - [Сборка образа ВМ с набором инфраструктурных инструментов с помощью Packer](tutorials/packer-custom-image.md)
 
- - [Миграция в Yandex Cloud с помощью Хайстекс Акура](tutorials/hystax-migration.md)
+ - [Миграция в {{ yandex-cloud }} с помощью Хайстекс Акура](tutorials/hystax-migration.md)
 
  - [Защита от сбоев с помощью Хайстекс Акура](tutorials/hystax-disaster-recovery.md)
 
@@ -480,9 +478,9 @@
 
  - [Консоль управления, CLI и API](tutorials/bind-domain-vm/console.md)
 
- - [Terraform](tutorials/bind-domain-vm/terraform.md)
+ - [{{ TF }}](tutorials/bind-domain-vm/terraform.md)
 
- - [Настройка отказоустойчивой архитектуры в Yandex Cloud](tutorials/fault-tolerance.md)
+ - [Настройка отказоустойчивой архитектуры в {{ yandex-cloud }}](tutorials/fault-tolerance.md)
 
 ### Маршрутизация через NAT-инстанс
 
@@ -490,7 +488,7 @@
 
  - [Консоль управления](tutorials/nat-instance/console.md)
 
- - [Terraform](tutorials/nat-instance/terraform.md)
+ - [{{ TF }}](tutorials/nat-instance/terraform.md)
 
  - [Создание триггера для бюджетов, который вызывает функцию для остановки ВМ](tutorials/serverless-trigger-budget-vm.md)
 
@@ -502,17 +500,17 @@
 
  - [Консоль управления](tutorials/opencart/console.md)
 
- - [Terraform](tutorials/opencart/terraform.md)
+ - [{{ TF }}](tutorials/opencart/terraform.md)
 
  - [Создание веб-приложения на Python с использованием фреймворка Flask](tutorials/flask.md)
 
- - [Создание SAP-программы в Yandex Cloud](tutorials/sap.md)
+ - [Создание SAP-программы в {{ yandex-cloud }}](tutorials/sap.md)
 
- - [Развертывание сервера Minecraft в Yandex Cloud](tutorials/minecraft-server.md)
+ - [Развертывание сервера Minecraft в {{ yandex-cloud }}](tutorials/minecraft-server.md)
 
  - [Автоматизация сборки образов с помощью Jenkins и Packer](tutorials/jenkins.md)
 
- - [Создание тестовых виртуальных машин через GitLab CI](tutorials/test-vms-creation-via-gitlab-ci.md)
+ - [Создание тестовых виртуальных машин через {{ GL }} CI](tutorials/test-vms-creation-via-gitlab-ci.md)
 
  - [Высокопроизводительные вычисления (HPC) на прерываемых ВМ](tutorials/hpc-on-preemptible.md)
 
@@ -522,7 +520,7 @@
 
  - [Консоль управления](tutorials/single-node-file-server/console.md)
 
- - [Terraform](tutorials/single-node-file-server/terraform.md)
+ - [{{ TF }}](tutorials/single-node-file-server/terraform.md)
 
  - [Настройка SFTP-сервера на Centos 7](tutorials/backup-and-archive-to-sftp.md)
 
@@ -530,7 +528,7 @@
 
  - [Развертывание параллельной файловой системы GlusterFS в высокопроизводительном режиме](tutorials/ha-regional-glusterfs-high-performance.md)
 
- - [Резервное копирование в Object Storage с помощью Bacula](tutorials/backup-with-bacula.md)
+ - [Резервное копирование в {{ objstorage-name }} с помощью Bacula](tutorials/backup-with-bacula.md)
 
 ### Создание L7-балансировщика с защитой от DDoS
 
@@ -538,9 +536,9 @@
 
  - [Консоль управления, CLI](tutorials/alb-with-ddos-protection/console.md)
 
- - [Terraform](tutorials/alb-with-ddos-protection/terraform.md)
+ - [{{ TF }}](tutorials/alb-with-ddos-protection/terraform.md)
 
- - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
  - [Реализация защищенной высокодоступной сетевой инфраструктуры с выделением DMZ на основе Check Point NGFW](tutorials/high-accessible-dmz.md)
 
@@ -554,31 +552,31 @@
 
  - [Создание туннеля между двумя подсетями при помощи OpenVPN Access Server](tutorials/site-to-site-openvpn.md)
 
- - [ViPNet Coordinator в Yandex Cloud](tutorials/vipnet-to-yc.md)
+ - [ViPNet Coordinator в {{ yandex-cloud }}](tutorials/vipnet-to-yc.md)
 
- - [Создание внешней таблицы на базе таблицы из бакета Object Storage с помощью конфигурационного файла](tutorials/mgp-config-server-for-s3.md)
+ - [Создание внешней таблицы на базе таблицы из бакета {{ objstorage-name }} с помощью конфигурационного файла](tutorials/mgp-config-server-for-s3.md)
 
- - [Настройка сетевой связности между подсетями BareMetal и Virtual Private Cloud](tutorials/bm-vrf-and-vpc-interconnect.md)
+ - [Настройка сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-name }}](tutorials/bm-vrf-and-vpc-interconnect.md)
 
- - [Работа со снапшотами в Managed Service for Kubernetes](tutorials/pvc-snapshot-restore.md)
+ - [Работа со снапшотами в {{ managed-k8s-name }}](tutorials/pvc-snapshot-restore.md)
 
-### Container Optimized Image
+### {{ coi }}
 
- - [Создать ВМ с Container Optimized Image](tutorials/vm-create.md)
+ - [Создать ВМ с {{ coi }}](tutorials/vm-create.md)
 
- - [Создать ВМ с Container Optimized Image и дополнительным томом для Docker-контейнера](tutorials/vm-create-with-second-disk.md)
+ - [Создать ВМ с {{ coi }} и дополнительным томом для Docker-контейнера](tutorials/vm-create-with-second-disk.md)
 
- - [Создать ВМ с Container Optimized Image и несколькими Docker-контейнерами](tutorials/docker-compose.md)
+ - [Создать ВМ с {{ coi }} и несколькими Docker-контейнерами](tutorials/docker-compose.md)
 
- - [Создать группу ВМ с Container Optimized Image](tutorials/ig-create.md)
+ - [Создать группу ВМ с {{ coi }}](tutorials/ig-create.md)
 
- - [Создать группу ВМ с Container Optimized Image и несколькими Docker-контейнерами](tutorials/ig-with-containers.md)
+ - [Создать группу ВМ с {{ coi }} и несколькими Docker-контейнерами](tutorials/ig-with-containers.md)
 
- - [Изменить ВМ с Container Optimized Image](tutorials/vm-update.md)
+ - [Изменить ВМ с {{ coi }}](tutorials/vm-update.md)
 
- - [Создать ВМ и группу ВМ с Container Optimized Image с помощью Terraform](tutorials/coi-with-terraform.md)
+ - [Создать ВМ и группу ВМ с {{ coi }} с помощью {{ TF }}](tutorials/coi-with-terraform.md)
 
-### Продукты Microsoft в Yandex Cloud
+### Продукты Microsoft в {{ yandex-cloud }}
 
 #### Безопасная передача пароля в скрипт инициализации
 
@@ -586,7 +584,7 @@
 
  - [Консоль управления, CLI, API](tutorials/secure-password-script/console.md)
 
- - [Terraform](tutorials/secure-password-script/terraform.md)
+ - [{{ TF }}](tutorials/secure-password-script/terraform.md)
 
  - [Развертывание Active Directory](tutorials/active-directory.md)
 
@@ -600,27 +598,27 @@
 
  - [Создание сервера MLFlow для логирования экспериментов и артефактов](tutorials/mlflow-datasphere.md)
 
- - [Развертывание GitLab Runner на виртуальной машине](tutorials/install-gitlab-runner.md)
+ - [Развертывание {{ GLR }} на виртуальной машине](tutorials/install-gitlab-runner.md)
 
  - [Запуск языковой модели DeepSeek-R1 в кластере GPU](tutorials/gpu-cluster-deepseek.md)
 
  - [Запуск библиотеки vLLM с языковой моделью Gemma 3 на ВМ с GPU](tutorials/vllm-gemma-gpu.md)
 
- - [Доставка USB-устройств на виртуальную машину или сервер BareMetal](tutorials/usb-over-ip.md)
+ - [Доставка USB-устройств на виртуальную машину или сервер {{ baremetal-name }}](tutorials/usb-over-ip.md)
 
-### Развертывание Nextcloud в интеграции с Object Storage
+### Развертывание Nextcloud в интеграции с {{ objstorage-name }}
 
  - [Обзор](tutorials/integrate-nextcloud/index.md)
 
- - [Развертывание Nextcloud на ВМ из образа Container Optimized Image](tutorials/integrate-nextcloud/coi-based.md)
+ - [Развертывание Nextcloud на ВМ из образа {{ coi }}](tutorials/integrate-nextcloud/coi-based.md)
 
  - [Развертывание Nextcloud на ВМ или в группе ВМ вручную](tutorials/integrate-nextcloud/fault-tolerant.md)
 
- - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью Terraform](tutorials/integrate-nextcloud/terraform.md)
+ - [Развертывание Nextcloud на ВМ или в группе ВМ с помощью {{ TF }}](tutorials/integrate-nextcloud/terraform.md)
 
- - [Запуск Docker-образа на ВМ с помощью Cloud Registry](tutorials/docker-cloud-registry.md)
+ - [Запуск Docker-образа на ВМ с помощью {{ cloud-registry-name }}](tutorials/docker-cloud-registry.md)
 
- - [Развертывание воркера SourceCraft на ВМ](tutorials/self-hosted-worker-sourcecraft.md)
+ - [Развертывание воркера {{ src-full-name }} на ВМ](tutorials/self-hosted-worker-sourcecraft.md)
 
 ## Концепции
 
@@ -649,6 +647,8 @@
  - [Статусы](concepts/vm-statuses.md)
 
  - [Политики обслуживания ВМ](concepts/maintenance-policies.md)
+
+ - [Серийная консоль](concepts/serial-console.md)
 
  - [Сброс паролей на ВМ Windows](concepts/guest-agent.md)
 
@@ -1716,7 +1716,7 @@
 
  - [list](cli-ref/zone/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -1924,23 +1924,23 @@
 
  - [DetachFilesystem](api-ref/grpc/Instance/detachFilesystem.md)
 
- - [AttachNetworkInterface](api-ref/grpc/Instance/attachNetworkInterface.md)
-
- - [DetachNetworkInterface](api-ref/grpc/Instance/detachNetworkInterface.md)
-
  - [AddOneToOneNat](api-ref/grpc/Instance/addOneToOneNat.md)
 
  - [RemoveOneToOneNat](api-ref/grpc/Instance/removeOneToOneNat.md)
 
  - [UpdateNetworkInterface](api-ref/grpc/Instance/updateNetworkInterface.md)
 
+ - [AttachNetworkInterface](api-ref/grpc/Instance/attachNetworkInterface.md)
+
+ - [DetachNetworkInterface](api-ref/grpc/Instance/detachNetworkInterface.md)
+
  - [ListOperations](api-ref/grpc/Instance/listOperations.md)
+
+ - [SimulateMaintenanceEvent](api-ref/grpc/Instance/simulateMaintenanceEvent.md)
 
  - [Move](api-ref/grpc/Instance/move.md)
 
  - [Relocate](api-ref/grpc/Instance/relocate.md)
-
- - [SimulateMaintenanceEvent](api-ref/grpc/Instance/simulateMaintenanceEvent.md)
 
  - [ListAccessBindings](api-ref/grpc/Instance/listAccessBindings.md)
 
@@ -2014,8 +2014,6 @@
 
  - [Get](api-ref/grpc/SnapshotSchedule/get.md)
 
- - [List](api-ref/grpc/SnapshotSchedule/list.md)
-
  - [Create](api-ref/grpc/SnapshotSchedule/create.md)
 
  - [Update](api-ref/grpc/SnapshotSchedule/update.md)
@@ -2027,6 +2025,8 @@
  - [Disable](api-ref/grpc/SnapshotSchedule/disable.md)
 
  - [Enable](api-ref/grpc/SnapshotSchedule/enable.md)
+
+ - [List](api-ref/grpc/SnapshotSchedule/list.md)
 
  - [ListOperations](api-ref/grpc/SnapshotSchedule/listOperations.md)
 
@@ -2090,21 +2090,29 @@
 
  - [UpdateFromYaml](instancegroup/api-ref/grpc/InstanceGroup/updateFromYaml.md)
 
+ - [Delete](instancegroup/api-ref/grpc/InstanceGroup/delete.md)
+
+ - [Start](instancegroup/api-ref/grpc/InstanceGroup/start.md)
+
  - [Stop](instancegroup/api-ref/grpc/InstanceGroup/stop.md)
 
  - [RollingRestart](instancegroup/api-ref/grpc/InstanceGroup/rollingRestart.md)
 
  - [RollingRecreate](instancegroup/api-ref/grpc/InstanceGroup/rollingRecreate.md)
 
- - [Start](instancegroup/api-ref/grpc/InstanceGroup/start.md)
-
- - [Delete](instancegroup/api-ref/grpc/InstanceGroup/delete.md)
-
  - [ListInstances](instancegroup/api-ref/grpc/InstanceGroup/listInstances.md)
 
  - [DeleteInstances](instancegroup/api-ref/grpc/InstanceGroup/deleteInstances.md)
 
  - [StopInstances](instancegroup/api-ref/grpc/InstanceGroup/stopInstances.md)
+
+ - [ResumeProcesses](instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md)
+
+ - [PauseProcesses](instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md)
+
+ - [DisableZones](instancegroup/api-ref/grpc/InstanceGroup/disableZones.md)
+
+ - [EnableZones](instancegroup/api-ref/grpc/InstanceGroup/enableZones.md)
 
  - [ListOperations](instancegroup/api-ref/grpc/InstanceGroup/listOperations.md)
 
@@ -2115,14 +2123,6 @@
  - [SetAccessBindings](instancegroup/api-ref/grpc/InstanceGroup/setAccessBindings.md)
 
  - [UpdateAccessBindings](instancegroup/api-ref/grpc/InstanceGroup/updateAccessBindings.md)
-
- - [ResumeProcesses](instancegroup/api-ref/grpc/InstanceGroup/resumeProcesses.md)
-
- - [PauseProcesses](instancegroup/api-ref/grpc/InstanceGroup/pauseProcesses.md)
-
- - [DisableZones](instancegroup/api-ref/grpc/InstanceGroup/disableZones.md)
-
- - [EnableZones](instancegroup/api-ref/grpc/InstanceGroup/enableZones.md)
 
 ##### Operation
 
@@ -2332,23 +2332,23 @@
 
  - [DetachFilesystem](api-ref/Instance/detachFilesystem.md)
 
- - [AttachNetworkInterface](api-ref/Instance/attachNetworkInterface.md)
-
- - [DetachNetworkInterface](api-ref/Instance/detachNetworkInterface.md)
-
  - [AddOneToOneNat](api-ref/Instance/addOneToOneNat.md)
 
  - [RemoveOneToOneNat](api-ref/Instance/removeOneToOneNat.md)
 
  - [UpdateNetworkInterface](api-ref/Instance/updateNetworkInterface.md)
 
+ - [AttachNetworkInterface](api-ref/Instance/attachNetworkInterface.md)
+
+ - [DetachNetworkInterface](api-ref/Instance/detachNetworkInterface.md)
+
  - [ListOperations](api-ref/Instance/listOperations.md)
+
+ - [SimulateMaintenanceEvent](api-ref/Instance/simulateMaintenanceEvent.md)
 
  - [Move](api-ref/Instance/move.md)
 
  - [Relocate](api-ref/Instance/relocate.md)
-
- - [SimulateMaintenanceEvent](api-ref/Instance/simulateMaintenanceEvent.md)
 
  - [ListAccessBindings](api-ref/Instance/listAccessBindings.md)
 
@@ -2422,8 +2422,6 @@
 
  - [Get](api-ref/SnapshotSchedule/get.md)
 
- - [List](api-ref/SnapshotSchedule/list.md)
-
  - [Create](api-ref/SnapshotSchedule/create.md)
 
  - [Update](api-ref/SnapshotSchedule/update.md)
@@ -2435,6 +2433,8 @@
  - [Disable](api-ref/SnapshotSchedule/disable.md)
 
  - [Enable](api-ref/SnapshotSchedule/enable.md)
+
+ - [List](api-ref/SnapshotSchedule/list.md)
 
  - [ListOperations](api-ref/SnapshotSchedule/listOperations.md)
 
@@ -2498,21 +2498,25 @@
 
  - [UpdateFromYaml](instancegroup/api-ref/InstanceGroup/updateFromYaml.md)
 
+ - [Delete](instancegroup/api-ref/InstanceGroup/delete.md)
+
+ - [Start](instancegroup/api-ref/InstanceGroup/start.md)
+
  - [Stop](instancegroup/api-ref/InstanceGroup/stop.md)
 
  - [RollingRestart](instancegroup/api-ref/InstanceGroup/rollingRestart.md)
 
  - [RollingRecreate](instancegroup/api-ref/InstanceGroup/rollingRecreate.md)
 
- - [Start](instancegroup/api-ref/InstanceGroup/start.md)
-
- - [Delete](instancegroup/api-ref/InstanceGroup/delete.md)
-
  - [ListInstances](instancegroup/api-ref/InstanceGroup/listInstances.md)
 
  - [DeleteInstances](instancegroup/api-ref/InstanceGroup/deleteInstances.md)
 
  - [StopInstances](instancegroup/api-ref/InstanceGroup/stopInstances.md)
+
+ - [ResumeProcesses](instancegroup/api-ref/InstanceGroup/resumeProcesses.md)
+
+ - [PauseProcesses](instancegroup/api-ref/InstanceGroup/pauseProcesses.md)
 
  - [ListOperations](instancegroup/api-ref/InstanceGroup/listOperations.md)
 
@@ -2524,10 +2528,6 @@
 
  - [UpdateAccessBindings](instancegroup/api-ref/InstanceGroup/updateAccessBindings.md)
 
- - [ResumeProcesses](instancegroup/api-ref/InstanceGroup/resumeProcesses.md)
-
- - [PauseProcesses](instancegroup/api-ref/InstanceGroup/pauseProcesses.md)
-
 ##### Operation
 
  - [Overview](instancegroup/api-ref/Operation/index.md)
@@ -2536,21 +2536,9 @@
 
  - [Cancel](instancegroup/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
-
-## Справочник аудитных логов
-
- - [Overview](events-ref/index.md)
-
-### Operation
-
- - [Overview](events-ref/Operation/index.md)
-
- - [Get](events-ref/Operation/get.md)
-
- - [Cancel](events-ref/Operation/cancel.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

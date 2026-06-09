@@ -33,6 +33,7 @@
 Создать транковое подключение через партнера | [Описание](../../interconnect/tutorials/partner-trunk-priv-add.md) | [Описание](../../interconnect/operations/trunk-create.md#partner)
 Изменить параметры транкового подключения | Да | [Описание](../../interconnect/operations/trunk-update.md)
 Изменить емкость транкового подключения | [Описание](../../interconnect/tutorials/trunk-capacity-change.md) | Не поддерживается
+Переместить транковое подключение в другой каталог | — | [Описание](../../interconnect/operations/trunk-move.md)
 Удалить транковое подключение | [Описание](../../interconnect/tutorials/trunk-del.md) | [Описание](../../interconnect/operations/trunk-delete.md)
 
 
@@ -44,9 +45,10 @@
 Получить список операций приватного соединения | — | [Описание](../../interconnect/operations/priv-con-operations.md)
 Создать приватное соединение | [Описание](../../interconnect/tutorials/trunk-priv-add.md#priv-create) | [Описание](../../interconnect/operations/priv-con-create.md)
 Изменить параметры приватного соединения | Да | [Описание](../../interconnect/operations/priv-con-update.md)
+Переместить приватное соединение в другой каталог | — | [Описание](../../interconnect/operations/priv-con-move.md)
 Удалить приватное соединение | [Описание](../../interconnect/tutorials/priv-del.md) | [Описание](../../interconnect/operations/priv-con-delete.md)
-**Добавить статические маршруты в приватное соединение** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-static-upsert.md)
-**Удалить статические маршруты из приватного соединения** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-static-remove.md)
+**Добавить статические маршруты в приватное соединение** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-update.md)
+**Удалить статические маршруты из приватного соединения** (VPC Stitching) | **Да** | [Описание](../../interconnect/operations/priv-con-update.md)
 
 
 ## Routing Instance {#ri}

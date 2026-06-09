@@ -7,7 +7,7 @@ To get the list of all available subclusters, make a [SubclusterService.List](li
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters/{clusterId}/subclusters/{subclusterId}
 ```
 
 ## Path parameters

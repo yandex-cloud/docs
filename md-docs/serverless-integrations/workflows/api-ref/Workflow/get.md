@@ -5,7 +5,7 @@ Retrieves specified Workflow.
 ## HTTP request
 
 ```
-GET https://serverless-workflows.api.cloud.yandex.net/workflows/v1/workflow/{workflowId}
+GET https://serverless-workflows.{{ api-host }}/workflows/v1/workflow/{workflowId}
 ```
 
 ## Path parameters

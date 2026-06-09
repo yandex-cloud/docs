@@ -1,30 +1,30 @@
 # Создание канала уведомлений с вызовом функции
 
-В качестве метода уведомления вы можете указать функцию Cloud Functions. Эта функция будет вызвана при срабатывании алерта или в эскалации как обычный канал уведомления.
+В качестве метода уведомления вы можете указать функцию {{ sf-name }}. Эта функция будет вызвана при срабатывании алерта или в эскалации как обычный канал уведомления.
 
-Чтобы настроить уведомления с использованием Cloud Functions:
+Чтобы настроить уведомления с использованием {{ sf-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находятся ресурсы, наблюдаемые в Monium Metrics.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находятся ресурсы, наблюдаемые в {{ monitoring-name }}.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. [Создайте функцию](../../../functions/operations/function/function-create.md) и [версию функции](../../../functions/operations/function/version-manage.md).
   1. Включите в настройках функции [возможность асинхронного вызова](../../../functions/operations/function/function-invoke-async.md).
-  1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `functions.functionInvoker` и `functions.viewer`, он потребуется для вызова функции.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в **Monium** и слева выберите раздел **Способы уведомления**.
+  1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролями `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`, он потребуется для вызова функции.
+  1. Перейдите в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений.
-  1. В списке **Метод** выберите **Cloud Functions**.
-  1. В списке **Сервисный аккаунт** выберите аккаунт для запуска функции.
-  1. Нажмите **Создать**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите **{{ sf-name }}**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт для запуска функции.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
-## Формат сообщения при вызове функции Cloud Functions {#function-invoke-payload}
+## Формат сообщения при вызове функции {{ sf-name }} {#function-invoke-payload}
 
-При вызове функции Cloud Functions в [точку входа функции](../../../functions/lang/python/handler.md) в аргумент `event` из алерта или эскалации будет передано сообщение в формате JSON с информацией о сработавшем алерте:
+При вызове функции {{ sf-name }} в [точку входа функции](../../../functions/lang/python/handler.md) в аргумент `event` из алерта или эскалации будет передано сообщение в формате JSON с информацией о сработавшем алерте:
 
 ```json
 {
@@ -45,4 +45,4 @@
 * `alertStatus` — [статус алерта](../../concepts/alerting/alert.md#alert-statuses), текст;
 * `annotations` — значения аннотаций сработавшего алерта, словарь значений `key:value`.
 
-Пример вызова функции см. в разделе [Webhook с использованием Cloud Functions](alert-call-function.md).
+Пример вызова функции см. в разделе [{#T}](alert-call-function.md).

@@ -1,12 +1,12 @@
-# Управление собственной геобазой в Managed Service for ClickHouse®
+# Управление собственной геобазой в {{ mch-name }}
 
-Геобаза в ClickHouse® — это текстовые файлы, которые содержат иерархию и имена регионов. Вы можете добавить в ClickHouse® несколько альтернативных геобаз для поддержки разных точек зрения о принадлежности регионов странам. Подробнее читайте в [документации ClickHouse®](https://clickhouse.com/docs/ru/sql-reference/dictionaries/internal-dicts/).
+Геобаза в {{ CH }} — это текстовые файлы, которые содержат иерархию и имена регионов. Вы можете добавить в {{ CH }} несколько альтернативных геобаз для поддержки разных точек зрения о принадлежности регионов странам. Подробнее читайте в [документации {{ CH }}](https://{{ ch-domain }}/docs/ru/sql-reference/dictionaries/internal-dicts/).
 
-Чтобы подключить к кластеру ClickHouse® собственную геобазу:
+Чтобы подключить к кластеру {{ CH }} собственную геобазу:
 
 1. [Создайте ее](#create).
-1. [Загрузите геобазу в Yandex Object Storage](#upload).
-1. [Подключите геобазу к кластеру ClickHouse®](#add).
+1. [Загрузите геобазу в {{ objstorage-full-name }}](#upload).
+1. [Подключите геобазу к кластеру {{ CH }}](#add).
 
 Если собственная геобаза не используется, [отключите ее](#disconnect).
 
@@ -35,34 +35,34 @@
 1. Чтобы добавить в базу имена регионов на других языках, создайте файлы `regions_names_<код_языка>.txt` с аналогичной структурой. Например, `regions_names_en.txt` для английского языка и `regions_names_tr.txt` для турецкого.
 1. Создайте из файлов геобазы архив в формате `tar`, `tar.gz` или `zip`.
 
-## Загрузить геобазу в Yandex Object Storage {#upload}
+## Загрузить геобазу в {{ objstorage-full-name }} {#upload}
 
-Managed Service for ClickHouse® работает только с геобазами, которые загружены в Yandex Object Storage и к которым предоставлен доступ на чтение:
+{{ mch-short-name }} работает только с геобазами, которые загружены в {{ objstorage-full-name }} и к которым предоставлен доступ на чтение:
 
 
-1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
-1. [Загрузите](../../storage/operations/objects/upload.md) архив с геобазой в Yandex Object Storage.
+1. Для привязки [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) к кластеру [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+1. [Загрузите](../../storage/operations/objects/upload.md) архив с геобазой в {{ objstorage-full-name }}.
 1. [Подключите сервисный аккаунт к кластеру](s3-access.md#connect-service-account). С помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вы настроите доступ к архиву геобазы.
 1. [Назначьте роль](s3-access.md#configure-acl) `storage.viewer` сервисному аккаунту.
 1. В ACL бакета [добавьте разрешение](../../storage/operations/buckets/edit-acl.md) `READ` сервисному аккаунту.
 1. [Получите ссылку](s3-access.md#get-link-to-object) на архив с геобазой.
 
 
-## Подключить геобазу к кластеру ClickHouse® {#add}
+## Подключить геобазу к кластеру {{ CH }} {#add}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-  1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
-  1. В поле **Geobase uri** укажите ссылку на архив с геобазой в Yandex Object Storage.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
+  1. В поле **Geobase uri** укажите ссылку на архив с геобазой в {{ objstorage-full-name }}.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -71,26 +71,26 @@ Managed Service for ClickHouse® работает только с геобаза
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
         ```bash
-        yc managed-clickhouse cluster update-config --help
+        {{ yc-mdb-ch }} cluster update-config --help
         ```
 
     1. Выполните команду, передав ссылку на архив с подключаемой геобазой в параметре `geobase_uri`:
 
         ```bash
-        yc managed-clickhouse cluster update-config <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-ch }} cluster update-config <имя_или_идентификатор_кластера> \
              --set geobase_uri="<ссылка_на_архив_с_геобазой_в_Object_Storage>"
         ```
 
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-    1. Добавьте в настройки кластера Managed Service for ClickHouse® параметр `geobase_uri` со ссылкой на архив с подключаемой геобазой в Yandex Object Storage:
+    1. Добавьте в настройки кластера {{ mch-name }} параметр `geobase_uri` со ссылкой на архив с подключаемой геобазой в {{ objstorage-full-name }}:
 
         ```hcl
         resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
@@ -108,14 +108,14 @@ Managed Service for ClickHouse® работает только с геобаза
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -137,11 +137,11 @@ Managed Service for ClickHouse® работает только с геобаза
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_clickhouse_cluster.md).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for ClickHouse®:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mch-name }}:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 60 минут;
     * изменение — 90 минут;
@@ -177,7 +177,7 @@ Managed Service for ClickHouse® работает только с геобаза
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -190,7 +190,7 @@ Managed Service for ClickHouse® работает только с геобаза
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.clickhouse.config.geobaseUri",
                       "configSpec": {
@@ -209,7 +209,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
             В данном случае указан только один параметр: `configSpec.clickhouse.config.geobaseUri`.
 
-        * `configSpec.clickhouse.config.geobaseUri` — ссылка на архив с геобазой в Object Storage.
+        * `configSpec.clickhouse.config.geobaseUri` — ссылка на архив с геобазой в {{ objstorage-name }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -230,7 +230,7 @@ Managed Service for ClickHouse® работает только с геобаза
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -275,7 +275,7 @@ Managed Service for ClickHouse® работает только с геобаза
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
@@ -285,7 +285,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
             В данном случае указан только один параметр: `config_spec.clickhouse.config.geobase_uri`.
 
-        * `config_spec.clickhouse.config.geobase_uri` — ссылка на архив с геобазой в Object Storage.
+        * `config_spec.clickhouse.config.geobase_uri` — ссылка на архив с геобазой в {{ objstorage-name }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -299,15 +299,15 @@ Managed Service for ClickHouse® работает только с геобаза
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится кластер.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;ClickHouse**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится кластер.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. В поле **Geobase uri** удалите значение.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -316,13 +316,13 @@ Managed Service for ClickHouse® работает только с геобаза
     1. Посмотрите описание команды CLI для изменения конфигурации кластера:
 
         ```bash
-        yc managed-clickhouse cluster update-config --help
+        {{ yc-mdb-ch }} cluster update-config --help
         ```
 
     1. Выполните команду, передав пустое значение параметра `geobase_uri`:
 
         ```bash
-        yc managed-clickhouse cluster update-config <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-ch }} cluster update-config <имя_или_идентификатор_кластера> \
              --set geobase_uri=""
         ```
 
@@ -337,7 +337,7 @@ Managed Service for ClickHouse® работает только с геобаза
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -350,7 +350,7 @@ Managed Service for ClickHouse® работает только с геобаза
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.clickhouse.config.geobaseUri",
                       "configSpec": {
@@ -369,7 +369,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
             В данном случае указан только один параметр: `configSpec.clickhouse.config.geobaseUri`.
 
-        * `configSpec.clickhouse.config.geobaseUri` — ссылка на архив с геобазой в Object Storage. Укажите пустое значение в этом параметре.
+        * `configSpec.clickhouse.config.geobaseUri` — ссылка на архив с геобазой в {{ objstorage-name }}. Укажите пустое значение в этом параметре.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -391,7 +391,7 @@ Managed Service for ClickHouse® работает только с геобаза
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -436,7 +436,7 @@ Managed Service for ClickHouse® работает только с геобаза
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.Update
         ```
 
@@ -446,7 +446,7 @@ Managed Service for ClickHouse® работает только с геобаза
 
             В данном случае указан только один параметр: `config_spec.clickhouse.config.geobase_uri`.
 
-        * `config_spec.clickhouse.config.geobase_uri` — ссылка на архив с геобазой в Object Storage. Укажите пустое значение в этом параметре.
+        * `config_spec.clickhouse.config.geobase_uri` — ссылка на архив с геобазой в {{ objstorage-name }}. Укажите пустое значение в этом параметре.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -454,4 +454,4 @@ Managed Service for ClickHouse® работает только с геобаза
 
 {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

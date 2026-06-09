@@ -7,9 +7,9 @@
 {% endnote %}
 
 
-Многие запросы к Object Storage аутентифицируются на стороне сервиса и пользователь, отправляющий запрос, должен его подписать.
+Многие запросы к {{ objstorage-name }} аутентифицируются на стороне сервиса и пользователь, отправляющий запрос, должен его подписать.
 
-Object Storage поддерживает подпись [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
+{{ objstorage-name }} поддерживает подпись [AWS Signature V4](https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html).
 
 Процесс подписывания состоит из этапов:
 
@@ -21,7 +21,7 @@ Object Storage поддерживает подпись [AWS Signature V4](https:
 
 ## Генерирование строки для подписи {#string-to-sign-gen}
 
-Строка для подписи (`StringToSign`) зависит от сценария использования Object Storage:
+Строка для подписи (`StringToSign`) зависит от сценария использования {{ objstorage-name }}:
 
 * [Обращение к API](index.md), совместимому с Amazon S3, без помощи SDK или специализированных утилит.
 * [Загрузка объектов с помощью HTML-формы](../concepts/presigned-post-forms.md).
@@ -29,7 +29,7 @@ Object Storage поддерживает подпись [AWS Signature V4](https:
 
 ## Генерирование подписывающего ключа {#signing-key-gen}
 
-Чтобы сгенерировать подписывающий ключ, вам необходимо иметь статические ключи доступа к Object Storage. О том, как их получить, читайте в статье [Подготовка к работе](index.md#before-you-begin).
+Чтобы сгенерировать подписывающий ключ, вам необходимо иметь статические ключи доступа к {{ objstorage-name }}. О том, как их получить, читайте в статье [Подготовка к работе](index.md#before-you-begin).
 
 Чтобы сгенерировать подписывающий ключ:
 
@@ -42,7 +42,7 @@ Object Storage поддерживает подпись [AWS Signature V4](https:
 1. Закодируйте регион с помощью полученного на предыдущем шаге ключа `DateKey`:
 
     ```
-    RegionKey = sign(DateKey, "ru-central1")
+    RegionKey = sign(DateKey, "{{ region-id }}")
     ```
 
 1. Закодируйте сервис с помощью полученного на предыдущем шаге ключа `RegionKey`:
@@ -95,7 +95,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 {% note info %}
 
-Убедитесь, что сервисный аккаунт, от имени которого вы выполняете команды `aws`, имеет необходимые права для выполнения запрашиваемых действий. Например, для создания бакета [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-uploader) `storage.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. [Обзор способов управления доступом в Object Storage](../security/overview.md).
+Убедитесь, что сервисный аккаунт, от имени которого вы выполняете команды `aws`, имеет необходимые права для выполнения запрашиваемых действий. Например, для создания бакета [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роль](../security/index.md#storage-uploader) `storage.editor` на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder). Подробнее см. [{#T}](../security/overview.md).
 
 {% endnote %}
 
@@ -107,7 +107,7 @@ signature = Hex(sign(SigningKey, StringToSign))
 
   ```bash
   aws s3api create-bucket \
-    --endpoint-url=https://storage.yandexcloud.net \
+    --endpoint-url=https://{{ s3-storage-host }} \
     --bucket <имя_бакета> \
     --debug
   ```
@@ -119,7 +119,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   PUT
   /<имя_бакета>
 
-  host:storage.yandexcloud.net
+  host:{{ s3-storage-host }}
   x-amz-content-sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b********
   x-amz-date:20240603T100236Z
 
@@ -129,7 +129,7 @@ signature = Hex(sign(SigningKey, StringToSign))
   2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - StringToSign:
   AWS4-HMAC-SHA256
   20240603T100236Z
-  20240603/ru-central1/s3/aws4_request
+  20240603/{{ region-id }}/s3/aws4_request
   7877a13bafaa45f9751e7f345b64a63acc6de279ff927736e906d7c5********
 
   2024-06-03 13:02:36,238 - MainThread - botocore.auth - DEBUG - Signature:
@@ -140,6 +140,6 @@ signature = Hex(sign(SigningKey, StringToSign))
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](s3-api-quickstart.md)
+* [{#T}](s3-api-quickstart.md)
 * [Пример отправки подписанного запроса с помощью утилиты curl](../api-ref/authentication.md#s3-api-example)
 * [Пример кода для генерации подписи](../concepts/pre-signed-urls.md#code-examples)

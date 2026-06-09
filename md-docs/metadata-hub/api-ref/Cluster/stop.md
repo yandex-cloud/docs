@@ -5,7 +5,7 @@ Stops the specified Metastore Cluster.
 ## HTTP request
 
 ```
-POST https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters/{clusterId}:stop
+POST https://metastore.{{ api-host }}/managed-metastore/v1/clusters/{clusterId}:stop
 ```
 
 ## Path parameters

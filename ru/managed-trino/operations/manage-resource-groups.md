@@ -138,7 +138,7 @@ description: Вы можете получить информацию о конф
        --resource-groups-from-file resource-groups.yaml
      ```
 
-     Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+     Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
 - {{ TF }} {#tf}
 
@@ -170,7 +170,7 @@ description: Вы можете получить информацию о конф
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
 
@@ -352,7 +352,7 @@ description: Вы можете получить информацию о конф
 
      {% include [resources-params-grpc](../../_includes/managed-trino/resources-params-grpc.md) %}
 
-     Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+     Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
   1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
@@ -437,7 +437,7 @@ description: Вы можете получить информацию о конф
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+     Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
   
   1. Если описание ресурсных групп и правил маршрутизации в кластере {{ mtr-name }} еще не задано, добавьте в описание кластера блок `resource_groups`:
 
@@ -471,7 +471,7 @@ description: Вы можете получить информацию о конф
 
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
 
@@ -743,7 +743,7 @@ description: Вы можете получить информацию о конф
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
   
   1. Чтобы удалить все ресурсные группы и правила маршрутизации, удалите из описания кластера параметр `resource_groups`.
 

@@ -1,14 +1,14 @@
 # Поля и аннотации ресурса Ingress
 
-В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами Kubernetes. По этим правилам [Ingress-контроллер Application Load Balancer](../tools/k8s-ingress-controller/index.md) создает [балансировщик](../concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../concepts/http-router.md). [Сервисы](service-for-ingress.md), выступающие в роли бэкендов Application Load Balancer, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`](http-backend-group.md).
+В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами {{ k8s }}. По этим правилам [Ingress-контроллер {{ alb-name }}]({{ ingress-local-link }}/index.md) создает [балансировщик](../concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../concepts/http-router.md). [Сервисы]({{ configuration-local-link }}/service-for-ingress.md), выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`]({{ configuration-local-link }}/http-backend-group.md).
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](../tools/gwin/index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
-`Ingress` — стандартный ресурс Kubernetes. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер Application Load Balancer. Полное описание конфигурации ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
+`Ingress` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
 ## Ingress {#ingress}
 
@@ -118,7 +118,7 @@ annotations:
 || **Поле**      | **Значение или тип** | **Описание** ||
 || `name`        | `string`             | **Обязательное**.
                                           [Имя ресурса](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-                                          Не является именем балансировщика в Application Load Balancer. ||
+                                          Не является именем балансировщика в {{ alb-name }}. ||
 || `annotations` | `map[string]string`  | **Обязательное**.
                                           [Аннотации ресурса](#annotations). ||
 |#
@@ -139,19 +139,19 @@ annotations:
   ingress.alb.yc.io/modify-header-response-replace: X-Robots-Tag=noarchive,X-Robots-Tag=nofollow,X-Robots-Tag=noindex
   ```
 
-Подробнее об аннотациях см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Подробнее об аннотациях см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 Для объекта `ObjectMeta` можно передать следующие аннотации:
 
 * **ingress.alb.yc.io/group-name** {#annot-group-name}
 
-  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+  Имя группы ресурсов `Ingress`. Для каждой группы создается отдельный балансировщик. Несколько ресурсов `Ingress` можно объединить в одну группу, чтобы не создавать балансировщик для каждого отдельного ресурса `Ingress`. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
   Поле обязательно, даже если ресурс `Ingress` — единственный в группе.
 
 * **ingress.alb.yc.io/subnets** {#annot-subnets}
 
-  Список [подсетей](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, в которых [расположен балансировщик](../concepts/application-load-balancer.md#lb-location). Идентификаторы подсетей перечисляются через запятую, например:
+  Список [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, в которых [расположен балансировщик](../concepts/application-load-balancer.md#lb-location). Идентификаторы подсетей перечисляются через запятую, например:
 
   ```yaml
   ingress.alb.yc.io/subnets: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
@@ -163,7 +163,7 @@ annotations:
 
 * **ingress.alb.yc.io/security-groups** {#annot-security-groups}
 
-  Список [групп безопасности](../../vpc/concepts/security-groups.md) Virtual Private Cloud для балансировщика. Идентификаторы групп перечисляются через запятую, например:
+  Список [групп безопасности](../../vpc/concepts/security-groups.md) {{ vpc-name }} для балансировщика. Идентификаторы групп перечисляются через запятую, например:
 
   ```yaml
   ingress.alb.yc.io/security-groups: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
@@ -171,7 +171,7 @@ annotations:
 
   В балансировщике, созданном по группе из нескольких `Ingress` (аннотация [ingress.alb.yc.io/group-name](#annot-group-name)), используются все группы безопасности, указанные в этих `Ingress`.
 
-  Для корректной работы балансировщика и Ingress-контроллера группы безопасности должны быть настроены, как описано в разделе [Настройка групп безопасности для инструментов Application Load Balancer для Managed Service for Kubernetes](../tools/k8s-ingress-controller/security-groups.md).
+  Для корректной работы балансировщика и Ingress-контроллера группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
 
 * **ingress.alb.yc.io/external-ipv4-address** {#annot-external-ipv4-address}
 
@@ -223,7 +223,7 @@ annotations:
 
   {% note warning %}
 
-  В [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее используйте аннотацию только в объекте [Service](service-for-ingress.md#metadata).
+  В [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее используйте аннотацию только в объекте [Service]({{ configuration-local-link }}/service-for-ingress.md#metadata).
 
   Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем он не будет поддерживаться.
 
@@ -235,7 +235,7 @@ annotations:
 
   Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса](http-backend-group.md)).
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса]({{ configuration-local-link }}/http-backend-group.md)).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 
@@ -265,19 +265,19 @@ annotations:
 
   {% endcut %}
 
-  В Application Load Balancer замена будет настроена во всех [HTTP-роутерах](../concepts/http-router.md), созданных по ресурсу `Ingress`.
+  В {{ alb-name }} замена будет настроена во всех [HTTP-роутерах](../concepts/http-router.md), созданных по ресурсу `Ingress`.
   
 * **ingress.alb.yc.io/upgrade-types** {#annot-upgrade-types}
 
   Поддерживаемые балансировщиком значения HTTP-заголовка `Upgrade` во входящих запросах. Значения перечисляются через запятую.
 
-  > Например, с помощью этой аннотации можно включить поддержку протокола [WebSocket](https://ru.wikipedia.org/wiki/WebSocket):
+  > Например, с помощью этой аннотации можно включить поддержку протокола [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket):
   > 
   > ```yaml
   > ingress.alb.yc.io/upgrade-types: WebSocket
   > ```
 
-  В Application Load Balancer значения `Upgrade` будут настроены во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
+  В {{ alb-name }} значения `Upgrade` будут настроены во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
 
 * **ingress.alb.yc.io/request-timeout** {#annot-request-timeout}
 
@@ -285,7 +285,7 @@ annotations:
 
   Значение по умолчанию: `60s`.
 
-  В Application Load Balancer таймаут будет настроен во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
+  В {{ alb-name }} таймаут будет настроен во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
 
 * **ingress.alb.yc.io/idle-timeout** {#annot-idle-timeout}
 
@@ -293,7 +293,7 @@ annotations:
 
   Если аннотация не указана, соединение может простаивать в течение любого периода до истечения общего таймаута (аннотация [ingress.alb.yc.io/request-timeout](#annot-request-timeout)).
 
-  В Application Load Balancer таймаут будет настроен во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
+  В {{ alb-name }} таймаут будет настроен во всех HTTP-роутерах, созданных по ресурсу `Ingress`.
 
 * **ingress.alb.yc.io/modify-header-response-append** {#annot-modify-header-response-append}
 
@@ -395,17 +395,17 @@ annotations:
 
 * **ingress.alb.yc.io/security-profile-id** {#annot-security-profile-id}
 
-  Включает поддержку сервиса [Yandex Smart Web Security](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
+  Включает поддержку сервиса [{{ sws-full-name }}](../../smartwebsecurity/concepts/index.md), который позволяет защититься от [DDoS-атак](../../glossary/ddos.md) и ботов, а также задействовать [WAF](../../smartwebsecurity/concepts/waf.md) и [ограничить нагрузку](../../smartwebsecurity/concepts/arl.md) на защищаемый ресурс.
 
   {% note info %}
   
-  Для подключения профиля безопасности к виртуальному хосту Application Load Balancer у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы Application Load Balancer и Smart Web Security. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+  Для подключения профиля безопасности к виртуальному хосту {{ alb-name }} у сервисного аккаунта, от имени которого работает Ingress-контроллер, должна быть роль [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) на каталог, в котором размещены ресурсы {{ alb-name }} и {{ sws-name }}. Подробнее см. [Назначение роли сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
   
   {% endnote %}
 
-  Сервис проверяет HTTP-запросы, которые поступают к защищаемому ресурсу через [виртуальный хост](../concepts/http-router.md#virtual-host) L7-балансировщика. В зависимости от результатов проверки сервис направляет запросы на защищаемый ресурс, блокирует их или отправляет в [Yandex SmartCaptcha](../../smartcaptcha/index.md) для дополнительной верификации.
+  Сервис проверяет HTTP-запросы, которые поступают к защищаемому ресурсу через [виртуальный хост](../concepts/http-router.md#virtual-host) L7-балансировщика. В зависимости от результатов проверки сервис направляет запросы на защищаемый ресурс, блокирует их или отправляет в [{{ captcha-full-name }}](../../smartcaptcha/index.md) для дополнительной верификации.
   
-  Чтобы включить поддержку сервиса, в аннотации Ingress укажите идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security:
+  Чтобы включить поддержку сервиса, в аннотации Ingress укажите идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }}:
   
   ```yaml
   ingress.alb.yc.io/security-profile-id: <идентификатор_профиля_безопасности>
@@ -497,7 +497,7 @@ defaultBackend:
 
 #|
 || **Поле**           | **Значение или тип** | **Описание** ||
-|| `ingressClassName` | `string`             | Имя ресурса [IngressClass](ingress-class.md), к которому относится ресурс `Ingress`.
+|| `ingressClassName` | `string`             | Имя ресурса [IngressClass]({{ configuration-local-link }}/ingress-class.md), к которому относится ресурс `Ingress`.
 
 `IngressClass` нужен, чтобы маршрутизировать трафик в рамках одного приложения с помощью нескольких Ingress-контроллеров. Если вы не используете параметр `ingressClassName`, но используете несколько Ingress-контроллеров, создайте ресурс `IngressClass`, который будет применяться по умолчанию. ||
 || `tls`              | `[]IngressTLS`       | **Обязательное**.
@@ -510,7 +510,7 @@ defaultBackend:
 
 || `rules` | `[]IngressRule`  | [Список правил](#rule) распределения входящего трафика по бэкендам в зависимости от доменного имени (поле `host`) и запрашиваемого ресурса (поле `http.paths`).
 
-В Application Load Balancer правила соответствуют [виртуальным хостам](../concepts/http-router.md#virtual-host) HTTP-роутеров.
+В {{ alb-name }} правила соответствуют [виртуальным хостам](../concepts/http-router.md#virtual-host) HTTP-роутеров.
 
 Если правила не определены, необходимо указать [бэкенд по умолчанию](#default-backend) — трафик будет перенаправляться на него.
 ||
@@ -541,11 +541,11 @@ defaultBackend:
 ||
 
 || `secretName` | `string`  | **Обязательное**.
-Указание на TLS-сертификат из Yandex Certificate Manager в формате `yc-certmgr-cert-id-<идентификатор сертификата>`. Под этим именем в Managed Service for Kubernetes доступен [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с сертификатом.
+Указание на TLS-сертификат из {{ certificate-manager-full-name }} в формате `yc-certmgr-cert-id-<идентификатор сертификата>`. Под этим именем в {{ managed-k8s-name }} доступен [секрет](https://kubernetes.io/docs/concepts/configuration/secret/) с сертификатом.
 
-В Certificate Manager можно [выпустить сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный сертификат](../../certificate-manager/operations/import/cert-create.md).
+В {{ certificate-manager-name }} можно [выпустить сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [загрузить собственный сертификат](../../certificate-manager/operations/import/cert-create.md).
 
-Если сертификат пока не добавлен в Certificate Manager, укажите секрет Kubernetes с сертификатом в поле `secretName`. Тогда Ingress-контроллер Application Load Balancer автоматически добавит сертификат в Certificate Manager.
+Если сертификат пока не добавлен в {{ certificate-manager-name }}, укажите секрет {{ k8s }} с сертификатом в поле `secretName`. Тогда Ingress-контроллер {{ alb-name }} автоматически добавит сертификат в {{ certificate-manager-name }}.
 ||
 |#
 
@@ -560,7 +560,7 @@ defaultBackend:
         backend: <IngressBackend>
 ```
 
-В версиях [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
+В версиях [ALB Ingress Controller](https://yandex.cloud/ru/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении]({{ ingress-upgrade-local-link }}) к вашей инфраструктуре.
 
 #|
 || **Поле** | **Значение или тип** | **Описание** ||
@@ -584,7 +584,7 @@ defaultBackend:
 || `http.paths` | `[]HTTPIngressPath`  | **Обязательное**.
 Список маршрутов: запрашиваемых ресурсов, для которых действует правило, и соответствующих им бэкендов.
 
-Порядок маршрутов в списке важен: они сверяются с входящим запросом по очереди, и первый подошедший маршрут используется в маршрутизации. Поэтому рекомендуется помещать наиболее специфичные маршруты в начало списка. Эта логика отличается от описанной в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches), где приоритет имеют маршруты с самыми длинными путями (поле `rules.http.paths.path`).
+Порядок маршрутов в списке важен: они сверяются с входящим запросом по очереди, и первый подошедший маршрут используется в маршрутизации. Поэтому рекомендуется помещать наиболее специфичные маршруты в начало списка. Эта логика отличается от описанной в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress/#multiple-matches), где приоритет имеют маршруты с самыми длинными путями (поле `rules.http.paths.path`).
 
 {% note warning %}
 
@@ -637,27 +637,27 @@ resource:
 || **Поле** | **Значение или тип** | **Описание** ||
 
 || `service`    | `IngressServiceBackend`        | **Обязательное**.
-Указание на [сервис Kubernetes](../../managed-kubernetes/concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
+Указание на [сервис {{ k8s }}](../../managed-kubernetes/concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
 
-Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](service-for-ingress.md).
+Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-ingress.md).
 
 Для элемента списка `spec.rules.http.paths` должен быть указан либо сервис-бэкенд, либо группа бэкендов (`resource`), но не оба одновременно.
 
 * `name` (`string`, обязательное)
 
-  Имя сервиса Kubernetes.
+  Имя сервиса {{ k8s }}.
 
 * `port` (`ServiceBackendPort`, обязательное)
 
   Порт сервиса, к которому будет обращаться `Ingress`.
 
-  Поле предназначено для работы Ingress-контроллера и не соответствует ни одному из полей ресурсов Application Load Balancer.
+  Поле предназначено для работы Ingress-контроллера и не соответствует ни одному из полей ресурсов {{ alb-name }}.
 
   * `name` (`string`)
 
     Имя порта сервиса.
 
-    Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+    Имя должно совпадать с одним из имен портов, указанных в полях `spec.ports.name` ресурса `Service`. Подробнее см. в [спецификации ресурса]({{ configuration-local-link2 }}/service-for-ingress.md).
 
     Для порта сервиса должно быть указано либо имя, либо номер (`number`), но не оба одновременно.
 
@@ -665,7 +665,7 @@ resource:
 
     Номер порта сервиса.
 
-    Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса](service-for-ingress.md).
+    Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [спецификации ресурса]({{ configuration-local-link2 }}/service-for-ingress.md).
 
     Для порта сервиса должен быть указан либо номер, либо имя (`name`), но не оба одновременно.
 
@@ -674,14 +674,14 @@ resource:
 || `resource` | `TypedLocalObjectReference`  | **Обязательное**.
 Указание на группу бэкендов, которые должны обрабатывать запросы.
 
-Ресурс `HttpBackendGroup`, на который указывает это поле, реализован Ingress-контроллером как [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Он должен быть описан по [принятой конфигурации](http-backend-group.md).
+Ресурс `HttpBackendGroup`, на который указывает это поле, реализован Ingress-контроллером как [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Он должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/http-backend-group.md).
 
 Для элемента списка `spec.rules.http.paths` должна быть указана либо группа бэкендов, либо сервис-бэкенд (`service`), но не оба одновременно.
 
 * `kind`: `HttpBackendGroup`
 * `name` (`string`) — имя группы бэкендов.
 
-    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее см. в [конфигурации ресурса](http-backend-group.md).
+    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

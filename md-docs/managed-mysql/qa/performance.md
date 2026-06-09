@@ -19,20 +19,20 @@
 #### Как выяснить причину снижения производительности в пиках нагрузки? {#degradation-at-peak}
 
 Просмотрите лог медленных запросов:
-1. В [настройках кластера MySQL®](../operations/update.md#change-mysql-config) установите значение **Long query time** больше нуля.
-1. В [консоли управления](https://console.yandex.cloud) на странице кластера выберите вкладку **Логи**.
+1. В [настройках кластера {{ MY }}](../operations/update.md#change-mysql-config) установите значение **Long query time** больше нуля.
+1. В [консоли управления]({{ link-console-main }}) на странице кластера выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_logs }}**.
 1. В левом верхнем углу выберите из выпадающего списка `MYSQL_SLOW_QUERY`.
 
 #### Как выяснить причину общего снижения производительности? {#general-degradation}
 
 Проверьте графики мониторинга хостов:
-1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;MySQL**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-1. Перейдите на страницу **Мониторинги**:
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**:
    * Рекомендуется увеличить класс хостов:
       * При стабильно высоком значении `Steal` графика **CPU usage**.
       * При стабильно низком значении `Free` графика **Memory usage**.
-   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков см. в [документации Yandex Compute Cloud](../../compute/concepts/disk.md).
+   * При высоком значении `iowait` графика **CPU usage** возможно превышение лимитов IOPS дискового хранилища. Рекомендуется увеличить значение как минимум до следующего порога [блока размещения](../../compute/concepts/limits.md#compute-limits-disks) или использовать более быстрые диски. Подробнее о лимитах и производительности дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/disk.md).
 
 #### Почему отстает реплика? {#replica-lagging}
 
@@ -49,9 +49,9 @@
 #### Как выяснить причину долгой загрузки ресурсов? {#long-load}
 
 Проверьте графики мониторинга хостов:
-1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;MySQL**.
-1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
-1. Перейдите на страницу **Мониторинги**.
+1. Перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}**.
+1. Перейдите на страницу **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
 1. Найдите проблемный ресурс: график будет приближаться к границе или выйдет за нее.
 1. Выберите другие хосты из выпадающего списка и проверьте их тоже.
 
@@ -64,7 +64,7 @@
 1. Выдайте пользователю привилегию `PROCESS`, выполнив команду [CLI](../../cli/index.md):
 
    ```bash
-   yc managed-mysql user update \
+   {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <имя_пользователя> \
        --cluster-id <идентификатор_кластера>
    ```
@@ -75,16 +75,16 @@
    SELECT * FROM sys.statement_analysis LIMIT 10;
    ```
 
-Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
+Обратите внимание на запросы с высокими значениями `rows_examined`, `rows_sorted` или флагом `full_scan` — с большой вероятностью именно они потребляют ресурсы CPU. Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/mysql-em-plugin/en/myoem-metric-sysschema-statementanalysis-category.html).
 
 #### Как выяснить причину утилизации ресурса IO? {#high-io}
 
-Приблизительную информацию о потреблении ресурса IO потоками в MySQL® можно получить с помощью системных представлений. Для доступа к ним потребуется [административная привилегия](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS` уровня кластера.
+Приблизительную информацию о потреблении ресурса IO потоками в {{ MY }} можно получить с помощью системных представлений. Для доступа к ним потребуется [административная привилегия](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS` уровня кластера.
 
 1. Выдайте пользователю привилегию `PROCESS`, выполнив команду [CLI](../../cli/index.md):
 
    ```bash
-   yc managed-mysql user update \
+   {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <имя_пользователя> \
        --cluster-id <идентификатор_кластера>
    ```
@@ -115,12 +115,12 @@
 
 Повышенную нагрузку на сеть могут вызывать: `SELECT`, возвращающий большое число записей, `INSERT` больших объемов данных или `UPDATE`, изменяющий множество строк. В случае записи изменения будут реплицироваться на хосты-реплики, что вызовет дополнительный трафик.
 
-Приблизительную информацию о потреблении ресурса сети потоками в MySQL® можно получить с помощью системных представлений. Для доступа к ним потребуется [административная привилегия](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS` уровня кластера.
+Приблизительную информацию о потреблении ресурса сети потоками в {{ MY }} можно получить с помощью системных представлений. Для доступа к ним потребуется [административная привилегия](../concepts/settings-list.md#setting-administrative-privileges) `PROCESS` уровня кластера.
 
 1. Выдайте пользователю привилегию `PROCESS`, выполнив команду [CLI](../../cli/index.md):
 
    ```bash
-   yc managed-mysql user update \
+   {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <имя_пользователя> \
        --cluster-id <идентификатор_кластера>
    ```
@@ -157,7 +157,7 @@
 1. Выдайте пользователю привилегию `PROCESS`, выполнив команду [CLI](../../cli/index.md):
 
    ```bash
-   yc managed-mysql user update \
+   {{ yc-mdb-my }} user update \
        --global-permissions PROCESS <имя_пользователя> \
        --cluster-id <идентификатор_кластера>
    ```
@@ -174,11 +174,11 @@
    SELECT * FROM sys.innodb_lock_waits
    ```
 
-Подробнее см. в [документации MySQL®](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
+Подробнее см. в [документации {{ MY }}](https://dev.mysql.com/doc/refman/8.0/en/sys-schema-table-lock-waits.html).
 
 #### Как оптимизировать проблемные запросы? {#query-optimization}
 
-Обратитесь к официальной документации MySQL®:
+Обратитесь к официальной документации {{ MY }}:
 
 * [Использование операции `EXPLAIN`](https://dev.mysql.com/doc/refman/5.7/en/using-explain.html).
 * [Оптимизация запросов](https://dev.mysql.com/doc/refman/5.7/en/statement-optimization.html).

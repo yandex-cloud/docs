@@ -126,6 +126,8 @@ Local disks are not available for all users by default.
 - `metadata_options` [Block]. Options allow user to configure access to instance's metadata.
   - `aws_v1_http_endpoint` (Number). 
   - `aws_v1_http_token` (Number). 
+  - `aws_v2_http_endpoint` (Number). 
+  - `aws_v2_http_token` (Number). 
   - `gce_http_endpoint` (Number). 
   - `gce_http_token` (Number). 
 - `placement_policy` [Block]. The placement policy configuration.

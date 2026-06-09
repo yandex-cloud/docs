@@ -5,7 +5,7 @@ Returns the default storage for the specified configuration.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/storages/default/{configurationId}
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/storages/default/{configurationId}
 ```
 
 ## Path parameters

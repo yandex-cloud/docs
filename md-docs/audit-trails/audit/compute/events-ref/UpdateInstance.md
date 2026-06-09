@@ -100,6 +100,7 @@
     },
     "placementPolicy": {
       "placementGroupId": "string",
+      "placementGroupPartition": "string",
       "hostAffinityRules": [
         {
           "key": "string",
@@ -108,8 +109,7 @@
             "string"
           ]
         }
-      ],
-      "placementGroupPartition": "string"
+      ]
     },
     "metadataOptions": {
       "gceHttpEndpoint": "string",
@@ -350,8 +350,8 @@ The rest of the fields will be reset to the default. ||
 #|
 ||Field | Description ||
 || placementGroupId | **string** ||
-|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)** ||
 || placementGroupPartition | **string** (int64) ||
+|| hostAffinityRules[] | **[HostAffinityRule](#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule)** ||
 |#
 
 ## HostAffinityRule {#yandex.cloud.compute.v1.PlacementPolicy.HostAffinityRule}
@@ -410,9 +410,7 @@ The rest of the fields will be reset to the default. ||
 
 #|
 ||Field | Description ||
-|| memory | **string** (int64)
-
-The maximum value is 274877906944. ||
+|| memory | **string** (int64) ||
 || cores | **string** (int64) ||
 || coreFraction | **string** (int64) ||
 || gpus | **string** (int64) ||

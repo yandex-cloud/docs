@@ -1,6 +1,6 @@
-# Мониторинг состояния кластера Managed Service for YTsaurus
+# Мониторинг состояния кластера {{ myt-name }}
 
-Данные о состоянии кластера и его хостов доступны в [консоли управления](https://console.yandex.cloud). Их можно посмотреть на вкладке **Мониторинг** страницы управления кластером  или в сервисе [Yandex Monitoring](../../monitoring/concepts/index.md).
+Данные о состоянии кластера и его хостов доступны в [консоли управления]({{ link-console-main }}). Их можно посмотреть на вкладке **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** страницы управления кластером  или в сервисе [{{ monitoring-full-name }}](../../monitoring/concepts/index.md).
 
 Диагностическая информация о состоянии кластера представлена в виде графиков.
 
@@ -12,20 +12,20 @@
 
 {% endnote %}
 
-Вы можете [настроить алерты](#monitoring-integration) в сервисе Yandex Monitoring для получения уведомлений о сбоях в работе кластера. В Yandex Monitoring используются два порога срабатывания алерта: `Warning` и `Alarm`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
+Вы можете [настроить алерты](#monitoring-integration) в сервисе {{ monitoring-full-name }} для получения уведомлений о сбоях в работе кластера. В {{ monitoring-full-name }} используются два порога срабатывания алерта: `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.warn }}` и `{{ ui-key.yacloud_monitoring.alert-template.threshold-status.alarm }}`. При превышении заданного порога вы получите оповещения через настроенные [каналы уведомлений](../../monitoring/concepts/alerting.md#notification-channel).
 
 ## Мониторинг состояния кластера {#monitoring-cluster}
 
-Для просмотра детальной информации о состоянии кластера Managed Service for YTsaurus:
+Для просмотра детальной информации о состоянии кластера {{ myt-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-  1. В списке сервисов выберите **Managed Service for YTsaurus**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Мониторинг**.
-  1. Чтобы перейти к работе с метриками, дашбордами или алертами, выберите в списке сервисов Yandex Monitoring.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}**.
+  1. Чтобы перейти к работе с метриками, дашбордами или алертами, выберите в списке сервисов {{ monitoring-full-name }}.
 
   На странице отображаются две вкладки **Cluster** и **Master** с графиками:
 
@@ -97,11 +97,11 @@
     * **Offline nodes** — ноды в статусе `offline`.
     * **Banned nodes** — ноды в статусе `banned`.
     * **Decomissioned nodes** — ноды в состоянии `decommissioned`.
-    * **Alerts** — количество активных предупреждений о проблемах на нодах кластера YTsaurus.
+    * **Alerts** — количество активных предупреждений о проблемах на нодах кластера {{ ytsaurus-name }}.
 
 {% endlist %}
 
-## Настройка алертов в Yandex Monitoring {#monitoring-integration}
+## Настройка алертов в {{ monitoring-full-name }} {#monitoring-integration}
 
 Чтобы настроить алерты показателей состояния [кластера](#monitoring-cluster):
 
@@ -109,13 +109,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог с кластером, для которого нужно настроить алерты.
-  1. В списке сервисов выберите ![image](../../_assets/console-icons/display-pulse.svg) **Monitoring**.
-  1. В блоке **Сервисные дашборды** выберите **Managed Service for YTsaurus — Cluster Resources**.
-  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Создать алерт**.
-  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **Продолжить**. Подробнее о языке запросов см. [документацию Yandex Monitoring](../../monitoring/concepts/querying.md).
-  1. Задайте пороговые значения `Alarm` и `Warning` для срабатывания алерта.
-  1. Нажмите кнопку **Создать алерт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с кластером, для которого нужно настроить алерты.
+  1. В списке сервисов выберите ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** выберите **{{ myt-name }} — Cluster Resources**.
+  1. На нужном графике нажмите на значок ![options](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
+  1. Если на графике несколько показателей, выберите запрос данных для формирования метрики и нажмите **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. Подробнее о языке запросов см. [документацию {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
+  1. Задайте пороговые значения `{{ ui-key.yacloud_monitoring.alert.label_alarm }}` и `{{ ui-key.yacloud_monitoring.alert.label_warning }}` для срабатывания алерта.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
@@ -131,16 +131,16 @@
 
 {% endlist %}
 
-Полный список поддерживаемых метрик см. в [документации Monitoring](../../monitoring/metrics-ref/managed-ytsaurus-ref.md).
+Полный список поддерживаемых метрик в [документации {{ monitoring-name }}](../../monitoring/metrics-ref/managed-ytsaurus-ref.md).
 
 ## Статус кластера {#cluster-health-and-status}
 
-_Статус_ показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
+_{{ ui-key.yacloud.mdb.cluster.overview.label_status }}_ показывает, запущен кластер, остановлен или находится в промежуточном состоянии.
 
 Для просмотра статуса кластера:
 
-1. Перейдите на страницу каталога и выберите **Managed Service for YTsaurus**.
-1. В строке нужного кластера найдите столбец **Статус**.
+1. Перейдите на страницу каталога и выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-ytsaurus }}**.
+1. В строке нужного кластера найдите столбец **{{ ui-key.yacloud.common.label_status }}**.
 
 #|
 || **Статус** | **Описание** | **Предлагаемые действия** ||
@@ -151,6 +151,6 @@ _Статус_ показывает, запущен кластер, остано
 || **STARTING** | Остановленный ранее кластер запускается | Через некоторое время кластеру будет присвоен статус `RUNNING`. Подождите немного и приступайте к работе. ||
 || **UPDATING** | Обновляется конфигурация кластера | По завершении обновления кластеру будет присвоен статус, который был до обновления: `RUNNING` или `STOPPED`. ||
 || **DELETING** | Кластер удаляется | По завершении удаления кластера он будет выведен из работы. Действий не требуется. ||
-|| **ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support). ||
-|| **STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки](https://center.yandex.cloud/support). ||
+|| **ERROR** | Произошла ошибка при выполнении операции с кластером или во время окна технического обслуживания | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}). ||
+|| **STATUS_UNKNOWN** | Кластер не может определить свой статус | Если кластер долго находится в этом статусе, [обратитесь в службу поддержки]({{ link-console-support }}). ||
 |#

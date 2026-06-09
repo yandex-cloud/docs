@@ -1,4 +1,4 @@
-## Решения для известных проблем Serverless Containers {#known-issues-resolving}
+## Решения для известных проблем {{ serverless-containers-name }} {#known-issues-resolving}
 
 * [Устранение ошибки `Code 502 Message Error during function invocation`](serverless-container-invoking-error-502.md)
 * [Устранение ошибки `user container exec format error`](exec-format-error.md)

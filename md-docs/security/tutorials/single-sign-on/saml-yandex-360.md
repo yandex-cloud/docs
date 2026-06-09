@@ -1,12 +1,12 @@
-# Создать SAML-приложение в Yandex Identity Hub для интеграции с Яндекс 360
+# Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ yandex-360 }}
 
-[Яндекс 360](https://360.yandex.ru/) — это облачная платформа для бизнеса, предоставляющая набор инструментов для корпоративной электронной почты, совместной работы и управления документами. Яндекс 360 поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
+[Яндекс 360](https://360.yandex.ru/) — это облачная платформа для бизнеса, предоставляющая набор инструментов для корпоративной электронной почты, совместной работы и управления документами. {{ yandex-360 }} поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Яндекс 360 с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Яндекс 360.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ yandex-360 }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне {{ yandex-360 }}.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
-Чтобы дать доступ пользователям вашей организации в Яндекс 360:
+Чтобы дать доступ пользователям вашей организации в {{ yandex-360 }}:
 
 1. [Создайте приложение](#create-app).
 1. [Настройте интеграцию](#setup-integration).
@@ -16,42 +16,42 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
-        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
-        1. В поле **Имя** задайте имя создаваемого приложения: `yandex360`.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `yandex360`.
 
-        1. (Опционально) В поле **Описание** задайте описание приложения.
+        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **Добавить метку**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **Создать приложение**.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Яндекс 360 с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне Yandex Identity Hub и на стороне Яндекс 360.
+Чтобы настроить интеграцию {{ yandex-360 }} с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне {{ org-full-name }} и на стороне {{ yandex-360 }}.
 
-### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
+### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
-      1. В поле **SP EntityID** укажите `https://yandex.ru/`.
-      1. В поле **ACS URL** укажите адрес `https://passport.yandex.ru/auth/sso/commit`.
-      1. Нажмите **Сохранить**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите `https://yandex.ru/`.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://passport.yandex.ru/auth/sso/commit`.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -59,26 +59,26 @@
 
 {% note warning %}
 
-Для интеграции с Яндекс 360 необходимо настроить атрибуты `User.EmailAddress`, `User.Firstname` и `User.Surname`.
+Для интеграции с {{ yandex-360 }} необходимо настроить атрибуты `User.EmailAddress`, `User.Firstname` и `User.Surname`.
 
 {% endnote %}
 
-Настройте атрибуты пользователей для интеграции с Яндекс 360:
+Настройте атрибуты пользователей для интеграции с {{ yandex-360 }}:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Атрибуты**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. Отредактируйте атрибуты пользователей:
 
         1. Атрибут `emailaddress` замените на `User.EmailAddress`. Для этого:
             1. Кликните на строку с атрибутом `emailaddress`.
-            1. В поле **Имя атрибута** введите `User.EmailAddress`.
-            1. В поле **Значение** оставьте текущее значение `SubjectClaims.email`.
-            1. Нажмите **Сохранить**.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `User.EmailAddress`.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** оставьте текущее значение `SubjectClaims.email`.
+            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
         1. Атрибут `givenname` замените на `User.Firstname`:
         1. Атрибут `surname` замените на `User.Surname`:
@@ -88,36 +88,36 @@
 
 Подробнее о настройке атрибутов см. [Настройте атрибуты пользователей и групп](../../../organization/operations/applications/saml-create.md#setup-attributes).
 
-#### Соберите данные для настройки Яндекс 360 {#collect-idp-data}
+#### Соберите данные для настройки {{ yandex-360 }} {#collect-idp-data}
 
-Для настройки SSO в Яндекс 360 вам потребуются следующие данные из вашего SAML-приложения:
+Для настройки SSO в {{ yandex-360 }} вам потребуются следующие данные из вашего SAML-приложения:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-    1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте следующие данные:
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте следующие данные:
 
-        * **Issuer / IdP EntityID** — издатель поставщика удостоверений (IdP Entity ID).
-        * **Login URL** — URL-адрес точки входа (Login URL).
+        * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** — издатель поставщика удостоверений (IdP Entity ID).
+        * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** — URL-адрес точки входа (Login URL).
 
-    1. В блоке **Сертификат приложения** нажмите на кнопку **Скачать сертификат** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
+    1. В блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните сертификат подписи токенов формата X.509 на своем устройстве.
 
 {% endlist %}
 
-Эти данные потребуются для настройки SSO на стороне Яндекс 360.
+Эти данные потребуются для настройки SSO на стороне {{ yandex-360 }}.
 
-### Настройте SAML-аутентификацию на стороне Яндекс 360 {#setup-sp}
+### Настройте SAML-аутентификацию на стороне {{ yandex-360 }} {#setup-sp}
 
 {% note info %}
 
-Настройку SAML-аутентификации в Яндекс 360 может проводить пользователь с правами администратора организации.
+Настройку SAML-аутентификации в {{ yandex-360 }} может проводить пользователь с правами администратора организации.
 
 {% endnote %}
 
-Чтобы настроить SAML-аутентификацию на стороне Яндекс 360:
+Чтобы настроить SAML-аутентификацию на стороне {{ yandex-360 }}:
 
 1. Войдите в [консоль Яндекс 360 для бизнеса](https://admin.yandex.ru/).
 1. Перейдите в раздел настроек единого входа (SSO).
@@ -129,13 +129,13 @@
 
 {% note warning %}
 
-Проверьте, что домен из почтового атрибута `User.EmailAddress` в SAML response совпадает с основным доменом или одним из доменов-алиасов вашей организации Яндекс 360.
+Проверьте, что домен из почтового атрибута `User.EmailAddress` в SAML response совпадает с основным доменом или одним из доменов-алиасов вашей организации {{ yandex-360 }}.
 
 {% endnote %}
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Яндекс 360 с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в {{ yandex-360 }} с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 
@@ -147,26 +147,26 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Пользователи и группы**.
-    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
     1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-    1. Нажмите **Добавить**.
+    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
 ## Убедитесь в корректной работе приложения {#validate}
 
-Чтобы убедиться в корректной работе SAML-приложения и интеграции с Яндекс 360, выполните аутентификацию в Яндекс 360 от имени одного из добавленных в приложение пользователей. Для этого:
+Чтобы убедиться в корректной работе SAML-приложения и интеграции с {{ yandex-360 }}, выполните аутентификацию в {{ yandex-360 }} от имени одного из добавленных в приложение пользователей. Для этого:
 
-1. В браузере перейдите на страницу входа в Яндекс 360.
-1. Если вы были авторизованы в Яндекс 360, выйдите из профиля.
+1. В браузере перейдите на страницу входа в {{ yandex-360 }}.
+1. Если вы были авторизованы в {{ yandex-360 }}, выйдите из профиля.
 1. На странице аутентификации выберите вход через Single Sign-On (SSO).
-1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
-1. Убедитесь, что вы аутентифицировались в Яндекс 360.
+1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. Убедитесь, что вы аутентифицировались в {{ yandex-360 }}.
 
 ### Решение проблем с настройкой {#troubleshooting}
 
@@ -178,12 +178,12 @@
 
 #### request_your_admin {#request-your-admin}
 
-Ошибка появляется, если администратор каталога пользователей вашей организации ограничил для аккаунта доступ к Яндекс 360. За подробной информацией обратитесь к специалистам технической поддержки вашей организации.
+Ошибка появляется, если администратор каталога пользователей вашей организации ограничил для аккаунта доступ к {{ yandex-360 }}. За подробной информацией обратитесь к специалистам технической поддержки вашей организации.
 
 #### samlresponse.invalid {#samlresponse-invalid}
 
-Ошибка возникает, если неверно указаны URL-адрес точки входа, издатель поставщика удостоверений или сертификат подписи токенов. Также она может возникнуть в течение 14 дней до истечения сертификата подписи токенов или после его истечения. Проверьте корректность настроек SSO в Яндекс 360.
+Ошибка возникает, если неверно указаны URL-адрес точки входа, издатель поставщика удостоверений или сертификат подписи токенов. Также она может возникнуть в течение 14 дней до истечения сертификата подписи токенов или после его истечения. Проверьте корректность настроек SSO в {{ yandex-360 }}.
 
 #### unsupportable_domain {#unsupportable-domain}
 
-Проверьте, что домен из почтового атрибута `User.EmailAddress` в [SAML](https://ru.wikipedia.org/wiki/SAML) response такой же, как и основной домен или один из доменов-алиасов организации Яндекс 360.
+Проверьте, что домен из почтового атрибута `User.EmailAddress` в [SAML](https://ru.wikipedia.org/wiki/SAML) response такой же, как и основной домен или один из доменов-алиасов организации {{ yandex-360 }}.

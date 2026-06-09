@@ -1,8 +1,8 @@
 # Таблицы DynamoDB
 
-В [бессерверном режиме работы](serverless-and-dedicated.md#serverless) базы данных Managed Service for YDB вы можете использовать _документные таблицы_.
+В [бессерверном режиме работы](serverless-and-dedicated.md#serverless) базы данных {{ ydb-name }} вы можете использовать _документные таблицы_.
 
-Документные таблицы Managed Service for YDB совместимы с [таблицами Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.TablesItemsAttributes).
+Документные таблицы {{ ydb-name }} совместимы с [таблицами Amazon DynamoDB](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.TablesItemsAttributes).
 
 Документная таблица содержит данные в виде набора элементов. При создании документной таблицы обязательно требуется задать первичный ключ, который служит уникальным идентификатором элементов таблицы.
 
@@ -10,4 +10,4 @@
 
 Атрибут — единица данных, представленная в документной таблице в виде пары ключ-значение, атрибуты во многом похожи на поля или столбцы в других СУБД.
 
-Для работы с документными таблицами [используйте Document API](../docapi/tools/aws-setup.md). Работа через [YDB API](https://ydb.tech/docs/ru//reference/ydb-sdk/) возможна только в режиме чтения.
+Для работы с документными таблицами [используйте Document API](../docapi/tools/aws-setup.md). Работа через [{{ ydb-short-name }} API]({{ ydb.docs }}/reference/ydb-sdk/) возможна только в режиме чтения.

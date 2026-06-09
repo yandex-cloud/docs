@@ -1,4 +1,4 @@
-# Решение проблем в Apache Hive™ Metastore
+# Решение проблем в {{ metastore-full-name }}
 
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
@@ -6,7 +6,7 @@
 * [Отсутствие прав при подключении сервисного аккаунта к кластеру](#attach-service-account)
 * [Блокировка таблиц Hive](#lock-tables)
 
-## Ошибка при создании базы данных в Apache Hive™ Metastore {#create-db-in-hive}
+## Ошибка при создании базы данных в {{ metastore-full-name }} {#create-db-in-hive}
 
 Ошибка возникает, если создавать БД с помощью следующего запроса:
 
@@ -15,7 +15,7 @@ CREATE DATABASE IF NOT EXISTS <имя_БД>;
 ```
 
 **Решение**
-Apache Hive™ Metastore не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете Yandex Object Storage](../../storage/concepts/bucket.md), который привязан к кластеру Yandex Data Processing. Чтобы создать БД, выполните запрос:
+{{ metastore-name }} не позволяет создать базу данных или таблицу в Hive — они хранятся в [бакете {{ objstorage-full-name }}](../../storage/concepts/bucket.md), который привязан к кластеру {{ dataproc-name }}. Чтобы создать БД, выполните запрос:
 
 ```sql
 CREATE DATABASE IF NOT EXISTS <имя_БД> LOCATION <местоположение_БД>;
@@ -36,29 +36,29 @@ ERROR: rpc error: code = PermissionDenied desc = you do not have permission to a
 Ошибка возникает, если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт.
 
 **Решение**
-[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
 _Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._
 
 ## Блокировка таблиц Hive {#lock-tables}
 
-При работе с Apache Hive™ Metastore может произойти блокировка таблицы Hive, например, если прервать работу скрипта.
+При работе с {{ metastore-full-name }} может произойти блокировка таблицы Hive, например, если прервать работу скрипта.
 
 Для снятия блокировки можно использовать:
 * thrift-интерфейс Hive Metastore;
-* python-скрипт, который запускается в той же виртуальной частной сети (VPC), что и Apache Hive™ Metastore.
+* python-скрипт, который запускается в той же виртуальной частной сети (VPC), что и {{ metastore-name }}.
 
 ### Снятие блокировки с помощью python-скрипта {#unlock-tables-script}
 
 {% note warning %}
 
-Apache Hive™ Metastore доступен только по внутреннему IP-адресу в виртуальной частной сети (VPC) и не имеет публичного DNS-имени. Это обеспечивает дополнительную безопасность, но требует, чтобы все сервисы, подключающиеся к Apache Hive™ Metastore, находились в той же VPC или имели настроенный сетевой доступ.
+{{ metastore-name }} доступен только по внутреннему IP-адресу в виртуальной частной сети (VPC) и не имеет публичного DNS-имени. Это обеспечивает дополнительную безопасность, но требует, чтобы все сервисы, подключающиеся к {{ metastore-name }}, находились в той же VPC или имели настроенный сетевой доступ.
 
 {% endnote %}
 
 Чтобы снять блокировку:
 
-1. Подключитесь к виртуальной машине или сервису, который находится в той же VPC, что и Apache Hive™ Metastore.
+1. Подключитесь к виртуальной машине или сервису, который находится в той же VPC, что и {{ metastore-name }}.
 
 1. Установите зависимости:
 
@@ -146,12 +146,12 @@ Apache Hive™ Metastore доступен только по внутреннем
 
     Где:
 
-    * `<metastore-host>` — внутренний IP-адрес Apache Hive™ Metastore.
+    * `<metastore-host>` — внутренний IP-адрес {{ metastore-name }}.
 
        Чтобы узнать IP-адрес:
-       1. Перейдите на страницу [каталога ресурсов](https://console.yandex.cloud).
-       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
-       1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **Metastore-сервер**.
+       1. Перейдите на страницу [каталога ресурсов]({{ link-console-main }}).
+       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+       1. На панели слева выберите ![image](../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
 
     * `<db-name>` — имя базы данных.
     * `<table-name>` — имя таблицы.
@@ -164,5 +164,5 @@ Apache Hive™ Metastore доступен только по внутреннем
 
     Где:
 
-    * `<metastore-host>` — внутренний IP-адрес Apache Hive™ Metastore.
+    * `<metastore-host>` — внутренний IP-адрес {{ metastore-name }}.
     * `<lock-id>` — идентификатор блокировки.

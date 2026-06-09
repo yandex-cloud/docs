@@ -90,9 +90,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -120,15 +117,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Зашифровать диск](../../operations/disk-control/disk-encrypt.md#cli_1)
- * [Создать пустой диск с блоком большого размера](../../operations/disk-create/empty-disk-blocksize.md#cli_1)
- * [Создать пустой диск](../../operations/disk-create/empty.md#cli_1)
- * [Восстановить диск с помощью образа](../../operations/disk-create/from-image.md#cli_1)
- * [Восстановить диск с помощью снимка](../../operations/disk-create/from-snapshot.md#cli_1)
- * [Создать отдельный нереплицируемый диск](../../operations/disk-create/nonreplicated.md#cli_1)
- * [Создать сверхбыстрое сетевое хранилище с тремя репликами (SSD)](../../operations/disk-create/ssd-io.md#cli_1)
- * [Зашифровать образ](../../operations/image-control/encrypt.md#cli_1)
- * [Зашифровать снимок](../../operations/snapshot-control/snapshot-encrypt.md#cli_1)
- * [Создайте диск с закреплением поколения оборудования Gen 2](../../operations/vm-create/create-gen2-vm.md#cli_4)

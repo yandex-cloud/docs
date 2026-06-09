@@ -1,20 +1,30 @@
-# Переподключить виртуальную машину к Cloud Backup
+# Переподключить виртуальную машину к {{ backup-name }}
 
 {% note info %}
 
-Если вы [удалили](delete-vm.md) ВМ из Cloud Backup и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
+Если вы [удалили](delete-vm.md) ВМ из {{ backup-name }} и хотите подключить ее к сервису заново, воспользуйтесь инструкциями:
 
 * [Подключить виртуальную машину на Linux](connect-vm-linux.md)
-* [Подключить виртуальную машину на Linux с OS Login](connect-vm-oslogin-linux.md)
+* [Подключить виртуальную машину на Linux с {{ oslogin }}](connect-vm-oslogin-linux.md)
 * [Подключить виртуальную машину на Windows](connect-vm-windows.md)
 
 {% endnote %}
 
-После [восстановления одной виртуальной машины из копии другой](backup-vm/non-native-recovery.md), исходная ВМ, из которой была создана копия, становится неактуальной.
+{% note warning %}
 
-Чтобы избежать конфликтов между двумя ВМ при резервном копировании, обновите подключение неактуальной ВМ к Cloud Backup:
+При переподключении ВМ добавляется в {{ backup-name }} как новый ресурс. Резервные копии новой ВМ хранятся согласно привязанной [политике резервного копирования](../concepts/policy.md#retention).
 
-1. Перезапустите подключение к Cloud Backup на неактуальной ВМ:
+Правила политики резервного копирования не действуют на резервные копии старой ВМ. Их хранение тарифицируется в соответствии с [правилами тарификации](../pricing.md#backups). Если резервные копии вам не нужны, [удалите](backup-vm/delete.md) их вручную или воспользуйтесь [массовым удалением](backup-vm/batch-delete.md).
+
+{% endnote %}
+
+После [восстановления одной виртуальной машины из копии другой](backup-vm/non-native-recovery.md) исходная ВМ, из которой была создана копия, становится неактуальной. Чтобы избежать конфликтов между двумя ВМ при резервном копировании, обновите подключение неактуальной ВМ к {{ backup-name }}.
+
+Также переподключение может помочь, когда [агент {{ backup-name }}](../concepts/agent.md) перестал работать и перешел в статус офлайн.
+
+Чтобы переподключить виртуальную машину к {{ backup-name }}:
+
+1. Перезапустите подключение к {{ backup-name }} на неактуальной ВМ:
 
     {% list tabs group=operating_system %}
 
@@ -30,22 +40,22 @@
           {% endnote %}
 
           ```bash
-          sudo apt install jq
-          sudo apt install gawk
-          sudo apt install curl
-          sudo apt install uuid-dev
+          sudo apt install jq -y
+          sudo apt install gawk -y
+          sudo apt install curl -y
+          sudo apt install uuid-dev -y
           ```
 
-          Если вы используете дистрибутив Astra Linux, дополнительно установите пакет uuid-runtime:
+          Для отдельных дистрибутивов также может потребоваться установка пакета `uuid-runtime`:
 
           ```bash
-          sudo apt install uuid-runtime
+          sudo apt install uuid-runtime -y
           ```
 
       1. Выполните команду:
 
           ```bash
-          curl 'https://storage.yandexcloud.net/backup-distributions/agent_reinit.sh' | sudo bash
+          curl 'https://{{ s3-storage-host }}/backup-distributions/agent_reinit.sh' | sudo bash
           ```
 
           Результат:
@@ -53,7 +63,7 @@
           ```text
           ...
           Deleting old resource bound for instance_id epdoe4g6dbq4******** and resource_id: F07543A1-BDC1-415A-A143-C18E********
-          Updating ids in Cloud Backup
+          Updating ids in {{ backup-name }}
           Finished
           ```
 
@@ -71,7 +81,7 @@
       1. Выполните команду:
 
           ```powershell
-          . { iwr -useb https://storage.yandexcloud.net/backup-distributions/agent_reinit.ps1 } | iex
+          . { iwr -useb https://{{ s3-storage-host }}/backup-distributions/agent_reinit.ps1 } | iex
           ```
 
           Результат:
@@ -84,17 +94,17 @@
     {% endlist %}
 
 1. Отключитесь от ВМ.
-1. Убедитесь, что неактуальная ВМ удалена из списка ВМ, подключенных к Cloud Backup:
+1. Убедитесь, что неактуальная ВМ удалена из списка ВМ, подключенных к {{ backup-name }}:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором подключен Cloud Backup.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Backup**.
-      1. На вкладке ![machines](../../_assets/console-icons/server.svg) **Виртуальные машины** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором подключен {{ backup-name }}.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_backup }}**.
+      1. На вкладке ![machines](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.backup.label_instances }}** проверьте, что в списке нет неактуальной ВМ с меткой ![irrelevant](../../_assets/console-icons/circle-info-fill.svg).
 
-          Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите **Удалить** и подтвердите удаление.
+          Если ВМ не удалена, напротив неактуальной ВМ нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
     {% endlist %}
 

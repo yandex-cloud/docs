@@ -1,6 +1,6 @@
-# Управление доступом в Cloud CDN
+# Управление доступом в {{ cdn-name }}
 
-Для управления правами доступа в Cloud CDN используются [роли](../../iam/concepts/access-control/roles.md).
+Для управления правами доступа в {{ cdn-name }} используются [роли](../../iam/concepts/access-control/roles.md).
 
 В этом разделе вы узнаете:
 
@@ -10,10 +10,10 @@
 
 ## Об управлении доступом {#about-access-control}
 
-Все операции в Yandex Cloud проверяются в сервисе [Yandex Identity and Access Management](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
+Все операции в {{ yandex-cloud }} проверяются в сервисе [{{ iam-full-name }}](../../iam/index.md). Если у субъекта нет необходимых разрешений, сервис вернет ошибку.
 
 
-Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [Как устроено управление доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+Чтобы выдать разрешения к ресурсу, [назначьте роли](../../iam/operations/roles/grant.md) на этот ресурс субъекту, который будет выполнять операции. Роли можно назначить [аккаунту на Яндексе](../../iam/concepts/users/accounts.md#passport), [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [локальному пользователю](../../iam/concepts/users/accounts.md#local), [федеративному пользователю](../../iam/concepts/federations.md), [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md). Подробнее читайте в разделе [{#T}](../../iam/concepts/access-control/index.md).
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть хотя бы одна из ролей:
 
@@ -29,40 +29,44 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
-На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `editor` входят все разрешения `viewer`. После диаграммы дано описание каждой роли.
+На диаграмме показано, какие роли есть в сервисе и как они наследуют разрешения друг друга. Например, в `{{ roles-editor }}` входят все разрешения `{{ roles-viewer }}`. После диаграммы дано описание каждой роли.
 
-![image](../../_assets/cdn/security/service-roles-hierarchy.svg)
+```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
+flowchart BT
+cdn.viewer --> cdn.editor --> cdn.admin
+```
 
 ### Сервисные роли {#service-roles}
 
 #### cdn.viewer {#cdn-viewer}
 
-Роль `cdn.viewer` позволяет просматривать информацию о каталоге, [группах источников](../concepts/origins.md), [CDN-ресурсах](../concepts/resource.md) и [квотах](../concepts/limits.md#cdn-quotas) сервиса Cloud CDN.
+Роль `cdn.viewer` позволяет просматривать информацию о каталоге, [группах источников](../concepts/origins.md), [CDN-ресурсах](../concepts/resource.md) и [квотах](../concepts/limits.md#cdn-quotas) сервиса {{ cdn-name }}.
 
 #### cdn.editor {#cdn-editor}
 
-Роль `cdn.editor` позволяет управлять ресурсами сервиса Cloud CDN, а также просматривать информацию о квотах сервиса и каталоге.
+Роль `cdn.editor` позволяет управлять ресурсами сервиса {{ cdn-name }}, а также просматривать информацию о квотах сервиса и каталоге.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [группах источников](../concepts/origins.md), а также создавать, изменять и удалять их;
 * просматривать информацию о [CDN-ресурсах](../concepts/resource.md), а также создавать, изменять и удалять их;
 * управлять [выгрузкой логов](../concepts/logs.md) запросов к CDN-серверам;
 * управлять [экранированием источников](../concepts/origins-shielding.md);
-* просматривать информацию о [квотах](../concepts/limits.md#cdn-quotas) сервиса Cloud CDN;
+* просматривать информацию о [квотах](../concepts/limits.md#cdn-quotas) сервиса {{ cdn-name }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `cdn.viewer`.
 
 #### cdn.admin {#cdn-admin}
 
-Роль `cdn.admin` позволяет управлять ресурсами сервиса Cloud CDN, а также просматривать информацию о квотах сервиса и каталоге.
+Роль `cdn.admin` позволяет управлять ресурсами сервиса {{ cdn-name }}, а также просматривать информацию о квотах сервиса и каталоге.
 
 Пользователи с этой ролью могут:
 * просматривать информацию о [группах источников](../concepts/origins.md), а также создавать, изменять и удалять их;
 * просматривать информацию о [CDN-ресурсах](../concepts/resource.md), а также создавать, изменять и удалять их;
 * управлять [выгрузкой логов](../concepts/logs.md) запросов к CDN-серверам;
 * управлять [экранированием источников](../concepts/origins-shielding.md);
-* просматривать информацию о [квотах](../concepts/limits.md#cdn-quotas) сервиса Cloud CDN;
+* просматривать информацию о [квотах](../concepts/limits.md#cdn-quotas) сервиса {{ cdn-name }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `cdn.editor`.
@@ -71,46 +75,46 @@
 
 ### Примитивные роли {#primitive-roles}
 
-Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) Yandex Cloud.
+Примитивные роли позволяют пользователям совершать действия во [всех сервисах](../../overview/concepts/services.md) {{ yandex-cloud }}.
 
-#### auditor {#auditor}
+#### {{ roles-auditor }} {#auditor}
 
 Роль `auditor` предоставляет разрешения на чтение конфигурации и метаданных любых ресурсов Yandex Cloud без возможности доступа к данным.
 
 Например, пользователи с этой ролью могут:
-* просматривать информацию о [ресурсе](../../resource-manager/concepts/resources-hierarchy.md);
+* просматривать информацию о [ресурсе]({{ link-docs }}/resource-manager/concepts/resources-hierarchy);
 * просматривать метаданные ресурса;
 * просматривать список операций с ресурсом.
 
-Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов](../../overview/concepts/services.md). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
+Роль `auditor` — наиболее безопасная роль, исключающая доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services). Роль подходит для пользователей, которым необходим минимальный уровень доступа к ресурсам Yandex Cloud.
 
-#### viewer {#viewer}
+#### {{ roles-viewer }} {#viewer}
 
-Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud.
+Роль `viewer` предоставляет разрешения на чтение информации о любых [ресурсах]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud.
 
 Включает разрешения, предоставляемые ролью `auditor`.
 
-В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов](../../overview/concepts/services.md) в режиме чтения.
+В отличие от роли `auditor`, роль `viewer` предоставляет доступ к данным [сервисов]({{ link-docs }}/overview/concepts/services) в режиме чтения.
 
-#### editor {#editor}
+#### {{ roles-editor }} {#editor}
 
-Роль `editor` предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления, а также удаления [ключей шифрования](../../kms/concepts/index.md) Key Management Service.
+Роль `editor` предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме назначения ролей другим пользователям, передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления, а также удаления [ключей шифрования]({{ link-docs }}/kms/concepts/) Key Management Service.
 
 Например, пользователи с этой ролью могут создавать, изменять и удалять ресурсы.
 
 Включает разрешения, предоставляемые ролью `viewer`.
 
-#### admin {#admin}
+#### {{ roles-admin }} {#admin}
 
-Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами](../../resource-manager/concepts/resources-hierarchy.md) Yandex Cloud, кроме передачи прав владения [организацией](../../organization/concepts/organization.md) и ее удаления.
+Роль `admin` позволяет назначать любые роли, кроме `resource-manager.clouds.owner` и `organization-manager.organizations.owner`, а также предоставляет разрешения на управление любыми [ресурсами]({{ link-docs }}/resource-manager/concepts/resources-hierarchy) Yandex Cloud, кроме передачи прав владения [организацией]({{ link-docs }}/organization/concepts/organization) и ее удаления.
 
-Прежде чем назначить роль `admin` на организацию, [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) или [платежный аккаунт](../../billing/concepts/billing-account.md), ознакомьтесь с информацией о защите [привилегированных аккаунтов](../../security/standard/all.md#privileged-users).
+Прежде чем назначить роль `admin` на организацию, [облако]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) или [платежный аккаунт]({{ link-docs }}/billing/concepts/billing-account), ознакомьтесь с информацией о защите [привилегированных аккаунтов]({{ link-docs }}/security/standard/all#privileged-users).
 
 Включает разрешения, предоставляемые ролью `editor`.
 
 Вместо примитивных ролей мы рекомендуем использовать роли сервисов. Такой подход позволит более гранулярно управлять доступом и обеспечить соблюдение [принципа минимальных привилегий](../../security/standard/all.md#min-privileges).
 
-Подробнее о примитивных ролях см. в [справочнике ролей Yandex Cloud](../../iam/roles-reference.md#primitive-roles).
+Подробнее о примитивных ролях см. в [справочнике ролей {{ yandex-cloud }}](../../iam/roles-reference.md#primitive-roles).
 
 ## Какие роли мне необходимы {#required-roles}
 
@@ -123,7 +127,7 @@
 **Управление CDN-ресурсами** | 
 [Создание ресурса](../operations/resources/create-resource.md) | `cdn.editor` на каталог, где будут создаваться ресурсы
 [Изменение основных настроек ресурса](../operations/resources/configure-basics.md) | `cdn.editor` на каталог с CDN-ресурсами
-[Отключение ресурса](../operations/resources/disable-resource.md) | `cdn.editor` на каталог с CDN-ресурсами
+[Приостановить и возобновить работу ресурса](../operations/resources/disable-resource.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Настройка кеширования ресурса](../operations/resources/configure-caching.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Принудительная загрузка файлов в кеш CDN-серверов](../operations/resources/prefetch-files.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Очистка кеша ресурса](../operations/resources/purge-cache.md) | `cdn.editor` на каталог с CDN-ресурсами
@@ -147,5 +151,5 @@
 
 * [Как назначить роль](../../iam/operations/roles/grant.md).
 * [Как отозвать роль](../../iam/operations/roles/revoke.md).
-* [Подробнее об управлении доступом в Yandex Cloud](../../iam/concepts/access-control/index.md).
+* [Подробнее об управлении доступом в {{ yandex-cloud }}](../../iam/concepts/access-control/index.md).
 * [Подробнее о наследовании ролей](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance).

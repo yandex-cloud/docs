@@ -1,4 +1,4 @@
-# Аутентификация в API Managed Service for ClickHouse®
+# Аутентификация в API {{ mch-name }}
 
 # Аутентификация в API
 
@@ -10,7 +10,7 @@
 * [Инструкция](../../iam/operations/iam-token/create-for-federation.md) для федеративного аккаунта.
 * [Инструкция](../../iam/operations/iam-token/create-for-local.md) для локального аккаунта.
 
-Полученный IAM-токен указывайте при обращении к ресурсам Yandex Cloud через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
+Полученный IAM-токен указывайте при обращении к ресурсам {{ yandex-cloud }} через API. Передайте IAM-токен в заголовке `Authorization` в следующем формате:
 
 ```yaml
 Authorization: Bearer <IAM-токен>
@@ -24,6 +24,6 @@ Authorization: Bearer ${IAM_TOKEN}
 
 #### См. также {#see-also}
 
-[Аккаунты в Yandex Cloud](../../iam/concepts/users/accounts.md)
+[{#T}](../../iam/concepts/users/accounts.md)
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

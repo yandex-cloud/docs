@@ -1,4 +1,4 @@
-# Настройки сервиса SpeechKit Hybrid
+# Настройки сервиса {{ sk-hybrid-name }}
 
 Чтобы настроить [компоненты сервиса](architecture.md), передайте каждую настройку в соответствующей переменной окружения в параметре `--env` команды запуска Docker-контейнера компонента:
 
@@ -18,11 +18,11 @@ docker run --it \
 | Сервер STT/TTS | `SERVICE_PORT`                           | Порт для запросов к сервисам обработки речи и текста.                                                                                                    |
 | Сервер STT     | `LICENSE_SERVICE_ENDPOINTS`              | FQDN License server и порт регистрации сервиса, указанный в настройке `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT`, в формате `<FQDN_License_server>:<порт>`. |
 | Сервер TTS     | `LICENSE_SERVICE_ENDPOINTS`              | FQDN License server и порт регистрации сервиса, указанный в настройке `UPSTREAM_TTS_REGISTRATIONS_SERVER_PORT`, в формате `<FQDN_License_server>:<порт>`. |
-| License server | `POSTGRES_JDBC_URL`                      | URL для подключения к серверу БД хранилища метрик потребления PostgreSQL в формате `jdbc:postgresql://host:<порт>/database?properties`.                         |
+| License server | `POSTGRES_JDBC_URL`                      | URL для подключения к серверу БД хранилища метрик потребления {{ PG }} в формате `jdbc:postgresql://host:<порт>/database?properties`.                         |
 | License server | `POSTGRES_PASSWORD`                      | Пароль для входа на сервер БД хранилища метрик потребления.                                                                                               |
 | License server | `POSTGRES_USER`                          | Имя пользователя сервера БД хранилища метрик потребления.                                                                                                 |
-| License server | `PROMETHEUS_PORT`                        | Порт Prometheus для [отправки метрик сервиса](monitoring.md). Значение по умолчанию — `8003`.                                                  |
-| License server | `STATIC_API_KEY`                         | [API-ключ](../iam/concepts/authorization/api-key.md) для аутентификации на шлюзе приема метрик потребления в [модели лицензирования Cloud Billing](architecture.md#billing)). |
+| License server | `PROMETHEUS_PORT`                        | Порт {{ prometheus-name }} для [отправки метрик сервиса](monitoring.md). Значение по умолчанию — `8003`.                                                  |
+| License server | `STATIC_API_KEY`                         | [API-ключ]({{ link-docs }}/iam/concepts/authorization/api-key) для аутентификации на шлюзе приема метрик потребления в [модели лицензирования Cloud Billing](architecture.md#billing)). |
 | License server | `UPSTREAM_ASR_PROXY_PORT`                | Порт обслуживания входящих запросов для сервера STT. Используется компонентом Envoy. Значение по умолчанию — `8080`.                                                    |
 | License server | `UPSTREAM_ASR_REGISTRATIONS_SERVER_PORT` | Порт регистрации сервиса распознавания речи. Значение по умолчанию — `8087`.                                                                              |
 | License server | `UPSTREAM_TTS_PROXY_PORT`                | Порт обслуживания входящих запросов для сервера TTS. Используется компонентом Envoy. Значение по умолчанию — `9080`.                                                    |
@@ -43,10 +43,10 @@ docker run --it \
 docker run -it \
    --env LICENSE_SERVICE_ENDPOINTS=172.10.19.12:8083 \
    --env SERVICE_PORT=17019 \
-   cr.yandex/<идентификатор_реестра>/stt/cpu_x86_64/stt_server:<версия_приложения_STT>
+   {{ registry }}/<идентификатор_реестра>/stt/cpu_x86_64/stt_server:<версия_приложения_STT>
 ```
 
 Где:
 
-* `<идентификатор_реестра>` — реестр с Docker-образами для развертывания компонентов SpeechKit Hybrid.
+* `<идентификатор_реестра>` — реестр с Docker-образами для развертывания компонентов {{ sk-hybrid-name }}.
 * `<версия_приложения_STT>` — предоставленная версия сервиса STT.

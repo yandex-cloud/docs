@@ -5,7 +5,7 @@ Atomically updates zone private networks
 ## HTTP request
 
 ```
-PATCH https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:updatePrivateNetworks
+PATCH https://dns.{{ api-host }}/dns/v1/zones/{dnsZoneId}:updatePrivateNetworks
 ```
 
 ## Path parameters

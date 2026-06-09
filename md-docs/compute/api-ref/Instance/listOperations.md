@@ -5,7 +5,7 @@ Lists operations for the specified instance.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/operations
+GET https://compute.{{ api-host }}/compute/v1/instances/{instanceId}/operations
 ```
 
 ## Path parameters
@@ -15,8 +15,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/instances/{instanceId}/opera
 || instanceId | **string**
 
 Required field. ID of the Instance resource to list operations for.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListInstanceOperationsRequest}
@@ -28,14 +28,12 @@ The maximum string length in characters is 50. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListInstanceOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstanceOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListInstanceOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListInstanceOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListInstanceOperationsResponse}

@@ -1,6 +1,6 @@
-# Просмотр логов кластера Trino
+# Просмотр логов кластера {{ TR }}
 
-Managed Service for Trino позволяет [получить фрагмент логов кластера](#get-log) за выбранный период.
+{{ mtr-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период.
 
 {% note info %}
 
@@ -14,16 +14,16 @@ Managed Service for Trino позволяет [получить фрагмент 
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **Логи**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.common.logs }}**.
     1. Укажите **Уровень** логов и период времени, за который нужно отобразить лог.
 
 - CLI {#cli}
 
-    При помощи YC CLI вы можете получить логи кластера Managed Service for Trino из [лог-группы](../../logging/concepts/log-group.md) сервиса Yandex Cloud Logging.
+    При помощи YC CLI вы можете получить логи кластера {{ mtr-name }} из [лог-группы](../../logging/concepts/log-group.md) сервиса {{ cloud-logging-full-name }}.
 
-    1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     1. По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -33,6 +33,6 @@ Managed Service for Trino позволяет [получить фрагмент 
         yc logging read --group-name <имя_лог-группы> --follow
         ```
 
-        Вы можете посмотреть имя лог-группы на вкладке **Обзор** кластера Managed Service for Trino.
+        Вы можете посмотреть имя лог-группы на вкладке **{{ ui-key.yacloud.common.overview }}** кластера {{ mtr-name }}.
 
 {% endlist %}

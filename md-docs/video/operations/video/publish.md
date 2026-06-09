@@ -6,14 +6,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
   1. [Загрузите](upload.md) видео.
-  1. Дождитесь, пока видео полностью загрузится, обработается и перейдет в статус `Ready`.
+  1. Дождитесь, пока видео полностью загрузится, обработается и перейдет в статус `{{ ui-key.yacloud_video.videos.status_ready }}`.
 
-  По умолчанию все видео после загрузки опубликовываются — переходят в состояние `Published`.
+  По умолчанию все видео после загрузки опубликовываются — переходят в состояние `{{ ui-key.yacloud_video.videos.status_published }}`.
   
-  Если вы хотите [снять видео с публикации](unpublish.md), выключите опцию **Разрешить доступ**. Значение поля `Публичный доступ` изменится на `Unpublished`, а видео станет недоступно по [ссылкам](get-link.md).
+  Если вы хотите [снять видео с публикации](unpublish.md), выключите опцию **{{ ui-key.yacloud_video.videos.label_allow-access }}**. Значение поля `{{ ui-key.yacloud_video.videos.label_visibility-status }}` изменится на `{{ ui-key.yacloud_video.videos.status_unpublished }}`, а видео станет недоступно по [ссылкам](get-link.md).
 
 - API {#api}
 
@@ -25,13 +25,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Video {#console}
+- Интерфейс {{ video-name }} {#console}
 
-  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
-  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **Видео** выберите нужное видео.
-  1. На открывшейся странице с параметрами видео в блоке **Код вставки** выберите вкладку `link`.
-  1. Нажмите кнопку ![copy](../../../_assets/console-icons/copy.svg) **Скопировать**.
+  1. На вкладке ![image](../../../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.videos.title_videos }}** выберите нужное видео.
+  1. На открывшейся странице с параметрами видео в блоке **{{ ui-key.yacloud_video.videos.title_past-code }}** выберите вкладку `link`.
+  1. Нажмите кнопку ![copy](../../../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
   1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
   1. Нажмите кнопку воспроизведения.
 
@@ -43,5 +43,5 @@
 
 #### См. также {#see-also}
 
-[Получить код вставки или ссылку на видео](get-link.md)
-[Скачать видео](download.md)
+[{#T}](get-link.md)
+[{#T}](download.md)

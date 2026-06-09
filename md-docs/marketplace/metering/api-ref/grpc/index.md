@@ -6,7 +6,7 @@ This API reference is organized by resource. Actions are performed by sending HT
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/marketplace/metering/v1).
 
-**Service URL**: `https://marketplace.api.cloud.yandex.net`
+**Service URL**: `https://marketplace.{{ api-host }}`
 
 #|
 ||Service | Description ||

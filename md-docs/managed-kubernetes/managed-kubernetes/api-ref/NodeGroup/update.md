@@ -5,7 +5,7 @@ Updates the specified node group.
 ## HTTP request
 
 ```
-PATCH https://mks.api.cloud.yandex.net/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
+PATCH https://mks.{{ api-host }}/managed-kubernetes/v1/nodeGroups/{nodeGroupId}
 ```
 
 ## Path parameters

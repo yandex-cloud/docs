@@ -1,19 +1,11 @@
-# Правила тарификации для Managed Service for MySQL®
+# Правила тарификации для {{ mmy-name }}
 
-
-{% note warning %}
-
-С 1 мая 2026 года изменится стоимость ряда сервисов Yandex Cloud. Подробнее в [блоге](https://yandex.cloud/ru/blog/pricing-update-2026).
-
-{% endnote %}
-
-
-В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Managed Service for MySQL®, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mmy-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
 
 {% note tip %}
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=c311dfe1101c#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=c311dfe1101c#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 
 
@@ -40,9 +32,9 @@
 {% endnote %}
 
 
-## Из чего складывается стоимость использования Managed Service for MySQL® {#rules}
+## Из чего складывается стоимость использования {{ mmy-short-name }} {#rules}
 
-Расчет стоимости использования Managed Service for MySQL® учитывает:
+Расчет стоимости использования {{ mmy-name }} учитывает:
 
 * тип диска и размер хранилища;
 
@@ -50,7 +42,7 @@
 
 * настройки и количество резервных копий;
 
-* объем исходящего трафика из Yandex Cloud в интернет.
+* объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -66,12 +58,12 @@
 
 * Выделенные хосты
 
-  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы Yandex Compute Cloud](../compute/pricing.md#prices) и наценки Managed Service for MySQL® на эти ресурсы.
+  Стоимость начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
 
 Поддерживаемые конфигурации ресурсов приведены в разделе [Классы хостов](concepts/instance-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
-Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост MySQL® не может выполнять свои основные функции, не тарифицируется.
+Минимальная единица тарификации — минута (например, стоимость 1,5 минут работы хоста равна стоимости 2 минут). Время, когда хост {{ MY }} не может выполнять свои основные функции, не тарифицируется.
 
 
 ### Использование дискового пространства {#rules-storage}
@@ -86,7 +78,7 @@
         * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
 
 
-        * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом 368 ГБ.
+        * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
 
     * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя хостами и более, с шагом 93 ГБ.
 
@@ -101,47 +93,41 @@
 
 ### Пример расчета стоимости кластера {#example}
 
-{% note info %}
-
-Цены в примерах расчета могут отличаться от действующих.
-
-{% endnote %}
-
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
-* **Хосты MySQL®**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
-* **Хранилище**: 100 ГБ на сетевых HDD-дисках.
+* **Хосты {{ MY }}**: 3 хоста класса `s3-c2-m8`: Intel Ice Lake, 2 × 100% vCPU, 8 ГБ RAM.
+* **{{ ui-key.yacloud.mdb.forms.section_storage }}**: 100 ГБ на сетевых HDD-дисках.
 
-Расчет стоимости для хостов MySQL®:
+Расчет стоимости для хостов {{ MY }}:
 
 
 {% list tabs group=pricing %}
 
 - Расчет в рублях {#prices-rub}
 
-  > 3 × (2&nbsp;×&nbsp;1,93 ₽ + 8&nbsp;×&nbsp;0,53 ₽) = 24,3 ₽
+  > 3 × (2&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.mysql.v3.ram|string }}) = {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }}) %}
   >
-  > Итого: 24,3 ₽ — стоимость часа работы хостов MySQL®.
+  > Итого: {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }}) %} — стоимость часа работы хостов {{ MY }}.
   
   Где:
-  * 3 — количество хостов MySQL®.
+  * 3 — количество хостов {{ MY }}.
   * 2 — количество vCPU.
-  * 1,93 ₽ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста MySQL® (в гигабайтах).
-  * 0,53 ₽ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста {{ MY }} (в гигабайтах).
+  * {{ sku|RUB|mdb.cluster.mysql.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 3 × (2&nbsp;×&nbsp;9,65 ₸ + 8&nbsp;×&nbsp;2,65 ₸) = 121,5 ₸
+  > 3 × (2&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|string }} + 8&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.mysql.v3.ram|string }}) = {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }}) %}
   >
-  > Итого: 121,5 ₸ — стоимость часа работы хостов MySQL®.
+  > Итого: {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }}) %} — стоимость часа работы хостов {{ MY }}.
   
   Где:
-  * 3 — количество хостов MySQL®.
+  * 3 — количество хостов {{ MY }}.
   * 2 — количество vCPU.
-  * 9,65 ₸ — стоимость часа использования 100% vCPU.
-  * 8 — объем RAM одного хоста MySQL® (в гигабайтах).
-  * 2,65 ₸ — стоимость часа использования 1 ГБ RAM на 100% vCPU.
+  * {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|string }} — стоимость часа использования 100% vCPU.
+  * 8 — объем RAM одного хоста {{ MY }} (в гигабайтах).
+  * {{ sku|KZT|mdb.cluster.mysql.v3.ram|string }} — стоимость часа использования 1 ГБ RAM на 100% vCPU.
 
 {% endlist %}
 
@@ -155,29 +141,29 @@
 
 - Расчет в рублях {#prices-rub}
 
-  > 720 × 24,3 ₽ + 3 × (100&nbsp;×&nbsp;3,744 ₽) = 18 619,2 ₽
+  > 720 × {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|RUB|mdb.cluster.network-hdd.mysql|month|string }}) = {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-hdd.mysql|month|number }}) %}
   >
-  > Итого: 18 619,2 ₽ — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=RUB] 720 × (3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }})) + 3 × (100 × {{ sku|RUB|mdb.cluster.network-hdd.mysql|month|number }}) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * 24,3 ₽ — стоимость часа работы хостов MySQL®.
-  * 3 — количество хостов MySQL®.
+  * {% calc [currency=RUB] 3 × (2 × {{ sku|RUB|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|RUB|mdb.cluster.mysql.v3.ram|number }}) %} — стоимость часа работы хостов {{ MY }}.
+  * 3 — количество хостов {{ MY }}.
   * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 3,744 ₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * {{ sku|RUB|mdb.cluster.network-hdd.mysql|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 - Расчет в тенге {#prices-kzt}
 
-  > 720 × 121,5 ₸ + 3 × (100&nbsp;×&nbsp;18,72 ₸) = 93 096 ₸
+  > 720 × {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }}) %} + 3 × (100&nbsp;×&nbsp;{{ sku|KZT|mdb.cluster.network-hdd.mysql|month|string }}) = {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-hdd.mysql|month|number }}) %}
   >
-  > Итого: 93 096 ₸ — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=KZT] 720 × (3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }})) + 3 × (100 × {{ sku|KZT|mdb.cluster.network-hdd.mysql|month|number }}) %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * 121,5 ₸ — стоимость часа работы хостов MySQL®.
-  * 3 — количество хостов MySQL®.
+  * {% calc [currency=KZT] 3 × (2 × {{ sku|KZT|mdb.cluster.mysql.v3.cpu.c100|number }} + 8 × {{ sku|KZT|mdb.cluster.mysql.v3.ram|number }}) %} — стоимость часа работы хостов {{ MY }}.
+  * 3 — количество хостов {{ MY }}.
   * 100 — объем хранилища на сетевых HDD-дисках (в гигабайтах).
-  * 18,72 ₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * {{ sku|KZT|mdb.cluster.network-hdd.mysql|month|string }} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
 
 {% endlist %}
 
@@ -189,13 +175,13 @@
 
 Вы можете получить гарантированную скидку за потребление ресурсов сервиса, запланированное на 6 месяцев или 1 год вперед. Чтобы посмотреть ресурсы, для которых можно получить такую скидку:
 
-1. Перейдите в раздел [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+1. Перейдите в раздел [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}).
 1. Нажмите на нужный платежный аккаунт.
-1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **Резервируемый объём** в меню слева.
+1. Выберите раздел ![image](../_assets/console-icons/lock.svg) **{{ ui-key.yacloud_billing.billing.account.switch_offers }}** в меню слева.
 
-Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса Yandex Cloud Billing](../billing/concepts/cvos.md).
+Механизм CVoS гарантирует скидку на потребление, но не гарантирует наличие заказанного объема ресурсов.  Подробнее о механизме работы CVoS читайте в [документации сервиса {{ billing-name }}](../billing/concepts/cvos.md).
 
-Сервис Managed Service for MySQL® предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
+Сервис {{ mmy-name }} предоставляет CVoS двух видов: на vCPU и RAM для хостов, которые вы планируете использовать в кластерах БД. В консоли управления вы можете увидеть потенциальную экономию для текущего потребления ресурсов при переводе их на схему CVoS, а также предварительно рассчитать месячные платежи для нужного количества ядер процессора и оперативной памяти.
 
 {% note info %}
 
@@ -210,9 +196,9 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -225,65 +211,16 @@
 
 {% note info %}
 
-Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку](https://center.yandex.cloud/support) или к вашему аккаунт-менеджеру.
+Доступ к платформе **Intel Ice Lake (Compute Optimized)** предоставляется по запросу. Обратитесь в [техническую поддержку]({{ link-console-support }}) или к вашему аккаунт-менеджеру.
 
 {% endnote %}
 
 
-Стоимость на выделенные хосты начисляется из двух компонентов: [цены за вычислительные ресурсы Yandex Compute Cloud](../compute/pricing.md#prices) и наценки Managed Service for MySQL® на эти ресурсы.
+Стоимость на выделенные хосты начисляется из двух компонентов: [цены за вычислительные ресурсы {{ compute-full-name }}](../compute/pricing.md#prices) и наценки {{ mmy-name }} на эти ресурсы.
 
 
-| Услуга                                                                                                                  | Цена      | Ед. тарификации | Действует с    | Действует до |
-| ----------------------------------------------------------------------------------------------------------------------- | --------- | --------------- | -------------- | ------------ |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, 100% vCPU                     | 1,26 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4 HighFreq, RAM                           | 0,2381 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, 100% vCPU                              | 0,5764 ₽  | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, AMD Zen 4, RAM                                    | 0,1729 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, 100% vCPU                     | 0,634 ₽   | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Cascade Lake, RAM                           | 0,1844 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU     | 1,0376 ₽  | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake (Compute Optimized), RAM           | 0,1959 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, 100% vCPU                         | 0,5764 ₽  | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы выделенных хостов, Intel Ice Lake, RAM                               | 0,1729 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов,  AMD Zen 4, 100% vCPU, CVoS на 6 месяцев         | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, 100% vCPU                    | 3,76 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4 HighFreq, RAM                          | 0,74 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU                             | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, 100% vCPU, CVoS на 1 год              | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM                                   | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 1 год                    | 0,4136 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, AMD Zen 4, RAM, CVoS на 6 месяцев                | 0,45 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 100% vCPU                       | 2,07 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 20% vCPU                        | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 5% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, 50% vCPU                        | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Broadwell, RAM                             | 0,56 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU                    | 2,15 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 1 год     | 1,68 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 100% vCPU, CVoS на 6 месяцев | 1,83 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 20% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 5% vCPU                      | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, 50% vCPU                     | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM                          | 0,5879 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 1 год           | 0,4586 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Cascade Lake, RAM, CVoS на 6 месяцев       | 0,4997 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), 100% vCPU    | 3,1 ₽     | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake (Compute Optimized), RAM          | 0,61 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU                        | 1,93 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 1 год         | 1,51 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 100% vCPU, CVoS на 6 месяцев     | 1,64 ₽    | vCPU × час      | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, 50% vCPU                         | 1,1244 ₽  | vCPU × час      | 9 февраля 2026 | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM                              | 0,53 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 1 год               | 0,4136 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Вычислительные ресурсы стандартных хостов, Intel Ice Lake, RAM, CVoS на 6 месяцев           | 0,45 ₽    | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Публичный IP-адрес                                                                          | 0,2766 ₽  | IP-адрес × час  | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Резервные копии сверх размера хранилища                                                     | 0,00307 ₽ | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Сверхбыстрое сетевое хранилище с тремя репликами (SSD)                                      | 0,0365 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, выделенные хосты                                         | 0,0064 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Хранилище на локальных SSD-дисках, стандартные хосты                                        | 0,0198 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Хранилище на нереплицируемых SSD-дисках                                                     | 0,0147 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Хранилище на сетевых HDD-дисках                                                             | 0,0052 ₽  | ГБ × час        | 1 мая 2026     | —            |
-| Managed Service for MySQL®. Хранилище на сетевых SSD-дисках                                                             | 0,0218 ₽  | ГБ × час        | 1 мая 2026     | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
@@ -291,14 +228,12 @@
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |

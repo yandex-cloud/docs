@@ -5,7 +5,7 @@ Deletes the specified database.
 ## HTTP request
 
 ```
-DELETE https://ydb.api.cloud.yandex.net/ydb/v1/databases/{databaseId}
+DELETE https://ydb.{{ api-host }}/ydb/v1/databases/{databaseId}
 ```
 
 ## Path parameters

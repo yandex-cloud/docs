@@ -6,7 +6,7 @@ Returns all stream metadata, status, and related information.
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/streams/{streamId}
+GET https://video.{{ api-host }}/video/v1/streams/{streamId}
 ```
 
 ## Path parameters

@@ -1,13 +1,12 @@
 # Managed Service for MongoDB API, REST: Backup.Get
 
 Returns the specified MongoDB backup.
-
-To get the list of available MongoDB backups, make a [List](list.md#List) request.
+To get the list of available MongoDB backups, make a [List](../../../managed-mongodb/api-ref/Backup/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups/{backupId}
 ```
 
 ## Path parameters
@@ -17,7 +16,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups/{backupId}
 || backupId | **string**
 
 Required field. ID of the backup to return information about.
-To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.md#ListBackups) request. ||
+To get the backup ID, use a [ClusterService.ListBackups](../../../managed-mongodb/api-ref/Cluster/listBackups#ListBackups) request. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.Backup}
@@ -41,7 +40,7 @@ To get the backup ID, use a [ClusterService.ListBackups](../Cluster/listBackups.
 ```
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

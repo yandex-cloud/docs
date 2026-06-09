@@ -1,7 +1,7 @@
 # Получение статусов сервисов
 
 
-В Yandex Identity and Access Management есть возможность управлять [доступом сервисов](../../concepts/service-control.md) к ресурсам пользователя в определенном облаке.
+В {{ iam-full-name }} есть возможность управлять [доступом сервисов](../../concepts/service-control.md) к ресурсам пользователя в определенном облаке.
 
 ## Получение списка сервисов {#list}
 
@@ -9,16 +9,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Разрешения**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется облако, заданное в профиле CLI. Вы можете задать другое облако в параметре `--cloud-id`.
+  По умолчанию используется облако, заданное в профиле CLI. Если в профиле CLI облако не задано или вы хотите задать другое облако, указывайте идентификатор нужного облака в команде в параметре `--cloud-id`.
 
   1. Посмотрите описание команды CLI для получения списка сервисов, доступом которых можно управлять:
 
@@ -41,10 +37,16 @@
       +--------------------+----------+
       |     SERVICE ID     |  STATUS  |
       +--------------------+----------+
+      | asset-manager      | DEFAULT  |
+      | backup             | DEFAULT  |
+      | cloud-registry     | ENABLED  |
       | connection-manager | ENABLED  |
+      | data-catalog       | DEFAULT  |
       | datasphere         | DISABLED |
       | disk-encryption    | DEFAULT  |
-      | dspm               | DEFAULT  |
+      | dspm               | ENABLED  |
+      | security-deck      | ENABLED  |
+      | src-integration    | DISABLED |
       | websql             | ENABLED  |
       +--------------------+----------+
       ```
@@ -61,17 +63,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Разрешения**.
-  1. В поле **Фильтр по сервису** введите название нужного сервиса.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется облако, заданное в профиле CLI. Вы можете задать другое облако в параметре `--cloud-id`.
+  По умолчанию используется облако, заданное в профиле CLI. Если в профиле CLI облако не задано или вы хотите задать другое облако, указывайте идентификатор нужного облака в команде в параметре `--cloud-id`.
 
   1. Посмотрите описание команды CLI для получения информации о статусе сервиса в облаке:
 
@@ -106,5 +103,5 @@
 
 #### См. также {#see-also}
 
-* [Включение и выключение сервиса](enable-disable.md)
-* [Доступ сервисов к ресурсам пользователя](../../concepts/service-control.md)
+* [{#T}](enable-disable.md)
+* [{#T}](../../concepts/service-control.md)

@@ -5,7 +5,7 @@ Removes backends from the specified backend group.
 ## HTTP request
 
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
+POST https://alb.{{ api-host }}/apploadbalancer/v1/backendGroups/{backendGroupId}:removeBackend
 ```
 
 ## Path parameters

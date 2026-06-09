@@ -5,7 +5,7 @@ List operations for the specified route table.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/routeTables/{routeTableId}/operations
+GET https://vpc.{{ api-host }}/vpc/v1/routeTables/{routeTableId}/operations
 ```
 
 ## Path parameters

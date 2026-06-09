@@ -42,7 +42,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters dry run results listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](get.md#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
@@ -83,7 +82,6 @@ List of results of dry runs of a lifecycle policy. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDryRunLifecyclePolicyResultsRequest.page_size](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) use `next_page_token` as the value
 for the [ListDryRunLifecyclePolicyResultsRequest.page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

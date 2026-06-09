@@ -1,7 +1,6 @@
 # Resource Manager API, gRPC: CloudService.Get
 
 Returns the specified Cloud resource.
-
 To get the list of available Cloud resources, make a [List](list.md#List) request.
 
 ## gRPC request

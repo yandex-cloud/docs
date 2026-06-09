@@ -1,10 +1,16 @@
-# Программно ускоренная сеть в Compute Cloud
+# Программно ускоренная сеть в {{ compute-name }}
 
-Если ваше приложение нагружает ядра ВМ на предельных уровнях и одновременно с этим требует передачи больших объемов сетевого трафика, пользовательские и сетевые процессы могут начать борьбу за аппаратные ресурсы. Чтобы исключить такую ситуацию, рекомендуется использовать программно ускоренную сеть.
+Если ваше приложение нагружает ядра [ВМ](../../glossary/vm.md) на предельных уровнях и одновременно с этим требует передачи больших объемов сетевого трафика, пользовательские и сетевые процессы могут начать борьбу за аппаратные ресурсы. Чтобы исключить такую ситуацию, рекомендуется использовать программно ускоренную сеть.
+
+{% note warning %}
+
+Функциональность доступна только по согласованию с вашим аккаунт-менеджером и предоставляется по запросу в [техническую поддержку]({{ link-console-support }}).
+
+{% endnote %}
 
 ## Обычная сеть ВМ {#reg-vm}
 
-В инфраструктуре Yandex Cloud все виртуальные машины работают в [среде виртуализации](../../glossary/virtualization.md) [QEMU-KVM](https://ru.wikipedia.org/wiki/QEMU). *Гипервизор* пропорционально распределяет вычислительную нагрузку по всем процессорным ядрам, которые выделены [виртуальной машине](../../glossary/vm.md).
+В инфраструктуре {{ yandex-cloud }} все виртуальные машины работают в [среде виртуализации](../../glossary/virtualization.md) [QEMU-KVM](https://ru.wikipedia.org/wiki/QEMU). *Гипервизор* пропорционально распределяет вычислительную нагрузку по всем процессорным ядрам, которые выделены [виртуальной машине](../../glossary/vm.md).
 
 Вычислительную нагрузку можно логически разделить на три части:
 
@@ -49,9 +55,11 @@ SAN нельзя включить для виртуальной машины с 
 
 Чтобы включить программно ускоренную сеть:
 
-* включите опцию **Программное ускорение сети** при [создании новой ВМ](../operations/vm-create/create-linux-vm.md) или [измените настройки](../operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ;
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** при [создании новой ВМ](../operations/vm-create/create-linux-vm.md) или [измените настройки](../operations/vm-control/vm-update-resources.md#enable-software-accelerated-network) существующей ВМ;
 
-* включите опцию **Программное ускорение сети** в конфигурации базовой ВМ при [создании группы ВМ](../operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
+* включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** в конфигурации базовой ВМ при [создании группы ВМ](../operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
+
+Подробнее читайте в разделе [{#T}](../../vpc/operations/enable-software-accelerated-network.md).
 
 ## Рекомендации по использованию программно ускоренной сети {#use-cases}
 
@@ -59,7 +67,7 @@ SAN нельзя включить для виртуальной машины с 
 
 * На ВМ с пользовательскими инсталляциями баз данных при интенсивной работе с [диском](disk.md) и высокой утилизацией CPU (более 70-80%).
 * Если внутри ВМ наблюдается большое значение метрики `CPU steal time`.
-* В группах узлов кластеров [Yandex Managed Service for Kubernetes](../../managed-kubernetes/concepts/index.md) при работе внутрикластерных балансировщиков L7, например [Ingress NGINX Controller](https://kubernetes.github.io/ingress-nginx/) или [Istio Ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
+* В группах узлов кластеров [{{ managed-k8s-full-name }}](../../managed-kubernetes/concepts/index.md) при работе внутрикластерных балансировщиков L7, например [Ingress NGINX Controller](https://kubernetes.github.io/ingress-nginx/) или [Istio Ingress Gateways](https://istio.io/latest/docs/tasks/traffic-management/ingress/ingress-control/).
 
 {% note warning %}
 
@@ -69,5 +77,9 @@ SAN нельзя включить для виртуальной машины с 
 
 ## Примеры использования {#examples}
 
-* [Подключение к Object Storage из Virtual Private Cloud](../../tutorials/routing/storage-vpc-access.md)
-* [Подключение к Container Registry из Virtual Private Cloud](../../tutorials/routing/vpc-cr-access.md)
+* [{#T}](../../tutorials/routing/storage-vpc-access.md)
+* [{#T}](../../tutorials/routing/vpc-cr-access.md)
+
+#### См. также {#see-also}
+
+* [{#T}](../../vpc/operations/enable-software-accelerated-network.md)

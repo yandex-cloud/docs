@@ -1,16 +1,16 @@
-# Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди Yandex Message Queue
+# Автоматическое масштабирование группы виртуальных машин для обработки сообщений из очереди {{ message-queue-full-name }}
 
 
-Сценарий описывает интеграцию между сервисами Yandex Compute Cloud, [Yandex Message Queue](https://yandex.cloud/ru/services/message-queue) и [Yandex Monitoring](https://yandex.cloud/ru/services/monitoring). 
+Сценарий описывает интеграцию между сервисами {{ compute-full-name }}, [{{ message-queue-full-name }}](https://yandex.cloud/ru/services/message-queue) и [{{ monitoring-full-name }}](https://yandex.cloud/ru/services/monitoring). 
 
-В сценарии создается [группа виртуальных машин](../concepts/instance-groups/index.md). Все ВМ в группе обрабатывают сообщения из одной очереди Message Queue (для примера — получают их и через некоторое время удаляют). Количество сообщений в очереди записывается в метрику Monitoring, и группа ВМ [автоматически масштабируется](../concepts/instance-groups/scale.md#auto-scale) по этой метрике. 
+В сценарии создается [группа виртуальных машин](../concepts/instance-groups/index.md). Все ВМ в группе обрабатывают сообщения из одной очереди {{ message-queue-name }} (для примера — получают их и через некоторое время удаляют). Количество сообщений в очереди записывается в метрику {{ monitoring-name }}, и группа ВМ [автоматически масштабируется](../concepts/instance-groups/scale.md#auto-scale) по этой метрике. 
 
 Для масштабирования выбрана [деликатная стратегия остановки](../concepts/instance-groups/policies/deploy-policy.md#strategy): ВМ останавливаются самостоятельно после обработки всех сообщений и только после этого удаляются из группы при уменьшении ее размера. Это гарантирует, что ВМ не будут  удалены принудительно и обработают последние сообщения, даже если очередь опустеет до конца обработки.
 
 Чтобы выполнить сценарий:
 
 1. [Подготовьте окружение](#prepare).
-1. [Создайте очередь в Message Queue](#create-queue).
+1. [Создайте очередь в {{ message-queue-name }}](#create-queue).
 1. [Создайте образ с приложением](#create-image).
 1. [Создайте группу виртуальных машин](#create-ig).
 1. [Проверьте масштабирование группы виртуальных машин](#test-autoscale).
@@ -19,11 +19,11 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -33,13 +33,13 @@
 
 В стоимость инфраструктуры входят:
 
-* плата за использование виртуальных машин и хранение [образа](../concepts/image.md) (см. [тарифы Compute Cloud](../pricing.md));
-* плата за использование публичных IP-адресов и исходящий трафик с ВМ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md));
-* плата за запросы к очереди (см. [тарифы Message Queue](../../message-queue/pricing.md)).
+* плата за использование виртуальных машин и хранение [образа](../concepts/image.md) (см. [тарифы {{ compute-name }}](../pricing.md));
+* плата за использование публичных IP-адресов и исходящий трафик с ВМ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md));
+* плата за запросы к очереди (см. [тарифы {{ message-queue-name }}](../../message-queue/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
-### Создайте вспомогательные ресурсы Yandex Cloud {#create-aux-resources}
+### Создайте вспомогательные ресурсы {{ yandex-cloud }} {#create-aux-resources}
 
 {% list tabs group=instructions %}
 
@@ -47,19 +47,19 @@
 
   1. Создайте сервисный аккаунт `queue-autoscale-sa` и назначьте ему роль `editor` в каталоге `example-folder`:
   
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
-     1. В поле **Имя** укажите `queue-autoscale-sa`.
-     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `editor`.
-     1. Нажмите кнопку **Создать**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+     1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `queue-autoscale-sa`.
+     1. Нажмите значок ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `editor`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
      
-  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с Message Queue и сохраните его в файл `access_key`:
+  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
   
      1. В списке сервисных аккаунтов выберите `queue-autoscale-sa`.
-     1. Нажмите ![](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
-     1. В поле **Описание** укажите `Message Queue`.
-     1. Нажмите кнопку **Создать**.
+     1. Нажмите ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+     1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-description }}** укажите `Message Queue`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
      1. Вставьте идентификатор ключа и секретный ключ в файл `access_key` в следующем формате:
      
         ```yaml
@@ -70,24 +70,24 @@
         
   1. Создайте облачную сеть `queue-autoscale-network`:
   
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-     1. Нажмите кнопку **Создать сеть**.
-     1. В поле **Имя** укажите `queue-autoscale-network`.
-     1. Отключите опцию **Создать подсети**.
-     1. Нажмите кнопку **Создать сеть**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите `queue-autoscale-network`.
+     1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      
-  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `ru-central1-d`:
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d`:
   
      1. В списке сетей выберите `queue-autoscale-network`.
-     1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **Создать подсеть**.
+     1. Нажмите кнопку ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Укажите параметры подсети:
      
-        * **Имя** — `queue-autoscale-subnet-d`.
-        * **Зона доступности** — `ru-central1-d`.
-        * **CIDR** — `192.168.1.0/24`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** — `queue-autoscale-subnet-d`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}** — `{{ region-id }}-d`.
+        * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}** — `192.168.1.0/24`.
         
-     1. Нажмите кнопку **Создать подсеть**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -127,12 +127,12 @@
      done (1s)
      ```
      
-  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с Message Queue и сохраните его в файл `access_key`:
+  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
     
      ```bash
      yc iam access-key create \
        --service-account-name queue-autoscale-sa \
-       --description "Message Queue" \
+       --description "{{ message-queue-name }}" \
      | tee access_key
      ```
     
@@ -148,7 +148,7 @@
        id: ajevb6bx51w3********
        service_account_id: aje6brh817ro********
        created_at: "2021-10-04T16:25:19.143847764Z"
-       description: Message Queue
+       description: {{ message-queue-name }}
        key_id: g3VybpVKdq_Y********
      secret: WVUqnwmC4LSUep0GTKGkbcht9K3Xav7V********
      ```
@@ -168,20 +168,20 @@
      name: queue-autoscale-network
      ```
 
-  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `ru-central1-d`:
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d`:
 
      ```bash
      yc vpc subnet create queue-autoscale-subnet-d \
        --network-name queue-autoscale-network 
        --range 192.168.1.0/24 
-       --zone ru-central1-d
+       --zone {{ region-id }}-d
      ```
      
      Где:
 
      * `--network-name` — имя сети, в которой создается подсеть: `queue-autoscale-network`.
      * `--range` — CIDR подсети.
-     * `--zone` — зона доступности, в которой создается подсеть: `ru-central1-d`.
+     * `--zone` — зона доступности, в которой создается подсеть: `{{ region-id }}-d`.
 
      Результат:
 
@@ -191,7 +191,7 @@
      created_at: "2021-10-04T16:29:12.450858436Z"
      name: queue-autoscale-subnet-d
      network_id: enpabce123hd********
-     zone_id: ru-central1-d
+     zone_id: {{ region-id }}-d
      v4_cidr_blocks:
      - 192.168.1.0/24
      ```
@@ -200,7 +200,7 @@
 
   1. Создайте сервисный аккаунт `queue-autoscale-sa` с помощью вызова gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или метода REST API [create](../../iam/api-ref/ServiceAccount/create.md). В ответных данных будет указан идентификатор сервисного аккаунта.
   1. Назначьте сервисному аккаунту роль `editor` в каталоге `example-folder` с помощью вызова gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md) или метода REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md). В теле запроса укажите идентификатор сервисного аккаунта.
-  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с Message Queue и сохраните его в файл `access_key`:
+  1. Создайте [статический ключ доступа](../../iam/concepts/authorization/access-key.md) для работы сервисного аккаунта с {{ message-queue-name }} и сохраните его в файл `access_key`:
   
      1. Используйте вызов gRPC API [AccessKeyService/Create](../../iam/awscompatibility/api-ref/grpc/AccessKey/create.md) или метод REST API [create](../../iam/awscompatibility/api-ref/AccessKey/create.md).
      1. Вставьте идентификатор ключа и секретный ключ в файл `access_key` в следующем формате:
@@ -212,7 +212,7 @@
         ```
         
   1. Создайте облачную сеть `queue-autoscale-network` с помощью вызова gRPC API [NetworkService/Create](../../vpc/api-ref/grpc/Network/create.md) или метода REST API [create](../../vpc/api-ref/Network/create.md). В ответных данных будет указан идентификатор сети.
-  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `ru-central1-d` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
+  1. Создайте подсеть `queue-autoscale-subnet-d` в зоне `{{ region-id }}-d` с CIDR `192.168.1.0/24` с помощью вызова gRPC API [SubnetService/Create](../../vpc/api-ref/grpc/Subnet/create.md) или метода REST API [create](../../vpc/api-ref/Subnet/create.md). В теле запроса укажите идентификатор сети.
   
 {% endlist %}
 
@@ -225,7 +225,7 @@
 {% endnote %}
 
 1. Скачайте и установите AWS CLI, как описано в его [документации](https://docs.aws.amazon.com/cli/latest/userguide/installing.html).
-1. Настройте AWS CLI для работы с Yandex Cloud:
+1. Настройте AWS CLI для работы с {{ yandex-cloud }}:
   
    1. Создайте в домашнем каталоге файл `.aws/credentials` и укажите в нем статический ключ доступа, полученный ранее, и его идентификатор:
            
@@ -235,14 +235,14 @@
           aws_secret_access_key = <секретный_ключ>
       ```
         
-   1. Создайте в домашнем каталоге файл `.aws/config` и укажите в нем регион по умолчанию `ru-central1`:
+   1. Создайте в домашнем каталоге файл `.aws/config` и укажите в нем регион по умолчанию `{{ region-id }}`:
            
       ```
       [default]
-          region = ru-central1
+          region = {{ region-id }}
       ```
 
-## Создайте очередь в Message Queue {#create-queue}
+## Создайте очередь в {{ message-queue-name }} {#create-queue}
 
 {% list tabs group=instructions %}
 
@@ -250,16 +250,16 @@
 
   1. Создайте очередь `queue-autoscale-queue`:
   
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Message Queue**.
-     1. Нажмите кнопку **Создать очередь**.
-     1. В поле **Имя** укажите `queue-autoscale-queue`.
-     1. Нажмите кнопку **Создать**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.ymq.queues.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.common.name }}** укажите `queue-autoscale-queue`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   
   1. Сохраните URL очереди в файл `queue`:
   
      1. В списке очередей выберите `queue-autoscale-queue`.
-     1. Скопируйте **URL** очереди.
+     1. Скопируйте **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** очереди.
      1. Вставьте URL в файл `queue` в следующем формате:
      
         ```yaml
@@ -272,7 +272,7 @@
   
      ```bash
      aws sqs create-queue \
-       --endpoint https://message-queue.api.cloud.yandex.net \
+       --endpoint https://message-queue.{{ api-host }} \
        --queue-name queue-autoscale-queue \
        --output yaml \
      | tee queue
@@ -280,13 +280,13 @@
      
      Где:
 
-     * `--endpoint` — корневой URL API Message Queue: `https://message-queue.api.cloud.yandex.net`.
+     * `--endpoint` — корневой URL API {{ message-queue-name }}: `https://message-queue.{{ api-host }}`.
      * `--queue-name` — имя очереди: `queue-autoscale-queue`.
      
      Результат:
      
      ```yaml
-     QueueUrl: https://message-queue.api.cloud.yandex.net/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
+     QueueUrl: https://message-queue.{{ api-host }}/b1gvlrnlei4l********/dj6000000003********/queue-autoscale-queue
      ```
      
 - API {#api}
@@ -306,7 +306,7 @@
 
    {% note info %}
    
-   Для работы с Yandex Cloud требуется Packer версии не ниже 1.5.
+   Для работы с {{ yandex-cloud }} требуется Packer версии не ниже 1.5.
    
    {% endnote %}
 
@@ -319,7 +319,7 @@
           required_plugins {
             yandex = {
               version = ">= 1.1.2"
-              source  = "github.com/hashicorp/yandex"
+              source  = "{{ packer-source-link }}"
             }
           }
         }
@@ -337,10 +337,10 @@
         Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
         ```
 
-1. Скачайте [архив с файлами для образа](https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
+1. Скачайте [архив с файлами для образа](https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip) (ZIP, 3 КБ) и распакуйте его:
 
    ```bash
-   wget https://storage.yandexcloud.net/doc-files/queue-autoscale-server.zip
+   wget https://{{ s3-storage-host }}/doc-files/queue-autoscale-server.zip
    unzip queue-autoscale-server.zip
    ```
    
@@ -354,11 +354,11 @@
 
      - Консоль управления {#console}
 
-       1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+       1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+       1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
        1. В открывшемся списке выберите сервисный аккаунт `queue-autoscale-sa`.
-       1. Скопируйте **Идентификатор** сервисного аккаунта.
+       1. Скопируйте **{{ ui-key.yacloud.iam.folder.service-account.overview.label_id }}** сервисного аккаунта.
 
      - CLI {#cli}
      
@@ -385,41 +385,7 @@
      
      {% endcut %}
      
-   * В поле `folder_id` укажите идентификатор каталога в Yandex Cloud.
-   
-     {% cut "Как узнать идентификатор каталога" %}
-     
-     {% list tabs group=instructions %}
-     
-     - Консоль управления {#console}
-     
-       На [странице облака](https://console.yandex.cloud/cloud) в списке **Каталоги** найдите каталог `example-folder` и скопируйте его **Идентификатор**.
-     
-     - CLI {#cli}
-     
-       Выполните следующую команду:
-       
-       ```bash
-       yc resource-manager folder get example-folder
-       ```
-       
-       Результат:
-       
-       ```
-       id: b1g9hv2loamq********
-       cloud_id: b1g2y61sxwqx********
-       created_at: "2021-10-04T13:21:32.788067492Z"
-       name: example-folder
-       status: ACTIVE
-       ```
-       
-     - API {#api}
-     
-       Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/Folder/list.md).
-     
-     {% endlist %}
-     
-     {% endcut %}
+   * В поле `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) в {{ yandex-cloud }}.
      
    * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-d`.
    
@@ -429,10 +395,10 @@
      
      - Консоль управления {#console}
      
-       1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-       1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **Подсети**.
-       1. В списке подсетей найдите `queue-autoscale-subnet-d` и скопируйте ее **Идентификатор**.
+       1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+       1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+       1. Перейдите на вкладку ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+       1. В списке подсетей найдите `queue-autoscale-subnet-d` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
             
      - CLI {#cli}
      
@@ -450,7 +416,7 @@
        created_at: "2021-10-04T16:29:12.450858436Z"
        name: queue-autoscale-subnet-d
        network_id: enpabce123hd********
-       zone_id: ru-central1-d
+       zone_id: {{ region-id }}-d
        v4_cidr_blocks:
        - 192.168.1.0/24
        ```
@@ -463,7 +429,7 @@
      
      {% endcut %}
 
-1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для работы сервисного аккаунта с Compute Cloud и сохраните его в файл `key.json`:
+1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для работы сервисного аккаунта с {{ compute-name }} и сохраните его в файл `key.json`:
 
    {% list tabs group=instructions %}
    
@@ -472,7 +438,7 @@
      ```bash
      yc iam key create \
        --service-account-name queue-autoscale-sa \
-       --description "Compute Cloud" \
+       --description "{{ compute-name }}" \
        --output key.json
      ```
     
@@ -488,7 +454,7 @@
      id: ajevh3a0hrqf********
      service_account_id: aje6brh817ro********
      created_at: "2021-10-04T16:35:19.057777570Z"
-     description: Compute Cloud
+     description: {{ compute-name }}
      key_algorithm: RSA_2048
      ```
      
@@ -522,64 +488,64 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
-  1. Нажмите кнопку **Создать группу виртуальных машин**.
-  1. В блоке **Базовые параметры**:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_base }}**:
   
-     * В поле **Имя** укажите `queue-autoscale-ig`.
-     * Выберите **Сервисный аккаунт** `queue-autoscale-sa`.
+     * В поле **{{ ui-key.yacloud.compute.groups.create.field_name }}** укажите `queue-autoscale-ig`.
+     * Выберите **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** `queue-autoscale-sa`.
      
-  1. В блоке **Распределение** в поле **Зона доступности** выберите`ru-central1-d`.
-  1. В блоке **Шаблон виртуальной машины** нажмите **Задать** и в открывшемся окне:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** в поле **{{ ui-key.yacloud.compute.groups.create.field_zone }}** выберите`{{ region-id }}-d`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}** и в открывшемся окне:
   
-     1. В блоке **Образ загрузочного диска** перейдите на вкладку **Пользовательский** и нажмите **Выбрать**.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_custom_new }}** и нажмите **{{ ui-key.yacloud.common.select }}**.
      1. В открывшемся окне выберите созданный образ в качестве загрузочного диска:
      
-        1. Перейдите на вкладку **Образ**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create-disk.value_source-image }}**.
         1. Выберите образ, имя которого начинается на `queue-autoscale-image`.
-        1. Нажмите кнопку **Применить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.apply }}**.
         
-     1. В блоке **Сетевые настройки**:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
      
-        * В поле **Сеть** выберите `queue-autoscale-network`.
-        * В поле **Публичный адрес** выберите `Автоматически`, чтобы ВМ имели доступ в интернет и могли получать сообщения из очереди.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** выберите `queue-autoscale-network`.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`, чтобы ВМ имели доступ в интернет и могли получать сообщения из очереди.
         
-     1. В блоке **Доступ**:
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}**:
      
-        * В поле **Сервисный аккаунт** выберите `queue-autoscale-sa`.
+        * В поле **{{ ui-key.yacloud.compute.instances.create.field_service-account }}** выберите `queue-autoscale-sa`.
         * Укажите логин и содержимое [открытого ключа](../operations/vm-connect/ssh.md#creating-ssh-keys) для подключения к ВМ.
         
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
      
-  1. В блоке **В процессе создания и обновления разрешено** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите следующие значения:
   
-     * **Одновременно останавливать** — `1`.
-     * **Останавливать машины по стратегии** — `Ручная`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-deleting }}** — `1`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_deploy-strategy }}** — `{{ ui-key.yacloud.compute.groups.create.value_strategy-opportunistic }}`.
      
-  1. В блоке **Масштабирование** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите следующие значения:
   
-     * **Тип** — `Автоматический`.
-     * **Тип автомасштабирования** — `Региональное`.
-     * **Минимальное количество ВМ в зоне** — `0`.
-     * **Максимальный размер группы** — `5`.
-     * **Промежуток измерения нагрузки** — `60 секунд`.
-     * **Время на разогрев ВМ** — `0 минут`.
-     * **Период стабилизации** — `5 минут`.
-     * **Начальный размер группы** — `1`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_scale-type }}** — `{{ ui-key.yacloud.compute.groups.create.value_scale-auto }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_auto-scale-type }}** — `{{ ui-key.yacloud.compute.groups.create.value_scale-regional }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_min-zone-size }}** — `0`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_max-size }}** — `5`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_measurement-duration }}** — `60 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_warmup-duration }}** — `0 {{ ui-key.yacloud.common.units.label_time-min_zero }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_cooldown-duration }}** — `5 {{ ui-key.yacloud.common.units.label_time-min_many }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_initial-size }}** — `1`.
      
-  1. В блоке **Метрики** укажите следующие значения:
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.label_custom-metrics }}** укажите следующие значения:
   
-     * **Метрика** — `Yandex Monitoring`.
-     * **Идентификатор каталога** — `message-queue`.
-     * **Имя метрики** — `queue.messages.stored_count`.
-     * **Метки** — ключ `queue`, значение `queue-autoscale-queue`.
-     * **Тип метрики** — `GAUGE`.
-     * **Тип правила** — `WORKLOAD`.
-     * **Целевое значение** — `5`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric }}** — `{{ ui-key.yacloud.compute.groups.create.metric-type-custom }}`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_folder-id }}** — `message-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-name }}** — `queue.messages.stored_count`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-labels }}** — ключ `queue`, значение `queue-autoscale-queue`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-type }}** — `GAUGE`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-rule-type }}** — `WORKLOAD`.
+     * **{{ ui-key.yacloud.compute.groups.create.field_metric-target }}** — `5`.
      
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
@@ -609,7 +575,7 @@
      
   1. Измените файл со спецификацией группы ВМ `spec.yaml`:
   
-     * В поле `folder_id` укажите идентификатор каталога в Yandex Cloud.
+     * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
      * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-d`.
      
@@ -636,9 +602,9 @@
         
        - Консоль управления {#console}
         
-         1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-         1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
+         1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+         1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
           
        - API {#api}
         
@@ -665,7 +631,7 @@
   1. Получите идентификатор образа из семейства `queue-autoscale-image`, созданного ранее, с помощью вызова gRPC API [ImageService/GetLatestByFamily](../api-ref/grpc/Image/getLatestByFamily.md) или метода REST API [getLatestByFamily](../api-ref/Image/getLatestByFamily.md).
   1. Измените файл со спецификацией группы виртуальных `spec.yaml`:
     
-     * В поле `folder_id` укажите идентификатор каталога в Yandex Cloud.
+     * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
      * В поле `image_id` укажите идентификатор созданного образа.
      * В поле `network_id` укажите идентификатор сети `queue-autoscale-network`, а в поле `subnet_ids` — идентификатор подсети `queue-autoscale-subnet-d`.
      
@@ -675,9 +641,9 @@
           
        - Консоль управления {#console}
         
-         1. В [консоли управления](https://console.yandex.cloud) выберите каталог `example-folder`.
-         1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **Идентификатор**.
+         1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
+         1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+         1. В списке сетей найдите `queue-autoscale-network` и скопируйте ее **{{ ui-key.yacloud.common.id }}**.
                
        - CLI {#cli}
         
@@ -716,7 +682,7 @@
 
 1. Измените файл `messages.sh`: в параметре `--queue-url` укажите URL очереди из файла `queue`.
 1. Запустите файл `messages.sh`. Начнется поочередная отправка 100 сообщений в очередь `queue-autoscale-queue`.
-1. Откройте дашборды в Yandex Monitoring:
+1. Откройте дашборды в {{ monitoring-full-name }}:
 
    {% list tabs group=instructions %}
    
@@ -724,12 +690,12 @@
    
      1. Откройте дашборд с информацией о группе ВМ:
      
-        1. В [Monitoring](https://monitoring.yandex.cloud) выберите сервисный дашборд **Compute — Instance Groups**.
+        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Compute — Instance Groups**.
         1. В поле **Instance Group ID** выберите `queue-autoscale-ig`.
      
      1. Откройте дашборд с информацией об очереди:
      
-        1. В [Monitoring](https://monitoring.yandex.cloud) выберите сервисный дашборд **Message Queue**.
+        1. В [{{ monitoring-name }}]({{ link-monitoring }}) выберите сервисный дашборд **Message Queue**.
         1. В поле **Queue ID** выберите `queue-autoscale-queue`.
         
    {% endlist %}

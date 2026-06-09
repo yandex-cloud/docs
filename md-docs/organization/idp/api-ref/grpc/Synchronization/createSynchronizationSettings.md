@@ -38,7 +38,8 @@ Creates synchronization settings for a subject container.
       "target": "GroupTargetAttribute",
       "type": "MappingType"
     }
-  ]
+  ],
+  "enable_password_writeback": "bool"
 }
 ```
 
@@ -84,6 +85,9 @@ The maximum number of elements is 50. ||
 Group attribute mappings.
 
 The maximum number of elements is 50. ||
+|| enable_password_writeback | **bool**
+
+Enables password writeback feature. ||
 |#
 
 ## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter}
@@ -177,43 +181,10 @@ Required field. Type of mapping.
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "subject_container_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "subject_container_id": "string",
-    "filter": {
-      "domain": "string",
-      "groups": [
-        "string"
-      ],
-      "organization_units": [
-        "string"
-      ]
-    },
-    "remove_user_behavior": "RemoveUserBehavior",
-    "synchronization_interval": "google.protobuf.Duration",
-    "allow_to_capture_users": "bool",
-    "allow_to_capture_groups": "bool",
-    "user_attribute_mappings": [
-      {
-        "source": "string",
-        "target": "UserTargetAttribute",
-        "type": "MappingType"
-      }
-    ],
-    "group_attribute_mappings": [
-      {
-        "source": "string",
-        "target": "GroupTargetAttribute",
-        "type": "MappingType"
-      }
-    ],
-    "created_at": "google.protobuf.Timestamp",
-    "replacement_domain": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -241,7 +212,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateSynchronizationSettingsMetadata](#yandex.cloud.organizationmanager.v1.idp.CreateSynchronizationSettingsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -256,7 +227,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[SynchronizationSettings](#yandex.cloud.organizationmanager.v1.idp.SynchronizationSettings)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -271,137 +242,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateSynchronizationSettingsMetadata {#yandex.cloud.organizationmanager.v1.idp.CreateSynchronizationSettingsMetadata}
-
-Metadata for the [SynchronizationService.CreateSynchronizationSettings](#CreateSynchronizationSettings) operation.
-
-#|
-||Field | Description ||
-|| subject_container_id | **string**
-
-ID of the subject container. ||
-|#
-
-## SynchronizationSettings {#yandex.cloud.organizationmanager.v1.idp.SynchronizationSettings}
-
-Synchronization settings for a subject container.
-
-#|
-||Field | Description ||
-|| subject_container_id | **string**
-
-ID of the subject container. ||
-|| filter | **[SynchronizationFilter](#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter2)**
-
-Filter configuration for synchronization. ||
-|| remove_user_behavior | enum **RemoveUserBehavior**
-
-Behavior when removing users.
-
-- `REMOVE`: Remove the user.
-- `BLOCK`: Block the user. ||
-|| synchronization_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-Interval between synchronization runs. ||
-|| allow_to_capture_users | **bool**
-
-Whether users can be captured during synchronization. ||
-|| allow_to_capture_groups | **bool**
-
-Whether groups can be captured during synchronization. ||
-|| user_attribute_mappings[] | **[UserAttributeMapping](#yandex.cloud.organizationmanager.v1.idp.UserAttributeMapping2)**
-
-User attribute mappings. ||
-|| group_attribute_mappings[] | **[GroupAttributeMapping](#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping2)**
-
-Group attribute mappings. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Timestamp when the settings were created. ||
-|| replacement_domain | **string**
-
-Domain replacement configuration. ||
-|#
-
-## SynchronizationFilter {#yandex.cloud.organizationmanager.v1.idp.SynchronizationFilter2}
-
-Filter configuration for synchronization.
-
-#|
-||Field | Description ||
-|| domain | **string**
-
-Required field. Domain to synchronize.
-
-The string length in characters must be 1-253. ||
-|| groups[] | **string**
-
-List of groups to synchronize.
-
-The string length in characters for each value must be 1-253. The maximum number of elements is 10. ||
-|| organization_units[] | **string**
-
-List of organizational units to synchronize.
-
-The string length in characters for each value must be 1-253. The maximum number of elements is 10. ||
-|#
-
-## UserAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.UserAttributeMapping2}
-
-User attribute mapping configuration.
-
-#|
-||Field | Description ||
-|| source | **string**
-
-Source attribute name.
-
-The string length in characters must be 0-253. ||
-|| target | enum **UserTargetAttribute**
-
-Required field. Target attribute to map to.
-
-- `FULL_NAME`: Full name attribute.
-- `GIVEN_NAME`: Given name attribute.
-- `FAMILY_NAME`: Family name attribute.
-- `EMAIL`: Email attribute.
-- `PHONE_NUMBER`: Phone number attribute.
-- `USERNAME`: Username attribute.
-- `COMPANY_NAME`: Company name attribute.
-- `JOB_TITLE`: Job title attribute.
-- `DEPARTMENT`: Department attribute.
-- `EMPLOYEE_ID`: Employee ID attribute. ||
-|| type | enum **MappingType**
-
-Required field. Type of mapping.
-
-- `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
-|#
-
-## GroupAttributeMapping {#yandex.cloud.organizationmanager.v1.idp.GroupAttributeMapping2}
-
-Group attribute mapping configuration.
-
-#|
-||Field | Description ||
-|| source | **string**
-
-Source attribute name.
-
-The string length in characters must be 0-253. ||
-|| target | enum **GroupTargetAttribute**
-
-Required field. Target attribute to map to.
-
-- `NAME`: Name attribute.
-- `DESCRIPTION`: Description attribute. ||
-|| type | enum **MappingType**
-
-Required field. Type of mapping.
-
-- `DIRECT`: Direct mapping from source to target.
-- `EMPTY`: Empty mapping (no source attribute). ||
 |#

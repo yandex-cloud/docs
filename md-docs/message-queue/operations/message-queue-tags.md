@@ -21,14 +21,14 @@
      Где:
 
      * `--queue-name` — имя создаваемой очереди, например `sample-queue`.
-     * `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.
+     * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
      * `--tags` — список меток очереди, например `key1=string,key2=string`.
 
      Результат:
 
      ```json
      {
-         "QueueUrl": "https://message-queue.api.cloud.yandex.net/aoeaql9r10cd********/000000000000********/sample-queue"
+         "QueueUrl": "https://message-queue.{{ api-host }}/aoeaql9r10cd********/000000000000********/sample-queue"
      }
      ```
 
@@ -54,7 +54,7 @@
       Где:
 
       * `--queue-url` — URL очереди, для которой нужно добавить или изменить метки.
-      * `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.
+      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
       * `--tags` — список меток очереди, например `key1=string,key2=string`.
 
 {% endlist %}
@@ -77,7 +77,7 @@
       Где:
 
       * `--queue-url` — URL очереди, метки которой нужно удалить.
-      * `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.
+      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
       * `--tag-keys` — список ключей меток очереди, например `key1 key2`.
 
 {% endlist %}
@@ -99,7 +99,7 @@
       Где:
 
       * `--queue-url` — URL очереди, метки которой нужно получить.
-      * `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.
+      * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
 
      Результат:
 

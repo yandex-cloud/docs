@@ -1,8 +1,8 @@
 # Использование своей лицензии для продуктов Microsoft
 
-В Yandex Cloud можно использовать ваши личные лицензионные продукты Microsoft на [выделенных хостах](../compute/concepts/dedicated-host.md). При этом лицензионные отношения действуют только между вами как клиентом и Microsoft как вендором лицензии. Вы несете полную ответственность за соблюдение [условий лицензирования Microsoft](https://www.microsoft.com/ru-ru/useterms). 
+В {{ yandex-cloud }} можно использовать ваши личные лицензионные продукты Microsoft на [выделенных хостах](../compute/concepts/dedicated-host.md). При этом лицензионные отношения действуют только между вами как клиентом и Microsoft как вендором лицензии. Вы несете полную ответственность за соблюдение [условий лицензирования Microsoft](https://www.microsoft.com/ru-ru/useterms). 
 
-Когда вы используете в Yandex Cloud лицензионные продукты, приобретенные у Microsoft, стоимость лицензии исключается из стоимости использования [ВМ](../glossary/vm.md). Все вопросы, касающиеся лицензирования продуктов, необходимо решать с вашим поставщиком.
+Когда вы используете в {{ yandex-cloud }} лицензионные продукты, приобретенные у Microsoft, стоимость лицензии исключается из стоимости использования [ВМ](../glossary/vm.md). Все вопросы, касающиеся лицензирования продуктов, необходимо решать с вашим поставщиком.
 
 {% note info %}
 
@@ -12,7 +12,7 @@
 
 ## Какие лицензии можно использовать {#which-licenses}
 
-Возможность использования лицензии в Yandex Cloud зависит от условий лицензирования конкретного продукта Microsoft. BYOL (Bring Your Own License, использование собственной лицензии) доступно, если лицензия приобретена по одному из следующих соглашений:
+Возможность использования лицензии в {{ yandex-cloud }} зависит от условий лицензирования конкретного продукта Microsoft. BYOL (Bring Your Own License, использование собственной лицензии) доступно, если лицензия приобретена по одному из следующих соглашений:
 
 * Соглашение Microsoft Enterprise или соглашение о регистрации Microsoft Enterprise (EA).
 * Соглашение Microsoft Server and Cloud Enrollment (SCE).
@@ -38,7 +38,7 @@
 
 ### Импортируйте нужный образ {#how-to-import}
 
-Вы можете импортировать образ, используя [REST API Compute Cloud](../compute/api-ref/Image/create.md). 
+Вы можете импортировать образ, используя [REST API {{ compute-name }}](../compute/api-ref/Image/create.md). 
 
 1. Выполните запрос вида:
 
@@ -47,7 +47,7 @@
    - Bash {#bash}
 
      ```bash
-     curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.api.cloud.yandex.net/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
+     curl -H "Authorization: Bearer `yc iam create-token`" -H  "accept: application/json" -X POST https://compute.{{ api-host }}/compute/v1/images -d '{"folderId": "<ID вашего каталога>", "name": "<название образа>", "description": "<описание образа>", "os": {"type": "WINDOWS"}, "pooled": false, "uri": "<ссылка на образ в Object Storage>"}'
      ```
 
    - PowerShell {#powershell}
@@ -88,7 +88,7 @@
 
        Invoke-WebRequest `
          -Method POST `
-         -URI https://compute.api.cloud.yandex.net/compute/v1/images `
+         -URI https://compute.{{ api-host }}/compute/v1/images `
          -header @{ "Authorization" = "Bearer $(& yc iam create-token)" } `
          -ContentType 'Application/json' `
          -body $body
@@ -106,8 +106,8 @@
 
    {% endlist %}
 
-1. Откройте [консоль управления](https://console.yandex.cloud/cloud), выберите каталог, ID которого вы указали в параметре `folderId` на первом шаге.
-1. Перейдите в раздел Compute Cloud и выберите вкладку **Образы**.
+1. Откройте [консоль управления]({{ link-console-cloud }}), выберите каталог, ID которого вы указали в параметре `folderId` на первом шаге.
+1. Перейдите в раздел {{ compute-name }} и выберите вкладку **Образы**.
 1. Найдите импортируемый образ, он будет находиться в статусе `Creating`. Дождитесь смены статуса с `Creating` на `Ready`.
 
 ### Создайте группу выделенных хостов {#create-host-group}

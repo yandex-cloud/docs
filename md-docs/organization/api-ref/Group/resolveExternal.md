@@ -5,7 +5,7 @@ Returns external group by subject container and external id
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/external_groups/{subjectContainerId}/{externalId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/external_groups/{subjectContainerId}/{externalId}
 ```
 
 ## Path parameters
@@ -21,7 +21,9 @@ or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](../../idp/api-
 The maximum string length in characters is 50. ||
 || externalId | **string**
 
-Required field. Id of the group from external system ||
+Required field. Id of the group from external system
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## Response {#yandex.cloud.organizationmanager.v1.Group}

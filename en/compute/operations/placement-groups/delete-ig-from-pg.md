@@ -1,3 +1,8 @@
+---
+title: Removing an instance group from a placement group in {{ compute-full-name }}
+description: Follow this guide to remove an instance group from a placement group.
+---
+
 # Removing an instance group from a placement group
 
 {% list tabs group=instructions %}

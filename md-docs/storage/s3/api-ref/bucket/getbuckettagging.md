@@ -4,7 +4,7 @@
 
 {% note info %}
 
-В терминологии Yandex Cloud для логической маркировки ресурсов используется понятие _метка_ (_label_). Object Storage поддерживает совместимость с [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html), поэтому в командах для [AWS CLI](../../../tools/aws-cli.md) и в параметрах [API](../../index.md) применяется термин AWS — _тег_ (_tag_).
+В терминологии {{ yandex-cloud }} для логической маркировки ресурсов используется понятие _метка_ (_label_). {{ objstorage-name }} поддерживает совместимость с [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html), поэтому в командах для [AWS CLI](../../../tools/aws-cli.md) и в параметрах [API](../../index.md) применяется термин AWS — _тег_ (_tag_).
 
 {% endnote %}
 
@@ -40,7 +40,7 @@ GET /{bucket}?tagging HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которых описана ниже.
 
@@ -68,13 +68,13 @@ GET /{bucket}?tagging HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [Бакет в Object Storage](../../../concepts/bucket.md)
+* [{#T}](../../../concepts/bucket.md)
 
 * [Просмотр меток бакета](../../../operations/buckets/tagging.md#get-tag)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

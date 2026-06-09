@@ -5,7 +5,7 @@ Stops the specified GitLab instance.
 ## HTTP request
 
 ```
-POST https://gitlab.api.cloud.yandex.net/gitlab/v1/instances/{instanceId}:stop
+POST https://gitlab.{{ api-host }}/gitlab/v1/instances/{instanceId}:stop
 ```
 
 ## Path parameters

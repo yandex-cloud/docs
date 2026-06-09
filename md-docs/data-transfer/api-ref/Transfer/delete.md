@@ -5,7 +5,7 @@ Deletes the specified transfer.
 ## HTTP request
 
 ```
-DELETE https://datatransfer.api.cloud.yandex.net/v1/transfer/{transferId}
+DELETE https://{{ api-host-data-transfer }}/v1/transfer/{transferId}
 ```
 
 ## Path parameters

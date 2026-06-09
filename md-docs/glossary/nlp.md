@@ -94,8 +94,8 @@ Natural Language Processing (NLP, обработка естественного 
   
   * делать заметки в календаре;
   * проверять почту и отвечать на нее;
-  * [работать с системами непрерывной интеграции](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/work-with-mcp);
-  * [писать и отлаживать код](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/tools/code-interpreter).
+  * [работать с системами непрерывной интеграции]({{ link-src-main }}/portal/docs/ru/sourcecraft/operations/work-with-mcp);
+  * [писать и отлаживать код]({{ link-docs-ai }}ai-studio/concepts/agents/tools/code-interpreter).
 
   Также быстро развиваются мультиагентные системы, когда модели распределяют между собой разные функции. Теперь это уже не эксперименты, а реальные бизнес-решения.
 
@@ -118,18 +118,18 @@ Natural Language Processing (NLP, обработка естественного 
 * [PyTorch](https://pytorch.org/), [TensorFlow](https://www.tensorflow.org/), [Keras](https://keras.io/) — фреймворки для глубокого обучения, применяемые в различных задачах NLP. Часто используются для работы с мобильными устройствами.
 * [Stanford CoreNLP](https://github.com/stanfordnlp/CoreNLP) — инструмент для детальной обработки естественного языка от Стэнфордского университета. Стандарт для научных исследований.
 
-## Инструменты для работы с NLP от Yandex Cloud {#nlp-yc}
+## Инструменты для работы с NLP от {{ yandex-cloud }} {#nlp-yc}
 
-Yandex Cloud предоставляет множество бизнес-решений для самых разных задач, связанных с искусственным интеллектом и обработкой естественного языка:
+{{ yandex-cloud }} предоставляет множество бизнес-решений для самых разных задач, связанных с искусственным интеллектом и обработкой естественного языка:
 
-* [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/) — платформа для создания и внедрения ИИ-решений. Предлагает следующие компоненты:
-  * Agent Atelier — среда для создания ИИ-агентов. Подробнее см. в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/agents/).
-  * Model Gallery — коллекция готовых моделей для любых задач. Подробнее см. в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/).
-  * AI Search — инструмент для поиска и генеративных ответов по вашей базе знаний и управляемого поиска по интернету — без самостоятельной сборки пайплайна. Подробнее см. в [документации](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/search/).
-  * AI Speech — объединяет технологии распознавания и синтеза речи, инструменты для создания голосовых агентов и постобработки результатов распознавания на базе SpeechKit. Подробнее см. в [документации](https://aistudio.yandex.ru/docs/ru/speechkit/overview).
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}) — платформа для создания и внедрения ИИ-решений. Предлагает следующие компоненты:
+  * Agent Atelier — среда для создания ИИ-агентов. Подробнее в [документации]({{ link-docs-ai }}ai-studio/concepts/agents/).
+  * Model Gallery — коллекция готовых моделей для любых задач. Подробнее в [документации]({{ link-docs-ai }}ai-studio/concepts/generation/).
+  * AI Search — инструмент для поиска и генеративных ответов по вашей базе знаний и управляемого поиска по интернету — без самостоятельной сборки пайплайна. Подробнее в [документации]({{ link-docs-ai }}ai-studio/concepts/search/).
+  * AI Speech — объединяет технологии распознавания и синтеза речи, инструменты для создания голосовых агентов и постобработки результатов распознавания на базе {{ speechkit-name }}. Подробнее в [документации]({{ link-docs-ai }}speechkit/overview).
 
-* [Yandex Translate](https://yandex.cloud/ru/services/translate/) — сервис для интеграции алгоритмов Яндекс Переводчика в пользовательские приложения или веб-проекты. Подробнее см. в [документации](../translate/).
-* [Yandex DataSphere](https://yandex.cloud/ru/services/datasphere/) — полноценный инструмент для разработки и эксплуатации собственных моделей, а также дообучения фундаментальных моделей. Подробнее см. в [документации](../datasphere/index.md).
+* [{{ translate-full-name }}](https://yandex.cloud/ru/services/translate/) — сервис для интеграции алгоритмов Яндекс Переводчика в пользовательские приложения или веб-проекты. Подробнее в [документации]({{ link-docs-ai }}translate/concepts/).
+* [{{ ml-platform-full-name }}](https://yandex.cloud/ru/services/datasphere/) — полноценный инструмент для разработки и эксплуатации собственных моделей, а также дообучения фундаментальных моделей. Подробнее в [документации](../datasphere/index.md).
 
 #### Полезные материалы {#see-also}
 

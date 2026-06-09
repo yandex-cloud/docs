@@ -5,7 +5,7 @@ Returns the specified Apache Airflow Cluster resource.
 ## HTTP request
 
 ```
-GET https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters/{clusterId}
+GET https://airflow.{{ api-host }}/managed-airflow/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

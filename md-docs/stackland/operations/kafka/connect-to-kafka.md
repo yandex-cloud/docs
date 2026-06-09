@@ -1,16 +1,20 @@
-# Подключиться к кластеру Apache Kafka®
+# Подключиться к кластеру {{ KF }}
 
-В данной инструкции мы разберем команды [kcat](https://github.com/edenhill/kcat) для внешнего и внутреннего [подключения к кластеру Apache Kafka®](#how-to) и отправим сообщение от производителя к потребителю.
+В данной инструкции мы разберем команды [kcat](https://github.com/edenhill/kcat) для внешнего и внутреннего [подключения к кластеру {{ KF }}](#how-to) и отправим сообщение от производителя к потребителю.
+
+Если вам нужно быстро получить параметры подключения к кластеру, используйте кнопку **Подключиться** на странице кластера в консоли управления. Она показывает готовые данные для подключения.
+
+Инструкции ниже описывают ручной сценарий через `kubectl`, который можно использовать как fallback, если нужно получить параметры подключения через CLI.
 
 ## Перед началом работы {#before-begin}
 
 1. Установите утилиту [kcat](https://github.com/edenhill/kcat).
 1. Если проект еще не создан, создайте его: `kubectl create namespace <название проекта>`.
-1. Создайте [кластер Apache Kafka®](create-cluster.md).
+1. Создайте [кластер {{ KF }}](create-cluster.md).
 1. Создайте [топик](create-topic.md).
 1. Создайте [пользователя](create-user.md) с правами администратора.
 
-## Как подключиться к кластеру Apache Kafka® {#how-to}
+## Как подключиться к кластеру {{ KF }} {#how-to}
 
 {% list tabs %}
 
@@ -18,13 +22,13 @@
 
   {% note info %}
 
-  Чтобы была возможность подключаться к Apache Kafka® извне кластера, в настройках кластера Apache Kafka® должна быть включена опция публичного доступа (`listenerType: LoadBalancer`).
+  Чтобы была возможность подключаться к {{ KF }} извне кластера, в настройках кластера {{ KF }} должна быть включена опция публичного доступа (`listenerType: LoadBalancer`).
 
   {% endnote %}
 
-  1. Получите внешнюю ссылку на кластер Apache Kafka®: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.external.fqdn}' -n <название проекта>`.
+  1. Получите внешнюю ссылку на кластер {{ KF }}: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.external.fqdn}' -n <название проекта>`.
   1. Получите порт для подключения: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.external.port}' -n <название проекта>`.
-  1. Скопируйте сертификат для подключения из поля `status.listenersStatus.external.certificate` ресурса кластера Apache Kafka®: `kubectl describe kafkaclusters <название кластера> -n <название проекта>`.
+  1. Скопируйте сертификат для подключения из поля `status.listenersStatus.external.certificate` ресурса кластера {{ KF }}: `kubectl describe kafkaclusters <название кластера> -n <название проекта>`.
   1. Сохраните сертификат в файл `<путь до сертификата>/ca.crt`.
   1. Запустите команду получения сообщений из топика:
 
@@ -59,7 +63,7 @@
 
 - Внутреннее подключение
 
-  1. Получите внутреннюю ссылку на кластер Apache Kafka®: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.internal.fqdn}' -n <название проекта>`.
+  1. Получите внутреннюю ссылку на кластер {{ KF }}: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.internal.fqdn}' -n <название проекта>`.
   1. Получите порт для подключения: `kubectl get kafkaclusters <название кластера> -o jsonpath='{.status.listenersStatus.internal.port}' -n <название проекта>`.
   1. Запустите команду получения сообщений из топика:
 

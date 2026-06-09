@@ -1,8 +1,8 @@
-# Создать SAML-приложение в Yandex Identity Hub для интеграции с Zabbix
+# Создать SAML-приложение в {{ org-full-name }} для интеграции с Zabbix
 
 [Zabbix](https://www.zabbix.com/) — это система мониторинга корпоративного уровня с открытым исходным кодом для отслеживания производительности и состояния серверов, сетей, приложений и других ИТ-ресурсов. Zabbix поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Zabbix.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Zabbix.
 
 Управлять SAML-приложениями может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-admin) `organization-manager.samlApplications.admin` или выше.
 
@@ -16,27 +16,27 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
-        1. Выберите метод единого входа **SAML (Security Assertion Markup Language)**.
-        1. В поле **Имя** задайте имя создаваемого приложения: `zabbix-app`.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+        1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения: `zabbix-app`.
 
-        1. (Опционально) В поле **Описание** задайте описание приложения.
+        1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
         1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-            1. Нажмите **Добавить метку**.
+            1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
             1. Введите метку в формате `ключ: значение`.
             1. Нажмите **Enter**.
-        1. Нажмите **Создать приложение**.
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 {% endlist %}
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Zabbix с созданным SAML-приложением в Yandex Identity Hub, выполните настройки на стороне Zabbix и на стороне Yandex Identity Hub.
+Чтобы настроить интеграцию Zabbix с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне Zabbix и на стороне {{ org-full-name }}.
 
 ### Настройте SAML-приложение на стороне Zabbix {#setup-sp}
 
@@ -60,16 +60,16 @@
 
         {% endnote %}
 
-    1. Настройте связь между Zabbix и Yandex Identity Hub:
+    1. Настройте связь между Zabbix и {{ org-full-name }}:
 
-        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-        1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значения полей: **Issuer / IdP EntityID**, **Login URL** и **Logout URL**.
+        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+        1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значения полей: **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**, **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** и **{{ ui-key.yacloud_org.application.overview.saml_field_logout }}**.
         1. Вернитесь в Zabbix и вставьте скопированные адреса в поля: **IdP entity ID**, **SSO service URL** и **SLO service URL**. 
 
             {% note info %}
 
-            Если не указать адрес для **SLO service URL**, то после выхода из Zabbix пользователь будет перенаправлен не на форму аутентификации Yandex Identity Hub, а на форму Zabbix.
+            Если не указать адрес для **SLO service URL**, то после выхода из Zabbix пользователь будет перенаправлен не на форму аутентификации {{ org-full-name }}, а на форму Zabbix.
 
             {% endnote %}
 
@@ -77,7 +77,7 @@
 
         {% note info %}
 
-        Атрибут, используемый в качестве имени пользователя при аутентификации в Zabbix. Название атрибута может быть произвольным, но обязательно должно совпадать с названием атрибута пользователя, содержащего значение `SubjectClaims.preferred_username` в вашем приложении Yandex Identity Hub.
+        Атрибут, используемый в качестве имени пользователя при аутентификации в Zabbix. Название атрибута может быть произвольным, но обязательно должно совпадать с названием атрибута пользователя, содержащего значение `SubjectClaims.preferred_username` в вашем приложении {{ org-full-name }}.
 
         {% endnote %}
 
@@ -85,7 +85,7 @@
     
         {% note warning %}
 
-        Значение **SP entity ID** должно полностью совпадать как в Zabbix, так и в вашем приложении Yandex Identity Hub. 
+        Значение **SP entity ID** должно полностью совпадать как в Zabbix, так и в вашем приложении {{ org-full-name }}. 
         
         {% endnote %}
 
@@ -93,7 +93,7 @@
     
         {% note tip %}
 
-        На текущий момент Yandex Identity Hub не поддерживает проверку подписей запросов, поэтому рекомендуется оставить опции блоков **Sign** и **Encrypt** неактивированными.
+        На текущий момент {{ org-full-name }} не поддерживает проверку подписей запросов, поэтому рекомендуется оставить опции блоков **Sign** и **Encrypt** неактивированными.
 
         {% endnote %}
 
@@ -101,13 +101,13 @@
 
     1. Если опция **Enable JIT provisioning** была включена, настройте параметры автоматического создания пользователей в Zabbix. Для этого активируйте опцию **Configure JIT provisioning** и выполните следующие шаги:
 
-        1. В поле **Group name attribute** укажите `groups` — этот атрибут определяет группу пользователей в вашем приложении Yandex Identity Hub, обеспечивающую доступ к Zabbix.
+        1. В поле **Group name attribute** укажите `groups` — этот атрибут определяет группу пользователей в вашем приложении {{ org-full-name }}, обеспечивающую доступ к Zabbix.
 
         1. В поле **User name attribute** укажите `givenname`.
 
         1. В поле **User last name attribute** укажите `surname`.
          
-        1. В блоке **User group mapping** сопоставьте группу пользователей вашего приложения Yandex Identity Hub с соответствующей группой и ролью в Zabbix. Это позволит новым пользователям автоматически получать назначенную группу и роль в Zabbix. Для этого нажмите **Add** и выполните следующие шаги:
+        1. В блоке **User group mapping** сопоставьте группу пользователей вашего приложения {{ org-full-name }} с соответствующей группой и ролью в Zabbix. Это позволит новым пользователям автоматически получать назначенную группу и роль в Zabbix. Для этого нажмите **Add** и выполните следующие шаги:
 
             1. В поле **SAML group pattern** задайте шаблон для поиска названий групп SAML-приложения.
 
@@ -127,7 +127,7 @@
 
             {% note tip %}
 
-            На текущий момент Yandex Identity Hub не поддерживает протокол SCIM для автоматического управления пользователями в других приложениях, поэтому рекомендуется оставить опцию **Enable SCIM provisioning** неактивированной.
+            На текущий момент {{ org-full-name }} не поддерживает протокол SCIM для автоматического управления пользователями в других приложениях, поэтому рекомендуется оставить опцию **Enable SCIM provisioning** неактивированной.
 
             {% endnote %}
 
@@ -147,9 +147,9 @@
 
 1. Скачайте сертификат провайдера идентификации (IdP):
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-    1. На вкладке **Обзор** в блоке **Сертификат приложения** нажмите на кнопку **Скачать сертификат** и сохраните файл на своем устройстве.
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+    1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}** нажмите на кнопку **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** и сохраните файл на своем устройстве.
 
 1. Скопируйте полученный файл сертификата в каталог `/usr/share/zabbix/ui/conf/certs` на сервере Zabbix. 
 1. Настройте права доступа.
@@ -161,20 +161,20 @@
     $SSO['IDP_CERT'] = 'conf/certs/<your_cert>.crt';
     ```
 
-### Настройте SAML-приложение на стороне Yandex Identity Hub {#setup-idp}
+### Настройте SAML-приложение на стороне {{ org-full-name }} {#setup-idp}
 
 #### Настройте эндпоинты поставщика услуг {#sp-endpoints}
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное SAML-приложение.
-  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:  
-      1. В поле **SP EntityID** укажите `zabbix`.
-      1. В поле **ACS URL** укажите адрес `https://<your-domain>/zabbix/index_sso.php?acs`.
-      1. Нажмите **Сохранить**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:  
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите `zabbix`.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите адрес `https://<your-domain>/zabbix/index_sso.php?acs`.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -190,16 +190,16 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-    1. Перейдите на вкладку **Атрибуты**.
-    1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **Добавить атрибут** и в открывшемся окне:
+    1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+    1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+    1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
 
-        1. В поле **Имя атрибута** введите `login`.
-        1. В поле **Значение** выберите `SubjectClaims.preferred_username`.
-        1. Нажмите **Добавить**.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `login`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите `SubjectClaims.preferred_username`.
+        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -207,12 +207,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **Добавить атрибут группы** и в открывшемся окне:
-    1. В поле **Имя атрибута** укажите `groups`.
-    1. В поле **Передаваемые группы** выберите `Только назначенные группы`.
-    1. Нажмите **Добавить**.
+    1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** укажите `groups`.
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
+    1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
@@ -220,7 +220,7 @@
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Zabbix с помощью SAML-приложения Yandex Identity Hub, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Zabbix с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
 {% note info %}
 
@@ -232,18 +232,18 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-        1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **Группы**.
-        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать группу**.
+        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+        1. На панели слева выберите ![groups](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}**.
+        1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.entity.group.action_create }}**.
         1. Задайте название `zabbix-users`.
-        1. Нажмите **Создать группу**.
+        1. Нажмите **{{ ui-key.yacloud_org.groups.action_create-group }}**.
         1. Добавьте пользователей в группу:
-            1. Перейдите на вкладку **Участники**.  
-            1. Нажмите **Добавить участника**.
+            1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
+            1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. В открывшемся окне выберите нужных пользователей.
-            1. Нажмите **Сохранить**.
+            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
  
@@ -251,14 +251,14 @@
 
     {% list tabs group=instructions %}
 
-    - Интерфейс Cloud Center {#cloud-center}
+    - Интерфейс {{ cloud-center }} {#cloud-center}
 
-        1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
-        1. Перейдите на вкладку **Пользователи и группы**.
-        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+        1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+        1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное приложение.
+        1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
+        1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
         1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-        1. Нажмите **Добавить**.
+        1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
     {% endlist %}
 
@@ -269,5 +269,5 @@
 1. В браузере перейдите по адресу вашего экземпляра Zabbix (например, `https://<your-domain>/zabbix/`).
 1. Если вы были авторизованы в Zabbix, выйдите из профиля.
 1. На странице аутентификации Zabbix нажмите **Sign in with Single Sign-On (SAML)**.
-1. На странице аутентификации Yandex Cloud укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. На странице аутентификации {{ yandex-cloud }} укажите адрес электронной почты и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
 1. Убедитесь, что вы аутентифицировались в Zabbix.

@@ -1,6 +1,6 @@
-# Справочник инструментов Yandex Network Load Balancer
+# Справочник инструментов {{ network-load-balancer-full-name }}
 
-В справочнике описана конфигурация ресурсов Kubernetes для развертывания сетевых балансировщиков нагрузки для кластеров Managed Service for Kubernetes:
+В справочнике описана конфигурация ресурсов {{ k8s }} для развертывания сетевых балансировщиков нагрузки для кластеров {{ managed-k8s-name }}:
 
-* [Service](service.md) — описание [сервисов Kubernetes](../concepts/index.md#service), используемых в качестве сетевых балансировщиков.
-* [NetworkPolicy](networkpolicy.md) — описание [сетевых политик Kubernetes](../concepts/network-policy.md), используемых для фильтрации входящего трафика в сетевом балансировщике.
+* [Service](service.md) — описание [сервисов {{ k8s }}](../concepts/index.md#service), используемых в качестве сетевых балансировщиков.
+* [NetworkPolicy](networkpolicy.md) — описание [сетевых политик {{ k8s }}](../concepts/network-policy.md), используемых для фильтрации входящего трафика в сетевом балансировщике.

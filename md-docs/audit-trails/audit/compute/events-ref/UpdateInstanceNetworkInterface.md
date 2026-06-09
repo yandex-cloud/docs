@@ -426,9 +426,7 @@ The rest of the fields will be reset to the default. ||
 ||Field | Description ||
 || fqdn | **string** ||
 || dnsZoneId | **string** ||
-|| ttl | **string** (int64)
-
-Acceptable values are 0 to 86400, inclusive. ||
+|| ttl | **string** (int64) ||
 || ptr | **boolean** ||
 |#
 

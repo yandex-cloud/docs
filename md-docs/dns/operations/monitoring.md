@@ -1,8 +1,8 @@
 # Просмотр метрик зон
 
-Cloud DNS автоматически отправляет метрики зон и запросов в сервис [Yandex Monitoring](../../monitoring/index.md).
+{{ dns-name }} автоматически отправляет метрики зон и запросов в сервис [{{ monitoring-full-name }}](../../monitoring/index.md).
 
-Вы можете посмотреть общую статистику работы на [странице зоны](#storage-ui) или подробную в [интерфейсе Monitoring](#monitoring).
+Вы можете посмотреть общую статистику работы на [странице зоны](#storage-ui) или подробную в [интерфейсе {{ monitoring-name }}](#monitoring).
 
 Полный список метрик представлен в [справочнике](../metrics.md).
 
@@ -12,27 +12,27 @@ Cloud DNS автоматически отправляет метрики зон 
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужная зона.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная зона.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону, статистику которой вы хотите посмотреть.
-  1. Перейдите на вкладку **Мониторинг**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Выберите временной промежуток, за который хотите посмотреть статистику: 1 час, 3 часа, 1 день, 1 неделя или 1 месяц. 
 
       На вкладке отобразится дашборд **Zone requests** — количество запросов, пришедших в выбранную зону, за выбранный промежуток времени.
 
 {% endlist %}
 
-## Посмотреть подробную статистику в Monitoring {#monitoring}
+## Посмотреть подробную статистику в {{ monitoring-name }} {#monitoring}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором создана зона.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-  1. На панели слева выберите ![image](../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **Метрики**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создана зона.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. На панели слева выберите ![image](../../_assets/monitoring/concepts/visualization/legend-goto-chart.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
   1. В строке запроса выберите параметры:
-      1. Сервис **Cloud DNS**.
+      1. Сервис **{{ dns-name }}**.
       1. Метрику, значения которой вы хотите визуализировать.
       1. Метку для метрики.
 

@@ -20,7 +20,7 @@ Lists operations for the specified certificate.
 ||Field | Description ||
 || certificate_id | **string**
 
-ID of the certificate to list operations for.
+Required field. ID of the certificate to list operations for.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**

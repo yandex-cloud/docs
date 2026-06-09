@@ -5,7 +5,7 @@ Deletes the specified project.
 ## HTTP request
 
 ```
-DELETE https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/{projectId}
+DELETE https://datasphere.{{ api-host }}/datasphere/v2/projects/{projectId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Adds a format schema to a cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
+POST https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/formatSchemas
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ POST https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ClickHouse cluster ID.
-
 To get a ClickHouse cluster ID, use the [ClusterService.List](../Cluster/list.md#List) method.
 
 The maximum string length in characters is 50. ||
@@ -41,7 +40,6 @@ The maximum string length in characters is 63. Value must match the regular expr
 || type | **enum** (FormatSchemaType)
 
 Required field. Schema type. Possible values are the following:
-
 * FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
 * FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
 
@@ -64,10 +62,7 @@ Required field. [Link to the file](../../operations/s3-access.md#get-link-to-obj
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "formatSchemaName": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -76,12 +71,7 @@ Required field. [Link to the file](../../operations/s3-access.md#get-link-to-obj
       "object"
     ]
   },
-  "response": {
-    "name": "string",
-    "clusterId": "string",
-    "type": "string",
-    "uri": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -123,7 +113,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateFormatSchemaMetadata](#yandex.cloud.mdb.clickhouse.v1.CreateFormatSchemaMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -138,7 +128,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[FormatSchema](#yandex.cloud.mdb.clickhouse.v1.FormatSchema)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -153,18 +143,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateFormatSchemaMetadata {#yandex.cloud.mdb.clickhouse.v1.CreateFormatSchemaMetadata}
-
-#|
-||Field | Description ||
-|| clusterId | **string**
-
-ClickHouse cluster ID. ||
-|| formatSchemaName | **string**
-
-Format schema name. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -182,28 +160,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## FormatSchema {#yandex.cloud.mdb.clickhouse.v1.FormatSchema}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Format schema name. ||
-|| clusterId | **string**
-
-ClickHouse cluster ID. ||
-|| type | **enum** (FormatSchemaType)
-
-Schema type. Possible values are the following:
-
-* FORMAT_SCHEMA_TYPE_PROTOBUF - [Protobuf](https://protobuf.dev/) data format (including [ProtobufSingle](https://clickhouse.com/docs/en/interfaces/formats#protobufsingle)).
-* FORMAT_SCHEMA_TYPE_CAPNPROTO - [Cap'n Proto](https://capnproto.org/) data format.
-
-- `FORMAT_SCHEMA_TYPE_PROTOBUF`
-- `FORMAT_SCHEMA_TYPE_CAPNPROTO` ||
-|| uri | **string**
-
-Link to the file of a format schema in Yandex Object Storage. Managed Service for ClickHouse works only with format schemas imported to Object Storage. ||
 |#

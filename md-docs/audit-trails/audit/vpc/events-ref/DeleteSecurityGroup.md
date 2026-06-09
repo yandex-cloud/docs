@@ -85,10 +85,16 @@
   },
   "details": {
     "securityGroupId": "string",
+    // Includes only one of the fields `securityGroupName`
     "securityGroupName": "string",
+    // end of the list of possible fields
     "networkId": "string",
+    // Includes only one of the fields `networkName`
     "networkName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -261,9 +267,15 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || securityGroupId | **string** ||
-|| securityGroupName | **string** ||
+|| securityGroupName | **string**
+
+Includes only one of the fields `securityGroupName`. ||
 || networkId | **string** ||
-|| networkName | **string** ||
-|| description | **string** ||
+|| networkName | **string**
+
+Includes only one of the fields `networkName`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

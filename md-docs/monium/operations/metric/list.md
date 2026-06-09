@@ -7,7 +7,7 @@
 Чтобы воспользоваться примерами в этом разделе:
 
 1. Убедитесь, что у вас установлена утилита [cURL](https://curl.haxx.se), используемая в примерах.
-1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вас есть роль `monitoring.viewer` или выше.
+1. [Получите идентификатор каталога](../../../resource-manager/operations/folder/get-id.md), на который у вас есть роль `{{ roles-monitoring-viewer }}` или выше.
 1. Получите IAM-токен:
    * [Инструкция](../../../iam/operations/iam-token/create.md) для пользователя с аккаунтом на Яндексе.
    * [Инструкция](../../../iam/operations/iam-token/create-for-sa.md) для сервисного аккаунта.
@@ -23,11 +23,11 @@ export IAM_TOKEN=CggaATEVAgA...
 curl \
   --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${IAM_TOKEN}" \
-  --get 'https://monitoring.api.cloud.yandex.net/monitoring/v2/metrics/?folderId=b1gucmd4tma1********&pageSize=200' \
+  --get 'https://monitoring.{{ api-host }}/monitoring/v2/metrics/?folderId=b1gucmd4tma1********&pageSize=200' \
   --data-urlencode 'selectors={service="managed-clickhouse", resource_id="c9q5e2a9i24p********"}' > output.json
 ```
 
-Пример ответа на запрос, который получает список метрик сервиса Managed Service for ClickHouse® для ресурса:
+Пример ответа на запрос, который получает список метрик сервиса {{ mch-name }} для ресурса:
 
 **output.json:**
 ```json
@@ -36,7 +36,7 @@ curl \
       {
          "labels" : {
             "dc" : "rc1c",
-            "host" : "rc1c-dqd0h0i0********.mdb.yandexcloud.net",
+            "host" : "rc1c-dqd0h0i0********.{{ dns-zone }}",
             "node" : "replica",
             "resource_id" : "c9q5e2a9i24p********",
             "resource_type" : "cluster",
@@ -49,7 +49,7 @@ curl \
       {
          "labels" : {
             "dc" : "rc1c",
-            "host" : "rc1c-dqd0h0i0********.mdb.yandexcloud.net",
+            "host" : "rc1c-dqd0h0i0********.{{ dns-zone }}",
             "node" : "replica",
             "resource_id" : "c9q5e2a9i24p********",
             "resource_type" : "cluster",
@@ -68,4 +68,4 @@ curl \
 * `resource_id` – идентификатор ресурса.
 * `metrics` – список метрик.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

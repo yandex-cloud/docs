@@ -6,7 +6,7 @@ To get the list of all available connectors, make a [List](list.md#List) request
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{connectorId}
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}
 ```
 
 ## Path parameters

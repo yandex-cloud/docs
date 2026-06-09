@@ -1,23 +1,23 @@
-# Импорт данных из Yandex Object Storage, обработка и экспорт в Managed Service for ClickHouse®
+# Импорт данных из {{ objstorage-full-name }}, обработка и экспорт в {{ mch-name }}
 
 #|
-||Руководство основано на сценарии компании [Data Stories](https://data-stories.ru/) по построению аналитического стека на базе сервисов Yandex Cloud. Сценарий включал загрузку данных в хранилище, их обработку и трансформацию в единую [витрину](../../glossary/datamart.md) для визуализации.
+||Руководство основано на сценарии компании [Data Stories](https://data-stories.ru/) по построению аналитического стека на базе сервисов {{ yandex-cloud }}. Сценарий включал загрузку данных в хранилище, их обработку и трансформацию в единую [витрину](../../glossary/datamart.md) для визуализации.
 |
 <br>![datastories logo](../../_assets/logos/datastories_logo.png =300x)||
 |#
 
-В качестве примера используются две CSV-таблицы, которые нужно объединить в одну, импортировать в формат Parquet и передать в Managed Service for ClickHouse®.
+В качестве примера используются две CSV-таблицы, которые нужно объединить в одну, импортировать в формат Parquet и передать в {{ mch-name }}.
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
-* Плата за кластер Yandex Data Processing: использование вычислительных ресурсов ВМ и сетевых дисков Compute Cloud, а также сервиса Cloud Logging для работы с логами (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакеты Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../pricing.md)).
+* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакеты {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -29,7 +29,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-s3-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
-    1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+    1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
        
        1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
        1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
@@ -40,53 +40,53 @@
 
         * По одному правилу для входящего и исходящего служебного трафика:
 
-            * **Диапазон портов** — `0-65535`.
-            * **Протокол** — `Любой` (`Any`).
-            * **Источник** / **Назначение** — `Группа безопасности`.
-            * **Группа безопасности** — `Текущая` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** / **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
         * Правило для исходящего HTTPS-трафика:
 
-            * **Диапазон портов** — `443`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-        * Правило для исходящего трафика по протоколу TCP на порт 8443 для доступа к ClickHouse®:
+        * Правило для исходящего трафика по протоколу TCP на порт {{ port-mch-http }} для доступа к {{ CH }}:
 
-            * **Диапазон портов** — `8443`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mch-http }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-    1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
+    1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
 
-        * **Окружение** — `PRODUCTION`.
-        * **Сервисы**:
+        * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
             * `SPARK`;
             * `YARN`;
             * `HDFS`.
-        * **Сервисный аккаунт** — `dataproc-sa`.
-        * **Имя бакета** — бакет, который вы создали для выходных данных.
-        * **Сеть** — `dataproc-network`.
-        * **Группы безопасности** — `dataproc-sg`.
-        * Настройка **UI Proxy** включена.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-sg`.
+        * Настройка **{{ ui-key.yacloud.mdb.forms.config_field_ui_proxy }}** включена.
 
-    1. [Создайте кластер Managed Service for ClickHouse®](../operations/cluster-create.md) любой подходящей [конфигурации](../concepts/instance-types.md) со следующими настройками:
+    1. [Создайте кластер {{ mch-name }}](../operations/cluster-create.md) любой подходящей [конфигурации](../concepts/instance-types.md) со следующими настройками:
 
-        * **Имя БД** — `db1`.
-        * **Имя пользователя** — `user1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `db1`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `user1`.
         * С публичным доступом к хостам кластера.
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -97,29 +97,29 @@
 
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
-        * NAT-шлюз и таблица маршрутизации, необходимые для работы Yandex Data Processing;
-        * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров Yandex Data Processing и Managed Service for ClickHouse®;
-        * сервисный аккаунт, необходимый для работы кластера Yandex Data Processing;
-        * сервисный аккаунт, необходимый для создания бакетов в Object Storage;
+        * NAT-шлюз и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
+        * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров {{ dataproc-name }} и {{ mch-name }};
+        * сервисный аккаунт, необходимый для работы кластера {{ dataproc-name }};
+        * сервисный аккаунт, необходимый для создания бакетов в {{ objstorage-name }};
         * бакеты для входных и выходных данных;
-        * кластер Yandex Data Processing;
-        * кластер Managed Service for ClickHouse®.
+        * кластер {{ dataproc-name }};
+        * кластер {{ mch-name }}.
 
     1. Укажите в файле `s3-dataproc-ch.tf`:
 
         * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
         * `input-bucket` — имя бакета для входных данных.
         * `output-bucket` — имя бакета для выходных данных.
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера Yandex Data Processing. [Подробнее о подключении к хосту Yandex Data Processing по SSH](../../data-proc/operations/connect-ssh.md).
-        * `ch_password` — пароль пользователя ClickHouse®.
+        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
+        * `ch_password` — пароль пользователя {{ CH }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -141,7 +141,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -179,7 +179,7 @@
 
 1. Создайте в бакете для входных данных папку `csv` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее созданные CSV-файлы.
 
-## Обработайте данные в Yandex Data Processing {#process-data}
+## Обработайте данные в {{ dataproc-name }} {#process-data}
 
 Объедините данные из двух таблиц в одну и загрузите ее в формате Parquet в бакет, который вы ранее создали для результатов обработки:
 
@@ -215,19 +215,19 @@
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `join-tables.py`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/join-tables.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/join-tables.py`.
 
 1. Дождитесь завершения задания и проверьте, что в выходном бакете в папке `parquet` появился Parquet-файл `part-00000-***`.
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% endnote %}
 
-## Экспортируйте данные в ClickHouse® {#export-data}
+## Экспортируйте данные в {{ CH }} {#export-data}
 
-Перенесите объединенную таблицу из Object Storage в ClickHouse®:
+Перенесите объединенную таблицу из {{ objstorage-name }} в {{ CH }}:
 
 1. Подготовьте файл скрипта:
 
@@ -243,20 +243,20 @@
         # Чтение данных из Parquet-файла
         parquetFile = spark.read.parquet("s3a://<имя_выходного_бакета>/parquet/*.parquet")
 
-        # Указание порта и параметров кластера ClickHouse®
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос таблицы из Parquet-файла в ClickHouse®-таблицу с именем measurements
+        # Перенос таблицы из Parquet-файла в {{ CH }}-таблицу с именем measurements
         parquetFile.write.format("jdbc") \
         .mode("error") \
         .option("url", jdbcUrl) \
         .option("dbtable", "measurements") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY vehicle_id") \
         .option("user","user1") \
-        .option("password","<пароль_пользователя_ClickHouse®>") \
+        .option("password","<пароль_пользователя_{{ CH }}>") \
         .save()
         ```
         {% endcut %}
@@ -264,15 +264,15 @@
     1. Укажите в скрипте:
 
         * Имя бакета, в котором лежит Parquet-файл.
-        * Идентификатор кластера Managed Service for ClickHouse®.
-        * Пароль пользователя ClickHouse®.
+        * Идентификатор кластера {{ mch-name }}.
+        * Пароль пользователя {{ CH }}.
 
     1. [Загрузите](../../storage/operations/objects/upload.md#simple) файл `parquet-to-ch.py` в бакет для входных данных в папку `scripts`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/parquet-to-ch.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/parquet-to-ch.py`.
 1. Дождитесь выполнения задания и убедитесь, что объединенная таблица перенесена в кластер:
 
-    1. [Подключитесь к базе данных](../operations/connect/clients.md) `db1` кластера Managed Service for ClickHouse® от имени пользователя `user1`.
+    1. [Подключитесь к базе данных](../operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
     1. Выполните запрос:
 
         ```sql
@@ -292,22 +292,22 @@
 
     - Вручную {#manual}
 
-        1. [Кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
-        1. [Кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
-        1. [Бакеты Object Storage](../../storage/operations/buckets/delete.md).
+        1. [Кластер {{ mch-name }}](../operations/cluster-delete.md).
+        1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+        1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
         1. [Подсеть](../../vpc/operations/subnet-delete.md).
         1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
         1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
         1. [Облачную сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -321,8 +321,8 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

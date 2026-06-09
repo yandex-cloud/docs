@@ -1,10 +1,10 @@
 # Создать статический маршрут
 
-В приватной сети Yandex BareMetal вы можете создавать [статические маршруты](../concepts/private-network.md#static-routes) для сетевого трафика.
+В приватной сети {{ baremetal-full-name }} вы можете создавать [статические маршруты](../concepts/private-network.md#static-routes) для сетевого трафика.
 
 {% note info %}
 
-Для настройки анонсирования статических маршрутов в [облачных сетях](../../vpc/concepts/network.md) Yandex Virtual Private Cloud в VRF должно быть настроено [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) с облачными сетями.
+Для настройки анонсирования статических маршрутов в [облачных сетях](../../vpc/concepts/network.md) {{ vpc-full-name }} в VRF должно быть настроено [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) с облачными сетями.
 
 {% endnote %}
 
@@ -12,31 +12,31 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится нужный [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. На панели слева выберите ![vector-square](../../_assets/console-icons/vector-square.svg) **VRF** и в открывшемся списке выберите VRF, в котором вы хотите создать статический маршрут. В открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужный [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![vector-square](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и в открывшемся списке выберите VRF, в котором вы хотите создать статический маршрут. В открывшемся окне:
 
-      1. В правом верхнем углу экрана нажмите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-      1. В блоке **Статические маршруты** нажмите кнопку **Добавить маршрут**.
-      1. В поле **Префикс назначения** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети назначения.
+      1. В правом верхнем углу экрана нажмите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+      1. В блоке **{{ ui-key.yacloud.baremetal.vrfs.VrfForm.title_section-vrf-static-routes_4KS9m }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.vrfs.AddStaticRoute.label_add-static-route_wY5KQ }}**.
+      1. В поле **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_destination_t24Ah }}** задайте [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация) подсети назначения.
 
           Префикс назначения может быть равен `0.0.0.0/0` либо должен представлять собой корректный диапазон приватных IPv4-адресов, входящих в один из диапазонов: `10.0.0.0/8`, `172.16.0.0/12` или `192.168.0.0/16`.
 
           При этом префикс назначения не может совпадать или пересекаться с диапазоном IP-адресов приватной подсети или другого статического маршрута, входящих в данный VRF.
-      1. В поле **Next hop** задайте адрес, на который будет направляться трафик, предназначенный для адресов, входящих в префикс назначения.
+      1. В поле **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_next-hop_gM3vY }}** задайте адрес, на который будет направляться трафик, предназначенный для адресов, входящих в префикс назначения.
 
           В этом поле вы можете указать только IPv4-адрес, входящий в диапазон любой приватной подсети в данном VRF.
-      1. (Опционально) Включите опцию **Доступ из облака**, чтобы анонсировать статический маршрут в [облачную подсеть](../../vpc/concepts/network.md#subnet) Yandex Virtual Private Cloud.
+      1. (Опционально) Включите опцию **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}**, чтобы анонсировать статический маршрут в [облачную подсеть](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
 
-          В этом случае сетевой трафик в подсетях Virtual Private Cloud, предназначенный для адресов из префикса назначения статического маршрута, будет направляться на адрес `Next hop`, даже если этот адрес находится в приватной подсети BareMetal.
+          В этом случае сетевой трафик в подсетях {{ vpc-name }}, предназначенный для адресов из префикса назначения статического маршрута, будет направляться на адрес `Next hop`, даже если этот адрес находится в приватной подсети {{ baremetal-name }}.
 
-  1. При необходимости нажмите **Добавить маршрут**, чтобы добавить в VRF дополнительные статические маршруты.
+  1. При необходимости нажмите **{{ ui-key.yacloud.baremetal.vrfs.AddStaticRoute.label_add-static-route_wY5KQ }}**, чтобы добавить в VRF дополнительные статические маршруты.
 
       Количество статических маршрутов в облаке ограничено [квотами](../concepts/limits.md#baremetal-quotas).
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [Статические маршруты](../concepts/private-network.md#static-routes)
+* [{#T}](../concepts/private-network.md#static-routes)

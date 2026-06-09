@@ -1,4 +1,4 @@
-# Настроить права доступа к окружению Security Deck
+# Настроить права доступа к окружению {{ sd-name }}
 
 {% note info %}
 
@@ -6,41 +6,41 @@
 
 {% endnote %}
 
-Чтобы настроить доступ к [окружению](../../concepts/workspace.md) Security Deck для других пользователей:
+Чтобы настроить доступ к [окружению](../../concepts/workspace.md) {{ sd-name }} для других пользователей:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
-  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **Окружение**.
+  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите ![vector-circle](../../../_assets/console-icons/vector-circle.svg) **{{ ui-key.yacloud_org.app.security.label_workspace_12Kax }}**.
   1. В верхней части окна выберите нужное окружение.
-  1. Перейдите на вкладку **Права доступа**.
-  1. Чтобы назначить новому пользователю права доступа к окружению, нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей** и в открывшемся окне:
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.security.workspaces.WorkspacePageLayout.acl_tab }}**.
+  1. Чтобы назначить новому пользователю права доступа к окружению, нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceParticipantsForm.action_add-user }}** и в открывшемся окне:
 
       1. Выберите нужного пользователя из списка. При необходимости воспользуйтесь строкой поиска.
-      1. В открывшемся окне нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль, которую хотите назначить пользователю. Вы можете назначить несколько ролей.
-      1. Нажмите кнопку **Сохранить**.
+      1. В открывшемся окне нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль, которую хотите назначить пользователю. Вы можете назначить несколько ролей.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Чтобы изменить права доступа к окружению для пользователя:
 
       1. Найдите нужного пользователя в списке. При необходимости воспользуйтесь фильтром в верхней части раздела.
-      1. В строке с нужным пользователем нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Изменить роли**. В открывшемся окне:
+      1. В строке с нужным пользователем нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**. В открывшемся окне:
 
-          1. Чтобы добавить новую роль, нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль, которую хотите назначить пользователю. Вы можете назначить несколько ролей.
+          1. Чтобы добавить новую роль, нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль, которую хотите назначить пользователю. Вы можете назначить несколько ролей.
           1. Чтобы удалить назначенную роль, в поле с этой ролью нажмите значок ![xmark](../../../_assets/console-icons/xmark.svg).
-          1. Нажмите кнопку **Сохранить**.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
   1. Чтобы отозвать у пользователя доступ к окружению:
 
       1. Найдите нужного пользователя в списке. При необходимости воспользуйтесь фильтром в верхней части раздела.
-      1. В строке с нужным пользователем нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Отозвать доступ**.
+      1. В строке с нужным пользователем нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_components.acl.action.revoke-access }}**.
       1. В открывшемся окне подтвердите отзыв доступа у пользователя.
 
 {% endlist %}
 
 #### См. также {#see-also}
 
-* [Окружения Security Deck](../../concepts/workspace.md)
-* [Создать окружение Security Deck](create.md)
-* [Посмотреть дашборд и операции с окружением Security Deck](view-dashboard.md)
-* [Изменить окружение Security Deck и его компоненты](update.md)
-* [Удалить окружение Security Deck](delete.md)
+* [{#T}](../../concepts/workspace.md)
+* [{#T}](create.md)
+* [{#T}](view-dashboard.md)
+* [{#T}](update.md)
+* [{#T}](delete.md)

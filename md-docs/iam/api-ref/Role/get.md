@@ -1,13 +1,12 @@
 # Identity and Access Management API, REST: Role.Get
 
 Returns the specified Role resource.
-
 To get the list of available Role resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
+GET https://iam.{{ api-host }}/iam/v1/roles/{roleId}
 ```
 
 ## Path parameters
@@ -19,7 +18,7 @@ GET https://iam.api.cloud.yandex.net/iam/v1/roles/{roleId}
 Required field. ID of the Role resource to return.
 To get the role ID, use a [RoleService.List](list.md#List) request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.Role}

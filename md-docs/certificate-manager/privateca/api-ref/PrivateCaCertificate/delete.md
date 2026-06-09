@@ -5,7 +5,7 @@ Deletes a certificate.
 ## HTTP request
 
 ```
-DELETE https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates/{certificateId}
+DELETE https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates/{certificateId}
 ```
 
 ## Path parameters

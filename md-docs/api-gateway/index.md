@@ -42,7 +42,7 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Отключить домен](operations/api-gw-domain-detach.md)
 
- - [Миграция в зону ru-central1-d](operations/api-gw-migration.md)
+ - [Миграция в зону {{ region-id }}-d](operations/api-gw-migration.md)
 
  - [Удалить API-шлюз](operations/api-gw-delete.md)
 
@@ -56,15 +56,15 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Создать таймер](operations/trigger/timer-create.md)
 
- - [Создать триггер для Message Queue](operations/trigger/ymq-trigger-create.md)
+ - [Создать триггер для {{ message-queue-name }}](operations/trigger/ymq-trigger-create.md)
 
- - [Создать триггер для Object Storage](operations/trigger/os-trigger-create.md)
+ - [Создать триггер для {{ objstorage-name }}](operations/trigger/os-trigger-create.md)
 
- - [Создать триггер для Container Registry](operations/trigger/cr-trigger-create.md)
+ - [Создать триггер для {{ container-registry-name }}](operations/trigger/cr-trigger-create.md)
 
- - [Создать триггер для Cloud Logging](operations/trigger/cloud-logging-trigger-create.md)
+ - [Создать триггер для {{ cloud-logging-name }}](operations/trigger/cloud-logging-trigger-create.md)
 
-#### Создать триггер для Yandex IoT Core
+#### Создать триггер для {{ iot-name }}
 
  - [Устройство](operations/trigger/iot-core-trigger-create.md)
 
@@ -72,7 +72,7 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Создать триггер для бюджетов](operations/trigger/budget-trigger-create.md)
 
- - [Создать триггер для Data Streams](operations/trigger/data-streams-trigger-create.md)
+ - [Создать триггер для {{ yds-name }}](operations/trigger/data-streams-trigger-create.md)
 
  - [Создать триггер для почты](operations/trigger/mail-trigger-create.md)
 
@@ -88,27 +88,27 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Обзор](operations/spec-constructor/index.md)
 
- - [Cloud Functions](operations/spec-constructor/cloud-functions.md)
+ - [{{ sf-name }}](operations/spec-constructor/cloud-functions.md)
 
  - [Статический ответ](operations/spec-constructor/dummy.md)
 
- - [Object Storage](operations/spec-constructor/object-storage.md)
+ - [{{ objstorage-name }}](operations/spec-constructor/object-storage.md)
 
- - [Serverless Containers](operations/spec-constructor/containers.md)
+ - [{{ serverless-containers-name }}](operations/spec-constructor/containers.md)
 
  - [Обращение по HTTP](operations/spec-constructor/http.md)
 
- - [Message Queue](operations/spec-constructor/ymq.md)
+ - [{{ message-queue-name }}](operations/spec-constructor/ymq.md)
 
- - [Data Streams](operations/spec-constructor/datastreams.md)
+ - [{{ yds-name }}](operations/spec-constructor/datastreams.md)
 
- - [Managed Service for YDB](operations/spec-constructor/ydb.md)
+ - [{{ ydb-name }}](operations/spec-constructor/ydb.md)
 
- - [DataSphere](operations/spec-constructor/datasphere.md)
+ - [{{ ml-platform-short-name }}](operations/spec-constructor/datasphere.md)
 
- - [Yandex AI Studio](operations/spec-constructor/yagpt.md)
+ - [{{ ai-studio-full-name }}](operations/spec-constructor/yagpt.md)
 
- - [Yandex Workflows](operations/spec-constructor/workflows.md)
+ - [{{ sw-full-name }}](operations/spec-constructor/workflows.md)
 
  - [Swagger UI](operations/spec-constructor/swagger.md)
 
@@ -130,7 +130,7 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Консоль управления](tutorials/serverless-url-shortener/console.md)
 
- - [Terraform](tutorials/serverless-url-shortener/terraform.md)
+ - [{{ TF }}](tutorials/serverless-url-shortener/terraform.md)
 
  - [Разработка CRUD API для сервиса фильмов](tutorials/movies-database.md)
 
@@ -138,19 +138,25 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Работа с API-шлюзом по протоколу WebSocket](tutorials/api-gw-websocket.md)
 
- - [Запуск контейнерного приложения в Yandex Serverless Containers](tutorials/deploy-app-container.md)
+ - [Запуск контейнерного приложения в {{ serverless-containers-full-name }}](tutorials/deploy-app-container.md)
 
- - [Развертывание веб-приложения с JWT-авторизацией в API Gateway и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
+ - [Развертывание веб-приложения с JWT-авторизацией в {{ api-gw-name }} и аутентификацией в Firebase](tutorials/jwt-authorizer-firebase.md)
 
- - [Канареечный релиз функции Cloud Functions](tutorials/canary-release.md)
+ - [Канареечный релиз функции {{ sf-name }}](tutorials/canary-release.md)
 
- - [Интерактивная отладка функций Cloud Functions](tutorials/serverless-live-debug.md)
+ - [Интерактивная отладка функций {{ sf-name }}](tutorials/serverless-live-debug.md)
 
 ### Боты на Serverless
 
  - [Разработка Slack-бота](tutorials/slack-bot-serverless.md)
 
- - [Разработка Telegram-бота](tutorials/telegram-bot-serverless.md)
+#### Разработка Telegram-бота
+
+ - [Обзор](tutorials/telegram-bot-serverless/index.md)
+
+ - [Консоль управления](tutorials/telegram-bot-serverless/console.md)
+
+ - [{{ TF }}](tutorials/telegram-bot-serverless/terraform.md)
 
  - [Разработка Telegram-бота для распознавания текста и аудио](tutorials/recognizer-bot.md)
 
@@ -160,15 +166,15 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
 ### Рабочие процессы и автоматизация на Serverless
 
- - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
 ### Интеграция с сервисами Яндекса и Yandex Cloud
 
- - [Защита API Gateway при помощи Smart Web Security](tutorials/api-gw-sws-integration.md)
+ - [Защита {{ api-gw-name }} при помощи {{ sws-name }}](tutorials/api-gw-sws-integration.md)
 
  - [Разработка навыка Алисы и сайта с авторизацией](tutorials/alice-shareable-todolist.md)
 
- - [Использование API Gateway для настройки синтеза речи в Yandex SpeechKit](tutorials/speechkit-integrarion-via-agi-gw.md)
+ - [Использование {{ api-gw-name }} для настройки синтеза речи в {{ speechkit-full-name }}](tutorials/speechkit-integrarion-via-agi-gw.md)
 
 ### Искусственный интеллект
 
@@ -190,21 +196,21 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Обращение по HTTP](concepts/extensions/http.md)
 
- - [Cloud Functions](concepts/extensions/cloud-functions.md)
+ - [{{ sf-name }}](concepts/extensions/cloud-functions.md)
 
- - [Serverless Containers](concepts/extensions/containers.md)
+ - [{{ serverless-containers-name }}](concepts/extensions/containers.md)
 
- - [Smart Web Security](concepts/extensions/sws.md)
+ - [{{ sws-name }}](concepts/extensions/sws.md)
 
- - [Object Storage](concepts/extensions/object-storage.md)
+ - [{{ objstorage-name }}](concepts/extensions/object-storage.md)
 
- - [DataSphere](concepts/extensions/datasphere.md)
+ - [{{ ml-platform-short-name }}](concepts/extensions/datasphere.md)
 
- - [Data Streams](concepts/extensions/datastreams.md)
+ - [{{ yds-name }}](concepts/extensions/datastreams.md)
 
- - [Message Queue](concepts/extensions/ymq.md)
+ - [{{ message-queue-name }}](concepts/extensions/ymq.md)
 
- - [Managed Service for YDB](concepts/extensions/ydb.md)
+ - [{{ ydb-name }}](concepts/extensions/ydb.md)
 
  - [Swagger UI](concepts/extensions/swagger.md)
 
@@ -212,7 +218,7 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Обобщенный HTTP-метод](concepts/extensions/any-method.md)
 
- - [Авторизация с помощью функции Cloud Functions](concepts/extensions/function-authorizer.md)
+ - [Авторизация с помощью функции {{ sf-name }}](concepts/extensions/function-authorizer.md)
 
  - [Авторизация с помощью JWT](concepts/extensions/jwt-authorizer.md)
 
@@ -238,19 +244,19 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [Таймер](concepts/trigger/timer.md)
 
- - [Триггер для Message Queue](concepts/trigger/ymq-trigger.md)
+ - [Триггер для {{ message-queue-name }}](concepts/trigger/ymq-trigger.md)
 
- - [Триггер для Object Storage](concepts/trigger/os-trigger.md)
+ - [Триггер для {{ objstorage-name }}](concepts/trigger/os-trigger.md)
 
- - [Триггер для Container Registry](concepts/trigger/cr-trigger.md)
+ - [Триггер для {{ container-registry-name }}](concepts/trigger/cr-trigger.md)
 
- - [Триггер для Yandex Cloud Logging](concepts/trigger/cloud-logging-trigger.md)
+ - [Триггер для {{ cloud-logging-full-name }}](concepts/trigger/cloud-logging-trigger.md)
 
- - [Триггер для Yandex IoT Core](concepts/trigger/iot-core-trigger.md)
+ - [Триггер для {{ iot-full-name }}](concepts/trigger/iot-core-trigger.md)
 
  - [Триггер для бюджетов](concepts/trigger/budget-trigger.md)
 
- - [Триггер для Data Streams](concepts/trigger/data-streams-trigger.md)
+ - [Триггер для {{ yds-name }}](concepts/trigger/data-streams-trigger.md)
 
  - [Триггер для почты](concepts/trigger/mail-trigger.md)
 
@@ -264,13 +270,13 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
 ## Справочник CLI (англ.)
 
- - [API Gateway](../cli/cli-ref/serverless/cli-ref/api-gateway/index.md)
+ - [{{ api-gw-name }}](../cli/cli-ref/serverless/cli-ref/api-gateway/index.md)
 
  - [Triggers](../cli/cli-ref/serverless/cli-ref/trigger/index.md)
 
  - [Network](../cli/cli-ref/serverless/cli-ref/network/index.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -464,9 +470,9 @@ Yandex API Gateway — сервис для управления API-шлюзам
 
  - [ListOperations](triggers/api-ref/Trigger/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

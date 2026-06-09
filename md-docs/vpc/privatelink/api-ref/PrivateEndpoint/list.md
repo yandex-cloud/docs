@@ -5,7 +5,7 @@ Retrieves the list of PrivateEndpoint resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/endpoints
+GET https://vpc.{{ api-host }}/vpc/v1/endpoints
 ```
 
 ## Query parameters {#yandex.cloud.vpc.v1.privatelink.ListPrivateEndpointsRequest}

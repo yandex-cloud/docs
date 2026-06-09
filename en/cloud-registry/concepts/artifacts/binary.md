@@ -1,6 +1,6 @@
 ---
-title: Pushing a binary artifact to a {{ cloud-registry-full-name }} registry
-description: Follow this guide to push a binary artifact to a registry in {{ cloud-registry-full-name }}.
+title: Binary artifact in {{ cloud-registry-full-name }}
+description: 'A binary artifact is a file containing a package of any type: installation script, executable, CSV file, document, image, etc.'
 ---
 
 # Binary artifact

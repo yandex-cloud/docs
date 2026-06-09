@@ -15,92 +15,92 @@
 ## Нода из модели {#from-model}
 
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В правом верхнем углу нажмите кнопку **Создать ресурс**. Во всплывающем окне выберите **Нода**.
-1. В поле **Имя** введите имя ноды.
-1. В блоке **Тип** укажите тип ресурса — **Модель**.
-1. В поле **Модели** выберите сохраненную [модель](../../concepts/models/index.md) и укажите входные данные, если требуется.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** введите имя ноды.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** укажите тип ресурса — **{{ ui-key.yc-ui-datasphere.common.model }}**.
+1. В поле **{{ ui-key.yc-ui-datasphere.common.models }}** выберите сохраненную [модель](../../concepts/models/index.md) и укажите входные данные, если требуется.
 
    {% note info %}
 
-   При развертывании [моделей PyTorch](../../concepts/models/index.md#supported-types) DataSphere не может автоматически определить входные и выходные параметры.
+   При развертывании [моделей PyTorch](../../concepts/models/index.md#supported-types) {{ ml-platform-name }} не может автоматически определить входные и выходные параметры.
 
-   Если вы задаете входные данные, обязательно указывайте и выходные данные. При ручном задании входных данных для любого типа моделей DataSphere не сможет автоматически определить выходные данные.
+   Если вы задаете входные данные, обязательно указывайте и выходные данные. При ручном задании входных данных для любого типа моделей {{ ml-platform-name }} не сможет автоматически определить выходные данные.
 
    {% endnote %}
 
    Для моделей XGBoost и LightGBM имена входных и выходных параметров и их типы остаются неизменными:
-   * входные параметры: `input__0` типа `TYPE_FP32`, вектор длиной [N]. Например, при N=32 в поле **Размерность тензора** укажите `[32]`.
-   * выходные параметры: `output__0` типа `TYPE_FP32`, скалярная величина. В поле **Размерность тензора** укажите `[1]`.
+   * входные параметры: `input__0` типа `TYPE_FP32`, вектор длиной [N]. Например, при N=32 в поле **{{ ui-key.yc-ui-datasphere.common.dimension }}** укажите `[32]`.
+   * выходные параметры: `output__0` типа `TYPE_FP32`, скалярная величина. В поле **{{ ui-key.yc-ui-datasphere.common.dimension }}** укажите `[1]`.
 
    {% note tip %}
 
-   Чтобы создать ноду из моделей XGBoost и LightGBM, сохраненных в DataSphere до 8 апреля 2024 года, повторно сохраните их в ресурс [модель](../../concepts/models/index.md).
+   Чтобы создать ноду из моделей XGBoost и LightGBM, сохраненных в {{ ml-platform-name }} до 8 апреля 2024 года, повторно сохраните их в ресурс [модель](../../concepts/models/index.md).
 
    {% endnote %}
 
-1. В блоке **Каталог** выберите каталог, в котором будут создаваться новые ресурсы.
-1. В блоке **Обеспечение** выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md), [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. Подсеть должна находиться в зоне доступности, в которой создано сообщество.
-1. В поле **Лимит на обслуживание** укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
-1. В блоке **Список управления доступом (ACL)** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **Добавить ACL** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
-1. Нажмите кнопку **Создать**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}** выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md), [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. Подсеть должна находиться в зоне доступности, в которой создано сообщество.
+1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 Чтобы посмотреть все созданные ноды:
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите **Нода**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 
 ## Нода из Docker-образа {#from-docker}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В правом верхнем углу нажмите кнопку **Создать ресурс**. Во всплывающем окне выберите **Нода**.
-1. В поле **Имя** введите имя ноды.
-1. (Опционально) В поле **Описание** укажите описание ноды.
-1. В блоке **Тип** выберите ресурс, на основе которого создается нода — **Docker-образ**.
-1. В блоке **Хранилище Docker-образов** выберите реестр контейнеров. Вы можете выбрать Container Registry или любой произвольный реестр. Для Container Registry укажите:
-   * **Образ Docker** вида `cr.yandex/<идентификатор_реестра>/<идентификатор_образа>:<тег>`.
-   * **Имя пользователя** автоматически получит значение `json_key`.
-   * **Секрет с паролем** — выберите из списка [секрет](../../concepts/secrets.md) с содержимым файла с [авторизованным ключом](../../../iam/concepts/authorization/key.md) для сервисного аккаунта из настроек проекта.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.create-resource }}**. Во всплывающем окне выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
+1. В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.name }}** введите имя ноды.
+1. (Опционально) В поле **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.Description }}** укажите описание ноды.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** выберите ресурс, на основе которого создается нода — **{{ ui-key.yc-ui-datasphere.common.docker }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.source }}** выберите реестр контейнеров. Вы можете выбрать {{ container-registry-name }} или любой произвольный реестр. Для {{ container-registry-name }} укажите:
+   * **{{ ui-key.yc-ui-datasphere.new-node.title.docker-image }}** вида `{{ registry }}/<идентификатор_реестра>/<идентификатор_образа>:<тег>`.
+   * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.user-name }}** автоматически получит значение `json_key`.
+   * **{{ ui-key.yc-ui-datasphere.new-node.kdi-form-label.password-secret }}** — выберите из списка [секрет](../../concepts/secrets.md) с содержимым файла с [авторизованным ключом](../../../iam/concepts/authorization/key.md) для сервисного аккаунта из настроек проекта.
 
-   Чтобы использовать образ из другого хранилища Docker-образов, выберите тип **Другое** и заполните остальные поля значениями, необходимыми для подключения к вашему реестру.
+   Чтобы использовать образ из другого хранилища Docker-образов, выберите тип **{{ ui-key.yc-ui-datasphere.common.other }}** и заполните остальные поля значениями, необходимыми для подключения к вашему реестру.
 
-1. (Опционально) В блоке **Настройки Docker-образа** укажите размер диска, доступного в Docker-образе.
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}** укажите размер диска, доступного в Docker-образе.
 
-1. В блоке **Эндпоинт**:
-   * **Тип** — выберите протокол подключения к ноде: **HTTP** (**HTTP/2**) или **gRPC**.
-   * **Порт** — укажите порт для подключения к ноде.
-   * **Таймаут** — укажите продолжительность сессии в секундах.
-   * **Idle timeout** — укажите время простоя соединения до разъединения в секундах.
-1. (Опционально) В блоке **Телеметрия**:
-   * **Тип** — выберите сервис для телеметрии: **Prometheus** или **Yandex Monitoring**.
-   * **HTTP-адрес** — укажите адрес, на который будут отправляться данные телеметрии.
-   * **Порт** — укажите порт, на который будут отправляться данные телеметрии.
-1. (Опционально) В блоке **Проверка**:
-   * **Тип** — протокол, по которому проверяется состояние ноды: **HTTP** или **gRPC**.
-   * **Порт** — порт, с которого проверяется состояние ноды.
-   * **Путь** — путь к проверяемому ресурсу.
-   * **Таймаут** — продолжительность проверки в секундах.
-   * **Интервал** — интервал между проверками в секундах.
-   * **Неудачные проверки** — допустимое количество неудачных проверок.
-   * **Пройденные проверки** — необходимое количество пройденных проверок.
-1. (Опционально) В блоке **Настройки Docker-образа** задайте размер общей памяти, доступной в Docker-образе.
-1. В блоке **Каталог** выберите каталог, в котором будут создаваться новые ресурсы.
-1. В блоке **Обеспечение**:
-   * **Конфигурация инстанса** — выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md).
-   * **Распределение по зонам** — добавьте [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. Подсеть должна находиться в зоне доступности, в которой создано сообщество.
-   * **Лимит на обслуживание** — укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
-   * (Опционально) **Дополнительный диск** — добавьте дополнительный диск для инстанса. Если указано несколько инстансов, диск будет создан для каждого из них.
-1. В блоке **Список управления доступом (ACL)** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **Добавить ACL** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
-1. Нажмите кнопку **Создать**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.endpoint }}**:
+   * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.type }}** — выберите протокол подключения к ноде: **HTTP** (**HTTP/2**) или **gRPC**.
+   * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.port }}** — укажите порт для подключения к ноде.
+   * **{{ ui-key.yc-ui-datasphere.common.timeout }}** — укажите продолжительность сессии в секундах.
+   * **{{ ui-key.yc-ui-datasphere.new-node.endpoint-form-label.idle-timeout }}** — укажите время простоя соединения до разъединения в секундах.
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.telemetry }}**:
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.type }}** — выберите сервис для телеметрии: **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.prometheus }}** или **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.yandex-monitoring }}**.
+   * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.http-path }}** — укажите адрес, на который будут отправляться данные телеметрии.
+   * **{{ ui-key.yc-ui-datasphere.new-node.telemetry-form-label.port }}** — укажите порт, на который будут отправляться данные телеметрии.
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.healthcheck }}**:
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.type }}** — протокол, по которому проверяется состояние ноды: **HTTP** или **gRPC**.
+   * **{{ ui-key.yc-ui-datasphere.common.port }}** — порт, с которого проверяется состояние ноды.
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.path }}** — путь к проверяемому ресурсу.
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.timeout }}** — продолжительность проверки в секундах.
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.interval }}** — интервал между проверками в секундах.
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.fails-threshold }}** — допустимое количество неудачных проверок.
+   * **{{ ui-key.yc-ui-datasphere.new-node.healthcheck-form-label.passes-threshold }}** — необходимое количество пройденных проверок.
+1. (Опционально) В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.runtime-options }}** задайте размер общей памяти, доступной в Docker-образе.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.folder }}** выберите каталог, в котором будут создаваться новые ресурсы.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.provisioning }}**:
+   * **{{ ui-key.yc-ui-datasphere.node-page.instance-spec }}** — выберите [конфигурацию](../../concepts/configurations.md) вычислительных ресурсов [инстанса](../../concepts/deploy/index.md).
+   * **{{ ui-key.yc-ui-datasphere.node-page.provisioning.distribution-by-zones }}** — добавьте [зону доступности](../../../overview/concepts/geo-scope.md) и идентификатор [подсети](../../../vpc/concepts/network.md#subnet) в которых будет размещен инстанс. Подсеть должна находиться в зоне доступности, в которой создано сообщество.
+   * **{{ ui-key.yc-ui-datasphere.new-node.node-form-label.maintenance-limit }}** — укажите, сколько инстансов ноды можно будет выключить одновременно для обслуживания.
+   * (Опционально) **{{ ui-key.yc-ui-datasphere.new-node.additional-disk.title }}** — добавьте дополнительный диск для инстанса. Если указано несколько инстансов, диск будет создан для каждого из них.
+1. В блоке **{{ ui-key.yc-ui-datasphere.new-node.title.acl }}** нажмите кнопку ![Add](../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-ui-datasphere.new-node.add-acl }}** и укажите [идентификаторы каталогов](../../../resource-manager/operations/folder/get-id.md), из которых можно будет подключаться к ноде. По умолчанию указывается идентификатор каталога пользователя, создающего ноду.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.create }}**.
 
 Чтобы посмотреть все созданные ноды:
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. В блоке **Ресурсы проекта** выберите **Нода**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите **{{ ui-key.yc-ui-datasphere.resources.node }}**.
 
 #### См. также {#see-also}
 
-* [Настроить окружение для развертывания самостоятельного сервиса](node-customization.md)
-* [Изменить ноду](node-update.md)
-* [Удалить ноду](node-delete.md)
-* [Создать алиас](alias-create.md)
-* [Развертывание сервиса на основе Docker-образа](../../tutorials/node-from-docker.md)
-* [Развертывание сервиса из модели ONNX](../../tutorials/node-from-model.md)
+* [{#T}](node-customization.md)
+* [{#T}](node-update.md)
+* [{#T}](node-delete.md)
+* [{#T}](alias-create.md)
+* [{#T}](../../tutorials/node-from-docker.md)
+* [{#T}](../../tutorials/node-from-model.md)

@@ -5,7 +5,7 @@ Retrieves the list of subscription instances in the specified folder.
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/v1/instances
+GET https://marketplace.{{ api-host }}/marketplace/license-manager/v1/instances
 ```
 
 ## Query parameters {#yandex.cloud.marketplace.licensemanager.v1.ListInstancesRequest}

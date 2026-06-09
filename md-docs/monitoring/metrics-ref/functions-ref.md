@@ -1,10 +1,10 @@
-# Метрики Yandex Cloud Functions
+# Метрики {{ sf-full-name }}
 
-В этом разделе описаны метрики сервиса [Cloud Functions](../../functions/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ sf-name }}](../../functions/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Cloud Functions имеют общую метку `service=serverless-functions`.
+Все метрики сервиса {{ sf-name }} имеют общую метку `service=serverless-functions`.
 
 ## Метрики гистограммы {#histogram}
 
@@ -84,11 +84,11 @@ type | Тип сущности
 
 Имя метрики<br/>Тип, единицы измерения | Тип сущности | Описание<br/>Метки
 --- | --- | ---
-`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к Yandex Message Queue.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов функции.
-`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к Yandex Message Queue.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов функции.
+`serverless.triggers.access_error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок доступа при обработке вызовов функции.
+`serverless.triggers.error_per_second`<br/>`DGAUGE`, ошибки/с | <ul><li>`request` — вызовы функции.</li><li>`message_queue` — обращения к {{ message-queue-full-name }}.</li><li>`dlq` — обращения к Dead Letter Queue.</li></ul> | Частота возникновения ошибок при обработке вызовов функции.
 `serverless.triggers.execution_time_milliseconds`<br/>`IGAUGE`, вызовы/мс | <ul><li>`request` — вызовы функции.</li></ul> | Гистограмма распределения частоты вызова функции по времени обработки запроса.<br/>Интервалы времени обработки запроса представлены в метке `bin`.
 `serverless.triggers.inflight`<br/>`DGAUGE`, вызовы | <ul><li>`request` — вызовы функции.</li></ul> | Количество одновременно выполняющихся вызовов функции.
-`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для Yandex Message Queue.</li><li>`message_queue` — события, после которых сработал триггер для Yandex Message Queue.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
+`serverless.triggers.read_events_per_second`<br/>`DGAUGE`, штуки/с | <ul><li>`incoming` — события, после которых сработал любой триггер, кроме триггера для {{ message-queue-full-name }}.</li><li>`message_queue` — события, после которых сработал триггер для {{ message-queue-full-name }}.</li></ul> | Частота возникновения событий, после которых срабатывает триггер.
 
 ## Метрики подключений к БД {#db-connections}
 

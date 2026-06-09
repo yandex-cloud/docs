@@ -26,7 +26,6 @@ ID of the disk to list snapshot schedules for. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListDiskSnapshotSchedulesResponse.next_page_token](#yandex.cloud.compute.v1.ListDiskSnapshotSchedulesResponse)
 that can be used to get the next page of results in subsequent list requests.
-
 Default value: 100. ||
 || page_token | **string**
 
@@ -75,7 +74,6 @@ List of snapshot schedules the specified disk is attached to. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDiskSnapshotSchedulesRequest.page_size](#yandex.cloud.compute.v1.ListDiskSnapshotSchedulesRequest), use `next_page_token` as the value
 for the [ListDiskSnapshotSchedulesRequest.page_token](#yandex.cloud.compute.v1.ListDiskSnapshotSchedulesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -97,7 +95,6 @@ Creation timestamp. ||
 || name | **string**
 
 Name of the snapshot schedule.
-
 The name is unique within the folder. ||
 || description | **string**
 
@@ -152,7 +149,6 @@ Timestamp for creating the first snapshot. ||
 || expression | **string**
 
 Cron expression for the snapshot schedule (UTC+0).
-
 The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
 nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
 see [documentation](../../../concepts/snapshot-schedule.md#cron) ||

@@ -16,11 +16,11 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Сделать основной**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-set-primary }}**.
 
 - CLI {#cli}
 
@@ -74,13 +74,13 @@
 
   Чтобы удалить версию:
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Запланировать удаление**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-schedule-destruction }}**.
 
-  Версия перейдет в статус `Scheduled for destruction`, а в столбце **Дата удаления** будет указан срок, на который запланировано удаление.
+  Версия перейдет в статус `Scheduled for destruction`, а в столбце **{{ ui-key.yacloud.kms.symmetric-key.overview.column_version-destroy }}** будет указан срок, на который запланировано удаление.
 
 - CLI {#cli}
 
@@ -134,11 +134,11 @@
 
 - Консоль управления {#console}
 
-  1. Войдите в [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **Симметричные ключи**.
+  1. Войдите в [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
   1. Нажмите на нужный ключ в списке, чтобы открыть страницу с его атрибутами.
-  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **Отменить удаление**.
+  1. В строке нужной версии нажмите значок ![menu](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.kms.symmetric-key.overview.button_action-cancel-destruction }}**.
   
   Версия вернется в статус `Active`.
 

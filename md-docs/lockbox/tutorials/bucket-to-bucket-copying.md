@@ -1,17 +1,17 @@
-# Автоматическое копирование объектов из одного бакета Yandex Object Storage в другой
+# Автоматическое копирование объектов из одного бакета {{ objstorage-full-name }} в другой
 
 
-Настройте автоматическое копирование объектов из одного [бакета](../../storage/concepts/bucket.md) Object Storage в другой. Копирование будет осуществляться с помощью [функции](../../functions/concepts/function.md) Cloud Functions, которая запускается по [триггеру](../../functions/concepts/trigger/os-trigger.md) при добавлении нового объекта в бакет.
+Настройте автоматическое копирование объектов из одного [бакета](../../storage/concepts/bucket.md) {{ objstorage-name }} в другой. Копирование будет осуществляться с помощью [функции](../../functions/concepts/function.md) {{ sf-name }}, которая запускается по [триггеру](../../functions/concepts/trigger/os-trigger.md) при добавлении нового объекта в бакет.
 
 Чтобы настроить копирование:
 
 1. [Подготовьте облако к работе](#before-begin).
 1. [Создайте сервисные аккаунты](#create-sa).
 1. [Создайте статический ключ](#create-key).
-1. [Создайте секрет Yandex Lockbox](#create-secret).
-1. [Создайте бакеты Yandex Object Storage](#create-buckets).
+1. [Создайте секрет {{ lockbox-full-name }}](#create-secret).
+1. [Создайте бакеты {{ objstorage-full-name }}](#create-buckets).
 1. [Подготовьте ZIP-архив с кодом функции](#create-zip).
-1. [Создайте функцию Yandex Cloud Functions](#create-function).
+1. [Создайте функцию {{ sf-full-name }}](#create-function).
 1. [Создайте триггер](#create-trigger).
 1. [Протестируйте функцию](#test-function).
 
@@ -20,11 +20,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -33,31 +33,31 @@
 
 В стоимость ресурсов входят:
 
-* плата за хранение данных в бакете (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
-* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md));
-* плата за хранение секретов (см. [тарифы Yandex Lockbox](../pricing.md)).
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
+* плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
+* плата за хранение секретов (см. [тарифы {{ lockbox-full-name }}](../pricing.md)).
 
 
 
 ## Создайте сервисные аккаунты {#create-sa}
 
-Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `s3-copy-fn` с ролями `storage.uploader`, `storage.viewer` и `lockbox.payloadViewer`, от имени которого будет работать функция, и `s3-copy-trigger` с ролью `functions.functionInvoker` для вызова функции.
+Создайте [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) `s3-copy-fn` с ролями `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}`, от имени которого будет работать функция, и `s3-copy-trigger` с ролью `{{ roles-functions-invoker }}` для вызова функции.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Укажите имя сервисного аккаунта: `s3-copy-fn`.
-  1. Нажмите **Добавить роль** и выберите роли `storage.uploader`, `storage.viewer` и `lockbox.payloadViewer`.
-  1. Нажмите кнопку **Создать**.
-  1. Повторите предыдущие шаги и создайте сервисный аккаунт `s3-copy-trigger` с ролью `functions.functionInvoker`, от имени которого будет вызываться функция.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+  1. Повторите предыдущие шаги и создайте сервисный аккаунт `s3-copy-trigger` с ролью `{{ roles-functions-invoker }}`, от имени которого будет вызываться функция.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -78,7 +78,7 @@
 
       Сохраните идентификатор сервисного аккаунта `s3-copy-fn` (`id`) и каталога, в котором его создали (`folder_id`).
 
-  1. Назначьте сервисному аккаунту роли `storage.uploader`, `storage.viewer` и `lockbox.payloadViewer` на каталог:
+  1. Назначьте сервисному аккаунту роли `storage.uploader`, `storage.viewer` и `{{ roles-lockbox-payloadviewer }}` на каталог:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -90,7 +90,7 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
 
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
-        --role lockbox.payloadViewer \
+        --role {{ roles-lockbox-payloadviewer }} \
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
@@ -108,7 +108,7 @@
 
       Сохраните идентификаторы сервисного аккаунта `s3-copy-trigger` (`id`) и каталога, в котором он был создан (`folder_id`).
 
-  1. Назначьте сервисному аккаунту роль `functions.functionInvoker` на каталог:
+  1. Назначьте сервисному аккаунту роль `{{ roles-functions-invoker }}` на каталог:
 
       ```bash
       yc resource-manager folder add-access-binding <идентификатор_каталога> \
@@ -116,10 +116,13 @@
         --subject serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
 
   1. Опишите в конфигурационном файле параметры сервисных аккаунтов:
@@ -145,7 +148,7 @@
 
       resource "yandex_resourcemanager_folder_iam_member" "payloadViewer" {
         folder_id = "<идентификатор_каталога>"
-        role      = "lockbox.payloadViewer"
+        role      = "{{ roles-lockbox-payloadviewer }}"
         member    = "serviceAccount:${yandex_iam_service_account.s3-copy-fn.id}"
       }
 
@@ -157,7 +160,7 @@
 
       resource "yandex_resourcemanager_folder_iam_member" "functionInvoker" {
         folder_id = "<идентификатор_каталога>"
-        role      = "functions.functionInvoker"
+        role      = "{{ roles-functions-invoker }}"
         member    = "serviceAccount:${yandex_iam_service_account.s3-copy-trigger.id}"
       }
       ```
@@ -168,7 +171,7 @@
       * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
       * `role` — назначаемая роль.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+      Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -179,7 +182,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, Terraform на них укажет. 
+      Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -191,7 +194,7 @@
 
       1. Подтвердите создание сервисных аккаунтов: введите в терминал слово `yes` и нажмите **Enter**.
 
-          После этого будут созданы сервисные аккаунты. Проверить появление сервисных аккаунтов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+          После этого будут созданы сервисные аккаунты. Проверить появление сервисных аккаунтов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
           ```bash
           yc iam service-account list
@@ -215,15 +218,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится сервисный аккаунт.
-  1.  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите сервисный аккаунт `s3-copy-fn`.
-  1. На верхней панели нажмите кнопку **Создать новый ключ**.
-  1. Выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится сервисный аккаунт.
+  1.  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите сервисный аккаунт `s3-copy-fn`.
+  1. На верхней панели нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
+  1. Выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Выполните команду:
 
@@ -244,7 +247,7 @@
 
   1. Сохраните идентификатор (`key_id`) и секретный ключ (`secret`). Получить значение ключа снова будет невозможно.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ключа:
 
@@ -256,7 +259,7 @@
 
       Где `service_account_id` — идентификатор сервисного аккаунта `s3-copy-fn`.
 
-      Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account_static_access_key.md).
+      Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -267,7 +270,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -279,10 +282,10 @@
 
       1. Подтвердите создание статического ключа доступа: введите в терминал слово `yes` и нажмите **Enter**.
 
-          Если при создании ключа возникли ошибки, Terraform на них укажет.
-          При успешном создании ключа Terraform запишет его в свою конфигурацию, но не покажет пользователю. В терминал будет выведен только идентификатор созданного ключа.
+          Если при создании ключа возникли ошибки, {{ TF }} на них укажет.
+          При успешном создании ключа {{ TF }} запишет его в свою конфигурацию, но не покажет пользователю. В терминал будет выведен только идентификатор созданного ключа.
 
-          Проверить появление ключа у сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+          Проверить появление ключа у сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
           ```bash
           yc iam access-key list --service-account-name=s3-copy-fn
@@ -297,34 +300,34 @@
 
 ## Создайте секрет {#create-secret}
 
-Создайте [секрет](../quickstart.md) Yandex Lockbox для хранения статического ключа доступа.
+Создайте [секрет](../quickstart.md) {{ lockbox-name }} для хранения статического ключа доступа.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать секрет.
-  1.  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
-  1. Нажмите кнопку **Создать секрет**.
-  1. В поле **Имя** укажите имя секрета: `s3-static-key`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать секрет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя секрета: `s3-static-key`.
 
-  1. В блоке **Данные секрета**:
+  1. В блоке **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-data-section }}**:
 
-      1. Выберите тип секрета **Пользовательский**.
+      1. Выберите тип секрета **{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}**.
       1. Добавьте значение идентификатора ключа:
 
-          * В поле **Ключ** укажите: `key_id`.
-          * В поле **Значение** укажите значение идентификатора ключа, которое [получили ранее](#create-key).
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `key_id`.
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение идентификатора ключа, которое [получили ранее](#create-key).
 
-      1. Нажмите кнопку **Добавить ключ/значение**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretVersionsList.button_add-pair }}**.
       1. Добавьте значение секретного ключа:
 
-          * В поле **Ключ** укажите: `secret`.
-          * В поле **Значение** укажите значение секретного ключа, которое [получили ранее](#create-key).
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** укажите: `secret`.
+          * В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите значение секретного ключа, которое [получили ранее](#create-key).
 
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Чтобы создать секрет, выполните команду:
 
@@ -351,7 +354,7 @@
       - secret
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры секрета:
 
@@ -381,16 +384,16 @@
 
       {% note info %}
       
-      Рекомендуется использовать ресурс `yandex_lockbox_secret_version_hashed`, он хранит в состоянии Terraform значения в хешированном виде. Поддержка ресурса `yandex_lockbox_secret_version` остается.
+      Рекомендуется использовать ресурс `yandex_lockbox_secret_version_hashed`, он хранит в состоянии {{ TF }} значения в хешированном виде. Поддержка ресурса `yandex_lockbox_secret_version` остается.
       
-      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` см. в [документации провайдера](../../terraform/resources/lockbox_secret_version_hashed.md).
+      Более подробную информацию о ресурсе `yandex_lockbox_secret_version_hashed` см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_version_hashed).
       
       {% endnote %}
 
-      Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+      Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-      * [yandex_lockbox_secret](../../terraform/resources/lockbox_secret.md);
-      * [yandex_lockbox_secret_version](../../terraform/resources/lockbox_secret_version.md).
+      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret);
+      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -401,7 +404,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -420,7 +423,7 @@
 {% endlist %}
 
 
-## Создайте бакеты Object Storage {#create-buckets}
+## Создайте бакеты {{ objstorage-name }} {#create-buckets}
 
 Создайте два бакета: основной — где будут храниться файлы, и резервный — куда будут копироваться файлы из основного бакета.
 
@@ -428,14 +431,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакеты.
-  1.  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакеты.
+  1.  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Создайте основной бакет:
 
-      1. Нажмите кнопку **Создать бакет**.
-      1. В поле **Имя** укажите имя для основного бакета.
-      1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите `С авторизацией`.
-      1. Нажмите кнопку **Создать бакет**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+      1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя для основного бакета.
+      1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   1. Таким же образом создайте резервный бакет.
 
@@ -446,10 +449,10 @@
   Создайте основной и резервный бакеты:
 
   ```bash
-  aws --endpoint-url https://storage.yandexcloud.net \
+  aws --endpoint-url https://{{ s3-storage-host }} \
     s3 mb s3://<имя_основного_бакета>
 
-  aws --endpoint-url https://storage.yandexcloud.net \
+  aws --endpoint-url https://{{ s3-storage-host }} \
     s3 mb s3://<имя_резервного_бакета>
   ```
 
@@ -460,11 +463,11 @@
   make_bucket: <имя_резервного_бакета>
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../storage/security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
@@ -507,7 +510,7 @@
       }
       ```
 
-      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации](../../terraform/resources/storage_bucket.md) провайдера Terraform.
+      Подробнее о ресурсе `yandex_storage_bucket` см. в [документации]({{ tf-provider-resources-link }}/storage_bucket) провайдера {{ TF }}.
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -518,7 +521,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет. 
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
   1. Разверните облачные ресурсы.
 
@@ -564,37 +567,37 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать функцию.
-  1.  [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать функцию.
+  1.  Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
   1. Создайте функцию:
 
-      1. Нажмите кнопку **Создать функцию**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
       1. Укажите имя функции — `copy-function`.
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   1. Создайте версию функции:
 
-      1. Выберите среду выполнения `Bash`, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-      1. Укажите способ загрузки `ZIP-архив` и выберите архив `handler-sh.zip`, который создали на предыдущем шаге.
+      1. Выберите среду выполнения `Bash`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+      1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и выберите архив `handler-sh.zip`, который создали на предыдущем шаге.
       1. Укажите точку входа `handler.sh`.
-      1. В блоке **Параметры** укажите:
+      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
-          * **Таймаут** — `600`.
-          * **Память** — `128 МБ`.
-          * **Сервисный аккаунт** — `s3-copy-fn`.
-          * **Переменные окружения**:
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `600`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `s3-copy-fn`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-              * `S3_ENDPOINT` — `https://storage.yandexcloud.net`.
+              * `S3_ENDPOINT` — `https://{{ s3-storage-host }}`.
               * `DST_BUCKET` — имя резервного бакета, в который нужно копировать объекты.
 
-          * **Секреты Lockbox**:
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
               * `AWS_ACCESS_KEY_ID` — идентификатор секрета `s3-static-key`, идентификатор версии `latest`, ключ секрета `key_id`.
               * `AWS_SECRET_ACCESS_KEY` — идентификатор секрета `s3-static-key`, идентификатор версии `latest`, ключ секрета `secret`.
 
-      1. Нажмите кнопку **Сохранить изменения**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Создайте функцию `copy-function`:
 
@@ -609,7 +612,7 @@
       folder_id: <идентификатор_каталога>
       created_at: "2024-10-21T20:40:03.451Z"
       name: copy-function
-      http_invoke_url: https://functions.yandexcloud.net/b09bhaokchn9********
+      http_invoke_url: https://{{ sf-url }}/b09bhaokchn9********
       status: ACTIVE
       ```
 
@@ -624,7 +627,7 @@
         --entrypoint=handler.sh \
         --service-account-id=<идентификатор_сервисного_аккаунта> \
         --environment DST_BUCKET=<имя_резервного_бакета> \
-        --environment S3_ENDPOINT=https://storage.yandexcloud.net \
+        --environment S3_ENDPOINT=https://{{ s3-storage-host }} \
         --secret name=s3-static-key,key=key_id,environment-variable=AWS_ACCESS_KEY_ID \
         --secret name=s3-static-key,key=secret,environment-variable=AWS_SECRET_ACCESS_KEY \
         --source-path=./handler-sh.zip
@@ -661,7 +664,7 @@
           - $latest
         environment:
           DST_BUCKET: <имя_резервного_бакета>
-          S3_ENDPOINT: https://storage.yandexcloud.net
+          S3_ENDPOINT: https://{{ s3-storage-host }}
         secrets:
           - id: e6qo2oprlmgn********
             version_id: e6q6i1qt0ae8********
@@ -676,7 +679,7 @@
         concurrency: "1"
         ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры функции:
 
@@ -691,7 +694,7 @@
         service_account_id = "<идентификатор_сервисного_аккаунта>"
         environment = {
           DST_BUCKET  = "<имя_резервного_бакета>"
-          S3_ENDPOINT = "https://storage.yandexcloud.net"
+          S3_ENDPOINT = "https://{{ s3-storage-host }}"
         }
         secrets {
           id                   = "<идентификатор_секрета>"
@@ -724,7 +727,7 @@
       * `secrets` — секрет, содержащий части статического ключа доступа.
       * `content` — путь до ZIP-архива `handler-sh.zip` c исходным кодом функции.
 
-      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера](../../terraform/resources/function.md).
+      Более подробную информацию о параметрах ресурса `yandex_function` см. в [документации провайдера]({{ tf-provider-resources-link }}/function).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -735,7 +738,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -758,35 +761,35 @@
 
 ## Создайте триггер {#create-trigger}
 
-Создайте триггер для Object Storage, который будет вызывать функцию `copy-function` при создании нового объекта в основном бакете.
+Создайте триггер для {{ objstorage-name }}, который будет вызывать функцию `copy-function` при создании нового объекта в основном бакете.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать триггер.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**
-  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
-  1. Нажмите кнопку **Создать триггер**.
-  1. В блоке **Базовые параметры**:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать триггер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**
+  1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
       * Укажите имя триггера: `bucket-to-bucket-copying`.
-      * В поле **Тип** выберите `Object Storage`.
-      * В поле **Запускаемый ресурс** выберите `Функция`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_storage }}`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-  1. В блоке **Настройки Object Storage**:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
-      * В поле **Бакет** выберите основной бакет.
-      * В поле **Типы событий** выберите `Создание объекта`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите основной бакет.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object }}`.
 
-  1. В блоке **Настройки функции**:
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
-      * В поле **Функция** выберите функцию `copy-function`.
-      * В поле **Сервисный аккаунт** выберите сервисный аккаунт `s3-copy-trigger`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function }}** выберите функцию `copy-function`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_function_service-account }}** выберите сервисный аккаунт `s3-copy-trigger`.
 
-  1. Нажмите кнопку **Создать триггер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните команду:
 
@@ -829,7 +832,7 @@
   status: ACTIVE
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры триггера:
 
@@ -857,7 +860,7 @@
           * `id` — идентификатор функции `copy-function`.
           * `service_account_id` — идентификатор сервисного аккаунта `s3-copy-trigger`.
 
-      Более подробную информацию о параметрах ресурсов в Terraform см. в [документации провайдера](../../terraform/resources/function_trigger.md).
+      Более подробную информацию о параметрах ресурсов в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -868,7 +871,7 @@
           terraform plan
           ```
 
-      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -882,7 +885,7 @@
 
 - API {#api}
 
-  Чтобы создать триггер для Object Storage, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
+  Чтобы создать триггер для {{ objstorage-name }}, воспользуйтесь методом [create](../../functions/triggers/api-ref/Trigger/create.md) для ресурса [Trigger](../../functions/triggers/api-ref/Trigger/index.md) или вызовом gRPC API [TriggerService/Create](../../functions/triggers/api-ref/grpc/Trigger/create.md).
 
 {% endlist %}
 
@@ -893,12 +896,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится основной бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится основной бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите на имя основного бакета.
-  1. В правом верхнем углу нажмите кнопку **Загрузить**.
+  1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. В появившемся окне выберите необходимые файлы и нажмите кнопку **Открыть**.
-  1. Консоль управления отобразит все объекты, выбранные для загрузки. Нажмите кнопку **Загрузить**.
+  1. Консоль управления отобразит все объекты, выбранные для загрузки. Нажмите кнопку **{{ ui-key.yacloud.storage.button_upload }}**.
   1. Обновите страницу.
   1. Перейдите в резервный бакет и убедитесь, что в нем появились добавленные файлы.
 

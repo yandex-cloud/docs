@@ -1,10 +1,10 @@
-# Поставка данных в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
-# Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer
+# Поставка данных из {{ mpg-full-name }} в {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете отслеживать изменения данных в _кластере-источнике_ Managed Service for PostgreSQL и отправлять их в _кластер-приемник_ Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
+Вы можете отслеживать изменения данных в _кластере-источнике_ {{ mpg-name }} и отправлять их в _кластер-приемник_ {{ mkf-name }} с помощью технологии Change Data Capture (CDC).
 
-Чтобы настроить CDC с использованием сервиса Data Transfer:
+Чтобы настроить CDC с использованием сервиса {{ data-transfer-name }}:
 
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте кластер-приемник](#prepare-target).
@@ -16,33 +16,33 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../pricing.md)).
-* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../pricing.md)).
+* Кластер {{ mkf-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
 {% note info %}
 
-Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
 
 {% endnote %}
 
-1. [Создайте кластер-источник Managed Service for PostgreSQL](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
+1. [Создайте кластер-источник {{ mpg-name }}](../operations/cluster-create.md) любой подходящей конфигурации со следующими настройками:
 
     * с базой данных `db1`;
     * с пользователем `pg-user`;
     * с хостами в публичном доступе.
 
-1. [Создайте кластер-приемник Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
 
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для Managed Service for PostgreSQL](../operations/connect/index.md#configuring-security-groups).
-    * [Инструкция для Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для {{ mpg-name }}](../operations/connect/index.md#configuring-security-groups).
+    * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
 1. Установите на локальный компьютер [утилиту](https://github.com/edenhill/kcat) `kcat` (`kafkacat`) и [клиент командной строки PostgreSQL](https://www.postgresql.org/download/). Например, в Ubuntu 20.04 выполните команду:
@@ -51,11 +51,11 @@
     sudo apt update && sudo apt install kafkacat postgresql-client --yes
     ```
 
-    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+    Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
 ## Подготовьте кластер-источник {#prepare-source}
 
-1. Чтобы сервис Data Transfer мог получать от кластера Managed Service for PostgreSQL уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../operations/grant.md) ему роль `mdb_replication`.
+1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../operations/grant.md) ему роль `mdb_replication`.
 
 1. [Подключитесь к базе данных](../operations/connect/index.md) `db1` от имени пользователя `pg-user`.
 
@@ -92,9 +92,9 @@
 
 {% list tabs group=topic_management %}
 
-- Интерфейсы Yandex Cloud {#yc}
+- Интерфейсы {{ yandex-cloud }} {#yc}
 
-    Если управление топиками осуществляется с помощью стандартных интерфейсов Yandex Cloud (Консоль управления, CLI, Terraform, API):
+    Если управление топиками осуществляется с помощью стандартных интерфейсов {{ yandex-cloud }} (Консоль управления, CLI, {{ TF }}, API):
 
     1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с именем `cdc.public.measurements`.
 
@@ -110,7 +110,7 @@
 
     1. Помимо роли `ACCESS_ROLE_ADMIN` назначьте пользователю-администратору роли `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на топики, имена которых начинаются с префикса `cdc`.
 
-        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [Хранилище в Managed Service for Apache Kafka®](../../managed-kafka/concepts/storage.md).
+        Необходимые топики будут созданы автоматически при первом событии изменения в отслеживаемых таблицах кластера-источника. Такое решение может быть удобным для отслеживания изменений во множестве таблиц, однако, требует запас свободного места в хранилище кластера. Подробнее см. в разделе [{#T}](../../managed-kafka/concepts/storage.md).
 
 {% endlist %}
 
@@ -121,39 +121,39 @@
 
     * Эндпоинт для источника:
 
-        * **Тип базы данных** — `PostgreSQL`.
-        * **Параметры эндпоинта**:
-            * **Настройки подключения** — `Кластер Managed Service for PostgreSQL`.
-            * **Кластер Managed Service for PostgreSQL** — выберите [созданный ранее](#before-you-begin) кластер Managed Service for PostgreSQL.
-            * **База данных** — `db1`.
-            * **Пользователь** — `pg-user`.
-            * **Пароль** — укажите пароль пользователя `pg-user`.
-            * **Список включённых таблиц** — `public.measurements`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `PostgreSQL`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSource.connection.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — выберите [созданный ранее](#before-you-begin) кластер {{ mpg-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `db1`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — укажите пароль пользователя `pg-user`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresTableFilter.include_tables.title }}** — `public.measurements`.
 
     * Эндпоинт для приемника:
 
-        * **Тип базы данных** — `Kafka`.
-        * **Параметры эндпоинта**:
-            * **Тип подключения** — `Кластер Managed Service for Apache Kafka`.
-                * **Кластер Managed Service for Apache Kafka** — выберите кластер-приемник.
-                * **Аутентификация** — укажите данные созданного ранее пользователя `kafka-user`.
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `Kafka`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTarget.title }}**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaConnectionType.managed.title }}`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.cluster_id.title }}** — выберите кластер-приемник.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.ManagedKafka.auth.title }}** — укажите данные созданного ранее пользователя `kafka-user`.
 
-            * **Топик** — `Полное имя топика`.
-            * **Полное имя топика** — `cdc.public.measurements`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaSourceConnection.topic_name.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic.title }}** — `cdc.public.measurements`.
 
             Если необходимо отслеживать изменения в нескольких таблицах, заполните поля следующим образом:
 
-            * **Топик** — `Префикс топика`.
-            * **Префикс топика** — укажите префикс `cdc`, использованный при формировании имен топиков.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetConnection.topic_settings.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.kafka.console.form.kafka.KafkaTargetTopicSettings.topic_prefix.title }}** — укажите префикс `cdc`, использованный при формировании имен топиков.
 
 1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) со следующими настройками:
 
-    * **Эндпоинты**:
-        * **Источник** — созданный ранее эндпоинт для источника.
-        * **Приёмник** — созданный ранее эндпоинт для приемника.
-    * **Тип трансфера** — **Репликация**.
+    * **{{ ui-key.yacloud.data-transfer.label_endpoints }}**:
+        * **{{ ui-key.yacloud.data-transfer.forms.label_source-type }}** — созданный ранее эндпоинт для источника.
+        * **{{ ui-key.yacloud.data-transfer.forms.label_target-type }}** — созданный ранее эндпоинт для приемника.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.Transfer.type.title }}** — **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**.
 
-1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+1. [Активируйте трансфер](../../data-transfer/operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
@@ -168,12 +168,12 @@
         -X sasl.mechanisms=SCRAM-SHA-512 \
         -X sasl.username=kafka-user \
         -X sasl.password=<пароль> \
-        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+        -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} \
         -Z \
         -K:
     ```
 
-    FQDN хостов-брокеров можно получить со [списком хостов в кластере Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-hosts.md).
+    FQDN хостов-брокеров можно получить со [списком хостов в кластере {{ mkf-name }}](../../managed-kafka/operations/cluster-hosts.md).
 
     Будет выведена схема формата данных таблицы `public.measurements` и данные о добавленных в нее ранее строках.
 
@@ -241,15 +241,15 @@
 
 1. Удалите кластеры:
 
-    * [Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
-    * [Managed Service for PostgreSQL](../operations/cluster-delete.md).
+    * [{{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
+    * [{{ mpg-name }}](../operations/cluster-delete.md).
 
 1. Если для доступа к хостам кластеров использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
 
 
 ## Дополнительные материалы {#video}
 
-Больше информации о сценариях поставок данных в вебинаре Yandex Cloud:
+Больше информации о сценариях поставок данных в вебинаре {{ yandex-cloud }}:
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvkntkhjbfsn2c7ptv?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>

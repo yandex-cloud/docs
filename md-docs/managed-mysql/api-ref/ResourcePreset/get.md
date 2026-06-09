@@ -5,7 +5,7 @@ Retrieves information about a resource preset.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-mysql/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/resourcePresets/{resourceP
 || resourcePresetId | **string**
 
 Required field. ID of the resource preset to return information about.
-
 To get this ID, make a [ResourcePresetService.List](list.md#List) request. ||
 |#
 
@@ -36,7 +35,6 @@ To get this ID, make a [ResourcePresetService.List](list.md#List) request. ||
 
 An object that represents MySQL resource preset.
 A resource preset defines hardware configuration for cluster hosts.
-
 See [the documentation](../../concepts/instance-types.md) for details.
 
 #|

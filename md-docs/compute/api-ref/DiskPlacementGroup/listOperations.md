@@ -5,7 +5,7 @@ Lists operations for the specified placement group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPlacementGroupId}/operations
+GET https://compute.{{ api-host }}/compute/v1/diskPlacementGroups/{diskPlacementGroupId}/operations
 ```
 
 ## Path parameters
@@ -16,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/diskPlacementGroups/{diskPla
 
 Required field. ID of the placement group to list operations for.
 To get the placement group ID, use [DiskPlacementGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsRequest}
@@ -29,14 +29,12 @@ The maximum string length in characters is 50. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListDiskPlacementGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
 [ListDiskPlacementGroupOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListDiskPlacementGroupOperationsResponse}

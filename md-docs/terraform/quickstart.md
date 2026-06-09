@@ -1,17 +1,17 @@
-# Начало работы с Terraform
+# Начало работы с {{ TF }}
 
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Чтобы создать вашу первую инфраструктуру в Yandex Cloud с помощью Terraform:
+Чтобы создать вашу первую инфраструктуру в {{ yandex-cloud }} с помощью {{ TF }}:
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Установите Terraform](#install-terraform).
+1. [Установите {{ TF }}](#install-terraform).
 1. [Получите данные для аутентификации](#get-credentials).
-1. [Создайте файл конфигурации Terraform](#configure-terraform).
+1. [Создайте файл конфигурации {{ TF }}](#configure-terraform).
 1. [Настройте провайдер](#configure-provider).
 1. [Подготовьте план инфраструктуры](#prepare-plan).
 1. [Проверьте и отформатируйте файлы конфигурации](#check-resources).
@@ -21,21 +21,21 @@ Terraform распространяется под лицензией [Business S
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md) и [привяжите](../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры, разворачиваемой через Terraform в этом руководстве, входят:
-* плата за постоянно запущенные [виртуальные машины](../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../compute/pricing.md));
-* плата за использование динамических [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../vpc/pricing.md)).
+В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
+* плата за постоянно запущенные [виртуальные машины](../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../compute/pricing.md));
+* плата за использование динамических [публичных IP-адресов](../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../vpc/pricing.md)).
 
-## Установите Terraform {#install-terraform}
+## Установите {{ TF }} {#install-terraform}
 
 ### Из зеркала {#from-yc-mirror}
 
@@ -45,7 +45,7 @@ Terraform распространяется под лицензией [Business S
 
 {% endnote %}
 
-Вы можете скачать дистрибутив Terraform для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/terraform/). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
+Вы можете скачать дистрибутив {{ TF }} для вашей платформы из [зеркала]({{ terraform-mirror }}). После загрузки добавьте путь к папке, в которой находится исполняемый файл, в переменную `PATH`:
 
 ```bash
 export PATH=$PATH:/path/to/terraform
@@ -58,8 +58,8 @@ export PATH=$PATH:/path/to/terraform
 - Windows {#windows}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите Terraform с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
+  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите {{ TF }} с помощью пакетного менеджера [Chocolatey](https://chocolatey.org/install), используя команду:
 
     ```bash
     choco install terraform
@@ -67,13 +67,13 @@ export PATH=$PATH:/path/to/terraform
 
 - Linux {#linux}
 
-  [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
 
 - macOS {#macos}
 
   Используйте один из способов:
-  * [Скачайте дистрибутив Terraform](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
-  * Установите Terraform с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
+  * [Скачайте дистрибутив {{ TF }}](https://www.terraform.io/downloads.html) и установите его согласно [инструкции](https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/aws-get-started).
+  * Установите {{ TF }} с помощью пакетного менеджера [Homebrew](https://brew.sh), используя команду:
 
     ```bash
     brew install terraform
@@ -83,295 +83,162 @@ export PATH=$PATH:/path/to/terraform
 
 ## Получите данные для аутентификации {#get-credentials}
 
-Чтобы управлять инфраструктурой Yandex Cloud с помощью Terraform, используйте [сервисный аккаунт](../iam/concepts/users/service-accounts.md). Это позволит гибко настраивать права доступа к ресурсам.
+Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени [сервисного аккаунта](../iam/concepts/users/service-accounts.md) или пользовательских аккаунтов: [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../iam/concepts/users/accounts.md#saml-federation) и [локального пользователя](../iam/concepts/users/accounts.md#local).
 
-Также вы можете использовать Terraform от имени [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport), [федеративного](../iam/concepts/users/accounts.md#saml-federation) или [локального пользователя](../iam/concepts/users/accounts.md#local), однако этот способ является менее безопасным. Подробности см. в конце раздела.
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите](../cli/quickstart.md#install) его.
-1. Если у вас еще нет сервисного аккаунта, создайте его:
+{% list tabs group=authentication %}
 
-   {% list tabs group=instructions %}
+- Сервисный аккаунт {#service-account}
 
-   - Консоль управления {#console}
-
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
-     1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**.
-     1. Введите имя сервисного аккаунта.
-
-        Требования к формату имени:
-
-        * длина — от 3 до 63 символов;
-        * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-        * первый символ — буква, последний — не дефис.
-
-     1. Нажмите кнопку **Создать**.
-
-   - CLI {#cli}
-
-     По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-     Выполните команду для создания сервисного аккаунта:
-
-     ```bash
-     yc iam service-account create --name <имя_сервисного_аккаунта>
-     ```
-
-     Где `name` — имя сервисного аккаунта в формате:
-
-     * длина — от 3 до 63 символов;
-     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
-     * первый символ — буква, последний — не дефис.
-
-     Результат:
-
-     ```text
-     id: ajehr0to1g8b********
-     folder_id: b1gv87ssvu49********
-     created_at: "2022-09-14T09:03:11.665153755Z"
-     name: sa-terraform
-     ```
-
-   - API {#api}
-
-     Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
-
-    {% endlist %}
-
-1. Назначьте сервисному аккаунту [роли](../iam/concepts/access-control/roles.md), необходимые для управления ресурсами Yandex Cloud:
-
-   Сервисному аккаунту можно [назначать роли](../iam/operations/sa/assign-role-for-sa.md#binding-role-resource) на любые ресурсы в любом облаке, если эти ресурсы относятся к той же организации, что и сервисный аккаунт. Также сервисному аккаунту можно [назначать роли](../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) на саму организацию.
-
-   {% list tabs group=instructions %}
-
-   - Консоль управления {#console}
-
-     Чтобы назначить сервисному аккаунту роль на каталог:
-
-     1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../resource-manager/concepts/resources-hierarchy.md#folder).
-     1. Перейдите на вкладку **Права доступа**.
-     1. Нажмите кнопку **Настроить доступ**.
-     1. В открывшемся окне выберите раздел **Сервисные аккаунты**.
-     1. Выберите сервисный аккаунт из списка или воспользуйтесь поиском.
-     1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль в каталоге.
-     1. Нажмите кнопку **Сохранить**.
-
-   - CLI {#cli}
-
-     1. Узнайте идентификатор сервисного аккаунта (столбец `ID`), которому нужно назначить роль:
-
+  Использование сервисного аккаунта с помощью [имперсонации](../iam/concepts/access-control/impersonation.md) является рекомендованным и наиболее безопасным способом аутентификации.
+  
+  При создании IAM-токена используйте имперсонацию для созданного сервисного аккаунта, указав его идентификатор в параметре `--impersonate-service-account-id`. В результате {{ TF }} будет от имени сервисного аккаунта управлять ресурсами в каталоге и использовать IAM-токен сервисного аккаунта.
+  
+  {% note info %}
+  
+  Для использования имперсонации пользователю должна быть назначена [роль](../iam/security/index.md#iam-serviceAccounts-tokenCreator) `iam.serviceAccounts.tokenCreator` на соответствующий сервисный аккаунт.
+  
+  {% endnote %}
+  
+  Для аутентификации от имени сервисного аккаунта:
+  
+  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите](../cli/operations/install-cli.md).
+  
+  1. В {{ yandex-cloud }} CLI [создайте](../cli/operations/profile/profile-create.md) новый профиль или [активируйте](../cli/operations/profile/profile-activate.md) созданный ранее.
+  
+  1. Аутентифицируйтесь от имени [аккаунта на Яндексе](../cli/operations/authentication/user.md), [федеративного](../cli/operations/authentication/federated-user.md) или [локального](../cli/operations/authentication/local-user.md) пользователя.
+  
+  1. Если у вас еще нет сервисного аккаунта, [создайте](../iam/operations/sa/create.md) его.
+  
+  1. [Назначьте](../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли, необходимые для управления ресурсами {{ yandex-cloud }}.
+  
+  1. Запишите аутентификационные данные в переменные окружения, используя имперсонацию:
+  
+      - Bash {#bash}
+  
         ```bash
-        yc iam service-account list
+        export YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
+        export YC_CLOUD_ID=$(yc config get cloud-id)
+        export YC_FOLDER_ID=$(yc config get folder-id)
         ```
-
-        Результат:
-
-        ```text
-        +----------------------+--------------+--------+---------------------+-----------------------+
-        |          ID          |     NAME     | LABELS |     CREATED AT      | LAST AUTHENTICATED AT |
-        +----------------------+--------------+--------+---------------------+-----------------------+
-        | ajeg2b2et02f******** | terraform-sa |        | 2024-09-08 18:59:45 | 2025-08-21 06:40:00   |
-        | ajegtlf2q28a******** | default-sa   |        | 2023-06-27 16:18:18 | 2025-08-21 06:30:00   |
-        +----------------------+--------------+--------+---------------------+-----------------------+
+  
+      - PowerShell {#powershell}
+  
+        ```powershell
+        $Env:YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
+        $Env:YC_CLOUD_ID=$(yc config get cloud-id)
+        $Env:YC_FOLDER_ID=$(yc config get folder-id)
         ```
-
-     1. Назначьте сервисному аккаунту роль на ресурс:
-
-        ```bash
-        yc <service-name> <resource> add-access-binding <resource-name>|<resource-id> \
-          --role <role-id> \
-          --subject serviceAccount:<service-account-id>
-        ```
-
-        Где:
-        * `<service-name>` — название [сервиса](../cli/cli-ref/index.md#service-manage), на чей ресурс назначается роль, например `resource-manager`.
-        * `<resource>` — категория ресурса, например `cloud` — для назначения роли на все [облако](../resource-manager/concepts/resources-hierarchy.md#cloud) или `folder` — для назначения роли на [каталог](../resource-manager/concepts/resources-hierarchy.md#folder).
-        * `<resource-name>` — имя ресурса. Вы можете указать ресурс по имени или идентификатору (имя облака или каталога).
-        * `<resource-id>` — идентификатор ресурса (идентификатор облака или каталога).
-        * `<role-id>` — назначаемая роль, например `resource-manager.clouds.owner`.
-        * `<service-account-id>` — идентификатор сервисного аккаунта, которому назначается роль.
-
-        >Пример:
-        > 
-        >```bash
-        >yc resource-manager folder add-access-binding **********9n9hi2qu --role editor --subject serviceAccount:**********qhi2qu
-        >```
-        >
-        >Результат:
-        >
-        >```text
-        >done (1s)
-        >```
-
-   - API {#api}
-
-     Чтобы назначить сервисному аккаунту роль на облако или каталог, воспользуйтесь методом REST API `updateAccessBindings` для ресурса [Cloud](../resource-manager/api-ref/Cloud/index.md) или [Folder](../resource-manager/api-ref/Folder/index.md):
-     
-     1. Выберите роль, которую хотите назначить сервисному аккаунту. Описание ролей можно найти в документации Yandex Identity and Access Management в [справочнике ролей Yandex Cloud](../iam/roles-reference.md).
-     1. [Узнайте](../resource-manager/operations/folder/get-id.md) ID каталога с сервисными аккаунтами.
-     1. [Получите](../iam/operations/iam-token/create.md) IAM-токен для аутентификации в API Yandex Cloud.
-     1. Получите список сервисных аккаунтов в каталоге, чтобы узнать их идентификаторы:
-     
-         ```bash
-         export FOLDER_ID=b1gvmob95yys********
-         export IAM_TOKEN=CggaATEVAgA...
-         curl \
-           --header "Authorization: Bearer ${IAM_TOKEN}" \
-           "https://iam.api.cloud.yandex.net/iam/v1/serviceAccounts?folderId=${FOLDER_ID}"
-         ```
-     
-         Результат:
-     
-     
-         ```json
-         {
-          "serviceAccounts": [
-           {
-            "id": "ajebqtreob2d********",
-            "folderId": "b1gvmob95yys********",
-            "createdAt": "2018-10-18T13:42:40Z",
-            "name": "my-robot",
-            "description": "my description"
-           }
-          ]
-         }
-         ```
-     
-     1. Сформируйте тело запроса, например в файле `body.json`. В свойстве `action` укажите `ADD`, в свойстве `roleId` — нужную роль, например `editor`, а в свойстве `subject` — тип `serviceAccount` и идентификатор сервисного аккаунта:
-     
-         **body.json:**
-         ```json
-         {
-           "accessBindingDeltas": [{
-             "action": "ADD",
-             "accessBinding": {
-               "roleId": "editor",
-               "subject": {
-                 "id": "ajebqtreob2d********",
-                 "type": "serviceAccount"
-               }
-             }
-           }]
-         }
-         ```
-     1. Назначьте роль сервисному аккаунту. Например, на каталог с идентификатором `b1gvmob95yys********`:
-        
-        ```bash
-        export FOLDER_ID=b1gvmob95yys********
-        export IAM_TOKEN=CggaAT********
-        curl \
-          --request POST \
-          --header "Content-Type: application/json" \
-          --header "Authorization: Bearer ${IAM_TOKEN}" \
-          --data '@body.json' \
-          "https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders/${FOLDER_ID}:updateAccessBindings"
-        ```
-
-   {% endlist %}
-
-1. Добавьте аутентификационные данные в переменные окружения. При создании [IAM-токен](../iam/concepts/authorization/iam-token.md) используйте [имперсонацию](../iam/concepts/access-control/impersonation.md) созданного ранее сервисного аккаунта, указав его идентификатор в параметре `--impersonate-service-account-id`:
-
-    {% note info %}
-    
-    Для использования имперсонации пользователю должна быть назначена [роль](../iam/security/index.md#iam-serviceAccounts-tokenCreator) `iam.serviceAccounts.tokenCreator` на соответствующий сервисный аккаунт.
-    
-    {% endnote %}
-
-    {% list tabs group=programming_language %}
-
-    - Bash {#bash}
-
-      ```bash
-      export YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
-      export YC_CLOUD_ID=$(yc config get cloud-id)
-      export YC_FOLDER_ID=$(yc config get folder-id)
-      ```
-
-      Где:
-      * `YC_TOKEN` — [IAM-токен](../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
-      * `YC_CLOUD_ID` — идентификатор облака.
-      * `YC_FOLDER_ID` — идентификатор каталога.
-
-    - PowerShell {#powershell}
-
-      ```powershell
-      $Env:YC_TOKEN=$(yc iam create-token --impersonate-service-account-id <идентификатор_сервисного_аккаунта>)
-      $Env:YC_CLOUD_ID=$(yc config get cloud-id)
-      $Env:YC_FOLDER_ID=$(yc config get folder-id)
-      ```
-
-      Где:
-      * `YC_TOKEN` — [IAM-токен](../iam/concepts/authorization/iam-token.md) сервисного аккаунта.
-      * `YC_CLOUD_ID` — идентификатор облака.
-      * `YC_FOLDER_ID` — идентификатор каталога.
-
-    {% endlist %}
-
-    {% note info %}
-
-    [Время жизни](../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
-
-    {% endnote %}
-
-{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
-
-{% note warning %}
-
-Управление ресурсами от имени [аккаунта на Яндексе](../iam/concepts/users/accounts.md#passport), [локального](../iam/concepts/users/accounts.md#local) или [федеративного аккаунта](../iam/concepts/users/accounts.md#saml-federation) пользователя является менее безопасным, чем использование [сервисного аккаунта](../iam/concepts/users/service-accounts.md).
-
-{% endnote %}
-
-Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../cli/quickstart.md#install).
-
-По умолчанию используется каталог, указанный при [создании](../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
-
-Если вы используете федеративный или локальный аккаунт, аутентифицируйтесь в [CLI](../cli/index.md):
-
-* [от имени федеративного пользователя](../cli/operations/authentication/federated-user.md);
-* [от имени локального пользователя](../cli/operations/authentication/local-user.md).
-
-Добавьте аутентификационные данные в переменные окружения:
-
-{% list tabs group=programming_language %}
-
-- Bash {#bash}
-
-  ```bash
-  export YC_TOKEN=$(yc iam create-token)
-  export YC_CLOUD_ID=$(yc config get cloud-id)
-  export YC_FOLDER_ID=$(yc config get folder-id)
+  
+      {% endlist %}
+  
+      Где `<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта.
+  
+  В результате в переменных окружения сохранятся IAM-токен сервисного аккаунта, а также идентификатор облака и идентификатор каталога.
+  
+  {% note info %}
+  
+  При каждой операции аутентификация будет происходить с помощью этого IAM-токена, пока не истечет [время его жизни](../iam/concepts/authorization/iam-token.md) (не более 12 часов). После этого снова потребуется пройти аутентификацию. Для автоматического перевыпуска IAM-токена можно использовать скрипт или другие способы автоматизации. 
+  
+  Чтобы продлить срок, в течение которого не нужно аутентифицироваться в браузере, используйте [refresh-токены](../iam/concepts/authorization/refresh-token.md), позволяющие перевыпускать IAM-токены без перехода в браузер. Для этого разрешите использовать refresh-токены [на уровне организации](../iam/concepts/authorization/refresh-token.md#token-enabling) и [инициализируйте DPoP-защиту](../iam/concepts/authorization/refresh-token.md#enabling-dpop) в CLI.
+  
+  {% endnote %}
+  
+  Настройки провайдера в конфигурационном файле {{ TF }} без указания чувствительных параметров указываются следующим образом:
+  
+  
+  ```hcl
+  provider "yandex" {
+    # Параметры cloud_id, folder_id и token не указываются, так как
+    # провайдер автоматически подхватит их из переменных окружения
+  
+    zone = "<зона_доступности>"
+  }
   ```
+  
+  
+  
+  Где `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
+  
+  С такой конфигурацией используйте {{ TF }} без дополнительных флагов, так как провайдер автоматически подхватит их из переменных окружения.
 
-  Где:
-  * `YC_TOKEN` — [IAM-токен](../iam/concepts/authorization/iam-token.md).
-  * `YC_CLOUD_ID` — идентификатор облака.
-  * `YC_FOLDER_ID` — идентификатор каталога.
+- Аккаунт на Яндексе, федеративный или локальный пользователь {#yandex-account}
 
-- PowerShell {#powershell}
-
-  ```powershell
-  $Env:YC_TOKEN=$(yc iam create-token)
-  $Env:YC_CLOUD_ID=$(yc config get cloud-id)
-  $Env:YC_FOLDER_ID=$(yc config get folder-id)
+  {% note warning %}
+  
+  Управление ресурсами от имени пользовательского аккаунта является менее безопасным, чем использование сервисного аккаунта.
+  
+  {% endnote %}
+  
+  Для аутентификации от имени пользовательского аккаунта:
+  
+  1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите](../cli/operations/install-cli.md).
+  
+  1. В {{ yandex-cloud }} CLI [создайте](../cli/operations/profile/profile-create.md) новый профиль или [активируйте](../cli/operations/profile/profile-activate.md) созданный ранее.
+  
+  1. Аутентифицируйтесь в зависимости от типа используемого аккаунта: [аккаунта на Яндексе](../cli/operations/authentication/user.md), [федеративного](../cli/operations/authentication/federated-user.md) или [локального](../cli/operations/authentication/local-user.md) пользователя.
+  
+  1. Запишите чувствительные данные профиля: IAM-токен, идентификатор облака и каталога в переменные окружения:
+     
+     {% list tabs group=programming_language %}
+     
+     - Bash {#bash}
+     
+       ```bash
+       export YC_TOKEN=$(yc iam create-token)
+       export YC_CLOUD_ID=$(yc config get cloud-id)
+       export YC_FOLDER_ID=$(yc config get folder-id)
+       ```
+     
+     - PowerShell {#powershell}
+     
+       ```powershell
+       $Env:YC_TOKEN=$(yc iam create-token)
+       $Env:YC_CLOUD_ID=$(yc config get cloud-id)
+       $Env:YC_FOLDER_ID=$(yc config get folder-id)
+       ```
+     
+     {% endlist %}
+     
+     Где:
+     
+     `yc iam create-token` — получение IAM-токена для текущей сессии.
+     `yc config get cloud-id` — получение идентификатора облака из текущего профиля CLI.
+     `yc config get folder-id` — получение идентификатора каталога из текущего профиля CLI.
+     
+     
+     В результате в переменных окружения сохранятся IAM-токен, а также идентификатор облака и идентификатор каталога.
+  
+  {% note info %}
+  
+  При каждой операции аутентификация будет происходить с помощью этого IAM-токена, пока не истечет [время его жизни](../iam/concepts/authorization/iam-token.md) (не более 12 часов). После этого снова потребуется пройти аутентификацию. Для автоматического перевыпуска IAM-токена можно использовать скрипт или другие способы автоматизации. 
+  
+  Чтобы продлить срок, в течение которого не нужно аутентифицироваться в браузере, используйте [refresh-токены](../iam/concepts/authorization/refresh-token.md), позволяющие перевыпускать IAM-токены без перехода в браузер. Для этого разрешите использовать refresh-токены [на уровне организации](../iam/concepts/authorization/refresh-token.md#token-enabling) и [инициализируйте DPoP-защиту](../iam/concepts/authorization/refresh-token.md#enabling-dpop) в CLI.
+  
+  {% endnote %}
+  
+  Настройки провайдера в конфигурационном файле {{ TF }} без указания чувствительных параметров указываются следующим образом:
+  
+  
+  ```hcl
+  provider "yandex" {
+    # Параметры cloud_id, folder_id и token не указываются, так как
+    # провайдер автоматически подхватит их из переменных окружения
+  
+    zone = "<зона_доступности>"
+  }
   ```
-
-  Где:
-  * `YC_TOKEN` — [IAM-токен](../iam/concepts/authorization/iam-token.md).
-  * `YC_CLOUD_ID` — идентификатор облака.
-  * `YC_FOLDER_ID` — идентификатор каталога.
+  
+  
+  
+  Где `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
+  
+  С такой конфигурацией используйте {{ TF }} без дополнительных флагов, так как провайдер автоматически подхватит их из переменных окружения.
 
 {% endlist %}
 
-{% note info %}
+## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
-[Время жизни](../iam/concepts/authorization/iam-token.md#lifetime) IAM-токена — не больше 12 часов, но рекомендуется запрашивать его чаще, например каждый час.
-
-{% endnote %}
-
-{% endcut %}
-
-## Создайте файл конфигурации Terraform {#configure-terraform}
-
-1. Создайте новую директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы и сохраненные состояния Terraform и инфраструктуры.
+1. Создайте новую директорию с произвольным названием, например `cloud-terraform`. В ней будут храниться конфигурационные файлы и сохраненные состояния {{ TF }} и инфраструктуры.
 
    {% note warning %}
 
@@ -385,7 +252,7 @@ export PATH=$PATH:/path/to/terraform
 
 {% note info %}
 
-Настройки применимы для Terraform `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию Terraform.
+Настройки применимы для {{ TF }} `0.13` и более поздних версий. Рекомендуется использовать последнюю стабильную версию {{ TF }}.
 
 {% endnote %}
 
@@ -413,7 +280,7 @@ export PATH=$PATH:/path/to/terraform
 
    - Linux/macOS {#linux-macos}
 
-     Откройте файл конфигурации Terraform CLI:
+     Откройте файл конфигурации {{ TF }} CLI:
 
      ```bash
      nano ~/.terraformrc
@@ -427,7 +294,7 @@ export PATH=$PATH:/path/to/terraform
 
    - Windows {#windows}
 
-     Откройте файл конфигурации Terraform CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
+     Откройте файл конфигурации {{ TF }} CLI `terraform.rc` в папке `%APPDATA%` вашего пользователя.
 
      Чтобы узнать абсолютный путь к папке `%APPDATA%`, выполните команду `echo %APPDATA%` для cmd или `$env:APPDATA` для PowerShell.
 
@@ -470,12 +337,12 @@ export PATH=$PATH:/path/to/terraform
 
    Где:
    * `source` — глобальный [адрес источника](https://www.terraform.io/docs/language/providers/requirements.html#source-addresses) провайдера.
-   * `required_version` — минимальная версия Terraform, с которой совместим провайдер.
+   * `required_version` — минимальная версия {{ TF }}, с которой совместим провайдер.
    * `provider` — название провайдера.
    * `zone` — [зона доступности](../overview/concepts/geo-scope.md), в которой по умолчанию будут создаваться все облачные ресурсы.
 1. Выполните команду `terraform init` в папке с конфигурационным файлом `.tf`. Эта команда инициализирует провайдеров, указанных в конфигурационных файлах, и позволяет работать с ресурсами и источниками данных провайдера.
 
-Если провайдер не установился, создайте обращение в [поддержку](https://center.yandex.cloud/support) с именем и версией провайдера.
+Если провайдер не установился, создайте обращение в [поддержку]({{ link-console-support }}) с именем и версией провайдера.
 
 Если вы использовали файл `.terraform.lock.hcl`, перед инициализацией выполните команду `terraform providers lock`, указав адрес зеркала, откуда будет загружаться провайдер, и платформы, на которых будет использоваться конфигурация:
 
@@ -490,13 +357,13 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
   * `linux_amd64` — 64-bit Linux.
   * `darwin_arm64` — 64-bit macOS.
 
-Если вы использовали [модули Terraform](../tutorials/infrastructure-management/terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
+Если вы использовали [модули {{ TF }}](../tutorials/infrastructure-management/terraform-modules.md), сначала выполните `terraform init`, затем удалите lock-файл, а затем выполните команду `terraform providers lock`.
 
-Более подробную информацию о команде `terraform providers lock` см. в [документации Terraform](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
+Более подробную информацию о команде `terraform providers lock` см. в [документации {{ TF }}](https://developer.hashicorp.com/terraform/cli/commands/providers/lock).
 
 ## Подготовьте план инфраструктуры {#prepare-plan}
 
-С помощью Terraform в Yandex Cloud можно создавать облачные ресурсы всех типов: ВМ, [диски](../compute/concepts/disk.md), [образы](../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью Terraform, см. в [документации провайдера](index.md).
+С помощью {{ TF }} в {{ yandex-cloud }} можно создавать облачные ресурсы всех типов: ВМ, [диски](../compute/concepts/disk.md), [образы](../compute/concepts/image.md) и т. д. Подробную информацию о ресурсах, создающихся с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
 
 Для создания ресурса необходимо указать набор обязательных и опциональных параметров, определяющих свойства ресурса. Такие описания ресурсов составляют план инфраструктуры.
 
@@ -508,7 +375,7 @@ terraform providers lock -net-mirror=https://terraform-mirror.yandexcloud.net -p
 * может содержать строчные буквы латинского алфавита, цифры и дефисы;
 * первый символ — буква, последний — не дефис.
 
-У ВМ будут разные [количества ядер и объемы памяти](../compute/concepts/vm.md#types): 2 ядра и 2 ГБ оперативной памяти у `terraform1` и 4 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат публичные и [приватные IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`, находящейся в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d` и принадлежащей облачной сети `network-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../glossary/ssh-keygen.md).
+У ВМ будут разные [количества ядер и объемы памяти](../compute/concepts/vm.md#types): 2 ядра и 2 ГБ оперативной памяти у `terraform1` и 4 ядра и 4 ГБ оперативной памяти у `terraform2`. ВМ автоматически получат публичные и [приватные IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`, находящейся в [зоне доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-d` и принадлежащей облачной сети `network-1`. На ВМ будет установлена операционная система Ubuntu и размещена публичная часть ключа для доступа к ВМ по [SSH](../glossary/ssh-keygen.md).
 
 В конфигурации ВМ вам потребуется указать идентификатор образа загрузочного диска. Список доступных публичных образов можно получить командой [CLI](../cli/quickstart.md):
 
@@ -546,9 +413,9 @@ resource "yandex_compute_instance" "vm-1" {
 - Создание ВМ Linux {#linux}
 
   По плану будут созданы следующие ресурсы:
-  * [Облачная сеть](../vpc/concepts/network.md#network) `network-1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../overview/concepts/geo-scope.md) `ru-central1-d`.
+  * [Облачная сеть](../vpc/concepts/network.md#network) `network-1` с [подсетью](../vpc/concepts/network.md#subnet) `subnet-1` в [зоне доступности](../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   * Две [виртуальные машины](../compute/concepts/vm.md) Linux: `terraform1` (2 ядра и 2 ГБ оперативной памяти) и `terraform2` (4 ядра и 4 ГБ оперативной памяти). Они автоматически получат [публичные и внутренние IP-адреса](../vpc/concepts/address.md#internal-addresses) из диапазона `192.168.10.0/24` в подсети `subnet-1`.
-  1. Получите идентификатор [образа](../compute/concepts/image.md) загрузочного диска из Yandex Cloud Marketplace, например [Ubuntu 16.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../cli/index.md):
+  1. Получите идентификатор [образа](../compute/concepts/image.md) загрузочного диска из {{ marketplace-full-name }}, например [Ubuntu 16.04 LTS](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-16-04-lts), который будет установлен на ВМ. Получите список доступных публичных образов, выполнив следующую команду [CLI](../cli/index.md):
   
      ```bash
      yc compute image list --folder-id standard-images
@@ -567,7 +434,7 @@ resource "yandex_compute_instance" "vm-1" {
      resource "yandex_compute_disk" "boot-disk-1" {
        name     = "boot-disk-1"
        type     = "network-hdd"
-       zone     = "ru-central1-d"
+       zone     = "{{ region-id }}-d"
        size     = "20"
        image_id = "fd87va5cc00gaq2f5qfb"
      }
@@ -575,7 +442,7 @@ resource "yandex_compute_instance" "vm-1" {
      resource "yandex_compute_disk" "boot-disk-2" {
        name     = "boot-disk-2"
        type     = "network-hdd"
-       zone     = "ru-central1-d"
+       zone     = "{{ region-id }}-d"
        size     = "20"
        image_id = "fd87va5cc00gaq2f5qfb"
      }
@@ -630,7 +497,7 @@ resource "yandex_compute_instance" "vm-1" {
   
      resource "yandex_vpc_subnet" "subnet-1" {
        name           = "subnet1"
-       zone           = "ru-central1-d"
+       zone           = "{{ region-id }}-d"
        network_id     = yandex_vpc_network.network-1.id
        v4_cidr_blocks = ["192.168.10.0/24"]
      }
@@ -753,7 +620,7 @@ resource "yandex_compute_instance" "vm-1" {
       ```hcl
       variable "zone" {
         type    = string
-        default = "ru-central1-d"
+        default = "{{ region-id }}-d"
       }
   
       variable "network" {
@@ -852,7 +719,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 - Linux {#linux}
 
-  Для добавления пользователей, как и для изменения многих других параметров ОС создаваемой [виртуальной машины](../compute/concepts/vm.md), в Yandex Cloud используется механизм [cloud-init](https://cloud-init.io). Для этого необходимо передать текст конфигурации `cloud-init` в параметре `user-data` в блоке `metadata`. В нашем случае это будут системные пользователи:
+  Для добавления пользователей, как и для изменения многих других параметров ОС создаваемой [виртуальной машины](../compute/concepts/vm.md), в {{ yandex-cloud }} используется механизм [cloud-init](https://cloud-init.io). Для этого необходимо передать текст конфигурации `cloud-init` в параметре `user-data` в блоке `metadata`. В нашем случае это будут системные пользователи:
   1. Создайте текстовый файл с метаданными в кодировке UTF-8, например:
   
      ```bash
@@ -883,11 +750,11 @@ resource "yandex_compute_instance" "vm-1" {
      }
      ```
   
-  Подробнее о работе с метаданными читайте в разделе [Метаданные виртуальной машины](../compute/concepts/vm-metadata.md).
+  Подробнее о работе с метаданными читайте в разделе [{#T}](../compute/concepts/vm-metadata.md).
 
 - Windows {#windows}
 
-  Чтобы создать пользователя и установить пароль учетной записи Administrator на [виртуальную машину](../compute/concepts/vm.md) в Yandex Cloud можно использовать агент [cloudbase-init](https://cloudbase-init.readthedocs.io/en/latest/). Для этого создайте скрипт `init.ps1`, который будет выполняться агентом при первой загрузке системы. В качестве учетных сведений будут использоваться переменные из файла `variables.tf`.
+  Чтобы создать пользователя и установить пароль учетной записи Administrator на [виртуальную машину](../compute/concepts/vm.md) в {{ yandex-cloud }} можно использовать агент [cloudbase-init](https://cloudbase-init.readthedocs.io/en/latest/). Для этого создайте скрипт `init.ps1`, который будет выполняться агентом при первой загрузке системы. В качестве учетных сведений будут использоваться переменные из файла `variables.tf`.
   
   {% cut "Файл init.ps1" %}
   
@@ -963,11 +830,11 @@ resource "yandex_compute_instance" "vm-1" {
    terraform plan
    ```
 
-   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, Terraform на них укажет.
+   В терминале будет выведен список ресурсов с параметрами. Это проверочный этап: ресурсы не будут созданы. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
    {% note alert %}
 
-   Все созданные с помощью Terraform ресурсы тарифицируются. Внимательно проверьте план.
+   Все созданные с помощью {{ TF }} ресурсы тарифицируются. Внимательно проверьте план.
 
    {% endnote %}
 
@@ -979,11 +846,11 @@ resource "yandex_compute_instance" "vm-1" {
 
 1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-   Terraform создаст все требуемые ресурсы, а в терминале будут указаны [IP-адреса](../vpc/concepts/address.md) созданных [виртуальных машин](../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+   {{ TF }} создаст все требуемые ресурсы, а в терминале будут указаны [IP-адреса](../vpc/concepts/address.md) созданных [виртуальных машин](../compute/concepts/vm.md). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 ## Как удалить созданные ресурсы {#delete-resources}
 
-Чтобы удалить ресурсы, созданные с помощью Terraform:
+Чтобы удалить ресурсы, созданные с помощью {{ TF }}:
 1. Выполните команду:
 
    ```bash
@@ -992,19 +859,19 @@ resource "yandex_compute_instance" "vm-1" {
 
    {% note alert %}
 
-   Terraform удалит все ресурсы, созданные в текущей конфигурации: кластеры, [сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet), [виртуальные машины](../compute/concepts/vm.md) и т. д.
+   {{ TF }} удалит все ресурсы, созданные в текущей конфигурации: кластеры, [сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet), [виртуальные машины](../compute/concepts/vm.md) и т. д.
 
    {% endnote %}
 
    После выполнения команды в терминал будет выведен список удаляемых ресурсов.
 1. Введите слово `yes` и нажмите **Enter**.
 
-Проверить удаление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
 #### См. также {#see-also}
 
-* [Загрузка состояний Terraform в Object Storage](../tutorials/infrastructure-management/terraform-state-storage.md).
-* [Блокировка состояний Terraform с помощью Managed Service for YDB](../tutorials/infrastructure-management/terraform-state-lock.md).
-* [Использование модулей Yandex Cloud в Terraform](../tutorials/infrastructure-management/terraform-modules.md).
-* [Источники данных Terraform](../tutorials/infrastructure-management/terraform-data-sources.md).
-* [IaC: Terraform](https://yandex.cloud/ru/training/terraform?utm_source=inhouse&utm_medium=telegram&utm_campaign=announcement) — обучающий курс по управлению инфраструктурой в облаке с помощью Terraform.
+* [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../tutorials/infrastructure-management/terraform-state-storage.md).
+* [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../tutorials/infrastructure-management/terraform-state-lock.md).
+* [Использование модулей {{ yandex-cloud }} в {{ TF }}](../tutorials/infrastructure-management/terraform-modules.md).
+* [Источники данных {{ TF }}](../tutorials/infrastructure-management/terraform-data-sources.md).
+* [IaC: Terraform](https://yandex.cloud/ru/training/terraform?utm_source=inhouse&utm_medium=telegram&utm_campaign=announcement) — обучающий курс по управлению инфраструктурой в облаке с помощью {{ TF }}.

@@ -1,8 +1,8 @@
 # Работа с заданиями из Visual Studio Code
 
-Расширение DataSphere Jobs Toolkit позволяет работать с [заданиями](../../concepts/jobs/index.md) DataSphere из IDE [Visual Studio Code](https://code.visualstudio.com/). Для этого потребуется аккаунт Yandex Cloud и [проект](../../concepts/project.md) DataSphere.
+Расширение {{ ds-jobs }} Toolkit позволяет работать с [заданиями](../../concepts/jobs/index.md) {{ ml-platform-name }} из IDE [Visual Studio Code](https://code.visualstudio.com/). Для этого потребуется аккаунт {{ yandex-cloud }} и [проект](../../concepts/project.md) {{ ml-platform-name }}.
 
-DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../../concepts/jobs/cli.md) для анализа среды и обнаружения зависимостей. Она будет автоматически установлена в текущую виртуальную среду при первом запуске любого задания.
+{{ ds-jobs }} Toolkit использует утилиту [{{ ds-cli }}](../../concepts/jobs/cli.md) для анализа среды и обнаружения зависимостей. Она будет автоматически установлена в текущую виртуальную среду при первом запуске любого задания.
 
 {% note info %}
 
@@ -10,26 +10,26 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
 {% endnote %}
 
-При запуске задания библиотека `datasphere` анализирует окружение, собирает зависимости кода и может передавать их в DataSphere для развертывания окружения на ВМ в облаке. Чтобы избежать лишних системных зависимостей, которые могут нарушить работу задания, рекомендуем использовать виртуальное окружение [venv](https://docs.python.org/3/library/venv.html) или [conda](https://docs.conda.io/en/latest/#).
+При запуске задания библиотека `datasphere` анализирует окружение, собирает зависимости кода и может передавать их в {{ ml-platform-name }} для развертывания окружения на ВМ в облаке. Чтобы избежать лишних системных зависимостей, которые могут нарушить работу задания, рекомендуем использовать виртуальное окружение [venv](https://docs.python.org/3/library/venv.html) или [conda](https://docs.conda.io/en/latest/#).
 
 {% note info %}
 
-Для запуска заданий DataSphere используется Python [venv](https://docs.python.org/3/tutorial/venv.html). Поддерживаются версии Python 3.8–3.12. 
+Для запуска заданий {{ ml-platform-name }} используется Python [venv](https://docs.python.org/3/tutorial/venv.html). Поддерживаются версии Python 3.8–3.12. 
 
 {% endnote %}
 
-## Установите расширение DataSphere Jobs Toolkit {#setup}
+## Установите расширение {{ ds-jobs }} Toolkit {#setup}
 
 1. Откройте [страницу расширения в маркетплейсе](https://marketplace.visualstudio.com/items?itemName=yandex-cloud.ds-toolkit-vscode).
 1. Нажмите **Install**.
 1. Браузер предложит открыть приложение Visual Studio Code. Нажмите **Открыть приложение**.
-1. На открывшейся странице расширения DataSphere Jobs Toolkit в Visual Studio Code нажмите **Install**.
+1. На открывшейся странице расширения {{ ds-jobs }} Toolkit в Visual Studio Code нажмите **Install**.
 
 После успешного завершения установки на странице расширения появится надпись **This extension is enabled globally**.
 
-## Аутентифицируйтесь в DataSphere Jobs {#authentication}
+## Аутентифицируйтесь в {{ ds-jobs }} {#authentication}
 
-Чтобы работать с DataSphere Jobs, аутентифицируйтесь с аккаунтом на Яндексе или федеративным аккаунтом.
+Чтобы работать с {{ ds-jobs }}, аутентифицируйтесь с аккаунтом на Яндексе или федеративным аккаунтом.
 
 {% list tabs group=authentication %}
 
@@ -37,7 +37,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
   1. Получите [OAuth-токен](../../../iam/concepts/authorization/oauth-token.md).
 
-     Срок жизни OAuth-токена — 1 год. После этого необходимо [получить новый OAuth-токен](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) и повторить процедуру аутентификации.
+     Срок жизни OAuth-токена — 1 год. После этого необходимо [получить новый OAuth-токен]({{ link-cloud-oauth }}) и повторить процедуру аутентификации.
 
   1. В верхней части окна Visual Studio Code нажмите **Search** и введите команду `> DataSphere Jobs: Set OAuth token`. В открывшемся окне нажмите **Open**, чтобы перейти на страницу получения OAuth-токена.
 
@@ -50,7 +50,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
   Для аутентификации федеративного или локального аккаунта необходим установленный и настроенный интерфейс [CLI](../../../cli/quickstart.md). Если CLI установлен в каталог по умолчанию или путь к нему задан в переменной среды `Path`, то расширение обнаружит его автоматически. Если этого не произошло, то укажите путь к исполняемому файлу CLI в настройках расширения:
 
-  1. На панели слева выберите **DataSphere Jobs** и нажмите **Settings**.
+  1. На панели слева выберите **{{ ds-jobs }}** и нажмите **Settings**.
   1. В поле **Datasphere: Yandex Cloud Console Path** укажите путь к исполняемому файлу CLI, например:
 
       ```text
@@ -61,9 +61,9 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
 ## Запустите задание {#run-job}
 
-1. На панели слева выберите ![logo](../../../_assets/datasphere/ds-logo.svg) **DataSphere Jobs** и нажмите **Settings**.
-1. В поле **Datasphere: Project** введите идентификатор проекта. Чтобы получить идентификатор проекта, нажмите значок **ID** на странице вашего проекта в [интерфейсе DataSphere](https://datasphere.yandex.cloud/projects).
-1. Откройте Python-файл с помощью DataSphere Jobs Toolkit. Для этого в проводнике Visual Studio Code нажмите на нужный файл правой кнопкой мыши и выберите **Run File in DataSphere Jobs**.
+1. На панели слева выберите ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}** и нажмите **Settings**.
+1. В поле **Datasphere: Project** введите идентификатор проекта. Чтобы получить идентификатор проекта, нажмите значок **ID** на странице вашего проекта в [интерфейсе {{ ml-platform-name }}]({{ link-datasphere-main }}/projects).
+1. Откройте Python-файл с помощью {{ ds-jobs }} Toolkit. Для этого в проводнике Visual Studio Code нажмите на нужный файл правой кнопкой мыши и выберите **Run File in DataSphere Jobs**.
 
     Вы также можете предварительно открыть файл с кодом задания в Visual Studio Code, в правом верхнем углу окна редактирования нажать **Run and Debug** и выбрать **Run File in DataSphere Jobs**.
 
@@ -85,7 +85,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
       Настройте дополнительные параметры:
 
-      * **Project Identifier** — идентификатор проекта DataSphere.
+      * **Project Identifier** — идентификатор проекта {{ ml-platform-name }}.
       * **Configuration file path** — путь к готовому файлу конфигурации `config.yaml`.
       * **Instance Type** — параметры [конфигурации ВМ](../../concepts/configurations.md), на которой будет выполняться задание.
       * **S3 mounts** — идентификаторы [коннекторов S3](../../concepts/s3-connector.md). При передаче нескольких коннекторов S3 указывайте каждый идентификатор в отдельной строке.
@@ -117,7 +117,7 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
 1. Чтобы запустить конфигурацию, нажмите кнопку **Invoke**.
 
-    В результате успешного запуска задания в расширении DataSphere Jobs Toolkit откроется окно **DEBUG CONSOLE** со ссылкой на задание в DataSphere:
+    В результате успешного запуска задания в расширении {{ ds-jobs }} Toolkit откроется окно **DEBUG CONSOLE** со ссылкой на задание в {{ ml-platform-name }}:
 
     ```txt
     creating job ...
@@ -136,11 +136,11 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
 ## Посмотрите историю заданий {#job-history}
 
-Расширение DataSphere Jobs Toolkit позволяет просматривать историю заданий и работать с ними.
+Расширение {{ ds-jobs }} Toolkit позволяет просматривать историю заданий и работать с ними.
 
-Чтобы посмотреть историю заданий DataSphere Jobs, на панели слева выберите ![logo](../../../_assets/datasphere/ds-logo.svg) **DataSphere Jobs**. В открывшейся панели **DATASPHERE JOBS: LAUNCH HISTORY** вы увидите историю заданий, отсортированных по времени запуска.
+Чтобы посмотреть историю заданий {{ ds-jobs }}, на панели слева выберите ![logo](../../../_assets/datasphere/ds-logo.svg) **{{ ds-jobs }}**. В открывшейся панели **DATASPHERE JOBS: LAUNCH HISTORY** вы увидите историю заданий, отсортированных по времени запуска.
 
-Панель с историей заданий DataSphere Jobs позволяет выполнять следующие действия:
+Панель с историей заданий {{ ds-jobs }} позволяет выполнять следующие действия:
 
 * **Cancel** — останавливать задание.
 * **Attach** — подключаться к заданию.
@@ -149,5 +149,5 @@ DataSphere Jobs Toolkit использует утилиту [DataSphere CLI](../
 
 #### См. также {#see-also}
 
-* [DataSphere Jobs](../../concepts/jobs/index.md)
-* [Запуск заданий DataSphere Jobs](work-with-jobs.md)
+* [{#T}](../../concepts/jobs/index.md)
+* [{#T}](work-with-jobs.md)

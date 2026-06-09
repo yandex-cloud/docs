@@ -4,7 +4,7 @@
 
 Например, с помощью этой опции вы можете перенастроить пути запросов к контенту, если на [источнике](origins.md) оказалась изменена структура файлов и папок. Также перенаправление можно использовать, если при переезде ресурса на новый адрес вы хотите сохранить ранжирование вашего контента в поисковых системах.
 
-Включить перенаправление запросов для CDN-ресурса вы можете с помощью [консоли управления](https://console.yandex.cloud), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md) или [API](../api-ref/Resource/update.md).
+Включить перенаправление запросов для CDN-ресурса вы можете с помощью [консоли управления]({{ link-console-main }}), [CLI](../../cli/cli-ref/cdn/cli-ref/resource/update.md) или [API](../api-ref/Resource/update.md).
 
 Чтобы настроить перенаправление запросов, необходимо задать [правило Rewrite](#rewrite-rule) и указать [флаг](#flag).
 
@@ -42,8 +42,8 @@
 
 ## Примеры использования {#examples}
 
-* [Организация сине-зеленого и канареечного развертывания версий веб-сервиса](../tutorials/blue-green-canary-deployment.md)
-* [Миграция в Yandex Cloud CDN из стороннего CDN-провайдера](../tutorials/migrate-to-yc-cdn.md)
+* [{#T}](../tutorials/blue-green-canary-deployment.md)
+* [{#T}](../tutorials/migrate-to-yc-cdn.md)
 
 
 #### См. также {#see-also}

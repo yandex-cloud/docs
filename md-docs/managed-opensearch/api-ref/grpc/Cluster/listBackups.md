@@ -21,7 +21,6 @@ Returns a list of available backups for the specified OpenSearch cluster.
 || cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster.
-
 To get the ID, use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -74,10 +73,8 @@ List of the OpenSearch cluster backups. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClustersRequest.page_size](list.md#yandex.cloud.mdb.opensearch.v1.ListClustersRequest), use the `next_page_token` as the value
 for the [ListClustersRequest.page_token](list.md#yandex.cloud.mdb.opensearch.v1.ListClustersRequest) parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results. ||
 |#
 

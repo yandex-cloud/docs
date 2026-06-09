@@ -5,7 +5,7 @@ Returns the specified TargetGroup resource.
 ## HTTP request
 
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/targetGroups/{targetGroupId}
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/targetGroups/{targetGroupId}
 ```
 
 ## Path parameters

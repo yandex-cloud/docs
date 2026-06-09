@@ -5,7 +5,7 @@ Revoke the IAM token.
 ## HTTP request
 
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/tokens:revoke
+POST https://iam.{{ api-host }}/iam/v1/tokens:revoke
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.RevokeIamTokenRequest}
@@ -20,7 +20,9 @@ POST https://iam.api.cloud.yandex.net/iam/v1/tokens:revoke
 ||Field | Description ||
 || iamToken | **string**
 
-Required field. ||
+Required field.
+
+The maximum string length in characters is 4096. ||
 |#
 
 ## Response {#yandex.cloud.iam.v1.RevokeIamTokenResponse}

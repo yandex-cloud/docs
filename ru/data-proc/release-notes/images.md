@@ -1,6 +1,6 @@
 # История изменений образов {{ dataproc-full-name }}
+Полный состав актуальных и устаревших образов {{ dataproc-name }} в разделе [{#T}](../concepts/environment.md).
 
-Полный состав актуальных и устаревших образов {{ dataproc-name }} см. в разделе [{#T}](../concepts/environment.md).
 
 ## Образы 2.2.x (бета) {#2-2-x}
 
@@ -199,7 +199,7 @@
 
 ### 2.0.48 {#2-0-48}
 
-* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее см. в разделе [{#T}](../concepts/settings-list.md#spark-thrift-server).
+* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее в разделе [{#T}](../concepts/settings-list.md#spark-thrift-server).
 * Исправлена ошибка `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`, которая могла появляться на легковесных конфигурациях Apache Spark.
 
 ### 2.0.47 {#2-0-47}

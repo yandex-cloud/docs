@@ -5,7 +5,7 @@ Retrieves the list of available resource presets.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/resourcePresets
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/resourcePresets
 ```
 
 ## Query parameters {#yandex.cloud.mdb.greenplum.v1.ListResourcePresetsRequest}

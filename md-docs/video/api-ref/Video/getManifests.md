@@ -4,13 +4,13 @@ Retrieves the manifest URLs for a specific video.
 Manifests are used by video players to access the video content with adaptive bitrate streaming.
 Supports different manifest types (HLS, DASH) and configuration parameters.
 
-Manifests and its url MUST not be cached.
+Manifests and their urls MUST not be cached.
 The player MUST request a fresh manifest every time playback starts.
 
 ## HTTP request
 
 ```
-GET https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:getManifests
+GET https://video.{{ api-host }}/video/v1/videos/{videoId}:getManifests
 ```
 
 ## Path parameters
@@ -52,7 +52,6 @@ Different manifests may represent different streaming formats (e.g., HLS, DASH) 
 Represents a streaming manifest file that defines how video content is delivered.
 Manifests contain information about available video qualities, audio tracks,
 and other metadata needed by video players to stream content efficiently.
-
 Manifests and its url MUST not be cached.
 The player MUST request a fresh manifest every time playback starts.
 

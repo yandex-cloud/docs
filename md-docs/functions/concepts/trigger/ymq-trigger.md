@@ -1,6 +1,6 @@
-# Триггер для Message Queue, который передает сообщения в функцию Cloud Functions
+# Триггер для {{ message-queue-short-name }}, который передает сообщения в функцию {{ sf-name }}
 
-[Триггер](index.md) для Message Queue предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [функцию](../function.md) Cloud Functions для обработки. После успешной обработки триггер удаляет сообщения из очереди, а при ошибке — возвращает сообщения в очередь через [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md). Если для очереди не настроена [Dead Letter Queue](../../../message-queue/concepts/dlq.md), сообщение будет повторно передаваться в функцию, пока успешно не обработается или не закончится срок его хранения.
+[Триггер](index.md) для {{ message-queue-short-name }} предназначен для разгрузки [очереди сообщений](../../../message-queue/concepts/queue.md). Он принимает сообщения из очереди и передает их в [функцию](../function.md) {{ sf-name }} для обработки. После успешной обработки триггер удаляет сообщения из очереди, а при ошибке — возвращает сообщения в очередь через [таймаут видимости](../../../message-queue/concepts/visibility-timeout.md). Если для очереди не настроена [Dead Letter Queue](../../../message-queue/concepts/dlq.md), сообщение будет повторно передаваться в функцию, пока успешно не обработается или не закончится срок его хранения.
 
 {% note warning %}
 
@@ -12,27 +12,27 @@
 
 Запросы к очереди сообщений при работе триггера не тарифицируются.
 
-Триггеру для Message Queue необходимы [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для чтения из очереди сообщений и вызова функции. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. 
+Триггеру для {{ message-queue-short-name }} необходимы [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для чтения из очереди сообщений и вызова функции. Вы можете использовать один и тот же сервисный аккаунт для обеих операций. 
 
-О том, как создать триггер для Message Queue, читайте в инструкции [Создать триггер для Message Queue, который передает сообщения в функцию Cloud Functions](../../operations/trigger/ymq-trigger-create.md).
+О том, как создать триггер для {{ message-queue-short-name }}, читайте в инструкции [{#T}](../../operations/trigger/ymq-trigger-create.md).
 
 ## Группирование сообщений {#batching}
 
 Настройки группирования позволяют передавать в функцию сразу несколько сообщений. Эти настройки задают ограничение сверху по размеру группы сообщений и по времени ее накопления. Например, если размер группы сообщений равен 3, то в функцию могут поступать группы, в которых содержится от 1 до 3 сообщений.
 
-## Роли, необходимые для корректной работы триггера для Message Queue {#roles}
+## Роли, необходимые для корректной работы триггера для {{ message-queue-short-name }} {#roles}
 
 * Для создания триггера вам необходимы: 
-    * Роль `viewer` на каталог с очередью сообщений, из которой триггер читает сообщения.
-    * Роль `viewer` на каталог с функцией, которые вызывает триггер.
+    * Роль `{{ roles-viewer }}` на каталог с очередью сообщений, из которой триггер читает сообщения.
+    * Роль `{{ roles-viewer }}` на каталог с функцией, которые вызывает триггер.
     * Разрешение на сервисный аккаунт, от имени которого триггер выполняет операции. Это разрешение входит в роли [iam.serviceAccounts.user](../../../iam/security/index.md#iam-serviceAccounts-user), [editor](../../../iam/roles-reference.md#editor) и выше.
 * Для работы триггера сервисным аккаунтам необходимы роли: 
-    * `editor` на каталог с очередью сообщений, из которой триггер читает сообщения.
-    * `functions.functionInvoker` на каталог с функцией, которую вызывает триггер.
+    * `{{ roles-editor }}` на каталог с очередью сообщений, из которой триггер читает сообщения.
+    * `{{ roles-functions-invoker }}` на каталог с функцией, которую вызывает триггер.
 
 Подробнее об [управлении доступом](../../security/index.md).
 
-## Формат сообщения от триггера Message Queue {#format}
+## Формат сообщения от триггера {{ message-queue-short-name }} {#format}
 
 После того как триггер примет сообщение из очереди, он передаст его в функцию в следующем формате: 
 
@@ -48,7 +48,7 @@
             "folder_id":"b1g88tflh2sd********",         
          },
          "details":{
-            "queue_id":"yrn:yc:ymq:ru-central1:21i6v06sqmsa********:event-queue",
+            "queue_id":"yrn:yc:ymq:{{ region-id }}:21i6v06sqmsa********:event-queue",
             "message":{
                "message_id":"cce76685-5828-4304-a83d-9564********",
                "md5_of_body":"d29343907090dff4cec4a9a0********",
@@ -75,7 +75,7 @@
             "folder_id":"b1g88tflh2sd********",
          },
          "details":{
-            "queue_id":"yrn:yc:ymq:ru-central1:21i6v06sqmsa********:event-queue",
+            "queue_id":"yrn:yc:ymq:{{ region-id }}:21i6v06sqmsa********:event-queue",
             "message":{
                "message_id":"1f32fd25-11fc-4c08-88e7-d871********",
                "md5_of_body":"d29343907090dff4cec4a9a0********",
@@ -99,10 +99,10 @@
 
 ## Примеры использования {#examples}
 
-* [Создание триггеров, которые вызывают функции Cloud Functions для остановки ВМ и отправки уведомлений в Telegram](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
-* [Конвертация видео в GIF на Python](../../tutorials/video-converting-queue/index.md)
+* [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
+* [{#T}](../../tutorials/video-converting-queue/index.md)
 
 ## См. также {#see-also}
 
-* [Триггер для Message Queue, который передает сообщения в контейнер Serverless Containers](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
-* [Триггер для Message Queue, который отправляет сообщения в WebSocket-соединения](../../../api-gateway/concepts/trigger/ymq-trigger.md)
+* [{#T}](../../../serverless-containers/concepts/trigger/ymq-trigger.md)
+* [{#T}](../../../api-gateway/concepts/trigger/ymq-trigger.md)

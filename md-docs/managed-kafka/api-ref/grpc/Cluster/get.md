@@ -78,7 +78,8 @@ The maximum string length in characters is 50. ||
         "offsets_retention_minutes": "google.protobuf.Int64Value",
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
-        ]
+        ],
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
       },
       "kafka_config_3": {
         "compression_type": "CompressionType",
@@ -104,7 +105,8 @@ The maximum string length in characters is 50. ||
         "offsets_retention_minutes": "google.protobuf.Int64Value",
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
-        ]
+        ],
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
       },
       "kafka_config_4": {
         "compression_type": "CompressionType",
@@ -129,7 +131,8 @@ The maximum string length in characters is 50. ||
         "offsets_retention_minutes": "google.protobuf.Int64Value",
         "sasl_enabled_mechanisms": [
           "SaslMechanism"
-        ]
+        ],
+        "transactional_id_expiration_ms": "google.protobuf.Int64Value"
       }
       // end of the list of possible fields
     },
@@ -495,6 +498,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -593,6 +599,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -685,6 +694,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactional_id_expiration_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

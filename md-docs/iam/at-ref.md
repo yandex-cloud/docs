@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex Identity and Access Management поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} для {{ iam-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.iam.<имя_события>
+{{ at-event-prefix }}.audit.iam.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -34,8 +34,10 @@ yandex.cloud.audit.iam.<имя_события>
 `oauthclient.DeleteOAuthClient` | Удаление OAuth-клиента
 `oauthclient.DeleteOAuthClientSecret` | Удаление секрета для OAuth-клиента
 `oauthclient.UpdateOAuthClient` | Обновление OAuth-клиента
+`ReactivateServiceAccount` | Активация сервисного аккаунта
 `RevokeLeakedCredential` | Отзыв скомпрометированного секрета
 `SetServiceAccountAccessBindings` | Назначение прав доступа для сервисного аккаунта
+`SuspendServiceAccount` | Деактивация сервисного аккаунта
 `UpdateAccessKey` | Обновление статического ключа
 `UpdateApiKey` | Обновление API-ключа
 `UpdateCertificate` | Обновление сертификата
@@ -61,9 +63,10 @@ yandex.cloud.audit.iam.<имя_события>
 `CreateIamToken` | Создание IAM-токена
 `credential.ApplicationLoginEvent` | Вход пользователя в приложение
 `credential.CreateRefreshTokenForSubject` | Создание [refresh-токена](concepts/authorization/refresh-token.md) для пользователя
+`credential.CreateYcSsprToken` | Создание токена для самостоятельного сброса пароля
 `credential.RevokeRefreshTokenForSubject` | Отзыв refresh-токена у пользователя
 `credential.RevokeSsoSession` | Завершение SSO-сессии
 `mfa.VerifyUserCredential` | Подтверждение учетных данных пользователя в процессе проверки дополнительных [факторов MFA](../organization/concepts/mfa.md)
-`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по OS Login
-`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по OS Login
+`oslogin.CheckSshPolicy` | Проверка прав на подключение по SSH при доступе по {{ oslogin }}
+`oslogin.GenerateSshCertificate` | Генерация SSH-сертификата для доступа по {{ oslogin }}
 `RevokeIamToken` | Отзыв IAM-токена

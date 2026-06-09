@@ -2,7 +2,7 @@
 
 Из этой статьи вы узнаете, как настроить локальный [DNS](../../glossary/dns.md) для [контроллера сетевых политик Cilium](../concepts/network-policy.md#cilium) с помощью [Local Redirect Policy](https://docs.cilium.io/en/v1.9/gettingstarted/local-redirect-policy/).
 
-Чтобы настроить локальный DNS в [кластере Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster):
+Чтобы настроить локальный DNS в [кластере {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster):
 1. [Подготовьте спецификации для NodeLocal DNS и Local Redirect Policy](#create-manifests).
 1. [Создайте тестовое окружение](#create-test-environment).
 1. [Проверьте работу NodeLocal DNS](#test-nodelocaldns).
@@ -11,7 +11,7 @@
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
 
-1. [Создайте группы безопасности](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
     {% note warning %}
     
@@ -19,13 +19,13 @@
     
     {% endnote %}
 
-1. [Создайте кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
+1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
-   При создании укажите сервисный аккаунт и группы безопасности, подготовленные заранее. В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
+   При создании укажите сервисный аккаунт и группы безопасности, подготовленные заранее. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
 1. [Создайте группу узлов](node-group/node-group-create.md) любой подходящей конфигурации. При создании укажите группы безопасности, подготовленные заранее.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 
 1. Узнайте [IP-адрес](../../vpc/concepts/address.md) сервиса `kube-dns`:
 
@@ -275,11 +275,11 @@
 
 ## Создайте тестовое окружение {#create-test-environment}
 
-Для проверки работы локального DNS в кластере Managed Service for Kubernetes будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
+Для проверки работы локального DNS в кластере {{ managed-k8s-name }} будет запущен [под](../concepts/index.md#pod) `nettool`, содержащий в себе пакет сетевых утилит `dnsutils`.
 1. Запустите под `nettool`:
 
    ```bash
-   kubectl run nettool --image cr.yandex/yc/demo/network-multitool -- sleep infinity
+   kubectl run nettool --image {{ registry }}/yc/demo/network-multitool -- sleep infinity
    ```
 
 1. Убедитесь, что под перешел в состояние `Running`:
@@ -288,7 +288,7 @@
    kubectl get pods
    ```
 
-1. Выясните, на каком [узле](../concepts/index.md#node-group) кластера Managed Service for Kubernetes развернут под `nettool`:
+1. Выясните, на каком [узле](../concepts/index.md#node-group) кластера {{ managed-k8s-name }} развернут под `nettool`:
 
    ```bash
    kubectl get pod nettool -o wide
@@ -384,5 +384,5 @@
 ## Удалите созданные ресурсы {#clear-out}
 
 Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
-1. [Удалите кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-delete.md).
-1. Если для доступа к кластеру Managed Service for Kubernetes или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
+1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
+1. Если для доступа к кластеру {{ managed-k8s-name }} или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.

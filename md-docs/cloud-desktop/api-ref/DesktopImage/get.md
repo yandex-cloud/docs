@@ -5,7 +5,7 @@ Returns the specified desktop image.
 ## HTTP request
 
 ```
-GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images/{imageId}
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images/{imageId}
 ```
 
 ## Path parameters
@@ -29,6 +29,7 @@ Required field. ID of the image to get. ||
   "status": "string",
   "name": "string",
   "labels": "object",
+  "description": "string",
   "storageSize": "string",
   "minDiskSize": "string"
 }
@@ -65,6 +66,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storageSize | **string** (int64)

@@ -23,7 +23,7 @@
 
 ## Общие параметры подключения {#common-config}
 
-Независимо от языка, для отправки трейсов в Monium Traces укажите параметры подключения через переменные окружения:
+Независимо от языка, для отправки трейсов в {{ traces-name }} укажите параметры подключения через переменные окружения:
 
 ```bash
 export OTEL_EXPORTER_OTLP_PROTOCOL="grpc"
@@ -34,7 +34,7 @@ export OTEL_SERVICE_NAME=<имя_приложения>
 ```
 
 ```bash
-export OTEL_EXPORTER_OTLP_ENDPOINT="ingest.monium.yandex.cloud:443"
+export OTEL_EXPORTER_OTLP_ENDPOINT="{{ api-host-monium }}:443"
 ```
 
 ```bash
@@ -48,7 +48,7 @@ export OTEL_RESOURCE_ATTRIBUTES="cluster=<окружение>"
 Где:
 
 * `OTEL_SERVICE_NAME` — имя вашего приложения. Используется как значение `service.name` в атрибутах ресурса.
-* `OTEL_EXPORTER_OTLP_ENDPOINT` — эндпоинт Monium.
+* `OTEL_EXPORTER_OTLP_ENDPOINT` — эндпоинт {{ monium-name }}.
 * `OTEL_EXPORTER_OTLP_HEADERS` — заголовки авторизации и привязки к проекту. Для получения API-ключа [создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с ролью `monium.traces.writer` и [API-ключ](../../../iam/operations/authentication/manage-api-keys.md) с областью действия `yc.monium.traces.write`.
 * `OTEL_RESOURCE_ATTRIBUTES` — атрибуты ресурса. `cluster` задает окружение (по умолчанию `default`).
 

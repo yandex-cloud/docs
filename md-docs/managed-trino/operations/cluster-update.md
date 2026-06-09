@@ -1,4 +1,4 @@
-# Изменение кластера Trino
+# Изменение кластера {{ TR }}
 
 После создания кластера вы можете изменить его настройки:
 
@@ -11,7 +11,11 @@
 * [конфигурацию координатора и воркеров](#change-configuration);
 * [дополнительные настройки кластера](#change-additional-settings).
 
-Вы также можете изменить [правила доступа к объектам кластера](../concepts/access-control.md), подробнее см. в разделе [Управление доступом в Managed Service for Trino](access-control.md).
+Подробнее о других изменениях кластера:
+
+* [настройка технического обслуживания](cluster-maintenance.md);
+* [настройка правил доступа к объектам кластера](access-control.md);
+* [настройка ресурсных групп](manage-resource-groups.md).
 
 ## Изменить имя и описание кластера {#change-basic-settings}
 
@@ -19,15 +23,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В блоке **Базовые параметры** измените имя и описание кластера.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** измените имя и описание кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -36,13 +40,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените имя и описание кластера, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --new-name <имя_кластера> \
           --description <описание_кластера> 
         ```
@@ -54,17 +58,17 @@
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     {% note alert %}
 
-    Не изменяйте имя кластера с помощью Terraform. Это приведет к удалению существующего кластера и созданию нового.
+    Не изменяйте имя кластера с помощью {{ TF }}. Это приведет к удалению существующего кластера и созданию нового.
 
     {% endnote %}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
         
     1. Измените в описании кластера значение параметра `description`:
       
@@ -80,14 +84,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -140,13 +144,13 @@
         * `name` — уникальное имя кластера в рамках облака.
         * `description` — описание кластера.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -217,7 +221,7 @@
         * `name` — уникальное имя кластера в рамках облака.
         * `description` — описание кластера.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -227,7 +231,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -242,24 +246,24 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В блоке **Базовые параметры** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите сервисный аккаунт или [создайте новый](../../iam/operations/sa/create.md#create-sa) с ролями `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
-        Для изменения сервисного аккаунта в кластере Managed Service for Trino [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в Yandex Cloud назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+        Для изменения сервисного аккаунта в кластере {{ mtr-name }} [убедитесь](../../iam/operations/roles/get-assigned-roles.md), что вашему аккаунту в {{ yandex-cloud }} назначена роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
 
         {% note warning %}
         
-        Если для доступа к объектам из Object Storage в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
+        Если для доступа к объектам из {{ objstorage-name }} в кластере уже используется сервисный аккаунт, то его смена может привести к недоступности этих объектов и нарушению работы кластера. Перед изменением настроек сервисного аккаунта убедитесь, что кластер не использует соответствующие объекты.
         
         {% endnote %}
 
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -268,13 +272,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     1. Измените сервисный аккаунт, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --service-account-id <идентификатор_сервисного_аккаунта>
         ```
 
@@ -282,11 +286,11 @@
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `service_account_id`:
       
@@ -302,14 +306,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -360,13 +364,13 @@
 
         * `serviceAccountId` — идентификатор сервисного аккаунта.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+            --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
             --data '@body.json'
         ```
 
@@ -435,7 +439,7 @@
 
         * `service_account_id` — идентификатор сервисного аккаунта.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -445,7 +449,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -460,42 +464,42 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В блоке **Базовые параметры** выберите версию Trino. Версию можно как повысить, так и понизить.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** выберите версию {{ TR }}. Версию можно как повысить, так и понизить.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы изменить версию Trino:
+    Чтобы изменить версию {{ TR }}:
 
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените версию, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --version <версия>
         ```
 
-        Где `--version` — версия Trino. Версию можно как повысить, так и понизить.
+        Где `--version` — версия {{ TR }}. Версию можно как повысить, так и понизить.
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
         
     1. Измените в описании кластера значение параметра `version`:
       
@@ -507,18 +511,18 @@
         }
         ```
 
-        Где `version` — версия Trino. Версию можно как повысить, так и понизить.
+        Где `version` — версия {{ TR }}. Версию можно как повысить, так и понизить.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -569,15 +573,15 @@
 
             {% endnote %}
 
-        * `version` — версия Trino. Версию можно как повысить, так и понизить.
+        * `version` — версия {{ TR }}. Версию можно как повысить, так и понизить.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -646,9 +650,9 @@
 
             {% endnote %}
 
-        * `version` — версия Trino. Версию можно как повысить, так и понизить.
+        * `version` — версия {{ TR }}. Версию можно как повысить, так и понизить.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -658,7 +662,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -673,15 +677,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-    1. В блоке **Сетевые настройки** выберите группы безопасности для кластера.
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группы безопасности для кластера.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -690,13 +694,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените группы безопасности, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --security-group-ids <список_идентификаторов_групп_безопасности>
         ```
 
@@ -704,11 +708,11 @@
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените в описании кластера значение параметра `security_group_ids`:
       
@@ -724,14 +728,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -788,13 +792,13 @@
           
             * `securityGroupIds` — список идентификаторов групп безопасности.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -867,7 +871,7 @@
 
             * `security_group_ids` — список идентификаторов групп безопасности.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -877,7 +881,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -892,22 +896,22 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. В блоке **Политика перезапросов** измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         
         * Измените **Тип объекта для перезапроса**.
         
-        * Добавьте или удалите в поле **Параметры перезапросов** дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * Добавьте или удалите в поле **Параметры перезапросов** дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
         
-        * Добавьте или удалите в поле **Параметры хранилища** дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        * Добавьте или удалите в поле **Параметры хранилища** дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -916,13 +920,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --retry-policy-enabled \ 
           --retry-policy <тип_объекта_для_перезапроса> \
           --retry-policy-additional-properties <список_дополнительных_параметров> \
@@ -939,19 +943,19 @@
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
 
-        * `--retry-policy-additional-properties` — дополнительные параметры перезапросов в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties` — дополнительные параметры перезапросов в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
           
-        * `--retry-policy-exchange-manager-service-s3` — включает использование служебного бакета Object Storage в качестве хранилища Exchange Manager для промежуточных данных.
+        * `--retry-policy-exchange-manager-service-s3` — включает использование служебного бакета {{ objstorage-short-name }} в качестве хранилища Exchange Manager для промежуточных данных.
           
-        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища Exchange Manager в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища Exchange Manager в формате `<ключ>=<значение>`. [Подробнее о параметрах в документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы включить политику [отказоустойчивого выполнения запросов](../concepts/retry-policy.md), добавьте к описанию кластера блок `retry_policy`:
       
@@ -981,23 +985,23 @@
             * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `QUERY` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
         
-        * `additional_properties` — дополнительные параметры повторного выполнения запросов в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `additional_properties` — дополнительные параметры повторного выполнения запросов в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         
         * `exchangeManager` — параметры хранилища Exchange Manager:
         
             * `service_s3` — использование S3-хранилища для записи данных при перезапросах.
-            * `additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+            * `additional_properties` — дополнительные параметры хранилища Exchange Manager в формате `"<ключ>" = "<значение>"`. Подробнее о параметрах в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1064,17 +1068,17 @@
                 * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                 * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-            * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+            * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-            * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            * `additionalProperties` — дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -1159,11 +1163,11 @@
                 * `TASK` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
                 * `QUERY` – повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-            * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
+            * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
-            * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации Trino](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
+            * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1173,12 +1177,12 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -1188,7 +1192,7 @@
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1197,13 +1201,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените настройки выполнения запросов и выделения ресурсов кластера для запросов, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --query-properties <список_настроек>
         ```
 
@@ -1217,15 +1221,15 @@
 
           {% endnote %}
 
-          Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените настройки выполнения запросов и выделения ресурсов кластера для запросов в блоке `query_properties`:
 
@@ -1244,18 +1248,18 @@
         
         * `query_properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `"<ключ>" = "<значение>"`.
         
-            Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+            Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1315,15 +1319,15 @@
 
           {% endnote %}
 
-          Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -1386,9 +1390,9 @@
 
           {% endnote %}
 
-          Подробнее о [настройках выделения ресурсов кластера для запросов](https://trino.io/docs/current/admin/properties-resource-management.html) и о [настройках выполнения запросов](https://trino.io/docs/current/admin/properties-query-management.html).
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1398,7 +1402,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -1413,15 +1417,15 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1430,13 +1434,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers), выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --coordinator resource-preset-id=<класс_хостов> \
           --worker count=<количество_экземпляров>,`
                   `min-count=<минимальное_количество_экземпляров>,`
@@ -1462,11 +1466,11 @@
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Измените конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers) в блоках `coordinator` и `worker`:
       
@@ -1514,14 +1518,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -1609,13 +1613,13 @@
 
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте настройку `scalePolicy.autoScale` и задайте минимальное и максимальное значения. Для фиксированного числа воркеров используйте настройку `scalePolicy.fixedScale` и укажите требуемое значение.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -1721,7 +1725,7 @@
 
             Чтобы количество воркеров автоматически изменялось в зависимости от нагрузки, используйте настройку `scale_policy.auto_scale` и задайте минимальное и максимальное значения. Для фиксированного числа воркеров используйте настройку `scale_policy.fixed_scale` и укажите требуемое значение.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -1731,7 +1735,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```
@@ -1746,47 +1750,47 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога](https://console.yandex.cloud).
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Trino**.
-    1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
+    1. Перейдите на [страницу каталога]({{ link-console-main }}).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+    1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
     1. Измените дополнительные настройки кластера:
         
-        * **Защита от удаления** — защита кластера от непреднамеренного удаления пользователем.
+        * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}** — защита кластера от непреднамеренного удаления пользователем.
 
             Включенная защита кластера от удаления не помешает подключиться к нему вручную и удалить данные.
         
-        * **Окно обслуживания** — настройки окна [технического обслуживания](../concepts/maintenance.md).
+        * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}** — настройки окна [технического обслуживания](../concepts/maintenance.md).
 
-            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **произвольное** (по умолчанию).
-            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **по расписанию** и укажите нужные день недели и час дня по UTC. Например, можно выбрать время, когда кластер наименее загружен.
+            * Чтобы разрешить проведение технического обслуживания в любое время, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-anytime }}** (по умолчанию).
+            * Чтобы указать предпочтительное время начала обслуживания, выберите пункт **{{ ui-key.yacloud.mdb.forms.value_maintenance-type-weekly }}** и укажите день недели и интервал времени по UTC. Например, можно выбрать время, когда кластер наименее загружен.
             
             Операции по техническому обслуживанию проводятся для включенных и выключенных кластеров. Они могут включать в себя: обновление СУБД, применение патчей и так далее.
 
-        * **Запись логов** — опция включает логирование. 
+        * **{{ ui-key.yacloud.logging.field_logging }}** — опция включает логирование. 
         
           * Выберите место записи логов:
-            * **Каталог** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
+            * **{{ ui-key.yacloud.common.folder }}** — выберите каталог из списка. Логи будут записываться в лог-группу по умолчанию выбранного каталога.
                 
-            * **Группа** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
+            * **{{ ui-key.yacloud.logging.label_group }}** — выберите [лог-группу](../../logging/concepts/log-group.md) из списка или создайте новую.
             
-          * Выберите **Минимальный уровень логирования** из списка.
+          * Выберите **{{ ui-key.yacloud.logging.label_minlevel }}** из списка.
 
           {% note info %}
                     
-          Для управления логированием вашему аккаунту в Yandex Cloud нужны роли:
+          Для управления логированием вашему аккаунту в {{ yandex-cloud }} нужны роли:
           
-          * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+          * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
           * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера.
                     
           {% endnote %}
 
     1. Измените параметры [TLS](../../glossary/tls.md). Можно изменить, добавить или удалить сертификаты.
 
-    1. Нажмите кнопку **Сохранить изменения**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -1795,13 +1799,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-trino cluster update --help
+        {{ yc-mdb-tr }} cluster update --help
         ```
 
     2. Измените дополнительные настройки кластера, выполнив команду:
 
         ```bash
-        yc managed-trino cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-tr }} cluster update <имя_или_идентификатор_кластера> \
           --deletion-protection \
           --maintenance-window type=<тип_технического_обслуживания>,`
                               `day=<день_недели>,`
@@ -1824,11 +1828,13 @@
             * `anytime` (по умолчанию) — в любое время.
             * `weekly` — по расписанию. Для этого значения дополнительно укажите:
                 * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-                * `hour` — час дня по UTC: от `1` до `24`.
+                * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+            
+                  > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
         * Параметры логирования:
 
-          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами Trino, будут отправляться в Yandex Cloud Logging.
+          * `--log-enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}.
           * `--log-folder-id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
           * `--log-group-id` — идентификатор пользовательской [лог-группы](../../logging/concepts/log-group.md).
 
@@ -1838,9 +1844,9 @@
         
           {% note info %}
                     
-          Для управления логированием вашему аккаунту в Yandex Cloud нужны роли:
+          Для управления логированием вашему аккаунту в {{ yandex-cloud }} нужны роли:
           
-          * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+          * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
           * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера.
                     
           {% endnote %}
@@ -1851,11 +1857,11 @@
 
         Имя и идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.   
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+        Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
 
     1. Чтобы включить защиту кластера от непреднамеренного удаления, добавьте параметр `deletion_protection = true`:
         
@@ -1891,9 +1897,11 @@
             * `ANYTIME` — в любое время.
             * `WEEKLY` — по расписанию.
         * `day` — день недели для типа `WEEKLY`: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-        * `hour` — час дня по UTC для типа `WEEKLY`: от `1` до `24`.
+        * `hour` — порядковый номер часового интервала по UTC для типа `WEEKLY`: от `1` до `24`.
+        
+          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
-    1. Чтобы включить отправку логов Trino в сервис [Yandex Cloud Logging](../../logging/index.md), добавьте к описанию кластера блок `logging`:
+    1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/index.md), добавьте к описанию кластера блок `logging`:
 
         ```hcl
         resource "yandex_trino_cluster" "<имя_кластера>" {
@@ -1919,9 +1927,9 @@
 
         {% note info %}
                   
-        Для управления логированием вашему аккаунту в Yandex Cloud нужны роли:
+        Для управления логированием вашему аккаунту в {{ yandex-cloud }} нужны роли:
         
-        * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+        * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
         * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера.
                   
         {% endnote %}
@@ -1944,13 +1952,13 @@
          
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -1964,13 +1972,13 @@
        
              ## Параметры TLS {#tls}
              
-             Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+             {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
              
              ## TLS для PG и CH {#tls-pg-ch}
              
              {% note info %}
                         
-             Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+             Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                         
              {% endnote %}
              
@@ -1982,13 +1990,13 @@
        
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -2000,14 +2008,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -2077,7 +2085,7 @@
 
         * `logging` — параметры логирования:
 
-            * `enabled` — включает логирование. Логи, сгенерированные компонентами Trino, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
+            * `enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `folderId` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `logGroupId` — идентификатор пользовательской [лог-группы](../../logging/concepts/log-group.md).
 
@@ -2087,9 +2095,9 @@
 
             {% note info %}
                       
-            Для управления логированием вашему аккаунту в Yandex Cloud нужны роли:
+            Для управления логированием вашему аккаунту в {{ yandex-cloud }} нужны роли:
             
-            * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+            * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
             * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера.
                       
             {% endnote %}
@@ -2105,13 +2113,13 @@
 
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -2125,13 +2133,13 @@
 
               ## Параметры TLS {#tls}
               
-              Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+              {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
               
               ## TLS для PG и CH {#tls-pg-ch}
               
               {% note info %}
                          
-              Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+              Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                          
               {% endnote %}
               
@@ -2143,13 +2151,13 @@
                
            ## Параметры TLS {#tls}
            
-           Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+           {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
            
            ## TLS для PG и CH {#tls-pg-ch}
            
            {% note info %}
                       
-           Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+           Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                       
            {% endnote %}
            
@@ -2159,13 +2167,13 @@
            * самоподписанный сертификат;
            * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://trino.api.cloud.yandex.net/managed-trino/v1/clusters/<идентификатор_кластера>'
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
           --data '@body.json'
         ```
 
@@ -2253,7 +2261,7 @@
 
         * `logging` — параметры логирования:
 
-            * `enabled` — включает логирование. Логи, сгенерированные компонентами Trino, будут отправляться в Yandex Cloud Logging. Возможные значения: `true` или `false`.
+            * `enabled` — включает логирование. Логи, сгенерированные компонентами {{ TR }}, будут отправляться в {{ cloud-logging-full-name }}. Возможные значения: `true` или `false`.
             * `folder_id` — идентификатор каталога. Логи будут записываться в [лог-группу](../../logging/concepts/log-group.md) по умолчанию для этого каталога.
             * `log_group_id` — идентификатор пользовательской [лог-группы](../../logging/concepts/log-group.md).
 
@@ -2263,9 +2271,9 @@
 
             {% note info %}
                       
-            Для управления логированием вашему аккаунту в Yandex Cloud нужны роли:
+            Для управления логированием вашему аккаунту в {{ yandex-cloud }} нужны роли:
             
-            * [logging.reader](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
+            * [{{ roles-logging-reader }}](../../logging/security/index.md#logging-reader) — чтобы просматривать логи кластера;
             * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера.
                       
             {% endnote %}
@@ -2282,13 +2290,13 @@
 
           ## Параметры TLS {#tls}
           
-          Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+          {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
           
           ## TLS для PG и CH {#tls-pg-ch}
           
           {% note info %}
                      
-          Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+          Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                      
           {% endnote %}
           
@@ -2302,13 +2310,13 @@
 
             ## Параметры TLS {#tls}
             
-            Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+            {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
             
             ## TLS для PG и CH {#tls-pg-ch}
             
             {% note info %}
                        
-            Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+            Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                        
             {% endnote %}
             
@@ -2320,13 +2328,13 @@
                
           ## Параметры TLS {#tls}
           
-          Managed Service for Trino будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
+          {{ mtr-name }} будет использовать указанные сертификаты для подключения к пользовательским инсталляциям баз данных. Для управляемых баз данных TLS-сертификат добавляется в параметры подключения автоматически.
           
           ## TLS для PG и CH {#tls-pg-ch}
           
           {% note info %}
                      
-          Если вы настраиваете TLS для коннекторов ClickHouse®, PostgreSQL или MySQL® — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в Connection Manager, в настройках включите использование TLS.
+          Если вы настраиваете TLS для коннекторов {{ CH }}, {{ PG }} или {{ MY }} — [создайте подключение](../../metadata-hub/operations/create-connection.md#on-premise-connection) к пользовательской инсталляции в {{ connection-manager-name }}, в настройках включите использование TLS.
                      
           {% endnote %}
           
@@ -2336,7 +2344,7 @@
           * самоподписанный сертификат;
           * сертификат, выпущенный в стороннем центре сертификации с цепочкой промежуточных сертификатов.
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -2346,7 +2354,7 @@
           -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
           -rpc-header "Authorization: Bearer $IAM_TOKEN" \
           -d @ \
-          trino.api.cloud.yandex.net:443 \
+          {{ api-host-trino }}:{{ port-https }} \
           yandex.cloud.trino.v1.ClusterService.Update \
           < body.json
         ```

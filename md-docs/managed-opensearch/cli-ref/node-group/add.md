@@ -43,7 +43,7 @@ Possible property names:
 
 - `assign-public-ip`: Determines whether a public IP is assigned to the hosts in the group.
 
-- `roles`: Roles to be given to the hosts in the node group. Supported values: 'manager', 'data', 'data+manager' (or 'manager+data') ||
+- `roles`: Roles to be given to the hosts in the node group. Supported values: 'manager', 'data', 'warm', 'ingest', 'data+manager' or 'manager+data', etc. If no node groups have 'ingest' role explicitly set, then all 'data' nodes will implicitly have 'ingest' role. ||
 || `--dashboards-node-group` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Individual configurations for Dashboards node groups.
@@ -84,9 +84,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -114,6 +111,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать группу хостов](../../operations/host-groups.md#cli_2)

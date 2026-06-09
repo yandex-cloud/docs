@@ -41,7 +41,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters affected images listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering only on [LifecyclePolicy.name](get.md#yandex.cloud.containerregistry.v1.LifecyclePolicy) field.
 2. An `=` operator.
@@ -104,7 +103,6 @@ List of affected images. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListDryRunLifecyclePolicyResultAffectedImagesRequest.page_size](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesRequest), use `next_page_token` as the value
 for the [ListDryRunLifecyclePolicyResultAffectedImagesRequest.page_token](#yandex.cloud.containerregistry.v1.ListDryRunLifecyclePolicyResultAffectedImagesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -136,7 +134,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 

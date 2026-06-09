@@ -5,7 +5,7 @@ Retrieves the list of users in the specified userpool.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/users
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/idp/users
 ```
 
 ## Query parameters {#yandex.cloud.organizationmanager.v1.idp.ListUsersRequest}
@@ -81,7 +81,6 @@ Token for getting the next page of the list. ||
 ## User {#yandex.cloud.organizationmanager.v1.idp.User}
 
 A user in the Identity Provider system.
-
 Users are created within a userpool and can authenticate to access cloud resources.
 Each user has a unique identifier, credentials, and profile information.
 
@@ -100,13 +99,13 @@ To get the userpool ID, make a [UserpoolService.List](../Userpool/list.md#List) 
 Current status of the user.
 Determines whether the user can authenticate and access the system.
 
-- `CREATING`: The user is in the process of being created.
 - `ACTIVE`: The user is active and can authenticate.
 Active users have full access to the system according to their permissions.
 - `SUSPENDED`: The user is suspended and cannot authenticate.
 Suspended users retain their data but cannot access the system.
 - `DELETING`: The user is in the process of being deleted.
-This is a transitional state before the user is completely removed from the system. ||
+This is a transitional state before the user is completely removed from the system.
+- `CREATING`: The user is in the process of being created. ||
 || username | **string**
 
 Username used for authentication.

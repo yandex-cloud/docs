@@ -117,7 +117,7 @@ description: Правила определяют, могут ли пользов
        --access-control-from-file access_control.yaml
      ```
 
-     Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+     Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
 - {{ TF }} {#tf}
 
@@ -183,7 +183,7 @@ description: Правила определяют, могут ли пользов
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
 
@@ -249,7 +249,7 @@ description: Правила определяют, могут ли пользов
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-      Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+      Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
   1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
@@ -329,7 +329,7 @@ description: Правила определяют, могут ли пользов
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-      Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+      Доступные параметры кластера и их описания представлены в [инструкции](cluster-create.md#create-cluster).
 
   4. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
@@ -455,7 +455,7 @@ description: Правила определяют, могут ли пользов
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
   
-      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+      Инструкция по созданию файла описана в разделе [Создание кластера](cluster-create.md).
   
   1. Если правила доступа еще не заданы, добавьте ресурс `yandex_trino_access_control`, содержащий список правил `system_session_properties`.
 
@@ -523,7 +523,7 @@ description: Правила определяют, могут ли пользов
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
 
 - REST API {#api}
 

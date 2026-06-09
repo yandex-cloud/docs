@@ -1,12 +1,12 @@
-# Визуализация данных Yandex Monitoring
+# Визуализация данных {{ monitoring-full-name }}
 
 
-Сценарий будет полезен пользователям, у которых уже развернут и запущен один из сервисов Yandex Cloud.
+Сценарий будет полезен пользователям, у которых уже развернут и запущен один из сервисов {{ yandex-cloud }}.
 
-Вы создадите чарт на основе [языка запросов Yandex Monitoring](../../monitoring/concepts/querying.md) и разместите его на дашборде.
+Вы создадите чарт на основе [языка запросов {{ monitoring-full-name }}](../../monitoring/concepts/querying.md) и разместите его на дашборде.
 
 
-Для визуализации и исследования данных [подготовьте DataLens к работе](#before-you-begin), затем выполните следующие шаги:
+Для визуализации и исследования данных [подготовьте {{ datalens-short-name }} к работе](#before-you-begin), затем выполните следующие шаги:
 
 
 1. [Создайте подключение](#create-connection).
@@ -18,10 +18,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Чтобы начать работать с DataLens:
+Чтобы начать работать с {{ datalens-short-name }}:
 
-1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе.
-1. Откройте [главную страницу](https://datalens.ru/?skipPromo=true) DataLens.
+1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. Нажмите **Открыть DataLens**.
 1. Выберите один из вариантов:
 
@@ -29,31 +29,31 @@
       
       {% note info %}
 
-      Для активации экземпляра DataLens пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [Управление доступом в Yandex Identity Hub](../../organization/security/index.md).
+      Для активации экземпляра {{ datalens-short-name }} пользователю нужна роль `admin` или `owner`. Подробнее про роли см. в разделе [{#T}](../../organization/security/index.md).
 
       {% endnote %}
 
    * Если у вас есть облако, но нет организации, нажмите **Добавить новый DataLens**. В открывшемся окне введите название и описание организации и нажмите **Создать организацию и DataLens**. Подробнее о работе с организациями см. в разделе [Начало работы с организациями](../../organization/quickstart.md).
 
-   Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки](https://center.yandex.cloud/support) Yandex Cloud. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [DataLens](https://t.me/YandexDataLens) в Telegram. 
+   Если у вас возник технический вопрос по работе сервиса, обратитесь в [службу поддержки]({{ link-console-support }}) {{ yandex-cloud }}. Чтобы спросить совета, обсудить решение вашей задачи или лучшие практики работы сервиса, напишите в чат [{{ datalens-short-name }}](https://t.me/YandexDataLens) в Telegram. 
 
 
 ## Создайте подключение {#create-connection}
 
 {% note info %}
 
-Для создания подключения требуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) `monitoring.viewer` (или `viewer`).
-Для написания запросов в QL-чартах используйте [язык запросов Yandex Monitoring](../../monitoring/concepts/querying.md).
+Для создания подключения требуется [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-viewer }}` (или `{{ roles-viewer }}`).
+Для написания запросов в QL-чартах используйте [язык запросов {{ monitoring-full-name }}](../../monitoring/concepts/querying.md).
 
 {% endnote %}
 
-### Подключение к Monitoring {#monitoring-connection}
+### Подключение к {{ monitoring-name }} {#monitoring-connection}
 
-Чтобы создать подключение к Monitoring:
+Чтобы создать подключение к {{ monitoring-name }}:
 
-1. Перейдите на [страницу подключений](https://datalens.ru/connections).
+1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Нажмите кнопку **Создать подключение**.
-1. Выберите подключение **Monitoring**.
+1. Выберите подключение **{{ monitoring-name }}**.
 1. Укажите параметры подключения:
 
    * **Облако и каталог**. Выберите каталог, в котором находится ваш сервисный аккаунт.
@@ -66,24 +66,24 @@
 
 1. Перейдите к уже созданному подключению.
 1. В правом верхнем углу нажмите **Создать QL-чарт**.
-1. На вкладке **Запрос** введите текст запроса. Его можно написать самостоятельно, либо скопировать из Monitoring.
+1. На вкладке **Запрос** введите текст запроса. Его можно написать самостоятельно, либо скопировать из {{ monitoring-name }}.
 
-   {% cut "Как скопировать запрос из Monitoring" %}
+   {% cut "Как скопировать запрос из {{ monitoring-name }}" %}
    
-   1. Перейдите на интересующий вас дашборд в сервисе Monitoring. Для доступности дашбордов у вас должен быть запущен один из сервисов Yandex Cloud.
+   1. Перейдите на интересующий вас дашборд в сервисе {{ monitoring-name }}. Для доступности дашбордов у вас должен быть запущен один из сервисов {{ yandex-cloud }}.
    1. Откройте нужный график в Metric Explorer. Для этого нажмите значок ![image](../../_assets/console-icons/compass.svg) в правом верхнем углу графика.
    
       ![metrica-memory-usage](../../_assets/datalens/monitoring-visualization/metrica-memory-usage.png)
 
    1. В нижней части экрана перейдите на вкладку **Запросы**.
-   1. В строке с нужным запросом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Скопировать как текст**. В DataLens запрос нужно вводить без параметра `folderId`.
+   1. В строке с нужным запросом нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Скопировать как текст**. В {{ datalens-short-name }} запрос нужно вводить без параметра `folderId`.
       
-      Пример запроса в Monitoring:
+      Пример запроса в {{ monitoring-name }}:
       
       ```sql
       "cpu_usage"{folderId="b1g9r5h41935********", service="compute", resource_id="charts-prod-vla-1"}
       ```
-      В DataLens запрос введите без параметра `folderId`:
+      В {{ datalens-short-name }} запрос введите без параметра `folderId`:
 
       ```sql
       "cpu_usage"{service="compute", resource_id="charts-prod-vla-1"}
@@ -156,7 +156,7 @@
 
 #### См. также {#see-also}
 
-* [Добавление чарта на дашборд в Yandex DataLens](../../datalens/operations/dashboard/add-chart.md)
-* [Добавление селектора на дашборд в Yandex DataLens](../../datalens/operations/dashboard/add-selector.md)
-* [Создание QL-чарта в Yandex DataLens](../../datalens/operations/chart/create-sql-chart.md)
+* [{#T}](../../datalens/operations/dashboard/add-chart.md)
+* [{#T}](../../datalens/operations/dashboard/add-selector.md)
+* [{#T}](../../datalens/operations/chart/create-sql-chart.md)
 * [QL-чарты](../../datalens/concepts/chart/index.md#sql-charts)

@@ -5,7 +5,7 @@ Retrieves the list of quota requests in the specified resource.
 ## HTTP request
 
 ```
-GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaRequests
+GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaRequests
 ```
 
 ## Query parameters {#yandex.cloud.quotamanager.v1.ListQuotaRequestRequest}

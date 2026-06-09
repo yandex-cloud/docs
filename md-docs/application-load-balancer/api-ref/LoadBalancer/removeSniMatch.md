@@ -7,7 +7,7 @@ This request does not allow to delete [TlsListener.defaultHandler](get.md#yandex
 ## HTTP request
 
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
+POST https://alb.{{ api-host }}/apploadbalancer/v1/loadBalancers/{loadBalancerId}:removeSniMatch
 ```
 
 ## Path parameters

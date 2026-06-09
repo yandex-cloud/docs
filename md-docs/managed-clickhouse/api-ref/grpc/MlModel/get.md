@@ -1,7 +1,6 @@
 # Managed Service for ClickHouse API, gRPC: MlModelService.Get
 
 Returns the specified machine learning model.
-
 To get the list of all available models, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -27,7 +26,6 @@ The maximum string length in characters is 50. ||
 || ml_model_name | **string**
 
 Required field. Name of the model to return.
-
 To get a model name make a [MlModelService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||

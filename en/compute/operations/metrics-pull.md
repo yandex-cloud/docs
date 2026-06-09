@@ -10,7 +10,7 @@ To download metric data, use the [read](../../monitoring/api-ref/MetricsData/rea
 
 ## Getting disk metrics {#disk}
 
-1. Create a file with the request body, e.g., `body.json`:
+1. Create a file containing your request body, e.g., `body.json`:
 
     For example, the request below gets metric data on the disk load from August 9 to August 10 (00:00 UTC).
 

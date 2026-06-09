@@ -225,9 +225,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -255,11 +252,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Настройка автоматического масштабирования кластера](../../operations/autoscale.md#cli_1)
- * [Группы безопасности для кластера Managed Service for Kubernetes](../../operations/connect/security-groups.md#cli_1)
- * [Создайте группу узлов и добавьте публичный ключ](../../operations/node-connect-ssh.md#cli_1)
- * [Создать группу узлов в трех зонах доступности с узлами из пулов резервов ВМ в каждой зоне](../../operations/node-group/node-group-create-in-instance-pool.md#cli_2)
- * [Создание группы узлов](../../operations/node-group/node-group-create.md#cli_1)
- * [Назначить Kubernetes-метки при создании группы узлов](../../operations/node-group/node-label-management.md#cli_1)

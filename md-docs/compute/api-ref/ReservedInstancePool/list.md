@@ -5,7 +5,7 @@ Retrieves the list of reserved instance pool resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools
+GET https://compute.{{ api-host }}/compute/v1/reservedInstancePools
 ```
 
 ## Query parameters {#yandex.cloud.compute.v1.ListReservedInstancePoolsRequest}
@@ -14,43 +14,38 @@ GET https://compute.api.cloud.yandex.net/compute/v1/reservedInstancePools
 ||Field | Description ||
 || folderId | **string**
 
-Required field. ID of the Folder to list reserved instance pools in.
+ID of the Folder to list reserved instance pools in.
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListReservedInstancePoolsResponse.nextPageToken](#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListReservedInstancePoolsResponse.nextPageToken](#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=`, `!=`, `IN`, `NOT IN`.
 3. `<value>` represents a value.
 String values should be written in double (`"`) or single (`'`) quotes. C-style escape sequences are supported (`\"` turns to `"`, `\'` to `'`, `\\` to backslash).
-
-The maximum string length in characters is 1000. ||
+The length must be less than or equal to 1000. ||
 || orderBy | **string**
 
 By which column the listing should be ordered and in which direction,
 format is "createdAt desc". "id asc" if omitted.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListReservedInstancePoolsResponse}
@@ -195,22 +190,25 @@ Stats for instances of the pool ||
 ||Field | Description ||
 || memory | **string** (int64)
 
-Required field. The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 274877906944. ||
+The amount of memory available to the instance, specified in bytes.
+The value must be less than or equal to 274877906944.
+This field is required. ||
 || cores | **string** (int64)
 
-Required field. The number of cores available to the instance. ||
+The number of cores available to the instance.
+The value must satisfy: 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80.
+This field is required. ||
 || coreFraction | **string** (int64)
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
 This field sets baseline performance for each core.
-
 For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
-For more information, see [Levels of core performance](../../concepts/performance-levels.md). ||
+For more information, see [Levels of core performance](../../concepts/performance-levels.md).
+The value must satisfy: 0,5,20,50,100. ||
 || gpus | **string** (int64)
 
-The number of GPUs available to the instance. ||
+The number of GPUs available to the instance.
+The value must satisfy: 0,1,2,4. ||
 |#
 
 ## GpuSettings {#yandex.cloud.compute.v1.GpuSettings}

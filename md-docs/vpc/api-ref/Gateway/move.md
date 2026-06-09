@@ -5,7 +5,7 @@ Move a gateway to another folder
 ## HTTP request
 
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/gateways/{gatewayId}:move
+POST https://vpc.{{ api-host }}/vpc/v1/gateways/{gatewayId}:move
 ```
 
 ## Path parameters

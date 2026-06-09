@@ -30,9 +30,25 @@
 
 {% include [baremetal-editor](../../_roles/baremetal/editor.md) %}
 
+{% note warning %}
+
+С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### baremetal.admin {#baremetal-admin}
 
 {% include [baremetal-admin](../../_roles/baremetal/admin.md) %}
+
+{% note warning %}
+
+С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 ### Примитивные роли {#primitive-roles}
 

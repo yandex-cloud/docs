@@ -1,13 +1,12 @@
 # Managed Service for ClickHouse API, REST: ResourcePreset.Get
 
 Returns the specified ResourcePreset resource.
-
 To get the list of available ResourcePreset resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

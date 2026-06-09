@@ -1,13 +1,13 @@
 # Setting the number of concurrent container instance calls
 
-Number of concurrent container instance calls (`concurrency`) cannot exceed the relevant [quota](../concepts/limits.md#serverless-containers-quotas).
+The number of concurrent container instance calls (`concurrency`) cannot exceed the relevant [quota](../concepts/limits.md#serverless-containers-quotas).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder with your container.
-    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+    1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
     1. Set the number of concurrent container instance calls under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**.
@@ -33,7 +33,7 @@ Number of concurrent container instance calls (`concurrency`) cannot exceed the 
     * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
     * `--concurrency`: Maximum number of concurrent invocations per container instance.
-    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
+    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
 
     Result:
 
@@ -86,20 +86,20 @@ Number of concurrent container instance calls (`concurrency`) cannot exceed the 
 
         Where:
         * `name`: Container name.
-        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
+        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image pull permissions.
         * `memory`: Required memory. The default value is 128 MB.
         * `concurrency`: Maximum number of concurrent invocations per container instance.
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
        
        For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-    1. Run a check using the following command:
+    1. Run a check using this command:
 
         ```
         terraform plan
         ```
 
-        A list of resource parameters will be displayed in the terminal. This is a test step: the resource will not be changed. {{ TF }} will show any errors in the configuration.
+        The terminal will display a list of resource parameters. This is a verification step: the resource will not be modified. Otherwise, {{ TF }} will show any detected errors.
 
     1. Apply the configuration changes:
 

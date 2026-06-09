@@ -5,7 +5,7 @@ Updates the specified broker.
 ## HTTP request
 
 ```
-PATCH https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers/{brokerId}
+PATCH https://{{ api-host-iot-broker }}/iot-broker/v1/brokers/{brokerId}
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Retrieves the list of Registry resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/registries
+GET https://container-registry.{{ api-host }}/container-registry/v1/registries
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListRegistriesRequest}
@@ -15,7 +15,6 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/regist
 || folderId | **string**
 
 Required field. ID of the folder to list registries in.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||

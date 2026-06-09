@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex Message Queue поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
+В {{ at-name }} для {{ message-queue-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.ymq.<имя_события>
+{{ at-event-prefix }}.audit.ymq.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}

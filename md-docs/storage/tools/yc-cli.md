@@ -1,8 +1,8 @@
-# Интерфейс командной строки Yandex Cloud (CLI)
+# Интерфейс командной строки {{ yandex-cloud }} (CLI)
 
-[Yandex Cloud CLI](../../cli/index.md) — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
+[{{ yandex-cloud }} CLI](../../cli/index.md) — скачиваемое программное обеспечение для управления вашими облачными ресурсами через командную строку.
 
-## Установите Yandex Cloud CLI {#install}
+## Установите {{ yandex-cloud }} CLI {#install}
 
 {% list tabs group=operating_system %}
 
@@ -11,7 +11,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -37,7 +37,7 @@
     1. Выполните команду:
 
         ```bash
-        curl -sSL https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+        curl -sSL https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
         ```
 
         Скрипт установит CLI и добавит путь до исполняемого файла в переменную окружения `PATH`.
@@ -61,7 +61,7 @@
         Скрипт установки автоматически дополнит конфигурационный файл `~/.zshrc`:
         
         ```
-        # The next line updates PATH for Yandex Cloud CLI.
+        # The next line updates PATH for {{ yandex-cloud }} CLI.
         if [ -f '/Users/<username>/yandex-cloud/path.bash.inc' ]; then source '/Users/<username>/yandex-cloud/path.bash.inc'; fi
         # The next line enables shell command completion for yc.
         if [ -f '/Users/<username>/yandex-cloud/completion.zsh.inc' ]; then source '/Users/<username>/yandex-cloud/completion.zsh.inc'; fi
@@ -88,7 +88,7 @@
             
             
             ```bash
-            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1')
+            iex (New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}')
             ```
 
 
@@ -98,7 +98,7 @@
             ```
             Add yc installation dir to your PATH? [Y/n]
             ```        
-        1. Введите `Y`. После этого Yandex Cloud CLI можно пользоваться, командную оболочку перезапускать не нужно.
+        1. Введите `Y`. После этого {{ yandex-cloud }} CLI можно пользоваться, командную оболочку перезапускать не нужно.
 
     - Для установки с помощью командной строки:
 
@@ -108,7 +108,7 @@
             
             
             ```bash
-            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net/yandexcloud-yc/install.ps1'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
+            @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://storage.yandexcloud.net{{ yc-windows-path }}'))" && SET "PATH=%PATH%;%USERPROFILE%\yandex-cloud\bin"
             ```
 
 
@@ -125,9 +125,9 @@
 
 Если в процессе установки CLI возникла ошибка, см. раздел [Решение проблем CLI](../../cli/error.md#failure-writing-output-to-destination).
 
-## Аутентифицируйтесь в Yandex Cloud CLI {#cli-auth}
+## Аутентифицируйтесь в {{ yandex-cloud }} CLI {#cli-auth}
 
-Для доступа к Yandex Cloud CLI выполните аутентификацию, выбрав один из следующих методов:
+Для доступа к {{ yandex-cloud }} CLI выполните аутентификацию, выбрав один из следующих методов:
 
 {% list tabs group=authentication %}
 
@@ -135,111 +135,17 @@
 
   Чтобы аутентифицироваться с помощью [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport):
   
-  1. Получите OAuth-токен в сервисе [Яндекс ID](https://yandex.ru/dev/id/doc/ru/concepts/ya-oauth-intro): 
+  1. Получите адрес электронной почты:
+    
+     1. Перейдите в ваш аккаунт на [Яндексе](https://id.yandex.ru/personal).
+     1. В блоке **Контакты** скопируйте адрес электронной почты.
   
-     1. Перейдите по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb). Если приложение запрашивает доступ к данным, разрешите. Это нужно для получения токена.
-  
-     1. Скопируйте в буфер обмена или сохраните полученный токен.
-  
-  1. Если вы аутентифицируетесь впервые, перейдите в [консоль облака](https://console.yandex.cloud). Примите условия лицензионного соглашения и политики конфиденциальности.
-  
-  1. Чтобы начать настройку профиля CLI, выполните команду:
-  
-      
-      ```bash
-      yc init
-      ```
-  
-  
-  
-  1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый. Если вы выполняете команду `yc init` впервые, этот шаг будет отсутствовать.
-  
-     ```bash
-     Pick desired action:
-     [1] Re-initialize this profile 'default' with new settings
-     [2] Create a new profile
-     Please enter your numeric choice: 1
-     ```
-  
-  1. По запросу команды введите OAuth-токен, полученный ранее:
-     
-     ```bash
-     Please go to https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb
-     in order to obtain OAuth token.
-  
-     Please enter OAuth token: y0_AgA ... wvs7N4
-     ```
-  
-  1. Выберите одно из предложенных [облаков](../../resource-manager/concepts/resources-hierarchy.md#cloud), к которым у вас есть доступ:
-     
-     ```text
-        Please select cloud to use:
-         [1] cloud1 (id = aoe2bmdcvata********)
-         [2] cloud2 (id = dcvatao4faoe********)
-        Please enter your numeric choice: 2
-        ```
-  
-     Если вам доступно только одно облако, оно будет выбрано автоматически.
-  
-  1. Выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
-  
-     ```text
-        Please choose a folder to use:
-         [1] folder1 (id = cvatao4faoe2********)
-         [2] folder2 (id = tao4faoe2cva********)
-         [3] Create a new folder
-        Please enter your numeric choice: 1
-        ```
-  
-  
-  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
-  
-     ```bash
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
-     ```  
-  
-     Если вы ввели `Y`, выберите зону доступности:
-  
-     
-     ```text
-     Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-d
-      [4] Do not set default zone
-     Please enter your numeric choice: 2
-     ```
-  
-  
-  
-  
-  1. Проверьте настройки вашего профиля CLI:
-     
-     ```bash
-     yc config list
-     ```
-  
-     Результат:
-  
-     
-     ```bash
-     token: y0_AgA...wvs7N4
-     cloud-id: b1g159pa15cd********
-     folder-id: b1g8o9jbt58********
-     compute-default-zone: ru-central1-b
-     ```
-
-- Федеративный аккаунт {#federated-account}
-
-  Чтобы аутентифицироваться с помощью [SAML-совместимой федерации удостоверений](../../organization/concepts/add-federation.md):
-  
-  1. Узнайте идентификатор федерации у вашего администратора.
   1. Запустите интерактивное создание профиля:
-  
-        
-     ```bash
-     yc init --federation-id=<идентификатор_федерации>
-     ```
+    
+          
+      ```bash
+      yc init --username=<электронная_почта>
+      ```
   
   
   
@@ -255,9 +161,9 @@
   1. CLI выведет сообщение о продолжении аутентификации в браузере. Для продолжения нажмите клавишу **Enter**.
   
      ```text
-     You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
-     Your federation authentication web site will be opened.
-     After your successful authentication, you will be redirected to 'https://console.yandex.cloud'.
+     You are going to be authenticated via username '<электронная_почта>'.
+     Authentication web site will be opened.
+     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
   
      Press 'enter' to continue...
      ```
@@ -289,10 +195,10 @@
         Please enter your numeric choice: 1
         ```
   
-  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [Compute Cloud](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
   
      ```bash
-     Do you want to configure a default Yandex Compute Cloud availability zone? [Y/n] Y
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
      ```
   
      Если вы ввели `Y`, выберите зону доступности:
@@ -300,9 +206,105 @@
      
      ```text
      Which zone do you want to use as a profile default?
-      [1] ru-central1-a
-      [2] ru-central1-b
-      [3] ru-central1-d
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
+      [4] Do not set default zone
+     Please enter your numeric choice: 2
+     ```
+  
+  
+  
+  1. Проверьте настройки вашего профиля CLI:
+  
+     ```bash
+     yc config list
+     ```
+  
+     Результат:
+  
+     
+     ```bash
+     subject-id: b1g159pa15cd********
+     username: <электронная_почта>
+     folder-id: b1g8o9jbt58********
+     compute-default-zone: {{ region-id }}-b
+     ```
+
+- Федеративный аккаунт {#federated-account}
+
+  Чтобы аутентифицироваться с помощью [SAML-совместимой федерации удостоверений](../../organization/concepts/add-federation.md):
+  
+  1. Узнайте идентификатор федерации у вашего администратора.
+  1. Запустите интерактивное создание профиля:
+  
+        
+     ```bash
+     yc init --federation-id=<идентификатор_федерации>
+     ```
+  
+  
+  
+  1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
+  
+     ```text
+     Welcome! This command will take you through the configuration process.
+     Pick desired action:
+     [1] Re-initialize this profile 'default' with new settings
+     [2] Create a new profile
+     ```
+  
+  1. CLI выведет сообщение о продолжении аутентификации в браузере. Для продолжения нажмите клавишу **Enter**.
+  
+     ```text
+     You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
+     Your federation authentication web site will be opened.
+     After your successful authentication, you will be redirected to '{{ link-console-main }}'.
+  
+     Press 'enter' to continue...
+     ```
+  
+     После успешной аутентификации в профиле сохранится [IAM-токен](../../iam/concepts/authorization/iam-token.md). При каждой операции аутентификация будет происходить с помощью этого IAM-токена, пока не истечет [время его жизни](../../iam/concepts/authorization/iam-token.md) (не более 12 часов). После этого CLI снова выведет сообщение о необходимости пройти аутентификацию в браузере.
+     
+     Чтобы продлить срок, в течение которого не нужно аутентифицироваться в браузере, используйте [refresh-токены](../../iam/concepts/authorization/refresh-token.md), позволяющие перевыпускать IAM-токены без перехода в браузер. Для этого разрешите использовать refresh-токены [на уровне организации](../../iam/concepts/authorization/refresh-token.md#token-enabling) и [инициализируйте DPoP-защиту](../../iam/concepts/authorization/refresh-token.md#enabling-dpop) в CLI.
+  
+  1. Вернитесь в интерфейс командной строки, чтобы завершить создание профиля.
+  
+  1. Выберите одно из предложенных [облаков](../../resource-manager/concepts/resources-hierarchy.md#cloud), в которых у вас есть права доступа:
+  
+     ```text
+        Please select cloud to use:
+         [1] cloud1 (id = aoe2bmdcvata********)
+         [2] cloud2 (id = dcvatao4faoe********)
+        Please enter your numeric choice: 2
+        ```
+  
+     Если вам доступно только одно облако, оно будет выбрано автоматически.
+  
+  1. Выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+  
+     ```text
+        Please choose a folder to use:
+         [1] folder1 (id = cvatao4faoe2********)
+         [2] folder2 (id = tao4faoe2cva********)
+         [3] Create a new folder
+        Please enter your numeric choice: 1
+        ```
+  
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  
+     ```bash
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     ```
+  
+     Если вы ввели `Y`, выберите зону доступности:
+  
+     
+     ```text
+     Which zone do you want to use as a profile default?
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
       [4] Do not set default zone
      Please enter your numeric choice: 2
      ```
@@ -323,7 +325,7 @@
      subject-id: ajea53egl28l********
      cloud-id: b1g159pa15cd********
      folder-id: b1g8o9jbt58********
-     compute-default-zone: ru-central1-b
+     compute-default-zone: {{ region-id }}-b
      ```
 
 - Сервисный аккаунт {#service-account}
@@ -420,9 +422,148 @@
       
       Все операции в этом профиле будут выполняться от имени привязанного сервисного аккаунта. Вы можете [изменить параметры профиля](../../cli/operations/profile/manage-properties.md) или [сменить его](../../cli/operations/profile/profile-activate.md).
 
+- Аккаунт локального пользователя {#local-account}
+
+  Чтобы аутентифицироваться с помощью [аккаунта локального пользователя](../../iam/concepts/users/accounts.md#local):
+  
+  1. Запустите интерактивное создание профиля:
+  
+     {% list tabs %}
+  
+     - Пул пользователей
+     
+       1. Узнайте идентификатор пула пользователей у вашего администратора.
+       1. Запустите интерактивное создание профиля:
+  
+                    
+           ```bash
+           yc init --userpool-id=<идентификатор_пула_пользователей>
+           ```
+  
+  
+  
+     - Электронная почта
+  
+        1. Получите адрес электронной почты:
+           1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+           1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+           1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
+        1. Запустите интерактивное создание профиля:
+  
+                    
+           ```bash
+           yc init --username=<электронная_почта>
+           ```
+  
+  
+  
+     {% endlist %}
+  
+  1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
+  
+     ```text
+     Welcome! This command will take you through the configuration process.
+     Pick desired action:
+     [1] Re-initialize this profile 'default' with new settings
+     [2] Create a new profile
+     ```
+  
+  1. CLI выведет сообщение о продолжении аутентификации в браузере. Для продолжения нажмите клавишу **Enter**.
+  
+     ```text
+     You are going to be authenticated via userpool-id 'ek0auknfc0mh********'.
+     Your userpool authentication web site will be opened.
+     After your successful authentication, you will be redirected to cloud console.
+  
+     Press 'enter' to continue...
+     ```
+  
+     После успешной аутентификации в профиле сохранится [IAM-токен](../../iam/concepts/authorization/iam-token.md). При каждой операции аутентификация будет происходить с помощью этого IAM-токена, пока не истечет [время его жизни](../../iam/concepts/authorization/iam-token.md) (не более 12 часов). После этого CLI снова выведет сообщение о необходимости пройти аутентификацию в браузере.
+     
+     Чтобы продлить срок, в течение которого не нужно аутентифицироваться в браузере, используйте [refresh-токены](../../iam/concepts/authorization/refresh-token.md), позволяющие перевыпускать IAM-токены без перехода в браузер. Для этого разрешите использовать refresh-токены [на уровне организации](../../iam/concepts/authorization/refresh-token.md#token-enabling) и [инициализируйте DPoP-защиту](../../iam/concepts/authorization/refresh-token.md#enabling-dpop) в CLI.
+  
+  1. Вернитесь в интерфейс командной строки, чтобы завершить создание профиля.
+  
+  1. Выберите одно из предложенных [облаков](../../resource-manager/concepts/resources-hierarchy.md#cloud), в которых у вас есть права доступа:
+  
+     ```text
+        Please select cloud to use:
+         [1] cloud1 (id = aoe2bmdcvata********)
+         [2] cloud2 (id = dcvatao4faoe********)
+        Please enter your numeric choice: 2
+        ```
+  
+     Если вам доступно только одно облако, оно будет выбрано автоматически.
+  
+  1. Выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию:
+  
+     ```text
+        Please choose a folder to use:
+         [1] folder1 (id = cvatao4faoe2********)
+         [2] folder2 (id = tao4faoe2cva********)
+         [3] Create a new folder
+        Please enter your numeric choice: 1
+        ```
+  
+  1. Чтобы выбрать [зону доступности](../../overview/concepts/geo-scope.md) по умолчанию для сервиса [{{ compute-name }}](../../compute/index.md), введите `Y`. Чтобы пропустить настройку, введите `n`.
+  
+     ```bash
+     Do you want to configure a default {{ compute-full-name }} availability zone? [Y/n] Y
+     ```
+  
+     Если вы ввели `Y`, выберите зону доступности:
+  
+     
+     ```text
+     Which zone do you want to use as a profile default?
+      [1] {{ region-id }}-a
+      [2] {{ region-id }}-b
+      [3] {{ region-id }}-d
+      [4] Do not set default zone
+     Please enter your numeric choice: 2
+     ```
+  
+  
+  
+  1. Проверьте настройки вашего профиля CLI:
+  
+     ```bash
+     yc config list
+     ```
+  
+     Результат:
+     
+     {% list tabs %}
+  
+     - Пул пользователей
+     
+        
+        ```bash
+        userpool-id: ek0auknfc0mh********
+        subject-id: ek00cd1m8hdd8********
+        cloud-id: b1g159pa15cd********
+        folder-id: b1g8o9jbt58********
+        compute-default-zone: {{ region-id }}-b
+        ```
+  
+  
+  
+     - Электронная почта
+        
+        ```bash
+        subject-id: b1g159pa15cd********
+        username: <электронная_почта>
+        folder-id: b1g8o9jbt58********
+        compute-default-zone: {{ region-id }}-b
+        ```
+  
+  
+  
+     {% endlist %}
+
 {% endlist %}
 
-## Проверьте работу Yandex Cloud CLI с Object Storage
+## Проверьте работу {{ yandex-cloud }} CLI с {{ objstorage-name }}
 
 {% note info %}
 
@@ -449,7 +590,7 @@
     Где `--name` — имя бакета. Обязательный параметр. Подробнее см. [Правила именования бакетов](../concepts/bucket.md#naming).
 
     
-    По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../operations/hosting/certificate.md) собственный сертификат безопасности в Object Storage.
+    По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите](../operations/hosting/certificate.md) собственный сертификат безопасности в {{ objstorage-name }}.
 
 
     Результат:
@@ -492,10 +633,10 @@
 
     * Параметры для настройки [ACL](../concepts/acl.md) бакета:
     * `--acl` — предопределенный ACL. Список возможных значений см. в разделе [Предопределенные ACL](../concepts/acl.md#predefined-acls). Нельзя использовать одновременно с параметром `--grants`.
-    * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей Yandex Cloud). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
+    * `--grants` — настройки разрешений для отдельных пользователей, [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md), [групп пользователей](../../organization/concepts/groups.md) и [публичных групп](../concepts/acl.md#public-groups) (группа всех пользователей интернета, группа всех аутентифицированных пользователей {{ yandex-cloud }}). Нельзя использовать одновременно с параметром `--acl`. Значение параметра указывается в формате: `grant-type=<тип_получателя_разрешения>,grantee-id=<идентификатор_получателя>,permission=<тип_разрешения>`, где:
         * `grant-type` — тип получателя разрешения. Возможные значения:
         * `grant-type-account` — пользователь, [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) или [группа пользователей](../../organization/concepts/groups.md);
-        * `grant-type-all-authenticated-users` — [публичная группа](../concepts/acl.md#public-groups) всех аутентифицированных пользователей Yandex Cloud;
+        * `grant-type-all-authenticated-users` — [публичная группа](../concepts/acl.md#public-groups) всех аутентифицированных пользователей {{ yandex-cloud }};
         * `grant-type-all-users` — публичная группа всех пользователей интернета.
         * `grantee-id` — идентификатор пользователя, сервисного аккаунта или группы пользователей, которым нужно дать разрешение. Указывается, только если `grant-type=grant-type-account`.
         * `permission` — тип разрешения ACL. Возможные значения: `permission-full-control`, `permission-write`, `permission-read`. Подробнее о разрешениях см. в разделе [Виды разрешений](../concepts/acl.md#permissions-types).

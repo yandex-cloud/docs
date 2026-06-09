@@ -131,7 +131,7 @@ The cost of CRUD API resources includes:
 
 - macOS {#macos}
 
-  1. Install the following tools in the specified order by running the relevant commands in the terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -228,8 +228,9 @@ The cost of CRUD API resources includes:
    yc config profile get <profile_name>
    ```
 
+1. Get an [IAM token](../../iam/concepts/authorization/iam-token.md) or [authorized key](../../iam/concepts/authorization/key.md).
 1. Copy these properties to [provider.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/provider.tf):
-   * `token`: [OAuth token](../../iam/concepts/authorization/oauth-token.md).
+   * `token`: IAM token or authorized key.
    * `cloud-id`: [Cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) ID.
    * `folder-id`: [Folder](../../resource-manager/concepts/resources-hierarchy.md#folder) ID.
 1. Export the folder ID to the environment variable:
@@ -394,7 +395,7 @@ All data-related operations use [IAM tokens](../../iam/concepts/authorization/ia
 
    Where:
 
-   * `--role`: Role being assigned.
+   * `--role`: Role to assign.
    * `--subject serviceAccount`: Service account ID.
 
    The service account gets the roles for the following:
@@ -526,7 +527,7 @@ Build your application as a Docker image and run it in [{{ serverless-containers
 ## Test the new CRUD API {#test-api}
 
 To test the new CRUD API, run the following HTTP requests using the `curl` command:
-1. Get a movie list:
+1. Get a list of movies:
 
    ```bash
    curl "${MOVIES_API_GATEWAY_DOMAIN}/movies?limit=10"
@@ -569,7 +570,7 @@ To test the new CRUD API, run the following HTTP requests using the `curl` comma
      }'
    ```
 
-1. Get a movie list:
+1. Get a list of movies:
 
    ```bash
    curl \
@@ -598,6 +599,6 @@ Confirm deleting the resources by typing `yes` in the terminal and pressing **En
 * [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md).
 * [{{ TF }} reference. {{ yandex-cloud }} provider]({{ tf-provider-link }}).
 * [Document table](../../ydb/operations/schema.md).
-* [x-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
+* [X-yc-apigateway-integration extension](../../api-gateway/concepts/extensions/containers.md).
 * [{#T}](../../serverless-containers/concepts/logs.md).
 * [{#T}](../../serverless-containers/operations/monitoring.md).

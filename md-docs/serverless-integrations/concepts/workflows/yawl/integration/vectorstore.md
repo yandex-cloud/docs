@@ -15,7 +15,7 @@
 `vectorStoreId` | `string` | Да | Нет | Нет | Идентификатор векторного хранилища.
 `textFile` | [TextFile](#textfile) | Нет | Нет | Нет | Содержимое файла в виде текста.
 `urlFile` | [UrlFile](#urlfile) | Нет | Нет | Нет | Содержимое файла по публичному URL.
-`objectStorage` | [ObjectStorage](#objectstorage) | Нет | Нет | Нет | Содержимое файла из [бакета](../../../../../storage/concepts/bucket.md) Object Storage.
+`objectStorage` | [ObjectStorage](#objectstorage) | Нет | Нет | Нет | Содержимое файла из [бакета](../../../../../storage/concepts/bucket.md) {{ objstorage-name }}.
 `attributes` | `map<string,string>` | Нет | Нет | Да | Дополнительные атрибуты файла (метаданные) в формате ключ-значение.
 
 ## TextFile {#textfile}
@@ -36,5 +36,5 @@
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- | --- | --- | --- | ---
-`bucket` | `string` | Да | Нет | Нет | Имя бакета Object Storage, в котором находится файл.
+`bucket` | `string` | Да | Нет | Нет | Имя бакета {{ objstorage-name }}, в котором находится файл.
 `object` | `string` | Да | Нет | Да | Имя объекта (например, `prefix/subprefix/data.json`).

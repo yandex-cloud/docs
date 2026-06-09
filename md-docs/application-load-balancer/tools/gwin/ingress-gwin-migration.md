@@ -1,6 +1,6 @@
 # Миграция с ALB Ingress Controller на Gwin
 
-С помощью этой инструкции вы перенесете приложения Kubernetes с Ingress-контроллера Application Load Balancer на новый контроллер Gwin для Managed Service for Kubernetes.
+С помощью этой инструкции вы перенесете приложения {{ k8s }} с Ingress-контроллера {{ alb-name }} на новый контроллер Gwin для {{ managed-k8s-name }}.
 
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvlpozyvdp5qph62ue?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
@@ -9,7 +9,7 @@
 
 
 
-Чтобы мигрировать приложение с Ingress-контроллера Application Load Balancer на контроллер Gwin:
+Чтобы мигрировать приложение с Ingress-контроллера {{ alb-name }} на контроллер Gwin:
 
 1. [Установите Gwin](#gwin-install).
 1. [Запустите скрипт конвертации](#run-script-converter).
@@ -30,30 +30,30 @@
 
 Для автоматического преобразования существующих ресурсов контроллера ALB Ingress в формат контроллера Gwin используется инструмент `alb-ingress-converter`.
 
-Конвертер выполняет следующие преобразования ресурсов Kubernetes:
+Конвертер выполняет следующие преобразования ресурсов {{ k8s }}:
 
 * **IngressClass** — изменяет класс ALB Ingress на `gwin-default`.
 * **Аннотации** — преобразует `ingress.alb.yc.io/*` в формат `gwin.yandex.cloud/*`.
 * **Backend Groups** — преобразует `HttpBackendGroup`/`GrpcBackendGroup` в `IngressBackendGroup`.
-* **Storage Buckets** — преобразует ссылки на бакеты Object Storage в ресурсы `YCStorageBucket`.
+* **Storage Buckets** — преобразует ссылки на бакеты {{ objstorage-name }} в ресурсы `YCStorageBucket`.
 * **Services** — создает ресурсы `IngressBackendGroup` для групп бэкендов при необходимости.
 * **Path Types** — обновляет типы путей для поддержки регулярных выражений (`ImplementationSpecific`).
 
 Чтобы запустить скрипт конвертации:
 
-1. Загрузите бинарный файл конвертера и сделайте его исполняемым. Файл хранится в публичном бакете Object Storage. Доступны сборки для следующих ОС:
+1. Загрузите бинарный файл конвертера и сделайте его исполняемым. Файл хранится в публичном бакете {{ objstorage-name }}. Доступны сборки для следующих ОС:
 
-   * [Linux AMD64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz)
-   * [Linux ARM64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-arm64.tar.gz)
-   * [macOS AMD64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-amd64.tar.gz)
-   * [macOS ARM64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-arm64.tar.gz)
-   * [Windows AMD64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-amd64.tar.gz)
-   * [Windows ARM64](https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-arm64.tar.gz)
+   * [Linux AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz)
+   * [Linux ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-arm64.tar.gz)
+   * [macOS AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-amd64.tar.gz)
+   * [macOS ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.darwin-arm64.tar.gz)
+   * [Windows AMD64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-amd64.tar.gz)
+   * [Windows ARM64](https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.windows-arm64.tar.gz)
 
    Пример загрузки файла для Linux:
 
    ```bash
-   wget https://storage.yandexcloud.net/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
+   wget https://{{ s3-storage-host }}/gwin/utils/alb-ingress-converter/alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
    tar -xzf alb-ingress-converter-v1.0.0.linux-amd64.tar.gz &&
    chmod +x alb-ingress-converter
    ```
@@ -143,10 +143,10 @@
 
 1. Получите IP-адрес нового балансировщика нагрузки:
     * Запросите статус ресурса `Ingress` командой `kubectl get Ingress`.
-    * В [консоли управления](https://console.yandex.cloud):
-      * Перейдите на страницу кластера Managed Service for Kubernetes.
-      * На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **Сеть**.
-      * Перейдите на вкладку **Ingress**.
+    * В [консоли управления]({{ link-console-main }}):
+      * Перейдите на страницу кластера {{ managed-k8s-name }}.
+      * На панели слева выберите ![image](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.k8s.network.label_ingress }}**.
 1. Убедитесь, что маршрутизация работает, как ожидается. Для этого протестируйте доступность HTTP/HTTPS-эндпоинтов вашего приложения.
 1. Убедитесь, что проверки статуса бэкендов показывают их работоспособность.
 1. Проверьте наличие ошибок в [логах](../../operations/application-load-balancer-get-logs.md) и наличие признаков проблем с производительностью в [метриках балансировщика](../../metrics.md).

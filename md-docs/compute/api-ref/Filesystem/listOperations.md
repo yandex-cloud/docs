@@ -5,7 +5,7 @@ Lists operations for the specified filesystem.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}/operations
+GET https://compute.{{ api-host }}/compute/v1/filesystems/{filesystemId}/operations
 ```
 
 ## Path parameters
@@ -15,10 +15,9 @@ GET https://compute.api.cloud.yandex.net/compute/v1/filesystems/{filesystemId}/o
 || filesystemId | **string**
 
 Required field. ID of the filesystem to list operations for.
-
 To get the filesystem ID, make a [FilesystemService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListFilesystemOperationsRequest}
@@ -30,14 +29,12 @@ The maximum string length in characters is 50. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`, the service returns a [ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
 [ListFilesystemOperationsResponse.nextPageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsResponse) returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListFilesystemOperationsResponse}
@@ -81,7 +78,6 @@ List of operations for the specified filesystem. ||
 Token for getting the next page of the list. If the number of results is greater than
 the specified [ListFilesystemOperationsRequest.pageSize](#yandex.cloud.compute.v1.ListFilesystemOperationsRequest), use `next_page_token` as the value
 for the [ListFilesystemOperationsRequest.pageToken](#yandex.cloud.compute.v1.ListFilesystemOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

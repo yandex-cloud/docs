@@ -3,7 +3,7 @@
 Вызвать контейнер можно:
 * через [HTTPS](#https);
 * с помощью [триггера](../concepts/trigger/index.md);
-* с помощью [расширения Yandex API Gateway](../../api-gateway/concepts/extensions/containers.md).
+* с помощью [расширения {{ api-gw-full-name }}](../../api-gateway/concepts/extensions/containers.md).
 
 {% note info %}
 
@@ -18,7 +18,7 @@
 ```bash
 curl \
   --header "Authorization: Bearer $(yc iam create-token)" \
-  https://bba3fva6ka5g********.containers.yandexcloud.net/hello
+  https://bba3fva6ka5g********.{{ serverless-containers-host }}/hello
 ```
 
 {% note info %}

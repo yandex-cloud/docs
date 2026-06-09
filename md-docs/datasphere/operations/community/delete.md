@@ -2,14 +2,14 @@
 
 {% note info %}
 
-Удалить можно только те сообщества, на которые вам [назначена](../../../organization/security/index.md#add-role) роль `datasphere.communities.editor` или `datasphere.communities.admin`.
+Удалить можно только те сообщества, на которые вам [назначена](../../../organization/security/index.md#add-role) роль `{{ roles-datasphere-communities-editor }}` или `{{ roles-datasphere-communities-admin }}`.
 
 {% endnote %}
 
-1. Откройте [главную страницу](https://datasphere.yandex.cloud) DataSphere. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **Сообщества**.
+1. Откройте [главную страницу]({{ link-datasphere-main }}) {{ ml-platform-name }}. На панели слева выберите ![community-panel](../../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Выберите сообщество, которое нужно удалить.
-1. В правом верхнем углу нажмите кнопку **Еще** и в выпадающем списке выберите **Удалить**.
-1. В открывшемся окне нажмите кнопку **Подтвердить**.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.more }}** и в выпадающем списке выберите **{{ ui-key.yc-ui-datasphere.common.delete }}**.
+1. В открывшемся окне нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 
 {% note warning %}
 

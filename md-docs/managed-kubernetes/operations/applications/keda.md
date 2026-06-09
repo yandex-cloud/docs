@@ -1,12 +1,11 @@
-# Установка KEDA с поддержкой Yandex Monitoring
+# Установка KEDA с поддержкой {{ monitoring-full-name }}
 
-
-[KEDA](https://keda.sh) — приложение, которое выполняет автомасштабирование ресурсов Kubernetes на основе мониторинга нагрузки.
+[KEDA](https://keda.sh) — приложение, которое выполняет автомасштабирование ресурсов {{ k8s }} на основе мониторинга нагрузки.
 
 Приложение KEDA:
 
-* Интегрирует автомасштабирование Kubernetes с Yandex Monitoring.
-* Позволяет масштабировать приложения на основе метрик из Monitoring, например метрик Application Load Balancer или управляемых баз данных.
+* Интегрирует автомасштабирование {{ k8s }} с {{ monitoring-full-name }}.
+* Позволяет масштабировать приложения на основе метрик из {{ monitoring-name }}, например метрик {{ alb-name }} или управляемых баз данных.
 * Поддерживает настройку временных окон, агрегирование и обработку `NaN`-значений.
 
 ## Перед началом работы {#before-you-begin}
@@ -36,7 +35,7 @@
      --output authorized-key.json
    ```
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -44,20 +43,20 @@
     
     {% endnote %}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
-## Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
+## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [KEDA с поддержкой Yandex Monitoring](https://yandex.cloud/ru/marketplace/products/yc/keda) и нажмите кнопку **Перейти к установке**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [KEDA с поддержкой {{ monitoring-full-name }}](https://yandex.cloud/ru/marketplace/products/yc/keda) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) `keda-system`. Если вы оставите пространство имен по умолчанию, KEDA может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисного аккаунта** — скопируйте в это поле содержимое файла `authorized-key.json`.
 
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 1. Создайте ресурс `ScaledObject` с настройками автомасштабирования ресурсов:
 
@@ -90,14 +89,14 @@
          timeWindowOffset: "<отступ_временного_окна>"
     
          logLevel: "<уровень_логирования>"
-         logMetrics: "<разрешить_логирование_запросов_Monitoring>"
+         logMetrics: "<разрешить_логирование_запросов_{{ monitoring-name }}>"
          logAggregation: "<разрешить_логирование_агрегации_данных>"
    ```
 
    Обязательные метаданные в поле `triggers`:
 
    * `scalerAddress` — адрес сервиса автомасштабирования. Всегда `keda-external-scaler-yc.keda-system.svc.cluster.local:8080`.
-   * `query` — запрос метрики Monitoring.
+   * `query` — запрос метрики {{ monitoring-name }}.
    * `folderId` — [идентификатор каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать провайдер.
    * `targetValue` — целевое значение метрики, при превышении которого добавляется под для реплики.
 
@@ -123,7 +122,7 @@
 
    Параметры логирования:
    * `logLevel` — уровень логирования. Возможные значения: `debug`, `info`, `warn`, `error`, `none`. Значение по умолчанию — `info`.
-   * `logMetrics` — разрешить логирование запросов Monitoring: `true` или `false`. Значение по умолчанию — `false`.
+   * `logMetrics` — разрешить логирование запросов {{ monitoring-name }}: `true` или `false`. Значение по умолчанию — `false`.
    * `logAggregation` — разрешить логирование агрегации данных: `true` или `false`. Значение по умолчанию — `false`.
 
    Подробнее о параметрах ресурса `ScaledObject` см. в [документации проекта на Github](https://github.com/yandex-cloud/yc-keda-external-scaler).
@@ -135,8 +134,8 @@
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с KEDA выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/keda/chart/keda-external-scaler-yc \
-     --version 1.1.3 \
+   helm pull oci://{{ mkt-k8s-key.yc_keda.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_keda.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace keda-system \
@@ -156,9 +155,9 @@
 
 ## Пример использования приложения {#keda-usage}
 
-1. Разверните приложение `nginx` в кластере Managed Service for Kubernetes.
+1. Разверните приложение `nginx` в кластере {{ managed-k8s-name }}.
 1. Установите приложение [ALB Ingress Controller](alb-ingress-controller.md) и ресурс `Ingress` для приложения `nginx`.
-1. Создайте ресурс `ScaledObject` с настройками автомасштабирования подов веб-приложения по метрикам Application Load Balancer:
+1. Создайте ресурс `ScaledObject` с настройками автомасштабирования подов веб-приложения по метрикам {{ alb-name }}:
 
    ```yaml
    apiVersion: keda.sh/v1alpha1
@@ -200,4 +199,4 @@
 ## См. также {#see-also}
 
 * [Документация KEDA](https://keda.sh/docs/).
-* [KEDA с поддержкой Yandex Monitoring на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).
+* [KEDA с поддержкой {{ monitoring-full-name }} на GitHub](https://github.com/yandex-cloud/yc-keda-external-scaler).

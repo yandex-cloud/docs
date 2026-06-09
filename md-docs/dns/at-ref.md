@@ -1,20 +1,25 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex Cloud DNS поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} для {{ dns-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.dns.<имя_события>
+{{ at-event-prefix }}.audit.dns.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
 
 Имя события | Описание
 --- | ---
+`CreateDnsInboundEndpoint` | Создание входящего эндпоинта DNS
 `CreateDnsZone` | Создание зоны [DNS](../glossary/dns.md)
+`DeleteDnsInboundEndpoint` | Удаление входящего эндпоинта DNS
 `DeleteDnsZone` | Удаление зоны DNS
+`SetDnsInboundEndpointAccessBindings` | Назначение прав доступа к входящему эндпоинту DNS
 `SetDnsZoneAccessBindings` | Назначение прав доступа к зоне DNS
+`UpdateDnsInboundEndpoint` | Изменение входящего эндпоинта DNS
+`UpdateDnsInboundEndpointAccessBindings` | Изменение прав доступа к входящему эндпоинту DNS
 `UpdateDnsZone` | Изменение зоны DNS
 `UpdateDnsZoneAccessBindings` | Изменение прав доступа к зоне DNS
 `UpdatePrivateNetworks` | Изменение приватных сетей
@@ -28,6 +33,6 @@ yandex.cloud.audit.dns.<имя_события>
 
 {% note info %}
 
-Если действие выполнил один из инфраструктурных сервисов Yandex Cloud или сотрудник поддержки, то в полях `client_ip` и `server_ip` в секции `details` будет указано специальное значение: `cloud.yandex`.
+Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в полях `client_ip` и `server_ip` в секции `details` будет указано специальное значение: `cloud.yandex`.
 
 {% endnote %}

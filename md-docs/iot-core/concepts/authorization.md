@@ -1,5 +1,13 @@
 # Аутентификация
 
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
 Есть два способа аутентификации:
 * [С помощью X.509-сертификатов](#certs).
 * [По логину и паролю](#log-pass).
@@ -39,9 +47,9 @@
 
 #### См. также {#see-also}
 
-* [Взаимосвязь ресурсов в Yandex IoT Core](index.md).
-* [Создание сертификата](../operations/certificates/create-certificates.md).
-* [Управление сертификатами устройства](../operations/certificates/device-certificates.md).
-* [Управление сертификатами реестра](../operations/certificates/registry-certificates.md).
-* [Управление паролями устройства](../operations/password/device-password.md).
-* [Управление паролями реестра](../operations/password/registry-password.md).
+* [{#T}](index.md).
+* [{#T}](../operations/certificates/create-certificates.md).
+* [{#T}](../operations/certificates/device-certificates.md).
+* [{#T}](../operations/certificates/registry-certificates.md).
+* [{#T}](../operations/password/device-password.md).
+* [{#T}](../operations/password/registry-password.md).

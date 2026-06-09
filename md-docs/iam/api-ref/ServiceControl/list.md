@@ -5,7 +5,7 @@ Retrieves the list of Service in the specified resource container.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/services
+GET https://iam.{{ api-host }}/iam/v1/services
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListServicesRequest}
@@ -15,7 +15,6 @@ GET https://iam.api.cloud.yandex.net/iam/v1/services
 || resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
 
 Required field. Resource container to list a services.
-
 It is supported only resource-manager.cloud resource container now. ||
 || pageSize | **string** (int64)
 
@@ -116,13 +115,13 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 Current status of the service.
 
 - `ENABLED`: The service is enabled.
-- `PAUSED`: The service is paused.
 - `DISABLED`: The service is disabled.
 - `ENABLING`: The service is being enabled.
-- `RESUMING`: The service is being resumed.
-- `PAUSING`: The service is being paused.
 - `DISABLING`: The service is being disabled.
 - `ERROR`: The service is in error state.
+- `PAUSED`: The service is paused.
+- `PAUSING`: The service is being paused.
+- `RESUMING`: The service is being resumed.
 - `DEFAULT`: The service could be auto enabled. ||
 |#
 

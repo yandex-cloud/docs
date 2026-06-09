@@ -1,10 +1,10 @@
 # Передача данных из эндпоинта-источника Oracle
 
-С помощью сервиса Yandex Data Transfer вы можете переносить данные из базы Oracle и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
+С помощью сервиса {{ data-transfer-full-name }} вы можете переносить данные из базы Oracle и реализовывать различные сценарии переноса, обработки и трансформации данных. Для реализации трансфера:
 
 1. [Ознакомьтесь с возможными сценариями передачи данных](#scenarios).
 1. [Подготовьте базу данных Oracle](#prepare) к трансферу.
-1. [Настройте эндпоинт-источник](#endpoint-settings) в Yandex Data Transfer.
+1. [Настройте эндпоинт-источник](#endpoint-settings) в {{ data-transfer-full-name }}.
 1. [Настройте один из поддерживаемых приемников данных](#supported-targets).
 1. [Cоздайте](../../transfer.md#create) и [запустите](../../transfer.md#activate) трансфер.
 1. Выполняйте необходимые действия по работе с базой и [контролируйте трансфер](../../monitoring.md).
@@ -16,7 +16,7 @@
 
 1. Загрузка данных в витрины — процесс трансфера подготовленных данных в хранилища с целью последующей визуализации.
 
-Подробное описание возможных сценариев передачи данных в Yandex Data Transfer см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
@@ -32,7 +32,7 @@
 
 - Oracle
     
-    * Чтобы подготовить источник к трансферу типа _**Копирование**_:
+    * Чтобы подготовить источник к трансферу типа _{{ dt-type-copy }}_:
         
         1. Создайте пользователя, от имени которого трансфер подключится к источнику:
         
@@ -54,7 +54,7 @@
         
         1. Выдайте пользователю [права на чтение таблиц](https://docs.oracle.com/en/database/oracle/oracle-database/21/sqlrf/GRANT.html), которые нужно скопировать.
     
-    * Чтобы подготовить источник к трансферу типа _**Репликация**_:
+    * Чтобы подготовить источник к трансферу типа _{{ dt-type-repl }}_:
         
         1. Создайте пользователя, от имени которого трансфер подключится к источнику:
         
@@ -157,34 +157,34 @@
 
 - Консоль управления {#console}
 
-    * **Тип подключения** — выберите [тип подключения](https://docs.oracle.com/cd/E11882_01/network.112/e41945/concepts.htm#NETAG002) к кластеру Oracle.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.connection_type.title }}** — выберите [тип подключения](https://docs.oracle.com/cd/E11882_01/network.112/e41945/concepts.htm#NETAG002) к кластеру Oracle.
     
-    * Для подключения типа **Инстанс**:
+    * Для подключения типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnectionType.instance.title }}**:
     
-        * **Хост** — укажите IP-адрес или FQDN хоста, к которому необходимо подключиться.
-        * **Порт** — укажите номер порта, который сервис Data Transfer будет использовать для подключения.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleInstance.host.title }}** — укажите IP-адрес или FQDN хоста, к которому необходимо подключиться.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleInstance.port.title }}** — укажите номер порта, который сервис {{ data-transfer-name }} будет использовать для подключения.
         
-        * **Тип** — укажите [Oracle SID](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D) или [Service Name](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/application-and-networking-architecture.html#GUID-C931A159-E1FE-4DB3-A811-510C42516683) в соответствующем поле ниже.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleInstance.instance_type.title }}** — укажите [Oracle SID](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/oracle-database-instance.html#GUID-8BB8140D-63ED-454E-AAC3-1964F80D102D) или [Service Name](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/application-and-networking-architecture.html#GUID-C931A159-E1FE-4DB3-A811-510C42516683) в соответствующем поле ниже.
     
-    * Для подключения типа **Строка подключения TNS** укажите строку подключения к Oracle RDBMS в соответствующем поле ниже.
+    * Для подключения типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnectionType.tns.title }}** укажите строку подключения к Oracle RDBMS в соответствующем поле ниже.
     
-    * **Пользователь** — укажите имя пользователя, под которым сервис Data Transfer будет подключаться к базе данных.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.user.title }}** — укажите имя пользователя, под которым сервис {{ data-transfer-name }} будет подключаться к базе данных.
     
-    * **Пароль** — укажите пароль пользователя для доступа к базе данных.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.password.title }}** — укажите пароль пользователя для доступа к базе данных.
     
-    * **PDB-контейнер** — укажите имя [PDB контейнера](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/CDBs-and-PDBs.html#GUID-49C0C90D-5A72-4131-8C3D-B07341C75CB2), к которому нужно подключиться. Если вы не работаете в [CDB-среде](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), оставьте это поле пустым.
-    * **Список включённых таблиц** — будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
-    * **Список исключённых таблиц** — данные таблиц из этого списка передаваться не будут. Задается с помощью регулярных выражений.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleConnection.pdb.title }}** — укажите имя [PDB контейнера](https://docs.oracle.com/en/database/oracle/oracle-database/21/cncpt/CDBs-and-PDBs.html#GUID-49C0C90D-5A72-4131-8C3D-B07341C75CB2), к которому нужно подключиться. Если вы не работаете в [CDB-среде](https://docs.oracle.com/database/121/CNCPT/cdbovrvw.htm#CNCPT89234), оставьте это поле пустым.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleTableFilter.include_tables.title }}** — будут передаваться данные только из таблиц этого списка. Задается с помощью регулярных выражений.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleTableFilter.exclude_tables.title }}** — данные таблиц из этого списка передаваться не будут. Задается с помощью регулярных выражений.
     
-      Списки включают имя [схемы](https://docs.oracle.com/en/database/oracle/oracle-database/19/admqs/managing-schema-objects.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
+      Списки включают имя [схемы]({{ oracle.docs }}/admqs/managing-schema-objects.html) (описание содержания, структуры и ограничений целостности базы данных) и имя таблицы. Для обоих списков поддерживаются выражения вида:
     
         * `<имя_схемы>.<имя_таблицы>` — полное имя таблицы;
         * `<имя_схемы>.*` — все таблицы в указанной схеме;
         * `<имя_таблицы>` — таблица в схеме по умолчанию.
     
-        Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в Oracle. Подробнее читайте в [документации Oracle](https://docs.oracle.com/en/database/oracle/oracle-database/19/sqlrf/Database-Object-Names-and-Qualifiers.html). Двойные кавычки внутри имени таблицы не поддерживаются. Экранирование внешних двойных кавычек не требуется.
+        Имена включенных и исключенных таблиц должны соответствовать правилам именования идентификаторов в Oracle. Подробнее читайте в [документации Oracle]({{ oracle.docs }}/sqlrf/Database-Object-Names-and-Qualifiers.html). Двойные кавычки внутри имени таблицы не поддерживаются. Экранирование внешних двойных кавычек не требуется.
     
-    * **Преобразовывать тип "NUMBER" в "Int64"** — включите эту настройку для преобразования типа `NUMBER` (без параметров) в `INT64`. [Параметризованные типы `NUMBER (precision, scale)`](https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1832) автоматически преобразуются в целочисленные типы, где это возможно.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.oracle.console.form.oracle.OracleAdvancedSettings.convert_number_to_int64.title }}** — включите эту настройку для преобразования типа `NUMBER` (без параметров) в `INT64`. [Параметризованные типы `NUMBER (precision, scale)`](https://docs.oracle.com/cd/B28359_01/server.111/b28318/datatype.htm#CNCPT1832) автоматически преобразуются в целочисленные типы, где это возможно.
 
 {% endlist %}
 
@@ -192,11 +192,11 @@
 
 Настройте один из поддерживаемых приемников данных:
 
-* [PostgreSQL](../target/postgresql.md);
-* [ClickHouse®](../target/clickhouse.md);
-* [Greenplum®](../target/greenplum.md);
-* [YTsaurus](yt.md).
+* [{{ PG }}](../target/postgresql.md);
+* [{{ CH }}](../target/clickhouse.md);
+* [{{ GP }}](../target/greenplum.md);
+* [{{ ytsaurus-name }}](yt.md).
 
-Полный список поддерживаемых источников и приемников в Yandex Data Transfer см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

@@ -243,9 +243,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -273,13 +270,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Получить список операций](../../../../api-gateway/operations/operation-logs.md#cli_1)
- * [Получить список операций](../../../../functions/operations/operation-logs.md#cli_1)
- * [Настройте асинхронный вызов](../../../../serverless-containers/operations/invoke-async.md#tf_1)
- * [Получить список операций](../../../../serverless-containers/operations/operation-logs.md#cli_1)
- * [Назначить роли на ресурс EventRouter](../../../../serverless-integrations/operations/eventrouter/access-rights/role-add.md#cli_1)
- * [Посмотреть роли, назначенные на ресурс EventRouter](../../../../serverless-integrations/operations/eventrouter/access-rights/role-list.md#cli_1)
- * [Отозвать роли, назначенные на ресурс EventRouter](../../../../serverless-integrations/operations/eventrouter/access-rights/role-revoke.md#cli_1)
- * [Получить список операций](../../../../serverless-integrations/operations/operation-logs.md#cli_1)

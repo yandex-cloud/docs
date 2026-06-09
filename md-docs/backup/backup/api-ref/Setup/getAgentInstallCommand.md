@@ -3,7 +3,7 @@
 ## HTTP request
 
 ```
-POST https://backup.api.cloud.yandex.net/backup/v1/setup/getAgentInstallCommand
+POST https://backup.{{ api-host }}/backup/v1/setup/getAgentInstallCommand
 ```
 
 ## Body parameters {#yandex.cloud.backup.v1.GetAgentInstallCommandRequest}

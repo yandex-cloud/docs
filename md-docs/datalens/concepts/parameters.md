@@ -1,4 +1,4 @@
-# Параметры в Yandex DataLens
+# Параметры в {{ datalens-full-name }}
 
 Параметр — это переменная, которая может заменять константные значения в вычисляемых полях. Параметры можно создавать [на уровне датасета](../dataset/create-dataset.md#add-parameters) и [на уровне чарта](../operations/chart/add-parameter-chart.md).
 
@@ -177,4 +177,4 @@
 
 ## Примеры использования {#examples}
 
-* [Использование параметров в вычисляемых полях](../tutorials/data-from-ch-with-parameters.md)
+* [{#T}](../tutorials/data-from-ch-with-parameters.md)

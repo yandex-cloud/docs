@@ -4,11 +4,11 @@
 
 {% note info %}
 
-Для обработчиков типа **Stream** сбор статистики отдельных HTTP-запросов не производится.
+Для обработчиков типа **{{ ui-key.yacloud.alb.label_listener-type-stream }}** сбор статистики отдельных HTTP-запросов не производится.
 
 {% endnote %}
 
-Статистика работы балансировщика автоматически записывается в метрики сервиса [Yandex Monitoring](../../monitoring/index.md). Доступны следующие дашборды и показатели:
+Статистика работы балансировщика автоматически записывается в метрики сервиса [{{ monitoring-full-name }}](../../monitoring/index.md). Доступны следующие дашборды и показатели:
 
 * **HTTP-статистика**:
 
@@ -25,17 +25,17 @@
   * **Requests per second** — количество запросов в секунду.
   * **Bytes per second** — объем обрабатываемых данных в секунду.
 
-Полный список метрик, передаваемых в Yandex Monitoring, представлен в [справочнике](../metrics.md).
+Полный список метрик, передаваемых в {{ monitoring-full-name }}, представлен в [справочнике](../metrics.md).
 
-В Application Load Balancer доступна обобщенная статистика балансировщика. В Monitoring можно смотреть статистику с разбивкой по ресурсам, привязанным к балансировщику (HTTP-роутерам, виртуальным хостам, маршрутам и т. д.), а также [создавать алерты](../../monitoring/operations/alert/create-alert.md).
+В {{ alb-name }} доступна обобщенная статистика балансировщика. В {{ monitoring-name }} можно смотреть статистику с разбивкой по ресурсам, привязанным к балансировщику (HTTP-роутерам, виртуальным хостам, маршрутам и т. д.), а также [создавать алерты](../../monitoring/operations/alert/create-alert.md).
 
-Инструкции по просмотру статистики см. в разделе [Посмотреть статистику L7-балансировщика](../operations/application-load-balancer-get-stats.md).
+Инструкции по просмотру статистики см. в разделе [{#T}](../operations/application-load-balancer-get-stats.md).
 
 ## Логирование {#logging}
 
-Вы можете [настроить](../operations/application-load-balancer-manage-logs.md) поставку логов балансировщика в [лог-группу](../../logging/concepts/log-group.md) Yandex Cloud Logging.
+Вы можете [настроить](../operations/application-load-balancer-manage-logs.md) поставку логов балансировщика в [лог-группу](../../logging/concepts/log-group.md) {{ cloud-logging-full-name }}.
 
-Подробности о просмотре логов см. в [Посмотреть логи L7-балансировщика](../operations/application-load-balancer-get-logs.md).
+Подробности о просмотре логов см. в [{#T}](../operations/application-load-balancer-get-logs.md).
 
 Значение заголовка [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) (XFF) передается в логи в соответствии со стандартом [RFC 7239](https://datatracker.ietf.org/doc/html/rfc7239). Полный список сохраняемых параметров представлен в [справочнике логов](../logs-ref.md). 
 
@@ -43,7 +43,7 @@
 
 ### Правила отбрасывания логов {#discard-logs-rules}
 
-Запись и хранение логов в Cloud Logging тарифицируются согласно [правилам](../../logging/pricing.md#prices) сервиса. Чтобы записывать меньше логов, добавьте правила их отбрасывания.
+Запись и хранение логов в {{ cloud-logging-name }} тарифицируются согласно [правилам](../../logging/pricing.md#prices) сервиса. Чтобы записывать меньше логов, добавьте правила их отбрасывания.
 
 Доступные правила:
 
@@ -136,5 +136,5 @@
 
 #### См. также {#see-also}
 
-* [Графики мониторинга](function-monitoring.md)
-* [Настроить алерты](../operations/application-load-balancer-manage-alerts.md)
+* [{#T}](function-monitoring.md)
+* [{#T}](../operations/application-load-balancer-manage-alerts.md)

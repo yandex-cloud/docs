@@ -1,24 +1,24 @@
-# Справочник Terraform для Yandex Load Testing
+# Справочник {{ TF }} для {{ load-testing-full-name }}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
 
-Подробнее о Terraform [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+Подробнее о {{ TF }} [читайте в документации](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
 ## Ресурсы {#resources}
 
-Для Load Testing поддерживаются следующие ресурсы провайдера Terraform:
+Для {{ load-testing-name }} поддерживаются следующие ресурсы провайдера {{ TF }}:
 
-| **Ресурс Terraform** | **Ресурс Yandex Cloud** |
+| **Ресурс {{ TF }}** | **Ресурс {{ yandex-cloud }}** |
 | --- | --- |
-| [yandex_loadtesting_agent](../terraform/resources/loadtesting_agent.md) | [Агент](concepts/agent.md) |
+| [yandex_loadtesting_agent]({{ tf-provider-resources-link }}/loadtesting_agent) | [Агент](concepts/agent.md) |
 
 ## Источники данных {#data-sources}
 
-Для Load Testing поддерживаются следующие источники данных провайдера Terraform:
+Для {{ load-testing-name }} поддерживаются следующие источники данных провайдера {{ TF }}:
 
-| **Источник данных Terraform** | **Описание** |
+| **Источник данных {{ TF }}** | **Описание** |
 | --- | --- |
-| [yandex_loadtesting_agent](../terraform/data-sources/loadtesting_agent.md) | Информация об [агенте](concepts/agent.md) |
+| [yandex_loadtesting_agent]({{ tf-provider-datasources-link }}/loadtesting_agent) | Информация об [агенте](concepts/agent.md) |

@@ -5,7 +5,7 @@ Creates an oauth client in the specified folder.
 ## HTTP request
 
 ```
-POST https://iam.api.cloud.yandex.net/iam/v1/oauthClients
+POST https://iam.{{ api-host }}/iam/v1/oauthClients
 ```
 
 ## Body parameters {#yandex.cloud.iam.v1.CreateOAuthClientRequest}
@@ -35,12 +35,12 @@ Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
 
 List of redirect uries allowed for the oauth client.
 
-The maximum number of elements is 1000. The maximum string length in characters for each value is 1000. ||
+The maximum string length in characters for each value is 1000. The maximum number of elements is 1000. ||
 || scopes[] | **string**
 
 List of oauth scopes requested by the oauth client.
 
-The maximum number of elements is 1000. The maximum string length in characters for each value is 255. ||
+The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The maximum number of elements is 1000. ||
 || folderId | **string**
 
 Required field. ID of the folder to create an oauth client in.
@@ -61,9 +61,7 @@ The maximum string length in characters is 255. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "oauthClientId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -72,18 +70,7 @@ The maximum string length in characters is 255. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "name": "string",
-    "redirectUris": [
-      "string"
-    ],
-    "scopes": [
-      "string"
-    ],
-    "folderId": "string",
-    "status": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -125,7 +112,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateOAuthClientMetadata](#yandex.cloud.iam.v1.CreateOAuthClientMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -140,7 +127,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OAuthClient](#yandex.cloud.iam.v1.OAuthClient)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -155,15 +142,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateOAuthClientMetadata {#yandex.cloud.iam.v1.CreateOAuthClientMetadata}
-
-#|
-||Field | Description ||
-|| oauthClientId | **string**
-
-ID of the oauth client that is being created ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -181,34 +159,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## OAuthClient {#yandex.cloud.iam.v1.OAuthClient}
-
-An OauthClient resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the oauth client. ||
-|| name | **string**
-
-Name for the oauth client. ||
-|| redirectUris[] | **string**
-
-List of redirect uries allowed for the oauth client. ||
-|| scopes[] | **string**
-
-List of oauth scopes requested by the oauth client. ||
-|| folderId | **string**
-
-ID of the folder oauth client belongs to. ||
-|| status | **enum** (Status)
-
-Current status of the oauth client.
-
-- `CREATING`: OAuth client is being created.
-- `ACTIVE`: OAuth client is active.
-- `DELETING`: OAuth client is being deleted. ||
 |#

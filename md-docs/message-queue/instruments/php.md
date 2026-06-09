@@ -1,6 +1,6 @@
-# Пример использования Yandex Message Queue на PHP
+# Пример использования {{ message-queue-full-name }} на PHP
 
-С помощью [AsyncAws](https://async-aws.com) можно управлять очередями сообщений в Message Queue, отправлять и принимать сообщения.
+С помощью [AsyncAws](https://async-aws.com) можно управлять очередями сообщений в {{ message-queue-name }}, отправлять и принимать сообщения.
 
 ## Установка {#install}
 
@@ -11,7 +11,7 @@ composer require async-aws/sqs ^1.9
 ## Подготовка к работе {#prepare}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
-1. [Назначьте роль editor сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
+1. [Назначьте роль {{ roles-editor }} сервисному аккаунту](../../iam/operations/sa/assign-role-for-sa.md).
 1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
 
 Задайте переменные окружения:
@@ -25,7 +25,7 @@ export AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
 
 В этом примере:
 
-1. Устанавливается соединение с Message Queue. 
+1. Устанавливается соединение с {{ message-queue-name }}. 
 1. Создается очередь сообщений с именем `mq_php_sdk_example`.
 1. В очередь передается сообщение с текстом `Test message`.
 1. Сообщение считывается из очереди и отображается в терминале.
@@ -40,8 +40,8 @@ require __DIR__ . '/vendor/autoload.php';
 
 
 $mq = new SqsClient([
-    'region' => 'ru-central1',
-    'endpoint' => 'https://message-queue.api.cloud.yandex.net',
+    'region' => '{{ region-id }}',
+    'endpoint' => 'https://message-queue.{{ api-host }}',
 ]);
 
 $result = $mq->createQueue([

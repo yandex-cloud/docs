@@ -1,11 +1,11 @@
-# Добавление ID в качестве параметра в Yandex DataLens
+# Добавление ID в качестве параметра в {{ datalens-full-name }}
 
 Чтобы передать фильтр в чарт в виде параметра:
 
 
 {% note warning %}
 
-Если вы работаете с новой объектной моделью DataLens, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
+Если вы работаете с новой объектной моделью {{ datalens-short-name }}, включающей [воркбуки и коллекции](../../workbooks-collections/index.md):
 
 1. На панели слева выберите ![collections](../../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. Откройте нужный воркбук и выберите объект.
@@ -19,9 +19,9 @@
 1. В левом верхнем углу переключитесь на вкладку **Поля**.
 1. В правой части строки с нужным полем нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Скопировать ID**.
 1. Откройте чарт, в который нужно добавить параметр, и вверху нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Копировать ссылку**. Вы также можете скопировать URL чарта из адресной строки браузера.
-1. Добавьте ID поля к URL чарта в качестве параметра запроса. Должна получиться ссылка вида `https://datalens.ru/wizard/yfn1k6yxud7yr-example-chart?17ecb9a1-c8a5-4811-b53e-c8229f88fcba=<значение>`, где:
+1. Добавьте ID поля к URL чарта в качестве параметра запроса. Должна получиться ссылка вида `{{ link-datalens-wizard }}/yfn1k6yxud7yr-example-chart?17ecb9a1-c8a5-4811-b53e-c8229f88fcba=<значение>`, где:
 
-   * `https://datalens.ru/wizard/yfn1k6yxud7yr-example-chart` — URL чарта;
+   * `{{ link-datalens-main }}/wizard/yfn1k6yxud7yr-example-chart` — URL чарта;
    * `17ecb9a1-c8a5-4811-b53e-c8229f88fcba` — ID поля;
    * `<значение>` — одно из значений поля, по которому происходит фильтрация.
 
@@ -37,9 +37,9 @@
 
 Для фильтрации данных в чарте сформирована ссылка:
 
-`https://datalens.ru/wizard/3v7xz********-temperatura?season_xw29=spring`, где:
+`{{ link-datalens-main }}/wizard/3v7xz********-temperatura?season_xw29=spring`, где:
 
-   * `https://datalens.ru/wizard/3v7xz********-temperatura` — URL чарта;
+   * `{{ link-datalens-main }}/wizard/3v7xz********-temperatura` — URL чарта;
    * `season_xw29` — ID поля;
    * `spring` — значение поля, по которому происходит фильтрация.
 

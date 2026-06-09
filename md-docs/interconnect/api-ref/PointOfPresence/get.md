@@ -1,13 +1,12 @@
 # Cloud Interconnect API, REST: PointOfPresence.Get
 
 Returns the specified PointOfPresence resource.
-
 To get the list of available PointOfPresence resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/pointOfPresences/{pointOfPresenceId}
+GET https://cic.{{ api-host }}/cic/v1/pointOfPresences/{pointOfPresenceId}
 ```
 
 ## Path parameters
@@ -17,7 +16,9 @@ GET https://cic.api.cloud.yandex.net/cic/v1/pointOfPresences/{pointOfPresenceId}
 || pointOfPresenceId | **string**
 
 Required field. ID of the PointOfPresence resource to return.
-To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) request. ||
+To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.PointOfPresence}
@@ -27,7 +28,11 @@ To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) 
 ```json
 {
   "id": "string",
-  "regionId": "string"
+  "name": "string",
+  "locationAddress": "string",
+  "connectionPoints": [
+    "string"
+  ]
 }
 ```
 
@@ -38,7 +43,13 @@ A PointOfPresence resource.
 || id | **string**
 
 ID of the pointOfPresence. ||
-|| regionId | **string**
+|| name | **string**
 
-ID of the region that the pointOfPresence belongs to. ||
+Name of the pointOfPresence. ||
+|| locationAddress | **string**
+
+Location address of the pointOfPresence. ||
+|| connectionPoints[] | **string**
+
+Links to info about the connection points. ||
 |#

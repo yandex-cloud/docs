@@ -5,7 +5,7 @@ Returns the list of asymmetric KMS keys in the specified folder.
 ## HTTP request
 
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricEncryptionKeys
+GET https://{{ api-host-kms }}/kms/v1/asymmetricEncryptionKeys
 ```
 
 ## Query parameters {#yandex.cloud.kms.v1.asymmetricencryption.ListAsymmetricEncryptionKeysRequest}

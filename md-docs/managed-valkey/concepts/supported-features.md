@@ -1,6 +1,6 @@
-# Доступные команды Yandex Managed Service for Valkey™
+# Доступные команды {{ mrd-name }}
 
-Yandex Managed Service for Valkey™ позволяет выполнять [любые команды Valkey™](https://valkey.io/commands), кроме следующих:
+{{ mrd-name }} позволяет выполнять [любые команды {{ VLK }}](https://valkey.io/commands), кроме следующих:
 
 * Для нешардированного кластера:
 

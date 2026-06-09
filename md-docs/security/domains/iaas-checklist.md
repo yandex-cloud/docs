@@ -2,18 +2,18 @@
 
 ## Безопасность виртуальных машин {#vm-security}
 
-&#x2713; **Отключение серийной консоли**: не используйте серийную консоль, а если это необходимо, то оценивайте риски и [отключайте](../../compute/operations/serial-console/disable.md) серийную консоль по окончании работы.
+&#x2713; **Отключение серийной консоли**: не используйте серийную консоль, а если это необходимо, то оценивайте риски и [отключайте](../../compute/operations/serial-console/index.md#disable) серийную консоль по окончании работы.
 
-&#x2713; **Отключение аутентификации по паролю**: аутентификация по паролю в Yandex Cloud по умолчанию отключена, не включайте доступ по паролю без необходимости.
+&#x2713; **Отключение аутентификации по паролю**: аутентификация по паролю в {{ yandex-cloud }} по умолчанию отключена, не включайте доступ по паролю без необходимости.
 
-&#x2713; **Подключение с помощью OS Login**: свяжите учетную запись пользователя ВМ с учетной записью пользователя организации при помощи [OS Login](../../organization/concepts/os-login.md). Чтобы [подключиться](../../compute/operations/vm-connect/os-login.md) к ВМ по OS Login, настройте OS Login при [создании](../../compute/operations/vm-connect/os-login-create-vm.md) или на уже [существующей ВМ](../../compute/operations/vm-connect/enable-os-login.md) вместо стандартного подключения по SSH.
+&#x2713; **Подключение с помощью {{ oslogin }}**: свяжите учетную запись пользователя ВМ с учетной записью пользователя организации при помощи [{{ oslogin }}](../../organization/concepts/os-login.md). Чтобы [подключиться](../../compute/operations/vm-connect/os-login.md) к ВМ по {{ oslogin }}, настройте {{ oslogin }} при [создании](../../compute/operations/vm-connect/os-login-create-vm.md) или на уже [существующей ВМ](../../compute/operations/vm-connect/enable-os-login.md) вместо стандартного подключения по SSH.
 
 &#x2713; **Использование эталонного образа для развертывания ВМ**: подготовьте образ ВМ, настройки которого соответствуют политикам безопасности вашей организации и используйте этот образ для [создания](../../compute/operations/vm-create/create-from-user-image.md) ВМ.
 
 
 &#x2713; **Настройка сетевых интерфейсов виртуальных машин**: для стабильной устойчивой работы сети настройте [сетевые интерфейсы](../../vpc/concepts/network.md) на создаваемых и остановленных действующих ВМ: подсеть, внутренний и публичный IP-адреса, группы безопасности. Подробнее о группах безопасности и других сетевых аспектах работы ВМ в разделе [Безопасность сети](#network-security).
 
-Узнайте больше о настройке [безопасной конфигурации виртуальной среды](../standard/virtualenv-safe-config.md#serial-console) и о [безопасном управлении доступом](../standard/authentication.md) в соответствующих разделах стандарта безопасности Yandex Cloud.
+Узнайте больше о настройке [безопасной конфигурации виртуальной среды](../standard/virtualenv-safe-config.md#serial-console) и о [безопасном управлении доступом](../standard/authentication.md) в соответствующих разделах стандарта безопасности {{ yandex-cloud }}.
 
 ### Управление уязвимостями {#vulnerability-management}
 
@@ -21,7 +21,7 @@
 
 &#x2713; **Автоматизированное сканирование уязвимостей**: используйте бесплатные сетевые сканеры, например, nmap, OpenVAS, OWASP ZAP, или агенты на хостах, например, Wazuh.
 
-&#x2713; **Регулярные резервные копии**: [настройте](../../compute/operations/snapshot-control/create-schedule.md) создание снимков дисков по расписанию, используя возможности Yandex Compute Cloud, или [настройте](../../backup/quickstart/existing-vm.md) автоматическое резервное копирование ВМ с помощью Yandex Cloud Backup.
+&#x2713; **Регулярные резервные копии**: [настройте](../../compute/operations/snapshot-control/create-schedule.md) создание снимков дисков по расписанию, используя возможности {{ compute-full-name }}, или [настройте](../../backup/quickstart/existing-vm.md) автоматическое резервное копирование ВМ с помощью {{ backup-full-name }}.
 
 ## Безопасность сети {#network-security}
 
@@ -32,37 +32,37 @@
   * настроить доступ к вашей облачной инфраструктуре только с доверенных IP-адресов;
   * ограничить трафик по различным протоколам и другим параметрам, которые определяются [правилами](../../vpc/concepts/security-groups.md#security-groups-rules).
 
-&#x2713; **Web Application Firewall (WAF)**: WAF анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные действия. [Настройте профиль WAF](../../smartwebsecurity/quickstart.md#waf) и подключите его к вашему профилю безопасности  в Yandex Smart Web Security.
+&#x2713; **Web Application Firewall (WAF)**: WAF анализирует входящие HTTP-запросы к веб-приложению по предварительно настроенным правилам. На основе результатов анализа к HTTP-запросам применяются определенные действия. [Настройте профиль WAF](../../smartwebsecurity/quickstart.md#waf) и подключите его к вашему профилю безопасности  в {{ sws-full-name }}.
 
 &#x2713; **Безопасный удаленный доступ**: [создайте](../../tutorials/routing/bastion.md) бастионную ВМ для доступа в инфраструктуру по управляющим протоколам (например, [SSH](../../glossary/ssh-keygen.md), RDP).
 
 &#x2713; **Исходящий доступ (NAT)**: используйте [NAT-шлюз](../../vpc/concepts/gateways.md#nat-gateway) для безопасного исходящего доступа в интернет. Шлюз транслирует ваши IP-адреса в общий пул адресов. Если необходимо, чтобы выход в интернет был из вашего контролируемого пула IP-адресов, используйте [NAT-инстанс](../../tutorials/routing/nat-instance/console.md#create-nat-instance) (выделенную ВМ).
 
-&#x2713; **Защита от DDoS**: при назначении публичных IP-адресов на ресурсы облака используйте [Yandex DDoS Protection](../../vpc/ddos-protection/index.md) (услуга L4-защиты от DDoS). Для защиты от DDoS на уровне L7 используйте сервис [Smart Web Security](../../smartwebsecurity/index.md).
+&#x2713; **Защита от DDoS**: при назначении публичных IP-адресов на ресурсы облака используйте [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/index.md) (услуга L4-защиты от DDoS). Для защиты от DDoS на уровне L7 используйте сервис [{{ sws-name }}](../../smartwebsecurity/index.md).
 
   Ознакомьтесь с примером реализации [архитектуры и защиты базового интернет-сервиса](../../vpc/tutorials/web-service.md).
 
-Узнайте больше о безопасной настройке и эксплуатации сетей в [соответствующей секции](../standard/network-security.md) стандарта безопасности Yandex Cloud.
+Узнайте больше о безопасной настройке и эксплуатации сетей в [соответствующей секции](../standard/network-security.md) стандарта безопасности {{ yandex-cloud }}.
 
-## Безопасность Object Storage {#storage-security}
+## Безопасность {{ objstorage-name }} {#storage-security}
 
 &#x2713; **Шифрование**: включите [шифрование бакетов](../../storage/operations/buckets/encrypt.md) (server-side encryption) для защиты от случайной или намеренной публикации содержимого бакета.
 
 &#x2713; **Ограничение доступа к бакету**:
 
    * По возможности [отключите](../../storage/operations/buckets/bucket-availability.md#close-public-access) публичный доступ. Чтобы предоставить доступ к конкретному объекту, [сгенерируйте](../../storage/operations/objects/link-for-download.md) публичную ссылку с ограниченным сроком жизни.
-   * Для гибкой настройки доступа к бакету используйте IAM, Bucket Policy или другие механизмы, описанные на странице [Обзор способов управления доступом в Object Storage](../../storage/security/overview.md). Используйте настройку доступа через ACL только в крайнем случае —  если выдать публичный доступ на объект через ACL, то все остальные проверки безопасности игнорируются.
+   * Для гибкой настройки доступа к бакету используйте IAM, Bucket Policy или другие механизмы, описанные на странице [{#T}](../../storage/security/overview.md). Используйте настройку доступа через ACL только в крайнем случае —  если выдать публичный доступ на объект через ACL, то все остальные проверки безопасности игнорируются.
 
 
 &#x2713; **Защита от удаления**: [настройте](../../storage/operations/buckets/configure-object-lock.md) механизм блокировки версий объектов для защиты данных от удаления (object lock).
 
-&#x2713; **Логирование действий с бакетом**: [настройте](../../storage/operations/buckets/enable-logging.md) механизм логирования действий с бакетом и [включите](../../audit-trails/concepts/events-data-plane.md#objstorage) сбор аудитных логов сервиса в Yandex Audit Trails.
+&#x2713; **Логирование действий с бакетом**: [настройте](../../storage/operations/buckets/enable-logging.md) механизм логирования действий с бакетом и [включите](../../audit-trails/concepts/events-data-plane.md#objstorage) сбор аудитных логов сервиса в {{ at-full-name }}.
 
-&#x2713; **Безопасное использование AWS-совместимых инструментов**: настройте доступ [AWS-совместимых инструментов](../../storage/tools/index.md) к хранилищу с помощью [статических ключей](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и храните ключи в [секрете Yandex Lockbox](../../iam/tutorials/static-key-in-lockbox/index.md).
+&#x2713; **Безопасное использование AWS-совместимых инструментов**: настройте доступ [AWS-совместимых инструментов](../../storage/tools/index.md) к хранилищу с помощью [статических ключей](../../iam/operations/authentication/manage-access-keys.md#create-access-key) и храните ключи в [секрете {{ lockbox-name }}](../../iam/tutorials/static-key-in-lockbox/index.md).
 
-&#x2713; **Управление кросс-доменными запросами (CORS)**: [настройте](../../storage/operations/buckets/cors.md) конфигурацию CORS в соответствии с требованиями политик безопасности вашей компании. Если вы используете бакет для хостинга статического сайта, [включите](../../storage/operations/hosting/certificate.md#cert-manager) доступ по протоколу HTTPS помощью сертификата Certificate Manager.
+&#x2713; **Управление кросс-доменными запросами (CORS)**: [настройте](../../storage/operations/buckets/cors.md) конфигурацию CORS в соответствии с требованиями политик безопасности вашей компании. Если вы используете бакет для хостинга статического сайта, [включите](../../storage/operations/hosting/certificate.md#cert-manager) доступ по протоколу HTTPS помощью сертификата {{ certificate-manager-name }}.
 
-&#x2713; **Безопасная конфигурация Object Storage**:
-  ![](../../_assets/overview/solution-library-icon.svg) Ознакомьтесь с примером реализации [безопасной конфигурации Object Storage в Terraform](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket).
+&#x2713; **Безопасная конфигурация {{ objstorage-name }}**:
+  ![](../../_assets/overview/solution-library-icon.svg) Ознакомьтесь с примером реализации [безопасной конфигурации {{ objstorage-name }} в {{ TF }}](https://github.com/yandex-cloud-examples/yc-s3-secure-bucket).
 
-Узнайте больше о безопасной настройке и эксплуатации Object Storage в [соответствующей секции](../standard/virtualenv-safe-config.md#objstorage) стандарта безопасности Yandex Cloud.
+Узнайте больше о безопасной настройке и эксплуатации {{ objstorage-name }} в [соответствующей секции](../standard/virtualenv-safe-config.md#objstorage) стандарта безопасности {{ yandex-cloud }}.

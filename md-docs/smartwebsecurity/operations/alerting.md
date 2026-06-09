@@ -2,7 +2,7 @@
 
 [Алертинг](../../monitoring/concepts/alerting/alert.md) позволяет следить за изменениями в метриках и отправлять уведомления, когда показатели достигают критических значений. Изменения в метриках отслеживаются с помощью периодически отправляемых запросов — _алертов_. Когда они достигают пороговых значений, система отправляет уведомление через указанный канал связи. Например, по электронной почте или в мессенджер.
 
-В сервисе Smart Web Security доступны метрики скорости входящих запросов:
+В сервисе {{ sws-name }} доступны метрики скорости входящих запросов:
 
 * `load_balancer.smart_web_security.requests_per_second` — количество запросов к защищаемому ресурсу в секунду. Это значение соответствует количеству запросов, обработанных профилем безопасности.
 * `load_balancer.smart_web_security.arl_requests_per_second` — количество запросов к защищаемому ресурсу в секунду, которые обработаны модулем Advanced Rate Limiter.
@@ -36,10 +36,10 @@
 
 ### Создание канала уведомления {#create-channel}
 
-1. В [консоли управления](https://console.yandex.cloud) слева выберите каталог.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. Выберите раздел **Каналы уведомлений**.
-1. Нажмите **Создать канал**.
+1. В [консоли управления]({{ link-console-main }}) слева выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите имя канала, метод отправки и получателей.
 
     {% note info %}
@@ -47,13 +47,13 @@
     Чтобы получать уведомления, пользователь должен:
     
     * иметь роль `monitoring.viewer` на каталог, в котором настроен алерт.
-    * в [настройках](https://console.yandex.cloud/settings) консоли управления:
-        * включить опцию **Мониторинг**;
+    * в [настройках]({{ link-console-main }}/settings) консоли управления:
+        * включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**;
         * указать адрес электронной почты, номер телефона и Telegram-аккаунт или группу.
 
     {% endnote %}
 
-1. Нажмите **Создать**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 ### Выбор метрик для контроля {#select-metrics}
 
@@ -63,9 +63,9 @@
 
 ### Создание алерта {#create-alert}
 
-1. На странице сервиса **Monitoring** нажмите **Создать алерт**.
+1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Введите название алерта, например, `exceeding-blocked-requests`.
-1. В блоке **Настройки алерта** опишите запрос для получения `A`:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
    1. Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.requests_per_second`;
@@ -74,7 +74,7 @@
    1. Напротив значка ![image](../../_assets/monitoring/function.svg) нажмите ![image](../../_assets/monitoring/plus.svg).
    1. Задайте функцию для обработки данных `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 
-1. Нажмите **Добавить запрос**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 1. Опишите запрос для получения `B`:
    1. Укажите данные для сбора:
@@ -84,13 +84,13 @@
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
    1. Задайте функцию `replace_nan(0)`.
 
-1. Нажмите **Добавить запрос**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
    
 1. Опишите запрос `C` для получения доли `B` от `A` в процентах:
    1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * B / A`.
 
-1. В блоке **Настройки алерта** укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
      * `Warning` — `30` (предупреждение).
@@ -98,10 +98,10 @@
      * `Окно вычисления` — `30 секунд`.
      * `Задержка вычисления` — `15 секунд`.
 
-1. В блоке **Обработка отсутствия данных** оставьте значения по умолчанию.
-1. (опционально) В блоке [**Аннотации**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
-1. В блоке **Уведомления** добавьте канал для отправки уведомления.
-1. Нажмите **Создать**.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
+1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 ## Алерт о высокой скорости легитимных запросов {#exceeding-speed-requests}
 
@@ -121,10 +121,10 @@
 
 ### Создание канала уведомления {#create-channel}
 
-1. В [консоли управления](https://console.yandex.cloud) слева выберите каталог.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
-1. Выберите раздел **Каналы уведомлений**.
-1. Нажмите **Создать канал**.
+1. В [консоли управления]({{ link-console-main }}) слева выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
 1. Укажите имя канала, метод отправки и получателей.
 
     {% note info %}
@@ -132,13 +132,13 @@
     Чтобы получать уведомления, пользователь должен:
     
     * иметь роль `monitoring.viewer` на каталог, в котором настроен алерт.
-    * в [настройках](https://console.yandex.cloud/settings) консоли управления:
-        * включить опцию **Мониторинг**;
+    * в [настройках]({{ link-console-main }}/settings) консоли управления:
+        * включить опцию **{{ ui-key.yacloud_components.settings.label_monitoring-name }}**;
         * указать адрес электронной почты, номер телефона и Telegram-аккаунт или группу.
 
     {% endnote %}
 
-1. Нажмите **Создать**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 ### Выбор метрик для контроля {#select-metrics}
 
@@ -148,9 +148,9 @@
 
 ### Создание алерта {#create-alert}
 
-1. На странице сервиса **Monitoring** нажмите **Создать алерт**.
+1. На странице сервиса **{{ monitoring-short-name }}** нажмите **{{ ui-key.yacloud_monitoring.homepage.button_alerts-action }}**.
 1. Введите название алерта, например, `inbound-over-ARL`.
-1. В блоке **Настройки алерта** опишите запрос для получения `A`:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.title_alerts-config }}** опишите запрос для получения `A`:
    * Напротив значка ![image](../../_assets/monitoring/chart-lines2.svg) нажмите ![image](../../_assets/monitoring/plus.svg) и добавьте параметры:
      * `service` = `Application Load Balancer`;
      * `name` = `load_balancer.smart_web_security.requests_per_second`;
@@ -160,7 +160,7 @@
      * `series_sum()` — сумма значений метрик с разными метками для конкретной точки. В нашем примере метка одна — `antirobot_verdict`, но для других метрик эта функция будет полезна.
      * `replace_nan(0)` — замена пропусков данных на значение `0`, чтобы график был непрерывным.
 
-1. Нажмите **Добавить запрос**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
 
 1. Опишите запрос для получения `B`:
    * Укажите данные для сбора:
@@ -170,13 +170,13 @@
      * `load_balancer` = `<имя_балансировщика_нагрузки>`.
    * Задайте функции `series_sum()` и `replace_nan(0)`.
 
-1. Нажмите **Добавить запрос**.
+1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.add-query }}**.
    
 1. Опишите запрос `C` для получения разницы между  `A` и `B` в процентах:
    1. Нажмите ![image](../../_assets/monitoring/raw.svg), чтобы переключиться в текстовый режим редактирования запроса.
    1. В строке запроса введите `100 * abs(A - B) / B`.
 
-1. В блоке **Настройки алерта** укажите:
+1. В блоке **{{ ui-key.yacloud_monitoring.alert.section_alert-conditions }}** укажите:
      * `Запрос для проверки` — `C`.
      * `Функция агрегации` — `Все значения`.
      * `Warning` — `30` (предупреждение).
@@ -184,12 +184,12 @@
      * `Окно вычисления` — `30 секунд`.
      * `Задержка вычисления` — `15 секунд`.
 
-1. В блоке **Обработка отсутствия данных** оставьте значения по умолчанию.
-1. (опционально) В блоке [**Аннотации**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
-1. В блоке **Уведомления** добавьте канал для отправки уведомления.
-1. Нажмите **Создать**.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.no-data }}** оставьте значения по умолчанию.
+1. (опционально) В блоке [**{{ ui-key.yacloud_monitoring.monitoring-alerts.title.annotations }}**](../../monitoring/concepts/alerting/annotation.md) добавьте информацию, которую следуют записывать при срабатывании алерта.
+1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** добавьте канал для отправки уведомления.
+1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 #### См. также {#see-also}
 
-* [Справочник метрик Yandex Monitoring](../metrics.md)
-* [Строка запроса](../../monitoring/concepts/visualization/query-string.md)
+* [{#T}](../metrics.md)
+* [{#T}](../../monitoring/concepts/visualization/query-string.md)

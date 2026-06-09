@@ -1,36 +1,36 @@
-# Настройка рабочего процесса Workflows с интеграцией с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox
+# Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}
 
 
 {% note info %}
 
-Workflows находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+{{ sw-name }} находится на стадии [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}
 
-В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) Yandex Workflows и настроите их интеграцию с [Яндекс Трекер](https://yandex.ru/support/tracker/ru/), [Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/index) и [Yandex Cloud Postbox](../../postbox/index.md).
+В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}](../../postbox/index.md).
 
-Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди](https://yandex.ru/support/tracker/ru/about-tracker#ochered) Трекер, с помощью модели YandexGPT Pro анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в Трекер, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса Yandex Cloud Postbox.
+Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
-Чтобы настроить рабочий процесс Workflows:
+Чтобы настроить рабочий процесс {{ sw-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#service-account).
-1. [Подготовьте Трекер](#prepare-tracker).
-1. [Настройте доступ рабочего процесса в Трекер](#setup-tracker-access).
-1. [Создайте адрес и пройдите проверку прав владения доменом в Yandex Cloud Postbox](#setup-postbox).
-1. [Создайте рабочий процесс Workflows](#setup-workflow).
+1. [Подготовьте {{ tracker-name }}](#prepare-tracker).
+1. [Настройте доступ рабочего процесса в {{ tracker-name }}](#setup-tracker-access).
+1. [Создайте адрес и пройдите проверку прав владения доменом в {{ postbox-name }}](#setup-postbox).
+1. [Создайте рабочий процесс {{ sw-name }}](#setup-workflow).
 1. [Протестируйте рабочий процесс](#test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-1. [Войдите](https://passport.yandex.ru/auth) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-1. Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-    1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-    1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте]({{ support-passport-create }}) его.
+1. Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+    1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+    1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-    Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+    Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
     [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md). 
 1. Установите утилиту [cURL](https://curl.haxx.se), она понадобится для отправки запроса на получение OAuth-токена приложения Яндекс ID.
@@ -39,10 +39,10 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 В стоимость поддержки создаваемой инфраструктуры входят:
 
-* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за использование Yandex AI Studio (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing));
-* плата за использование Яндекс Трекер (см. [тарифы Трекер](https://yandex.ru/support/tracker/ru/pricing));
-* плата за использование Yandex Cloud Postbox (см. [тарифы Yandex Cloud Postbox](../../postbox/pricing.md)).
+* плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
+* плата за использование {{ ai-studio-full-name }} (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
+* плата за использование {{ tracker-full-name }} (см. [тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
+* плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md)).
 
 ## Создайте сервисный аккаунт {#service-account}
 
@@ -50,43 +50,43 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать рабочие процессы.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать рабочие процессы.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
-      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user).
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
+      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
-## Подготовьте очередь и задачи в Трекер {#prepare-tracker}
+## Подготовьте очередь и задачи в {{ tracker-name }} {#prepare-tracker}
 
-Чтобы рабочие процессы, которые вы создадите в настоящем руководстве, работали корректно, настройте очередь в Яндекс Трекер.
+Чтобы рабочие процессы, которые вы создадите в настоящем руководстве, работали корректно, настройте очередь в {{ tracker-full-name }}.
 
 {% list tabs group=instructions %}
 
-- Интерфейс Трекер {#console}
+- Интерфейс {{ tracker-name }} {#console}
 
-  1. Если в вашей организации не подключен Яндекс Трекер, [подключите](https://yandex.ru/support/tracker/ru/enable-tracker) его.
-  1. Если у вас в Трекер еще нет очереди, [создайте](https://yandex.ru/support/tracker/ru/manager/create-queue) ее.
-  1. [Создайте](https://yandex.ru/support/tracker/ru/user/create-ticket) в вашей очереди 5–10 тестовых задач, отвечающих следующим требованиям:
+  1. Если в вашей организации не подключен {{ tracker-full-name }}, [подключите]({{ link-tracker-cloudless }}enable-tracker) его.
+  1. Если у вас в {{ tracker-name }} еще нет очереди, [создайте]({{ link-tracker-cloudless }}manager/create-queue) ее.
+  1. [Создайте]({{ link-tracker-cloudless }}user/create-ticket) в вашей очереди 5–10 тестовых задач, отвечающих следующим требованиям:
 
       * Тестовые задачи должны быть созданы в одной очереди.
-      * Для всех тестовых задач в поле **Теги** должен быть установлен [тег](https://yandex.ru/support/tracker/ru/glossary#rus-t) `product`.
-      * Для всех тестовых задач в поле **Story Points** должна быть задана оценка в единицах [Story Point](https://yandex.ru/support/tracker/ru/glossary#en-s).
-      * Часть тестовых задач должна быть в [статусе](https://yandex.ru/support/tracker/ru/about-tracker#process) `Закрыт`, часть — в статусе `Открыт`.
-      * В закрытые тестовые задачи должны быть [добавлены](https://yandex.ru/support/tracker/ru/user/comments) комментарии о прогрессе работы над этими задачами.
+      * Для всех тестовых задач в поле **Теги** должен быть установлен [тег]({{ link-tracker-cloudless }}glossary#rus-t) `product`.
+      * Для всех тестовых задач в поле **Story Points** должна быть задана оценка в единицах [Story Point]({{ link-tracker-cloudless }}glossary#en-s).
+      * Часть тестовых задач должна быть в [статусе]({{ link-tracker-cloudless }}about-tracker#process) `Закрыт`, часть — в статусе `Открыт`.
+      * В закрытые тестовые задачи должны быть [добавлены]({{ link-tracker-cloudless }}user/comments) комментарии о прогрессе работы над этими задачами.
 
 {% endlist %}
 
-## Настройте доступ для аутентификации рабочего процесса в Трекер {#setup-tracker-access}
+## Настройте доступ для аутентификации рабочего процесса в {{ tracker-name }} {#setup-tracker-access}
 
-Чтобы аутентифицировать рабочий процесс в Яндекс Трекер, получите токен [OAuth-приложения](https://yandex.ru/dev/id/doc/ru/concepts/ya-oauth-intro), у которого есть права на чтение и запись в Трекер.
+Чтобы аутентифицировать рабочий процесс в {{ tracker-full-name }}, получите токен [OAuth-приложения](https://yandex.ru/dev/id/doc/ru/concepts/ya-oauth-intro), у которого есть права на чтение и запись в {{ tracker-name }}.
 
 ### Создайте OAuth-приложение в Яндекс ID {#create-app}
 
-Чтобы создать OAuth-приложение с правами доступа на чтение и запись в Трекер:
+Чтобы создать OAuth-приложение с правами доступа на чтение и запись в {{ tracker-name }}:
 
 1. Перейдите в браузере на [страницу создания OAuth-приложения](https://oauth.yandex.ru/client/new/). На открывшейся странице:
     1. В поле **Название вашего сервиса** введите название создаваемого OAuth-приложения: `My Tracker Workflow`.
@@ -109,7 +109,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
     https://oauth.yandex.ru/authorize?response_type=code&client_id=<значение_ClientID>
     ```
 
-    Подтвердите, что предоставляете доступ вашему OAuth-приложению к Трекер.
+    Подтвердите, что предоставляете доступ вашему OAuth-приложению к {{ tracker-name }}.
 
     В открывшемся окне скопируйте и сохраните полученный код подтверждения. Он понадобится для получения OAuth-токена.
 1. Получите OAuth-токен приложения. Для этого в терминале выполните команду:
@@ -133,41 +133,40 @@ Workflows находится на стадии [Preview](../../overview/concepts
     {"access_token": "y0__wgBhMmiugUY4b40IJCda4YSeAfV5tAoPqy2tttkQsy********", "expires_in": 31536000, "refresh_token": "1:7WGrfpErRSTlkTJI:NGU-BJxhvhUdwDxDuez5ana4Befm63bXXhNpJFnbWDX1XJ_rJ3qh6DH_AItBhFJk********:ZZP-Pf0nxo4nil********", "token_type": "bearer"}%
     ```
 
-    Сохраните полученное значение поля `access_token` — это OAuth-токен приложения, необходимый для доступа рабочего процесса к Трекер.
+    Сохраните полученное значение поля `access_token` — это OAuth-токен приложения, необходимый для доступа рабочего процесса к {{ tracker-name }}.
 
-### Создайте секрет Yandex Lockbox {#create-secret}
+### Создайте секрет {{ lockbox-full-name }} {#create-secret}
 
-Создайте [секрет](../../lockbox/quickstart.md) Yandex Lockbox для хранения OAuth-токена и назначьте сервисному аккаунту права доступа к созданному секрету.
+Создайте [секрет](../../lockbox/quickstart.md) {{ lockbox-name }} для хранения OAuth-токена и назначьте сервисному аккаунту права доступа к созданному секрету.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
-  1. Нажмите кнопку **Создать секрет** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}** и в открывшемся окне:
 
-      1. В поле **Имя** введите имя секрета: `tracker-oauth-token`.
-      1. В поле **Тип секрета** выберите `Пользовательский`.
-      1. В блоке **Версия**:
-          * В поле **Ключ** введите ключ секрета: `oauth`.
-          * В поле **Значение** укажите OAuth-токен приложения, полученный на предыдущем шаге.
-      1. Нажмите кнопку **Создать**.
+      1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `tracker-oauth-token`.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите ключ секрета: `oauth`.
+      1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** укажите OAuth-токен приложения, полученный на предыдущем шаге.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Нажмите на строку с созданным секретом `tracker-oauth-token` и в открывшемся окне:
 
-      1. Скопируйте и сохраните значение поля **Идентификатор**. Оно понадобится позднее при создании спецификации рабочего процесса.
-      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите кнопку **Назначить роли**.
+      1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.SecretOverviewPage.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
+      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. В поисковой строке введите имя созданного ранее сервисного аккаунта `workflow-sa` и выберите найденный сервисный аккаунт.
-      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
-      1. Нажмите **Сохранить**.
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
-## Создайте адрес и пройдите проверку прав владения доменом в Yandex Cloud Postbox {#setup-postbox}
+## Создайте адрес и пройдите проверку прав владения доменом в {{ postbox-name }} {#setup-postbox}
 
-Чтобы рабочий процесс мог отправлять письма, создайте [адрес](../../postbox/concepts/glossary.md#adress) Yandex Cloud Postbox и подтвердите владение доменом, с которого будут отправляться письма.
+Чтобы рабочий процесс мог отправлять письма, создайте [адрес](../../postbox/concepts/glossary.md#adress) {{ postbox-name }} и подтвердите владение доменом, с которого будут отправляться письма.
 
-### Создайте адрес Yandex Cloud Postbox {#create-address}
+### Создайте адрес {{ postbox-name }} {#create-address}
 
 1. Сгенерируйте ключ для создания DKIM-подписи. Для этого в терминале выполните команду:
 
@@ -183,18 +182,18 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы ранее создали сервисный аккаунт и секрет.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Postbox**.
-        1. Нажмите кнопку **Создать адрес**.
-        1. В поле **Домен** укажите домен, с которого будете отправлять письма. Например: `example.com`.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы ранее создали сервисный аккаунт и секрет.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+        1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Например: `example.com`.
 
             Домен может быть любого уровня. У вас должны быть права на добавление [ресурсных записей](../../dns/concepts/resource-record.md) в публичную [зону DNS](../../dns/concepts/dns-zone.md) указанного домена — это необходимо для подтверждения ваших прав на его использование.
-        1. В поле **Селектор** укажите селектор. Например: `tracker_workflow`. 
+        1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор. Например: `tracker_workflow`. 
 
             Имя указанного селектора будет использовано для создания ресурсной записи TXT, поэтому каждый создаваемый селектор должен быть уникальным в пределах вашего домена.
-        1. В поле **Приватный ключ** скопируйте содержимое созданного ранее файла приватного ключа `privatekey.pem`.
-        1. Нажмите кнопку **Создать адрес**.
-        1. В появившемся списке адресов выберите созданный адрес и на открывшейся странице в блоке **Подтверждение подписи** скопируйте и сохраните значения полей **Имя** и **Значение** — они понадобятся для создания ресурсной записи TXT.
+        1. В поле **{{ ui-key.yacloud.postbox.label_private-key }}** скопируйте содержимое созданного ранее файла приватного ключа `privatekey.pem`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
+        1. В появившемся списке адресов выберите созданный адрес и на открывшейся странице в блоке **Подтверждение подписи** скопируйте и сохраните значения полей **{{ ui-key.yacloud.postbox.label_dns-record-name }}** и **{{ ui-key.yacloud.postbox.label_dns-record-value }}** — они понадобятся для создания ресурсной записи TXT.
 
     {% endlist %}
 
@@ -202,14 +201,14 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 1. В публичной зоне DNS вашего домена создайте [ресурсную запись TXT](../../dns/concepts/resource-record.md#txt) со следующими значениями:
 
-    * **Имя записи**: скопированное на предыдущем шаге значение поля **Имя**.
+    * **Имя записи**: скопированное на предыдущем шаге значение поля **{{ ui-key.yacloud.postbox.label_dns-record-name }}**.
 
-        В Yandex Cloud DNS укажите часть имени, сгенерированного при создании адреса, без указания домена, в формате `<селектор>._domainkey`, например `tracker_workflow._domainkey`.
+        В {{ dns-full-name }} укажите часть имени, сгенерированного при создании адреса, без указания домена, в формате `<селектор>._domainkey`, например `tracker_workflow._domainkey`.
 
         Для других DNS-сервисов может потребоваться скопировать запись целиком. Итоговая запись должна иметь вид `<селектор>._domainkey.<домен>.`, например `tracker_workflow._domainkey.example.com.`.
 
     * **Тип записи**: `TXT`.
-    * **Значение записи**: скопированное на предыдущем шаге значение поля **Значение**.
+    * **Значение записи**: скопированное на предыдущем шаге значение поля **{{ ui-key.yacloud.postbox.label_dns-record-value }}**.
     
         Обратите внимание, что значение записи нужно взять в кавычки, например:
 
@@ -219,7 +218,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
     {% note info %}
     
-    Если ваш домен делегирован Yandex Cloud DNS, создайте ресурсную запись по [инструкции](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь личным кабинетом вашего регистратора доменных имен. Если нужна помощь, обратитесь к документации регистратора или в его поддержку.
+    Если ваш домен делегирован {{ dns-full-name }}, создайте ресурсную запись по [инструкции](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь личным кабинетом вашего регистратора доменных имен. Если нужна помощь, обратитесь к документации регистратора или в его поддержку.
     
     {% endnote %}
 
@@ -229,17 +228,17 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный адрес.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Postbox** и выберите нужный адрес.
-        1. Нажмите кнопку **Запустить проверку**. Если TXT-запись создана корректно, статус проверки на странице адреса изменится на `Success`.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** и выберите нужный адрес.
+        1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**. Если TXT-запись создана корректно, статус проверки на странице адреса изменится на `Success`.
 
             Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
 
     {% endlist %}
 
-## Создайте рабочий процесс Workflows {#setup-workflow}
+## Создайте рабочий процесс {{ sw-name }} {#setup-workflow}
 
-1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox, но по-разному анализируют исходные данные.
+1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}, но по-разному анализируют исходные данные.
 
     {% list tabs %}
 
@@ -253,17 +252,17 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
       ![tracker-yandexgpt-postbox-integrations-first-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-first-workflow.png)
 
-      Предлагаемый рабочий процесс анализирует задачи Трекер в указанной очереди, формирует и публикует отчет о прогрессе работы в этих задачах:
+      Предлагаемый рабочий процесс анализирует задачи {{ tracker-name }} в указанной очереди, формирует и публикует отчет о прогрессе работы в этих задачах:
 
-      1. Анализ задач с нужным тегом в заданной очереди Трекер:
+      1. Анализ задач с нужным тегом в заданной очереди {{ tracker-name }}:
           * общее количество задач;
-          * общая суммарная оценка задач в единицах [Story Point](https://yandex.ru/support/tracker/ru/glossary#en-s);
+          * общая суммарная оценка задач в единицах [Story Point]({{ link-tracker-cloudless }}glossary#en-s);
           * количество закрытых задач;
           * процентное соотношение количества закрытых задач к общему количеству задач;
           * суммарная оценка закрытых задач в единицах `Story Point`;
           * процентное соотношение суммарной оценки закрытых задач к общей суммарной оценке всех задач в единицах `Story Point`.
       1. Формирование отчета с результатами анализа.
-      1. Публикация отчета в комментарии к заданной задаче Трекер, а также отправка отчета на заданный адрес электронной почты.
+      1. Публикация отчета в комментарии к заданной задаче {{ tracker-name }}, а также отправка отчета на заданный адрес электронной почты.
 
       **Код спецификации:**
 
@@ -279,7 +278,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
             listIssues:
               filter:
                 issueProperties:
-                  queue: <ключ_очереди_в_Трекер>
+                  queue: <ключ_очереди_в_{{ tracker-name }}>
                   tags: "product"
             output: |-
               \({
@@ -304,7 +303,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
               messages:
                 messages:
                   - role: system
-                    text: "Далее будут даны названия незавершенных задач в Трекер и их описание. Сформулируй как можно короче (не больше трех предложений), что осталось сделать"
+                    text: "Далее будут даны названия незавершенных задач в {{ tracker-name }} и их описание. Сформулируй как можно короче (не больше трех предложений), что осталось сделать"
                   - role: user
                     text: |-
                       \("
@@ -374,13 +373,13 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
       Где:
 
-      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации Yandex Identity Hub.
+      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации {{ org-full-name }}.
       * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета](../../lockbox/concepts/secret.md) с OAuth-токеном приложения.
-      * `<ключ_очереди_в_Трекер>` — [ключ](https://yandex.ru/support/tracker/ru/glossary#rus-k) очереди Трекер, в которой вы создали тестовые задачи.
+      * `<ключ_очереди_в_{{ tracker-name }}>` — [ключ]({{ link-tracker-cloudless }}glossary#rus-k) очереди {{ tracker-name }}, в которой вы создали тестовые задачи.
       * `<идентификатор_каталога>` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором вы создаете рабочий процесс.
-      * `<ключ_задачи_с_отчетом>` — ключ [задачи](https://yandex.ru/support/tracker/ru/glossary#rus-z) Трекер, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
-      * `<ваш_домен>` — домен, который вы указали при создании адреса Yandex Cloud Postbox. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
-      * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс отправит письмо со сводкой по проанализированным тестовым задачам Трекер.
+      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
+      * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
+      * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс отправит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
 
       Рабочий процесс включает в себя следующие шаги: `fetch_tickets`, `summarize_texts`, `send_report_via_postbox` и `write_report_to_tracker`.
 
@@ -394,12 +393,12 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
       ![tracker-yandexgpt-postbox-integrations-second-workflow](../../_assets/tutorials/tracker-yandexgpt-postbox-integrations-second-workflow.png)
 
-      Предлагаемый рабочий процесс анализирует закрытые задачи Трекер за последнюю неделю, формирует и публикует отчет о проделанной в этих задачах работе:
+      Предлагаемый рабочий процесс анализирует закрытые задачи {{ tracker-name }} за последнюю неделю, формирует и публикует отчет о проделанной в этих задачах работе:
       1. Анализ задач, закрытых за последнюю неделю:
           * выгрузка комментариев к задачам;
           * анализ и обобщение комментариев к каждой закрытой задаче.
       1. Формирование отчета с обобщением выполненной работы в каждой закрытой задаче.
-      1. Публикация отчета в комментарии к заданной задаче Трекер, а также отправка отчета на заданный адрес электронной почты.
+      1. Публикация отчета в комментарии к заданной задаче {{ tracker-name }}, а также отправка отчета на заданный адрес электронной почты.
 
       **Код спецификации:**
 
@@ -450,7 +449,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
               messages:
                 messages:
                   - role: system
-                    text: "Далее будут даны комментарии завершенных задач в Трекер. Сформулируй как можно короче (не больше трех предложений), какая работа была проделана."
+                    text: "Далее будут даны комментарии завершенных задач в {{ tracker-name }}. Сформулируй как можно короче (не больше трех предложений), какая работа была проделана."
                   - role: user
                     text: \(.comment_text)
             output: |-
@@ -515,50 +514,50 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
       Где:
 
-      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации Yandex Identity Hub.
+      * `<идентификатор_организации>` — [идентификатор](../../organization/operations/organization-get-id.md) вашей организации {{ org-full-name }}.
       * `<идентификатор_секрета>` — сохраненный ранее идентификатор [секрета](../../lockbox/concepts/secret.md) с OAuth-токеном приложения.
       * `<идентификатор_каталога>` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, в котором вы создаете рабочий процесс.
-      * `<ключ_задачи_с_отчетом>` — ключ [задачи](https://yandex.ru/support/tracker/ru/glossary#rus-z) Трекер, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
-      * `<ваш_домен>` — домен, который вы указали при создании адреса Yandex Cloud Postbox. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
-      * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс направит письмо со сводкой по проанализированным тестовым задачам Трекер.
+      * `<ключ_задачи_с_отчетом>` — ключ [задачи]({{ link-tracker-cloudless }}glossary#rus-z) {{ tracker-name }}, в комментарий к которой будет выгружена сводка по проанализированным тестовым задачам.
+      * `<ваш_домен>` — домен, который вы указали при создании адреса {{ postbox-name }}. В качестве адреса отправителя `fromAddress` вы можете указать любой адрес на этом домене. Например: `tracker-robot@example.com` или `noreply@example.com`.
+      * `<адрес_получателя>` — адрес электронной почты, на который рабочий процесс направит письмо со сводкой по проанализированным тестовым задачам {{ tracker-name }}.
 
       Рабочий процесс включает в себя следующие шаги: `fetch_tickets`, `fetch_comments`, `summarize_texts`, `send_report_via_postbox` и `write_report_to_tracker`.
 
     {% endlist %}
 
-1. Создайте рабочий процесс Workflows с использованием выбранной спецификации:
+1. Создайте рабочий процесс {{ sw-name }} с использованием выбранной спецификации:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся созданные ранее ресурсы — сервисный аккаунт, секрет и адрес Yandex Cloud Postbox.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
-        1. В правом верхнем углу нажмите кнопку **Создать рабочий процесс** и в открывшемся окне:
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ранее ресурсы — сервисный аккаунт, секрет и адрес {{ postbox-name }}.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** и в открывшемся окне:
 
-            1. В поле **YaML-спецификация** добавьте выбранную ранее спецификацию.
-            1. Разверните блок **Дополнительные параметры**.
-            1. В поле **Имя** введите имя рабочего процесса: `my-tracker-workflow`.
-            1. В поле **Сервисный аккаунт** выберите созданный ранее сервисный аккаунт `workflow-sa`.
-        1. Нажмите кнопку **Создать**.
+            1. В поле **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** добавьте выбранную ранее спецификацию.
+            1. Разверните блок **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
+            1. В поле **{{ ui-key.yacloud.common.name }}** введите имя рабочего процесса: `my-tracker-workflow`.
+            1. В поле **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** выберите созданный ранее сервисный аккаунт `workflow-sa`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
     {% endlist %}
 
 ## Протестируйте рабочий процесс {#test}
 
-Убедитесь, что процесс Workflows выполняется.
+Убедитесь, что процесс {{ sw-name }} выполняется.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный рабочий процесс Workflows.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
-    1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **Запустить**.
-    1. В открывшемся окне нажмите **Запустить**. Будет запущен созданный ранее рабочий процесс, его выполнение может занять несколько минут.
-    1. Перейдите на вкладку ![Timeline](../../_assets/console-icons/timeline.svg) **Шкала времени**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный рабочий процесс {{ sw-name }}.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+    1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
+    1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.start }}**. Будет запущен созданный ранее рабочий процесс, его выполнение может занять несколько минут.
+    1. Перейдите на вкладку ![Timeline](../../_assets/console-icons/timeline.svg) **{{ ui-key.yacloud.serverless-workflows.label_timeline }}**.
 
         Убедитесь, что все этапы рабочего процесса завершены успешно. При успешном выполнении этапа в соответствующей строке шкалы времени будет отображаться блок зеленого цвета со значком ![CircleCheck](../../_assets/console-icons/circle-check.svg).
 
@@ -566,7 +565,7 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
 {% endlist %}
 
-В результате выполнения рабочего процесса в заданную в спецификации задачу Трекер будет добавлен комментарий со сводкой по проанализированным тестовым задачам. Эта сводка будет также продублирована письмом на заданный в спецификации адрес электронной почты.
+В результате выполнения рабочего процесса в заданную в спецификации задачу {{ tracker-name }} будет добавлен комментарий со сводкой по проанализированным тестовым задачам. Эта сводка будет также продублирована письмом на заданный в спецификации адрес электронной почты.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
@@ -577,24 +576,24 @@ Workflows находится на стадии [Preview](../../overview/concepts
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находятся созданные ресурсы.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **Workflows**.
-        1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ресурсы.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
+        1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
 
     {% endlist %}
 1. [Удалите секрет](../../lockbox/operations/secret-delete.md).
-1. Удалите [задачи](https://yandex.ru/support/tracker/ru/user/ticket-cancel) и [очередь](https://yandex.ru/support/tracker/ru/manager/delete-queue) Трекер.
-1. При необходимости удалите адрес Yandex Cloud Postbox:
+1. Удалите [задачи]({{ link-tracker-cloudless }}user/ticket-cancel) и [очередь]({{ link-tracker-cloudless }}manager/delete-queue) {{ tracker-name }}.
+1. При необходимости удалите адрес {{ postbox-name }}:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console}
 
-        1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится созданный адрес Yandex Cloud Postbox.
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Postbox**.
-        1. В строке с нужным адресом Yandex Cloud Postbox нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **Удалить**.
+        1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес {{ postbox-name }}.
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. В строке с нужным адресом {{ postbox-name }} нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
 
     {% endlist %}

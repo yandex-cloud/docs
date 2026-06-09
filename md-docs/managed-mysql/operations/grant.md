@@ -4,9 +4,9 @@
 
 {% note warning %}
 
-Чтобы изменить права пользователей на уровне [всего кластера](../concepts/settings-list.md#setting-administrative-priveleges) или [отдельной базы данных](grant.md#grant-privilege), используйте интерфейсы Yandex Cloud. Изменения, внесенные командами SQL, не сохраняются.
+Чтобы изменить права пользователей на уровне [всего кластера](../concepts/settings-list.md#setting-administrative-priveleges) или [отдельной базы данных](grant.md#grant-privilege), используйте интерфейсы {{ yandex-cloud }}. Изменения, внесенные командами SQL, не сохраняются.
 
-Подробнее см. в разделе [Права пользователей в Managed Service for MySQL®](../concepts/user-rights.md).
+Подробнее см. в разделе [{#T}](../concepts/user-rights.md).
 
 {% endnote %}
 
@@ -16,39 +16,39 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **Пользователи**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image-users](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
 
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Настроить**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
 
   1. При необходимости добавьте пользователю нужные базы данных:
 
-     1. Нажмите кнопку **Добавить базу данных**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}**.
      1. Выберите базу данных из выпадающего списка.
      1. Повторите два предыдущих шага, пока не будут выбраны все требуемые базы данных.
      1. Чтобы отозвать доступ к определенной базе, удалите ее из перечня, нажав значок ![image](../../_assets/console-icons/xmark.svg) справа от имени базы данных.
 
   1. Задайте нужные привилегии пользователя отдельно для каждой базы данных:
 
-     1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) в столбце **Роли**.
+     1. Нажмите значок ![image](../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}**.
      1. Выберите привилегию, которую вы хотите добавить пользователю из выпадающего списка.
      1. Повторите два предыдущих шага, пока не будут добавлены все требуемые привилегии.
 
   1. Чтобы отозвать привилегию, нажмите значок ![image](../../_assets/console-icons/xmark.svg) справа от ее имени.
   1. (Опционально) В блоке **Дополнительные настройки** в поле **Global permissions** задайте [административные привилегии пользователя](../concepts/settings-list.md#setting-administrative-privileges) на уровне кластера.
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup_button_save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   * Добавить привилегии пользователю:
 
       ```bash
-      yc managed-mysql user grant-permission <имя_пользователя> \
+      {{ yc-mdb-my }} user grant-permission <имя_пользователя> \
         --cluster-name <имя_кластера> \
         --database <имя_БД> \
         --permissions <набор_привилегий_через_запятую>
@@ -59,7 +59,7 @@
   * Отозвать привилегии у пользователя:
 
       ```bash
-      yc managed-mysql user revoke-permission <имя_пользователя> \
+      {{ yc-mdb-my }} user revoke-permission <имя_пользователя> \
         --cluster-name <имя_кластера> \
         --database <имя_БД> \
         --permissions <набор_привилегий_через_запятую>
@@ -67,9 +67,9 @@
 
       Чтобы добавить или отозвать привилегию `ALL_PRIVILEGES`, передайте в качестве названия синоним `ALL`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -94,14 +94,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -123,7 +123,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 - REST API {#api}
 
@@ -133,7 +133,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [User.update](../api-ref/User/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       {% note warning %}
       
@@ -146,7 +146,7 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/users/<имя_пользователя>' \
           --data '{
                     "updateMask": "permissions",
                     "permissions": [
@@ -192,7 +192,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [UserService/Update](../api-ref/grpc/User/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       {% note warning %}
       
@@ -239,7 +239,7 @@
                   }
                 ]
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.UserService.Update
       ```
 
@@ -296,11 +296,11 @@
         --permissions "SELECT"
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-      О том, как создать такой файл, см. в разделе [Создание кластера MySQL®](cluster-create.md).
+      О том, как создать такой файл, см. в разделе [{#T}](cluster-create.md).
 
   1. Добавьте ресурс `yandex_mdb_mysql_user`:
 
@@ -319,14 +319,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -348,6 +348,6 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_user.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_user).
 
 {% endlist %}

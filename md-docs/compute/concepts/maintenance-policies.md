@@ -34,7 +34,7 @@
 
 ### Как включить {#apply}
 
-[Включить и настроить](../operations/vm-control/vm-update-policies.md) политики обслуживания ВМ можно с помощью [CLI](../../cli/index.md) и [Terraform](../../tutorials/infrastructure-management/terraform-quickstart.md). В консоли управления политики обслуживания сейчас настраивать нельзя.
+[Включить и настроить](../operations/vm-control/vm-update-policies.md) политики обслуживания ВМ можно с помощью [CLI](../../cli/index.md) и [{{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md). В консоли управления политики обслуживания сейчас настраивать нельзя.
 
 ### Ограничения {#limits}
 

@@ -5,7 +5,7 @@ Retrieves the list of RentalPeriod resources.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/rentalPeriods
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/rentalPeriods
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListRentalPeriodsRequest}

@@ -9,8 +9,8 @@
 * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) — использует сетевые SSD-диски с повышенной производительностью, реализованной за счет устранения избыточности.
 
     Объем такого хранилища можно увеличивать только с шагом 93 ГБ.
+    Подробнее об этом типе дисков в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#nr-disks).
 
-    Подробнее об этом типе дисков см. в [документации {{ compute-full-name }}](../../compute/concepts/disk.md#nr-disks).
 
 {% include [available-storage](../../_includes/mdb/available-storage.md) %} 
 

@@ -5,7 +5,7 @@ Lists the available Certificate Authorities (CAs).
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListCertificateAuthoritiesRequest}

@@ -21,21 +21,37 @@ description: Различные практические руководства 
         * [{#T}](authentication/entra-id.md)
         * [{#T}](authentication/keycloak.md)
 
-## Безопасность и стандарты {#security-and-standards}
+## Настройка SSO {#single-sign-on}
 
-* [{#T}](single-sign-on/oidc-grafana.md)
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
-* [{#T}](single-sign-on/oidc-cloud-ru.md)
-* [{#T}](single-sign-on/saml-grafana.md)
+* Cloud.ru
+    * [{#T}](single-sign-on/saml-cloud-ru.md)
+    * [{#T}](single-sign-on/oidc-cloud-ru.md)
+* Grafana
+    * [{#T}](single-sign-on/saml-grafana.md)
+    * [{#T}](single-sign-on/oidc-grafana.md)
+    * [{#T}](single-sign-on/oidc-grafana-oss.md)
+* [{#T}](single-sign-on/oidc-harbor.md)
+* Jenkins
+    * [{#T}](single-sign-on/saml-jenkins.md)
+    * [{#T}](single-sign-on/oidc-jenkins.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
-* [{#T}](single-sign-on/saml-zabbix.md)
 * [{#T}](single-sign-on/saml-opensearch.md)
+* [{#T}](single-sign-on/oidc-mws.md)
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
+* OpenVPN
+    * [{#T}](single-sign-on/saml-ovpn.md)
+    * [{#T}](single-sign-on/oidc-ovpn.md)
+* [{#T}](single-sign-on/saml-selectel.md)
+* [{#T}](single-sign-on/saml-sentry.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
+* VK Cloud
+    * [{#T}](single-sign-on/saml-vk-cloud.md)
+* [{#T}](single-sign-on/saml-zabbix.md)
+* [{#T}](single-sign-on/saml-passwork.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
 * [{#T}](single-sign-on/saml-ya-browser-corporate.md)
-* [{#T}](single-sign-on/saml-cloud-ru.md)
-* [{#T}](single-sign-on/saml-vk-cloud.md)
+* [{#T}](single-sign-on/oidc-nginx-oauth2-proxy.md)
 
 
 ## Сетевая безопасность {#network-security}

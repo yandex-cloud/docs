@@ -5,7 +5,7 @@ Retrieves the list of clusters in the specified folder.
 ## HTTP request
 
 ```
-GET https://dataproc.api.cloud.yandex.net/dataproc/v1/clusters
+GET https://dataproc.{{ api-host }}/dataproc/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.dataproc.v1.ListClustersRequest}

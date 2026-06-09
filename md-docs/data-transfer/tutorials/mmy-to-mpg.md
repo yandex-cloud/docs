@@ -1,6 +1,6 @@
-# Миграция данных из Yandex Managed Service for MySQL® в Yandex Managed Service for PostgreSQL
+# Миграция данных из {{ mmy-full-name }} в {{ mpg-full-name }}
 
-Вы можете настроить перенос данных из базы Managed Service for MySQL® в базу Managed Service for PostgreSQL с помощью сервиса Data Transfer. Для этого:
+Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ mpg-name }} с помощью сервиса {{ data-transfer-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
@@ -11,9 +11,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
-* Кластер Managed Service for MySQL®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for MySQL®](../../managed-mysql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -26,34 +26,34 @@
 
     {% note info %}
     
-    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+    Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
     
     {% endnote %}
 
-    1. [Создайте кластер-источник Managed Service for MySQL®](../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
+    1. [Создайте кластер-источник {{ mmy-name }}](../../managed-mysql/operations/cluster-create.md#create-cluster) в любой [зоне доступности](../../overview/concepts/geo-scope.md), с хостами любой подходящей конфигурации в публичном доступе, и следующими настройками:
 
-        * **Имя БД** — `mmy_db`.
-        * **Имя пользователя** — `mmy_user`.
-        * **Пароль** — `<пароль_источника>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mmy_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mmy_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_источника>`.
 
     1. [Выдайте административные привилегии](../../managed-mysql/operations/grant.md#grant-privilege) `REPLICATION CLIENT` и `REPLICATION SLAVE` пользователю `mmy_user`.
 
         Подробнее об административных привилегиях см. в [описании настроек](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
-    1. В той же зоне доступности [создайте кластер-приемник Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
+    1. В той же зоне доступности [создайте кластер-приемник {{ mpg-name }}](../../managed-postgresql/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 
-        * **Имя БД** — `mpg_db`.
-        * **Имя пользователя** — `mpg_user`.
-        * **Пароль** — `<пароль_приемника>`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_name }}** — `mpg_db`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}** — `mpg_user`.
+        * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** — `<пароль_приемника>`.
 
     1. Убедитесь, что группы безопасности кластеров настроены правильно и допускают подключение к ним:
 
-        * [Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
-        * [Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mmy-name }}](../../managed-mysql/operations/connect/index.md#configuring-security-groups).
+        * [{{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -64,23 +64,23 @@
 
         * [сети](../../vpc/concepts/network.md#network) и [подсети](../../vpc/concepts/network.md#subnet) для размещения кластеров;
         * [группы безопасности](../../vpc/concepts/security-groups.md) для подключения к кластерам;
-        * кластер-источник Managed Service for MySQL®;
-        * кластер-приемник Managed Service for PostgreSQL;
+        * кластер-источник {{ mmy-name }};
+        * кластер-приемник {{ mpg-name }};
         * эндпоинты для источника и приемника;
         * трансфер.
 
     1. Укажите в файле `mysql-postgresql.tf`:
 
-        * Версии MySQL® и PostgreSQL.
-        * Пароли пользователей MySQL® и PostgreSQL.
+        * Версии {{ MY }} и {{ PG }}.
+        * Пароли пользователей {{ MY }} и {{ PG }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -102,13 +102,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
 ## Подготовьте тестовые данные {#prepare-data}
 
-1. [Подключитесь к базе данных в кластере-источнике Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md).
+1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию, поступающую от некоторых датчиков автомобиля.
 
@@ -143,36 +143,36 @@
 
 - Вручную {#manual}
 
-    1. [Создайте эндпоинт-источник](../operations/endpoint/source/mysql.md) типа `MySQL®` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-источник](../operations/endpoint/source/mysql.md) типа `{{ MY }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип подключения** — `Кластер Managed Service for MySQL`.
-        * **Кластер Managed Service for MySQL** — `<имя_кластера_источника_MySQL®>` из выпадающего списка.
-        * **База данных** — `mmy_db`.
-        * **Пользователь** — `mmy_user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_источника_{{ MY }}>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mmy_db`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.user.title }}** — `mmy_user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mysql.console.form.mysql.MysqlConnection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте эндпоинт-приемник](../operations/endpoint/target/postgresql.md) типа `PostgreSQL` и укажите в нем параметры подключения к кластеру:
+    1. [Создайте эндпоинт-приемник](../operations/endpoint/target/postgresql.md) типа `{{ PG }}` и укажите в нем параметры подключения к кластеру:
 
-        * **Тип инсталляции** — `Кластер Managed Service for PostgreSQL`.
-        * **Кластер Managed Service for PostgreSQL** — `<имя_кластера_приемника_PostgreSQL>` из выпадающего списка.
-        * **База данных** — `mpg_db`.
-        * **Пользователь** — `mpg_user`.
-        * **Пароль** — `<пароль_пользователя>`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresConnectionType.mdb_cluster_id.title }}** — `<имя_кластера_приемника_{{ PG }}>` из выпадающего списка.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.database.title }}** — `mpg_db`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.user.title }}** — `mpg_user`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Connection.password.title }}** — `<пароль_пользователя>`.
 
-    1. [Создайте трансфер](../operations/transfer.md#create) типа **_Копирование и репликация_**, использующий созданные эндпоинты.
-    1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **Реплицируется**.
+    1. [Создайте трансфер](../operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующий созданные эндпоинты.
+    1. [Активируйте трансфер](../operations/transfer.md#activate) и дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. Укажите в файле `mysql-postgresql.tf` значение `1` для параметра `transfer_enabled`.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -194,7 +194,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **Реплицируется**.
+    1. Трансфер активируется автоматически. Дождитесь его перехода в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
 {% endlist %}
 
@@ -204,7 +204,7 @@
 
 ### Проверьте работу копирования {#verify-copy}
 
-1. [Подключитесь к базе данных в кластере-приемнике Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md).
+1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md).
 1. Выполните запрос:
 
     ```sql
@@ -213,7 +213,7 @@
 
 ### Проверьте работу репликации {#verify-replication}
 
-1. [Подключитесь к базе данных в кластере-источнике Managed Service for MySQL®](../../managed-mysql/operations/connect/index.md).
+1. [Подключитесь к базе данных в кластере-источнике {{ mmy-name }}](../../managed-mysql/operations/connect/index.md).
 1. Добавьте данные в таблицу `measurements`:
 
     ```sql
@@ -223,7 +223,7 @@
 
 1. Убедитесь, что добавленная строка появилась в базе данных приемника:
 
-    1. [Подключитесь к базе данных в кластере-приемнике Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md).
+    1. [Подключитесь к базе данных в кластере-приемнике {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md).
     1. Выполните запрос:
 
         ```sql
@@ -246,16 +246,16 @@
 
     1. [Удалите трансфер](../operations/transfer.md#delete).
     1. [Удалите эндпоинты](../operations/endpoint/index.md#delete).
-    1. [Удалите кластер Managed Service for MySQL®](../../managed-mysql/operations/cluster-delete.md).
-    1. [Удалите кластер Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mmy-name }}](../../managed-mysql/operations/cluster-delete.md).
+    1. [Удалите кластер {{ mpg-name }}](../../managed-postgresql/operations/cluster-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -269,6 +269,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

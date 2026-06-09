@@ -5,7 +5,7 @@ Deletes the specified function.
 ## HTTP request
 
 ```
-DELETE https://serverless-functions.api.cloud.yandex.net/functions/v1/functions/{functionId}
+DELETE https://serverless-functions.{{ api-host }}/functions/v1/functions/{functionId}
 ```
 
 ## Path parameters

@@ -139,7 +139,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-   Подробнее см. в разделе [{#T}](../../logging/operations/read-logs.md).
+   Подробнее в разделе [{#T}](../../logging/operations/read-logs.md).
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
@@ -265,4 +265,4 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-   Подробнее см. в разделе [{#T}](../../logging/operations/read-logs.md).
+   Подробнее в разделе [{#T}](../../logging/operations/read-logs.md).

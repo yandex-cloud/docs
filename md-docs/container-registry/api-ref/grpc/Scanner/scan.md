@@ -33,25 +33,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "scan_result_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "image_id": "string",
-    "scanned_at": "google.protobuf.Timestamp",
-    "status": "Status",
-    "vulnerabilities": {
-      "critical": "int64",
-      "high": "int64",
-      "medium": "int64",
-      "low": "int64",
-      "negligible": "int64",
-      "undefined": "int64"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -79,7 +64,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ScanMetadata](#yandex.cloud.containerregistry.v1.ScanMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -94,7 +79,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ScanResult](#yandex.cloud.containerregistry.v1.ScanResult)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -109,66 +94,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ScanMetadata {#yandex.cloud.containerregistry.v1.ScanMetadata}
-
-#|
-||Field | Description ||
-|| scan_result_id | **string**
-
-ID of the ScanResult that is being created. ||
-|#
-
-## ScanResult {#yandex.cloud.containerregistry.v1.ScanResult}
-
-A ScanResult resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Output only. ID of the ScanResult. ||
-|| image_id | **string**
-
-Output only. ID of the Image that the ScanResult belongs to. ||
-|| scanned_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Output only. The timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format when the scan been finished. ||
-|| status | enum **Status**
-
-Output only. The status of the ScanResult.
-
-- `RUNNING`: Image scan is in progress.
-- `READY`: Image has been scanned and result is ready.
-- `ERROR`: Image scan is failed. ||
-|| vulnerabilities | **[VulnerabilityStats](#yandex.cloud.containerregistry.v1.VulnerabilityStats)**
-
-Output only. Summary information about vulnerabilities found. ||
-|#
-
-## VulnerabilityStats {#yandex.cloud.containerregistry.v1.VulnerabilityStats}
-
-A VulnerabilityStats resource.
-
-#|
-||Field | Description ||
-|| critical | **int64**
-
-Count of CRITICAL vulnerabilities. ||
-|| high | **int64**
-
-Count of HIGH vulnerabilities. ||
-|| medium | **int64**
-
-Count of MEDIUM vulnerabilities. ||
-|| low | **int64**
-
-Count of LOW vulnerabilities. ||
-|| negligible | **int64**
-
-Count of NEGLIGIBLE vulnerabilities. ||
-|| undefined | **int64**
-
-Count of other vulnerabilities. ||
 |#

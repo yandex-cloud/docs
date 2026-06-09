@@ -4924,6 +4924,9 @@ default:
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
+            field_objects_5dGQy: Objects
+            field_reason: Reason for exclusion
+            field_resources: Resources
             field_rules: Rules
             field_status: Status
           ControlsPage:
@@ -5082,6 +5085,9 @@ default:
           TriggeredRunsControl:
             action_check-environment_k3mP9: Check environment for compliance with control rules
             action_download-check-report_q7nR2: Download check report
+          workload-labels-checkbox_Wl4Cb: Pod labels
+          workload-names-checkbox_Wn4Cb: Workload names
+          workload-types-checkbox_Wt4Cb: Workload types
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
@@ -5598,7 +5604,6 @@ default:
             field_post-data-command-enabled_rXvwj: Run the command after data capture
             field_pre-data-command-enabled_sZ45C: Run the command before data capture
             field_pre-post-data-command_mmRTZ: Commands before and after data capture
-        title_backup: Backups
         title_linked-recourses: Attached resources
         title_select-vm-backup-policies-row: Backup policies
         value_bms-recourses: BareMetal servers
@@ -6420,6 +6425,8 @@ default:
           hosts:
             label_title: List of hosts
         host-groups_eKsBm: Dedicated host groups
+        host-groups:
+          button_create-host-group: Create host group
         images_e7RdQ: Images
         images:
           button_action-image: Create image
@@ -6440,6 +6447,8 @@ default:
           edit:
             button_update: Save changes
           overview:
+            backup-overview:
+              title_backup-section: Backup
             button_action-edit: Edit VM
             button_action-ssh: Connect in Cloud Shell
             button_add-network-interface: Add network interface
@@ -6491,6 +6500,9 @@ default:
             button_net_empty-create: Create a network
             button_show-all-marketplace-products: Show all Marketplace products
             field_access-advanced: Advanced
+            field_affinity-host-groups: Dedicated host groups
+            field_affinity-hosts: Hosts ID
+            field_affinity-key-type: Type of affinity
             field_coi-arguments: Command arguments
             field_coi-command: Command
             field_coi-env: Environment variables
@@ -6500,6 +6512,7 @@ default:
             field_coi-restart-policy: Restart policy
             field_coi-stdin: Allocate an stdin buffer for a running Docker container
             field_coi-tty: Attach a TTY to the Docker container
+            field_host-affinity-rules: Host affinity rules
             field_instance-group-address: Public address
             field_instance-group-network: Network
             field_key: SSH key
@@ -6527,6 +6540,8 @@ default:
             unified-agent: Agent for delivering metrics
             value_address-auto: Auto
             value_address-none: No address
+            value_affinity-key-host: Host ID
+            value_affinity-key-host-group: Dedicated host group
             value_coi-restart-always: Always
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
@@ -9475,7 +9490,7 @@ default:
                         title: User
                     GreenplumConnectionType:
                       mdb_cluster_id:
-                        title: Managed Service for Greenplum cluster
+                        title: Cluster
                       on_premise:
                         title: Custom installation
                     GreenplumSource:
@@ -9505,7 +9520,7 @@ default:
                       primary_port:
                         title: Coordinator port
                       segments:
-                        title: Greenplum cluster segments
+                        title: Cluster Segments
                       subnet_id:
                         title: Subnet ID
             iceberg:

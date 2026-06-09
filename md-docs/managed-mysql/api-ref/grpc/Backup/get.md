@@ -40,7 +40,6 @@ To get this ID, make a [BackupService.List](list.md#List) request (lists all bac
 ```
 
 An object that represents MySQL backup.
-
 See [the documentation](../../../concepts/backup.md) for details.
 
 #|

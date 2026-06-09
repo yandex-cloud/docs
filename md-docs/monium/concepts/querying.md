@@ -1,4 +1,4 @@
-# Язык запросов в Monium
+# Язык запросов в {{ monium-name }}
 
 ## Запросы {#queries}
 
@@ -52,7 +52,7 @@
    Пример объекта типа `timeseries_vector`. Следующее выражение вернет вектор метрик с различными значениями метки `host`:
 
     ```json
-    {service='compute', host='*', name='exceptionCount'}
+    {service='__compute__', host='*', name='exceptionCount'}
     ```
 
 * **Логический тип** (bool) — для метрик, может принимать значения `true` или `false`.
@@ -115,31 +115,9 @@
 * `span.critical_path` — принадлежность спана к критическому пути: `PRESENT` или `ABSENT`, поддерживает оператор `=`.
 * `trace.id` — идентификатор трейса (для поиска логов по трейсу).
 
-Подробнее о поиске трейсов см. в разделе [Поиск трейсов и спанов](../traces/operations/traces-explorer.md).
+Подробнее о поиске трейсов см. в разделе [{#T}](../traces/operations/traces-explorer.md).
 
-Язык запросов Monium используется для преобразования метрик при настройке [дашбордов](visualization/dashboard.md) и [алертов](alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).
-
-## Загрузка метрик {#selectors}
-
-Выбирайте множество метрик с помощью имени метрики и набора селекторов, фильтрующих значения меток (подробнее в разделе [Метки](data-model.md#label)). Получившиеся наборы метрик можно использовать в алертах или передавать в функцию в качестве аргумента.
-
-Пример запроса метрик:
-
-```
-cpu_usage{project="folder__zoeu2rgjpqak********", service="compute"}
-```
-
-Этот запрос вернет метрики с именем `cpu_usage` для всех виртуальных машин сервиса Yandex Compute Cloud в проекте (каталоге) с идентификатором `zoeu2rgjpqak********`.
-
-{% note warning %}
-
-Учитывайте особенности метки `project`:
-
-* Значение метки должно совпадать с выбранным проектом (каталогом), запрашивать данные из других проектов нельзя. Это справедливо для всех вариантов применения языка запросов: при построении графиков, создании дашбордов, настройке алертов или вызове API-методов.
-
-* При вызове API-методов значение метки передается в заголовке `x-monium-project`, а не в теле запроса.
-
-{% endnote %}
+Язык запросов {{ monium-name }} используется для преобразования метрик при настройке [дашбордов](visualization/dashboard.md) и [алертов](alerting.md), а также в API-методе [MetricsData.read](../api-ref/MetricsData/read.md).
 
 ## Использование имен запросов в качестве переменных {#query-name-as-variable}
 
@@ -147,9 +125,9 @@ cpu_usage{project="folder__zoeu2rgjpqak********", service="compute"}
 
 Например:
 
-A: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor1" }`
+A: `{project="folder__my_folder_id", cluster="default", service="custom", room="bedroom", building="home", sensor="sensor1" }`
 
-B: `"temperature"{project="folder__my_folder_id", service="custom", room="bedroom", building="home", sensor="sensor2" }`
+B: `{project="folder__my_folder_id", cluster="default", service="custom", room="bedroom", building="home", sensor="sensor2" }`
 
 C: `(A + B) / 2`
 

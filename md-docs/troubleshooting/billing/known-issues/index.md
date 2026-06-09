@@ -1,6 +1,6 @@
-## Решения для известных проблем Yandex Cloud Billing {#known-issues-resolving}
+## Решения для известных проблем {{ billing-name }} {#known-issues-resolving}
 
-* [В детализации по платежному аккаунту стало отображаться потребление по сервису Cloud Logging](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
+* [В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
 * [Устранение проблем с привязкой банковской карты к платежному аккаунту](couldnt-link-card.md)
 * [Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта](invalid-person-type.md)
 * [Устранение проблем с оплатой](payment-problems.md)
@@ -18,7 +18,7 @@
 * [Документы перестали поступать в систему ЭДО](no-new-incoming-documents-in-edi.md)
 * [Устранение ошибки `balance.WRONG.ACCOUNT`](balance-wrong-account-issue.md)
 * [Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату](illegal-request-contract.md)
-* [KMS-ключи продолжают тарифицироваться после удаления](kms-keys-are-charged-in-billing-after-deletion.md)
+* [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](kms-keys-are-charged-in-billing-after-deletion.md)
 * [Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`](payment-not-confirmed-issue.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](unable-to-pay-with-sber-card.md)

@@ -1,6 +1,6 @@
-# Практические руководства Certificate Manager
+# Практические руководства {{ certificate-manager-name }}
 
-* [Установка Ingress-контроллера NGINX с сертификатом из Certificate Manager](nginx-ingress-certificate-manager.md)
-* [Организация виртуального хостинга](virtual-hosting.md)
-* [Хостинг статического сайта на фреймворке Gatsby в Yandex Object Storage](gatsby-static-website.md)
-* [Терминирование TLS-соединений](tls-termination/index.md)
+* [{#T}](nginx-ingress-certificate-manager.md)
+* [{#T}](virtual-hosting.md)
+* [{#T}](gatsby-static-website.md)
+* [{#T}](tls-termination/index.md)

@@ -5,7 +5,7 @@ Creates a broker in the specified folder.
 ## HTTP request
 
 ```
-POST https://iot-broker.api.cloud.yandex.net/iot-broker/v1/brokers
+POST https://{{ api-host-iot-broker }}/iot-broker/v1/brokers
 ```
 
 ## Body parameters {#yandex.cloud.iot.broker.v1.CreateBrokerRequest}

@@ -1,6 +1,6 @@
-# Практические руководства Serverless Integrations
+# Практические руководства {{ si-name }}
 
-* [Автоматическая загрузка данных в Yandex SpeechSense с помощью Yandex Workflows](auto-upload.md)
-* [Настройка рабочего процесса Workflows с интеграцией с Яндекс Трекер, Yandex AI Studio и Yandex Cloud Postbox](tracker-yandexgpt-postbox-integrations.md)
+* [Автоматическая загрузка данных в {{ speechsense-full-name }} с помощью {{ sw-full-name }}](auto-upload.md)
+* [{#T}](tracker-yandexgpt-postbox-integrations.md)
 * [Разработка Telegram-бота с поддержкой AI-агента](telegram-ai-bot-workflows.md)
-* [ИИ-ревью пул-реквестов на GitHub с помощью Workflows и GitHub Actions](ai-powered-github-pr-review.md)
+* [{#T}](ai-powered-github-pr-review.md)

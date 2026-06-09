@@ -1,6 +1,6 @@
 # Политики проверки совместимости
 
-_Политика проверки совместимости_ — это совокупность правил, по которым Yandex Schema Registry проверяет совместимость новой схемы с предыдущими на уровне [пространства имен](schema-registry.md#namespace).
+_Политика проверки совместимости_ — это совокупность правил, по которым {{ schema-registry-full-name }} проверяет совместимость новой схемы с предыдущими на уровне [пространства имен](schema-registry.md#namespace).
 
 Вы можете выбрать политику проверки совместимости схем при [создании](../operations/create-name-space.md) или [изменении](../operations/update-name-space.md) пространства имен. Политики проверки совместимости доступны для схем [Protobuf](https://protobuf.dev/) и [JSON Schema](https://json-schema.org/).
 
@@ -8,9 +8,9 @@ _Политика проверки совместимости_ — это сов
 
 Для Protobuf-схем доступны следующие политики:
 
-* Confluent — основывается на рекомендованных методах эволюции схем Protobuf. Подробнее об эволюции схем см. в [документации Protobuf](https://protobuf.dev/programming-guides/proto3/#updating).
+* Confluent — основывается на рекомендованных методах эволюции схем Protobuf. Подробнее об эволюции схем в [документации Protobuf](https://protobuf.dev/programming-guides/proto3/#updating).
 
-* buf — основывается на стандартах Buf v1. Подробнее о применяемых проверках см. в [спецификации](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
+* buf — основывается на стандартах Buf v1. Подробнее о применяемых проверках — [спецификации](https://github.com/bufbuild/buf/blob/main/private/bufpkg/bufcheck/bufcheckserver/bufcheckserver.go#L156).
 
 ## Политики совместимости JSON-схем {#json-compatibility-policy}
 

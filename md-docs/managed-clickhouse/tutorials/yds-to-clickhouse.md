@@ -1,13 +1,13 @@
-# Сохранение потока данных Yandex Data Streams в Managed Service for ClickHouse®
+# Сохранение потока данных {{ yds-full-name }} в {{ mch-name }}
 
-# Сохранение потока данных Yandex Data Streams в Yandex Managed Service for ClickHouse®
+# Сохранение потока данных {{ yds-full-name }} в {{ mch-full-name }}
 
 
-С помощью сервиса Data Transfer вы можете поставлять данные из [потока Data Streams](../../data-streams/concepts/glossary.md#stream-concepts) в сервис Managed Service for ClickHouse®.
+С помощью сервиса {{ data-transfer-name }} вы можете поставлять данные из [потока {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) в сервис {{ mch-name }}.
 
 Чтобы перенести данные:
 
-1. [Подготовьте поток данных Data Streams](#prepare-source).
+1. [Подготовьте поток данных {{ yds-name }}](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
@@ -16,19 +16,19 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* База данных Managed Service for YDB (см. [тарифы Managed Service for YDB](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
+* База данных {{ ydb-name }} (см. [тарифы {{ ydb-name }}](../../ydb/pricing/index.md)). Стоимость зависит от режима использования:
 
 	* Для бессерверного режима — оплачиваются операции с данными, объем хранимых данных и резервных копий.
   	* Для режима с выделенными инстансами — оплачивается использование выделенных БД вычислительных ресурсов, объем хранилища и резервные копии.
 
-* Сервис Data Streams (см. [тарифы Data Streams](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
+* Сервис {{ yds-name }} (см. [тарифы {{ yds-name }}](../../data-streams/pricing.md)). Стоимость зависит от режима тарификации:
 
     * [По выделенным ресурсам](../../data-streams/pricing.md#rules) — оплачивается фиксированная почасовая ставка за установленный лимит пропускной способности и срок хранения сообщений, а также дополнительно количество единиц фактически записанных данных.
     * [По фактическому использованию](../../data-streams/pricing.md#on-demand) (On-demand) — оплачиваются выполненные операции записи и чтения данных, объем считанных/записанных данных, а также объем фактически используемого хранилища для сообщений, по которым не истек срок хранения.
 
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -39,25 +39,25 @@
 
 - Вручную {#manual}
 
-    1. [Создайте базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
-    1. [Создайте кластер Managed Service for ClickHouse®](../operations/cluster-create.md) любой подходящей конфигурации.
+    1. [Создайте базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md) любой подходящей конфигурации.
+    1. [Создайте кластер {{ mch-name }}](../operations/cluster-create.md) любой подходящей конфигурации.
     1. [Создайте эндпоинт для приемника](../../data-transfer/operations/endpoint/index.md#create):
 
-        * **Тип базы данных** — `ClickHouse`.
-        * **Параметры эндпоинта**:
+        * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}**:
 
-            * **Настройки подключения**:
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.connection.title }}**:
 
-                * **Тип подключения** — `Managed кластер`.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
-                    * **Managed кластер** — выберите кластер-приемник из списка.
+                    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}** — выберите кластер-приемник из списка.
 
-                * **База данных** — укажите имя базы данных.
-                * **Пользователь** и **Пароль** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.database.title }}** — укажите имя базы данных.
+                * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.user.title }}** и **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseCredentials.password.title }}** — укажите имя и пароль пользователя с доступом к базе, например, владельца базы данных.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -66,12 +66,12 @@
 
         В этом файле описаны:
 
-        * база данных Managed Service for YDB;
+        * база данных {{ ydb-name }};
         * сервисный аккаунт с ролью `yds.editor`;
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
-        * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру Managed Service for ClickHouse® из интернета;
-        * кластер-приемник Managed Service for ClickHouse®;
+        * [группа безопасности](../../vpc/concepts/security-groups.md) и правила, необходимые для подключения к кластеру {{ mch-name }} из интернета;
+        * кластер-приемник {{ mch-name }};
         * эндпоинт для приемника;
         * трансфер.
 
@@ -79,18 +79,18 @@
 
         * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будут созданы ресурсы.
         * `sa_name` — имя сервисного аккаунта для использования в эндпоинтах.
-        * `source_db_name` — имя базы данных Managed Service for YDB.
-        * `target_db_name` — имя базы данных ClickHouse®.
-        * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных ClickHouse®.
+        * `source_db_name` — имя базы данных {{ ydb-name }}.
+        * `target_db_name` — имя базы данных {{ CH }}.
+        * `target_user` и `target_password` — имя и пароль пользователя-владельца базы данных {{ CH }}.
         * `transfer_enabled` – значение `0`, чтобы не создавать трансфер до [создания эндпоинта-источника вручную](#prepare-transfer).
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -112,13 +112,13 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
-## Подготовьте поток данных Data Streams {#prepare-source}
+## Подготовьте поток данных {{ yds-name }} {#prepare-source}
 
-1. [Создайте поток данных Data Streams](../../data-streams/operations/aws-cli/create.md).
+1. [Создайте поток данных {{ yds-name }}](../../data-streams/operations/aws-cli/create.md).
 1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) тестовые данные. В качестве сообщения используйте данные от сенсоров автомобиля в формате JSON:
 
 ```json
@@ -145,24 +145,24 @@
 
 1. [Создайте эндпоинт для источника](../../data-transfer/operations/endpoint/index.md#create):
 
-    * **Тип базы данных** — `Yandex Data Streams`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `{{ yds-full-name }}`.
     * **Параметры эндпоинта**:
 
-        * **Настройки подключения**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **База данных** — выберите базу данных Managed Service for YDB из списка.
-            * **Поток** — укажите имя потока Data Streams.
-            * **Сервисный аккаунт** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}** — выберите базу данных {{ ydb-name }} из списка.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}** — укажите имя потока {{ yds-name }}.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}** — выберите или создайте сервисный аккаунт с ролью `yds.editor`.
 
-        * **Расширенные настройки**:
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.advanced_settings.title }}**:
 
-            * **Правила конвертации** — `JSON`.
-            * **Схема данных** –  Вы можете задать схему двумя способами:
-              * `Список полей`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSourceAdvancedSettings.converter.title }}** — `JSON`.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** –  Вы можете задать схему двумя способами:
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.fields.title }}`.
 
                 Задайте список полей топика вручную:
 
-                | Имя | Тип | Ключ |
+                | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.name.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.type.title }} | {{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ColSchema.key.title }} |
                 | :-- | :-- | :--- |
                 |`device_id`|`STRING`| Да|
                 |`datetime` |`DATETIME`|  |
@@ -174,7 +174,7 @@
                 |`cabin_temperature`| `DOUBLE`||
                 | `fuel_level`|`ANY`||
 
-              * `JSON-спецификация`.
+              * `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.DataSchema.json_fields.title }}`.
 
                 Создайте и загрузите файл схемы данных в формате JSON `json_schema.json`:
 
@@ -230,23 +230,23 @@
 
     - Вручную {#manual}
 
-        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **Репликация**, использующий созданные эндпоинты.
+        1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}**, использующий созданные эндпоинты.
         1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. Укажите в файле `data-transfer-yds-mch.tf` переменные:
 
             * `source_endpoint_id` — значение идентификатора эндпоинта для источника;
             * `transfer_enabled` – значение `1` для создания трансфера.
 
-        1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+        1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
             ```bash
             terraform validate
             ```
 
-            Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+            Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
         1. Создайте необходимую инфраструктуру:
 
@@ -274,9 +274,9 @@
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) Data Streams новое сообщение:
+1. [Отправьте в поток](../../data-streams/operations/aws-cli/send.md) {{ yds-name }} новое сообщение:
 
     ```json
     {
@@ -292,10 +292,10 @@
     }
     ```
 
-1. Убедитесь, что в базу данных кластера Managed Service for ClickHouse® перенеслись данные из потока Data Streams:
+1. Убедитесь, что в базу данных кластера {{ mch-name }} перенеслись данные из потока {{ yds-name }}:
 
-   1. [Подключитесь к кластеру-приемнику Managed Service for ClickHouse®](../operations/connect/clients.md).
-   1. Проверьте, что в базе ClickHouse® существует таблица с именем [созданного потока Data Streams](#prepare-source) с теми же колонками, что и [схема данных в эндпоинте-источнике](#prepare-transfer), и отправленными тестовыми данными.
+   1. [Подключитесь к кластеру-приемнику {{ mch-name }}](../operations/connect/clients.md).
+   1. Проверьте, что в базе {{ CH }} существует таблица с именем [созданного потока {{ yds-name }}](#prepare-source) с теми же колонками, что и [схема данных в эндпоинте-источнике](#prepare-transfer), и отправленными тестовыми данными.
 
 ## Удалите созданные ресурсы {#clear-out}
 
@@ -315,16 +315,16 @@
    - Вручную {#manual}
 
        1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для приемника.
-       1. [Удалите базу данных Managed Service for YDB](../../ydb/operations/manage-databases.md#delete-db).
-       1. [Удалите кластер Managed Service for ClickHouse®](../operations/cluster-delete.md).
+       1. [Удалите базу данных {{ ydb-name }}](../../ydb/operations/manage-databases.md#delete-db).
+       1. [Удалите кластер {{ mch-name }}](../operations/cluster-delete.md).
 
-   - Terraform {#tf}
+   - {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -338,10 +338,10 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}
 
 1. [Удалите эндпоинт](../../data-transfer/operations/endpoint/index.md#delete) для источника.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

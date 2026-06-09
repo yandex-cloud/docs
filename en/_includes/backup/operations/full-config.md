@@ -89,7 +89,6 @@
           "monthdays": [
             "string"
           ],
-          "includeLastDayOfMonth": bool,
           "months": [
             "string"
           ],
@@ -200,29 +199,100 @@ Attribute sections with multiple nested values.
 
   Setting up a backup schedule. The `time` (based on preset time) and `sinceLastExecTime` (with preset interval between backups) attributes are mutually exclusive, i.e., the use of one makes it impossible to use the other.
 
-  | Attribute | Description | Possible values |
-  |---|---|---|
-  | `scheduling.backupSets.time.weekdays` | Days of the week to create backups on. You can specify multiple values separated by commas. | <ul><li>`DAY_UNSPECIFIED`: Not specified.</li><li>`MONDAY`</li><li>`TUESDAY`</li><li>`WEDNESDAY`</li><li>`THURSDAY`</li><li>`FRIDAY`</li><li>`SATURDAY`</li><li>`SUNDAY`</li></ul> |
-  | `scheduling.backupSets.time.repeatAt.hour` | Time to repeat backups at: hours. | Integer from 0 to 23 |
-  | `scheduling.backupSets.time.repeatAt.minute` | Time to repeat backups at: minutes. | Integer from 0 to 59 |
-  | `scheduling.backupSets.time.repeatEvery.type` | Units of time used to set the repeat backup interval. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
-  | `scheduling.backupSets.time.repeatEvery.count` | Backup reattempt interval in units set by the `repeatEvery.type` attribute. | Integer |
-  | `scheduling.backupSets.time.timeFrom.hour` | Start time for the backup interval (from): hours. | Integer from 0 to 23 |
-  | `scheduling.backupSets.time.timeFrom.minute` | Start time for the backup interval (from): minutes. | Integer from 0 to 59 |
-  | `scheduling.backupSets.time.timeTo.hour` | End time for the backup interval (to): hours. | Integer from 0 to 23 |
-  | `scheduling.backupSets.time.timeTo.minute` | End time for the backup interval (to): minutes. | Integer from 0 to 59 |
-  | `scheduling.backupSets.time.monthdays` | Day of the month to create backups on. You can specify multiple values separated by commas. | Integer from 1 to 31 |
-  | `scheduling.backupSets.time.includeLastDayOfMonth` | Making backups on the last day of each month. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-  | `scheduling.backupSets.time.months` | Months to create backups in. You can specify multiple values separated by commas. | Integer from 1 to 12 |
-  | `scheduling.backupSets.time.type` | Backup frequency. | <ul><li>`REPEATE_PERIOD_UNSPECIFIED`: Not specified.</li><li>`HOURLY`</li><li>`DAILY`</li><li>`WEEKLY`</li><li>`MONTHLY`</li></ul> |
-  | `scheduling.backupSets.sinceLastExecTime.delay.type` | Units of time used to set the interval between backups. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
-  | `scheduling.backupSets.sinceLastExecTime.delay.count` | Interval between backups in time units set by the `delay.type` attribute. | Integer |
-  | `scheduling.enabled` | Scheduled backup. | <ul><li>`true`: Enabled.</li><li>`false`: Disabled.</li></ul> |
-  | `scheduling.maxParallelBackups` | Maximum number of parallel backups; unlimited if no value is specified. | Integer |
-  | `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. | <ul><li>`TYPE_UNSPECIFIED`: Not specified.</li><li>`SECONDS`</li><li>`MINUTES`</li><li>`HOURS`</li><li>`DAYS`</li><li>`WEEKS`</li><li>`MONTHS`, months</li></ul> |
-  | `scheduling.randMaxDelay.count` | Maximum delay before running parallel jobs in time units set by the `randMaxDelay.type` attribute. The delay is determined randomly but it may not exceed the value set here. | Integer |
-  | `scheduling.scheme` | Backup schedule scheme. | <ul><li>`SCHEME_UNSPECIFIED`: Not specified.</li><li>`SIMPLE`: Simple.</li><li>`ALWAYS_FULL`: Always full.</li><li>`ALWAYS_INCREMENTAL`: Always incremental.</li><li>`WEEKLY_INCREMENTAL`: Create an incremental backup every week.</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.</li><li>`CUSTOM`: Custom.</li><li>`CDP`: Continuous Data Protection.</li></ul> |
-  | `scheduling.weeklyBackupDay` | Day of the week for the weekly backup. | Integer from 1 to 7 |
+  #|
+  || **Attribute** | **Description** | **Possible values** ||
+  || `scheduling.backupSets.`
+  `time.weekdays` | Days of the week to create backups on. You can specify multiple values separated by commas. |
+  * `DAY_UNSPECIFIED`: Not specified.
+  * `MONDAY`
+  * `TUESDAY`
+  * `WEDNESDAY`
+  * `THURSDAY`
+  * `FRIDAY`
+  * `SATURDAY`
+  * `SUNDAY` ||
+  || `scheduling.backupSets.`
+  `time.repeatAt.hour` | Time to repeat backups at: hours. | Integer from 0 to 23. ||
+  || `scheduling.backupSets.`
+  `time.repeatAt.minute` | Time to repeat backups at: minutes. | Integer from 0 to 59. ||
+  || `scheduling.backupSets.`
+  `time.repeatEvery.type` | Units of time used to set the repeat backup interval. |
+  * `TYPE_UNSPECIFIED`: Not specified.
+  * `SECONDS`
+  * `MINUTES`
+  * `HOURS`
+  * `DAYS`
+  * `WEEKS`
+  * `MONTHS`, months ||
+  || `scheduling.backupSets.`
+  `time.repeatEvery.count` | Backup reattempt interval in units set by the `repeatEvery.type` attribute. | Integer. ||
+  || `scheduling.backupSets.`
+  `time.timeFrom.hour` | Start time for the backup interval (from): hours. | Integer from 0 to 23. ||
+  || `scheduling.backupSets.`
+  `time.timeFrom.minute` | Start time for the backup interval (from): minutes. | Integer from 0 to 59. ||
+  || `scheduling.backupSets.`
+  `time.timeTo.hour` | End time for the backup interval (to): hours. | Integer from 0 to 23. ||
+  || `scheduling.backupSets.`
+  `time.timeTo.minute` | End time for the backup interval (to): minutes. | Integer from 0 to 59. ||
+  || `scheduling.backupSets.`
+  `time.monthdays` | Day of the month to create backups on. You can specify multiple values separated by commas. | Integer from 1 to 31. ||
+  || `scheduling.backupSets.`
+  `time.includeLastDayOfMonth` | Making backups on the last day of each month.
+
+  {% note warning %}
+
+  If set to `true`, this setting overrides other schedule settings: days of the week, days of the month, etc.
+
+  {% endnote %}
+  
+  |
+  * `true`: Enabled.
+  * `false`: Disabled.
+  ||
+  || `scheduling.backupSets.`
+  `time.months` | Months to create backups in. You can specify multiple values separated by commas. | Integer from 1 to 12. ||
+  || `scheduling.backupSets.`
+  `time.type` | Backup frequency. |
+  * `REPEATE_PERIOD_UNSPECIFIED`: Not specified.
+  * `HOURLY`
+  * `DAILY`
+  * `WEEKLY`
+  * `MONTHLY` ||
+  || `scheduling.backupSets.`
+  `sinceLastExecTime.delay.type` | Units of time used to set the interval between backups. |
+  * `TYPE_UNSPECIFIED`: Not specified.
+  * `SECONDS`
+  * `MINUTES`
+  * `HOURS`
+  * `DAYS`
+  * `WEEKS`
+  * `MONTHS`, months ||
+  || `scheduling.backupSets.`
+  `sinceLastExecTime.delay.count` | Interval between backups in time units set by the `delay.type` attribute. | Integer. ||
+  || `scheduling.enabled` | Scheduled backup. |
+  * `true`: Enabled.
+  * `false`: Disabled. ||
+  || `scheduling.maxParallelBackups` | Maximum number of parallel backups; unlimited if no value is specified. | Integer. ||
+  || `scheduling.randMaxDelay.type` | Units of time used to set the maximum delay before running parallel jobs. |
+  * `TYPE_UNSPECIFIED`: Not specified.
+  * `SECONDS`
+  * `MINUTES`
+  * `HOURS`
+  * `DAYS`
+  * `WEEKS`
+  * `MONTHS`, months ||
+  || `scheduling.randMaxDelay.count` | Maximum delay before running parallel jobs in time units set by the `randMaxDelay.type` attribute. The delay is determined randomly but it may not exceed the value set here. | Integer. ||
+  || `scheduling.scheme` | Backup schedule scheme. |
+  * `SCHEME_UNSPECIFIED`: Not specified.
+  * `SIMPLE`: Simple.
+  * `ALWAYS_FULL`: Always full.
+  * `ALWAYS_INCREMENTAL`: Always incremental.
+  * `WEEKLY_INCREMENTAL`: Create an incremental backup every week.
+  * `WEEKLY_FULL_DAILY_INCREMENTAL`: Create an incremental backup every day and a full one weekly.
+  * `CUSTOM`: Custom.
+  * `CDP`: Continuous Data Protection. ||
+  || `scheduling.weeklyBackupDay` | Day of the week for the weekly backup. | Integer from 1 to 7 ||
+  |#
 
 - fileFilters
 

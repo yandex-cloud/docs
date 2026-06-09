@@ -5,7 +5,7 @@ Lists operations for the specified bus.
 ## HTTP request
 
 ```
-GET https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/buses/{busId}/operations
+GET https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/buses/{busId}/operations
 ```
 
 ## Path parameters

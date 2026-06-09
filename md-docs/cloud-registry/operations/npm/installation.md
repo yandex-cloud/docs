@@ -4,7 +4,7 @@
 
 * для всех проектов, выполните команду:
 
-    `npm config set registry https://registry.yandexcloud.net/npm/<идентификатор_реестра>`
+    `npm config set registry https://{{ cloud-registry }}/npm/<идентификатор_реестра>`
 
 * для одного проекта:
 
@@ -27,8 +27,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
-              //registry.yandexcloud.net/npm/:_auth=${NPM_AUTH}
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
 
@@ -46,27 +46,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
-              //registry.yandexcloud.net/npm/:_authToken=${NPM_AUTH}
-              always-auth=true
-              ```
-
-        - OAuth-токен (Base64)
-
-          1. [Получите](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
-
-              ```bash
-              export NPM_AUTH=$(echo -n 'oauth:<OAuth-токен>' | base64)
-              ```
-
-              Где `NPM_AUTH` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) в кодировке [Base64](https://www.base64encode.org/).
-
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
-
-              ```text
-              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
-              //registry.yandexcloud.net/npm/:_auth=${NPM_AUTH}
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_authToken=${NPM_AUTH}
               always-auth=true
               ```
 
@@ -84,8 +65,8 @@
           1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
 
               ```text
-              registry=https://registry.yandexcloud.net/npm/<идентификатор_реестра>
-              //registry.yandexcloud.net/npm/:_auth=${NPM_AUTH}
+              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
+              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
               always-auth=true
               ```
 

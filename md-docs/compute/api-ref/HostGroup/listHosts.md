@@ -5,7 +5,7 @@ Lists hosts that belongs to the specified host group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/hosts
+GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}/hosts
 ```
 
 ## Path parameters
@@ -16,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}/hos
 
 Required field. ID of the host group to list hosts for.
 To get the host group ID, use [HostGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Query parameters {#yandex.cloud.compute.v1.ListHostGroupHostsRequest}
@@ -30,15 +30,13 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 that can be used to get the next page of results in subsequent list requests.
-
-The maximum value is 1000. ||
+The value must be less than or equal to 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListHostGroupHostsResponse.nextPageToken](#yandex.cloud.compute.v1.ListHostGroupHostsResponse)
 returned by a previous list request.
-
-The maximum string length in characters is 100. ||
+The length must be less than or equal to 100. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.ListHostGroupHostsResponse}

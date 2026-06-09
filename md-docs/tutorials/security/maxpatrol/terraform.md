@@ -1,42 +1,42 @@
-# Загрузка аудитных логов в MaxPatrol SIEM с помощью Terraform
+# Загрузка аудитных логов в MaxPatrol SIEM с помощью {{ TF }}
 
 
-[MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) позволяет читать [аудитные логи](../../../audit-trails/concepts/events.md) Yandex Cloud из потока данных [Yandex Data Streams](../../../data-streams/index.md). Для полного прохождения руководства у вас должен быть доступ к экземпляру MaxPatrol SIEM.
+[MaxPatrol SIEM](https://www.ptsecurity.com/ru-ru/products/mpsiem/) позволяет читать [аудитные логи](../../../audit-trails/concepts/events.md) {{ yandex-cloud }} из потока данных [{{ yds-full-name }}](../../../data-streams/index.md). Для полного прохождения руководства у вас должен быть доступ к экземпляру MaxPatrol SIEM.
 
-Чтобы настроить экспорт аудитных логов с помощью Terraform:
+Чтобы настроить экспорт аудитных логов с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Разверните инфраструктуру, необходимую для загрузки аудитных логов в MaxPatrol SIEM](#deploy).
-1. [Настройте в MaxPatrol SIEM задачу по сбору данных из потока Data Streams](#configure-maxpatrol).
+1. [Настройте в MaxPatrol SIEM задачу по сбору данных из потока {{ yds-name }}](#configure-maxpatrol).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки создаваемой инфраструктуры входят:
-* использование потока данных (см. [тарифы Data Streams](../../../data-streams/pricing.md)).
-* использование Yandex Managed Service for YDB в бессерверном режиме (см. [тарифы Managed Service for YDB](../../../ydb/pricing/serverless.md)).
+* использование потока данных (см. [тарифы {{ yds-name }}](../../../data-streams/pricing.md)).
+* использование {{ ydb-full-name }} в бессерверном режиме (см. [тарифы {{ ydb-name }}](../../../ydb/pricing/serverless.md)).
 
 ## Разверните инфраструктуру, необходимую для загрузки аудитных логов в MaxPatrol SIEM {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры с помощью Terraform:
-1. [Установите Terraform](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Для создания инфраструктуры с помощью {{ TF }}:
+1. [Установите {{ TF }}](../../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -207,15 +207,15 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых в Terraform ресурсов см. в документации провайдера:
+    Более подробную информацию о параметрах используемых в {{ TF }} ресурсов см. в документации провайдера:
 
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
-    * [Роль](../../../iam/concepts/access-control/roles.md), назначенная сервисному аккаунту на каталог — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-    * Роль, назначенная сервисному аккаунту на организацию — [yandex_organizationmanager_organization_iam_binding](../../../terraform/resources/organizationmanager_organization_iam_binding.md).
-    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../terraform/resources/iam_service_account_static_access_key.md).
-    * [Бессерверная база данных YDB](../../../ydb/concepts/serverless-and-dedicated.md#serverless) — [yandex_ydb_database_serverless](../../../terraform/resources/ydb_database_serverless.md).
-    * [Поток данных Yandex Data Streams](../../../data-streams/concepts/glossary.md#stream-concepts) — [yandex_ydb_topic](../../../terraform/resources/ydb_topic.md).
-    * [Трейл](../../../audit-trails/concepts/trail.md) — [yandex_audit_trails_trail](../../../terraform/resources/audit_trails_trail.md).
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+    * [Роль](../../../iam/concepts/access-control/roles.md), назначенная сервисному аккаунту на каталог — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * Роль, назначенная сервисному аккаунту на организацию — [yandex_organizationmanager_organization_iam_binding]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_binding).
+    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+    * [Бессерверная база данных YDB](../../../ydb/concepts/serverless-and-dedicated.md#serverless) — [yandex_ydb_database_serverless]({{ tf-provider-resources-link }}/ydb_database_serverless).
+    * [Поток данных {{ yds-full-name }}](../../../data-streams/concepts/glossary.md#stream-concepts) — [yandex_ydb_topic]({{ tf-provider-resources-link }}/ydb_topic).
+    * [Трейл](../../../audit-trails/concepts/trail.md) — [yandex_audit_trails_trail]({{ tf-provider-resources-link }}/audit_trails_trail).
 
 1. В файле `audit-trails-maxpatrol-export.auto.tfvars` задайте значения пользовательских переменных:
     * `folder_id` — [идентификатор каталога](../../../resource-manager/operations/folder/get-id.md).
@@ -242,7 +242,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -288,7 +288,7 @@ Terraform распространяется под лицензией [Business S
 
 ### Создайте задачу на сбор данных {#create-task}
 
-Создайте и запустите задачу на сбор данных с профилем Yandex Data Streams:
+Создайте и запустите задачу на сбор данных с профилем {{ yds-full-name }}:
 1. Войдите в веб-интерфейс MaxPatrol SIEM.
 1. В разделе **Сбор данных** нажмите **Задачи**.
 1. На странице **Задачи по сбору данных**:
@@ -296,7 +296,7 @@ Terraform распространяется под лицензией [Business S
     1. Нажмите **Сбор данных**.
 1. На странице **Создание задачи на сбор данных** укажите параметры:
     1. **Название** — `YDS-logs-task`.
-    1. **Профиль** — `Yandex Data Streams`.
+    1. **Профиль** — `{{ yds-full-name }}`.
     1. В иерархическом списке выберите **Запуск сценария**.
     1. В блоке **Подключение** укажите:
         * **Учетная запись** — `static-key-id`;
@@ -304,7 +304,7 @@ Terraform распространяется под лицензией [Business S
     1. **Параметры запуска сценария**:
         * **database** — `<идентификатор_БД_maxpatrol-db>`;
         * **folder** — `<идентификатор_облака_для_каталога_example-folder>`;
-        * **region_name** — `ru-central1`;
+        * **region_name** — `{{ region-id }}`;
         * **stream_name** — `maxpatrol-stream`.
     1. На панели **Цели сбора данных**:
         1. Выберите вкладку **Включить**.
@@ -342,7 +342,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -353,4 +353,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Загрузка аудитных логов в MaxPatrol SIEM с помощью консоли управления или Yandex Cloud CLI](console.md)
+* [{#T}](console.md)

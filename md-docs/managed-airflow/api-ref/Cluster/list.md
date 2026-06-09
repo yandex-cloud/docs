@@ -5,7 +5,7 @@ Retrieves a list of Apache Airflow Cluster resources.
 ## HTTP request
 
 ```
-GET https://airflow.api.cloud.yandex.net/managed-airflow/v1/clusters
+GET https://airflow.{{ api-host }}/managed-airflow/v1/clusters
 ```
 
 ## Query parameters {#yandex.cloud.airflow.v1.ListClustersRequest}

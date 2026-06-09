@@ -1,48 +1,48 @@
-# Управление дисковым пространством в кластере Managed Service for Apache Kafka®
+# Управление дисковым пространством в кластере {{ mkf-name }}
 
 Когда [хранилище](../concepts/storage.md) заполнено на 97% или больше, хост автоматически переходит в режим read-only. Чтобы избежать проблем с операциями записи в топик, воспользуйтесь одним из способов:
 
 
-* [Настройте алерты в Yandex Monitoring](#set-alert), чтобы отслеживать степень заполнения хранилища.
+* [Настройте алерты в {{ monitoring-full-name }}](#set-alert), чтобы отслеживать степень заполнения хранилища.
 
 
 * [Увеличьте размер хранилища](#change-disk-size), чтобы снять режим read-only автоматически.
 * [Настройте автоматическое увеличение размера хранилища](#disk-size-autoscale), чтобы предотвратить ситуации, когда место на диске заканчивается и хост переходит в режим read-only.
 
 
-## Настроить алерты в Yandex Monitoring {#set-alert}
+## Настроить алерты в {{ monitoring-full-name }} {#set-alert}
 
-1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Monitoring**.
+1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
-    1. **Метрики** — задайте параметры метрики:
+    1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
 
         * Облако.
         * Каталог.
-        * Сервис **Managed Service for Kafka**.
-        * Идентификатор кластера Managed Service for Apache Kafka®.
+        * Сервис **{{ ui-key.yacloud_monitoring.services.label_managed-kafka }}**.
+        * Идентификатор кластера {{ mkf-name }}.
 
             Идентификатор можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
         * Метка `disk.free_bytes`.
 
-    1. **Условия срабатывания** — задайте условие для заполнения свободного дискового пространства, при котором сработает алерт:
+    1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие для заполнения свободного дискового пространства, при котором сработает алерт:
 
-        * **Функция агрегации** — `Минимум` (минимальное значение метрики за период).
-        * **Функция сравнения** — `Меньше или равно`.
-        * **Warning** — `95` (95% от размера хранилища).
-        * **Alarm** — `90` (90% от размера хранилища).
-        * **Окно вычисления** — желаемый период, с которым будет обновляться значение метрики.
-        * **Задержка вычисления** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить срабатывания алерта, когда в нем указано несколько метрик и они собираются с разным интервалом. Подробнее о задержке вычисления в [документации Yandex Monitoring](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+        * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `95` (95% от размера хранилища).
+        * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `90` (90% от размера хранилища).
+        * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить срабатывания алерта, когда в нем указано несколько метрик и они собираются с разным интервалом. Подробнее о задержке вычисления в [документации {{ monitoring-full-name }}](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
     1. **Уведомления** — добавьте созданный ранее канал уведомлений.
 
 
 ## Увеличить размер хранилища {#change-disk-size}
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
 
 {% list tabs group=instructions %}
 
@@ -50,18 +50,18 @@
 
     Чтобы увеличить размер хранилища для кластера:
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-    1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-    1. Измените настройки в блоке **Хранилище**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В строке с нужным кластером нажмите ![image](../../_assets/console-icons/ellipsis.svg), затем выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. Измените настройки в блоке **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
 
-        Тип диска для кластера Apache Kafka® нельзя изменить после создания.
+        Тип диска для кластера {{ KF }} нельзя изменить после создания.
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 * CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -70,38 +70,38 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-kafka cluster update --help
+        {{ yc-mdb-kf }} cluster update --help
         ```
 
     1. Чтобы изменить объем хранилища хостов-брокеров, выполните команду:
 
         ```bash
-        yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
            --disk-size <объем_хранилища>
         ```
 
         Если не указаны единицы размера, то используются гигабайты.
 
-    1. Чтобы изменить объем хранилища хостов ZooKeeper, выполните команду:
+    1. Чтобы изменить объем хранилища хостов {{ ZK }}, выполните команду:
 
         ```bash
-        yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
            --zookeeper-disk-size <размер_диска>
         ```
 
         Если не указаны единицы размера, то используются гигабайты.
 
-    Тип диска для кластера Apache Kafka® нельзя изменить после создания.
+    Тип диска для кластера {{ KF }} нельзя изменить после создания.
 
-* Terraform {#tf}
+* {{ TF }} {#tf}
 
   Чтобы увеличить размер хранилища для кластера:
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
-        Как создать такой файл, описано в разделе [Создание кластера Apache Kafka®](cluster-create.md).
+        Как создать такой файл, описано в разделе [{#T}](cluster-create.md).
 
-    1. Измените в описании кластера Managed Service for Apache Kafka® значение параметра `disk_size` в блоках `kafka.resources` и `zookeeper.resources` для хостов Apache Kafka® и ZooKeeper соответственно:
+    1. Измените в описании кластера {{ mkf-name }} значение параметра `disk_size` в блоках `kafka.resources` и `zookeeper.resources` для хостов {{ KF }} и {{ ZK }} соответственно:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
@@ -122,18 +122,18 @@
         }
         ```
 
-        Тип диска для кластера Apache Kafka® нельзя изменить после создания.
+        Тип диска для кластера {{ KF }} нельзя изменить после создания.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -155,11 +155,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее в [документации провайдера Terraform](../../terraform/resources/mdb_kafka_cluster.md).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение всех операций с кластером Managed Service for Apache Kafka® 60 минутами.
+    Провайдер {{ TF }} ограничивает время на выполнение всех операций с кластером {{ mkf-name }} 60 минутами.
     
     Операции, длящиеся дольше указанного времени, прерываются.
     
@@ -190,7 +190,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -203,7 +203,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.kafka.resources.diskSize,configSpec.zookeeper.resources.diskSize",
                       "configSpec": {
@@ -227,9 +227,9 @@
 
             Укажите нужные параметры:
             * `configSpec.kafka.resources.diskSize` — если нужно изменить размер хранилища хостов-брокеров.
-            * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища хостов ZooKeeper. Применяется только для кластеров с версией Apache Kafka® 3.5.
+            * `configSpec.zookeeper.resources.diskSize` — если нужно изменить размер хранилища хостов {{ ZK }}. Применяется только для кластеров с версией {{ KF }} 3.5.
         * `configSpec.kafka.resources.diskSize` – размер хранилища хостов-брокеров в байтах.
-        * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов ZooKeeper в байтах. Применяется только для кластеров с версией Apache Kafka® 3.5.
+        * `configSpec.zookeeper.resources.diskSize` — размер хранилища хостов {{ ZK }} в байтах. Применяется только для кластеров с версией {{ KF }} 3.5.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -251,7 +251,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -302,7 +302,7 @@
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
         ```
 
@@ -312,9 +312,9 @@
 
             Укажите нужные параметры:
             * `config_spec.kafka.resources.disk_size` — если нужно изменить размер хранилища хостов-брокеров.
-            * `config_spec.brokers_count` — если нужно изменить размер хранилища хостов ZooKeeper. Применяется только для кластеров с версией Apache Kafka® 3.5.
+            * `config_spec.brokers_count` — если нужно изменить размер хранилища хостов {{ ZK }}. Применяется только для кластеров с версией {{ KF }} 3.5.
         * `config_spec.kafka.resources.disk_size` — размер хранилища хостов-брокеров в байтах.
-        * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов ZooKeeper в байтах. Применяется только для кластеров с версией Apache Kafka® 3.5.
+        * `config_spec.zookeeper.resources.disk_size` — размер хранилища хостов {{ ZK }} в байтах. Применяется только для кластеров с версией {{ KF }} 3.5.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Список доступных классов хостов с их идентификаторами был получен ранее.
 
@@ -326,7 +326,7 @@
 
 Чтобы место на диске кластера не заканчивалось и хосты не переходили в режим read-only, настройте [автоматическое увеличение размера хранилища](../concepts/storage.md#auto-rescale).
 
-Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) для облака и убедитесь, что в секции **Managed Databases** в строке **Объём HDD-хранилищ** или **Объём SSD-хранилищ** есть квота на объем хранилищ.
+Проверьте, что в облаке достаточно квот для увеличения хранилища. Откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) для облака и убедитесь, что в секции **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}** в строке **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.hdd.size }}** или **{{ ui-key.yacloud.iam.cloud.quotas.label_quota-name-mdb.ssd.size }}** есть квота на объем хранилищ.
 
 
 {% note warning %}
@@ -340,20 +340,20 @@
 
 * Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
-    1. В блоке **Автоматическое увеличение размера хранилища** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
+    1. В [консоли управления]({{ link-console-main }}) перейдите в нужный каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В строке с нужным кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В блоке **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}** задайте [пороги заполненности](../concepts/storage.md#auto-rescale) хранилища, при достижении которых его размер будет увеличиваться: 
     
-        1. В поле **Увеличивать размер** выберите один или оба порога:
-            * **В окно обслуживания при заполненности более** — порог для планового увеличения. Когда он достигнут, объем хранилища увеличивается во время ближайшего [окна обслуживания](../concepts/maintenance.md#maintenance-window).
-            * **Незамедлительно при заполненности более** — порог для незамедлительного увеличения. Когда он достигнут, объем хранилища увеличивается немедленно.         
+        1. В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** выберите один или оба порога:
+            * **{{ ui-key.yacloud.mdb.cluster.field_plannedUsageThreshold }}** — порог для планового увеличения. Когда он достигнут, объем хранилища увеличивается во время ближайшего [окна обслуживания](../concepts/maintenance.md#maintenance-window).
+            * **{{ ui-key.yacloud.mdb.cluster.field_emergencyUsageThreshold }}** — порог для незамедлительного увеличения. Когда он достигнут, объем хранилища увеличивается немедленно.         
         1. Задайте пороговое значение (в процентах от общего объема хранилища). Если выбраны оба порога, значение для незамедлительного увеличения должно быть выше, чем для планового.
-        1. Задайте **Максимальный размер хранилища**.        
+        1. Задайте **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}**.        
 
 * CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -362,13 +362,13 @@
     1. Посмотрите описание команды CLI для изменения кластера:
 
         ```bash
-        yc managed-kafka cluster update --help
+        {{ yc-mdb-kf }} cluster update --help
         ```
 
     1. Укажите максимальный размер хранилища и условия для его увеличения в команде изменения кластера:
 
         ```bash
-        yc managed-kafka cluster update <идентификатор_или_имя_кластера> \
+        {{ yc-mdb-kf }} cluster update <идентификатор_или_имя_кластера> \
            --disk-size-autoscaling planned-usage-threshold=<процент_для_планового_увеличения>,`
                                   `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>,`
                                   `disk-size-limit=<максимальный_размер_хранилища_в_байтах>
@@ -398,7 +398,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         {% note warning %}
         
@@ -411,7 +411,7 @@
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.diskSizeAutoscaling.plannedUsageThreshold,configSpec.diskSizeAutoscaling.plannedUsageThreshold,configSpec.diskSizeAutoscaling.plannedUsageThreshold",
                       "configSpec": {
@@ -465,7 +465,7 @@
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         {% note warning %}
         
@@ -512,7 +512,7 @@
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
         ```
 
@@ -550,7 +550,7 @@
 * Для локальных SSD-дисков, в кластере на платформе:
 
     * **Intel Cascade Lake** — на 100 ГБ.
-    * **Intel Ice Lake** или **AMD Zen 4** — на 368 ГБ.
+    * **Intel Ice Lake** или **AMD Zen 4** — на {{ local-ssd-v3-step }}.
 
 
 Если порог срабатывания достигнут повторно, размер хранилища будет автоматически увеличиваться, пока не достигнет заданного максимума. После этого вы можете задать новый максимальный размер хранилища вручную.

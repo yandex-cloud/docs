@@ -1,9 +1,9 @@
 # Однонодовый файловый сервер
 
 
-В этом руководстве вы создадите однонодовый файловый сервер [NFS](https://docs.microsoft.com/ru-ru/windows-server/storage/nfs/nfs-overview) с помощью пакета программ [Samba](https://www.samba.org/) и сетевой инфраструктуры [Yandex Virtual Private Cloud](../../../vpc/index.md). Сервер разместится на виртуальной машине [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os), а подключаться к нему можно будет с компьютеров на Linux, macOS и Windows.
+В этом руководстве вы создадите однонодовый файловый сервер [NFS](https://docs.microsoft.com/ru-ru/windows-server/storage/nfs/nfs-overview) с помощью пакета программ [Samba](https://www.samba.org/) и сетевой инфраструктуры [{{ vpc-full-name }}](../../../vpc/index.md). Сервер разместится на виртуальной машине [Ubuntu](https://yandex.cloud/ru/marketplace?tab=software&search=Ubuntu&categories=os), а подключаться к нему можно будет с компьютеров на Linux, macOS и Windows.
 
 Вы можете создать инфраструктуру для однонодового файлового сервера с помощью одного из инструментов:
 
-* [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления Yandex Cloud.
-* [Terraform](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации Terraform, а затем разверните инфраструктуру с помощью [Terraform-провайдера Yandex Cloud](../../../terraform/index.md).
+* [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать инфраструктуру в консоли управления {{ yandex-cloud }}.
+* [{{ TF }}](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации {{ TF }}, а затем разверните инфраструктуру с помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}).

@@ -1,14 +1,14 @@
-# Примеры кода для подключения к кластеру Greenplum®
+# Примеры кода для подключения к кластеру {{ mgp-name }}
 
 **Примеры проверялись в следующем окружении:**
 
-* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS:
+* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS:
     * Bash: `5.0.16`.
-* Виртуальная машина в Yandex Cloud с Windows Server 2019 Datacenter:
+* Виртуальная машина в {{ yandex-cloud }} с Windows Server 2019 Datacenter:
     * PostgreSQL: `13`.
     * PowerShell: `5.1.17763.1490 Desktop`.
 
-При создании кластера Greenplum® пользовательская база данных не создается. Для проверки подключения используйте служебную базу `postgres`.
+При создании кластера {{ mgp-name }} пользовательская база данных не создается. Для проверки подключения используйте служебную базу `postgres`.
 
 Для подключения к кластеру с публичным доступом [подготовьте SSL-сертификат](index.md#get-ssl-cert). В примерах предполагается, что SSL-сертификат `root.crt` расположен в директории:
 
@@ -17,7 +17,7 @@
 
 Подключиться к кластеру можно как с использованием обычного FQDN хоста-мастера, так и [особого FQDN](fqdn.md#fqdn-master) первичного хоста-мастера. При подключении с помощью JDBC-коннектора вы можете указать сразу два хоста-мастера. О том, как получить FQDN хоста, см. [инструкцию](fqdn.md#get-fqdn).
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
 
 ## C# EF Core {#csharpefcore}
 
@@ -50,8 +50,8 @@
           }
           protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
           {
-              var host      = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net";
-              var port      = "6432";
+              var host      = "c-<идентификатор_кластера>.rw.{{ dns-zone }}";
+              var port      = "{{ port-mgp }}";
               var db        = "postgres";
               var username  = "<имя_пользователя>";
               var password  = "<пароль_пользователя>";
@@ -66,7 +66,7 @@
           {
               using (ApplicationContext db = new ApplicationContext())
               {
-                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id, version() as versionString;").ToListAsync();
                   Console.WriteLine(versionStrings[0].versionString);
               }
           }
@@ -105,8 +105,8 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-      	host     = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net"
-      	port     = 6432
+      	host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
+      	port     = {{ port-mgp }}
       	user     = "<имя_пользователя>"
       	password = "<пароль_пользователя>"
       	dbname   = "postgres"
@@ -164,15 +164,14 @@ go mod init example && go get github.com/jackc/pgx/v4
       	"crypto/tls"
       	"crypto/x509"
       	"fmt"
-      	"io/ioutil"
       	"os"
 
       	"github.com/jackc/pgx/v4"
       )
 
       const (
-      	host     = "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net"
-      	port     = 6432
+      	host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
+      	port     = {{ port-mgp }}
       	user     = "<имя_пользователя>"
       	password = "<пароль_пользователя>"
       	dbname   = "postgres"
@@ -203,7 +202,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       	connConfig.TLSConfig = &tls.Config{
       		RootCAs:            rootCertPool,
-      		ServerName: "c-<идентификатор_кластера>.rw.mdb.yandexcloud.net",
+      		ServerName: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
       	}
 
       	conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -226,7 +225,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
-      При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для PostgreSQL в переменной `ca`.
+      При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
   1. Подключение:
 
@@ -346,7 +345,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:6432,<FQDN_резервного_хоста-мастера>:6432/postgres?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:{{ port-mgp }},<FQDN_резервного_хоста-мастера>:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<имя_пользователя>";
           String DB_PASS = "<пароль_пользователя>";
 
@@ -387,7 +386,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:6432,<FQDN_резервного_хоста-мастера>:6432/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL  = "jdbc:postgresql://<FQDN_первичного_хоста-мастера>:{{ port-mgp }},<FQDN_резервного_хоста-мастера>:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER = "<имя_пользователя>";
           String DB_PASS = "<пароль_пользователя>";
 
@@ -438,7 +437,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6432/postgres"
+            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres"
     };
 
     const conn = new pg.Client(config);
@@ -448,7 +447,7 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```
@@ -464,7 +463,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.mdb.yandexcloud.net:6432/postgres",
+            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -480,12 +479,12 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```
 
-    При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для PostgreSQL в переменной `ca`.
+    При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
 {% endlist %}
 
@@ -503,7 +502,7 @@ node app.js
 sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 ```
 
-Драйвер PostgreSQL ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
+Драйвер {{ PG }} ODBC будет автоматически зарегистрирован в файле `/etc/odbcinst.ini`.
 
 {% list tabs group=connection %}
 
@@ -516,11 +515,11 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
+      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=postgres
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       ```
 
@@ -541,11 +540,11 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
+      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=postgres
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
@@ -579,8 +578,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-            port=6432
+            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+            port={{ port-mgp }}
             sslmode=disable
             dbname=postgres
             user=<имя_пользователя>
@@ -611,8 +610,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ``` php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-            port=6432
+            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+            port={{ port-mgp }}
             sslmode=verify-full
             dbname=postgres
             user=<имя_пользователя>
@@ -657,8 +656,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-          port=6432
+          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+          port={{ port-mgp }}
           sslmode=disable
           dbname=postgres
           user=<имя_пользователя>
@@ -690,8 +689,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-          port=6432
+          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+          port={{ port-mgp }}
           sslmode=verify-full
           dbname=postgres
           user=<имя_пользователя>
@@ -735,8 +734,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-              port=6432
+              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+              port={{ port-mgp }}
               dbname=postgres
               user=<имя_пользователя>
               password=<пароль_пользователя>
@@ -766,8 +765,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
-              port=6432
+              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+              port={{ port-mgp }}
               dbname=postgres
               user=<имя_пользователя>
               password=<пароль_пользователя>
@@ -788,5 +787,3 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       ```
 
 {% endlist %}
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

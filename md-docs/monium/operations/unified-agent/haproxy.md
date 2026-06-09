@@ -1,10 +1,10 @@
 # Поставка метрик HAProxy и других сторонних приложений
 
-Unified Agent поддерживает сбор метрик в формате Prometheus и конвертацию метрик в формат Monium Metrics. При помощи Unified Agent вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате Prometheus.
+{{ unified-agent-full-name }} поддерживает сбор метрик в формате {{ prometheus-name }} и конвертацию метрик в формат {{ monitoring-full-name }}. При помощи {{ unified-agent-short-name }} вы сможете собирать метрики любых приложений, которые предоставляют метрики в формате {{ prometheus-name }}.
 
-Для поставки в Monium Metrics метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате Prometheus) или специальное приложение-экспортер, реализующее интеграцию с Prometheus.
+Для поставки в {{ monitoring-full-name }} метрик сторонних приложений используется [вход metrics_pull](../../concepts/data-collection/unified-agent/configuration.md#metrics_pull_input), который периодически опрашивает напрямую стороннее приложение (если оно поддерживает метрики в формате {{ prometheus-name }}) или специальное приложение-экспортер, реализующее интеграцию с {{ prometheus-name }}.
 
-Для примера рассмотрим поставку в Monium Metrics метрик [HAProxy](https://www.haproxy.org).
+Для примера рассмотрим поставку в {{ monitoring-full-name }} метрик [HAProxy](https://www.haproxy.org).
 
 ## Пример поставки метрик HAProxy {#example}
 
@@ -18,7 +18,7 @@ Unified Agent поддерживает сбор метрик в формате P
       sudo apt install haproxy
       ```
 
-   1. Чтобы реализовать интеграцию с Prometheus, настройте экспортер. Для этого добавьте раздел `frontend` в конфигурационный файл `haproxy.cfg`:
+   1. Чтобы реализовать интеграцию с {{ prometheus-name }}, настройте экспортер. Для этого добавьте раздел `frontend` в конфигурационный файл `haproxy.cfg`:
 
       ```bash
       frontend stats
@@ -55,13 +55,13 @@ Unified Agent поддерживает сбор метрик в формате P
       haproxy_process_pool_failures_total 0
       ```
 
-1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в Monium Metrics.
+1. Настройте сервисный аккаунт, от имени которого будут записываться метрики в {{ monitoring-full-name }}.
 
-   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `monitoring.editor`.
+   1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики и [назначьте ему роль](../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
 
-   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен Unified Agent.
+   1. [Привяжите сервисный аккаунт](../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине, на которой установлен {{ unified-agent-short-name }}.
 
-1. Установите и настройте Unified Agent:
+1. Установите и настройте {{ unified-agent-full-name }}:
 
    1. Создайте в домашнем каталоге файл `config.yml`:
 
@@ -121,7 +121,7 @@ Unified Agent поддерживает сбор метрик в формате P
 
        Где `$FOLDER_ID` – идентификатор каталога, в который будут записываться метрики.
 
-   1. Установите Unified Agent на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
+   1. Установите {{ unified-agent-short-name }} на свою виртуальную машину, выполнив в домашнем каталоге следующую команду:
 
       ```bash
       docker run \
@@ -131,15 +131,15 @@ Unified Agent поддерживает сбор метрик в формате P
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -e PROC_DIRECTORY=/ua_proc \
       -e FOLDER_ID=a1bs81qpemb4******** \
-      cr.yandex/yc/unified-agent
+      {{ registry }}/yc/unified-agent
       ```
 
-       Другие способы установки агента описаны в разделе [Установка и обновление Unified Agent](../../concepts/data-collection/unified-agent/installation.md).
+       Другие способы установки агента описаны в разделе [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
 
-1. Убедитесь, что метрики поступают в Monium Metrics:
+1. Убедитесь, что метрики поступают в {{ monitoring-full-name }}:
 
-    1. На [главной странице](https://monium.yandex.cloud) сервиса Monium Metrics перейдите в раздел **Метрики**.
+    1. На [главной странице]({{ link-monitoring }}) сервиса {{ monitoring-full-name }} перейдите в раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
 
     1. В строке запроса выберите:
       - каталог, в который собираются метрики;
@@ -148,6 +148,6 @@ Unified Agent поддерживает сбор метрик в формате P
 
 #### Что дальше {#what-is-next}
 
-- [Изучите концепции Unified Agent](../../concepts/data-collection/unified-agent/index.md)
-- [Узнайте подробнее о конфигурировании Unified Agent](../../concepts/data-collection/unified-agent/configuration.md)
-- [Ознакомьтесь с рекомендациями по эксплуатации Unified Agent](../../concepts/data-collection/unified-agent/best-practices.md)
+- [Изучите концепции {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/index.md)
+- [Узнайте подробнее о конфигурировании {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/configuration.md)
+- [Ознакомьтесь с рекомендациями по эксплуатации {{ unified-agent-short-name }}](../../concepts/data-collection/unified-agent/best-practices.md)

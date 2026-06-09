@@ -1,17 +1,17 @@
 # Установка контроллера Gwin
 
-Gwin — инструмент для управления балансировщиками нагрузки Yandex Application Load Balancer в кластерах Yandex Managed Service for Kubernetes.
+Gwin — инструмент для управления балансировщиками нагрузки {{ alb-full-name }} в кластерах {{ managed-k8s-full-name }}.
 
-Следуя этому руководству, вы установите в кластер Managed Service for Kubernetes контроллер Gwin. По конфигурации ресурсов Ingress или Gateway API контроллер автоматически развернет балансировщик Application Load Balancer, который:
+Следуя этому руководству, вы установите в кластер {{ managed-k8s-name }} контроллер Gwin. По конфигурации ресурсов Ingress или Gateway API контроллер автоматически развернет балансировщик {{ alb-name }}, который:
 
 * автоматически получает динамический публичный IP-адрес;
 * принимает HTTP-трафик на порт `80`;
-* принимает HTTPS-трафик на порт `443`, используя сертификат Certificate Manager;
+* принимает HTTPS-трафик на порт `443`, используя сертификат {{ certificate-manager-name }};
 * отправляет GET-запросы к тестовому сервису `example-service`.
 
 {% note warning %}
 
-Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью Managed Service for Kubernetes, через интерфейсы Yandex Cloud (консоль управления, Terraform, CLI и API). Это может привести к некорректной работе кластера.
+Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
 
 {% endnote %}
 
@@ -19,20 +19,20 @@ Gwin — инструмент для управления балансировщ
 
 В стоимость поддержки инфраструктуры входит:
 
-* Плата за мастер Managed Service for Kubernetes (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера Managed Service for Kubernetes: использование вычислительных ресурсов и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера Managed Service for Kubernetes и узлов кластера Managed Service for Kubernetes, если для них включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md#prices-public-ip)).
-* Плата за использование вычислительных ресурсов балансировщика (см. [тарифы Application Load Balancer](../../application-load-balancer/pricing.md)).
+* Плата за мастер {{ managed-k8s-name }} (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера {{ managed-k8s-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластера {{ managed-k8s-name }} и узлов кластера {{ managed-k8s-name }}, если для них включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md#prices-public-ip)).
+* Плата за использование вычислительных ресурсов балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+1. [Создайте группы безопасности](../operations/connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
-    Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы Application Load Balancer.
+    Также [настройте](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) группы безопасности, необходимые для работы {{ alb-name }}.
 
     {% note warning %}
     
@@ -40,27 +40,27 @@ Gwin — инструмент для управления балансировщ
     
     {% endnote %}
 
-1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md) Managed Service for Kubernetes. При создании укажите группы безопасности, подготовленные ранее.
+1. [Создайте кластер](../operations/kubernetes-cluster/kubernetes-cluster-create.md) {{ managed-k8s-name }}. При создании укажите группы безопасности, подготовленные ранее.
 
 1. [Создайте группу узлов](../operations/node-group/node-group-create.md). Выделите ей публичный адрес, чтобы предоставить доступ в интернет и возможность скачивать Docker-образы и компоненты. Укажите группы безопасности, подготовленные ранее.
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
-1. [Создайте сервисный аккаунт IAM](../../iam/operations/sa/create.md), от имени которого контроллер будет создавать ресурсы Application Load Balancer, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) на каталог:
+1. [Создайте сервисный аккаунт {{ iam-short-name }}](../../iam/operations/sa/create.md), от имени которого контроллер будет создавать ресурсы {{ alb-name }}, и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) на каталог:
 
-    * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов Application Load Balancer.
+    * [alb.editor](../../application-load-balancer/security/index.md#alb-editor) — для создания необходимых ресурсов {{ alb-name }}.
     * [vpc.publicAdmin](../../vpc/security/index.md#vpc-public-admin) — для управления внешней сетевой связностью.
-    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — при использовании облачных сертификатов, зарегистрированных в сервисе [Yandex Certificate Manager](../../certificate-manager/index.md).
-    * [certificate-manager.editor](../../certificate-manager/security/index.md#certificate-manager-editor) — при использовании сертификатов кластеров Managed Service for Kubernetes. В этом случае контроллер создает соответствующие им облачные сертификаты.
-    * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера Managed Service for Kubernetes в [целевых группах](../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
+    * [certificate-manager.certificates.downloader](../../certificate-manager/security/index.md#certificate-manager-certificates-downloader) — при использовании облачных сертификатов, зарегистрированных в сервисе [{{ certificate-manager-full-name }}](../../certificate-manager/index.md).
+    * [certificate-manager.editor](../../certificate-manager/security/index.md#certificate-manager-editor) — при использовании сертификатов кластеров {{ managed-k8s-name }}. В этом случае контроллер создает соответствующие им облачные сертификаты.
+    * [compute.viewer](../../compute/security/index.md#compute-viewer) — для использования узлов кластера {{ managed-k8s-name }} в [целевых группах](../../application-load-balancer/concepts/target-group.md) L7-балансировщика.
     * [k8s.viewer](../security/index.md#k8s-viewer) — для определения, в какой сети контроллеру нужно развернуть L7-балансировщик.
-    * (опционально) [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Yandex Smart Web Security к виртуальному хосту L7-балансировщика.
-    * (опционально) [logging.writer](../../logging/security/index.md#logging-writer) — при указании в ресурсе [Gateway](gateway.md) [лог-группы](../../logging/concepts/log-group.md) для записи логов L7-балансировщика в Yandex Cloud Logging.
+    * (опционально) [smart-web-security.editor](../../smartwebsecurity/security/index.md#smart-web-security-editor) — для подключения [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }} к виртуальному хосту L7-балансировщика.
+    * (опционально) [logging.writer](../../logging/security/index.md#logging-writer) — при указании в ресурсе [Gateway](gateway.md) [лог-группы](../../logging/concepts/log-group.md) для записи логов L7-балансировщика в {{ cloud-logging-full-name }}.
 
-1. Выберите способ аутентификации Gwin в API Yandex Cloud для создания и управления балансировщиками нагрузки Yandex Application Load Balancer.
+1. Выберите способ аутентификации Gwin в API {{ yandex-cloud }} для создания и управления балансировщиками нагрузки {{ alb-full-name }}.
 
     Аутентификация осуществляется с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md) с ограниченным сроком жизни. Получить IAM-токен изнутри кластера можно следующими инструментами:
-    * [Федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) — связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) без использования долгоживущих ключей. Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+    * [Федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) — связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC) без использования долгоживущих ключей. Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
     * [Авторизованный ключ](../../iam/concepts/authorization/key.md) — ключ с алгоритмом шифрования RSA-2048 или RSA-4096 с неограниченным сроком жизни.
 
     {% list tabs group=authentication %}
@@ -69,35 +69,35 @@ Gwin — инструмент для управления балансировщ
 
       1. [Настройте](../operations/kubernetes-cluster/kubernetes-cluster-wlif-integration.md) поддержку федерации сервисных аккаунтов в кластере и группе узлов.
       1. [Создайте](../../iam/operations/wlif/setup-wlif.md#create-wlif) федерацию сервисных аккаунтов:
-          * В качестве **Значение Issuer (iss)** и **Допустимые значения Audience (aud)** используйте значение **URL эмитента**, полученное при настройке кластера.
-          * В качестве **Адрес JWKS** используйте значение **URL набора ключей JWKS**, полученное при настройке кластера.
-      1. [Привяжите](../../iam/operations/wlif/setup-wlif.md#create-federated-credential) сервисный аккаунт IAM к федерации.
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_issuer }}** и **{{ ui-key.yacloud.iam.federations.field_audiences }}** используйте значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-issuer_iKJcv }}**, полученное при настройке кластера.
+          * В качестве **{{ ui-key.yacloud.iam.federations.field_jwks }}** используйте значение **{{ ui-key.yacloud.k8s.IAMService.ClusterIAMSection.iam-jwks-uri_x2AJJ }}**, полученное при настройке кластера.
+      1. [Привяжите](../../iam/operations/wlif/setup-wlif.md#create-federated-credential) сервисный аккаунт {{ iam-short-name }} к федерации.
 
           В качестве идентификатора внешнего субъекта используйте следующее значение:
           
           ```text
-          system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_Kubernetes>
+          system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>
           ```
 
           Где:
           * `<пространство_имен>` — пространство имен кластера, в которое вы хотите установить Gwin.
-          * `<имя_сервисного_аккаунта_Kubernetes>` — имя сервисного аккаунта Kubernetes для Gwin. По умолчанию — `gwin`.
+          * `<имя_сервисного_аккаунта_{{ k8s }}>` — имя сервисного аккаунта {{ k8s }} для Gwin. По умолчанию — `gwin`.
 
             {% note tip %}
 
-            Чтобы переопределить имя сервисного аккаунта Kubernetes для Gwin, при [установке с помощью Helm-чарта](#helm-install) используйте параметр `--set controller.names.serviceAccount=<имя_сервисного_аккаунта_Kubernetes>`.
+            Чтобы переопределить имя сервисного аккаунта {{ k8s }} для Gwin, при [установке с помощью Helm-чарта](#helm-install) используйте параметр `--set controller.names.serviceAccount=<имя_сервисного_аккаунта_{{ k8s }}>`.
 
             {% endnote %}
 
-      Подробнее см. на странице [Доступ к API Yandex Cloud из кластера Managed Service for Kubernetes с помощью федерации сервисных аккаунтов Identity and Access Management](../tutorials/wlif-managed-k8s-integration.md).
+      Подробнее см. на странице [{#T}](../tutorials/wlif-managed-k8s-integration.md).
 
     - Авторизованный ключ {#authorized-key}
 
-      [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта IAM в формате JSON и сохраните его в файл `sa-key.json`:
+      [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта {{ iam-short-name }} в формате JSON и сохраните его в файл `sa-key.json`:
 
       ```bash
       yc iam key create \
-        --service-account-name <имя_сервисного_аккаунта_IAM> \
+        --service-account-name <имя_сервисного_аккаунта_{{ iam-short-name }}> \
         --output sa-key.json
       ```
 
@@ -105,19 +105,19 @@ Gwin — инструмент для управления балансировщ
 
 ## Установите Gwin {#install}
 
-### Установка с помощью Yandex Cloud Marketplace {#marketplace-install}
+### Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [Gwin](https://yandex.cloud/ru/marketplace/products/yc/gwin) и нажмите кнопку **Перейти к установке**.
+1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Gwin](https://yandex.cloud/ru/marketplace/products/yc/gwin) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
     * **Пространство имен** — создайте новое [пространство имен](../concepts/index.md#namespace) (например, `gwin-space`). Если вы оставите пространство имен по умолчанию, Gwin может работать некорректно.
     * **Название приложения** — укажите название приложения.
     * **Идентификатор каталога** — укажите [идентификатор каталога](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать Gwin.
 1. В зависимости от того, какой способ аутентификации вы выбрали, укажите один из параметров:
     * **Ключ сервисного аккаунта** — скопируйте содержимое файла `sa-key.json`.
-    * **Сервисный аккаунт, привязанный к WLIF** — выберите сервисный аккаунт IAM, настроенный ранее.
-1. Нажмите кнопку **Установить**.
+    * **Сервисный аккаунт, привязанный к WLIF** — выберите сервисный аккаунт {{ iam-short-name }}, настроенный ранее.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ### Установка с помощью Helm-чарта {#helm-install}
@@ -131,22 +131,22 @@ Gwin — инструмент для управления балансировщ
     - Федерация сервисных аккаунтов {#wlif}
 
       ```bash
-      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-        --version v1.3.1 \
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
         --untar \
       helm install \
         --namespace <пространство_имен> \
         --create-namespace \
         --set controller.folderId=<идентификатор_каталога> \
-        --set controller.ycServiceAccount.workloadIdentityFederation.serviceAccountID=<идентификатор_сервисного_аккаунта_IAM> \
+        --set controller.ycServiceAccount.workloadIdentityFederation.serviceAccountID=<идентификатор_сервисного_аккаунта_{{ iam-short-name }}> \
         gwin ./gwin-chart
       ```
 
     - Авторизованный ключ {#authorized-key}
 
       ```bash
-      helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart \
-        --version v1.3.1 \
+      helm pull oci://{{ mkt-k8s-key.yc_gwin.helmChart.name }} \
+        --version {{ mkt-k8s-key.yc_gwin.helmChart.tag }} \
         --untar \
       helm install \
         --namespace <пространство_имен> \
@@ -178,7 +178,7 @@ Gwin — инструмент для управления балансировщ
       * `example-com.crt` — для сертификата.
       * `example-com.key` — для приватного ключа.
 
-1. Добавьте сертификат в Certificate Manager:
+1. Добавьте сертификат в {{ certificate-manager-name }}:
 
     ```bash
     yc certificate-manager certificate create \
@@ -422,7 +422,7 @@ Gwin — инструмент для управления балансировщ
 
 ## Проверьте результат
 
-1. Убедитесь, что балансировщик Application Load Balancer создан:
+1. Убедитесь, что балансировщик {{ alb-name }} создан:
 
     {% list tabs group=instructions %}
 
@@ -492,6 +492,6 @@ Gwin — инструмент для управления балансировщ
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
 
-1. [Удалите](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер Managed Service for Kubernetes.
+1. [Удалите](../operations/kubernetes-cluster/kubernetes-cluster-delete.md) кластер {{ managed-k8s-name }}.
 
-1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) балансировщик Application Load Balancer.
+1. [Удалите](../../application-load-balancer/operations/application-load-balancer-delete.md) балансировщик {{ alb-name }}.

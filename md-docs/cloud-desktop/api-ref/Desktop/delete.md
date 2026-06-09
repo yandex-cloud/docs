@@ -5,7 +5,7 @@ Deletes the specified desktop.
 ## HTTP request
 
 ```
-DELETE https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops/{desktopId}
+DELETE https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops/{desktopId}
 ```
 
 ## Path parameters

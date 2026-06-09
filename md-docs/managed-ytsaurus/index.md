@@ -1,12 +1,6 @@
-# Yandex Managed Service for YTsaurus
 
-Сервис Yandex Managed Service for YTsaurus помогает разворачивать и поддерживать кластеры YTsaurus в инфраструктуре Yandex Cloud. <a href="https://ytsaurus.tech/ru">YTsaurus</a> — это платформа распределённого хранения и обработки больших данных с открытым исходным кодом.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии с Федеральным законом Российской Федерации «О персональных данных» № 152-ФЗ.
-
-Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla/ru/">соглашение об уровне обслуживания</a>. Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_yt/ru/">Уровень обслуживания Yandex Managed Service for YTsaurus</a>.
-
-# Yandex Managed Service for YTsaurus
+# {{ myt-full-name }}
 
  - [Начало работы](quickstart.md)
 
@@ -84,7 +78,7 @@
 
  - [stop](cli-ref/v0/cluster/stop.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -150,8 +144,8 @@
 
  - [Cancel](api-ref/Operation/cancel.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Метрики {{ monitoring-full-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)

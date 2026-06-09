@@ -24,7 +24,7 @@ description: Из статьи вы узнаете, как задать наст
 
 1. {% include [storage](../../../../_includes/data-transfer/scenario-captions/storage.md) %}
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
@@ -96,7 +96,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -162,7 +162,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -234,7 +234,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ mmg-name }} (Managed Service for MongoDB)](../target/mongodb.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 

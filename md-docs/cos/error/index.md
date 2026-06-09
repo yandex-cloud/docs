@@ -16,14 +16,14 @@ sudo journalctl -eu yc-container-daemon
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
 {"level":"DEBUG","ts":"2021-03-25T12:07:39.785Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:07:39 instance-name yc-container-daemon[516]:
-{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: 'cr.yandex/crpgrueprn********/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:07:39.786Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgrueprn********/nginx:1.16.0'"}
 Mar 25 12:07:41 instance-name yc-container-daemon[516]:
-{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for cr.yandex/crpgruern********/ngin>
+{"level":"ERROR","ts":"2021-03-25T12:07:41.005Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: pull access denied for {{ registry }}/crpgruern********/ngin>
 ```
 
 **Как исправить**: [назначьте сервисному аккаунту роль](../../iam/operations/sa/set-access-bindings.md) `viewer` или `container-registry.images.puller` на репозиторий, реестр или каталог. Подробнее про роли, действующие в сервисе, читайте в [документации](../../container-registry/security/index.md).
 
-## Отсутствует сетевой доступ к Container Registry {#connection-to-cr}
+## Отсутствует сетевой доступ к {{ container-registry-name }} {#connection-to-cr}
 
 **Пример**:
 
@@ -31,14 +31,14 @@ Mar 25 12:07:41 instance-name yc-container-daemon[516]:
 Sep 28 08:00:18 instance-name yc-container-daemon[952]:
 {"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z ","caller":"container/container.go:121","msg":"trying to pull image (0/3)"}
 Sep 28 08:00:18 instance-name yc-container-daemon[952]:
-{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: 'cr.yandex/crpgrueprnhc********/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2019-09-28T08:00:18.842Z","caller":"container/container.go:162","msg":"pulling image: '{{ registry }}/crpgrueprnhc********/nginx:1.16.0'"}
 Sep 28 08:00:33 instance-name yc-container-daemon[952]:
-{"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://cr.yandex/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
+{"level":"ERROR","ts":"2019-09-28T08:00:33.843Z","caller":"container/container.go:124","msg":"error pulling image: Error response from daemon: Get https://{{ registry }}/v2/: net/http: request canceled while waiting for connection (Client.Timeout exceeded while awaiting headers)"}
 ```
 
-**Как исправить**: проверьте доступ к Container Registry командой: `nc -vz cr.yandex 443`. Если доступа нет, [настройте NAT-инстанс](../../tutorials/routing/nat-instance/index.md) или назначьте публичный IP-адрес на виртуальные машины с Container Optimized Image. Также можно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создаются ВМ.
+**Как исправить**: проверьте доступ к {{ container-registry-name }} командой: `nc -vz {{ registry }} 443`. Если доступа нет, [настройте NAT-инстанс](../../tutorials/routing/nat-instance/index.md) или назначьте публичный IP-адрес на виртуальные машины с {{ coi }}. Также можно [настроить NAT-шлюз](../../vpc/operations/create-nat-gateway.md) для подсети, в которой создаются ВМ.
 
-## К ВМ не привязан сервисный аккаунт для доступа к Container Registry {#sa-for-registry}
+## К ВМ не привязан сервисный аккаунт для доступа к {{ container-registry-name }} {#sa-for-registry}
 
 **Пример**:
 
@@ -48,7 +48,7 @@ Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
 {"level":"DEBUG","ts":"2021-03-25T12:13:23.466Z","caller":"container/image.go:75","msg":"trying to pull image (0/3)"}
 Mar 25 12:13:23 instance-name yc-container-daemon[518]:
-{"level":"DEBUG","ts":"2021-03-25T12:13:23.467Z","caller":"container/image.go:47","msg":"pulling image: 'cr.yandex/crpgruehrnhc********/nginx:1.16.0'"}
+{"level":"DEBUG","ts":"2021-03-25T12:13:23.467Z","caller":"container/image.go:47","msg":"pulling image: '{{ registry }}/crpgruehrnhc********/nginx:1.16.0'"}
 Mar 25 12:13:24 instance-name yc-container-daemon[518]:
 {"level":"ERROR","ts":"2021-03-25T12:13:24.706Z","caller":"container/image.go:78","msg":"error pulling image: Error response from daemon: unauthorized: Authentication problem ; requestId = b2f6f07>
 ```

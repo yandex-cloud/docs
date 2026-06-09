@@ -1,9 +1,11 @@
 # Начало работы с Packer
 
 
-[Packer](https://www.packer.io/) позволяет создавать [образы дисков виртуальных машин](../concepts/image.md) с заданными в конфигурационном файле параметрами. Руководство описывает создание образа диска в [Yandex Compute Cloud](../index.md) с помощью Packer.
+[Packer](https://www.packer.io/) позволяет создавать [образы дисков виртуальных машин](../concepts/image.md) с заданными в конфигурационном файле параметрами. Руководство описывает создание образа диска в [{{ compute-full-name }}](../index.md) с помощью Packer.
 
-Packer создаст и запустит виртуальную машину с ОС [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11) из Cloud Marketplace, на которую будет установлен веб-сервер [nginx](https://nginx.org/ru/). Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
+Packer создаст и запустит виртуальную машину с ОС [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11) из {{ marketplace-name }}, на которую будет установлен веб-сервер [nginx](https://nginx.org/ru/). Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
+
+Более подробную информацию о ресурсах, которые вы можете создать с помощью Packer, см. в [документации провайдера](https://www.packer.io/docs/builders/yandex).
 
 Чтобы создать образ:
 
@@ -18,11 +20,11 @@ Packer создаст и запустит виртуальную машину с
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -30,31 +32,27 @@ Packer создаст и запустит виртуальную машину с
 ### Настройте окружение и инфраструктуру {#prepare-environment}
 
 1. [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
-1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
-
-    * [OAuth-токен](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
-    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation), [локального](../../iam/concepts/users/accounts.md#local) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунта.
-
-1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе Compute Cloud. У вас должна быть минимальная [роль](../security/index.md#compute-editor) `compute.editor` на каталог.
+1. Получите [IAM-токен](../../iam/operations/iam-token/create.md).
+1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе {{ compute-name }}. У вас должна быть минимальная [роль](../security/index.md#compute-editor) `compute.editor` на каталог.
 
     Если вы работаете от имени сервисного аккаунта, [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `compute.editor` на каталог.
 
-    Если вы хотите создавать ресурсы в других сервисах Yandex Cloud, например подсети в VPC, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
+    Если вы хотите создавать ресурсы в других сервисах {{ yandex-cloud }}, например подсети в {{ vpc-short-name }}, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость создания образа диска с помощью Packer входит:
 
-* плата за хранение созданных образов (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-storage));
-* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
+* плата за хранение созданных образов (см. [тарифы {{ compute-full-name }}](../pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ (см. [тарифы {{ compute-full-name }}](../pricing.md#prices-instance-resources)).
 
 
 ## Установите и настройте Packer {#install-packer}
 
 {% note warning %}
 
-Для работы с Yandex Cloud требуется Packer версии не ниже 1.5.
+Для работы с {{ yandex-cloud }} требуется Packer версии не ниже 1.5.
 
 Избегайте установки Packer с помощью популярных пакетных менеджеров, например Homebrew или APT. В их репозиториях могут быть размещены устаревшие версии.
 
@@ -190,7 +188,7 @@ Packer создаст и запустит виртуальную машину с
       required_plugins {
         yandex = {
           version = ">= 1.1.2"
-          source  = "github.com/hashicorp/yandex"
+          source  = "{{ packer-source-link }}"
         }
       }
     }
@@ -220,7 +218,7 @@ Packer создаст и запустит виртуальную машину с
       "builders": [
         {
           "type":      "yandex",
-          "token":     "<OAuth-токен_или_IAM-токен>",
+          "token":     "<IAM-токен>",
           "folder_id": "<идентификатор_каталога>",
           "zone":      "<зона_доступности>",
 
@@ -256,9 +254,9 @@ Packer создаст и запустит виртуальную машину с
 
     Где:
 
-    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного или сервисного аккаунтов.
+    * `token` — [IAM-токен](../../iam/concepts/authorization/iam-token.md).
     * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
-    * `zone` — зона доступности, в которой будет создана ВМ. Например: `ru-central1-d`.
+    * `zone` — зона доступности, в которой будет создана ВМ. Например: `{{ region-id }}-d`.
     * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
 
 {% note warning %}
@@ -296,13 +294,13 @@ Packer создаст и запустит виртуальную машину с
 
 - Консоль управления {#console}
 
-  1. Перейдите в [консоль управления](https://console.yandex.cloud).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **Образы**. Убедитесь, что там появился новый образ диска.
+  1. Перейдите в [консоль управления]({{ link-console-main }}).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**. Убедитесь, что там появился новый образ диска.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

@@ -83,7 +83,7 @@ for more information.
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folder_id | **string**
 
 ID of the folder that the backup belongs to. ||

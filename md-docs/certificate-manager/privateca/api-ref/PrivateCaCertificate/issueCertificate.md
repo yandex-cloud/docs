@@ -5,7 +5,7 @@ Issues a new certificate for a given Certificate Authority (CA).
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/privateCertificates:issue
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/privateCertificates:issue
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.IssueCertificateRequest}

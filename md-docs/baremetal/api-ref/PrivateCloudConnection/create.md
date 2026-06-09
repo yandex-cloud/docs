@@ -5,7 +5,7 @@ Creates a private cloud connection in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateCloudConnections
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreatePrivateCloudConnectionRequest}

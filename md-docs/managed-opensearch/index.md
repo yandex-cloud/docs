@@ -1,16 +1,16 @@
-# Yandex Managed Service for OpenSearch
+# {{ mos-full-name }}
 
-Сервис Managed Service for OpenSearch помогает разворачивать и поддерживать кластеры серверов OpenSearch в инфраструктуре Yandex Cloud.
+Сервис {{ mos-name }} помогает разворачивать и поддерживать кластеры серверов {{ OS }} в инфраструктуре {{ yandex-cloud }}.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
-<ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
+<ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>.
 
 Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень обслуживания Yandex Managed Databases</a>.
 
-# Yandex Managed Service for OpenSearch
+# {{ mos-full-name }}
 
  - [Начало работы](quickstart.md)
 
@@ -28,7 +28,7 @@
 
  - [Изменение настроек кластера](operations/update.md)
 
- - [Обновление версии OpenSearch](operations/cluster-version-update.md)
+ - [Обновление версии {{ OS }}](operations/cluster-version-update.md)
 
  - [Управление плагинами](operations/plugins.md)
 
@@ -70,35 +70,39 @@
 
 ## Практические руководства
 
- - [Настройка политики индексов в Managed Service for OpenSearch](tutorials/opensearch-index-policy.md)
+ - [Все руководства](tutorials/index.md)
 
- - [Настройка политики холодного хранилища в Managed Service for OpenSearch](tutorials/opensearch-cold-storage-policy.md)
+ - [Настройка политики индексов в {{ mos-name }}](tutorials/opensearch-index-policy.md)
 
- - [Загрузка логов из Audit Trails](tutorials/trails-to-opensearch.md)
+ - [Настройка политики холодного хранилища в {{ mos-name }}](tutorials/opensearch-cold-storage-policy.md)
 
- - [Аутентификация в OpenSearch Dashboards с помощью Keycloak](tutorials/saml-keycloak.md)
+ - [Загрузка логов из {{ at-name }}](tutorials/trails-to-opensearch.md)
+
+ - [Аутентификация в {{ OS }} Dashboards с помощью {{ keycloak }}](tutorials/saml-keycloak.md)
+
+ - [Подключение MCP-клиента к {{ OS }}](tutorials/mcp.md)
 
  - [Использование плагина yandex-lemmer](tutorials/opensearch-yandex-lemmer.md)
 
 ### Миграция и копирование данных
 
- - [Миграция данных из стороннего кластера OpenSearch](tutorials/migration-from-standalone.md)
+ - [Миграция данных из стороннего кластера {{ OS }}](tutorials/migration-from-standalone.md)
 
- - [Миграция данных из Elasticsearch](tutorials/migration-to-opensearch.md)
+ - [Миграция данных из {{ ES }}](tutorials/migration-to-opensearch.md)
 
- - [Миграция данных из Yandex Managed Service for PostgreSQL](tutorials/postgresql-to-opensearch.md)
+ - [Миграция данных из {{ mpg-full-name }}](tutorials/postgresql-to-opensearch.md)
 
- - [Поставка данных из Yandex Managed Service for Apache Kafka®](tutorials/migration-from-mkf.md)
+ - [Поставка данных из {{ mkf-full-name }}](tutorials/migration-from-mkf.md)
 
- - [Загрузка данных в Object Storage](tutorials/opensearch-to-object-storage.md)
+ - [Загрузка данных в {{ objstorage-name }}](tutorials/opensearch-to-object-storage.md)
 
- - [Миграция данных в Yandex Managed Service for YDB](tutorials/opensearch-to-ydb.md)
+ - [Миграция данных в {{ ydb-full-name }}](tutorials/opensearch-to-ydb.md)
 
- - [Копирование данных в Yandex Managed Service for ClickHouse®](tutorials/opensearch-to-clickhouse.md)
+ - [Копирование данных в {{ mch-full-name }}](tutorials/opensearch-to-clickhouse.md)
 
- - [Копирование данных в Yandex MPP Analytics for PostgreSQL](tutorials/opensearch-to-greenplum.md)
+ - [Копирование данных в {{ mgp-name }}](tutorials/opensearch-to-greenplum.md)
 
- - [Мониторинг кластера Managed Service for Kubernetes с помощью Filebeat OSS](tutorials/filebeat-oss-monitoring.md)
+ - [Мониторинг кластера {{ managed-k8s-name }} с помощью Filebeat OSS](tutorials/filebeat-oss-monitoring.md)
 
  - [Отправка оповещений по электронной почте](tutorials/opensearch-email-notifications.md)
 
@@ -112,11 +116,11 @@
 
  - [Политики индексов](concepts/index-policy.md)
 
- - [Поиск с помощью OpenSearch](concepts/searching.md)
+ - [Поиск с помощью {{ OS }}](concepts/searching.md)
 
  - [Классы хостов](concepts/instance-types.md)
 
- - [Сеть в Managed Service for OpenSearch](concepts/network.md)
+ - [Сеть в {{ mos-name }}](concepts/network.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -128,9 +132,9 @@
 
  - [Высокая доступность кластера](concepts/high-availability.md)
 
- - [Плагины OpenSearch](concepts/plugins.md)
+ - [Плагины {{ OS }}](concepts/plugins.md)
 
- - [Политика работы с версиями OpenSearch](concepts/update-policy.md)
+ - [Политика работы с версиями {{ OS }}](concepts/update-policy.md)
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
@@ -314,7 +318,7 @@
 
  - [delete](cli-ref/v0/plugin/delete.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -532,9 +536,9 @@
 
  - [List](api-ref/ResourcePreset/list.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

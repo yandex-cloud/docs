@@ -1,9 +1,9 @@
-# Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0 c помощью Yandex Data Transfer
+# Миграция кластера {{ mmg-full-name }} с версии 4.4 на 6.0 c помощью {{ data-transfer-full-name }}
 
-# Миграция кластера Yandex StoreDoc (Managed Service for MongoDB) с версии 4.4 на 6.0 c помощью Yandex Data Transfer
+# Миграция кластера {{ mmg-name }} (Managed Service for MongoDB) с версии 4.4 на 6.0 c помощью {{ data-transfer-full-name }}
 
 
-Вы можете перенести продуктивную нагруженную шардированную базу данных, развернутую в кластере Yandex StoreDoc версии 4.4, на версию 6.0.
+Вы можете перенести продуктивную нагруженную шардированную базу данных, развернутую в кластере {{ mmg-name }} версии 4.4, на версию 6.0.
 
 Чтобы перенести данные:
 
@@ -18,20 +18,20 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Yandex StoreDoc: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Yandex StoreDoc](../../storedoc/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы Data Transfer](../../data-transfer/pricing.md)).
+* Кластер {{ mmg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmg-name }}](../../storedoc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
 
-Создайте кластер-приемник Yandex StoreDoc версии 6.0, идентичный кластеру версии 4.4.
+Создайте кластер-приемник {{ mmg-name }} версии 6.0, идентичный кластеру версии 4.4.
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-приемник Yandex StoreDoc (Managed Service for MongoDB)](../../storedoc/operations/cluster-create.md) с конфигурацией, идентичной кластеру-источнику, и со следующими настройками:
+    1. [Создайте кластер-приемник {{ mmg-name }} (Managed Service for MongoDB)](../../storedoc/operations/cluster-create.md) с конфигурацией, идентичной кластеру-источнику, и со следующими настройками:
 
         * Версия кластера — `6.0`.
         * Имя базы данных — `db1`.
@@ -40,7 +40,7 @@
 
         {% note info %}
         
-        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+        Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
         
         {% endnote %}
 
@@ -52,9 +52,9 @@
 
     1. [Включите шардирование кластера](../../storedoc/operations/shards.md#enable) и [добавьте](../../storedoc/operations/shards.md#add-shard) нужное количество шардов.
 
-- С помощью Terraform {#tf}
+- С помощью {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -65,7 +65,7 @@
         resource "yandex_mdb_mongodb_cluster" "old" { }
         ```
 
-    1. Запишите идентификатор кластера Yandex StoreDoc версии 4.4 в переменную окружения:
+    1. Запишите идентификатор кластера {{ SD }} версии 4.4 в переменную окружения:
 
         ```bash
         export MONGODB_CLUSTER_ID=<идентификатор_кластера>
@@ -73,7 +73,7 @@
 
         Идентификатор можно запросить вместе со [списком кластеров в каталоге](../../storedoc/operations/cluster-list.md#list-clusters).
 
-    1. Импортируйте настройки кластера Yandex StoreDoc версии 4.4 в конфигурацию Terraform:
+    1. Импортируйте настройки кластера {{ SD }} версии 4.4 в конфигурацию {{ TF }}:
 
         ```bash
         terraform import yandex_mdb_mongodb_cluster.old ${MONGODB_CLUSTER_ID}
@@ -134,13 +134,13 @@
 
     1. Поместите конфигурационный файл в директорию `imported-cluster` и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
 
-    1. Проверьте корректность файлов конфигурации Terraform:
+    1. Проверьте корректность файлов конфигурации {{ TF }}:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -162,11 +162,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Yandex StoreDoc:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmg-name }}:
     
     * создание, в т. ч. путем восстановления из резервной копии, — 30 минут;
     * изменение — 60 минут.
@@ -206,7 +206,7 @@
     1. Определите список особо нагруженных коллекций.
     1. Распределите коллекции между несколькими трансферами.
 
-1. Задайте размер хранения oplog с запасом 15–20 % от размера диска кластера. Это позволит Data Transfer считывать изменения из кластера-источника на протяжении всего процесса копирования данных.
+1. Задайте размер хранения oplog с запасом 15–20 % от размера диска кластера. Это позволит {{ data-transfer-name }} считывать изменения из кластера-источника на протяжении всего процесса копирования данных.
 
 
 ## Подготовьте кластер-приемник {#prepare-target}
@@ -217,48 +217,48 @@
 
 1. [Создайте эндпоинт-источник](../../data-transfer/operations/endpoint/index.md#create) для каждого запланированного трансфера и укажите параметры эндпоинта:
 
-    * **Тип базы данных** — `MongoDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
 
-    * **Тип подключения** — `Кластер Yandex StoreDoc`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
-    * **Кластер Yandex StoreDoc** — `<имя_кластера-источника_Yandex_StoreDoc>` из выпадающего списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-источника_Yandex_StoreDoc>` из выпадающего списка.
 
-    * **Источник аутентификации** — `<имя_базы_данных_кластера-источника>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `<имя_базы_данных_кластера-источника>`.
 
-    * **Пользователь** — `<имя_пользователя>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `<имя_пользователя>`.
 
-    * **Пароль** — `<пароль>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — `<пароль>`.
 
-    * **Список включённых коллекций** — для каждого эндпоинта укажите список включенных коллекций в соответствии с планом распределения по трансферам.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.collections.title }}** — для каждого эндпоинта укажите список включенных коллекций в соответствии с планом распределения по трансферам.
 
-    * **Список исключённых коллекций** — укажите коллекции `Time Series`, если они существуют в базе данных. Data Transfer не поддерживает перенос таких коллекций.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoCollectionFilter.excluded_collections.title }}** — укажите коллекции `Time Series`, если они существуют в базе данных. {{ data-transfer-name }} не поддерживает перенос таких коллекций.
 
 1. [Создайте эндпоинт-приемник](../../data-transfer/operations/endpoint/index.md#create) для каждого запланированного трансфера и укажите параметры эндпоинта:
 
-    * **Тип базы данных** — `MongoDB`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `MongoDB`.
 
-    * **Тип подключения** — `Кластер Yandex StoreDoc`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}`.
 
-    * **Кластер Yandex StoreDoc** — `<имя_кластера-приемника_Yandex_StoreDoc>` из выпадающего списка.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnectionType.mdb_cluster_id.title }}** — `<имя_кластера-приемника_Yandex_StoreDoc>` из выпадающего списка.
 
-    * **Источник аутентификации** — `db1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.auth_source.title }}** — `db1`.
 
-    * **Пользователь** — `user1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.user.title }}** — `user1`.
 
-    * **Пароль** — `<пароль>`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoConnection.raw_password.title }}** — `<пароль>`.
 
-    * **База данных** — `db1`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.mongo.console.form.mongo.MongoTarget.database.title }}** — `db1`.
 
     Если в базе-приемнике созданы шардированные коллекции, выберите политику очистки `Не очищать` или `TRUNCATE`.
 
     Выбор политики `DROP` приведет к тому, что при активации трансфера сервис удалит из базы-приемника все данные, в т. ч. шардированные коллекции, и создаст вместо них новые, нешардированные.
 
-1. [Создайте трансферы](../../data-transfer/operations/transfer.md#create) типа **_Копирование и репликация_**, использующие созданные эндпоинты.
+1. [Создайте трансферы](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.snapshot_and_increment.title }}_**, использующие созданные эндпоинты.
 
     Чтобы ускорить копирование больших коллекций (более 1 ГБ), включите [параллельное копирование](../../data-transfer/concepts/sharded.md) в настройках трансфера:
 
-    * **Количество воркеров** — `5` или более.
-    * **Количество потоков** — `8` или более.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.workers_count.title }}** — `5` или более.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.ParallelSnapshotSettings.threads_count.title }}** — `8` или более.
 
     Коллекция разделится на указанное количество частей, которые будут копироваться параллельно.
 
@@ -273,16 +273,16 @@
 ## Активируйте трансферы {#activate-transfer}
 
 1. [Активируйте трансферы](../../data-transfer/operations/transfer.md#activate).
-1. Дождитесь перехода трансферов в статус **Реплицируется**.
+1. Дождитесь перехода трансферов в статус {{ dt-status-repl }}.
 1. Переведите кластер-источник в режим «только чтение».
 1. Если в базе-источнике вы отключали уникальные индексы, включите их в базе-приемнике.
 1. Переключите нагрузку на кластер-приемник.
 1. На странице [мониторинга трансфера](../../data-transfer/operations/monitoring.md) дождитесь снижения до нуля характеристики **Maximum data transfer delay** для каждого трансфера. Это значит, что в кластер-приемник перенесены все изменения, произошедшие в кластере-источнике после завершения копирования данных.
-1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансферы и дождитесь их перехода в статус **Остановлен**.
+1. [Деактивируйте](../../data-transfer/operations/transfer.md#deactivate) трансферы и дождитесь их перехода в статус {{ dt-status-stopped }}.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. [Подключитесь к базе данных](../../storedoc/operations/connect/index.md) `db1` в кластере-приемнике Yandex StoreDoc.
+1. [Подключитесь к базе данных](../../storedoc/operations/connect/index.md) `db1` в кластере-приемнике {{ mmg-name }}.
 
 1. Убедитесь, что в базе данных `db1` появились коллекции с данными:
 
@@ -297,21 +297,21 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete).
-1. Кластер Yandex StoreDoc версии `6.0` удалите в зависимости от способа его создания:
+1. Кластер {{ mmg-name }} версии `6.0` удалите в зависимости от способа его создания:
 
    {% list tabs group=instructions %}
 
    - Вручную {#manual}
 
-       Удалите [кластер Yandex StoreDoc](../../storedoc/operations/cluster-delete.md).
+       Удалите [кластер {{ mmg-name }}](../../storedoc/operations/cluster-delete.md).
 
-   - С помощью Terraform {#tf}
+   - С помощью {{ TF }} {#tf}
 
        1. В терминале перейдите в директорию с планом инфраструктуры.
        
            {% note warning %}
        
-           Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+           Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
        
            {% endnote %}
        
@@ -325,6 +325,6 @@
        
            1. Подтвердите удаление ресурсов и дождитесь завершения операции.
        
-           Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+           Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
    {% endlist %}

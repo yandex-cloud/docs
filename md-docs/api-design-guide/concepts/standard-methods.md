@@ -35,7 +35,7 @@
 
 Пример REST запроса на получение диска:
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+GET https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```
 
 ## List {#method-list}
@@ -90,7 +90,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 Пример получения списка дисков в REST:
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
+GET https://compute.{{ api-host }}/compute/v1/disks?folderId=a3s17h9sbq5asdgss12
 ```
 
 
@@ -165,13 +165,13 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5as
 
 Пример REST запроса на создание диска:
 ```
- POST https://compute.api.cloud.yandex.net/compute/v1/disks
+ POST https://compute.{{ api-host }}/compute/v1/disks
 
  {
    "folderId": "a3s17h9sbq5asdgss12",
    "name": "disk-1",
    "description": "Test disk",
-   "zoneId" : "ru-central1-a",
+   "zoneId" : "{{ region-id }}-a",
    "typeId" : "network-nvme",
    "size" : 10737418240
  }
@@ -239,7 +239,7 @@ GET https://compute.api.cloud.yandex.net/compute/v1/disks?folderId=a3s17h9sbq5as
 
 Пример REST запроса на изменение дискового ресурса:
 ```
-PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+PATCH https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 
  {
    "name": "Новое имя",
@@ -290,5 +290,5 @@ PATCH https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
 
 Пример REST запроса на удаление диска:
 ```
- DELETE https://compute.api.cloud.yandex.net/compute/v1/disks/e0m97h0gbq0foeuis03
+ DELETE https://compute.{{ api-host }}/compute/v1/disks/e0m97h0gbq0foeuis03
 ```

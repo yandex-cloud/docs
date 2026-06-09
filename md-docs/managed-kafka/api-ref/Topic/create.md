@@ -5,7 +5,7 @@ Creates a new Kafka topic in the specified cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}/topics
+POST https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}/topics
 ```
 
 ## Path parameters

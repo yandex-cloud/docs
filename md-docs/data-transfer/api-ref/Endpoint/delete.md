@@ -5,7 +5,7 @@ Deletes the specified endpoint.
 ## HTTP request
 
 ```
-DELETE https://datatransfer.api.cloud.yandex.net/v1/endpoint/{endpointId}
+DELETE https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 ```
 
 ## Path parameters
@@ -15,6 +15,7 @@ DELETE https://datatransfer.api.cloud.yandex.net/v1/endpoint/{endpointId}
 || endpointId | **string**
 
 Required field. Identifier of the endpoint to delete.
+
 To get the list of all available endpoints, make a [List](list.md#List) request. ||
 |#
 

@@ -2,7 +2,7 @@
 
 При работе в мультикластерном режиме {{ dataproc-name }} использует базу данных [{{ ydb-full-name }}](../../../ydb/index.yaml) для координации доступа к таблицам Delta Lake из разных кластеров и заданий {{ SPRK }}.
 
-Подробную информацию о Delta Lake см. в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
+Подробную информацию о Delta Lake читайте в разделе [Delta Lake в {{ dataproc-name }}](../../concepts/deltalake.md) и в [документации Delta Lake](https://docs.delta.io/latest/index.html).
 
 
 {% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}

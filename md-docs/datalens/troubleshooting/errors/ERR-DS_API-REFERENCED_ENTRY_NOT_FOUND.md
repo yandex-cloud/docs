@@ -1,4 +1,4 @@
-# [Yandex DataLens] Обращение к несуществующему объекту
+# [{{ datalens-full-name }}] Обращение к несуществующему объекту
 
 `ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND`
 

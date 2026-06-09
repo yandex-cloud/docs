@@ -1,13 +1,12 @@
 # Compute Cloud API, REST: SnapshotSchedule.Get
 
 Returns the specified snapshot schedule.
-
 To get the list of available snapshot schedules, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotScheduleId}
+GET https://compute.{{ api-host }}/compute/v1/snapshotSchedules/{snapshotScheduleId}
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://compute.api.cloud.yandex.net/compute/v1/snapshotSchedules/{snapshotS
 || snapshotScheduleId | **string**
 
 Required field. ID of the snapshot schedule to return.
-
 To get a schedule ID, make a [SnapshotScheduleService.List](list.md#List) request. ||
 |#
 
@@ -72,7 +70,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || name | **string**
 
 Name of the snapshot schedule.
-
 The name is unique within the folder. ||
 || description | **string**
 
@@ -134,7 +131,6 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || expression | **string**
 
 Cron expression for the snapshot schedule (UTC+0).
-
 The expression must consist of five fields (`Minutes Hours Day-of-month Month Day-of-week`) or be one of
 nonstandard predefined expressions (e.g. `@hourly`). For details about the format,
 see [documentation](../../concepts/snapshot-schedule.md#cron) ||

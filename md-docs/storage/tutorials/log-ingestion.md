@@ -7,7 +7,7 @@
 
 Такой подход позволяет разработчикам сосредоточиться на функциональности приложения, а поставку и хранение журналов предоставить специализированным системам.
 
-С помощью этой инструкции вы научитесь сохранять журналы работы приложений в Yandex Object Storage.
+С помощью этой инструкции вы научитесь сохранять журналы работы приложений в {{ objstorage-full-name }}.
 
 Чтобы настроить хранение журналов работы приложения:
 
@@ -24,11 +24,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -36,9 +36,9 @@
 
 В стоимость поддержки хранения журналов приложений входит:
 
-* плата за обслуживание потока данных (см. [тарифы Yandex Data Streams](../../data-streams/pricing.md));
-* плата за перенос данных между источниками и приемниками (см. [тарифы Yandex Data Transfer](../../data-transfer/pricing.md));
-* плата за хранение данных (см. [тарифы Yandex Object Storage](../pricing.md)).
+* плата за обслуживание потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
+* плата за перенос данных между источниками и приемниками (см. [тарифы {{ data-transfer-full-name }}](../../data-transfer/pricing.md));
+* плата за хранение данных (см. [тарифы {{ objstorage-full-name }}](../pricing.md)).
 
 ## Настройте окружение {#setup}
 
@@ -49,8 +49,8 @@
 
 ## Создайте бакет для хранения журналов {#create-bucket}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
 1. Нажмите кнопку **Создать бакет**.
 1. Укажите имя бакета.
 1. В полях **Доступ на чтение объектов**, **Доступ к списку объектов** и **Доступ на чтение настроек** выберите **Ограниченный**.
@@ -59,10 +59,10 @@
   
 ## Создайте поток данных {#create-stream}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать поток данных.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Data Streams**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать поток данных.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
 1. Нажмите кнопку **Создать поток**.
-1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных YDB или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
+1. Укажите существующую [бессерверную](../../ydb/concepts/serverless-and-dedicated.md#serverless) базу данных {{ ydb-short-name }} или [создайте](../../ydb/quickstart.md#serverless) новую. Если вы создали новую базу данных, после ее создания нажмите кнопку ![refresh-button](../../_assets/data-streams/refresh-button.svg) **Обновить** для обновления списка баз.
 1. Введите имя потока данных.
 1. Нажмите кнопку **Создать**.
 
@@ -74,7 +74,7 @@
 1. Создайте эндпоинт-источник:
     1. В поле **Направление** выберите `Источник`.
     1. Укажите имя эндпоинта.
-    1. В списке **Тип базы данных** выберите `Yandex Data Streams`.
+    1. В списке **Тип базы данных** выберите `{{ yds-full-name }}`.
     1. Выберите базу данных для источника.
     1. Введите имя созданного ранее потока данных.
     1. Выберите созданный ранее сервисный аккаунт.
@@ -83,7 +83,7 @@
     1. Нажмите кнопку **Создать эндпоинт**.
     1. В поле **Направление** выберите `Приемник`.
     1. Укажите имя эндпоинта.
-    1. В списке **Тип базы данных** выберите `Object Storage`.
+    1. В списке **Тип базы данных** выберите `{{ objstorage-name }}`.
     1. Введите имя созданного ранее бакета.
     1. Выберите созданный ранее сервисный аккаунт.
     1. Нажмите кнопку **Создать**.
@@ -96,7 +96,7 @@
     1. Нажмите кнопку **Создать**.
     1. Нажмите на значок ![ellipsis](../../_assets/horizontal-ellipsis.svg) рядом с именем созданного трансфера и выберите **Активировать**.
 
-Дождитесь активации трансфера. Когда трансфер станет готов к использованию, его статус сменится с **Создается** на **Реплицируется**.
+Дождитесь активации трансфера. Когда трансфер станет готов к использованию, его статус сменится с {{ dt-status-creation }} на {{ dt-status-repl }}.
 
 ## Установите Fluentd {#install-fluentd}
 
@@ -135,7 +135,7 @@
       aws_sec_key <secret>
 
       # kinesis stream name
-      stream_name /ru-central1/b1gia92mbaom********/etnhstu01nin********/my-stream
+      stream_name /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream
 
       # region
       region ru-central-1
@@ -159,13 +159,13 @@
 curl --request POST --data 'json={"user_id":"user1", "score": 100}' http://localhost:8888/kinesis
 ```
 
-Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появятся сообщения о получении данных и записи их в Yandex Data Streams по протоколу AWS Kinesis Data Streams:
+Если настройка выполнена успешно, в логе работы Fluentd `/var/log/td-agent/td-agent.log` появятся сообщения о получении данных и записи их в {{ yds-full-name }} по протоколу AWS Kinesis Data Streams:
 
 ```text
 ...
 2022-04-20 19:36:37.770311035 +0000 kinesis: {"user_id":"user1","score":100}
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaom********/etnhstu01nin********/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
-2022-04-20 19:36:42 +0000 [debug]: #0 /ru-central1/b1gia92mbaom********/etnhstu01nin********/my-stream: Finish writing chunk
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Write chunk 5dd1b1ca1bd788e49185aa681e8132b9 /   1 records /    0 KB
+2022-04-20 19:36:42 +0000 [debug]: #0 /{{ region-id }}/b1gia92mbaom********/etnhstu01nin********/my-stream: Finish writing chunk
 ...
 ```
 

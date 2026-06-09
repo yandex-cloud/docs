@@ -95,7 +95,8 @@
         "pubSubChannels": "string",
         "categories": "string",
         "commands": "string",
-        "sanitizePayload": "string"
+        "sanitizePayload": "string",
+        "databases": "string"
       },
       "enabled": "boolean",
       "aclOptions": "string"
@@ -296,4 +297,5 @@ A list of messages that carry the error details. ||
 || categories | **string** ||
 || commands | **string** ||
 || sanitizePayload | **string** ||
+|| databases | **string** ||
 |#

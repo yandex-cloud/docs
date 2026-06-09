@@ -1,8 +1,14 @@
 # Yandex IoT Core
 
-Yandex IoT Core — это облачный отказоустойчивый MQTT-сервер, позволяющий наладить двустороннюю защищенную связь между устройствами и локальными или облачными ресурсами.
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей.
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу.
+
+Подробнее о сроках и порядке закрытия читайте на странице <a href="sunset.md">Закрытие сервиса</a>.
 
 # Yandex IoT Core
+
+ - [Закрытие сервиса](sunset.md)
 
 ## Начало работы
 
@@ -20,7 +26,7 @@ Yandex IoT Core — это облачный отказоустойчивый MQT
 
  - [Подписка устройства или реестра на получение сообщений](operations/subscribe.md)
 
- - [Экспорт сообщений в Data Streams](operations/yds-export.md)
+ - [Экспорт сообщений в {{ yds-name }}](operations/yds-export.md)
 
  - [Просмотр журнала подключений](operations/logs.md)
 
@@ -444,7 +450,7 @@ Yandex IoT Core — это облачный отказоустойчивый MQT
 
  - [list](cli-ref/v0/registry/yds-export/list.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API Devices
 
@@ -732,9 +738,9 @@ Yandex IoT Core — это облачный отказоустойчивый MQT
 
  - [Cancel](broker/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

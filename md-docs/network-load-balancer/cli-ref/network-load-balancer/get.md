@@ -41,9 +41,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -71,9 +68,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Получить детальную информацию о сетевом балансировщике](../../operations/load-balancer-list.md#cli_2)
- * [Изменить имя и описание балансировщика](../../operations/load-balancer-update.md#cli_1)
- * [Разрешить перенос трафика](../../operations/manage-zone/allow-and-deny-shift.md#tf_1)
- * [Проверить настройки блокировки зон доступности](../../operations/manage-zone/disable-enable-zone.md#cli_5)

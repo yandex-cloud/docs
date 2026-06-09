@@ -5,7 +5,7 @@ Returns information about legal person (Russia only) who owns this subscription 
 ## HTTP request
 
 ```
-GET https://marketplace.api.cloud.yandex.net/marketplace/license-manager/saas/v1/instances/{instanceId}/user_info
+GET https://marketplace.{{ api-host }}/marketplace/license-manager/saas/v1/instances/{instanceId}/user_info
 ```
 
 ## Path parameters

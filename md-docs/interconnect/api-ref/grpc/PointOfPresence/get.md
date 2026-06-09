@@ -1,7 +1,6 @@
 # Cloud Interconnect API, gRPC: PointOfPresenceService.Get
 
 Returns the specified PointOfPresence resource.
-
 To get the list of available PointOfPresence resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -21,7 +20,9 @@ To get the list of available PointOfPresence resources, make a [List](list.md#Li
 || point_of_presence_id | **string**
 
 Required field. ID of the PointOfPresence resource to return.
-To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) request. ||
+To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## PointOfPresence {#yandex.cloud.cic.v1.PointOfPresence}
@@ -29,7 +30,11 @@ To get the pointOfPresence ID use a [PointOfPresenceService.List](list.md#List) 
 ```json
 {
   "id": "string",
-  "region_id": "string"
+  "name": "string",
+  "location_address": "string",
+  "connection_points": [
+    "string"
+  ]
 }
 ```
 
@@ -40,7 +45,13 @@ A PointOfPresence resource.
 || id | **string**
 
 ID of the pointOfPresence. ||
-|| region_id | **string**
+|| name | **string**
 
-ID of the region that the pointOfPresence belongs to. ||
+Name of the pointOfPresence. ||
+|| location_address | **string**
+
+Location address of the pointOfPresence. ||
+|| connection_points[] | **string**
+
+Links to info about the connection points. ||
 |#

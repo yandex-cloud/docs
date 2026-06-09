@@ -17,7 +17,7 @@ JSON-схему рабочего процесса см. в [репозитори
 --- | --- | --- | ---
 `title` | `string` | Нет | Название шага.
 `description` | `string` | Нет | Описание шага.
-`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)\|<br/>[Workflow](integration/workflow.md)\|<br/>[AIAgent](integration/aiagent.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[AIStudioAgent](integration/aistudioagent.md)\|<br/>[VectorStore](integration/vectorstore.md)\|<br/>[DatabaseQuery](integration/databasequery.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
+`<step_type>` | string([FunctionCall](integration/functioncall.md)\|<br/>[ContainerCall](integration/containercall.md)\|<br/>[HTTPCall](integration/httpcall.md)\|<br/>[GRPCCall](integration/grpccall.md)\|<br/>[YDBDocument](integration/ydbdocument.md)\|<br/>[YDS](integration/yds.md)\|<br/>[YMQ](integration/ymq.md)\|<br/>[FoundationModelsCall](integration/foundationmodelscall.md)\|<br/>[ObjectStorage](integration/objectstorage.md)\|<br/>[Disk](integration/disk.md)\|<br/>[Tracker](integration/tracker.md)\|<br/>[Postbox](integration/postbox.md)\|<br/>[Workflow](integration/workflow.md)\|<br/>[TelegramBot](integration/telegrambot.md)\|<br/>[AIStudioAgent](integration/aistudioagent.md)\|<br/>[VectorStore](integration/vectorstore.md)\|<br/>[DatabaseQuery](integration/databasequery.md)\|<br/>[Switch](management/switch.md)\|<br/>[Foreach](management/foreach.md)\|<br/>[Parallel](management/parallel.md)\|<br/>[Success](management/success.md)\|<br/>[Fail](management/fail.md)\|<br/>[NoOp](management/noop.md)\|<br/>[Wait](management/wait.md)\|<br/>[While](management/while.md)) | Да | Спецификация шага. Набор возможных параметров зависит от выбранного `<step_type>`.
 
 ## Интеграционные шаги {#integration-steps}
 
@@ -34,7 +34,6 @@ JSON-схему рабочего процесса см. в [репозитори
 * [Postbox](integration/postbox.md)
 * [Workflow](integration/workflow.md)
 * [Disk](integration/disk.md)
-* [AIAgent](integration/aiagent.md)
 * [TelegramBot](integration/telegrambot.md)
 * [AIStudioAgent](integration/aistudioagent.md)
 * [VectorStore](integration/vectorstore.md)
@@ -57,7 +56,7 @@ JSON-схему рабочего процесса см. в [репозитори
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Предельное значение | Описание
 --- | --- | --- | --- | --- | ---
-`errorList` | `WorkflowError[]` | Да | `[]` | — | Список ошибок, для которых будут сделаны повторные попытки выполнения шага. Подробнее см. [Возможные коды ошибок](../execution.md#errors).
+`errorList` | `WorkflowError[]` | Да | `[]` | — | Список ошибок, для которых будут сделаны повторные попытки выполнения шага. Подробнее см. [{#T}](../execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | Нет | `INCLUDE` | — | Режим выбора ошибок. `INCLUDE` — делать повторные попытки для ошибок, указанных в `error_list`, `EXCLUDE` — делать повторные попытки для всех ошибок, кроме указанных в `error_list`.
 `initialDelay` | `Duration` | Нет | `1s` | `1s` | Начальное значение задержки между попытками.
 `backoffRate` | `double` | Нет | `1.0` | `1.0` | Число, на которое умножается время между каждой последующей попыткой.
@@ -68,7 +67,7 @@ JSON-схему рабочего процесса см. в [репозитори
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Предельное значение | Описание
 --- | --- | --- | --- |---| ---
-`errorList` | `WorkflowError[]` | Да | `[]` | — | Список ошибок, для которых применяется правило перехода. Подробнее см. [Возможные коды ошибок](../execution.md#errors).
+`errorList` | `WorkflowError[]` | Да | `[]` | — | Список ошибок, для которых применяется правило перехода. Подробнее см. [{#T}](../execution.md#errors).
 `errorListMode` | `INCLUDE/EXCLUDE` | Нет | `INCLUDE` | — | Режим выбора ошибок. `INCLUDE` — правило перехода применяется для ошибок, указанных в `error_list`, `EXCLUDE` — правило перехода применяется для всех ошибок, кроме указанных в `error_list`.
 `output` | `string` | Да | Нет | — | jq-шаблон, фильтрующий выходные данные шага, которые добавляются в состояние рабочего процесса. Входные данные для фильтрации — объект типа [ErrorInfo](#errorinfo). Если во время выполнения шага произошла ошибка, для которой задано правило перехода (`catch`), jq-шаблон, указанный в поле `output` всего шага, не применяется.
 `next` | `string` | Да | Нет | — | Идентификатор следующего шага.
@@ -188,7 +187,7 @@ steps:
               put:
                 body: |-
                   \(.)
-              queueArn: "yrn:yc:ymq:ru-central1:aoehdt6d6hbk********:test-queue"
+              queueArn: "yrn:yc:ymq:{{ region-id }}:aoehdt6d6hbk********:test-queue"
               output: |-
                 \({
                   "queue_res": .
@@ -209,7 +208,7 @@ steps:
       next: ydb_call
   ydb_call:
     ydbDocument:
-      database: "/ru-central1/aoedgvjds14c********/cc8dg7eqfuod********"
+      database: "/{{ region-id }}/aoedgvjds14c********/cc8dg7eqfuod********"
       update:
         key: |-
           \({
@@ -238,7 +237,7 @@ steps:
   yds_step:
     yds:
       topic: test-topic
-      database: /ru-central1/aoedgvjds14c********/cc8dg7eqfuod********
+      database: /{{ region-id }}/aoedgvjds14c********/cc8dg7eqfuod********
       put:
         body: "Hello world!"
         partitionKey: \(. | tostring | length)

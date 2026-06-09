@@ -1,6 +1,6 @@
 # Поддержка нескольких доменных имен с помощью консоли управления, CLI или API
 
-Чтобы создать инфраструктуру для поддержки [нескольких доменных имен](index.md) сайта с помощью консоли управления Yandex Cloud, CLI или API:
+Чтобы создать инфраструктуру для поддержки [нескольких доменных имен](index.md) сайта с помощью консоли управления {{ yandex-cloud }}, CLI или API:
 1. [Создайте бакеты](#buckets).
 1. [Настройте статический сайт для основного домена](#common).
 1. [Настройте переадресацию для дополнительного домена](#xtra).
@@ -17,9 +17,9 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-      1. На панели сверху нажмите **Создать бакет**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. На панели сверху нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
       1. На странице создания бакета:
 
           1. Введите имя бакета в соответствии с основным доменным именем сайта, например `example.com`.
@@ -32,15 +32,15 @@
 
           1. Задайте максимальный размер бакета.
 
-          1. Включите `Для всех` — доступ для любых пользователей.
+          1. Включите `{{ ui-key.yacloud.storage.bucket.settings.access_value_public }}` — доступ для любых пользователей.
 
-          1. Выберите [класс хранилища](../../../concepts/storage-class.md) по умолчанию — `Стандартное`.
+          1. Выберите [класс хранилища](../../../concepts/storage-class.md) по умолчанию — `{{ ui-key.yacloud.storage.value_standard }}`.
 
-          1. Нажмите **Создать бакет** для завершения операции.
+          1. Нажмите **{{ ui-key.yacloud.storage.buckets.create.button_create }}** для завершения операции.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
-      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+      Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
       По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -102,13 +102,13 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите бакет, для которого хотите настроить хостинг.
-      1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **Настройки**.
-      1. Выберите вкладку **Веб-сайт**.
-      1. В разделе **Хостинг**:
-          * В поле **Главная страница** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
+      1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**:
+          * В поле **{{ ui-key.yacloud.storage.bucket.website.field_index }}** укажите абсолютный путь к файлу в бакете для главной страницы сайта, например `index.html`.
       
             {% note warning %}
             
@@ -116,12 +116,12 @@
             
             {% endnote %}
       
-          * (опционально) В поле **Страница ошибки** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию Object Storage возвращает собственную страницу.
-      1. Нажмите кнопку **Сохранить**.
+          * (опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-      Проверить хостинг можно, перейдя по ссылке в поле **Ссылка**.
+      Проверить хостинг можно, перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       1. Посмотрите описание команды CLI для настройки хостинга статического сайта в бакете:
       
@@ -206,37 +206,37 @@
 
         {% list tabs group=instructions %}
 
-        - Yandex Cloud DNS {#dns}
+        - {{ dns-full-name }} {#dns}
 
           {% note warning %}
 
-          Использование сервиса Cloud DNS тарифицируется, подробнее см. [Правила тарификации для Cloud DNS](../../../../dns/pricing.md).
+          Использование сервиса {{ dns-name }} тарифицируется, подробнее см. [{#T}](../../../../dns/pricing.md).
 
           {% endnote %}
 
-          1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-          1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+          1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+          1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
           1. Выберите бакет, для которого хотите использовать собственный домен.
-          1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **Настройки** и перейдите на вкладку **Веб-сайт**.
-          1. В разделе **Хостинг** в блоке **Домены в Cloud DNS** нажмите кнопку **Создать запись**.
+          1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** и перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+          1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** в блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
 
               {% note info %}
 
-              В блоке **Домены в Cloud DNS** раздела **Хостинг** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [Cloud DNS](../../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
+              В блоке **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}** раздела **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}** отображаются только те домены, которые были созданы непосредственно в этом интерфейсе. Если запись была создана в сервисе [{{ dns-name }}](../../../../dns/quickstart.md), то в этом блоке она отображаться не будет.
 
               {% endnote %}
 
-          1. В открывшемся окне нажмите кнопку **Создать зону** и выберите доменную зону, которая соответствует имени бакета, например `example.com`. Нажмите кнопку **Создать**.
-          1. Раскройте блок **Дополнительные настройки**.
-          1. В поле **TTL (в секундах)** укажите время жизни ресурсной записи или выберите из предложенных.
-          1. Нажмите кнопку **Создать**.
-          1. Нажмите кнопку **Сохранить**.
+          1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}** и выберите доменную зону, которая соответствует имени бакета, например `example.com`. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          1. Раскройте блок **{{ ui-key.yacloud.dns.label_additional-settings }}**.
+          1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни ресурсной записи или выберите из предложенных.
+          1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+          1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
           
-          Чтобы получить доступ к именам из публичной зоны, делегируйте домен. Для этого в личном кабинете вашего доменного регистратора укажите адреса серверов `ns1.yandexcloud.net` и `ns2.yandexcloud.net`.
+          Чтобы получить доступ к именам из публичной зоны, делегируйте домен. Для этого в личном кабинете вашего доменного регистратора укажите адреса серверов `ns1.{{ dns-ns-host-sld }}` и `ns2.{{ dns-ns-host-sld }}`.
 
           Делегирование домена и обновление ресурсных записей могут занять некоторое время.
 
-          Вы также можете [создать зону DNS](../../../../dns/operations/zone-create-public.md) и [ресурсную запись](../../../../dns/operations/resource-record-create.md) средствами Cloud DNS.
+          Вы также можете [создать зону DNS](../../../../dns/operations/zone-create-public.md) и [ресурсную запись](../../../../dns/operations/resource-record-create.md) средствами {{ dns-name }}.
           
           {% cut "Пример параметров зоны DNS и ресурсной записи" %}
 
@@ -248,7 +248,7 @@
 
           | Имя          | Тип   | TTL | Значение                      |
           |--------------|-------|-----|-------------------------------|
-          | example.com. | ANAME | 600 | example.com.website.yandexcloud.net |
+          | example.com. | ANAME | 600 | example.com.{{ s3-web-host }} |
 
           Записи [ANAME](../../../../dns/concepts/resource-record.md#aname) позволяют использовать для хостинга домены второго уровня и, в отличие от [CNAME](../../../../dns/concepts/resource-record.md#cname), не ограничивают использование других типов записей в одной с ними зоне. 
 
@@ -263,7 +263,7 @@
           Пример ресурсной записи [CNAME](../../../../dns/concepts/resource-record.md#cname): 
 
           ```text
-          example.com CNAME example.com.website.yandexcloud.net
+          example.com CNAME example.com.{{ s3-web-host }}
           ```
 
           Чтобы использовать ресурсную запись CNAME, ваше доменное имя должно быть в домене не ниже третьего уровня — это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее см. п. 2.4 [RFC 1912](https://www.ietf.org/rfc/rfc1912.txt).
@@ -297,17 +297,17 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-      1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Выберите бакет, для которого хотите настроить переадресацию всех запросов.
-      1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **Настройки**.
-      1. Выберите вкладку **Веб-сайт**.
-      1. В разделе **Переадресация** укажите:
-          * **Доменное имя** — доменное имя, на которое будут переадресованы все запросы, например `example.com`.
-          * **Протокол** — **HTTPS**.
-      1. Нажмите кнопку **Сохранить**.
+      1. На панели слева выберите ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. Выберите вкладку **{{ ui-key.yacloud.storage.bucket.switch_website }}**.
+      1. В разделе **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}** укажите:
+          * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}** — доменное имя, на которое будут переадресованы все запросы, например `example.com`.
+          * **{{ ui-key.yacloud.storage.bucket.website.field_protocol }}** — **{{ ui-key.yacloud.common.label_https }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
-    - Yandex Cloud CLI {#cli}
+    - {{ yandex-cloud }} CLI {#cli}
 
       1. Посмотрите описание команды CLI для настройки переадресации всех запросов:
 
@@ -373,4 +373,4 @@
 
 #### См. также {#see-also}
 
-* [Поддержка нескольких доменных имен с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

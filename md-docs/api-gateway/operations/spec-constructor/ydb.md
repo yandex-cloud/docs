@@ -4,45 +4,45 @@
 
 - Консоль управления
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
-    1. Выберите API-шлюз или нажмите кнопку **Создать API-шлюз**, чтобы создать новый.
-    1. В поле **Спецификация** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-ydb.svg).
+    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создали или хотите создать [API-шлюз](../../concepts/index.md).
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+    1. Выберите API-шлюз или нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**, чтобы создать новый.
+    1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** нажмите значок ![image](../../../_assets/api-gateway/spec-constructor/cloud-ydb.svg).
     1. Укажите в поле:
 
-        * **Путь** — относительный путь к интеграции, который будет добавлен к URL-адресу API Gateway. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
-        * **HTTP-метод** — метод, который будет использоваться для взаимодействия с интеграцией.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.path_name }}** — относительный путь к интеграции, который будет добавлен к URL-адресу {{ api-gw-name }}. Переменные указывайте в фигурных скобках, например `/static/{function_id}`. Подробнее см. спецификацию [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification).
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.http_method_name }}** — метод, который будет использоваться для взаимодействия с интеграцией.
 
-        * **Сервисный аккаунт** — сервисный аккаунт для авторизации при обращении к [базе данных](../../../ydb/concepts/resources.md#database). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
-        * **База данных** — имя базы данных.
-        * **Таблица** — название таблицы, с которой будет выполняться операция.
-        * **Операция** — [тип операции](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) и параметры, соответствующие этому типу операции:
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}** — сервисный аккаунт для авторизации при обращении к [базе данных](../../../ydb/concepts/resources.md#database). Если у вас нет сервисного аккаунта, [создайте](../../../iam/operations/sa/create.md) его.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_database_name }}** — имя базы данных.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_table_name_name }}** — название таблицы, с которой будет выполняться операция.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_action_title }}** — [тип операции](../../concepts/extensions/ydb.md#podderzhivaemye-operacii) и параметры, соответствующие этому типу операции:
 
             * `PutItem`.
             * `GetItem`:
 
-                * **Ключ** — первичный ключ элемента, с которым будет выполняться операция.
+                * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_key_name }}** — первичный ключ элемента, с которым будет выполняться операция.
 
             * `UpdateItem`:
 
-                * **Ключ** — первичный ключ элемента, с которым будет выполняться операция.
-                * **Выражение для обновления** — выражение, которое будет определять, как и какие атрибуты нужно обновить.
-                * (Опционально) **Алиас** — алиас, который можно использовать в выражении для обновления вместо значения атрибута. Алиас должен начинаться с символа двоеточия `:`.
+                * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_key_name }}** — первичный ключ элемента, с которым будет выполняться операция.
+                * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_update_expression_name }}** — выражение, которое будет определять, как и какие атрибуты нужно обновить.
+                * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_expression_attribute_values_name }}** — алиас, который можно использовать в выражении для обновления вместо значения атрибута. Алиас должен начинаться с символа двоеточия `:`.
 
             * `DeleteItem`:
 
-                * **Ключ** — первичный ключ элемента, с которым будет выполняться операция.
+                * **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_key_name }}** — первичный ключ элемента, с которым будет выполняться операция.
 
             * `Scan`:
 
-                * (Опционально) **Лимит** — максимальное количество прочитанных элементов.
-                * (Опционально) **Первичный ключ элемента** — первичный ключ элемента, с которого должен начинаться поиск.
+                * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_limit_name }}** — максимальное количество прочитанных элементов.
+                * (Опционально) **{{ ui-key.yc-serverless-apigw.dynamic-forms.cloud_ydb_exclusive_start_key_name }}** — первичный ключ элемента, с которого должен начинаться поиск.
 
-    1. Нажмите кнопку **Добавить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
-В поле **Спецификация** отобразится OpenAPI-спецификация с указанными значениями параметров.
+В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** отобразится OpenAPI-спецификация с указанными значениями параметров.
 
 ## См. также {#see-also}
 

@@ -5,7 +5,7 @@ Lists nodegroup for the specified Kubernetes cluster.
 ## HTTP request
 
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}/nodeGroups
+GET https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}/nodeGroups
 ```
 
 ## Path parameters

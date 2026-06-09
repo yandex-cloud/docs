@@ -1,9 +1,0 @@
-# Talk Analytics API, REST: Assistants
-
-## Methods
-
-#|
-||Method | Description ||
-|| [List](list.md) | Rpc for listing assistants in a project ||
-|| [ListModels](listModels.md) | Rpc for listing available assistant models ||
-|#

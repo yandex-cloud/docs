@@ -1,14 +1,14 @@
-# Как начать работать с Yandex Resource Manager
+# Как начать работать с {{ resmgr-full-name }}
 
-При регистрации в Yandex Cloud для пользователя будет создано _облако_ — отдельное рабочее пространство, для которого этот пользователь будет назначен владельцем. В облаке будет создан каталог `default` и сеть `default`.
+При регистрации в {{ yandex-cloud }} для пользователя будет создано _облако_ — отдельное рабочее пространство, для которого этот пользователь будет назначен владельцем. В облаке будет создан каталог `default` и сеть `default`.
 
 Владелец может создавать в этом облаке новые каталоги и ресурсы, а также управлять правами доступа к ним.
 
 1. Чтобы создать каталог в облаке:
 
-    1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](concepts/resources-hierarchy.md#cloud).
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](concepts/resources-hierarchy.md#cloud).
     1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
-    1. Выберите ![image](../_assets/console-icons/plus.svg) **Создать каталог**.
+    1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
     
        ![create-folder1](../_assets/resource-manager/create-folder-1.png)
     
@@ -19,21 +19,21 @@
         * первый символ — буква, последний — не дефис.
     
     1. (Опционально) Введите описание каталога.
-    1. Выберите опцию **Создать сеть по умолчанию**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
-    1. Нажмите кнопку **Создать**.
+    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. Будет создана [сеть](../vpc/concepts/network.md#network) с подсетями в каждой зоне доступности. Также в этой сети будет создана [группа безопасности по умолчанию](../vpc/concepts/security-groups.md#default-security-group), внутри которой весь сетевой трафик разрешен.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
     
        ![create-folder2](../_assets/resource-manager/create-folder-2.png)
 
 1. Предоставьте пользователю доступ к созданному каталогу:
 
-    1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите каталог.
-    1. Перейдите на вкладку **Права доступа**.
-    1. Нажмите кнопку **Настроить доступ**.
-    1. В открывшемся окне выберите раздел **Пользовательские аккаунты**.
+    1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите каталог.
+    1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
+    1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.user-accounts }}**.
     1. Выберите пользователя из списка или воспользуйтесь поиском по пользователям.
-    1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **Добавить роль**.
+    1. Нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
     1. Выберите роль `resource-manager.editor`. Эта роль позволяет читать информацию о каталоге, в том числе список прав доступа, редактировать и удалить каталог.
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 {% note info %}
 

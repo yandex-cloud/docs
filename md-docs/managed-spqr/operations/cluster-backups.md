@@ -1,4 +1,4 @@
-# Управление резервными копиями в Yandex Managed Service for Sharded PostgreSQL
+# Управление резервными копиями в {{ mspqr-full-name }}
 
 {% note info %}
 
@@ -8,7 +8,7 @@
 
 Вы можете [создавать](#create-backup) резервные копии и [восстанавливать](#restore) кластеры из существующих резервных копий.
 
-Также Managed Service for Sharded PostgreSQL ежедневно создает автоматическую резервную копию. Вы можете [задать время начала](#set-backup-window) резервного копирования и [установить срок хранения](#set-backup-retain) автоматических резервных копий.
+Также {{ mspqr-name }} ежедневно создает автоматическую резервную копию. Вы можете [задать время начала](#set-backup-window) резервного копирования и [установить срок хранения](#set-backup-retain) автоматических резервных копий.
 
 ## Восстановить кластер из резервной копии {#restore}
 
@@ -24,29 +24,29 @@
 
   Чтобы восстановить из резервной копии существующий кластер:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите пункт **Восстановить кластер**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера.
       
-      В поле **Каталог** можно выбрать каталог для нового кластера.
+      В поле **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
   Чтобы восстановить из резервной копии удаленный кластер:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите пункт **Восстановить кластер**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной резервной копии и выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Задайте настройки нового кластера.
       
-      В поле **Каталог** можно выбрать каталог для нового кластера.
+      В поле **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
   
-  1. Нажмите кнопку **Восстановить кластер**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -132,7 +132,7 @@
 
         {% note warning %}
         
-        Чтобы роутер мог подключаться к хостам шарда, кластер Managed Service for Sharded PostgreSQL и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
+        Чтобы роутер мог подключаться к хостам шарда, кластер {{ mspqr-name }} и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
         
         {% endnote %}
 
@@ -198,7 +198,7 @@
             "type": "<тип_хоста>",
             "shardName": "<имя_шарда>",
             "mdbPostgresql": {
-              "clusterId": "<идентификатор_кластера_PostgreSQL>"
+              "clusterId": "<идентификатор_кластера_{{ PG }}>"
             }
           },
           { <аналогичный_набор_настроек_для_хоста_2> },
@@ -247,7 +247,7 @@
         * `diskSize` — размер диска в байтах;
         * `diskTypeId` — тип диска.
       
-      * `configSpec.spqrSpec.consolePassword` — пароль консоли Sharded PostgreSQL.
+      * `configSpec.spqrSpec.consolePassword` — пароль консоли {{ SPQR }}.
       * `configSpec.spqrSpec.logLevel` — уровень логирования запросов: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `FATAL`.
       * `configSpec.backupWindowStart` — настройки окна резервного копирования.
 
@@ -275,9 +275,9 @@
           * `INFRA` — хост `INFRA` в кластере со стандартным шардированием.
         
         * `shardName` — имя шарда.
-        * `mdbPostgresql.clusterId` — идентификатор кластера Managed Service for PostgreSQL.
+        * `mdbPostgresql.clusterId` — идентификатор кластера {{ mpg-name }}.
 
-          Идентификатор кластера Managed Service for PostgreSQL можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
+          Идентификатор кластера {{ mpg-name }} можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
 
      * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
      * `folderId` — идентификатор каталога.
@@ -291,7 +291,7 @@
 
        {% note warning %}
        
-       Чтобы роутер мог подключаться к хостам шарда, кластер Managed Service for Sharded PostgreSQL и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
+       Чтобы роутер мог подключаться к хостам шарда, кластер {{ mspqr-name }} и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
        
        {% endnote %}
 
@@ -300,14 +300,14 @@
      * `time` — момент времени, на который нужно восстановить состояние кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `timeInclusive` — восстановить кластер после указанного времени: `true` или `false`.
 
-  1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters:restore' \
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters:restore' \
         --data "@body.json"
       ```
 
@@ -379,7 +379,7 @@
             "type": "<тип_хоста>",
             "shard_name": "<имя_шарда>",
             "mdb_postgresql": {
-              "cluster_id": "<идентификатор_кластера_PostgreSQL>"
+              "cluster_id": "<идентификатор_кластера_{{ PG }}>"
             }
           },
           { <аналогичный_набор_настроек_для_хоста_2> },
@@ -428,7 +428,7 @@
         * `disk_size` — размер диска в байтах;
         * `disk_type_id` — тип диска.
       
-      * `config_spec.spqr_spec.console_password` — пароль консоли Sharded PostgreSQL.
+      * `config_spec.spqr_spec.console_password` — пароль консоли {{ SPQR }}.
       * `config_spec.spqr_spec.log_level` — уровень логирования запросов: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `FATAL`.
       * `config_spec.backup_window_start` — настройки окна резервного копирования.
 
@@ -456,9 +456,9 @@
           * `INFRA` — хост `INFRA` в кластере со стандартным шардированием.
         
         * `shard_name` — имя шарда.
-        * `mdb_postgresql.cluster_id` — идентификатор кластера Managed Service for PostgreSQL.
+        * `mdb_postgresql.cluster_id` — идентификатор кластера {{ mpg-name }}.
           
-          Идентификатор кластера Managed Service for PostgreSQL можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
+          Идентификатор кластера {{ mpg-name }} можно получить со [списком кластеров](../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
 
      * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
      * `folder_id` — идентификатор каталога.
@@ -472,7 +472,7 @@
 
          {% note warning %}
          
-         Чтобы роутер мог подключаться к хостам шарда, кластер Managed Service for Sharded PostgreSQL и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
+         Чтобы роутер мог подключаться к хостам шарда, кластер {{ mspqr-name }} и шарды должны находиться в одной [группе безопасности](../../vpc/concepts/security-groups.md), разрешающей входящие и исходящие TCP-подключения на порт `6432`.
          
          {% endnote %}
 
@@ -481,7 +481,7 @@
      * `time` — момент времени, на который нужно восстановить состояние кластера, в формате `yyyy-mm-ddThh:mm:ssZ`.
      * `time_inclusive` — восстановить кластер после указанного времени: `true` или `false`.
   
-  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -491,7 +491,7 @@
        -proto ~/cloudapi/yandex/cloud/mdb/spqr/v1/cluster_service.proto \
        -rpc-header "Authorization: Bearer $IAM_TOKEN" \
        -d @ \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.spqr.v1.ClusterService.Restore \
        < body.json
      ```
@@ -506,14 +506,14 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. В правом верхнем углу страницы нажмите кнопку **Создать резервную копию**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.backups.button_create }}**.
   1. Подтвердите создание резервной копии.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -539,14 +539,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request POST \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>:backup'
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>:backup'
       ```
 
   1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
@@ -567,7 +567,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -579,7 +579,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>"
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.Backup
       ```
 
@@ -595,17 +595,17 @@
 
   Чтобы получить список резервных копий конкретного кластера:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
-  Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
+  Чтобы получить список резервных копий всех кластеров {{ mspqr-name }} в каталоге:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -623,7 +623,7 @@
       yc managed-sharded-postgresql cluster list-backups <имя_или_идентификатор_кластера>
       ```    
 
-  Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
+  Чтобы получить список резервных копий всех кластеров {{ mspqr-name }} в каталоге:
 
   1. Посмотрите описание команды CLI для получения списка резервных копий:
   
@@ -647,26 +647,26 @@
 
   1. Чтобы получить список резервных копий конкретного кластера:
 
-      1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+      1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>/backups'
+            --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>/backups'
           ```
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
-  1. Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
+  1. Чтобы получить список резервных копий всех кластеров {{ mspqr-name }} в каталоге:
 
-      1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+      1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
           ```bash
           curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/backups' \
+            --url 'https://{{ api-host-mdb }}/managed-spqr/v1/backups' \
             --url-query folderId=<идентификатор_каталога>
           ```
 
@@ -694,7 +694,7 @@
 
   1. Чтобы получить список резервных копий конкретного кластера:
       
-      1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+      1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -706,15 +706,15 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.spqr.v1.ClusterService.ListBackups
           ```
 
       1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.spqr.v1.ListClusterBackupsResponse).
 
-  1. Чтобы получить список резервных копий всех кластеров Managed Service for Sharded PostgreSQL в каталоге:
+  1. Чтобы получить список резервных копий всех кластеров {{ mspqr-name }} в каталоге:
 
-      1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+      1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
           ```bash
           grpcurl \
@@ -726,7 +726,7 @@
             -d '{
                   "folder_id": "<идентификатор_каталога>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.spqr.v1.BackupService.List
           ```
 
@@ -746,17 +746,17 @@
 
   Чтобы получить информацию о резервной копии существующего кластера:
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
   Чтобы получить информацию о резервной копии удаленного кластера:
   
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -784,13 +784,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/backups/<идентификатор_резервной_копии>'
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/backups/<идентификатор_резервной_копии>'
       ```
 
       Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -813,7 +813,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -825,7 +825,7 @@
         -d '{
               "backup_id": "<идентификатор_резервной_копии>"
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.BackupService.Get
       ```
 
@@ -845,7 +845,7 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -911,14 +911,14 @@
         * `seconds` — от `0` до `59` секунд;
         * `nanos` — от `0` до `999999999` наносекунд.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>' \
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>' \
         --data "@body.json"
       ```
 
@@ -995,7 +995,7 @@
         * `seconds` — от `0` до `59` секунд;
         * `nanos` — от `0` до `999999999` наносекунд.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1005,7 +1005,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/spqr/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.Update \
         < body.json
       ```
@@ -1024,7 +1024,7 @@
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -1078,14 +1078,14 @@
 
       * `backupRetainPeriodDays` — срок хранения автоматических резервных копий кластера. Возможные значения: от `7` до `60` дней. По умолчанию — `7`.
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request PATCH \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/<идентификатор_кластера>' \
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/clusters/<идентификатор_кластера>' \
         --data "@body.json"
       ```
 
@@ -1150,7 +1150,7 @@
 
       * `config_spec.backup_retain_period_days` — срок хранения автоматических резервных копий кластера. Возможные значения: от `7` до `60` дней. По умолчанию — `7`.
 
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1160,7 +1160,7 @@
         -proto ~/cloudapi/yandex/cloud/mdb/spqr/v1/cluster_service.proto \
         -rpc-header "Authorization: Bearer $IAM_TOKEN" \
         -d @ \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.ClusterService.Update \
         < body.json
       ```
@@ -1177,14 +1177,14 @@
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога](https://console.yandex.cloud) и выберите сервис **Yandex Managed Service for Sharded&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **Резервные копии**.
-  1. В строке резервной копии, которую вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **Удалить резервную копию**.
+  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку ![image](../../_assets/console-icons/archive.svg) **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. В строке резервной копии, которую вы хотите удалить, нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.mdb.cluster.backups.button_delete }}**.
   1. Подтвердите удаление резервной копии.
 
 - CLI {#cli}
   
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
   
@@ -1212,14 +1212,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request DELETE \
         --header "Authorization: Bearer $IAM_TOKEN" \
         --header "Content-Type: application/json" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-spqr/v1/backups/<идентификатор_резервной_копии>'
+        --url 'https://{{ api-host-mdb }}/managed-spqr/v1/backups/<идентификатор_резервной_копии>'
       ```
 
       Идентификатор резервной копии можно получить со [списком резервных копий](#list-backups).
@@ -1242,7 +1242,7 @@
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
 
-  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1254,7 +1254,7 @@
         -d '{
               "backup_id": "<идентификатор_резервной_копии>"
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.spqr.v1.BackupService.Delete
       ```
 

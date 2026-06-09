@@ -6,22 +6,22 @@
 
 {% endnote %}
 
-Для обращения к реестру используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [Получение информации о реестре](../../../iot-core/operations/registry/registry-list.md).
+Для обращения к реестру используйте его идентификатор или имя. Как узнать идентификатор или имя реестра, читайте в разделе [{#T}](../../../iot-core/operations/registry/registry-list.md).
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы удалить реестр:
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится реестр.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Container Registry**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится реестр.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis-vertical.svg) в строке реестра, который требуется удалить.
-  1. В открывшемся меню нажмите кнопку **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.cr.overview.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   1. Удалите реестр:
 

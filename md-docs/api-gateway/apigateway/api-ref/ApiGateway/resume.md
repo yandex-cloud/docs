@@ -5,7 +5,7 @@ Resumes the specified API gateway.
 ## HTTP request
 
 ```
-POST https://serverless-apigateway.api.cloud.yandex.net/apigateways/v1/apigateways/{apiGatewayId}:resume
+POST https://serverless-apigateway.{{ api-host }}/apigateways/v1/apigateways/{apiGatewayId}:resume
 ```
 
 ## Path parameters

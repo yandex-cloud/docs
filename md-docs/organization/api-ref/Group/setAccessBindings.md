@@ -5,7 +5,7 @@ Sets access bindings for the specified group.
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/groups/{resourceId}:setAccessBindings
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/groups/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters
@@ -17,7 +17,7 @@ POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/g
 Required field. ID of the resource for which access bindings are being set.
 To get the resource ID, use a corresponding List request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.SetAccessBindingsRequest}
@@ -53,7 +53,7 @@ The maximum number of elements is 1000. ||
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -106,9 +106,7 @@ The maximum string length in characters is 100. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "resourceId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -117,20 +115,7 @@ The maximum string length in characters is 100. ||
       "object"
     ]
   },
-  "response": {
-    "effectiveDeltas": [
-      {
-        "action": "string",
-        "accessBinding": {
-          "roleId": "string",
-          "subject": {
-            "id": "string",
-            "type": "string"
-          }
-        }
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -172,7 +157,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SetAccessBindingsMetadata](#yandex.cloud.access.SetAccessBindingsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -187,7 +172,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[AccessBindingsOperationResult](#yandex.cloud.access.AccessBindingsOperationResult)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -202,15 +187,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## SetAccessBindingsMetadata {#yandex.cloud.access.SetAccessBindingsMetadata}
-
-#|
-||Field | Description ||
-|| resourceId | **string**
-
-ID of the resource for which access bindings are being set. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -228,77 +204,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## AccessBindingsOperationResult {#yandex.cloud.access.AccessBindingsOperationResult}
-
-#|
-||Field | Description ||
-|| effectiveDeltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
-
-Result access binding deltas. ||
-|#
-
-## AccessBindingDelta {#yandex.cloud.access.AccessBindingDelta}
-
-#|
-||Field | Description ||
-|| action | **enum** (AccessBindingAction)
-
-Required field. The action that is being performed on an access binding.
-
-- `ADD`: Addition of an access binding.
-- `REMOVE`: Removal of an access binding. ||
-|| accessBinding | **[AccessBinding](#yandex.cloud.access.AccessBinding2)**
-
-Required field. Access binding. For more information, see [Access Bindings](../../../iam/concepts/access-control/index.md#access-bindings). ||
-|#
-
-## AccessBinding {#yandex.cloud.access.AccessBinding2}
-
-#|
-||Field | Description ||
-|| roleId | **string**
-
-Required field. ID of the [yandex.cloud.iam.v1.Role](../../../iam/api-ref/Role/get.md#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
-
-The maximum string length in characters is 50. ||
-|| subject | **[Subject](#yandex.cloud.access.Subject2)**
-
-Required field. Identity for which access binding is being created.
-It can represent an account with a unique ID or several accounts with a system identifier. ||
-|#
-
-## Subject {#yandex.cloud.access.Subject2}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the subject.
-It can contain one of the following values:oauth
-* `allAuthenticatedUsers`: A special public group that represents anyone
-who is authenticated. It can be used only if the `type` is `system`.
-* `allUsers`: A special public group that represents anyone. No authentication is required.
-For example, you don't need to specify the IAM token in an API query.
-It can be used only if the `type` is `system`.
-* `group:organization:<id>:users`: A special system group that represents all members of organization
-with given &lt;id&gt;. It can be used only if the `type` is `system`.
-* `group:federation:<id>:users`: A special system group that represents all users of federation
-with given &lt;id&gt;. It can be used only if the `type` is `system`.
-* `<cloud generated id>`: An identifier that represents a user account.
-It can be used only if the `type` is `userAccount`, `federatedUser` or `serviceAccount`.
-
-The maximum string length in characters is 100. ||
-|| type | **string**
-
-Required field. Type of the subject.
-It can contain one of the following values:
-* `userAccount`: An account on Yandex or Yandex Connect, added to Yandex Cloud.
-* `serviceAccount`: A service account. This type represents the [yandex.cloud.iam.v1.ServiceAccount](../../../iam/api-ref/ServiceAccount/get.md#yandex.cloud.iam.v1.ServiceAccount) resource.
-* `federatedUser`: A federated account. This type represents a user from an identity federation, like Active Directory.
-* `system`: System group. This type represents several accounts with a common system identifier.
-For more information, see [Subject to which the role is assigned](../../../iam/concepts/access-control/index.md#subject).
-
-The maximum string length in characters is 100. ||
 |#

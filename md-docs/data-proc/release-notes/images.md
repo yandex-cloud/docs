@@ -1,6 +1,6 @@
-# История изменений образов Yandex Data Processing
+# История изменений образов {{ dataproc-full-name }}
+Полный состав актуальных и устаревших образов {{ dataproc-name }} в разделе [{#T}](../concepts/environment.md).
 
-Полный состав актуальных и устаревших образов Yandex Data Processing см. в разделе [Среда исполнения](../concepts/environment.md).
 
 ## Образы 2.2.x (бета) {#2-2-x}
 
@@ -12,7 +12,7 @@
 
 ### 2.2.9 (бета) {#2-2-9}
 
-* Apache Spark™ обновлен до версии 3.5.6.
+* {{ SPRK }} обновлен до версии 3.5.6.
 
 ### 2.2.8 (бета) {#2-2-8}
 
@@ -23,7 +23,7 @@
         * `hadoop.env:HADOOP_HEAPSIZE_MAX`
     * `HADOOP_HEAPSIZE` для сервиса `hive` (доступно только для образов 2.0): `hive.env:HADOOP_HEAPSIZE`.
 
-* Поддержан OS Login для хостов кластера. Опция включает доступ через [OS Login](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 ### 2.2.7 (бета) {#2-2-7}
 
@@ -70,7 +70,7 @@
 
 ### 2.1.20 {#2-1-20}
 
-* Поддержан OS Login для хостов кластера. Опция включает доступ через [OS Login](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 ### 2.1.19 {#2-1-19}
 
@@ -84,7 +84,7 @@
 
 ### 2.1.17 {#2-1-17}
 
-* По умолчанию включена публикация событий Resource Manager в Job History Server.
+* По умолчанию включена публикация событий {{ resmgr-name }} в Job History Server.
 
 ### 2.1.16 {#2-1-16}
 
@@ -133,7 +133,7 @@
 
 ### 2.0.79 {#2-0-79}
 
-* Поддержан OS Login для хостов кластера. Опция включает доступ через [OS Login](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+* Поддержан {{ oslogin }} для хостов кластера. Опция включает доступ через [{{ oslogin }}](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
 
 ### 2.0.78 {#2-0-78}
 
@@ -154,7 +154,7 @@
 
 ### 2.0.69 {#2-0-69}
 
-* Добавлены библиотеки `kafka-clients` и `commons-pool2`, необходимые для интеграции Apache Spark™ и Apache Kafka®.
+* Добавлены библиотеки `kafka-clients` и `commons-pool2`, необходимые для интеграции {{ SPRK }} и {{ KF }}.
 
 ### 2.0.66 {#2-0-66}
 
@@ -164,7 +164,7 @@
 
 * Добавлена поддержка Helium.
 * Исправлена проблема с излишней декомиссией.
-* Запуск поставки логов в Cloud Logging осуществляется в самом начале запуска узла.
+* Запуск поставки логов в {{ cloud-logging-name }} осуществляется в самом начале запуска узла.
 
 ### 2.0.62 {#2-0-62}
 
@@ -210,17 +210,17 @@
 
 ### 2.0.49 {#2-0-49}
 
-* Устранена ошибка с игнорированием пользовательских настроек в Apache Hive™ Metastore Server.
+* Устранена ошибка с игнорированием пользовательских настроек в {{ metastore-name }} Server.
 
 ### 2.0.48 {#2-0-48}
 
-* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее см. в разделе [Использование Apache Spark Thrift Server](../concepts/settings-list.md#spark-thrift-server).
+* Добавлена возможность использования [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). Подробнее в разделе [{#T}](../concepts/settings-list.md#spark-thrift-server).
 * Исправлена ошибка `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`, которая могла появляться на легковесных конфигурациях Apache Spark.
 
 ### 2.0.47 {#2-0-47}
 
-* Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для аутентификации в Object Storage и других сервисах.
-* Исправлена ошибка, из-за которой могли не подгружаться таблицы из Apache Hive™ Metastore: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
+* Устранена утечка TCP-сессий с сервисом метаданных на высоконагруженных кластерах. Утечка могла приводить к ситуации, когда не обновлялся IAM-токен для аутентификации в {{ objstorage-name }} и других сервисах.
+* Исправлена ошибка, из-за которой могли не подгружаться таблицы из {{ metastore-name }}: `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider`.
 
 ### 2.0.46 {#2-0-46}
 

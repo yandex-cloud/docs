@@ -1,8 +1,8 @@
 # SDK
 
-Yandex Query построен на основе [внешних таблиц YDB](https://ydb.tech/docs/ru//concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [YDB SDK](https://ydb.tech/docs/ru//reference/ydb-sdk/).
+{{ yq-full-name }} построен на основе [внешних таблиц {{ ydb-short-name }}]({{ ydb.docs }}/concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).
 
-C помощью YDB SDK возможно использование Yandex Query в различных языках программирования:
+C помощью {{ ydb-short-name }} SDK возможно использование {{ yq-full-name }} в различных языках программирования:
 * [Java SDK](https://github.com/ydb-platform/ydb-java-sdk).
 * [Python SDK](https://github.com/ydb-platform/ydb-python-sdk).
 * [Go SDK](https://github.com/ydb-platform/ydb-go-sdk).
@@ -16,7 +16,7 @@ C помощью YDB SDK возможно использование Yandex Quer
 
 ## Аутентификация {#auth}
 
-Yandex Query является полностью управляемым сервисом и для аутентификации использует [механизмы IAM](../../iam/concepts/authorization/index.md#authentication).
+{{ yq-full-name }} является полностью управляемым сервисом и для аутентификации использует [механизмы {{ iam-short-name }}](../../iam/concepts/authorization/index.md#authentication).
 
 Аутентификация может быть выполнена с помощью:
 * [Авторизованных ключей](../../iam/concepts/authorization/key.md).
@@ -33,7 +33,7 @@ Yandex Query является полностью управляемым серв
 
 ## Подключение {#setup}
 
-Для подключения к Yandex Query необходимо создать объект `ydb.Driver` с указанием параметров подключения и данных для аутентификации:
+Для подключения к {{ yq-full-name }} необходимо создать объект `ydb.Driver` с указанием параметров подключения и данных для аутентификации:
 
 ```python
 auth_key_file = "<path_to_auth_key_file>"
@@ -45,13 +45,13 @@ with ydb.Driver(endpoint="grpcs://grpc.yandex-query.cloud.yandex.net:2135",
 ```
 
 Где:
-* `endpoint` — эндпоинт для подключения к источнику данных. Yandex Query использует фиксированный адрес `grpcs://grpc.yandex-query.cloud.yandex.net:2135`.
+* `endpoint` — эндпоинт для подключения к источнику данных. {{ yq-full-name }} использует фиксированный адрес `grpcs://grpc.yandex-query.cloud.yandex.net:2135`.
 * `database` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать запросы. Перед идентификатором каталога должен содержаться префикс `/`.
-* `credentials` — реквизиты для аутентификации в Yandex Cloud.
+* `credentials` — реквизиты для аутентификации в {{ yandex-cloud }}.
 
 ## Выполнение запроса {#query_execution}
 
-Для выполнения запроса необходимо открыть сессию к Yandex Query и в рамках нее выполнить SQL-запрос:
+Для выполнения запроса необходимо открыть сессию к {{ yq-full-name }} и в рамках нее выполнить SQL-запрос:
 
 ```python
 with ydb.SessionPool(driver) as pool:
@@ -68,11 +68,11 @@ with ydb.SessionPool(driver) as pool:
     return pool.retry_operation_sync(callee)
 ```
 
-YDB поддерживает несколько способов выполнения запроса: обычный, scripting-запрос, [скан-запрос](https://ydb.tech/docs/ru//concepts/scan_query) и query-запрос.
+{{ ydb-short-name }} поддерживает несколько способов выполнения запроса: обычный, scripting-запрос, [скан-запрос]({{ ydb.docs }}/concepts/scan_query) и query-запрос.
 
 {% note info %}
 
-Yandex Query на данный момент поддерживает только scripting-запросы.
+{{ yq-full-name }} на данный момент поддерживает только scripting-запросы.
 
 {% endnote %}
 
@@ -89,13 +89,13 @@ return result_sets[0]
 
 {% note info %}
 
-Yandex Query поддерживает [многократное получение результатов запроса](../api/methods/get-query-results.md) по его идентификатору. При работе через YDB SDK такая возможность в данный момент отсутствует.
+{{ yq-full-name }} поддерживает [многократное получение результатов запроса](../api/methods/get-query-results.md) по его идентификатору. При работе через {{ ydb-short-name }} SDK такая возможность в данный момент отсутствует.
 
 {% endnote %}
 
 ## Полный пример {#full_example}
 
-Ниже приведен пример работы с Yandex Query с помощью YDB Python SDK.
+Ниже приведен пример работы с {{ yq-full-name }} с помощью {{ ydb-short-name }} Python SDK.
 
 {% cut "Полный пример" %}
 

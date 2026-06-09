@@ -1,7 +1,6 @@
 # Identity and Access Management API, gRPC: ApiKeyService.Get
 
 Returns the specified API key.
-
 To get the list of available API keys, make a [List](list.md#List) request.
 
 ## gRPC request

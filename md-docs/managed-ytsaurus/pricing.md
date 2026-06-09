@@ -1,13 +1,13 @@
-# Правила тарификации для Yandex Managed Service for YTsaurus
+# Правила тарификации для {{ myt-full-name }}
 
 
 
-В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса Managed Service for YTsaurus, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов Yandex Cloud, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
+В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ myt-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
 
 
 {% note tip %}
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=9845e5c24dd9#calculator) на сайте Yandex Cloud или ознакомьтесь с тарифами в этом разделе.
+Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=9845e5c24dd9#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
 {% endnote %}
 
@@ -24,15 +24,15 @@
 * Для запущенного кластера (`Running`) тарифицируются как вычислительные ресурсы, так и размер хранилища.
 * Для остановленного кластера (`Stopped`) тарифицируется только размер хранилища.
 
-## Из чего складывается стоимость использования Managed Service for YTsaurus {#rules}
+## Из чего складывается стоимость использования {{ myt-name }} {#rules}
 
-При работе с Managed Service for YTsaurus вы оплачиваете:
+При работе с {{ myt-name }} вы оплачиваете:
 
 * Тип диска и размер хранилища.
 * Вычислительные ресурсы, выделенные компонентам кластера:
    * количество ядер (vCPU);
    * объем памяти (RAM).
-* Объем исходящего трафика из Yandex Cloud в интернет.
+* Объем исходящего трафика из {{ yandex-cloud }} в интернет.
 
 Во всех расчетах 1 ГБ = 2<sup>30</sup> байт, 1 МБ = 2<sup>20</sup> байт.
 
@@ -40,7 +40,7 @@
 
 Стоимость начисляется за каждый час работы компонента в соответствии с выделенными для него вычислительными ресурсами. Поддерживаемые конфигурации компонентов приведены в разделе [Конфигурации компонентов кластера](concepts/component-types.md), цены за использование vCPU и RAM — в разделе [Цены](#prices).
 
-Вы можете выбрать конфигурацию для exec-нод и tablet-нод в соответствии с ожидаемой нагрузкой. Количество служебных компонентов (master-ноды, storage-ноды, system-ноды и proxy-ноды) зависит от конфигурации кластера и добавляется автоматически. Ниже приведен минимальный набор служебных компонентов, который необходим для функционирования кластера YTsaurus:
+Вы можете выбрать конфигурацию для exec-нод и tablet-нод в соответствии с ожидаемой нагрузкой. Количество служебных компонентов (master-ноды, storage-ноды, system-ноды и proxy-ноды) зависит от конфигурации кластера и добавляется автоматически. Ниже приведен минимальный набор служебных компонентов, который необходим для функционирования кластера {{ ytsaurus-name }}:
 * **Master-нода**. 3 экземпляра конфигурации: 4 vCPU, 12 ГБ RAM.
 * **System-нода**. 2 экземпляра конфигурации: 24 vCPU, 64 ГБ RAM.
 * **Proxy-нода**. 2 экземпляра: 1 HTTP-прокси и 1 RPC-прокси.
@@ -61,7 +61,7 @@
 Оплачивается:
 * Размер хранилища для exec-ноды, где выполняются различные задачи (`jobs`). 
 * Размер хранилища для служебных storage-нод, где хранятся чанки и журналы системных динамических таблиц. Задается автоматически со следующими параметрами: три диска с типом `Нереплицируемый SSD`, размер каждого диска — 93 ГБ.
-* Размер хранилища для storage-ноды. В этом хранилище находятся данные всех объектов YTsaurus, созданных в процессе работы. Хранилище может состоять из одного или двух дисков. Количество и размер определяются по правилу ниже.
+* Размер хранилища для storage-ноды. В этом хранилище находятся данные всех объектов {{ ytsaurus-name }}, созданных в процессе работы. Хранилище может состоять из одного или двух дисков. Количество и размер определяются по правилу ниже.
 
    **Правило расчета количества дисков в storage-нодах**
 
@@ -121,164 +121,164 @@
   
   Расчет стоимости для exec-ноды:
   
-  > 8 × 1,38 ₽ + 32 × 0,369 ₽ = 22,848 ₽
+  > 8 × {% calc [currency=RUB] {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} %} + 32 × {% calc [currency=RUB] {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %} = {% calc [currency=RUB] 8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %}
   >
-  > Итого: 22,848 ₽ — стоимость часа работы exec-ноды.
+  > Итого: {% calc [currency=RUB] 8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %} — стоимость часа работы exec-ноды.
   
   Где:
   * 8 — количество vCPU одной exec-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 32 — объем RAM одной exec-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для tablet-ноды:
   
-  > 3 × (8 × 1,38 ₽ + 16 × 0,369 ₽) = 50,832 ₽
+  > 3 × (8 × {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} %} + 16 × {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %}
   >
-  > Итого: 50,832 ₽ — стоимость часа работы tablet-нод.
+  > Итого: {% calc [currency=RUB] 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы tablet-нод.
   
   Где:
   * 3 — количество tablet-нод.
   * 8 — количество vCPU одной tablet-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 16 — объем RAM одной tablet-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилищ для кластера:
   
-  > 3 × 2048 × 3,816 ₽ + 3 × 465 × 11,592 ₽ = 39 616,344 ₽
+  > 3 × 2048 × {% calc [currency=RUB] {{ sku|RUB|yt.storage.hdd.v1|month|number }} %} + 3 × 465 × {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=RUB] 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 39 616,344 ₽ — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
+  > Итого: {% calc [currency=RUB] 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
   
   Где:
   * 3 — количество дисков с типом `HDD`.
   * 2048 — размер одного HDD-диска (в гигабайтах).
-  * 3,816 ₽ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage.hdd.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
   * 3 — количество дисков с типом `Нереплицируемый SSD`.
   * 465 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 11,592 ₽ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   #### Служебные компоненты
   
   Расчет стоимости для master-ноды:
   
-  > 3 × (4 × 1,38 ₽ + 12 × 0,369 ₽) = 29,844 ₽
+  > 3 × (4 × {% calc [currency=RUB] {{ sku|RUB|yt.master-nodes.cpu.v3|number }} %} + 12 × {% calc [currency=RUB] {{ sku|RUB|yt.master-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) %}
   >
-  > Итого: 29,844 ₽ — стоимость часа работы master-нод.
+  > Итого: {% calc [currency=RUB] 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) %} — стоимость часа работы master-нод.
   
   Где:
   * 3 — количество master-нод.
   * 4 — количество vCPU одной master-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.master-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 12 — объем RAM одной master-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.master-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для system-ноды:
   
-  > 2 × (24 × 1,38 ₽ + 64 × 0,369 ₽) = 113,472 ₽
+  > 2 × (24 × {% calc [currency=RUB] {{ sku|RUB|yt.system-nodes.cpu.v3|number }} %} + 64 × {% calc [currency=RUB] {{ sku|RUB|yt.system-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) %}
   >
-  > Итого: 113,472 ₽ — стоимость часа работы system-нод.
+  > Итого: {% calc [currency=RUB] 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) %} — стоимость часа работы system-нод.
   
   Где:
   * 2 — количество system-нод.
   * 24 — количество vCPU одной system-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.system-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 64 — объем RAM одной system-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.system-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для proxy-ноды:
   
-  > 2 × (4 × 1,38 ₽ + 8 × 0,369 ₽) = 16,944 ₽
+  > 2 × (4 × {% calc [currency=RUB] {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=RUB] {{ sku|RUB|yt.proxy-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) %}
   >
-  > Итого: 16,944 ₽ — стоимость часа работы proxy-нод.
+  > Итого: {% calc [currency=RUB] 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) %} — стоимость часа работы proxy-нод.
   
   Где:
   * 2 — количество proxy-нод.
   * 4 — количество vCPU одной proxy-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 8 — объем RAM одной proxy-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.proxy-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для служебной tablet-ноды:
   
-  > 2 × (8 × 1,38 ₽ + 16 × 0,369 ₽) = 33,888 ₽
+  > 2 × (8 × {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} %} + 16 × {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %}
   >
-  > Итого: 33,888 ₽ — стоимость часа работы служебных tablet-нод.
+  > Итого: {% calc [currency=RUB] 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы служебных tablet-нод.
   
   Где:
   * 2 — количество tablet-нод.
   * 8 — количество vCPU одной tablet-ноды.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 16 — объем RAM одной tablet-ноды (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.tablet-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилища для exec-ноды:
   
-  > 93 × 1 × 11,592 ₽ = 1 078,056 ₽
+  > 93 × 1 × {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=RUB] 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 1 078,056 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
+  > Итого: {% calc [currency=RUB] 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
   
   Где:
   * 93 — размер хранилища на нереплицируемых SSD-дисках (в гигабайтах).
   * 1 — количество нереплицируемых SSD-дисков.
-  * 11,592 ₽ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   Расчет стоимости хранилища для служебных storage-нод:
   
-  > 3 × 93 × 11,592 ₽ = 3 234,168 ₽
+  > 3 × 93 × {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=RUB] 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 3 234,168 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
+  > Итого: {% calc [currency=RUB] 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
   
   Где:
   * 3 — количество дисков.
   * 93 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 11,592 ₽ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   Расчет стоимости для storage-ноды:
   
-  > 6 × (8 × 1,38 ₽ + 8 × 0,369 ₽) + 3 × (4 × 1,38 ₽ + 8 × 0,369 ₽) = 109,368 ₽
+  > 6 × (8 × {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.ram.v3|number }} %}) + 3 × (4 × {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.ram.v3|number }} %}) = {% calc [currency=RUB] 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) %}
   >
-  > Итого: 109,368 ₽ — стоимость часа работы storage-нод.
+  > Итого: {% calc [currency=RUB] 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) %} — стоимость часа работы storage-нод.
   
   Где:
   * 6 — количество storage-нод для `SSD` / `Нереплицируемый SSD`.
   * 3 — количество storage-нод для `HDD`.
   * 8 — количество vCPU одной storage-ноды для `SSD` / `Нереплицируемый SSD`.
   * 4 — количество vCPU одной storage-ноды для `HDD`.
-  * 1,38 ₽ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 8 — объем RAM одной storage-ноды для `SSD` / `Нереплицируемый SSD` / `HDD` (в гигабайтах).
-  * 0,369 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилища со служебными дисками:
   
-  > 93 × 6 × 11,592 ₽ = 6 468,336 ₽
+  > 93 × 6 × {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=RUB] 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 6 468,336 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
+  > Итого: {% calc [currency=RUB] 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
   
   Где:
   * 6 — количество служебных дисков.
   * 93 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 11,592 ₽ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=RUB] {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   #### Расчет итоговой стоимости
   
-  > 720 × (22,848 ₽ + 50,832 ₽ + 29,844 ₽ + 113,472 ₽ + 16,944 ₽ + 33,888 ₽ + 109,368 ₽) + 39 616,344 ₽ + 1 078,056 ₽ + 3 234,168 ₽ + 6 468,336 ₽  = 321 978,024 ₽
+  > 720 × ({% calc [currency=RUB] 8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %} + {% calc [currency=RUB] 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} + {% calc [currency=RUB] 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) %} + {% calc [currency=RUB] 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) %} + {% calc [currency=RUB] 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) %} + {% calc [currency=RUB] 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} + {% calc [currency=RUB] 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) %}) + {% calc [currency=RUB] 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=RUB] 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=RUB] 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=RUB] 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}  = {% calc [currency=RUB] 720 × (8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} + 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) + 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) + 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 ×{{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) + 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) + 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }})) + 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 321 978,024 ₽ — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=RUB] 720 × (8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} + 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) + 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) + 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) + 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) + 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 ×{{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }})) + 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * 22,848 ₽ — стоимость часа работы exec-ноды.
-  * 50,832 ₽ — стоимость часа работы tablet-нод.
-  * 29,844 ₽ — стоимость часа работы master-нод.
-  * 113,472 ₽ — стоимость часа работы system-нод.
-  * 16,944 ₽ — стоимость часа работы proxy-нод.
-  * 33,888 ₽ — стоимость часа работы служебных tablet-нод.
-  * 109,368 ₽ — стоимость часа работы storage-нод.
-  * 39 616,344 ₽ — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
-  * 1 078,056 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
-  * 3 234,168 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
-  * 6 468,336 ₽ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=RUB] 8 × {{ sku|RUB|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|RUB|yt.compute-nodes.ram.v3|number }} %} — стоимость часа работы exec-ноды.
+  * {% calc [currency=RUB] 3 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы tablet-нод.
+  * {% calc [currency=RUB] 3 × (4 × {{ sku|RUB|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|RUB|yt.master-nodes.ram.v3|number }}) %} — стоимость часа работы master-нод.
+  * {% calc [currency=RUB] 2 × (24 × {{ sku|RUB|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|RUB|yt.system-nodes.ram.v3|number }}) %} — стоимость часа работы system-нод.
+  * {% calc [currency=RUB] 2 × (4 × {{ sku|RUB|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.proxy-nodes.ram.v3|number }}) %} — стоимость часа работы proxy-нод.
+  * {% calc [currency=RUB] 2 × (8 × {{ sku|RUB|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|RUB|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы служебных tablet-нод.
+  * {% calc [currency=RUB] 6 × (8 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|RUB|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|RUB|yt.storage-nodes.ram.v3|number }}) %} — стоимость часа работы storage-нод.
+  * {% calc [currency=RUB] 3 × 2048 × {{ sku|RUB|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
+  * {% calc [currency=RUB] 93 × 1 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
+  * {% calc [currency=RUB] 3 × 93 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
+  * {% calc [currency=RUB] 93 × 6 × {{ sku|RUB|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
 
 - Расчет в тенге {#prices-kzt}
 
@@ -286,164 +286,164 @@
   
   Расчет стоимости для exec-ноды:
   
-  > 8 × 6,9 ₸ + 32 × 1,845 ₸ = 114,24 ₸
+  > 8 × {% calc [currency=KZT] {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} %} + 32 × {% calc [currency=KZT] {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %} = {% calc [currency=KZT] 8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %}
   >
-  > Итого: 114,24 ₸ — стоимость часа работы exec-ноды.
+  > Итого: {% calc [currency=KZT] 8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %} — стоимость часа работы exec-ноды.
   
   Где:
   * 8 — количество vCPU одной exec-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 32 — объем RAM одной exec-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для tablet-ноды:
   
-  > 3 × (8 × 6,9 ₸ + 16 × 1,845 ₸) = 254,16 ₸
+  > 3 × (8 × {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} %} + 16 × {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %}
   >
-  > Итого: 254,16 ₸ — стоимость часа работы tablet-нод.
+  > Итого: {% calc [currency=KZT] 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы tablet-нод.
   
   Где:
   * 3 — количество tablet-нод.
   * 8 — количество vCPU одной tablet-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 16 — объем RAM одной tablet-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилищ для кластера:
   
-  > 3 × 2048 × 19,08 ₸ + 3 × 465 × 57,96 ₸ = 198 081,72 ₸
+  > 3 × 2048 × {% calc [currency=KZT] {{ sku|KZT|yt.storage.hdd.v1|month|number }} %} + 3 × 465 × {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=KZT] 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 198 081,72 ₸ — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
+  > Итого: {% calc [currency=KZT] 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
   
   Где:
   * 3 — количество дисков с типом `HDD`.
   * 2048 — размер одного HDD-диска (в гигабайтах).
-  * 19,08 ₸ — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage.hdd.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на сетевых HDD-дисках.
   * 3 — количество дисков с типом `Нереплицируемый SSD`.
   * 465 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 57,96 ₸ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   #### Служебные компоненты
   
   Расчет стоимости для master-ноды:
   
-  > 3 × (4 × 6,9 ₸ + 12 × 1,845 ₸) = 149,22 ₸
+  > 3 × (4 × {% calc [currency=KZT] {{ sku|KZT|yt.master-nodes.cpu.v3|number }} %} + 12 × {% calc [currency=KZT] {{ sku|KZT|yt.master-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) %}
   >
-  > Итого: 149,22 ₸ — стоимость часа работы master-нод.
+  > Итого: {% calc [currency=KZT] 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) %} — стоимость часа работы master-нод.
   
   Где:
   * 3 — количество master-нод.
   * 4 — количество vCPU одной master-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.master-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 12 — объем RAM одной master-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.master-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для system-ноды:
   
-  > 2 × (24 × 6,9 ₸ + 64 × 1,845 ₸) = 567,36 ₸
+  > 2 × (24 × {% calc [currency=KZT] {{ sku|KZT|yt.system-nodes.cpu.v3|number }} %} + 64 × {% calc [currency=KZT] {{ sku|KZT|yt.system-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) %}
   >
-  > Итого: 567,36 ₸ — стоимость часа работы system-нод.
+  > Итого: {% calc [currency=KZT] 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) %} — стоимость часа работы system-нод.
   
   Где:
   * 2 — количество system-нод.
   * 24 — количество vCPU одной system-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.system-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 64 — объем RAM одной system-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.system-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для proxy-ноды:
   
-  > 2 × (4 × 6,9 ₸ + 8 × 1,845 ₸) = 84,72 ₸
+  > 2 × (4 × {% calc [currency=KZT] {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=KZT] {{ sku|KZT|yt.proxy-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) %}
   >
-  > Итого: 84,72 ₸ — стоимость часа работы proxy-нод.
+  > Итого: {% calc [currency=KZT] 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) %} — стоимость часа работы proxy-нод.
   
   Где:
   * 2 — количество proxy-нод.
   * 4 — количество vCPU одной proxy-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 8 — объем RAM одной proxy-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.proxy-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости для служебной tablet-ноды:
   
-  > 2 × (8 × 6,9 ₸ + 16 × 1,845 ₸) = 169,44 ₸
+  > 2 × (8 × {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} %} + 16 × {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %}
   >
-  > Итого: 169,44 ₸ — стоимость часа работы служебных tablet-нод.
+  > Итого: {% calc [currency=KZT] 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы служебных tablet-нод.
   
   Где:
   * 2 — количество tablet-нод.
   * 8 — количество vCPU одной tablet-ноды.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 16 — объем RAM одной tablet-ноды (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.tablet-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилища для exec-ноды:
   
-  > 93 × 1 × 57,96 ₸ = 5 390,28 ₸
+  > 93 × 1 × {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=KZT] 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 5 390,28 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
+  > Итого: {% calc [currency=KZT] 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
   
   Где:
   * 93 — размер хранилища на нереплицируемых SSD-дисках (в гигабайтах).
   * 1 — количество нереплицируемых SSD-дисков.
-  * 57,96 ₸ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   Расчет стоимости хранилища для служебных storage-нод:
   
-  > 3 × 93 × 57,96 ₸ = 16 170,84 ₸
+  > 3 × 93 × {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=KZT] 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 16 170,84 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
+  > Итого: {% calc [currency=KZT] 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
   
   Где:
   * 3 — количество дисков.
   * 93 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 57,96 ₸ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   Расчет стоимости для storage-ноды:
   
-  > 6 × (8 × 6,9 ₸ + 8 × 1,845 ₸) + 3 × (4 × 6,9 ₸ + 8 × 1,845 ₸) = 546,84 ₸
+  > 6 × (8 × {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.ram.v3|number }} %}) + 3 × (4 × {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} %} + 8 × {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.ram.v3|number }} %}) = {% calc [currency=KZT] 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) %}
   >
-  > Итого: 546,84 ₸ — стоимость часа работы storage-нод.
+  > Итого: {% calc [currency=KZT] 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) %} — стоимость часа работы storage-нод.
   
   Где:
   * 6 — количество storage-нод для `SSD` / `Нереплицируемый SSD`.
   * 3 — количество storage-нод для `HDD`.
   * 8 — количество vCPU одной storage-ноды для `SSD` / `Нереплицируемый SSD`.
   * 4 — количество vCPU одной storage-ноды для `HDD`.
-  * 6,9 ₸ — стоимость часа использования 1 vCPU.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} %} — стоимость часа использования 1 vCPU.
   * 8 — объем RAM одной storage-ноды для `SSD` / `Нереплицируемый SSD` / `HDD` (в гигабайтах).
-  * 1,845 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage-nodes.ram.v3|number }} %} — стоимость часа использования 1 ГБ RAM.
   
   Расчет стоимости хранилища со служебными дисками:
   
-  > 93 × 6 × 57,96 ₸ = 32 341,68 ₸
+  > 93 × 6 × {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} = {% calc [currency=KZT] 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 32 341,68 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
+  > Итого: {% calc [currency=KZT] 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
   
   Где:
   * 6 — количество служебных дисков.
   * 93 — размер одного нереплицируемого SSD-диска (в гигабайтах).
-  * 57,96 ₸ — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=KZT] {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования 1 ГБ хранилища на нереплицируемых SSD-дисках.
   
   #### Расчет итоговой стоимости
   
-  > 720 × (114,24 ₸ + 254,16 ₸ + 149,22 ₸ + 567,36 ₸ + 84,72 ₸ + 169,44 ₸ + 546,84 ₸) + 198 081,72 ₸ + 5 390,28 ₸ + 16 170,84 ₸ + 32 341,68 ₸  = 1 609 890,12 ₸
+  > 720 × ({% calc [currency=KZT] 8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %} + {% calc [currency=KZT] 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} + {% calc [currency=KZT] 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) %} + {% calc [currency=KZT] 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) %} + {% calc [currency=KZT] 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) %} + {% calc [currency=KZT] 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} + {% calc [currency=KZT] 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) %}) + {% calc [currency=KZT] 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=KZT] 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=KZT] 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} + {% calc [currency=KZT] 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}  = {% calc [currency=KZT] 720 × (8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} + 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) + 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) + 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 ×{{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) + 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) + 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }})) + 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %}
   >
-  > Итого: 1 609 890,12 ₸ — стоимость использования кластера в течение 30 дней.
+  > Итого: {% calc [currency=KZT] 720 × (8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} + 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) + 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) + 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) + 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) + 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 ×{{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }})) + 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} + 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость использования кластера в течение 30 дней.
   
   Где:
   * 720 — количество часов в 30 днях.
-  * 114,24 ₸ — стоимость часа работы exec-ноды.
-  * 254,16 ₸ — стоимость часа работы tablet-нод.
-  * 149,22 ₸ — стоимость часа работы master-нод.
-  * 567,36 ₸ — стоимость часа работы system-нод.
-  * 84,72 ₸ — стоимость часа работы proxy-нод.
-  * 169,44 ₸ — стоимость часа работы служебных tablet-нод.
-  * 546,84 ₸ — стоимость часа работы storage-нод.
-  * 198 081,72 ₸ — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
-  * 5 390,28 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
-  * 16 170,84 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
-  * 32 341,68 ₸ — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
+  * {% calc [currency=KZT] 8 × {{ sku|KZT|yt.compute-nodes.cpu.v3|number }} + 32 × {{ sku|KZT|yt.compute-nodes.ram.v3|number }} %} — стоимость часа работы exec-ноды.
+  * {% calc [currency=KZT] 3 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы tablet-нод.
+  * {% calc [currency=KZT] 3 × (4 × {{ sku|KZT|yt.master-nodes.cpu.v3|number }} + 12 × {{ sku|KZT|yt.master-nodes.ram.v3|number }}) %} — стоимость часа работы master-нод.
+  * {% calc [currency=KZT] 2 × (24 × {{ sku|KZT|yt.system-nodes.cpu.v3|number }} + 64 × {{ sku|KZT|yt.system-nodes.ram.v3|number }}) %} — стоимость часа работы system-нод.
+  * {% calc [currency=KZT] 2 × (4 × {{ sku|KZT|yt.proxy-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.proxy-nodes.ram.v3|number }}) %} — стоимость часа работы proxy-нод.
+  * {% calc [currency=KZT] 2 × (8 × {{ sku|KZT|yt.tablet-nodes.cpu.v3|number }} + 16 × {{ sku|KZT|yt.tablet-nodes.ram.v3|number }}) %} — стоимость часа работы служебных tablet-нод.
+  * {% calc [currency=KZT] 6 × (8 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) + 3 × (4 × {{ sku|KZT|yt.storage-nodes.cpu.v3|number }} + 8 × {{ sku|KZT|yt.storage-nodes.ram.v3|number }}) %} — стоимость часа работы storage-нод.
+  * {% calc [currency=KZT] 3 × 2048 × {{ sku|KZT|yt.storage.hdd.v1|month|number }} + 3 × 465 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилищ на нереплицируемых SSD-дисках и сетевых HDD-дисках.
+  * {% calc [currency=KZT] 93 × 1 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для exec-ноды.
+  * {% calc [currency=KZT] 3 × 93 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках для служебных storage-нод.
+  * {% calc [currency=KZT] 93 × 6 × {{ sku|KZT|yt.storage.ssd-nonreplicated.v1|month|number }} %} — стоимость месяца использования хранилища на нереплицируемых SSD-дисках.
 
 {% endlist %}
 
@@ -453,54 +453,28 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 
-| Услуга                                                                                                                                               | Цена     | Ед. тарификации | Действует с | Действует до |
-| ---------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | --------------- | ----------- | ------------ |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), 1 GPU NVIDIA® Ampere® A100        | 489,75 ₽ | GPU × час       | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), RAM                               | 0,3689 ₽ | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (AMD EPYC™ with NVIDIA® Ampere® A100), vCPU                              | 1,18 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), 1 GPU NVIDIA® Tesla® V100 | 313,55 ₽ | GPU × час       | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), RAM                       | 0,3895 ₽ | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Cascade Lake with NVIDIA® Tesla® V100), vCPU                      | 1,4975 ₽ | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), 1 GPU                                         | 189,73 ₽ | GPU × час       | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), RAM                                           | 0,3689 ₽ | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake with T4i), vCPU                                          | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), RAM                                                    | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Exec Node (Intel Ice Lake), vCPU                                                   | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Master Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), RAM                                                   | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Proxy Node (Intel Ice Lake), vCPU                                                  | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), RAM                                                 | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Storage Node (Intel Ice Lake), vCPU                                                | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, System Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), RAM                                                  | 0,369 ₽  | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Вычислительные ресурсы компонентов, Tablet Node (Intel Ice Lake), vCPU                                                 | 1,38 ₽   | vCPU × час      | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Хранилище на нереплицируемых SSD-дисках                                                                                | 0,0161 ₽ | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Хранилище на сетевых HDD-дисках                                                                                        | 0,0053 ₽ | ГБ × час        | 1 мая 2026  | —            |
-| Managed Service for YTsaurus. Хранилище на сетевых SSD-дисках                                                                                        | 0,0217 ₽ | ГБ × час        | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |

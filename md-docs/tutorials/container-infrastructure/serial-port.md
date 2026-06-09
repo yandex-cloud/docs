@@ -1,6 +1,6 @@
 # Настройка вывода информации из Docker-контейнера в серийный порт
 
-Чтобы создать [виртуальную машину](../../compute/concepts/vm.md) из [образа](../../compute/concepts/image.md) [Container Optimized Image](../../cos/concepts/index.md) и настроить перенаправление потока вывода приложения в [серийный порт](../../compute/operations/serial-console/index.md#configuration) ВМ:
+Чтобы создать [виртуальную машину](../../compute/concepts/vm.md) из [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) и настроить перенаправление потока вывода приложения в [серийный порт](../../compute/concepts/serial-console.md) ВМ:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте спецификацию ВМ](#prepare-specification-vm).
@@ -13,9 +13,9 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Если нужный [Docker-образ](../../container-registry/concepts/docker-image.md) загружен в [Container Registry](../../container-registry/index.md), создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [container-registry.images.puller](../../container-registry/security/index.md#choosing-roles) на используемый [реестр](../../container-registry/concepts/registry.md). От его имени ВМ на базе Container Optimized Image будет скачивать из реестра Docker-образ.
+Если нужный [Docker-образ](../../container-registry/concepts/docker-image.md) загружен в [{{ container-registry-name }}](../../container-registry/index.md), создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый [реестр](../../container-registry/concepts/registry.md). От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
 
-Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -24,8 +24,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входит:
-* Плата за постоянно запущенную ВМ (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за постоянно запущенную ВМ (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за использование динамического или статического [внешнего IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Подготовьте спецификацию ВМ {#prepare-specification-vm}
 
@@ -104,7 +104,7 @@
         ```bash
         yc compute instance create \
           --name coi-vm-with-sp \
-          --zone ru-central1-a \
+          --zone {{ region-id }}-a \
           --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
           --create-boot-disk image-id=$IMAGE_ID \
@@ -119,22 +119,22 @@
 
             {% note info %}
             
-            Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды Yandex Cloud CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
+            Команды [`yc compute instance create`](../../cli/cli-ref/compute/cli-ref/instance/create.md) | [`create-with-container`](../../cli/cli-ref/compute/cli-ref/instance/create-with-container.md) | [`update`](../../cli/cli-ref/compute/cli-ref/instance/update.md) | [`add-metadata`](../../cli/cli-ref/compute/cli-ref/instance/add-metadata.md) поддерживают подстановку в метаданные ВМ значений переменных окружения. Эти значения, заданные в ключе `user-data` в формате `$<имя_переменной>`, в момент выполнения команды {{ yandex-cloud }} CLI будут подставлены в метаданные ВМ из переменных окружения среды, в которой выполняется команда. 
             
             Чтобы изменить такое поведение, не подставлять значение переменной из среды выполнения команды CLI и передать в метаданные ВМ имя переменной в формате `$<имя_переменной>`, используйте синтаксис с двумя символами доллара. Например: `$$<имя_переменной>`.
             
-            Подробнее см. в разделе [Особенности передачи переменных окружения в метаданных через CLI](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
+            Подробнее см. в разделе [{#T}](../../compute/concepts/metadata/sending-metadata.md#environment-variables).
             
             {% endnote %}
         * `--create-boot-disk` — идентификатор образа для создания загрузочного диска.
         * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
 
-        После создания ВМ появится в списке ВМ в разделе **Compute Cloud** в [консоли управления](https://console.yandex.cloud).
+        После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
      1. Проверьте результат.
-        1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
-        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+        1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
-        1. В блоке **Последовательный порт** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
+        1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 
 {% endlist %}
 
@@ -173,7 +173,7 @@
   ```bash
   yc compute instance create \
     --name coi-vm-with-sp \
-    --zone ru-central1-d \
+    --zone {{ region-id }}-d \
     --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
     --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
     --create-boot-disk image-id=$IMAGE_ID
@@ -188,15 +188,15 @@
 
 {% endlist %}
 
-После создания ВМ появится в списке ВМ в разделе **Compute Cloud** в [консоли управления](https://console.yandex.cloud).
+После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
 
 ## Проверьте результат {#check-result}
 
 Чтобы проверить результат настройки вывода информации из Docker-контейнера в серийный порт:
-1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
-1. В блоке **Последовательный порт** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
+1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 
 Подробнее о работе с ВМ читайте в [пошаговых инструкциях](../../compute/operations/index.md).
 

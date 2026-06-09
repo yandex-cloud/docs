@@ -1,6 +1,6 @@
 # yandex_mdb_redis_cluster (Resource)
 
-Manages a Redis cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-valkey/concepts/index.md).
+Manages a Redis cluster within the Yandex Cloud. For more information, see [the official documentation](../../managed-redis/concepts).
 
 ## Example usage
 
@@ -112,7 +112,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `disk_encryption_key_id` (String). ID of the KMS key for cluster disk encryption.
 - `environment` (**Required**)(String). Deployment environment of the Redis cluster. Can be either `PRESTABLE` or `PRODUCTION`.
 - `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
-- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-valkey/api-ref/Cluster/index.md).
+- `health` (*Read-Only*) (String). Aggregated health of the cluster. Can be either `ALIVE`, `DEGRADED`, `DEAD` or `HEALTH_UNKNOWN`. For more information see `health` field of JSON representation in [the official documentation](../../managed-redis/api-ref/Cluster).
 - `id` (String). 
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). The resource name.
@@ -120,7 +120,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `persistence_mode` (String). Persistence mode. Possible values: `ON`, `OFF`.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `sharded` (Bool). Redis Cluster mode enabled/disabled. Enables sharding when cluster non-sharded. If cluster is sharded - disabling is not allowed.
-- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-valkey/api-ref/Cluster/index.md).
+- `status` (*Read-Only*) (String). Status of the cluster. Can be either `CREATING`, `STARTING`, `RUNNING`, `UPDATING`, `STOPPING`, `STOPPED`, `ERROR` or `STATUS_UNKNOWN`. For more information see `status` field of JSON representation in [the official documentation](../../managed-redis/api-ref/Cluster).
 - `tls_enabled` (Bool). TLS support mode enabled/disabled.
 - `access` [Block]. Access policy to the Redis cluster.
   - `data_lens` (Bool). Allow access for DataLens. Can be either `true` or `false`.
@@ -170,7 +170,7 @@ resource "yandex_vpc_subnet" "baz" {
 - `resources` [Block]. Resources allocated to hosts of the Redis cluster.
   - `disk_size` (**Required**)(Number). Volume of the storage available to a host, in gigabytes.
   - `disk_type_id` (String). Type of the storage of Redis hosts - environment default is used if missing.
-  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-valkey/concepts/index.md).
+  - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](../../managed-redis/concepts).
 - `timeouts` [Block]. 
   - `create` (String). 
   - `delete` (String). 

@@ -8,28 +8,28 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) откройте каталог, в котором находится нужная группа ВМ.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+  1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится нужная группа ВМ.
+  1. Перейдите в сервис **{{ compute-name }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите нужную группу.
-  1. Перейдите на вкладку **Виртуальные машины**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.compute.group.switch_instances }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для получения списка виртуальных машин:
 
       ```
-      yc compute instance-group list-instances --help
+      {{ yc-compute-ig }} list-instances --help
       ```
 
   1. Получите список групп виртуальных машин в каталоге по умолчанию:
 
       ```bash
-      yc compute instance-group list
+      {{ yc-compute-ig }} list
       ```
       
       Результат:
@@ -46,7 +46,7 @@
   1. Получите информацию о группе виртуальных машин:
 
       ```
-      yc compute instance-group list-instances --name first-instance-group
+      {{ yc-compute-ig }} list-instances --name first-instance-group
       ```
 
 - API {#api}

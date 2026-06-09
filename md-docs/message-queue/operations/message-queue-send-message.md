@@ -1,10 +1,10 @@
 # Отправка сообщений
 
-Сообщения передаются через [очереди сообщений](../concepts/queue.md) Message Queue и могут содержать в теле обычный текст. Потребители получают сообщения и удаляют их из очереди после получения и обработки.
+Сообщения передаются через [очереди сообщений](../concepts/queue.md) {{ message-queue-name }} и могут содержать в теле обычный текст. Потребители получают сообщения и удаляют их из очереди после получения и обработки.
 
 Чтобы отправить сообщение в очередь:
 
-1. Если у вас еще нет очереди сообщений Message Queue, [создайте](message-queue-new-queue.md) ее.
+1. Если у вас еще нет очереди сообщений {{ message-queue-name }}, [создайте](message-queue-new-queue.md) ее.
 1. Выполните в терминале команду:
 
    {% list tabs group=programming_language %}
@@ -21,7 +21,7 @@
      Где:
    
      * `--message-body` — текст отправляемого в очередь сообщения, например, `Hello World`.
-     * `--endpoint` — эндпоинт в значении `https://message-queue.api.cloud.yandex.net/`.
+     * `--endpoint` — эндпоинт в значении `https://message-queue.{{ api-host }}/`.
      * `--queue-url` — URL очереди, в которую будет отправлено сообщение.
      
      Результат:
@@ -43,8 +43,8 @@
        --data-urlencode 'MessageBody=<текст_сообщения>' \
        --data-urlencode 'QueueUrl=<URL_очереди_сообщений>' \
        --user '<идентификатор_ключа_доступа>:<секретный_ключ>' \
-       --aws-sigv4 'aws:amz:ru-central1:sqs' \
-       https://message-queue.api.cloud.yandex.net/
+       --aws-sigv4 'aws:amz:{{ region-id }}:sqs' \
+       https://message-queue.{{ api-host }}/
      ```
    
      Где:

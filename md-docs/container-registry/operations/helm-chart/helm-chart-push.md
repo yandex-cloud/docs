@@ -1,10 +1,10 @@
 # Загрузить Helm-чарт в реестр
 
-Вы можете загружать чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в [репозитории](../../concepts/repository.md) Container Registry. В Container Registry Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
+Вы можете загружать чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в [репозитории](../../concepts/repository.md) {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
 
 {% note info %}
 
-Если вы используете Helm версии ниже 3.7.1, при обновлении до более новой версии повторно загрузите чарты в репозиторий Container Registry.
+Если вы используете Helm версии ниже 3.7.1, при обновлении до более новой версии повторно загрузите чарты в репозиторий {{ container-registry-name }}.
 
 {% endnote %}
 
@@ -28,22 +28,29 @@
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) Container Registry одним из способов.
+  1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
-       1. Если у вас еще нет OAuth-токена, получите его по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+
+       {% note info "Аутентификация по OAuth-токенам устарела" %}
+       
+       В будущем этот способ аутентификации перестанет поддерживаться. Рассмотрите использование [IAM-токенов](../../../iam/concepts/authorization/iam-token.md) или [API-ключей](../../../iam/concepts/authorization/api-key.md).
+       
+       {% endnote %}
+
+       1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
        1. Выполните команду:
 
           ```bash
-          helm registry login cr.yandex -u oauth
+          helm registry login {{ registry }} -u oauth
           Password: <OAuth-токен>
           ```
 
-     * С помощью IAM-токена:
-       1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md).
+     * С помощью {{ iam-short-name }}-токена:
+       1. [Получите {{ iam-short-name }}-токен](../../../iam/operations/iam-token/create.md).
        1. Выполните команду:
 
           ```bash
-          helm registry login cr.yandex -u iam
+          helm registry login {{ registry }} -u iam
           Password: <IAM-токен>
           ```
 
@@ -83,16 +90,16 @@
      Successfully packaged chart and saved it to: <путь>/<имя_Helm-чарта>-<версия>.tgz
      ```
 
-  1. Загрузите Helm-чарт в Container Registry:
+  1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push <имя_Helm-чарта>-<версия>.tgz oci://cr.yandex/<идентификатор_реестра>
+     helm push <имя_Helm-чарта>-<версия>.tgz oci://{{ registry }}/<идентификатор_реестра>
      ```
 
      Результат:
 
      ```text
-     Pushed: cr.yandex/crp3h07fgv9b********/<имя_Helm-чарта>:<версия>
+     Pushed: {{ registry }}/crp3h07fgv9b********/<имя_Helm-чарта>:<версия>
      Digest: <SHA256...>
      ```
 
@@ -128,16 +135,16 @@
      Successfully packaged chart and saved it to: C:/my-chart-3.11.2.tgz
      ```
 
-  1. Загрузите Helm-чарт в Container Registry:
+  1. Загрузите Helm-чарт в {{ container-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://cr.yandex/<идентификатор_реестра>
+     helm push my-chart-3.11.2.tgz oci://{{ registry }}/<идентификатор_реестра>
      ```
 
      Результат:
 
      ```text
-     Pushed: cr.yandex/crp3h07fgv9b********/my-chart:3.11.2
+     Pushed: {{ registry }}/crp3h07fgv9b********/my-chart:3.11.2
      Digest: sha256:dc44a4e8b686b043b8a88f77ef9dcb998116fab422e8c892a2370da0********
      ```
 

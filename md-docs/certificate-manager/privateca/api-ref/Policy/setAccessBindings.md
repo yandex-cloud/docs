@@ -5,7 +5,7 @@ Sets access bindings for the policy.
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies/{resourceId}:setAccessBindings
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{resourceId}:setAccessBindings
 ```
 
 ## Path parameters

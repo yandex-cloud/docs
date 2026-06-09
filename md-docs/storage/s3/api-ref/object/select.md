@@ -1,10 +1,10 @@
 # Object Storage API, REST совместимый с Amazon S3: SelectObjectContent
 
-Фильтрует и возвращает содержимое объекта Object Storage на основе [запроса на языке S3 Select](../../../concepts/s3-select-language.md).
+Фильтрует и возвращает содержимое объекта {{ objstorage-name }} на основе [запроса на языке S3 Select](../../../concepts/s3-select-language.md).
 
 {% note warning %}
 
-Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку](https://center.yandex.cloud/support). Также вы должны иметь разрешение на действие `s3:GetObject` — подробнее читайте в разделе [Политика доступа (bucket policy)](../../../concepts/policy.md).
+Чтобы получить возможность отправлять запросы на языке S3 Select, обратитесь в [техническую поддержку]({{ link-console-support }}). Также вы должны иметь разрешение на действие `s3:GetObject` — подробнее читайте в разделе [{#T}](../../../concepts/policy.md).
 
 {% endnote %}
 
@@ -114,7 +114,7 @@ POST /{bucket}/{key}?select&select-type=2 HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
 
@@ -157,13 +157,13 @@ POST /{bucket}/{key}?select&select-type=2 HTTP/2
 
 #### Связанные статьи {#related-articles}
 
-* [Объект](../../../concepts/object.md)
+* [{#T}](../../../concepts/object.md)
 
-* [Синтаксис языка запросов S3 Select](../../../concepts/s3-select-language.md)
+* [{#T}](../../../concepts/s3-select-language.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

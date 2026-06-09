@@ -1,33 +1,33 @@
-# Загрузка переменной из Yandex Lockbox
+# Загрузка переменной из {{ lockbox-name }}
 
-При работе с Yandex Managed Service for Apache Airflow™ вы можете использовать [Yandex Lockbox](../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. Yandex Lockbox интегрируется в Managed Service for Apache Airflow™ через провайдер [Yandex Lockbox Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
+При работе с {{ maf-full-name }} вы можете использовать [{{ lockbox-full-name }}](../../lockbox/index.md) для хранения артефактов, которые могут использоваться в DAG-файлах: подключений, переменных и конфигурационных данных. {{ lockbox-name }} интегрируется в {{ maf-short-name }} через провайдер [{{ lockbox-name }} Secret Backend](https://airflow.apache.org/docs/apache-airflow-providers-yandex/stable/secrets-backends/yandex-cloud-lockbox-secret-backend.html). В результате доступ к хранилищу секретов настраивается автоматически.
 
-Загрузку переменной из Yandex Lockbox можно выполнить с помощью [направленого ациклического графа (DAG)](../concepts/index.md#about-the-service). Данные для подключения к БД хранятся в Yandex Lockbox и автоматически подставляются в граф.
+Загрузку переменной из {{ lockbox-name }} можно выполнить с помощью [направленого ациклического графа (DAG)](../concepts/index.md#about-the-service). Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
 
 ## Перед началом работы {#before-begin}
 
 Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-{% note info }
+{% note info %}
 
-Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет Yandex Lockbox](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
+Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 
 {% endnote %}
 
-## Создайте секрет Yandex Lockbox {#create-lockbox-secret}
+## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
 
-Для корректной работы кластера Apache Airflow™ секрет в Yandex Lockbox должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
+Для корректной работы кластера {{ AF }} секрет в {{ lockbox-name }} должен иметь имя в формате `airflow/<тип_артефакта>/<идентификатор_артефакта>`, где:
    * `<тип_артефакта>` — определяет, какие данные будут храниться в секрете. Возможные значения:
      * `connections` — подключения;
      * `variables` — переменные;
      * `config` — данные конфигурации.
-   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в Apache Airflow™.
+   * `<идентификатор_артефакта>` — идентификатор, который будет использоваться для обращения к артефакту в {{ AF }}.
 
-[Создайте секрет Yandex Lockbox](../../lockbox/operations/secret-create.md) с параметрами:
-* **Имя** — `airflow/variables/var_query`;
-* **Тип секрета** — `Пользовательский`;
-* **Ключ** — `value`;
-* **Значение** — `SELECT 2`.
+[Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с параметрами:
+* **{{ ui-key.yacloud.common.name }}** — `airflow/variables/var_query`;
+* **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** — `Пользовательский`;
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** — `value`;
+* **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** — `SELECT 2`.
 
 В секрете `airflow/variables/var_query` будет сохранена переменная `value` со значением `SELECT 2`.
 
@@ -53,8 +53,8 @@
    load_variable_from_lockbox()
    ```
 
-1. Загрузите DAG-файл `load_variable_from_lockbox.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе Apache Airflow™ автоматически.
-1. [Откройте веб-интерфейс Apache Airflow™](af-interfaces.md#web-gui).
+1. Загрузите DAG-файл `load_variable_from_lockbox.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
+1. [Откройте веб-интерфейс {{ AF }}](af-interfaces.md#web-gui).
 1. Убедитесь, что в разделе **DAGs** появился новый граф `load_variable_from_lockbox`.
 
    Загрузка DAG-файла из бакета может занять несколько минут.
@@ -63,11 +63,11 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
+Чтобы проверить результат в веб-интерфейсе {{ AF }}:
 
 {% list tabs group=instructions %}
    
-- Версия Apache Airflow™ ниже 3.0 {#version-2}
+- Версия {{ AF }} ниже 3.0 {#version-2}
 
   1. В разделе **DAGs** нажмите на граф `load_variable_from_lockbox`.
   1. Перейдите в раздел **Graph**.
@@ -75,7 +75,7 @@
   1. Перейдите в раздел **Logs**.
   1. Убедитесь, что в логах есть строка `query: SELECT 2`. Это значит, что запрос выполнен успешно.
 
-- Версия Apache Airflow™ 3.0 и выше {#version-3}
+- Версия {{ AF }} 3.0 и выше {#version-3}
 
   1. В разделе **Dags** нажмите на граф `load_variable_from_lockbox`.
   1. Перейдите в раздел **Tasks**.

@@ -1,10 +1,10 @@
-# Метрики Yandex Managed Service for Apache Kafka®
+# Метрики {{ mkf-full-name }}
 
-В этом разделе описаны метрики сервиса [Managed Service for Apache Kafka®](../../managed-kafka/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ mkf-name }}](../../managed-kafka/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for Apache Kafka®: 
+Общие метки для всех метрик сервиса {{ mkf-name }}: 
 
 Метка | Значение
 ----|----
@@ -127,7 +127,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 * Если на брокере есть хотя бы один HA-топик, алгоритм проверяет только HA-топики. У каждого HA-топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 * Если на брокере отсутствуют HA-топики, алгоритм проверяет все топики. У каждого топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 
-Подробнее о `Minimum number of in-sync replicas` см. в [разделе Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
+Подробнее о `Minimum number of in-sync replicas` см. в [разделе Настройки {{ KF }}](../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 Принимает значение `1`, если брокер работает, `0`, если нет. ||
 || `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, штуки | Число запросов в очереди. ||
@@ -164,7 +164,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 || `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, штуки | Число разделов в процессе смены лидера. ||
 || `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик меньше минимального допустимого значения, указанного в настройках. ||
 || `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, штуки | Количество разделов, у которых число синхронизированных реплик (in-sync replicas, ISR) меньше фактора репликации. ||
-|| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в ZooKeeper.<br/>Дополнительные метки: `quantile` ||
+|| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, миллисекунды | Задержка запросов в {{ ZK }}.<br/>Дополнительные метки: `quantile` ||
 || `kafka_shard_count`<br/>`DGAUGE`, штуки | Количество активных шардов. ||
 || `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, штуки | Наибольшее смещение для раздела. ||
 || `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, штуки | Наименьшее смещение для раздела. ||
@@ -172,7 +172,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 
 {% note info %}
 
-В этом разделе приведены только основные метрики Managed Service for Apache Kafka®, поставляемые в Monitoring. Подробнее обо всех метриках Managed Service for Apache Kafka® можно посмотреть в [официальной документации](https://kafka.apache.org/42/operations/monitoring/).
+В этом разделе приведены только основные метрики {{ mkf-name }}, поставляемые в {{ monitoring-name }}. Подробнее обо всех метриках {{ mkf-name }} можно посмотреть в [официальной документации](https://kafka.apache.org/42/operations/monitoring/).
 
 {% endnote %}
 
@@ -189,7 +189,7 @@ subcluster_name | Тип подкластера: `zookeeper_subcluster`, `kafka_
 * Если на хосте есть хотя бы один HA-топик, алгоритм проверяет только HA-топики. У каждого HA-топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 * Если на хосте отсутствуют HA-топики, алгоритм проверяет все топики. У каждого топика количество реплик должно быть равно или больше значения `Minimum number of in-sync replicas`.
 
-Подробнее о `Minimum number of in-sync replicas` см. в [разделе Настройки Apache Kafka®](../../managed-kafka/concepts/settings-list.md#topic-settings).
+Подробнее о `Minimum number of in-sync replicas` см. в [разделе Настройки {{ KF }}](../../managed-kafka/concepts/settings-list.md#topic-settings).
 
 Дополнительно проверяется наличие свободного места в [хранилище](../../managed-kafka/concepts/storage.md). Оно должно быть более 5%. При недостатке места хост недоступен на запись.
 

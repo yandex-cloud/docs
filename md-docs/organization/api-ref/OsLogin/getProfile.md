@@ -5,7 +5,7 @@ OsLogin Profiles
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/osLoginProfiles/{osLoginProfileId}
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/osLoginProfiles/{osLoginProfileId}
 ```
 
 ## Path parameters

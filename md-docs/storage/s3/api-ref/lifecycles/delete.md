@@ -1,6 +1,6 @@
 # Object Storage API, REST совместимый с Amazon S3: DeleteBucketLifecycle
 
-Удаляет конфигурацию жизненного цикла объектов в бакете из Object Storage.
+Удаляет конфигурацию жизненного цикла объектов в бакете из {{ objstorage-name }}.
 
 Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
 
@@ -35,19 +35,19 @@ DELETE /{bucket}?lifecycle HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
-Если конфигурация жизненных циклов бакета не существует, то Object Storage ответит кодом 200.
+Если конфигурация жизненных циклов бакета не существует, то {{ objstorage-name }} ответит кодом 200.
 
 #### Связанные статьи {#related-articles}
 
-* [Жизненные циклы объектов в бакете](../../../concepts/lifecycles.md)
+* [{#T}](../../../concepts/lifecycles.md)
 
-* [Управление жизненными циклами объектов в бакете](../../../operations/buckets/lifecycles.md)
+* [{#T}](../../../operations/buckets/lifecycles.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

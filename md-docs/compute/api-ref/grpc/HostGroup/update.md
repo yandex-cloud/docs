@@ -30,30 +30,30 @@ Updates the specified host group.
 ||Field | Description ||
 || host_group_id | **string**
 
-Required field. ID of the host group to update.
+ID of the host group to update.
 To get the host group ID, use an [HostGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the HostGroup resource are going to be updated. ||
 || name | **string**
 
 Name of the group.
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
+The value must match the regular expression: ```|[a-z]([-_a-z0-9]{0,61}[a-z0-9])?```. ||
 || description | **string**
 
 Description of the group.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
-
 The existing set of `labels` is completely replaced by the provided set.
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64. ||
 || maintenance_policy | enum **MaintenancePolicy**
 
 Behaviour on maintenance events
@@ -91,30 +91,10 @@ Includes only one of the fields `fixed_scale`. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "host_group_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "zone_id": "string",
-    "status": "Status",
-    "type_id": "string",
-    "maintenance_policy": "MaintenancePolicy",
-    "scale_policy": {
-      // Includes only one of the fields `fixed_scale`
-      "fixed_scale": {
-        "size": "int64"
-      }
-      // end of the list of possible fields
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -142,7 +122,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateHostGroupMetadata](#yandex.cloud.compute.v1.UpdateHostGroupMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -157,7 +137,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[HostGroup](#yandex.cloud.compute.v1.HostGroup)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -172,78 +152,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateHostGroupMetadata {#yandex.cloud.compute.v1.UpdateHostGroupMetadata}
-
-#|
-||Field | Description ||
-|| host_group_id | **string**
-
-ID of the host group that is being updated. ||
-|#
-
-## HostGroup {#yandex.cloud.compute.v1.HostGroup}
-
-Represents group of dedicated hosts
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the group. ||
-|| folder_id | **string**
-
-ID of the folder that the group belongs to. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
-|| name | **string**
-
-Name of the group. The name is unique within the folder. ||
-|| description | **string**
-
-Description of the group. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|| zone_id | **string**
-
-Availability zone where all dedicated hosts are allocated. ||
-|| status | enum **Status**
-
-Status of the group.
-
-- `CREATING`
-- `READY`
-- `UPDATING`
-- `DELETING` ||
-|| type_id | **string**
-
-ID of host type. Resources provided by each host of the group. ||
-|| maintenance_policy | enum **MaintenancePolicy**
-
-Behaviour on maintenance events.
-
-- `RESTART`: Restart instance to move it to another host during maintenance
-- `MIGRATE`: Use live migration to move instance to another host during maintenance ||
-|| scale_policy | **[ScalePolicy](#yandex.cloud.compute.v1.ScalePolicy2)**
-
-Scale policy. Only fixed number of hosts are supported at this moment. ||
-|#
-
-## ScalePolicy {#yandex.cloud.compute.v1.ScalePolicy2}
-
-#|
-||Field | Description ||
-|| fixed_scale | **[FixedScale](#yandex.cloud.compute.v1.ScalePolicy.FixedScale2)**
-
-Includes only one of the fields `fixed_scale`. ||
-|#
-
-## FixedScale {#yandex.cloud.compute.v1.ScalePolicy.FixedScale2}
-
-#|
-||Field | Description ||
-|| size | **int64** ||
 |#

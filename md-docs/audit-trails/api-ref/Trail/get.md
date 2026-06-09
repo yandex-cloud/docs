@@ -6,7 +6,7 @@ To get the list of all available trails, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://audittrails.api.cloud.yandex.net/audit-trails/v1/trails/{trailId}
+GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
 ```
 
 ## Path parameters
@@ -332,7 +332,7 @@ Configuration of default events gathering for the trail
 If not specified, default events won't be gathered for the trail ||
 || eventFilter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter)**
 
-Required field. Configuration of additional events gathering from specific services ||
+Configuration of additional events gathering from specific services ||
 |#
 
 ## PathFilter {#yandex.cloud.audittrails.v1.Trail.PathFilter}

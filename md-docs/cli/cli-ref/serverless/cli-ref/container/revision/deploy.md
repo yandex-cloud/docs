@@ -84,6 +84,8 @@ Network id to be used in new revision. ||
 Network name to be used in new revision. ||
 || `--subnets` | `value[,value]`
 
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
+
 Specifies the subnets for the revision. Can use subnet names or subnet ids, or both.
 
 Example: `--subnets=id1,id2 --subnets=name3'. ||
@@ -167,9 +169,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -197,17 +196,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Задать количество одновременных вызовов экземпляра контейнера](../../../../../../serverless-containers/operations/concurrency.md#cli_1)
- * [Добавить переменные окружения контейнеру](../../../../../../serverless-containers/operations/environment-variables-add.md#cli_1)
- * [Настройте асинхронный вызов](../../../../../../serverless-containers/operations/invoke-async.md#cli_1)
- * [Передать секреты Yandex Lockbox в контейнер](../../../../../../serverless-containers/operations/lockbox-secret-transmit.md#cli_1)
- * [Пример команды](../../../../../../serverless-containers/operations/logs-write.md#cli_1)
- * [Создать ревизию контейнера](../../../../../../serverless-containers/operations/manage-revision.md#cli_1)
- * [Настроить параметры сервиса метаданных контейнера](../../../../../../serverless-containers/operations/metadata-options.md#cli_1)
- * [Смонтировать бакеты в контейнер](../../../../../../serverless-containers/operations/mount-bucket.md#cli_1)
- * [Смонтировать эфемерный диск в контейнер](../../../../../../serverless-containers/operations/mount-ephemeral-disk.md#cli_1)
- * [Добавить настройки масштабирования контейнеру](../../../../../../serverless-containers/operations/scaling-settings-add.md#cli_1)
- * [Удалить настройки масштабирования контейнера](../../../../../../serverless-containers/operations/scaling-settings-delete.md#cli_1)
- * [Изменить режим работы контейнера](../../../../../../serverless-containers/operations/update-runtime.md#cli_1)

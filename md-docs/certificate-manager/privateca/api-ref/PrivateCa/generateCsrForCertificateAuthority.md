@@ -6,7 +6,7 @@ This allows generating the CSR which can be used to receive the final certificat
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/generateCsr
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/generateCsr
 ```
 
 ## Body parameters {#yandex.cloud.certificatemanager.v1.privateca.GenerateCsrForCertificateAuthorityRequest}

@@ -6,7 +6,7 @@ This finalizes the creation process after a signed certificate has been obtained
 ## HTTP request
 
 ```
-POST https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}:sendSignedCertificate
+POST https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}:sendSignedCertificate
 ```
 
 ## Path parameters

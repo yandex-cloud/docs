@@ -21,7 +21,7 @@ Retrieves a list of hosts for the specified cluster.
 || cluster_id | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
@@ -99,7 +99,6 @@ Each subsequent list request will have its own `next_page_token` to continue pag
 
 Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || cluster_id | **string**
 
@@ -157,7 +156,7 @@ Host parameters ||
 || resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
+All available presets are listed in the [documentation](../../../../managed-mongodb/concepts/instance-types). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -194,8 +193,16 @@ Aggregated health of the service. If the field has default value, it is not retu
 
 #|
 ||Field | Description ||
-|| hidden | **bool** ||
-|| secondary_delay_secs | **int64** ||
-|| priority | **double** ||
-|| tags | **object** (map<**string**, **string**>) ||
+|| hidden | **bool**
+
+Whether the host is hidden in the replica set. ||
+|| secondary_delay_secs | **int64**
+
+Replica delay (in seconds) relative to the primary host. ||
+|| priority | **double**
+
+Replica priority used by the replica set when electing a new primary. ||
+|| tags | **object** (map<**string**, **string**>)
+
+Replica tags used to control read preference and write concern. ||
 |#

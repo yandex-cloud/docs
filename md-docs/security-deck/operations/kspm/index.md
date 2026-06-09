@@ -1,7 +1,7 @@
-# Контроль Kubernetes® (KSPM)
+# Контроль {{ k8s }}® ({{ kspm-name }})
 
-* [Активировать модуль KSPM](enable-kspm.md).
-* [Работать с дашбордом модуля KSPM](use-kspm.md).
-* [Посмотреть правила контроля Kubernetes](view-rules.md).
-* [Проверить соответствие инфраструктуры стандартам безопасности](check-compliance.md).
-* [Управлять исключениями из правил контроля безопасности модуля KSPM](manage-exceptions.md).
+* [{#T}](enable-kspm.md).
+* [{#T}](use-kspm.md).
+* [{#T}](view-rules.md).
+* [{#T}](check-compliance.md).
+* [{#T}](manage-exceptions.md).

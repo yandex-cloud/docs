@@ -1,10 +1,10 @@
 # Использование зашифрованных дисков для постоянных томов
 
-В Managed Service for Kubernetes для постоянных томов поддерживается использование дисков Compute Cloud, [зашифрованных](../../../compute/concepts/encryption.md) с помощью пользовательских [симметричных ключей](../../../kms/concepts/key.md) Yandex Key Management Service.
+В {{ managed-k8s-name }} для постоянных томов поддерживается использование дисков {{ compute-name }}, [зашифрованных](../../../compute/concepts/encryption.md) с помощью пользовательских [симметричных ключей](../../../kms/concepts/key.md) {{ kms-full-name }}.
 
 {% note info %}
 
-Чтобы использовать зашифрованные диски, у [облачного сервисного аккаунта](../../concepts/index.md#service-accounts), назначенного кластеру Managed Service for Kubernetes, должна быть [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
+Чтобы использовать зашифрованные диски, у [облачного сервисного аккаунта](../../concepts/index.md#service-accounts), назначенного кластеру {{ managed-k8s-name }}, должна быть [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
 
 {% endnote %}
 
@@ -12,20 +12,20 @@
 
 ## Статическая подготовка тома {#static-provisioning}
 
-1. [Создайте](../../../kms/operations/key.md) симметричный ключ в Key Management Service.
+1. [Создайте](../../../kms/operations/key.md) симметричный ключ в {{ kms-name }}.
 1. [Создайте](../../../compute/operations/disk-create/empty.md) зашифрованный диск с использованием ключа, созданного ранее.
 
     Сохраните идентификатор диска, он понадобится в дальнейшем.
-1. [Назначьте](../../../iam/operations/roles/grant.md) облачному сервисному аккаунту кластера Managed Service for Kubernetes [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
+1. [Назначьте](../../../iam/operations/roles/grant.md) облачному сервисному аккаунту кластера {{ managed-k8s-name }} [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
 1. [Подготовьте](static-create-pv.md) постоянный том. В манифесте объекта `PersistentVolume` укажите идентификатор созданного диска в параметре `spec:csi:volumeHandle`.
 
 ## Динамическая подготовка тома {#dynamic-provisioning}
 
-1. [Создайте](../../../kms/operations/key.md) симметричный ключ в Key Management Service.
+1. [Создайте](../../../kms/operations/key.md) симметричный ключ в {{ kms-name }}.
 
     Сохраните идентификатор ключа, он понадобится в дальнейшем.
-1. [Назначьте](../../../iam/operations/roles/grant.md) облачному сервисному аккаунту кластера Managed Service for Kubernetes [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Назначьте](../../../iam/operations/roles/grant.md) облачному сервисному аккаунту кластера {{ managed-k8s-name }} [роль](../../../kms/security/index.md#kms-keys-encrypterDecrypter) `kms.keys.encrypterDecrypter` на ключ или каталог.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. В файле `encrypted-storage-class.yaml` сформируйте манифест для нового [класса хранилища](manage-storage-class.md):
 
     ```yaml
@@ -45,7 +45,7 @@
     
     Где:
     * `metadata:name` — произвольное название класса хранилища.
-    * `parameters:type` — [тип диска](../../concepts/volume.md#disks-types) в Compute Cloud. Возможные значения:
+    * `parameters:type` — [тип диска](../../concepts/volume.md#disks-types) в {{ compute-name }}. Возможные значения:
       * `network-ssd` — сетевой SSD-диск.
       * `network-hdd` — сетевой HDD-диск.
       * `network-ssd-nonreplicated` — нереплицируемый SSD-диск.
@@ -116,13 +116,13 @@
     kubectl apply -f pod-with-encrypted-pvc.yaml
     ```
 
-    После создания пода в [консоли управления](https://console.yandex.cloud) в сервисе **Compute Cloud** в разделе **Диски** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
+    После создания пода в [консоли управления]({{ link-console-main }}) в сервисе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в разделе **{{ ui-key.yacloud.compute.disks_ddfdb }}** появится новый зашифрованный диск с префиксом `k8s-csi` в имени.
 
 ### См. также {#see-also}
 
-* [Том](../../concepts/volume.md)
-* [Шифрование в Managed Service for Kubernetes](../../concepts/encryption.md) 
-* [Шифрование в Compute Cloud](../../../compute/concepts/encryption.md)
-* [Динамическая подготовка тома](dynamic-create-pv.md)
-* [Статическая подготовка тома](static-create-pv.md)
-* [Управление классами хранилищ](manage-storage-class.md)
+* [{#T}](../../concepts/volume.md)
+* [{#T}](../../concepts/encryption.md) 
+* [{#T}](../../../compute/concepts/encryption.md)
+* [{#T}](dynamic-create-pv.md)
+* [{#T}](static-create-pv.md)
+* [{#T}](manage-storage-class.md)

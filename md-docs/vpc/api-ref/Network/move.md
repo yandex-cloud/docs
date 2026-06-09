@@ -5,7 +5,7 @@ Move network to another folder.
 ## HTTP request
 
 ```
-POST https://vpc.api.cloud.yandex.net/vpc/v1/networks/{networkId}:move
+POST https://vpc.{{ api-host }}/vpc/v1/networks/{networkId}:move
 ```
 
 ## Path parameters

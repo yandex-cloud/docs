@@ -19,6 +19,7 @@ Deletes the specified endpoint.
 || endpoint_id | **string**
 
 Identifier of the endpoint to delete.
+
 To get the list of all available endpoints, make a [List](list.md#List) request. ||
 |#
 

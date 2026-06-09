@@ -5,7 +5,7 @@ Creates a VRF in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreateVrfRequest}

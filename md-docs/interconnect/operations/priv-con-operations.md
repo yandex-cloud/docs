@@ -6,13 +6,14 @@
 
 {% endnote %}
 
-{% note warning %}
-
-Чтобы запросить доступ к данной функции, обратитесь в [техническую поддержку](https://center.yandex.cloud/support).
-
-{% endnote %}
-
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![nodes-left](../../_assets/console-icons/nodes-left.svg) **{{ ui-key.yacloud.interconnect.private-connection.private-connections_daeaR }}** и в открывшемся списке приватных соединений нажмите на нужное соединение.
+  1. В открывшемся окне с информацией о соединении в меню слева выберите ![list-check](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}**, чтобы посмотреть список [операций](../../api-design-guide/concepts/about-async.md) с выбранным приватным соединением.
 
 - CLI {#cli}
 
@@ -25,7 +26,7 @@
   1. Получите список операций приватного соединения:
 
       ```bash
-      yc cic private-connection list-operations cca59**********dvjir
+      yc cic private-connection list-operations cf3r5ke20fo0********
       ```
 
       Результат:
@@ -34,13 +35,14 @@
       +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
       |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS  |       DESCRIPTION         |
       +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
-      | cca59**********dvjir | 2025-03-24 10:50:43 | bfbud**********v7dfn | 2025-03-24 11:18:15 | DONE    | private connection update |
+      | bd6kg6j1ni92******** | 2025-03-24 10:50:43 | ajeol2afu1js******** | 2025-03-24 11:18:15 | DONE    | private connection update |
       |                      |                     |                      |                     |         |                           |
-      | cca59**********dvjir | 2025-03-24 10:18:32 | bfbud**********v7dfn | 2025-03-24 10:39:32 | DONE    | private connection create |
+      | bd6i7jqgtaq1******** | 2025-03-24 10:18:32 | ajeol2afu1js******** | 2025-03-24 10:39:32 | DONE    | private connection create |
       +----------------------+---------------------+----------------------+---------------------+---------+---------------------------+
       ```
 
-      где,
+      Где:
+
       * `ID` — идентификатор выполняемой или уже выполненной операции.
       * `CREATED AT` — дата и время, когда операция была создана.
       * `CREATED BY` — идентификатор пользователя, который создал операцию.
@@ -50,8 +52,8 @@
 
   1. При необходимости получите дополнительную информацию об операции по ее идентификатору:
 
-    ```bash
-    yc operation get cca59**********dvjir
-    ```
-  
+      ```bash
+      yc operation get bd6i7jqgtaq1********
+      ```
+
 {% endlist %}

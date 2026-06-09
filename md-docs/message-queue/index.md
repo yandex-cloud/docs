@@ -32,7 +32,7 @@ Message Queue помогает:
 
  - [Symfony](instruments/symfony.md)
 
- - [Terraform](instruments/terraform.md)
+ - [{{ TF }}](instruments/terraform.md)
 
  - [Golang](instruments/golang.md)
 
@@ -76,7 +76,7 @@ Message Queue помогает:
 
  - [Метки очередей](concepts/tags.md)
 
- - [Сравнение с Yandex Data Streams](concepts/yds-ymq-comparison.md)
+ - [Сравнение с {{ yds-full-name }}](concepts/yds-ymq-comparison.md)
 
 ## Практические руководства
 
@@ -88,19 +88,19 @@ Message Queue помогает:
 
  - [Консоль управления](tutorials/video-converting-queue/console.md)
 
- - [Terraform](tutorials/video-converting-queue/terraform.md)
+ - [{{ TF }}](tutorials/video-converting-queue/terraform.md)
 
  - [Автомасштабирование группы ВМ для обработки сообщений из очереди](tutorials/autoscale-monitoring.md)
 
  - [Создание триггеров, которые вызывают функции для остановки ВМ и отправки уведомлений в Telegram](tutorials/serverless-trigger-budget-queue-vm-tg.md)
 
-### Хранение статического ключа доступа в секрете Yandex Lockbox
+### Хранение статического ключа доступа в секрете {{ lockbox-name }}
 
  - [Обзор](tutorials/static-key-in-lockbox/index.md)
 
  - [CLI](tutorials/static-key-in-lockbox/console.md)
 
- - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
+ - [{{ TF }}](tutorials/static-key-in-lockbox/terraform.md)
 
  - [Создание интерактивного serverless-приложения с использованием WebSocket](tutorials/websocket-app.md)
 
@@ -108,7 +108,7 @@ Message Queue помогает:
 
  - [Правила тарификации](pricing.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -174,9 +174,9 @@ Message Queue помогает:
 
  - [Стандартные ошибки](api-ref/common-errors.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
  - [Публичные материалы](public-talks.md)
 

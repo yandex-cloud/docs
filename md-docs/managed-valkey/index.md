@@ -1,17 +1,17 @@
-# Yandex Managed Service for Valkey™
+# {{ mrd-full-name }}
 
-Сервис Yandex Managed Service for Valkey™ помогает разворачивать и поддерживать кластеры серверов <a href="https://valkey.io/">Valkey™</a> 7.2, 8.0, 8.1 и 9.0 в инфраструктуре Yandex Cloud. Valkey™ — это совместимая с Redis высокопроизводительная СУБД класса NoSQL с открытым исходным кодом, работающая с данными типа «ключ-значение».
+Сервис {{ mrd-full-name }} помогает разворачивать и поддерживать кластеры серверов <a href="https://valkey.io/">{{ VLK }}</a> 7.2, 8.0, 8.1 и 9.0 в инфраструктуре {{ yandex-cloud }}. {{ VLK }} — это совместимая с {{ RD }} высокопроизводительная СУБД класса NoSQL с открытым исходным кодом, работающая с данными типа «ключ-значение».
 
-Yandex Managed Service for Valkey™ часто используется, чтобы: <ul>
+{{ mrd-full-name }} часто используется, чтобы: <ul>
   <li>Создавать сервер очередей (механизм «публикация-подписка»).</li>
   <li>Кешировать результаты запросов к основной базе данных.</li>
   <li>Кешировать промежуточные результаты при обработке данных.</li>
   <li>Управлять сессиями пользователей и счетчиками: количество пользователей онлайн, просмотры и т.д.</li>
 </ul>
 
-Управлять сервисом можно с помощью консоли управления, интерфейса командной строки Yandex Cloud (CLI), API или Terraform.
+Управлять сервисом можно с помощью консоли управления, интерфейса командной строки {{ yandex-cloud }} (CLI), API или {{ TF }}.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
 <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
 
@@ -19,7 +19,7 @@ Yandex Managed Service for Valkey™ часто используется, что
 
 Уровень обслуживания сервиса определен в документе <a href="https://yandex.ru/legal/cloud_sla_mdb">Уровень обслуживания Yandex Managed Databases</a>.
 
-# Yandex Managed Service for Valkey™
+# {{ mrd-full-name }}
 
  - [Начало работы](quickstart.md)
 
@@ -35,9 +35,9 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Изменение настроек кластера](operations/update.md)
 
- - [Обновление версии Valkey™](operations/cluster-version-update.md)
+ - [Обновление версии {{ VLK }}](operations/cluster-version-update.md)
 
- - [Работа с модулями Valkey™](operations/modules.md)
+ - [Работа с модулями {{ VLK }}](operations/modules.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
@@ -69,7 +69,7 @@ Yandex Managed Service for Valkey™ часто используется, что
 
 ### Базы данных
 
- - [Запросы в Yandex WebSQL](operations/web-sql-query.md)
+ - [Запросы в {{ websql-full-name }}](operations/web-sql-query.md)
 
 ### Пользователи
 
@@ -97,9 +97,9 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Все руководства](tutorials/index.md)
 
- - [Хранение сессий PHP в Yandex Managed Service for Valkey™](tutorials/valkey-as-php-sessions-storage.md)
+ - [Хранение сессий PHP в {{ mrd-name }}](tutorials/valkey-as-php-sessions-storage.md)
 
- - [Миграция базы данных в Yandex Managed Service for Valkey™](tutorials/data-migration.md)
+ - [Миграция базы данных в {{ mrd-name }}](tutorials/data-migration.md)
 
 ## Концепции
 
@@ -113,13 +113,15 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [До 20 июня 2023 года](concepts/instance-types-archive/instance-types-20062023.md)
 
- - [Сеть в Yandex Managed Service for Valkey™](concepts/network.md)
+ - [Высокая доступность кластера](concepts/high-availability.md)
+
+ - [Сеть в {{ mrd-name }}](concepts/network.md)
 
  - [Шардирование](concepts/sharding.md)
 
  - [Резервные копии](concepts/backup.md)
 
- - [Репликация и отказоустойчивость](concepts/replication.md)
+ - [Репликация и персистентность](concepts/replication.md)
 
  - [Поддерживаемые клиенты](concepts/supported-clients.md)
 
@@ -127,7 +129,7 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Доступные команды](concepts/supported-features.md)
 
- - [Модули Valkey™](concepts/modules.md)
+ - [Модули {{ VLK }}](concepts/modules.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
@@ -135,9 +137,9 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Техническое обслуживание](concepts/maintenance.md)
 
- - [Настройки Valkey™](concepts/settings-list.md)
+ - [Настройки {{ VLK }}](concepts/settings-list.md)
 
- - [Политика поддержки версий Valkey™](concepts/update-policy.md)
+ - [Политика поддержки версий {{ VLK }}](concepts/update-policy.md)
 
  - [Управление доступом](security/index.md)
 
@@ -367,7 +369,7 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [update](cli-ref/v0/user/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -376,6 +378,18 @@ Yandex Managed Service for Valkey™ часто используется, что
 ### gRPC (англ.)
 
  - [Overview](api-ref/grpc/index.md)
+
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/grpc/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/grpc/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/grpc/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/grpc/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/grpc/BackupRetentionPolicy/delete.md)
 
 #### Backup
 
@@ -483,6 +497,18 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Overview](api-ref/index.md)
 
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/BackupRetentionPolicy/delete.md)
+
 #### Backup
 
  - [Overview](api-ref/Backup/index.md)
@@ -585,9 +611,9 @@ Yandex Managed Service for Valkey™ часто используется, что
 
  - [Delete](api-ref/User/delete.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

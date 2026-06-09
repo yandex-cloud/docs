@@ -1,9 +1,10 @@
 # Управление эфемерными ключами доступа
 
-[Часть сервисов](../../concepts/authorization/ephemeral-keys.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).
+[Часть сервисов](../../concepts/authorization/ephemeral-keys.md#supported-services) {{ yandex-cloud }} поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).
 
 Эфемерные ключи доступа создаются для [аккаунтов на Яндексе](../../concepts/users/accounts.md#passport), [федеративных аккаунтов](../../concepts/users/accounts.md#saml-federation), [локальных пользователей](../../concepts/users/accounts.md#local) и [сервисных аккаунтов](../../concepts/users/service-accounts.md).
 
+Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../../security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
 
 ## Создать эфемерный ключ доступа {#create}
 
@@ -15,9 +16,9 @@
 
 {% list tabs group=instructions %}
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -55,6 +56,10 @@
 
   1. Сохраните идентификатор ключа `access_key_id`, секретный ключ `secret` и токен сессии `session_token`. Повторно получить эти значения будет невозможно.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [createEphemeral](../../awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md) для ресурса [TemporaryAccessKey](../../awscompatibility/api-ref/TemporaryAccessKey/index.md) или вызовом gRPC API [TemporaryAccessKeyService/CreateEphemeral](../../awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md).
+
 {% endlist %}
 
 
@@ -86,7 +91,7 @@
   1. Сохраните на клиентское устройство объект из префикса бакета, к которому был открыт доступ:
 
       ```bash
-      aws --endpoint https://storage.yandexcloud.net s3 cp \
+      aws --endpoint https://{{ s3-storage-host }} s3 cp \
         s3://<имя_бакета>/<префикс><имя_объекта> ./
       ```
 
@@ -101,6 +106,6 @@
 
 #### См. также {#see-also}
 
-* [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
-* [Создать временный ключ доступа с помощью Security Token Service](../sa/create-sts-key.md)
-* [Доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)
+* [{#T}](../../../storage/security/overview.md)
+* [{#T}](../sa/create-sts-key.md)
+* [{#T}](../../../storage/operations/buckets/manage-ephemeral-keys.md)

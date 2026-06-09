@@ -32,9 +32,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -62,13 +59,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Задать пароль устройству при создании](../../../../../iot-core/operations/password/device-password.md#cli_2)
- * [Добавить пароль уже созданному реестру](../../../../../iot-core/operations/password/registry-password.md#cli_1)
- * [Создание реестра](../../../../../iot-core/operations/registry/registry-create.md#tf_1)
- * [Удаление реестра](../../../../../iot-core/operations/registry/registry-delete.md#cli_1)
- * [Отключить реестр](../../../../../iot-core/operations/registry/registry-disabling.md#cli_1)
- * [Получить список реестров в каталоге](../../../../../iot-core/operations/registry/registry-list.md#cli_1)
- * [Изменить имя реестра](../../../../../iot-core/operations/registry/registry-update.md#tf_1)
- * [Экспорт сообщений в Data Streams](../../../../../iot-core/operations/yds-export.md#cli_1)

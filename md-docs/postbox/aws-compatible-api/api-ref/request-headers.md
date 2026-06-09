@@ -7,7 +7,7 @@
 || `Accept` | Тип данных в ответе. Например, `application/json` (значение по умолчанию).
 
 Подробнее про типы данных читайте в статье [Список MIME-типов](https://ru.wikipedia.org/wiki/Список_MIME-типов) на Википедии. ||
-|| `Authorization` | Любой запрос к Yandex Cloud Postbox должен быть авторизован.
+|| `Authorization` | Любой запрос к {{ postbox-name }} должен быть авторизован.
 
 В заголовке нужно передать статический ключ доступа и подпись запроса. [Подробнее о формате заголовка](../signing-requests.md#authorization-header).
 
@@ -17,9 +17,9 @@
 Подробнее про типы данных читайте в статье [Список MIME-типов](https://ru.wikipedia.org/wiki/Список_MIME-типов) на Википедии. ||
 || `X-Amz-Algorithm` | Алгоритм для подписи запроса.
 
-Передавайте в заголовке значение `AWS4-HMAC-SHA256`, так как Yandex Cloud Postbox поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). ||
+Передавайте в заголовке значение `AWS4-HMAC-SHA256`, так как {{ postbox-name }} поддерживает подпись [Amazon Signature Version 4](https://docs.amazonaws.cn/en_us/IAM/latest/UserGuide/reference_aws-signing.html). ||
 || `X-Amz-Content-Sha256` | Хеш полезной нагрузки запроса. Применяется для подписи запроса в формате Amazon Signature Version 4. ||
-|| `X-Amz-Credential` | Область, в которой подпись валидна. Формат заголовка: `<идентификатор_статического_ключа>/<дата>/ru-central1/ses/aws4_request`. В заголовке укажите:
+|| `X-Amz-Credential` | Область, в которой подпись валидна. Формат заголовка: `<идентификатор_статического_ключа>/<дата>/{{ region-id }}/ses/aws4_request`. В заголовке укажите:
 
 * идентификатор статического ключа доступа, полученный во время [подготовки к работе](../index.md#before-you-begin);
 * дату в формате `YYYYMMDD`. ||

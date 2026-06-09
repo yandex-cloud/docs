@@ -1,14 +1,14 @@
-# Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на кластер с поддержкой KRaft
+# Обновление кластера {{ mkf-name }} с {{ ZK }} на кластер с поддержкой {{ kraft-short-name }}
 
-# Обновление кластера Managed Service for Apache Kafka® с ZooKeeper на кластер с поддержкой KRaft
+# Обновление кластера {{ mkf-name }} с {{ ZK }} на кластер с поддержкой {{ kraft-short-name }}
 
 
-Многохостовые кластеры Managed Service for Apache Kafka® версии 3.5 и ниже используют ZooKeeper для управления метаданными. С версией Apache Kafka® 4.0 поддержка ZooKeeper [прекратится](../../managed-kafka/concepts/update-policy.md#version-schedule). Для кластеров с хостами ZooKeeper поддерживается переход на протокол KRaft. Начиная с версии 3.6 Apache Kafka® использует [KRaft](../../managed-kafka/concepts/kraft.md) как основной протокол синхронизации метаданных.
+Многохостовые кластеры {{ mkf-name }} версии 3.5 и ниже используют {{ ZK }} для управления метаданными. С версией {{ KF }} 4.0 поддержка {{ ZK }} [прекратится](../../managed-kafka/concepts/update-policy.md#version-schedule). Для кластеров с хостами {{ ZK }} поддерживается переход на протокол {{ kraft-short-name }}. Начиная с версии 3.6 {{ KF }} использует [{{ kraft-short-name }}](../../managed-kafka/concepts/kraft.md) как основной протокол синхронизации метаданных.
 
-Чтобы перейти на протокол KRaft в кластере с ZooKeeper:
+Чтобы перейти на протокол {{ kraft-short-name }} в кластере с {{ ZK }}:
 
 1. [Обновите версию кластера](#update-version).
-1. [Выполните миграцию кластера на протокол KRaft](#migrate-to-kraft).
+1. [Выполните миграцию кластера на протокол {{ kraft-short-name }}](#migrate-to-kraft).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -17,44 +17,44 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Apache Kafka®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам KRaft), и дискового пространства (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов для хостов кластеров (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ kraft-short-name }}), и дискового пространства (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Плата за использование публичных IP-адресов для хостов кластеров (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Обновите версию кластера {#update-version}
 
-Обновите версию Apache Kafka® вашего кластера с ZooKeeper до версии `3.9` поэтапно, без пропуска версий. Обновление выполняется в такой последовательности: 3.5 → 3.6 → 3.7 → 3.8 → 3.9. Если версия кластера ниже `3.5`, вначале [обновите кластер](../../managed-kafka/operations/cluster-version-update.md) до этой версии.
+Обновите версию {{ KF }} вашего кластера с {{ ZK }} до версии `3.9` поэтапно, без пропуска версий. Обновление выполняется в такой последовательности: 3.5 → 3.6 → 3.7 → 3.8 → 3.9. Если версия кластера ниже `3.5`, вначале [обновите кластер](../../managed-kafka/operations/cluster-version-update.md) до этой версии.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
-    1. В строке с вашим кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **Редактировать**.
-    1. В поле **Версия** выберите версию 3.6.
-    1. Нажмите кнопку **Сохранить**.
-    1. Повторите действия для остальных версий Apache Kafka® в указанной последовательности.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. В строке с вашим кластером нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg), затем выберите **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию 3.6.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    1. Повторите действия для остальных версий {{ KF }} в указанной последовательности.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    1. Запустите обновление Apache Kafka® вашего кластера командой:
+    1. Запустите обновление {{ KF }} вашего кластера командой:
 
         ```bash
-        yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
+        {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
            --version=3.6
         ```
 
     1. Повторите команду для остальных версий в указанной последовательности.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-    1. В блоке `config` кластера Managed Service for Apache Kafka® задайте новую версию Apache Kafka® в поле `version` — `3.6`:
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. В блоке `config` кластера {{ mkf-name }} задайте новую версию {{ KF }} в поле `version` — `3.6`:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
@@ -67,14 +67,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -96,7 +96,7 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    1. Повторите действия для остальных версий Apache Kafka® в указанной последовательности.
+    1. Повторите действия для остальных версий {{ KF }} в указанной последовательности.
 
 - REST API {#api}
 
@@ -106,14 +106,14 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.update](../../managed-kafka/api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.update](../../managed-kafka/api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            -url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.version",
                       "configSpec": {
@@ -128,12 +128,12 @@
 
           В данном случае указан только один параметр: `configSpec.version`.
 
-        * `configSpec.version` — версия Apache Kafka®.
+        * `configSpec.version` — версия {{ KF }}.
 
        Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../managed-kafka/api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
-    1. Повторите действия для остальных версий Apache Kafka® в указанной последовательности.
+    1. Повторите действия для остальных версий {{ KF }} в указанной последовательности.
 
 - gRPC API {#grpc-api}
 
@@ -143,7 +143,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь вызовом [ClusterService/Update](../../managed-kafka/api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService/Update](../../managed-kafka/api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -163,7 +163,7 @@
                     "version": "3.6"
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
         ```
 
@@ -173,29 +173,29 @@
 
           В данном случае указан только один параметр: `config_spec.version`.
 
-        * `config_spec.version` — версия Apache Kafka®.
+        * `config_spec.version` — версия {{ KF }}.
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../managed-kafka/api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
-    1. Повторите действия для остальных версий Apache Kafka® в указанной последовательности.
+    1. Повторите действия для остальных версий {{ KF }} в указанной последовательности.
 
 {% endlist %}
 
-## Выполните миграцию кластера на протокол KRaft {#migrate-to-kraft}
+## Выполните миграцию кластера на протокол {{ kraft-short-name }} {#migrate-to-kraft}
 
-Для миграции кластера Managed Service for Apache Kafka® с хостами ZooKeeper на протокол KRaft задайте конфигурацию ресурсов для контроллеров KRaft.
+Для миграции кластера {{ mkf-name }} с хостами {{ ZK }} на протокол {{ kraft-short-name }} задайте конфигурацию ресурсов для контроллеров {{ kraft-short-name }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kafka**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. Нажмите на имя нужного кластера.
     1. В верхней части экрана нажмите кнопку **Мигрировать**.
-    1. Выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов для контроллеров KRaft.
-    1. Нажмите кнопку **Сохранить**.
+    1. Выберите [платформу](../../compute/concepts/vm-platforms.md), тип хостов и класс хостов для контроллеров {{ kraft-short-name }}.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
     1. Дождитесь завершения миграции.
 
 - CLI {#cli}
@@ -203,20 +203,20 @@
     Запустите миграцию вашего кластера командой:
 
      ```bash
-     yc managed-kafka cluster update <имя_или_идентификатор_кластера> \
-        --controller-resource-preset "<класс_хостов_KRaft>" \
+     {{ yc-mdb-kf }} cluster update <имя_или_идентификатор_кластера> \
+        --controller-resource-preset "<класс_хостов_{{ kraft-short-name }}>" \
         --controller-disk-size <размер_хранилища> \
         --controller-disk-type <тип_диска>
      ```
 
      Где:
 
-     * `--controller-resource-preset` — [класс хостов KRaft](../../managed-kafka/concepts/instance-types.md).
-     * `--controller-disk-type` — тип диска хостов KRaft.
+     * `--controller-resource-preset` — [класс хостов {{ kraft-short-name }}](../../managed-kafka/concepts/instance-types.md).
+     * `--controller-disk-type` — тип диска хостов {{ kraft-short-name }}.
 
      {% note info %}
      
-     Для контроллеров KRaft:
+     Для контроллеров {{ kraft-short-name }}:
      
      * Доступны только типы дисков `network-ssd` и `network-ssd-nonreplicated`.
      * Недоступно использование платформы Intel Broadwell.
@@ -225,11 +225,11 @@
 
      Чтобы узнать имя или идентификатор кластера, [получите список кластеров в каталоге](../../managed-kafka/operations/cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
-    1. Удалите блок `config.zookeeper` кластера Managed Service for Apache Kafka®.
-    1. Добавьте блок `config.kraft` с описанием ресурсов контроллеров KRaft:
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
+    1. Удалите блок `config.zookeeper` кластера {{ mkf-name }}.
+    1. Добавьте блок `config.kraft` с описанием ресурсов контроллеров {{ kraft-short-name }}:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<имя_кластера>" {
@@ -240,7 +240,7 @@
               resources {
                 disk_size          = <размер_хранилища_ГБ>
                 disk_type_id       = "<тип_диска>"
-                resource_preset_id = "<класс_хостов_KRaft>"
+                resource_preset_id = "<класс_хостов_{{ kraft-short-name }}>"
               }
             }
           }
@@ -249,12 +249,12 @@
 
         Где:
 
-        * `kraft.resources.resource_preset_id` — [класс хостов KRaft](../../managed-kafka/concepts/instance-types.md).
-        * `kraft.resources.disk_type_id` — тип диска хостов KRaft.
+        * `kraft.resources.resource_preset_id` — [класс хостов {{ kraft-short-name }}](../../managed-kafka/concepts/instance-types.md).
+        * `kraft.resources.disk_type_id` — тип диска хостов {{ kraft-short-name }}.
 
         {% note info %}
         
-        Для контроллеров KRaft:
+        Для контроллеров {{ kraft-short-name }}:
         
         * Доступны только типы дисков `network-ssd` и `network-ssd-nonreplicated`.
         * Недоступно использование платформы Intel Broadwell.
@@ -263,14 +263,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -300,20 +300,20 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.update](../../managed-kafka/api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.update](../../managed-kafka/api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request PATCH \
             --header "Authorization: Bearer $IAM_TOKEN" \
             --header "Content-Type: application/json" \
-            -url 'https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/<идентификатор_кластера>' \
+            -url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<идентификатор_кластера>' \
             --data '{
                       "updateMask": "configSpec.kraft.resources.resourcePresetId,configSpec.kraft.resources.diskSize,configSpec.kraft.resources.diskTypeId",
                       "configSpec": {
                         "kraft": {
                           "resources": {
-                            "resourcePresetId": "<класс_хостов_KRaft>",
+                            "resourcePresetId": "<класс_хостов_{{ kraft-short-name }}>",
                             "diskSize": "<размер_хранилища_в_байтах>",
                             "diskTypeId": "<тип_диска>"
                           }
@@ -328,7 +328,7 @@
 
           В данном случае должны быть указаны все параметры добавляемых ресурсов: `configSpec.kraft.resources.resourcePresetId`, `configSpec.kraft.resources.diskSize`, `configSpec.kraft.resources.diskTypeId`.
 
-        * `configSpec.kraft` — конфигурация контроллеров KRaft:
+        * `configSpec.kraft` — конфигурация контроллеров {{ kraft-short-name }}:
 
             * `resources.resourcePresetId` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../../managed-kafka/api-ref/ResourcePreset/list.md).
             * `resources.diskSize` — размер диска в байтах.
@@ -336,7 +336,7 @@
 
             {% note info %}
             
-            Для контроллеров KRaft:
+            Для контроллеров {{ kraft-short-name }}:
             
             * Доступны только типы дисков `network-ssd` и `network-ssd-nonreplicated`.
             * Недоступно использование платформы Intel Broadwell.
@@ -355,7 +355,7 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь вызовом [ClusterService/Update](../../managed-kafka/api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService/Update](../../managed-kafka/api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -376,14 +376,14 @@
                   "config_spec": {
                     "kraft": {
                       "resources": {
-                        "resource_preset_id": "<класс_хостов_KRaft>",
+                        "resource_preset_id": "<класс_хостов_{{ kraft-short-name }}>",
                         "disk_size": "<размер_хранилища_в_байтах>",
                         "disk_type_id": "<тип_диска>"
                       }
                     }
                   }
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
         ```
 
@@ -393,7 +393,7 @@
 
           В данном случае должны быть указаны все параметры добавляемых ресурсов: `config_spec.kraft.resources.resource_preset_id`, `config_spec.kraft.resources.disk_size`, `config_spec.kraft.resources.disk_type_id`.
 
-        * `config_spec.kraft` — конфигурация контроллеров KRaft:
+        * `config_spec.kraft` — конфигурация контроллеров {{ kraft-short-name }}:
 
             * `resources.resource_preset_id` — идентификатор класса хостов. Список доступных классов хостов с их идентификаторами можно запросить с помощью метода [ResourcePreset.list](../../managed-kafka/api-ref/grpc/ResourcePreset/list.md).
             * `resources.disk_size` — размер диска в байтах.
@@ -401,7 +401,7 @@
 
             {% note info %}
             
-            Для контроллеров KRaft:
+            Для контроллеров {{ kraft-short-name }}:
             
             * Доступны только типы дисков `network-ssd` и `network-ssd-nonreplicated`.
             * Недоступно использование платформы Intel Broadwell.
@@ -422,15 +422,15 @@
 
 - Вручную {#manual}
 
-    [Удалите кластер Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+    [Удалите кластер {{ mkf-name }}](../../managed-kafka/operations/cluster-delete.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     1. В терминале перейдите в директорию с планом инфраструктуры.
     
         {% note warning %}
     
-        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+        Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
     
         {% endnote %}
     
@@ -444,6 +444,6 @@
     
         1. Подтвердите удаление ресурсов и дождитесь завершения операции.
     
-        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+        Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

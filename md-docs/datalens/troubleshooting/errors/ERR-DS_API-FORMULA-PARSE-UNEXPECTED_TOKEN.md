@@ -1,4 +1,4 @@
-# [Yandex DataLens] Ошибка в синтаксисе формулы
+# [{{ datalens-full-name }}] Ошибка в синтаксисе формулы
 
 `ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN`
 

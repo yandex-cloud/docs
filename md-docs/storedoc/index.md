@@ -1,14 +1,14 @@
-# Yandex StoreDoc
+# {{ mmg-full-name }}
 
-Сервис помогает разворачивать и поддерживать кластеры серверов Yandex StoreDoc 6.0 и 7.0 в инфраструктуре Yandex Cloud. Yandex StoreDoc — это совместимая с MongoDB высокопроизводительная NoSQL СУБД с открытым исходным кодом.
+Сервис помогает разворачивать и поддерживать кластеры серверов {{ mmg-name }} 6.0 и 7.0 в инфраструктуре {{ yandex-cloud }}. {{ mmg-name }} — это совместимая с {{ MG }} высокопроизводительная NoSQL СУБД с открытым исходным кодом.
 
-Сервис Yandex StoreDoc позволяет: <ul> <li>Не указывая схему формата данных, создавать системы, в которых требуется обработка и хранение большого объема полуструктурированных и неструктурированных данных.</li> <li>Поддерживать системы/работать с системами, которым нужна масштабируемость по вертикали и горизонтали.</li> <li>Анализировать данные, в том числе большие (big data), в реальном времени.</li> <li>Обрабатывать транзакции в реальном времени <a href="../glossary/oltp.md">(OLTP)</a>.</li> <li>Обрабатывать аналитические запросы в режиме онлайн <a href="../glossary/olap.md">(OLAP)</a>.</li> <li>Использовать полнотекстовый поиск.</li> </ul>
+Сервис {{ mmg-name }} позволяет: <ul> <li>Не указывая схему формата данных, создавать системы, в которых требуется обработка и хранение большого объема полуструктурированных и неструктурированных данных.</li> <li>Поддерживать системы/работать с системами, которым нужна масштабируемость по вертикали и горизонтали.</li> <li>Анализировать данные, в том числе большие (big data), в реальном времени.</li> <li>Обрабатывать транзакции в реальном времени <a href="../glossary/oltp.md">(OLTP)</a>.</li> <li>Обрабатывать аналитические запросы в режиме онлайн <a href="../glossary/olap.md">(OLAP)</a>.</li> <li>Использовать полнотекстовый поиск.</li> </ul>
 
-Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки Yandex Cloud (CLI), API или Terraform.
+Взаимодействие с сервисом осуществляется с помощью консоли управления, интерфейса командной строки {{ yandex-cloud }} (CLI), API или {{ TF }}.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
+Инфраструктура {{ yandex-cloud }} <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами:
 
-<ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
+<ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
 
 Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение об уровне обслуживания</a>.
 
@@ -30,7 +30,7 @@
 
  - [Изменение настроек кластера](operations/update.md)
 
- - [Обновление версии Yandex StoreDoc](operations/cluster-version-update.md)
+ - [Обновление версии {{ SD }}](operations/cluster-version-update.md)
 
  - [Остановка и запуск кластера](operations/cluster-stop.md)
 
@@ -60,7 +60,7 @@
 
 ### Базы данных
 
- - [SQL-запросы в Yandex WebSQL](operations/websql.md)
+ - [SQL-запросы в {{ websql-full-name }}](operations/websql.md)
 
  - [Управление базами данных](operations/databases.md)
 
@@ -88,15 +88,15 @@
 
  - [Шардирование коллекций](tutorials/sharding.md)
 
- - [Миграция данных в Yandex StoreDoc](tutorials/data-migration.md)
+ - [Миграция данных в {{ mmg-name }}](tutorials/data-migration.md)
 
- - [Миграция кластера Yandex StoreDoc с версии 4.4 на 6.0](tutorials/storedoc-versions.md)
+ - [Миграция кластера {{ mmg-name }} с версии 4.4 на 6.0](tutorials/storedoc-versions.md)
 
- - [Миграция коллекций из стороннего кластера Yandex StoreDoc](tutorials/storedoc-migration-with-data-transfer.md)
+ - [Миграция коллекций из стороннего кластера {{ SD }}](tutorials/storedoc-migration-with-data-transfer.md)
 
- - [Анализ производительности и оптимизация Yandex StoreDoc](tutorials/profiling.md)
+ - [Анализ производительности и оптимизация {{ SD }}](tutorials/profiling.md)
 
- - [Поставка данных из Yandex Managed Service for Apache Kafka® с помощью Yandex Data Transfer](tutorials/migration-from-kafka.md)
+ - [Поставка данных из {{ mkf-full-name }} с помощью {{ data-transfer-full-name }}](tutorials/migration-from-kafka.md)
 
 ## Концепции
 
@@ -114,11 +114,11 @@
 
  - [Использование устаревших классов хостов](concepts/using-deprecated-instances.md)
 
- - [Сеть в Yandex StoreDoc](concepts/network.md)
+ - [Сеть в {{ mmg-name }}](concepts/network.md)
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Хранилище в Yandex StoreDoc](concepts/storage.md)
+ - [Хранилище в {{ mmg-name }}](concepts/storage.md)
 
  - [Резервные копии](concepts/backup.md)
 
@@ -136,7 +136,7 @@
 
  - [Поддерживаемые клиенты](concepts/supported-clients.md)
 
- - [Настройки Yandex StoreDoc](concepts/settings-list.md)
+ - [Настройки {{ SD }}](concepts/settings-list.md)
 
  - [Управление доступом](security/index.md)
 
@@ -402,7 +402,7 @@
 
  - [update](cli-ref/v0/user/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -411,6 +411,18 @@
 ### gRPC (англ.)
 
  - [Overview](api-ref/grpc/index.md)
+
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/grpc/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/grpc/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/grpc/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/grpc/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/grpc/BackupRetentionPolicy/delete.md)
 
 #### Backup
 
@@ -536,6 +548,18 @@
 
  - [Overview](api-ref/index.md)
 
+#### BackupRetentionPolicy
+
+ - [Overview](api-ref/BackupRetentionPolicy/index.md)
+
+ - [List](api-ref/BackupRetentionPolicy/list.md)
+
+ - [ListByFolder](api-ref/BackupRetentionPolicy/listByFolder.md)
+
+ - [Create](api-ref/BackupRetentionPolicy/create.md)
+
+ - [Delete](api-ref/BackupRetentionPolicy/delete.md)
+
 #### Backup
 
  - [Overview](api-ref/Backup/index.md)
@@ -656,9 +680,9 @@
 
  - [RevokePermission](api-ref/User/revokePermission.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 
@@ -668,7 +692,7 @@
 
  - [Общие вопросы](qa/general.md)
 
- - [Вопросы о Yandex StoreDoc](qa/storedoc.md)
+ - [Вопросы о {{ SD }}](qa/storedoc.md)
 
  - [Все вопросы на одной странице](qa/all.md)
 

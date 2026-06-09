@@ -85,11 +85,19 @@
   },
   "details": {
     "privateEndpointId": "string",
+    // Includes only one of the fields `privateEndpointName`
     "privateEndpointName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `networkId`
     "networkId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `networkName`
     "networkName": "string",
+    // end of the list of possible fields
     "labels": "object",
+    // Includes only one of the fields `description`
     "description": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -261,9 +269,17 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || privateEndpointId | **string** ||
-|| privateEndpointName | **string** ||
-|| networkId | **string** ||
-|| networkName | **string** ||
+|| privateEndpointName | **string**
+
+Includes only one of the fields `privateEndpointName`. ||
+|| networkId | **string**
+
+Includes only one of the fields `networkId`. ||
+|| networkName | **string**
+
+Includes only one of the fields `networkName`. ||
 || labels | **object** (map<**string**, **string**>) ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 |#

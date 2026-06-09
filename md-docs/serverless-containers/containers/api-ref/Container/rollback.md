@@ -5,7 +5,7 @@ Rollback the specified container to an old revision.
 ## HTTP request
 
 ```
-POST https://serverless-containers.api.cloud.yandex.net/containers/v1/containers/{containerId}:rollback
+POST https://serverless-containers.{{ api-host }}/containers/v1/containers/{containerId}:rollback
 ```
 
 ## Path parameters

@@ -1,3 +1,7 @@
+Если ваше приложение нагружает ядра [ВМ](../../glossary/vm.md) на предельных уровнях и одновременно с этим требует передачи больших объемов сетевого трафика, пользовательские и сетевые процессы могут начать борьбу за аппаратные ресурсы. Чтобы исключить такую ситуацию, рекомендуется использовать программно ускоренную сеть.
+
+{% include [functional-agreement-required](../../_includes/functional-agreement-required.md) %}
+
 ## Обычная сеть ВМ {#reg-vm}
 
 В инфраструктуре {{ yandex-cloud }} все виртуальные машины работают в [среде виртуализации](../../glossary/virtualization.md) [QEMU-KVM](https://ru.wikipedia.org/wiki/QEMU). *Гипервизор* пропорционально распределяет вычислительную нагрузку по всем процессорным ядрам, которые выделены [виртуальной машине](../../glossary/vm.md).
@@ -49,6 +53,8 @@ SAN нельзя включить для виртуальной машины с 
 
 * включите опцию **{{ ui-key.yacloud.component.compute.resources.field_sw-accelerated-net }}** в конфигурации базовой ВМ при [создании группы ВМ](../../compute/operations/instance-groups/create-fixed-group.md) или в [YAML-спецификации](../../compute/concepts/instance-groups/specification.md) укажите для ключа `network_settings.type` значение `SOFTWARE_ACCELERATED`.
 
+Подробнее читайте в разделе [{#T}](../../vpc/operations/enable-software-accelerated-network.md).
+
 ## Рекомендации по использованию программно ускоренной сети {#use-cases}
 
 Программно ускоренную сеть рекомендуется включать для уменьшения времени обработки запросов:
@@ -62,3 +68,12 @@ SAN нельзя включить для виртуальной машины с 
 Включение SAN не поможет ускорить работу [сетевых дисков](../../compute/concepts/disk.md).
 
 {% endnote %}
+
+## Примеры использования {#examples}
+
+* [{#T}](../../tutorials/routing/storage-vpc-access.md)
+* [{#T}](../../tutorials/routing/vpc-cr-access.md)
+
+#### См. также {#see-also}
+
+* [{#T}](../../vpc/operations/enable-software-accelerated-network.md)

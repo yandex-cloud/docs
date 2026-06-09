@@ -2,14 +2,14 @@
 
 {% note info %}
 
-Вы можете удалить пользователя, только если у вас есть роль `datasphere.community-projects.admin` в проекте или роль `datasphere.communities.admin` в сообществе проекта.
+Вы можете удалить пользователя, только если у вас есть роль `{{ roles-datasphere-project-admin }}` в проекте или роль `{{ roles-datasphere-communities-admin }}` в сообществе проекта.
 
 {% endnote %}
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. Перейдите на вкладку **Участники**.
-1. Напротив нужного пользователя нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-1. Нажмите кнопку **Подтвердить**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. Перейдите на вкладку **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}**.
+1. Напротив нужного пользователя нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.member.remove }}**.
+1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.submit }}**.
 1. Если вы добавляли пользователя с помощью ссылки, то ее необходимо пересоздать:
-    * Нажмите кнопку **Добавить участника**.
-    * Внизу открывшегося окна нажмите **Пересоздать ссылку для приглашения** ⟶ **Пересоздать ссылку**.
+    * Нажмите кнопку **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+    * Внизу открывшегося окна нажмите **{{ ui-key.yc-ui-datasphere.invite-link.reset-invitation-link }}** ⟶ **{{ ui-key.yc-ui-datasphere.invite-link.reset-link }}**.

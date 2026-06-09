@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails поддерживается отслеживание событий уровня конфигурации для Yandex Cloud Marketplace. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+В {{ at-name }} поддерживается отслеживание событий уровня конфигурации для {{ marketplace-full-name }}. Подробнее см. [{#T}](../audit-trails/concepts/format.md).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.marketplace.licensemanager.<имя_события>
+{{ at-event-prefix }}.audit.marketplace.licensemanager.<имя_события>
 ```
 
 Имя события | Описание

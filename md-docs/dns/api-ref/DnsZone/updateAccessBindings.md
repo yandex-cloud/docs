@@ -5,7 +5,7 @@ Updates access bindings for the specified DNS zone.
 ## HTTP request
 
 ```
-POST https://dns.api.cloud.yandex.net/dns/v1/zones/{resourceId}:updateAccessBindings
+POST https://dns.{{ api-host }}/dns/v1/zones/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

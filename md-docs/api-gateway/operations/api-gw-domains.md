@@ -6,11 +6,11 @@
 
 Если вашим доменом управляет сторонний DNS-провайдер, домен должен быть ниже второго уровня. Например, можно подключить домен `www.example.com`, а `example.com` — нельзя. Это связано с особенностями обработки CNAME-записей на DNS-хостингах. Подробнее в [RFC 1912, пункт 2.4](https://www.ietf.org/rfc/rfc1912.txt).
 
-Чтобы использовать домен второго уровня (`example.com`), делегируйте его [Yandex Cloud DNS](../../dns/index.md) и создайте [ANAME-запись](../../dns/concepts/resource-record.md#aname) в зоне DNS.
+Чтобы использовать домен второго уровня (`example.com`), делегируйте его [{{ dns-full-name }}](../../dns/index.md) и создайте [ANAME-запись](../../dns/concepts/resource-record.md#aname) в зоне DNS.
 
 {% endnote %}
 
-На домене должен быть установлен [X.509‑сертификат](https://ru.wikipedia.org/wiki/X.509), соответствующий требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://ru.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
+На домене должен быть установлен [X.509‑сертификат](https://{{ lang }}.wikipedia.org/wiki/X.509), соответствующий требованиям [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)). Для сертификатов с алгоритмом [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) поддерживается только кривая P‑256.
 
 Чтобы подключить домен к API-шлюзу:
 
@@ -26,18 +26,18 @@
 
         Чтобы узнать служебный домен API-шлюза:
 
-       1. Перейдите в [консоль управления](https://console.yandex.cloud).
-       1. Выберите каталог, в котором находится API-шлюз, и [перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
+       1. Перейдите в [консоль управления]({{ link-console-main }}).
+       1. Выберите каталог, в котором находится API-шлюз, и Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
        1. Выберите API-шлюз.
-       1. Служебный домен будет в поле **Служебный домен**.
+       1. Служебный домен будет в поле **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}**.
 
         Доменные имена должны заканчиваться точкой.
 
-        Чтобы использовать домен выше второго уровня, делегируйте его [Yandex Cloud DNS](../../dns/index.md) и [создайте](../../dns/operations/resource-record-create.md) ANAME-запись в зоне DNS. Создать запись в Yandex Cloud DNS можно не только до, но и после создания домена. См. шаг 6.
+        Чтобы использовать домен выше второго уровня, делегируйте его [{{ dns-full-name }}](../../dns/index.md) и [создайте](../../dns/operations/resource-record-create.md) ANAME-запись в зоне DNS. Создать запись в {{ dns-full-name }} можно не только до, но и после создания домена. См. шаг 6.
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится API-шлюз.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится API-шлюз.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Certificate Manager** и в нем:
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}** и в нем:
 
         1. Добавьте [сертификат от Let's Encrypt<sup>®</sup>](../../certificate-manager/operations/managed/cert-create.md) или [пользовательский сертификат](../../certificate-manager/operations/import/cert-create.md) для подключаемого домена.
 
@@ -51,18 +51,18 @@
     
     1. Вернитесь на страницу каталога.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway** и в нем:
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и в нем:
 
         1. Выберите API-шлюз.
-        1. Перейдите на вкладку **Домены**.
-        1. Нажмите **Подключить**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).           
+        1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+        1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).           
 
-    1. Если вы пропустили шаг 1 и не разместили CNAME-запись, создайте ANAME-запись в Yandex Cloud DNS:
+    1. Если вы пропустили шаг 1 и не разместили CNAME-запись, создайте ANAME-запись в {{ dns-full-name }}:
 
-        1. В строке с доменом нажмите кнопку **Создать запись**.
-        1. Если у вас нет DNS-зоны, имя которой совпадает с доменом, создайте ее. Для этого нажмите **Создать зону**.
-        1. Если необходимо, в поле **TTL (в секундах)** выберите другое значение.
-        1. Нажмите кнопку **Создать**.
+        1. В строке с доменом нажмите кнопку **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
+        1. Если у вас нет DNS-зоны, имя которой совпадает с доменом, создайте ее. Для этого нажмите **{{ ui-key.yacloud.dns.button_zone-create }}**.
+        1. Если необходимо, в поле **{{ ui-key.yacloud.dns.label_form-ttl }}** выберите другое значение.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
         
 - API {#api}
 

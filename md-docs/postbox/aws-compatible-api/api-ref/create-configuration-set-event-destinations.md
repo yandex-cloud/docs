@@ -56,9 +56,9 @@ POST /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP
 Параметр не используется. Предназначен для совместимости с AWS. ||
 || `DeliveryStreamArn` | **Тип**: string.
 
-Поток данных Yandex Data Streams, в который отправляются уведомления.
+Поток данных {{ yds-full-name }}, в который отправляются уведомления.
 
-Формат: `arn:yc:yds:<регион>::<эндпоинт>:<название потока>`. Эндпоинт можно скопировать из поля **Kinesis API эндпоинт** нужного потока в Data Streams.
+Формат: `arn:yc:yds:<регион>::<эндпоинт>:<название потока>`. Эндпоинт можно скопировать из поля **{{ ui-key.yacloud.ydb.overview.label_kinesis-endpoint }}** нужного потока в {{ yds-name }}.
 
 {% cut "Пример" %}
 

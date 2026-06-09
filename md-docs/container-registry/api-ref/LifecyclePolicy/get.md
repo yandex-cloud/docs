@@ -1,13 +1,12 @@
 # Container Registry API, REST: LifecyclePolicy.Get
 
 Returns the specified lifecycle policy.
-
 To get the list of all available lifecycle policies, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/lifecyclePolicies/{lifecyclePolicyId}
 ```
 
 ## Path parameters

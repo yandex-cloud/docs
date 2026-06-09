@@ -1,19 +1,19 @@
 # Доступ сервисов к ресурсам пользователя
 
 
-Платформа Yandex Cloud включает в себя набор [сервисов](../../overview/concepts/services.md). Некоторым сервисам для выполнения определенных задач необходим доступ к различным ресурсам в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) пользователя. Например, сервису Yandex Connection Manager для управления подключениями к базам данных требуются права на создание секретов Yandex Lockbox в облаке пользователя, а также права на управление созданными секретами.
+Платформа {{ yandex-cloud }} включает в себя набор [сервисов](../../overview/concepts/services.md). Некоторым сервисам для выполнения определенных задач необходим доступ к различным ресурсам в [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) пользователя. Например, сервису {{ connection-manager-full-name }} для управления подключениями к базам данных требуются права на создание секретов {{ lockbox-full-name }} в облаке пользователя, а также права на управление созданными секретами.
 
-Yandex Identity and Access Management позволяет управлять доступом сервисов к ресурсам в облаке пользователя, при необходимости [включая](../operations/service-control/enable-disable.md#enable) или [выключая](../operations/service-control/enable-disable.md#disable) нужные сервисы.
+{{ iam-full-name }} позволяет управлять доступом сервисов к ресурсам в облаке пользователя, при необходимости [включая](../operations/service-control/enable-disable.md#enable) или [выключая](../operations/service-control/enable-disable.md#disable) нужные сервисы.
 
 _Доступ сервиса_ — это совокупность прав доступа, необходимых для создания и функционирования ресурсов этого сервиса в облаке пользователя. Такие права доступа назначаются специальным сервисным аккаунтам — [сервисным агентам](#service-agent), от имени которых сервис осуществляет доступ к ресурсам пользователя в облаке.
 
 ## Статус сервиса {#access-status}
 
-Сервисы в облаке Yandex Cloud могут иметь следующие статусы:
+Сервисы в облаке {{ yandex-cloud }} могут иметь следующие статусы:
 
 * `DEFAULT` — статус по умолчанию.
 
-    У сервиса нет [сервисных агентов](#service-agent), но при попытке выполнить в сервисе операцию, требующую доступа к другим ресурсам в облаке пользователя (например, создать [подключение](../../metadata-hub/concepts/connection-manager.md) в сервисе Yandex Connection Manager), сервисные агенты будут автоматически созданы, а статус сервиса изменится на `ENABLED`.
+    У сервиса нет [сервисных агентов](#service-agent), но при попытке выполнить в сервисе операцию, требующую доступа к другим ресурсам в облаке пользователя (например, создать [подключение](../../metadata-hub/concepts/connection-manager.md) в сервисе {{ connection-manager-full-name }}), сервисные агенты будут автоматически созданы, а статус сервиса изменится на `ENABLED`.
 * `ENABLED` — сервис включен. У сервиса есть сервисные агенты, сервис имеет доступ к ресурсам в облаке пользователя.
 
     Когда статус сервиса в облаке меняется на `ENABLED`, для этого сервиса в данном облаке автоматически создаются сервисные агенты, обладающие необходимыми правами на действия с ресурсами пользователя в этом облаке.
@@ -49,20 +49,20 @@ _Сервисные агенты_ — это специальные систем
 
 Сервис | Идентификатор
 --- | ---
-Yandex Compute Cloud — [Шифрование дисков](../../compute/concepts/encryption.md) | `disk-encryption`
-[Yandex DataSphere](../../datasphere/index.md) | `datasphere`
-Yandex MetaData Hub — [Connection Manager](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
-Yandex Security Deck — [Контроль данных (DSPM)](../../security-deck/concepts/dspm.md) | `dspm`
-[Yandex WebSQL](../../websql/index.md) | `websql`
-[Yandex Cloud Registry](../../cloud-registry/index.md) | `cloud-registry`
-Yandex Serverless Integrations — [EventRouter](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`
-[SourceCraft](https://sourcecraft.dev/portal/docs/ru) | `src-integration`
+{{ compute-full-name }} — [Шифрование дисков](../../compute/concepts/encryption.md) | `disk-encryption`
+[{{ ml-platform-full-name }}](../../datasphere/index.md) | `datasphere`
+{{ metadata-hub-full-name }} — [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) | `connection-manager`
+{{ sd-full-name }} — [Контроль данных ({{ dspm-name }})](../../security-deck/concepts/dspm.md) | `dspm`
+[{{ websql-full-name }}](../../websql/index.md) | `websql`
+[{{ cloud-registry-full-name }}](../../cloud-registry/index.md) | `cloud-registry`
+{{ si-full-name }} — [{{ er-name }}](../../serverless-integrations/concepts/index.md#eventrouter) | `serverless-eventrouter`
+[{{ src-full-name }}]({{ link-src-docs }}) | `src-integration`
 
-В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке Yandex Cloud. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.
+В будущем у администраторов облака появится возможность управлять доступами всех сервисов, требующих прав на действия с ресурсами в облаке {{ yandex-cloud }}. С помощью [CLI](../../cli/cli-ref/iam/cli-ref/service-control/list.md) вы можете [получить](../operations/service-control/list-get.md#list) актуальный список сервисов, доступом которых можно управлять.
 
 Управлять доступом сервисов к ресурсам могут пользователи с ролью [администратора](../../resource-manager/security/index.md#resource-manager-admin) или [владельца](../../resource-manager/security/index.md#resource-manager-clouds-owner) облака.
 
 #### См. также {#see-also}
 
-* [Получение статусов сервисов](../operations/service-control/list-get.md)
-* [Включение и выключение сервиса](../operations/service-control/enable-disable.md)
+* [{#T}](../operations/service-control/list-get.md)
+* [{#T}](../operations/service-control/enable-disable.md)

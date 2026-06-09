@@ -1,13 +1,13 @@
-# Диагностика производительности PostgreSQL
+# Диагностика производительности {{ PG }}
 
-Performance Diagnostics — это функция сбора и визуализации статистики производительности кластеров PostgreSQL. Она позволяет анализировать производительность SQL-запросов и активность сессий для выявления узких мест и оптимизации работы базы данных.
+Performance Diagnostics — это функция сбора и визуализации статистики производительности кластеров {{ PG }}. Она позволяет анализировать производительность SQL-запросов и активность сессий для выявления узких мест и оптимизации работы базы данных.
 
 ## Перед началом работы {#before-you-begin}
 
 Убедитесь, что:
 
 * Установлен компонент Managed PostgreSQL.
-* Установлен и активен компонент Managed ClickHouse®.
+* Установлен и активен компонент Managed {{ CH }}.
 * Установлен компонент Monitoring с Grafana.
 * У вас есть права на изменение конфигурации `ManagedPostgresConfig` и создание кластеров `PostgresqlCluster`.
 
@@ -19,7 +19,7 @@ Performance Diagnostics — это функция сбора и визуализ
 kubectl patch ManagedPostgresConfigs main --type='merge' -p='{"spec":{"settings": {"performance-diagnostics":{"enabled":true}}}}'
 ```
 
-После включения функции на уровне платформы будут развернуты необходимые компоненты для сбора и хранения метрик (ClickHouse®, Grafana dashboard).
+После включения функции на уровне платформы будут развернуты необходимые компоненты для сбора и хранения метрик ({{ CH }}, Grafana dashboard).
 
 ## Включение сбора статистики для кластера {#enable-cluster}
 
@@ -60,7 +60,7 @@ kubectl patch ManagedPostgresConfigs main --type='merge' -p='{"spec":{"settings"
    kubectl get pods -l postgresql=my-postgres-cluster
    ```
 
-После включения в каждом поде кластера будет запущен sidecar-контейнер `perfdiag`, который собирает статистику из PostgreSQL и отправляет ее в ClickHouse®.
+После включения в каждом поде кластера будет запущен sidecar-контейнер `perfdiag`, который собирает статистику из {{ PG }} и отправляет ее в {{ CH }}.
 
 ## Просмотр данных в Grafana {#view-grafana}
 
@@ -82,7 +82,7 @@ kubectl patch ManagedPostgresConfigs main --type='merge' -p='{"spec":{"settings"
 
 #### Sessions activity statistics {#sessions-stats}
 
-**Sessions stats (for the moment of interval end)** — таблица с информацией о текущих сессиях PostgreSQL на момент окончания выбранного интервала времени. Содержит данные о:
+**Sessions stats (for the moment of interval end)** — таблица с информацией о текущих сессиях {{ PG }} на момент окончания выбранного интервала времени. Содержит данные о:
 
 * Времени сбора данных (`collect_time`).
 * Хосте и роли хоста (`host`, `host_role`).
@@ -171,12 +171,12 @@ kubectl patch ManagedPostgresConfigs main --type='merge' -p='{"spec":{"settings"
 
 {% note warning %}
 
-При отключении функции на уровне платформы будут удалены все собранные метрики из ClickHouse®.
+При отключении функции на уровне платформы будут удалены все собранные метрики из {{ CH }}.
 
 {% endnote %}
 
 ## См. также {#see-also}
 
-* [Managed PostgreSQL](../../concepts/components/postgresql.md)
-* [Создать кластер PostgreSQL](create-cluster.md)
-* [Monitoring](../../concepts/components/monitoring.md)
+* [{#T}](../../concepts/components/postgresql.md)
+* [{#T}](create-cluster.md)
+* [{#T}](../../concepts/components/monitoring.md)

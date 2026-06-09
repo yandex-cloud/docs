@@ -5,7 +5,7 @@ Reschedules mandatory maintenance for the specified cluster.
 ## HTTP request
 
 ```
-POST https://mks.api.cloud.yandex.net/managed-kubernetes/v1/clusters/{clusterId}:reschedule-maintenance
+POST https://mks.{{ api-host }}/managed-kubernetes/v1/clusters/{clusterId}:reschedule-maintenance
 ```
 
 ## Path parameters

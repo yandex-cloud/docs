@@ -1,11 +1,11 @@
 # Создание таймера, который запускает функцию
 
-Создайте [таймер](../../concepts/trigger/timer.md), который будет вызывать [функцию](../../concepts/function.md) Cloud Functions каждую минуту.
+Создайте [таймер](../../concepts/trigger/timer.md), который будет вызывать [функцию](../../concepts/function.md) {{ sf-name }} каждую минуту.
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте функцию](../../operations/index.md#create-function), которую хотите вызывать по таймеру. Например, можно создать любую функцию из [списка](../create-function/index.md).
-1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), от имени которого будет вызываться функция и назначьте ему роль `functions.functionInvoker`.
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md), от имени которого будет вызываться функция и назначьте ему роль `{{ roles-functions-invoker }}`.
 
 ## Создайте таймер {#timer-create}
 
@@ -19,32 +19,32 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать таймер.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать таймер.
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя триггера — `timer`.
-        * В поле **Тип** выберите `Таймер`.
-        * В поле **Запускаемый ресурс** выберите `Функция`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **Настройки таймера** введите `* * ? * * *` или выберите `Каждую минуту`.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}** введите `* * ? * * *` или выберите `{{ ui-key.yacloud.common.button_cron-1min }}`.
 
-    1. В блоке **Настройки функции** выберите свою функцию и укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите свою функцию и укажите:
 
-        * [**Тег версии функции**](../../concepts/function.md#tag) — `$latest`.
-        * [**Сервисный аккаунт**](../../../iam/concepts/users/service-accounts.md), который создали ранее.
+        * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_function-tag }}**](../../concepts/function.md#tag) — `$latest`.
+        * [**{{ ui-key.yacloud.serverless-functions.triggers.form.field_service-account }}**](../../../iam/concepts/users/service-accounts.md), который создали ранее.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -96,13 +96,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
 
-    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
     1. Нажмите на функцию, журнал выполнения которой хотите посмотреть.
 
-    1. В открывшемся окне перейдите в раздел **Логи** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
+    1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период, за который хотите посмотреть логи. По умолчанию задан период 1 час.
 
 - CLI {#cli}
 

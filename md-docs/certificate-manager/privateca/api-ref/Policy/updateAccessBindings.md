@@ -5,7 +5,7 @@ Updates access bindings for the policy.
 ## HTTP request
 
 ```
-PATCH https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/policies/{resourceId}:updateAccessBindings
+PATCH https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/policies/{resourceId}:updateAccessBindings
 ```
 
 ## Path parameters

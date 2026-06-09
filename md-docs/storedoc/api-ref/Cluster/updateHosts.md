@@ -1,11 +1,12 @@
 # Managed Service for MongoDB API, REST: Cluster.UpdateHosts
 
 Updates the specified parameters for the host.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts:batchUpdate
+POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts:batchUpdate
 ```
 
 ## Path parameters
@@ -15,7 +16,7 @@ POST https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/ho
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster to update hosts from.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -53,13 +54,12 @@ The number of elements must be greater than 0. ||
 ||Field | Description ||
 || hostName | **string**
 
-Required field. Host to be updated. Specify the [host FQDN](../../operations/connect/index.md#fqdn).
+Required field. Host to be updated. Specify the [host FQDN](../../../managed-mongodb/operations/connect#fqdn).
 
 The maximum string length in characters is 253. ||
 || hidden | **boolean**
 
 Determines if the host is a hidden replica set member.
-
 Such members cannot become primary in a replica set, and they are invisible to client applications. However, hidden members can participate in elections of the primary host. For more information, see the [MongoDB documentation](https://www.mongodb.com/docs/manual/core/replica-set-hidden-member/). ||
 || secondaryDelaySecs | **string** (int64)
 
@@ -67,7 +67,6 @@ The time, in seconds, by which the given replica set member lags behind the prim
 || priority | **number** (double)
 
 Priority of the host to be elected as the primary in the replica set.
-
 The minimum value is `0` if the Managed Service for MongoDB cluster contains three or more secondary hosts. Otherwise, the minimum value is `1`. ||
 || assignPublicIp | **boolean**
 
@@ -99,20 +98,16 @@ Host tag list that contains key-value pairs for the given replica set member. Fo
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "clusterId": "string",
-    "hostNames": [
-      "string"
-    ]
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -154,7 +149,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateClusterHostsMetadata](#yandex.cloud.mdb.mongodb.v1.UpdateClusterHostsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -163,24 +158,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## UpdateClusterHostsMetadata {#yandex.cloud.mdb.mongodb.v1.UpdateClusterHostsMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| clusterId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the MongoDB cluster to update host from. ||
-|| hostNames[] | **string**
-
-Name of host that are being updated. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

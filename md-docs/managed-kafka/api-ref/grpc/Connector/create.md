@@ -15,7 +15,7 @@ Creates a new Apache Kafka® connector in a cluster.
     "name": "string",
     "tasks_max": "google.protobuf.Int64Value",
     "properties": "map<string, string>",
-    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`
+    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`
     "connector_config_mirrormaker": {
       "source_cluster": {
         "alias": "string",
@@ -63,6 +63,50 @@ Creates a new Apache Kafka® connector in a cluster.
         }
         // end of the list of possible fields
       }
+    },
+    "connector_config_iceberg_sink": {
+      // Includes only one of the fields `topics`, `topics_regex`
+      "topics": "string",
+      "topics_regex": "string",
+      // end of the list of possible fields
+      "control_topic": "string",
+      "metastore_connection": {
+        "catalog_uri": "string",
+        "warehouse": "string"
+      },
+      "s3_connection": {
+        // Includes only one of the fields `external_s3`
+        "external_s3": {
+          "access_key_id": "string",
+          "secret_access_key": "string",
+          "endpoint": "string",
+          "region": "string"
+        }
+        // end of the list of possible fields
+      },
+      // Includes only one of the fields `static_tables`, `dynamic_tables`
+      "static_tables": {
+        "tables": "string"
+      },
+      "dynamic_tables": {
+        "route_field": "string"
+      },
+      // end of the list of possible fields
+      "tables_config": {
+        "default_commit_branch": "string",
+        "default_id_columns": "string",
+        "default_partition_by": "string",
+        "evolve_schema_enabled": "bool",
+        "schema_force_optional": "bool",
+        "schema_case_insensitive": "bool"
+      },
+      "control_config": {
+        "group_id_prefix": "string",
+        "commit_interval_ms": "google.protobuf.Int64Value",
+        "commit_timeout_ms": "google.protobuf.Int64Value",
+        "commit_threads": "google.protobuf.Int64Value",
+        "transactional_prefix": "string"
+      }
     }
     // end of the list of possible fields
   }
@@ -105,14 +149,21 @@ Example: `sync.topics.config.enabled: true`. ||
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
 
 Additional settings for the connector. ||
 || connector_config_s3_sink | **[ConnectorConfigS3SinkSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3SinkSpec)**
 
 Configuration of S3-Sink connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
+
+Additional settings for the connector. ||
+|| connector_config_iceberg_sink | **[ConnectorConfigIcebergSinkSpec](#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSinkSpec)**
+
+Configuration of Iceberg Sink connector.
+
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
 
 Additional settings for the connector. ||
 |#
@@ -222,8 +273,12 @@ YC Object Storage is AWS-compatible.
 
 #|
 ||Field | Description ||
-|| bucket_name | **string** ||
+|| bucket_name | **string**
+
+Name of the bucket. ||
 || external_s3 | **[ExternalS3StorageSpec](#yandex.cloud.mdb.kafka.v1.ExternalS3StorageSpec)**
+
+Configuration for connection to S3 storage.
 
 Includes only one of the fields `external_s3`. ||
 |#
@@ -232,12 +287,194 @@ Includes only one of the fields `external_s3`. ||
 
 #|
 ||Field | Description ||
-|| access_key_id | **string** ||
-|| secret_access_key | **string** ||
-|| endpoint | **string** ||
+|| access_key_id | **string**
+
+ID of the AWS access key. ||
+|| secret_access_key | **string**
+
+Secret access key for the AWS access key. ||
+|| endpoint | **string**
+
+S3 endpoint. ||
 || region | **string**
 
-Default is 'us-east-1'. ||
+AWS region. Default is 'us-east-1'. ||
+|#
+
+## ConnectorConfigIcebergSinkSpec {#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSinkSpec}
+
+Specification for Kafka Iceberg Sink Connector.
+
+#|
+||Field | Description ||
+|| topics | **string**
+
+List of Kafka topics, separated by ','.
+
+Includes only one of the fields `topics`, `topics_regex`. ||
+|| topics_regex | **string**
+
+Regex of Kafka topics.
+
+Includes only one of the fields `topics`, `topics_regex`. ||
+|| control_topic | **string**
+
+Control topic name for Iceberg connector. ||
+|| metastore_connection | **[MetastoreConnectionSpec](#yandex.cloud.mdb.kafka.v1.MetastoreConnectionSpec)**
+
+Credentials for connecting to Managed Hive Metastore. ||
+|| s3_connection | **[IcebergS3ConnectionSpec](#yandex.cloud.mdb.kafka.v1.IcebergS3ConnectionSpec)**
+
+Credentials for connecting to S3 storage. ||
+|| static_tables | **[StaticTablesSpec](#yandex.cloud.mdb.kafka.v1.StaticTablesSpec)**
+
+Static table routing
+
+Includes only one of the fields `static_tables`, `dynamic_tables`.
+
+Table routing strategy ||
+|| dynamic_tables | **[DynamicTablesSpec](#yandex.cloud.mdb.kafka.v1.DynamicTablesSpec)**
+
+Dynamic table routing
+
+Includes only one of the fields `static_tables`, `dynamic_tables`.
+
+Table routing strategy ||
+|| tables_config | **[IcebergTablesConfigSpec](#yandex.cloud.mdb.kafka.v1.IcebergTablesConfigSpec)**
+
+Optional table settings ||
+|| control_config | **[IcebergControlSpec](#yandex.cloud.mdb.kafka.v1.IcebergControlSpec)**
+
+Optional control settings ||
+|#
+
+## MetastoreConnectionSpec {#yandex.cloud.mdb.kafka.v1.MetastoreConnectionSpec}
+
+#|
+||Field | Description ||
+|| catalog_uri | **string**
+
+Thrift URI of Hive Metastore
+Format: "thrift://host:9083" ||
+|| warehouse | **string**
+
+Warehouse root directory in S3
+Format: "s3a://bucket-name/path/to/warehouse"
+Can be any path within the bucket, not necessarily "/warehouse" ||
+|#
+
+## IcebergS3ConnectionSpec {#yandex.cloud.mdb.kafka.v1.IcebergS3ConnectionSpec}
+
+Specification for IcebergS3Connection -
+settings of connection to AWS-compatible S3 storage, that
+are target of Kafka Iceberg-connectors.
+YC Object Storage is AWS-compatible.
+
+#|
+||Field | Description ||
+|| external_s3 | **[ExternalIcebergS3StorageSpec](#yandex.cloud.mdb.kafka.v1.ExternalIcebergS3StorageSpec)**
+
+Configuration for connection to S3 storage.
+
+Includes only one of the fields `external_s3`. ||
+|#
+
+## ExternalIcebergS3StorageSpec {#yandex.cloud.mdb.kafka.v1.ExternalIcebergS3StorageSpec}
+
+#|
+||Field | Description ||
+|| access_key_id | **string**
+
+ID of the AWS access key. ||
+|| secret_access_key | **string**
+
+Secret access key for the AWS access key. ||
+|| endpoint | **string**
+
+S3 endpoint. ||
+|| region | **string**
+
+AWS region. Default is 'us-east-1'. ||
+|#
+
+## StaticTablesSpec {#yandex.cloud.mdb.kafka.v1.StaticTablesSpec}
+
+#|
+||Field | Description ||
+|| tables | **string**
+
+List of tables, separated by ','. ||
+|#
+
+## DynamicTablesSpec {#yandex.cloud.mdb.kafka.v1.DynamicTablesSpec}
+
+#|
+||Field | Description ||
+|| route_field | **string**
+
+Field in the message to define the target table
+The iceberg.tables.dynamic-enabled field is set to true ||
+|#
+
+## IcebergTablesConfigSpec {#yandex.cloud.mdb.kafka.v1.IcebergTablesConfigSpec}
+
+#|
+||Field | Description ||
+|| default_commit_branch | **string**
+
+Default Git-like branch name for Iceberg commits.
+Default: "main" ||
+|| default_id_columns | **string**
+
+List of columns used as identifiers for upsert operations, separated by ','. ||
+|| default_partition_by | **string**
+
+Comma-separated list of columns or transform expressions for table partitioning.
+Defines physical data layout for query optimization.
+Examples:
+- "date"
+- "year,month"
+- "year(timestamp),month(timestamp)"
+- "days(timestamp)"
+- "bucket(16,user_id)" ||
+|| evolve_schema_enabled | **bool**
+
+Enable automatic schema evolution.
+Default: false ||
+|| schema_force_optional | **bool**
+
+Force all columns to be nullable (optional).
+Default: false ||
+|| schema_case_insensitive | **bool**
+
+Enable case-insensitive field name matching.
+Default: false ||
+|#
+
+## IcebergControlSpec {#yandex.cloud.mdb.kafka.v1.IcebergControlSpec}
+
+#|
+||Field | Description ||
+|| group_id_prefix | **string**
+
+Consumer group ID prefix for control topic.
+Default: "cg-control" ||
+|| commit_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Interval between commits in milliseconds.
+Default: 300000 (5 minutes) ||
+|| commit_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Commit operation timeout in milliseconds.
+Default: 30000 (30 seconds) ||
+|| commit_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Number of threads for commit operations.
+Default: cores * 2 ||
+|| transactional_prefix | **string**
+
+Prefix for transactional operations.
+Default: "" ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -263,7 +500,7 @@ Default is 'us-east-1'. ||
     "health": "Health",
     "status": "Status",
     "cluster_id": "string",
-    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`
+    // Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`
     "connector_config_mirrormaker": {
       "source_cluster": {
         "alias": "string",
@@ -305,6 +542,49 @@ Default is 'us-east-1'. ||
           "region": "string"
         }
         // end of the list of possible fields
+      }
+    },
+    "connector_config_iceberg_sink": {
+      // Includes only one of the fields `topics`, `topics_regex`
+      "topics": "string",
+      "topics_regex": "string",
+      // end of the list of possible fields
+      "control_topic": "string",
+      "metastore_connection": {
+        "catalog_uri": "string",
+        "warehouse": "string"
+      },
+      "s3_connection": {
+        // Includes only one of the fields `external_s3`
+        "external_s3": {
+          "access_key_id": "string",
+          "endpoint": "string",
+          "region": "string"
+        }
+        // end of the list of possible fields
+      },
+      // Includes only one of the fields `static_tables`, `dynamic_tables`
+      "static_tables": {
+        "tables": "string"
+      },
+      "dynamic_tables": {
+        "route_field": "string"
+      },
+      // end of the list of possible fields
+      "tables_config": {
+        "default_commit_branch": "string",
+        "default_id_columns": "string",
+        "default_partition_by": "string",
+        "evolve_schema_enabled": "bool",
+        "schema_force_optional": "bool",
+        "schema_case_insensitive": "bool"
+      },
+      "control_config": {
+        "group_id_prefix": "string",
+        "commit_interval_ms": "google.protobuf.Int64Value",
+        "commit_timeout_ms": "google.protobuf.Int64Value",
+        "commit_threads": "google.protobuf.Int64Value",
+        "transactional_prefix": "string"
       }
     }
     // end of the list of possible fields
@@ -418,14 +698,21 @@ ID of the Apache Kafka® cluster that the connector belongs to. ||
 
 Configuration of the MirrorMaker connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
 
 Additional settings for the connector. ||
 || connector_config_s3_sink | **[ConnectorConfigS3Sink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigS3Sink)**
 
 Configuration of S3-Sink connector.
 
-Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`.
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
+
+Additional settings for the connector. ||
+|| connector_config_iceberg_sink | **[ConnectorConfigIcebergSink](#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSink)**
+
+Configuration of Iceberg Sink connector.
+
+Includes only one of the fields `connector_config_mirrormaker`, `connector_config_s3_sink`, `connector_config_iceberg_sink`.
 
 Additional settings for the connector. ||
 |#
@@ -529,8 +816,12 @@ YC Object Storage is AWS-compatible.
 
 #|
 ||Field | Description ||
-|| bucket_name | **string** ||
+|| bucket_name | **string**
+
+Name of the bucket. ||
 || external_s3 | **[ExternalS3Storage](#yandex.cloud.mdb.kafka.v1.ExternalS3Storage)**
+
+Configuration for connection to S3 storage.
 
 Includes only one of the fields `external_s3`. ||
 |#
@@ -539,9 +830,186 @@ Includes only one of the fields `external_s3`. ||
 
 #|
 ||Field | Description ||
-|| access_key_id | **string** ||
-|| endpoint | **string** ||
+|| access_key_id | **string**
+
+ID of the AWS access key. ||
+|| endpoint | **string**
+
+S3 endpoint. ||
 || region | **string**
 
-Default is 'us-east-1' ||
+AWS region. Default is 'us-east-1'. ||
+|#
+
+## ConnectorConfigIcebergSink {#yandex.cloud.mdb.kafka.v1.ConnectorConfigIcebergSink}
+
+Resource for Kafka Iceberg Sink Connector.
+
+#|
+||Field | Description ||
+|| topics | **string**
+
+List of Kafka topics, separated by ','.
+
+Includes only one of the fields `topics`, `topics_regex`. ||
+|| topics_regex | **string**
+
+Regex of Kafka topics.
+
+Includes only one of the fields `topics`, `topics_regex`. ||
+|| control_topic | **string**
+
+Control topic name for Iceberg connector. ||
+|| metastore_connection | **[MetastoreConnection](#yandex.cloud.mdb.kafka.v1.MetastoreConnection)**
+
+Credentials for connecting to Managed Hive Metastore. ||
+|| s3_connection | **[IcebergS3Connection](#yandex.cloud.mdb.kafka.v1.IcebergS3Connection)**
+
+Credentials for connecting to S3 storage. ||
+|| static_tables | **[StaticTables](#yandex.cloud.mdb.kafka.v1.StaticTables)**
+
+Static table routing
+
+Includes only one of the fields `static_tables`, `dynamic_tables`.
+
+Table routing strategy ||
+|| dynamic_tables | **[DynamicTables](#yandex.cloud.mdb.kafka.v1.DynamicTables)**
+
+Dynamic table routing
+
+Includes only one of the fields `static_tables`, `dynamic_tables`.
+
+Table routing strategy ||
+|| tables_config | **[IcebergTablesConfig](#yandex.cloud.mdb.kafka.v1.IcebergTablesConfig)**
+
+Optional table settings ||
+|| control_config | **[IcebergControl](#yandex.cloud.mdb.kafka.v1.IcebergControl)**
+
+Optional control settings ||
+|#
+
+## MetastoreConnection {#yandex.cloud.mdb.kafka.v1.MetastoreConnection}
+
+#|
+||Field | Description ||
+|| catalog_uri | **string**
+
+Thrift URI of Hive Metastore
+Format: "thrift://host:9083" ||
+|| warehouse | **string**
+
+Warehouse root directory in S3
+Format: "s3a://bucket-name/path/to/warehouse"
+Can be any path within the bucket, not necessarily "/warehouse" ||
+|#
+
+## IcebergS3Connection {#yandex.cloud.mdb.kafka.v1.IcebergS3Connection}
+
+Resource for IcebergS3Connection -
+settings of connection to AWS-compatible S3 storage, that
+are target of Kafka Iceberg-connectors.
+YC Object Storage is AWS-compatible.
+
+#|
+||Field | Description ||
+|| external_s3 | **[ExternalIcebergS3Storage](#yandex.cloud.mdb.kafka.v1.ExternalIcebergS3Storage)**
+
+Configuration for connection to S3 storage.
+
+Includes only one of the fields `external_s3`. ||
+|#
+
+## ExternalIcebergS3Storage {#yandex.cloud.mdb.kafka.v1.ExternalIcebergS3Storage}
+
+#|
+||Field | Description ||
+|| access_key_id | **string**
+
+ID of the AWS access key. ||
+|| endpoint | **string**
+
+S3 endpoint. ||
+|| region | **string**
+
+AWS region. Default is 'us-east-1'. ||
+|#
+
+## StaticTables {#yandex.cloud.mdb.kafka.v1.StaticTables}
+
+#|
+||Field | Description ||
+|| tables | **string**
+
+List of tables, separated by ','. ||
+|#
+
+## DynamicTables {#yandex.cloud.mdb.kafka.v1.DynamicTables}
+
+#|
+||Field | Description ||
+|| route_field | **string**
+
+Field in the message to define the target table
+The iceberg.tables.dynamic-enabled field is set to true ||
+|#
+
+## IcebergTablesConfig {#yandex.cloud.mdb.kafka.v1.IcebergTablesConfig}
+
+#|
+||Field | Description ||
+|| default_commit_branch | **string**
+
+Default Git-like branch name for Iceberg commits.
+Default: "main" ||
+|| default_id_columns | **string**
+
+List of columns used as identifiers for upsert operations, separated by ','. ||
+|| default_partition_by | **string**
+
+Comma-separated list of columns or transform expressions for table partitioning.
+Defines physical data layout for query optimization.
+Examples:
+- "date"
+- "year,month"
+- "year(timestamp),month(timestamp)"
+- "days(timestamp)"
+- "bucket(16,user_id)" ||
+|| evolve_schema_enabled | **bool**
+
+Enable automatic schema evolution.
+Default: false ||
+|| schema_force_optional | **bool**
+
+Force all columns to be nullable (optional).
+Default: false ||
+|| schema_case_insensitive | **bool**
+
+Enable case-insensitive field name matching.
+Default: false ||
+|#
+
+## IcebergControl {#yandex.cloud.mdb.kafka.v1.IcebergControl}
+
+#|
+||Field | Description ||
+|| group_id_prefix | **string**
+
+Consumer group ID prefix for control topic.
+Default: "cg-control" ||
+|| commit_interval_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Interval between commits in milliseconds.
+Default: 300000 (5 minutes) ||
+|| commit_timeout_ms | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Commit operation timeout in milliseconds.
+Default: 30000 (30 seconds) ||
+|| commit_threads | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Number of threads for commit operations.
+Default: cores * 2 ||
+|| transactional_prefix | **string**
+
+Prefix for transactional operations.
+Default: "" ||
 |#

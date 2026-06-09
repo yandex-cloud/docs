@@ -6,16 +6,16 @@
 
 ## Отказоустойчивость
 
- - [Рекомендации по отказоустойчивости в Yandex Cloud](fault-tolerance.md)
+ - [Рекомендации по отказоустойчивости в {{ yandex-cloud }}](fault-tolerance.md)
 
- - [Развертывание веб-приложения в отказоустойчивой конфигурации в Yandex Cloud](app-in-k8s.md)
+ - [Развертывание веб-приложения в отказоустойчивой конфигурации в {{ yandex-cloud }}](app-in-k8s.md)
 
-### Тестирование отказоустойчивости в Yandex Cloud
+### Тестирование отказоустойчивости в {{ yandex-cloud }}
 
- - [Тестирование инфраструктуры на основе Application Load Balancer](testing-zone-failure-for-alb.md)
+ - [Тестирование инфраструктуры на основе {{ alb-name }}](testing-zone-failure-for-alb.md)
 
- - [Тестирование инфраструктуры на основе Network Load Balancer](testing-zone-failure.md)
+ - [Тестирование инфраструктуры на основе {{ network-load-balancer-name }}](testing-zone-failure.md)
 
 ## MLOps
 
- - [Управление MLOps в Managed Service for GitLab](mlops-in-managed-gitlab.md)
+ - [Управление MLOps в {{ mgl-name }}](mlops-in-managed-gitlab.md)

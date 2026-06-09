@@ -1,9 +1,15 @@
 # Добавить дополнительный сетевой интерфейс на виртуальную машину
 
 
-У виртуальной машины может быть один или несколько [сетевых интерфейсов](../../concepts/network.md). Подробнее о максимальном количестве сетевых интерфейсов на ВМ см. в [Квоты и лимиты в Compute Cloud](../../concepts/limits.md). 
+У виртуальной машины может быть один или несколько [сетевых интерфейсов](../../concepts/network.md). Подробнее о максимальном количестве сетевых интерфейсов на ВМ в разделе [{#T}](../../concepts/limits.md). 
 
 Добавить сетевые интерфейсы можно как на [запущенные](#add-to-running), так и на [остановленные](#add-to-stopped) ВМ. Для сохранения [сетевой связности](../../../vpc/concepts/routing.md#rt-vm) рекомендуется добавлять сетевые интерфейсы на остановленные ВМ.
+
+{% note tip %}
+
+Если вы хотите привязать к ВМ публичный IP-адрес, то воспользуйтесь [инструкцией](vm-attach-public-ip.md).
+
+{% endnote %}
 
 ## Добавление сетевого интерфейса на остановленную ВМ {#add-to-stopped}
 
@@ -11,9 +17,41 @@
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Выберите ВМ, которой необходимо добавить дополнительный сетевой интерфейс.
+  1. На вкладке **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** нажмите кнопку **{{ ui-key.yacloud.compute.instance.overview.button_add-network-interface }}**.
+  1. В открывшемся окне укажите параметры сетевого интерфейса:
+
+     * **{{ ui-key.yacloud.compute.instances.field_network-interface-index }}** — отвечает за порядок подключения сетевых интерфейсов. Каждый сетевой интерфейс ВМ должен иметь уникальный номер.
+     * **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** — укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../../vpc/concepts/network.md#network) из списка. Если подсети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}** и [создайте](../../../vpc/operations/subnet-create.md) ее.
+     * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** выберите способ назначения адреса:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — назначить случайный IP-адрес из пула адресов {{ yandex-cloud }}. В этом случае можно включить [защиту от DDoS-атак](../../../vpc/ddos-protection/index.md) при помощи соответствующей опции.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_list }}` — выбрать публичный IP-адрес из списка зарезервированных заранее статических адресов. Подробнее читайте в разделе [{#T}](../../../vpc/operations/set-static-ip.md).
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_none }}` — не назначать публичный IP-адрес.
+
+     * **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}** — выберите [группы безопасности](../../../vpc/concepts/security-groups.md). Если оставить поле пустым, виртуальной машине будет назначена группа безопасности по умолчанию.
+     * Разверните блок **{{ ui-key.yacloud.component.compute.network-select.section_additional }}** и в поле **{{ ui-key.yacloud.component.internal-v4-address-field.field_internal-ipv4-address }}** выберите способ назначения внутренних адресов:
+
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` — чтобы назначить случайный IP-адрес из пула адресов, доступных в выбранной подсети.
+       * `{{ ui-key.yacloud.component.compute.network-select.switch_manual }}` — чтобы задать внутренний IP-адрес ВМ вручную.
+       * При необходимости включите опцию **{{ ui-key.yacloud.common.field_ddos-protection-provider }}**. Опция доступна, если ранее в настройках публичного адреса вы выбрали автоматический способ назначения адреса.
+
+     * (Опционально) Создайте записи для ВМ в [зоне DNS](../../../dns/concepts/dns-zone.md):
+     
+       * Разверните блок **{{ ui-key.yacloud.dns.label_dns-internal-settings }}** и нажмите **{{ ui-key.yacloud.dns.button_add-record }}**.
+       * Укажите зону, FQDN и время жизни записи. При указании FQDN для зоны доступна опция `{{ ui-key.yacloud.dns.label_auto-select-zone }}`.
+       
+         Вы можете добавить несколько записей во [внутренние зоны](../../../dns/concepts/dns-zone.md) DNS. Подробнее см. [Интеграция Cloud DNS с Compute Cloud](../../../dns/concepts/compute-integration.md).
+
+       * Чтобы создать еще одну запись, нажмите кнопку **{{ ui-key.yacloud.dns.button_add-record }}**.
+
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -34,8 +72,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -59,10 +97,10 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |       RANGE       |
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      | bucqps2lt75g******** | subnet-ru-central1-a1 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.1.0/24]  |
-      | e2lrucutusnd******** | subnet-ru-central1-a2 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.2.0/24]  |
-      | e2lv9c6aek1d******** | subnet-ru-central1-a3 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.4.0/24]  |
-      | bltign9kcffv******** | default-ru-central1-b | c64pv6m0aqq6******** |                | ru-central1-b | [192.168.3.0/24]  |
+      | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.1.0/24]  |
+      | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.2.0/24]  |
+      | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.4.0/24]  |
+      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.3.0/24]  |
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
       ```
 
@@ -139,7 +177,7 @@
       * `--network-interface-index` — номер создаваемого сетевого интерфейса ВМ: число в диапазоне от `0` до `15`, за исключением уже занятых номеров.
       * `--security-group-id` — идентификатор группы безопасности, которая будет привязана к создаваемому сетевому интерфейсу. К одному сетевому интерфейсу вы можете привязать одновременно до пяти групп безопасности, для этого перечислите их идентификаторы через запятую.
       * `--ipv4-address` — внутренний IP-адрес, который будет назначен сетевому интерфейсу. Адрес должен относиться к диапазону адресов, входящих в подключаемую к интерфейсу подсеть. Укажите значение `auto`, чтобы внутренний IP-адрес был назначен автоматически из пула адресов, доступных в подсети.
-      * `--nat-ip-version ipv4` — задайте этот параметр, если к создаваемому сетевому интерфейсу требуется привязать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Если параметр `--nat-address` не задан, к сетевому интерфейсу будет привязан динамический публичный IP-адрес из пула доступных адресов Yandex Cloud.
+      * `--nat-ip-version ipv4` — задайте этот параметр, если к создаваемому сетевому интерфейсу требуется привязать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Если параметр `--nat-address` не задан, к сетевому интерфейсу будет привязан динамический публичный IP-адрес из пула доступных адресов {{ yandex-cloud }}.
       
           Если создаваемому интерфейсу не нужен публичный IP-адрес, исключите параметр `--nat-ip-version`.
       
@@ -183,15 +221,18 @@
       yc compute instance start <идентификатор_ВМ>
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. В конфигурационном файле в описании ресурса `yandex_compute_instance` добавьте новый блок `network_interface` и параметр `allow_stopping_for_update`:
 
@@ -214,7 +255,7 @@
       * `subnet_id` — идентификатор [подсети](../../../vpc/concepts/network.md#subnet).
       * `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
 
-      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера](../../../terraform/resources/compute_instance.md).
+      Более подробную информацию о параметрах ресурса `yandex_compute_instance` см. в [документации провайдера]({{ tf-provider-resources-link }}/compute_instance).
 
   1. Создайте ресурсы:
 
@@ -237,7 +278,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -246,7 +287,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Terraform создаст и обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
+      {{ TF }} создаст и обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
@@ -261,7 +302,7 @@
 
 {% note info %}
 
-Функциональность по добавлению и удалению сетевых интерфейсов на работающих ВМ находится на [стадии Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ к функциональности, [обратитесь](https://center.yandex.cloud/support) в техническую поддержку.
+Функциональность по добавлению и удалению сетевых интерфейсов на работающих ВМ находится на [стадии Preview](../../../overview/concepts/launch-stages.md). Чтобы получить доступ к функциональности, [обратитесь]({{ link-console-support }}) в техническую поддержку.
 
 {% endnote %}
 
@@ -271,7 +312,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -292,8 +333,8 @@
       +----------------------+-----------------+---------------+---------+----------------------+
       |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
       +----------------------+-----------------+---------------+---------+----------------------+
-      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
-      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      | fhm0b28lgfp4******** | first-instance  | {{ region-id }}-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | {{ region-id }}-a | RUNNING | my second vm via CLI |
       +----------------------+-----------------+---------------+---------+----------------------+
       ```
 
@@ -311,10 +352,10 @@
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
       |          ID          |         NAME          |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |       RANGE       |
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
-      | bucqps2lt75g******** | subnet-ru-central1-a1 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.1.0/24]  |
-      | e2lrucutusnd******** | subnet-ru-central1-a2 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.2.0/24]  |
-      | e2lv9c6aek1d******** | subnet-ru-central1-a3 | c64pv6m0aqq6******** |                | ru-central1-a | [192.168.4.0/24]  |
-      | bltign9kcffv******** | default-ru-central1-b | c64pv6m0aqq6******** |                | ru-central1-b | [192.168.3.0/24]  |
+      | bucqps2lt75g******** | subnet-{{ region-id }}-a1 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.1.0/24]  |
+      | e2lrucutusnd******** | subnet-{{ region-id }}-a2 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.2.0/24]  |
+      | e2lv9c6aek1d******** | subnet-{{ region-id }}-a3 | c64pv6m0aqq6******** |                | {{ region-id }}-a | [192.168.4.0/24]  |
+      | bltign9kcffv******** | default-{{ region-id }}-b | c64pv6m0aqq6******** |                | {{ region-id }}-b | [192.168.3.0/24]  |
       +----------------------+-----------------------+----------------------+----------------+---------------+-------------------+
       ```
 
@@ -393,7 +434,7 @@
       * `--network-interface-index` — номер создаваемого сетевого интерфейса ВМ: число в диапазоне от `0` до `15`, за исключением уже занятых номеров.
       * `--security-group-id` — идентификатор группы безопасности, которая будет привязана к создаваемому сетевому интерфейсу. К одному сетевому интерфейсу вы можете привязать одновременно до пяти групп безопасности, для этого перечислите их идентификаторы через запятую.
       * `--ipv4-address` — внутренний IP-адрес, который будет назначен сетевому интерфейсу. Адрес должен относиться к диапазону адресов, входящих в подключаемую к интерфейсу подсеть. Укажите значение `auto`, чтобы внутренний IP-адрес был назначен автоматически из пула адресов, доступных в подсети.
-      * `--nat-ip-version ipv4` — задайте этот параметр, если к создаваемому сетевому интерфейсу требуется привязать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Если параметр `--nat-address` не задан, к сетевому интерфейсу будет привязан динамический публичный IP-адрес из пула доступных адресов Yandex Cloud.
+      * `--nat-ip-version ipv4` — задайте этот параметр, если к создаваемому сетевому интерфейсу требуется привязать [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses). Если параметр `--nat-address` не задан, к сетевому интерфейсу будет привязан динамический публичный IP-адрес из пула доступных адресов {{ yandex-cloud }}.
       
           Если создаваемому интерфейсу не нужен публичный IP-адрес, исключите параметр `--nat-ip-version`.
       
@@ -485,17 +526,17 @@
 
 Для того чтобы активировать добавленный сетевой интерфейс, [перезапустите](vm-stop-and-start.md#restart) ВМ. Для ОС Windows перезапуск ВМ — это единственный способ активировать интерфейс.
 
-Если ваша ВМ под управлением ОС Linux, и у вас нет возможности перезапустить ее, вы можете активировать сетевой интерфейс без перезапуска ВМ. При этом, чтобы избежать потери сетевой связности, выполнять настройки необходимо из [серийной консоли](../serial-console/index.md):
+Если ваша ВМ под управлением ОС Linux и у вас нет возможности перезапустить ее, вы можете активировать сетевой интерфейс без перезапуска ВМ. При этом, чтобы избежать потери сетевой связности, выполнять настройки необходимо из [серийной консоли](../../concepts/serial-console.md):
 
 {% list tabs group=operating_system %}
 
 - Linux {#linux}
 
-  1. [Включите](../serial-console/index.md#turn-on-for-current-instance) на ВМ доступ к серийной консоли. 
+  1. [Включите](../serial-console/index.md#enable) на ВМ доступ к серийной консоли.
 
       При создании пользователя для аутентификации на ВМ через серийную консоль добавьте этого пользователя в группу `sudo` с помощью команды `sudo usermod -a -G sudo <имя_пользователя>`.
 
-  1. Подключитесь к серийной консоли ВМ [с помощью CLI](../serial-console/connect-cli.md#connect-to-serial-console) или [по SSH](../serial-console/connect-ssh.md#connect-to-serial-console).
+  1. [Подключитесь](../serial-console/connect-ssh.md) к серийной консоли ВМ с помощью {{ yandex-cloud }} CLI или по SSH.
 
   1. Активируйте добавленный сетевой интерфейс:
 
@@ -517,7 +558,7 @@
       sudo ip route del default dev <имя_интерфейса>
       ```
 
-  1. [Отключите](../serial-console/disable.md) доступ к серийной консоли ВМ, если он вам больше не нужен.
+  1. [Отключите](../serial-console/index.md#disable) доступ к серийной консоли ВМ, если он вам больше не нужен.
 
 {% endlist %}
 
@@ -627,12 +668,12 @@
          Node Type . . . . . . . . . . . . : Hybrid
          IP Routing Enabled. . . . . . . . : No
          WINS Proxy Enabled. . . . . . . . : No
-         DNS Suffix Search List. . . . . . : ru-central1.internal
+         DNS Suffix Search List. . . . . . : {{ region-id }}.internal
                                              auto.internal
 
       Ethernet adapter Ethernet:
 
-         Connection-specific DNS Suffix  . : ru-central1.internal
+         Connection-specific DNS Suffix  . : {{ region-id }}.internal
          Description . . . . . . . . . . . : Red Hat VirtIO Ethernet Adapter
          Physical Address. . . . . . . . . : D0-2D-7E-E7-46-C5
          DHCP Enabled. . . . . . . . . . . : Yes
@@ -649,12 +690,12 @@
          DNS Servers . . . . . . . . . . . : 192.168.4.2
          NetBIOS over Tcpip. . . . . . . . : Enabled
          Connection-specific DNS Suffix Search List :
-                                             ru-central1.internal
+                                             {{ region-id }}.internal
                                              auto.internal
 
       Ethernet adapter eth0:
 
-         Connection-specific DNS Suffix  . : ru-central1.internal
+         Connection-specific DNS Suffix  . : {{ region-id }}.internal
          Description . . . . . . . . . . . : Red Hat VirtIO Ethernet Adapter #2
          Physical Address. . . . . . . . . : D0-0D-7E-E7-46-C5
          DHCP Enabled. . . . . . . . . . . : Yes
@@ -671,12 +712,12 @@
          DNS Servers . . . . . . . . . . . : 192.168.1.2
          NetBIOS over Tcpip. . . . . . . . : Enabled
          Connection-specific DNS Suffix Search List :
-                                             ru-central1.internal
+                                             {{ region-id }}.internal
                                              auto.internal
 
       Ethernet adapter Ethernet 2:
 
-         Connection-specific DNS Suffix  . : ru-central1.internal
+         Connection-specific DNS Suffix  . : {{ region-id }}.internal
          Description . . . . . . . . . . . : Red Hat VirtIO Ethernet Adapter #3
          Physical Address. . . . . . . . . : D0-1D-7E-E7-46-C5
          DHCP Enabled. . . . . . . . . . . : Yes
@@ -693,10 +734,16 @@
          DNS Servers . . . . . . . . . . . : 192.168.2.2
          NetBIOS over Tcpip. . . . . . . . : Enabled
          Connection-specific DNS Suffix Search List :
-                                             ru-central1.internal
+                                             {{ region-id }}.internal
                                              auto.internal
       ```
 
       Все сетевые интерфейсы запущены и активны.
 
 {% endlist %}
+
+#### См. также {#see-also}
+
+* [{#T}](vm-attach-public-ip.md)
+* [{#T}](vm-set-static-ip.md)
+* [{#T}](../../../vpc/operations/set-static-ip.md)

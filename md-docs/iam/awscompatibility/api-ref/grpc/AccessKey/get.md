@@ -1,7 +1,6 @@
 # Access Key, gRPC: AccessKeyService.Get
 
 Returns the specified access key.
-
 To get the list of available access keys, make a [List](list.md#List) request.
 
 ## gRPC request

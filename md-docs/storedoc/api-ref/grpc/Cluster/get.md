@@ -1,8 +1,7 @@
 # Managed Service for MongoDB API, gRPC: ClusterService.Get
 
 Returns the specified MongoDB Cluster resource.
-
-To get the list of available MongoDB Cluster resources, make a [List](list.md#List) request.
+To get the list of available MongoDB Cluster resources, make a [List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 ## gRPC request
 
@@ -21,7 +20,7 @@ To get the list of available MongoDB Cluster resources, make a [List](list.md#Li
 || cluster_id | **string**
 
 Required field. ID of the MongoDB Cluster resource to return.
-To get the cluster ID, use a [ClusterService.List](list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../../managed-mongodb/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -3563,7 +3562,13 @@ The maximum string length in characters is 50. ||
         }
       }
     },
-    "full_version": "string"
+    "full_version": "string",
+    "autocompact_config": {
+      "enabled": "bool",
+      "target_free_space": "google.protobuf.Int64Value",
+      "bloat_percent": "google.protobuf.DoubleValue",
+      "compaction_type": "CompactionType"
+    }
   },
   "network_id": "string",
   "health": "Health",
@@ -3590,7 +3595,7 @@ The maximum string length in characters is 50. ||
 }
 ```
 
-A managed MongoDB cluster. For more information, see the [documentation](../../../concepts/index.md).
+A managed MongoDB cluster. For more information, see the [documentation](../../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||
@@ -3635,10 +3640,10 @@ ID of the network that the cluster belongs to. ||
 
 Aggregated cluster health.
 
-- `HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is UNKNOWN).
-- `ALIVE`: Cluster is alive and well ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is ALIVE).
-- `DEAD`: Cluster is inoperable ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is DEAD).
-- `DEGRADED`: Cluster is working below capacity ([Host.health](listHosts.md#yandex.cloud.mdb.mongodb.v1.Host) for at least one host in the cluster is not ALIVE). ||
+- `HEALTH_UNKNOWN`: State of the cluster is unknown ([Host.health](../../../../managed-mongodb/api-ref/grpc/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is UNKNOWN).
+- `ALIVE`: Cluster is alive and well ([Host.health](../../../../managed-mongodb/api-ref/grpc/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is ALIVE).
+- `DEAD`: Cluster is inoperable ([Host.health](../../../../managed-mongodb/api-ref/grpc/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for every host in the cluster is DEAD).
+- `DEGRADED`: Cluster is working below capacity ([Host.health](../../../../managed-mongodb/api-ref/grpc/Cluster/listHosts#yandex.cloud.mdb.mongodb.v1.Host) for at least one host in the cluster is not ALIVE). ||
 || status | enum **Status**
 
 Current state of the cluster.
@@ -3698,7 +3703,6 @@ Version of MongoDB server software. Possible values: `3.6`, `4.0`, `4.2`, `4.4`,
 || feature_compatibility_version | **string**
 
 MongoDB feature compatibility version. See usage details in [MongoDB documentation](https://docs.mongodb.com/manual/reference/command/setFeatureCompatibilityVersion/).
-
 Possible values:
 * `3.6` - persist data compatibility for version 3.6. After setting this option the data will not be compatible with 3.4 or lower.
 * `4.0` - persist data compatibility for version 4.0. After setting this option the data will not be compatible with 3.6 or lower.
@@ -3787,6 +3791,9 @@ Configuration and resource allocation for a MongoDB Enterprise cluster. ||
 || full_version | **string**
 
 Full version ||
+|| autocompact_config | **[AutoCompactConfig](#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig)**
+
+AutoCompact config ||
 |#
 
 ## Mongodb3_6 {#yandex.cloud.mdb.mongodb.v1.Mongodb3_6}
@@ -3960,7 +3967,7 @@ Acceptable values are 10 to 32768, inclusive. ||
 || resource_preset_id | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../../concepts/instance-types.md). ||
+All available presets are listed in the [documentation](../../../../managed-mongodb/concepts/instance-types). ||
 || disk_size | **int64**
 
 Volume of the storage available to a host, in bytes. ||
@@ -3979,14 +3986,10 @@ Possible values:
 ||Field | Description ||
 || planned_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
+Amount of used storage for automatic disk scaling in the maintenance window, 0 means disabled, in percent. ||
 || emergency_usage_threshold | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
-Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent.
-
-Acceptable values are 0 to 100, inclusive. ||
+Amount of used storage for immediately  automatic disk scaling, 0 means disabled, in percent. ||
 || disk_size_limit | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Limit on how large the storage for database instances can automatically grow, in bytes. ||
@@ -3996,7 +3999,9 @@ Limit on how large the storage for database instances can automatically grow, in
 
 #|
 ||Field | Description ||
-|| config | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)** ||
+|| config | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)**
+
+Configuration for mongocfg 3.6 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongocfg hosts. ||
@@ -4101,7 +4106,9 @@ Acceptable values are 10 to 32768, inclusive. ||
 
 #|
 ||Field | Description ||
-|| config | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)** ||
+|| config | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)**
+
+Configuration for mongos 3.6 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongos hosts. ||
@@ -4150,8 +4157,12 @@ Acceptable values are 10 to 32768, inclusive. ||
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)** ||
-|| config_mongocfg | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)** ||
+|| config_mongos | **[MongosConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet3_6)**
+
+Configuration for mongos of mongoinfra 3.6 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet3_6](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet3_6)**
+
+Configuration for mongocfg of mongoinfra 3.6 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -4479,8 +4490,12 @@ Acceptable values are 10 to 32768, inclusive. ||
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_0)** ||
-|| config_mongocfg | **[MongoCfgConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_0)** ||
+|| config_mongos | **[MongosConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_0)**
+
+Configuration for mongos of mongoinfra 4.0 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet4_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_0)**
+
+Configuration for mongocfg of mongoinfra 4.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -4887,8 +4902,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_2)** ||
-|| config_mongocfg | **[MongoCfgConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_2)** ||
+|| config_mongos | **[MongosConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_2)**
+
+Configuration for mongos of mongoinfra 4.2 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet4_2](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_2)**
+
+Configuration for mongocfg of mongoinfra 4.2 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -5295,8 +5314,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4)** ||
-|| config_mongocfg | **[MongoCfgConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4)** ||
+|| config_mongos | **[MongosConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4)**
+
+Configuration for mongos of mongoinfra 4.4 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet4_4](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4)**
+
+Configuration for mongocfg of mongoinfra 4.4 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -5708,8 +5731,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0)** ||
-|| config_mongocfg | **[MongoCfgConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0)** ||
+|| config_mongos | **[MongosConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0)**
+
+Configuration for mongos of mongoinfra 5.0 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet5_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0)**
+
+Configuration for mongocfg of mongoinfra 5.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -6121,8 +6148,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0)** ||
-|| config_mongocfg | **[MongoCfgConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0)** ||
+|| config_mongos | **[MongosConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0)**
+
+Configuration for mongos of mongoinfra 6.0 hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet6_0](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0)**
+
+Configuration for mongocfg of mongoinfra 6.0 hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -6580,8 +6611,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)** ||
-|| config_mongocfg | **[MongoCfgConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)** ||
+|| config_mongos | **[MongosConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet4_4_enterprise)**
+
+Configuration for mongos of mongoinfra 4.4 enterprise hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet4_4_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet4_4_enterprise)**
+
+Configuration for mongocfg of mongoinfra 4.4 enterprise hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -7047,8 +7082,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)** ||
-|| config_mongocfg | **[MongoCfgConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)** ||
+|| config_mongos | **[MongosConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet5_0_enterprise)**
+
+Configuration for mongos of mongoinfra 5.0 enterprise hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet5_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet5_0_enterprise)**
+
+Configuration for mongocfg of mongoinfra 5.0 enterprise hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -7514,8 +7553,12 @@ The number of elements must be in the range 1-3.
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)** ||
-|| config_mongocfg | **[MongoCfgConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)** ||
+|| config_mongos | **[MongosConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet6_0_enterprise)**
+
+Configuration for mongos of mongoinfra 6.0 enterprise hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet6_0_enterprise](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet6_0_enterprise)**
+
+Configuration for mongocfg of mongoinfra 6.0 enterprise hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
@@ -7528,7 +7571,9 @@ Disk size autoscaling settings ||
 
 #|
 ||Field | Description ||
-|| profiling_enabled | **bool** ||
+|| profiling_enabled | **bool**
+
+Whether profiling is enabled for the cluster. ||
 |#
 
 ## Access {#yandex.cloud.mdb.mongodb.v1.Access}
@@ -8208,14 +8253,39 @@ Audit filter, should be valid JSON object string ||
 
 #|
 ||Field | Description ||
-|| config_mongos | **[MongosConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet)** ||
-|| config_mongocfg | **[MongoCfgConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet)** ||
+|| config_mongos | **[MongosConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongosConfigSet)**
+
+Configuration for mongos of mongoinfra hosts. ||
+|| config_mongocfg | **[MongoCfgConfigSet](#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfigSet)**
+
+Configuration for mongocfg of mongoinfra hosts. ||
 || resources | **[Resources](#yandex.cloud.mdb.mongodb.v1.Resources)**
 
 Resources allocated to mongoinfra (mongos+mongocfg) hosts. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.mongodb.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
+|#
+
+## AutoCompactConfig {#yandex.cloud.mdb.mongodb.v1.AutoCompactConfig}
+
+#|
+||Field | Description ||
+|| enabled | **bool**
+
+Enable autocompact. ||
+|| target_free_space | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+Minimum estimated amount of space to be freed by compact operation to run. ||
+|| bloat_percent | **[google.protobuf.DoubleValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/double-value)**
+
+Minimum percentage of bloat of collection to be compacted. ||
+|| compaction_type | enum **CompactionType**
+
+Type of compaction. Either switch primary to run compaction on all hosts or ignore primary host.
+
+- `COMPACTION_TYPE_IGNORE_PRIMARY`
+- `COMPACTION_TYPE_SWITCH_PRIMARY` ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.mongodb.v1.MaintenanceWindow}
@@ -8257,13 +8327,13 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `MON`
-- `TUE`
-- `WED`
-- `THU`
-- `FRI`
-- `SAT`
-- `SUN` ||
+- `MON`: Monday.
+- `TUE`: Tuesday.
+- `WED`: Wednesday.
+- `THU`: Thursday.
+- `FRI`: Friday.
+- `SAT`: Saturday.
+- `SUN`: Sunday. ||
 || hour | **int64**
 
 Hour of the day in UTC (in `HH` format).

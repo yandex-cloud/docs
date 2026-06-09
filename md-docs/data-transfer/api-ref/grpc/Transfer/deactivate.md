@@ -1,6 +1,7 @@
 # Data Transfer API, gRPC: TransferService.Deactivate
 
 Deactivates the specified transfer.
+
 To get the list of all available transfers, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -20,6 +21,7 @@ To get the list of all available transfers, make a [List](list.md#List) request.
 || transfer_id | **string**
 
 Identifier of the transfer to be deactivated.
+
 To get the list of all available transfers, make a [List](../Endpoint/list.md#List) request. ||
 |#
 

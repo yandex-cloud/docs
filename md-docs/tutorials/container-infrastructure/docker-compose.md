@@ -1,10 +1,10 @@
-# Создание ВМ с Container Optimized Image и несколькими Docker-контейнерами
+# Создание ВМ с {{ coi }} и несколькими Docker-контейнерами
 
-В этой инструкции вы создадите виртуальную машину из образа [Container Optimized Image](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри. Для создания ВМ будет использована [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).
+В этой инструкции вы создадите виртуальную машину из образа [{{ coi }}](../../cos/concepts/index.md) с несколькими [Docker-контейнерами](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) внутри. Для создания ВМ будет использована [Docker Compose спецификация](../../cos/concepts/coi-specifications.md#compose-spec).
 
 ## Перед началом работы {#before-you-begin}
 
-Если нужный Docker-образ загружен в Yandex Container Registry, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [container-registry.images.puller](../../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе Container Optimized Image будет скачивать из реестра Docker-образ.
+Если нужный Docker-образ загружен в {{ container-registry-full-name }}, то создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с ролью [{{ roles-cr-puller }}](../../container-registry/security/index.md#choosing-roles) на используемый реестр. От его имени ВМ на базе {{ coi }} будет скачивать из реестра Docker-образ.
 
 ## Создайте ВМ с несколькими Docker-контейнерами {#docker-compose}
 
@@ -12,12 +12,12 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-  Чтобы создать ВМ на базе образа Container Optimized Image и несколькими Docker-контейнерами.
-  1. Посмотрите описание команды CLI для создания ВМ на базе образа Container Optimized Image:
+  Чтобы создать ВМ на базе образа {{ coi }} и несколькими Docker-контейнерами.
+  1. Посмотрите описание команды CLI для создания ВМ на базе образа {{ coi }}:
 
      ```bash
      yc compute instance create-with-container --help
@@ -45,7 +45,7 @@
      ```bash
      yc compute instance create-with-container \
        --name my-vm \
-       --zone ru-central1-a \
+       --zone {{ region-id }}-a \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
@@ -60,8 +60,8 @@
      * `--create-boot-disk size` — размер загрузочного диска.
 
         Чтобы узнать минимальный размер загрузочного диска, необходимый для установки образа, выполните команду:
-        * `yc compute image get-latest-from-family container-optimized-image --folder-id standard-images` — если устанавливаете образ Container Optimized Image;
-        * `yc compute image get-latest-from-family container-optimized-image-gpu --folder-id standard-images` — если устанавливаете образ Container Optimized Image GPU.
+        * `yc compute image get-latest-from-family container-optimized-image --folder-id standard-images` — если устанавливаете образ {{ coi }};
+        * `yc compute image get-latest-from-family container-optimized-image-gpu --folder-id standard-images` — если устанавливаете образ {{ coi }} GPU.
         
         Минимальный размер загрузочного диска указан в параметре `min_disk_size`.
 
@@ -69,7 +69,7 @@
      * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--docker-compose-file` — YAML-файл со спецификацией контейнеров.
 
-     После создания ВМ появится в списке ВМ в разделе **Compute Cloud** в [консоли управления](https://console.yandex.cloud).
+     После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
   1. Проверьте результат.
      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
      1. Посмотрите список запущенных Docker-контейнеров:

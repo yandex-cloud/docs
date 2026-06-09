@@ -1,13 +1,12 @@
 # Cloud Interconnect API, REST: PrivateConnection.Get
 
 Returns the specified PrivateConnection resource.
-
 To get the list of available PrivateConnection resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}
+GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}
 ```
 
 ## Path parameters
@@ -17,7 +16,9 @@ GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectio
 || privateConnectionId | **string**
 
 Required field. ID of the PrivateConnection resource to return.
-To get the privateConnection ID use a [PrivateConnectionService.List](list.md#List) request. ||
+To get the privateConnection ID use a [PrivateConnectionService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.PrivateConnection}
@@ -30,7 +31,6 @@ To get the privateConnection ID use a [PrivateConnectionService.List](list.md#Li
   "name": "string",
   "description": "string",
   "folderId": "string",
-  "regionId": "string",
   "trunkConnectionId": "string",
   "vlanId": "string",
   "ipv4Peering": {
@@ -66,13 +66,10 @@ The name must be unique within the folder.
 Value must match the regular expression ``\\|[a-zA-Z]([-_a-zA-Z0-9]{0,61}[a-zA-Z0-9])?``. ||
 || description | **string**
 
-Optional description of the privateConnection. 0-256 characters long. ||
+Description of the privateConnection. 0-256 characters long. ||
 || folderId | **string**
 
 ID of the folder that the privateConnection belongs to. ||
-|| regionId | **string**
-
-ID of the region that the privateConnection belongs to. ||
 || trunkConnectionId | **string**
 
 ID of the trunk_connection that the privateConnection belongs to. ||
@@ -99,7 +96,6 @@ Each key must match the regular expression `[a-z][-_0-9a-z]*`. ||
 
 Status of the privateConnection.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`
 - `UPDATING`
 - `DELETING`
@@ -123,15 +119,21 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || peeringSubnet | **string**
 
 PeeringSubnet.
-It's an ip with format ipPrefix/length where address part of ipPrefix is 0. ||
+It's an ip with format ipPrefix/length where address part of ipPrefix is 0.
+
+The maximum string length in characters is 50. ||
 || peerIp | **string**
 
 PeerIp.
-It's an ip with just an ipAddress format without mask. ||
+It's an ip with just an ipAddress format without mask.
+
+The maximum string length in characters is 50. ||
 || cloudIp | **string**
 
 CloudIp.
-It's an ip with just an ipAddress format without mask. ||
+It's an ip with just an ipAddress format without mask.
+
+The maximum string length in characters is 50. ||
 || peerBgpAsn | **string** (int64)
 
 PeerBgpAsn.
@@ -142,7 +144,9 @@ CloudBgpAsn. ||
 || peerBgpMd5Key | **string**
 
 PeerBgpMd5Key.
-Optional. ||
+Optional.
+
+The maximum string length in characters is 200. ||
 |#
 
 ## StaticRoute {#yandex.cloud.cic.v1.PrivateConnection.StaticRoute}

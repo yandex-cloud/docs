@@ -1,18 +1,18 @@
-# Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
+# Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK
 
-# Отправка запросов к API Yandex Cloud через Yandex Cloud Python SDK
+# Отправка запросов к API {{ yandex-cloud }} через {{ yandex-cloud }} Python SDK
 
 {% note warning %}
 
-Руководство тестировалось на кластерах с версией Apache Airflow™ ниже 3.0.
+Руководство тестировалось на кластерах с версией {{ AF }} ниже 3.0.
 
 {% endnote %}
 
-При работе с Managed Service for Apache Airflow™ вы можете использовать [Yandex Cloud Python SDK](https://github.com/yandex-cloud/python-sdk) для выполнения запросов к API Yandex Cloud. Сервис поддерживает отправку запросов к любым типам облачных ресурсов. При этом ручная настройка аутентификации в облаке не требуется. Yandex Cloud Python SDK аутентифицируется через [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру Apache Airflow™.
+При работе с {{ maf-name }} вы можете использовать [{{ yandex-cloud }} Python SDK](https://github.com/yandex-cloud/python-sdk) для выполнения запросов к API {{ yandex-cloud }}. Сервис поддерживает отправку запросов к любым типам облачных ресурсов. При этом ручная настройка аутентификации в облаке не требуется. {{ yandex-cloud }} Python SDK аутентифицируется через [IAM-токен](../../iam/concepts/authorization/iam-token.md) сервисного аккаунта, который привязан к кластеру {{ AF }}.
 
-Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), отправляющий запрос к API Yandex Cloud. Запрос возвращает список виртуальных машин в каталоге, в котором создан кластер Apache Airflow™.
+Ниже рассматривается [направленный ациклический граф (DAG)](../../managed-airflow/concepts/index.md#about-the-service), отправляющий запрос к API {{ yandex-cloud }}. Запрос возвращает список виртуальных машин в каталоге, в котором создан кластер {{ AF }}.
 
-Чтобы использовать Yandex Cloud Python SDK для отправки запросов к API Yandex Cloud:
+Чтобы использовать {{ yandex-cloud }} Python SDK для отправки запросов к API {{ yandex-cloud }}:
 
 1. [Подготовьте инфраструктуру](#create-infrastracture).
 1. [Подготовьте DAG-файл и запустите граф](#dag).
@@ -23,9 +23,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for Apache Airflow™: вычислительные ресурсы компонентов кластера (см. [тарифы Managed Service for Apache Airflow™](../../managed-airflow/pricing.md)).
-* Бакет Yandex Object Storage: использование хранилища и выполнение операций с данными (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastructure}
@@ -33,13 +33,13 @@
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md#create-sa) `airflow-sa` с ролями:
 
    * `compute.viewer`;
-   * `managed-airflow.integrationProvider`.
+   * `{{ roles.maf.integrationProvider }}`.
 
-1. [Создайте бакет Object Storage](../../storage/operations/buckets/create.md) с произвольными настройками.
+1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
 
 1. [Отредактируйте ACL](../../storage/operations/buckets/edit-acl.md) созданного бакета так, чтобы у сервисного аккаунта `airflow-sa` было разрешение `READ`.
 
-1. [Создайте кластер Managed Service for Apache Airflow™](../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
+1. [Создайте кластер {{ maf-name }}](../../managed-airflow/operations/cluster-create.md#create-cluster) с параметрами:
 
    * **Сервисный аккаунт** — `airflow-sa`.
    * **Имя бакета** — имя созданного бакета.
@@ -87,11 +87,11 @@
 
    {% endcut %}
 
-   Аутентификация в облаке происходит через IAM-токен сервисного аккаунта, который привязан к кластеру Apache Airflow™. В созданном с параметрами по умолчанию объекте `yandexcloud.SDK()` данные для аутентификации через IAM-токен подставляются автоматически.
+   Аутентификация в облаке происходит через IAM-токен сервисного аккаунта, который привязан к кластеру {{ AF }}. В созданном с параметрами по умолчанию объекте `yandexcloud.SDK()` данные для аутентификации через IAM-токен подставляются автоматически.
 
-1. [Загрузите DAG-файл](../../storage/operations/objects/upload.md) `test_python_sdk.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе Apache Airflow™ автоматически.
+1. [Загрузите DAG-файл](../../storage/operations/objects/upload.md) `test_python_sdk.py` в созданный ранее бакет. В результате одноименный граф появится в веб-интерфейсе {{ AF }} автоматически.
 
-1. [Откройте веб-интерфейс Apache Airflow™](../../managed-airflow/operations/af-interfaces.md#web-gui).
+1. [Откройте веб-интерфейс {{ AF }}](../../managed-airflow/operations/af-interfaces.md#web-gui).
 
 1. Убедитесь, что в разделе **DAGs** появился новый граф `test_python_sdk`.
 
@@ -101,19 +101,19 @@
 
 ## Проверьте результат {#check-result}
 
-Чтобы проверить результат в веб-интерфейсе Apache Airflow™:
+Чтобы проверить результат в веб-интерфейсе {{ AF }}:
 
 1. В разделе **DAGs** откройте граф `test_python_sdk`.
 1. Перейдите в раздел **Grid**.
 1. Выберите задание **list_instances**.
 1. Перейдите в раздел **Logs**.
-1. Убедитесь, что в логах перечислены виртуальные машины из каталога, в котором создан кластер Apache Airflow™. Это значит, что запрос выполнен успешно.
+1. Убедитесь, что в логах перечислены виртуальные машины из каталога, в котором создан кластер {{ AF }}. Это значит, что запрос выполнен успешно.
 
 ## Удалите созданные ресурсы {#clear-out}
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
 1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
-1. [Бакет Object Storage](../../storage/operations/buckets/delete.md).
-1. [Кластер Managed Service for Apache Airflow™](../../managed-airflow/operations/cluster-delete.md#delete).
+1. [Бакет {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
+1. [Кластер {{ maf-name }}](../../managed-airflow/operations/cluster-delete.md#delete).
 1. [Виртуальную машину](../../compute/operations/vm-control/vm-delete.md).

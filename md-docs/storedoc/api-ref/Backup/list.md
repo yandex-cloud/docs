@@ -5,7 +5,7 @@ Retrieves the list of backups available for the specified folder.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/backups
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/backups
 ```
 
 ## Query parameters {#yandex.cloud.mdb.mongodb.v1.ListBackupsRequest}
@@ -74,7 +74,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## Backup {#yandex.cloud.mdb.mongodb.v1.Backup}
 
 A MongoDB Backup resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

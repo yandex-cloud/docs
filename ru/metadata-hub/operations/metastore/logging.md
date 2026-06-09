@@ -246,7 +246,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-   Подробнее см. в разделе [{#T}](../../../logging/operations/read-logs.md).
+   Подробнее читайте в разделе [{#T}](../../../logging/operations/read-logs.md).
 
 ## Передача данных в пользовательскую лог-группу {#custom}
 
@@ -478,6 +478,6 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-   Подробнее см. в разделе [{#T}](../../../logging/operations/read-logs.md).
+   Подробнее читайте в разделе [{#T}](../../../logging/operations/read-logs.md).
 
 {% include [metastore-trademark](../../../_includes/metadata-hub/metastore-trademark.md) %}

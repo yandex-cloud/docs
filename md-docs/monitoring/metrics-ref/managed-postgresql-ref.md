@@ -1,10 +1,10 @@
-# Метрики Yandex Managed Service for PostgreSQL
+# Метрики {{ mpg-full-name }}
 
-В этом разделе описаны метрики сервиса [Managed Service for PostgreSQL](../../managed-postgresql/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ mpg-name }}](../../managed-postgresql/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for PostgreSQL:
+Общие метки для всех метрик сервиса {{ mpg-name }}:
 
 Метка | Значение
 ----|----
@@ -38,7 +38,7 @@ subcluster_name | Имя подкластера
 | `load.avg_1min`<br/>`DGAUGE`, % | Средняя нагрузка за 1 минуту. |
 | `load.avg_5min`<br/>`DGAUGE`, % | Средняя нагрузка за 5 минут. |
 | `n_cpus`<br/>`DGAUGE`, штуки | Предельное число используемых ядер. |
-| `pg_backend_cpu`<br/>`DGAUGE`, % | Утилизация CPU процессом PostgreSQL.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
+| `pg_backend_cpu`<br/>`DGAUGE`, % | Утилизация CPU процессом {{ PG }}.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 
 
 ## Метрики диска {#managed-postgresql-disk-metrics}
@@ -53,8 +53,8 @@ subcluster_name | Имя подкластера
 | `disk.used_bytes`<br/>`DGAUGE`, байты | Занятое место. |
 | `disk.used_inodes`<br/>`DGAUGE`, штуки | Занятое количество inodes. |
 | `disk.wal_size`<br/>`DGAUGE`, байты | Размер журнала упреждающей записи. |
-| `pg_backend_read_bytes`<br>`DGAUGE`, байты/с | Скорость чтения данных процессом PostgreSQL.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
-| `pg_backend_write_bytes`<br>`DGAUGE`, байты/с | Скорость записи данных процессом PostgreSQL.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
+| `pg_backend_read_bytes`<br>`DGAUGE`, байты/с | Скорость чтения данных процессом {{ PG }}.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
+| `pg_backend_write_bytes`<br>`DGAUGE`, байты/с | Скорость записи данных процессом {{ PG }}.<br/>Специальные метки:<ul><li>`backend_type` — тип бэкенда.</li><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 
 
 ## Метрики дисковых операций {#managed-postgresql-diskio-metrics}
@@ -146,37 +146,37 @@ subcluster_name | Имя подкластера
 | `n_unique_users`<br/>`DGAUGE`, штуки | Количество уникальных пользователей или аккаунтов, взаимодействующих с системой. |
 | `n_users`<br/>`DGAUGE`, штуки | Предельное число пользователей. |
 | `od_cores.count`<br/>`DGAUGE`, штуки | Количество ядер on-demand.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `pg_log_counter.error_duplicate_table`<br/>`DGAUGE`, штуки | Количество ошибок PostgreSQL из-за попытки создать существующую таблицу. |
-| `pg_log_counter.error_query_canceled`<br/>`DGAUGE`, штуки | Количество отмененных запросов PostgreSQL. |
-| `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, штуки | Количество фатальных ошибок подключения к PostgreSQL. |
-| `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, штуки | Количество фатальных ошибок PostgreSQL из-за неверного пароля. |
-| `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Признак обнаружения повреждения данных в кластере PostgreSQL<br/>Принимает значение `1`, если повреждение обнаружено, `0` — если нет.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш страницы Clog (журнал фиксации транзакций). |
+| `pg_log_counter.error_duplicate_table`<br/>`DGAUGE`, штуки | Количество ошибок {{ PG }} из-за попытки создать существующую таблицу. |
+| `pg_log_counter.error_query_canceled`<br/>`DGAUGE`, штуки | Количество отмененных запросов {{ PG }}. |
+| `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, штуки | Количество фатальных ошибок подключения к {{ PG }}. |
+| `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, штуки | Количество фатальных ошибок {{ PG }} из-за неверного пароля. |
+| `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Признак обнаружения повреждения данных в кластере {{ PG }}<br/>Принимает значение `1`, если повреждение обнаружено, `0` — если нет.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш страницы Clog (журнал фиксации транзакций). |
 | `postgres.slru_Clog_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Clog SLRU из диска. |
 | `postgres.slru_Clog_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Clog SLRU на диск. |
-| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш страницы CommitTs (история коммитов транзакций).<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш страницы CommitTs (история коммитов транзакций).<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_CommitTs_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц CommitTs SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_CommitTs_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц CommitTs SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц MultiXactMember.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц MultiXactMember.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactMember_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц MultiXactMember SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactMember_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц MultiXactMember SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц MultiXactOffset.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц MultiXactOffset.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactOffset_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц MultiXactOffset SLRU из диска. |
 | `postgres.slru_MultiXactOffset_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц MultiXactOffset SLRU на диск. |
-| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц очереди оповещений.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц очереди оповещений.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Notify_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Notify SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Notify_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Notify SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul>
+| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul>
 `postgres.slru_other_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц других SLRU-таблиц из диска. |
 | `postgres.slru_other_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц других SLRU-таблиц на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц последовательностей.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц последовательностей.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Serial_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Serial SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Serial_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Serial SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц журнальных данных подчиненных транзакций.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц журнальных данных подчиненных транзакций.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Subtrans_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Subtrans SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Subtrans_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Subtrans SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Xact_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц транзакционного журнала.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Xact_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц транзакционного журнала.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Xact_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Xact SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Xact_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Xact SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres_archive_lag.logid_lag`<br/>`DGAUGE`, штуки | Отставание по архивируемым WAL-сегментам.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
@@ -198,7 +198,7 @@ subcluster_name | Имя подкластера
 | `postgres_role_sessions`<br/>`DGAUGE`, штуки | Количество активных сессий у каждого пользователя.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_role_total_conn_limit`<br/>`DGAUGE`, штуки | Максимально возможное количество одновременных сессий всех пользователей. |
 | `postgres_total_connections`<br/>`DGAUGE`, штуки | Количество подключений. |
-| `postgres_wait_event_CPU_CPU`<br/>`DGAUGE`, штуки | Количество процессов PostgreSQL, ожидающих процессорное время.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
+| `postgres_wait_event_CPU_CPU`<br/>`DGAUGE`, штуки | Количество процессов {{ PG }}, ожидающих процессорное время.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_wait_event_IO_DataFileWrite`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих записи данных в файлы базы.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_wait_event_IO_WALInitSync`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих инициализации и синхронизации WAL-файлов.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
 | `postgres_wait_event_IO_WALSync`<br/>`DGAUGE`, штуки | Количество процессов, ожидающих fsync/синхронизации WAL-файлов.<br/>Специальные метки:<ul><li>`database` — имя БД.</li><li>`user` — имя пользователя.</li></ul> |
@@ -215,9 +215,9 @@ subcluster_name | Имя подкластера
 | `postgres-log_slow_queries`<br/>`DGAUGE`, запросов/с| Количество логированных медленных запросов в секунду. |
 | `postgres-log_warnings`<br/>`DGAUGE`, сообщений/с| Количество логированных предупреждений в секунду. |
 | `postgres-oldest_inactive_replication_slot_duration`<br/>`DGAUGE`, секунды | Длительность самого старого неактивного слота репликации. |
-| `postgres-replica_type`<br/>`DGAUGE`, штуки | Тип текущей реплики PostgreSQL. |
+| `postgres-replica_type`<br/>`DGAUGE`, штуки | Тип текущей реплики {{ PG }}. |
 | `postgres-replication_lag`<br/>`DGAUGE`, секунды | Время задержки репликации.<br/>Рассчитывается с точностью до одной секунды. Если задержка меньше одной секунды, ее невозможно отследить с помощью этой метрики. |
-| `postgres-role`<br/>`DGAUGE`, штуки | Роль инстанса PostgreSQL. |
+| `postgres-role`<br/>`DGAUGE`, штуки | Роль инстанса {{ PG }}. |
 | `postgres-some_writable`<br/>`DGAUGE`, 0/1 | Признак, доступна ли база данных для записи. |
 | `uptime`<br/>`DGAUGE`, % | Коэффициент отказоустойчивости. |
 

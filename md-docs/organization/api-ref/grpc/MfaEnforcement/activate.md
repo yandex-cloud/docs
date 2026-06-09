@@ -33,23 +33,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "mfa_enforcement_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "organization_id": "string",
-    "acr_id": "string",
-    "ttl": "google.protobuf.Duration",
-    "status": "MfaEnforcementStatus",
-    "apply_at": "google.protobuf.Timestamp",
-    "enroll_window": "google.protobuf.Duration",
-    "name": "string",
-    "description": "string",
-    "created_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -77,7 +64,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ActivateMfaEnforcementMetadata](#yandex.cloud.organizationmanager.v1.ActivateMfaEnforcementMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -92,7 +79,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[MfaEnforcement](#yandex.cloud.organizationmanager.v1.MfaEnforcement)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -107,59 +94,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ActivateMfaEnforcementMetadata {#yandex.cloud.organizationmanager.v1.ActivateMfaEnforcementMetadata}
-
-#|
-||Field | Description ||
-|| mfa_enforcement_id | **string**
-
-id of the MFA enforcement ||
-|#
-
-## MfaEnforcement {#yandex.cloud.organizationmanager.v1.MfaEnforcement}
-
-MFA enforcement resource
-
-#|
-||Field | Description ||
-|| id | **string**
-
-id of the MFA enforcement ||
-|| organization_id | **string**
-
-organization id of the MFA enforcement ||
-|| acr_id | **string**
-
-acr id of the MFA enforcement ||
-|| ttl | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-the period during which the entered MFA factor is considered valid and the
-corresponding acr is regarded as satisfied ||
-|| status | enum **MfaEnforcementStatus**
-
-MFA enforcement status
-
-- `MFA_ENFORCEMENT_STATUS_ACTIVE`
-- `MFA_ENFORCEMENT_STATUS_INACTIVE`
-- `MFA_ENFORCEMENT_STATUS_DELETING` ||
-|| apply_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-the MFA enforcement application start time. ||
-|| enroll_window | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
-
-the time window during which the user is allowed to create an MFA profile.
-this window is measured relative to the MFA enforcement application start time
-and the user's most recent successful authentication that falls under the rule
-(or the user's creation time, if there has been no authentication). ||
-|| name | **string**
-
-name of the MFA enforcement ||
-|| description | **string**
-
-description of the MFA enforcement ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-creation timestamp ||
 |#

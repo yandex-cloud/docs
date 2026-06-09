@@ -1,35 +1,35 @@
-# Создать правило с приемником Yandex Data Streams
+# Создать правило с приемником {{ yds-full-name }}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать [правило](../../../concepts/eventrouter/rule.md).
-  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **Serverless Integrations**.
-  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **EventRouter**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [правило](../../../concepts/eventrouter/rule.md).
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. На панели слева нажмите ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Выберите нужную [шину](../../../concepts/eventrouter/bus.md).
-  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/target-dart.svg) **Правила**.
-  1. В правом верхнем углу нажмите **Создать правило**.
+  1. Перейдите на вкладку ![image](../../../../_assets/console-icons/target-dart.svg) **{{ ui-key.yacloud.serverless-event-router.label_rules }}**.
+  1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-event-router.button_create-rule }}**.
 
-  1. (Опционально) Раскройте блок **Фильтр** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
-  1. В блоке **Приёмники** нажмите **Добавить** и настройте приемник:
+  1. (Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_filter }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
+  1. В блоке **{{ ui-key.yacloud.serverless-event-router.label_targets }}** нажмите **{{ ui-key.yacloud.common.add }}** и настройте приемник:
 
-      1. Укажите тип приемника `Yandex Data Streams`.
-      1. Выберите [базу данных](../../../../ydb/concepts/resources.md#database) Managed Service for YDB, указанную в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams, в который будут отправляться сообщения, соответствующие правилу.
+      1. Укажите тип приемника `{{ yds-full-name }}`.
+      1. Выберите [базу данных](../../../../ydb/concepts/resources.md#database) {{ ydb-name }}, указанную в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}, в который будут отправляться сообщения, соответствующие правилу.
       1. Введите имя потока данных, в который будут отправляться сообщения, соответствующие правилу.
       1. Выберите [сервисный аккаунт](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../data-streams/security/index.md#yds-writer) `yds.writer` или выше на выбранный поток данных, или [создайте](../../../../iam/operations/sa/create.md) новый.
-      1. (Опционально) Нажмите ![plus](../../../../_assets/console-icons/plus.svg) **Настройки повторной отправки сообщений** и укажите:
+      1. (Опционально) Нажмите ![plus](../../../../_assets/console-icons/plus.svg) **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_title }}** и укажите:
          
-         * **Количество попыток** — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем EventRouter отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000, значение по умолчанию — 3.
-         * **Интервал, ч** — время в часах, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов, значение по умолчанию — 10 минут.
-      1. (Опционально) Раскройте поле **Шаблон** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается.
-      1. (Опционально) Раскройте блок **Настройки обработки недоставленных сообщений**:
+         * **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_attempts }}** — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем {{ er-name }} отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000, значение по умолчанию — 3.
+         * **{{ ui-key.yc-eventrouter.dynamic-forms.template_target_retry_max_age }}** — время в часах, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов, значение по умолчанию — 10 минут.
+      1. (Опционально) Раскройте поле **{{ ui-key.yacloud.serverless-event-router.label_target-transformer }}** и введите [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается.
+      1. (Опционально) Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_target-dead-letter-settings }}**:
          
-         1. Укажите тип обработчика `Yandex Message Queue`.
+         1. Укажите тип обработчика `{{ message-queue-full-name }}`.
          1. Выберите каталог и очередь DLQ, в которую будут перенаправляться сообщения, которые не смог обработать приемник.
          1. Выберите сервисный аккаунт, которому назначена [роль](../../../../message-queue/security/index.md#ymq-writer) `ymq.writer` или выше на выбранную очередь DLQ, или [создайте](../../../../iam/operations/sa/create.md) новый.
 
-  1. Раскройте блок **Дополнительные параметры**:
+  1. Раскройте блок **{{ ui-key.yacloud.serverless-event-router.label_additional-parameters }}**:
      
      
      1. Введите имя и описание правила. Требования к имени:
@@ -40,16 +40,16 @@
      
      1. (Опционально) Добавьте метки:
      
-         * Нажмите **Добавить метку**.
+         * Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
          * Введите метку в формате `ключ: значение`.
          * Нажмите **Enter**.
      
      1. (Опционально) Включите защиту от удаления. Пока опция включена, удалить правило невозможно.
-  1. Нажмите **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -59,7 +59,7 @@
       yc serverless eventrouter rule create --help
       ```
 
-  1. Создайте правило с приемником Yandex Data Streams:
+  1. Создайте правило с приемником {{ yds-full-name }}:
 
       ```bash
       yc serverless eventrouter rule create \
@@ -82,17 +82,17 @@
 
       Где:
 
-      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
+      * `--bus-id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
       * `--filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
 
-      * `--yds-target` — параметр для настройки приемника с типом `Yandex Data Streams` и его свойства:
+      * `--yds-target` — параметр для настройки приемника с типом `{{ yds-full-name }}` и его свойства:
 
-          * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) Managed Service for YDB, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams, в который будут отправляться сообщения, соответствующие правилу.
+          * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}, в который будут отправляться сообщения, соответствующие правилу.
           * `stream-name` — имя потока данных, в который будут отправляться сообщения, соответствующие правилу.
           * `service-account-id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../data-streams/security/index.md#yds-writer) `yds.writer` или выше на выбранный поток данных.
 
 
-          * `retry-attempts` — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем EventRouter отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000. Необязательный параметр.
+          * `retry-attempts` — количество повторных попыток отправки сообщений, которые будут сделаны, прежде чем {{ er-name }} отправит сообщения в Dead Letter Queue (DLQ). Допустимые значения от 0 до 1 000. Необязательный параметр.
           * `maximum-age` — время, через которое будет сделана повторная попытка отправить сообщения, если текущая завершилась неуспешно. Допустимые значения от 0 до 60 часов. Необязательный параметр.
 
           * `transformer` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для преобразования событий. Если шаблон не указан, событие не преобразовывается. Необязательный параметр.
@@ -130,7 +130,7 @@
         jq_filter: .firstName == "Ivan"
       targets:
         - yds:
-            database: /ru-central1/b1gia87mbaom********/etnvqsesnr5g********
+            database: /{{ region-id }}/b1gia87mbaom********/etnvqsesnr5g********
             stream_name: new-stream
             service_account_id: ajelprpohp7r********
           transformer:
@@ -139,23 +139,26 @@
             retry_attempts: "3"
             maximum_age: 600s
           dead_letter_queue:
-            queue_arn: yrn:yc:ymq:ru-central1:b1g681qpemb4********:dlq-42
+            queue_arn: yrn:yc:ymq:{{ region-id }}:b1g681qpemb4********:dlq-42
             service_account_id: ajelprpohp7r********
           status: ENABLED
       status: ENABLED
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../../terraform/authentication.md) соответствующим способом.
 
-  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником Yandex Data Streams:
+  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником {{ yds-full-name }}:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -184,11 +187,11 @@
 
       Где:
 
-      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) EventRouter.
+      * `bus_id` — идентификатор [шины](../../../concepts/eventrouter/bus.md) {{ er-name }}.
       * `jq_filter` — [jq-шаблон](https://jqlang.github.io/jq/manual/) для [фильтрации](../../../concepts/eventrouter/rule.md#filter) событий.
-      * `yds` — блок для настройки приемника с типом `Yandex Data Streams` и его параметры:
+      * `yds` — блок для настройки приемника с типом `{{ yds-full-name }}` и его параметры:
 
-          * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) Managed Service for YDB, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) Data Streams, в который будут отправляться сообщения, соответствующие правилу.
+          * `database` — [путь](../../../../ydb/operations/connection.md#endpoint-and-path) к [базе данных](../../../../ydb/concepts/resources.md#database) {{ ydb-name }}, указанной в настройках [потока данных](../../../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }}, в который будут отправляться сообщения, соответствующие правилу.
           * `stream_name` — имя потока данных, в который будут отправляться сообщения, соответствующие правилу.
           * `service_account_id` — идентификатор [сервисного аккаунта](../../../../iam/concepts/users/service-accounts.md), которому назначена [роль](../../../../data-streams/security/index.md#yds-writer) `yds.writer` или выше на выбранный поток данных.
 
@@ -201,7 +204,7 @@
       * `description` — описание правила. Необязательный параметр.
       * `labels` — список меток. Метки задаются в формате `<ключ> = "<значение>"`. Необязательный параметр.
 
-      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера](../../../../terraform/resources/serverless_eventrouter_rule.md).
+      Более подробную информацию о параметрах ресурса `yandex_serverless_eventrouter_rule` см. в [документации провайдера]({{ tf-provider-resources-link }}/serverless_eventrouter_rule).
 
   1. Создайте ресурсы:
 
@@ -224,7 +227,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -233,7 +236,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../../cli/index.md):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../../cli/index.md):
 
       ```bash
       yc serverless eventrouter rule list
@@ -241,7 +244,7 @@
 
 - API {#api}
 
-  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником Yandex Data Streams, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Rule/create.md) для ресурса [rule](../../../eventrouter/api-ref/Rule/index.md) или вызовом gRPC API [rule/Create](../../../eventrouter/api-ref/grpc/Rule/create.md).
+  Чтобы создать [правило](../../../concepts/eventrouter/rule.md) с приемником {{ yds-full-name }}, воспользуйтесь методом REST API [Create](../../../eventrouter/api-ref/Rule/create.md) для ресурса [rule](../../../eventrouter/api-ref/Rule/index.md) или вызовом gRPC API [rule/Create](../../../eventrouter/api-ref/grpc/Rule/create.md).
 
 {% endlist %}
 

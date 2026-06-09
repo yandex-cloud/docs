@@ -1,6 +1,6 @@
 # Начало работы с SDK видеоплеера для IFrame
 
-Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из Cloud Video в ваш проект с помощью Cloud Video Player SDK для IFrame. SDK позволяет управлять плеером через JavaScript API, используя механизм `postMessage` для взаимодействия с iframe.
+Вы можете интегрировать [видеоплеер](../../concepts/player.md) с контентом из {{ video-name }} в ваш проект с помощью {{ video-player-name }} SDK для IFrame. SDK позволяет управлять плеером через JavaScript API, используя механизм `postMessage` для взаимодействия с iframe.
 
 ## Подключение плеера на странице {#add-player}
 
@@ -106,6 +106,6 @@ window.addEventListener('message', function(event) {
 
 #### См. также {#see-also}
 
-* [Параметры инициализации плеера](initialization.md)
-* [Методы плеера](player-methods.md)
-* [События плеера](player-events.md)
+* [{#T}](initialization.md)
+* [{#T}](player-methods.md)
+* [{#T}](player-events.md)

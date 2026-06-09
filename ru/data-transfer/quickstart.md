@@ -20,7 +20,7 @@
 
 {% endnote %}
 
-Подробнее о том, какие роли нужны для пользования сервисом {{ data-transfer-name }}, см. в разделе [Какие роли необходимы](security/index.md#required-roles).
+Подробнее о том, какие роли нужны для пользования сервисом {{ data-transfer-name }}, читайте в разделе [Какие роли необходимы](security/index.md#required-roles).
 
 
 Для работы с сервисом в консоли управления:
@@ -90,7 +90,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [{#T}](operations/endpoint/index.md).
+Подробнее читайте в разделе [{#T}](operations/endpoint/index.md).
 
 ## Создайте эндпоинт для приемника {#target}
 
@@ -110,7 +110,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [{#T}](./operations/endpoint/index.md).
+Подробнее читайте в разделе [{#T}](./operations/endpoint/index.md).
 
 ## Создайте трансфер {#create-transfer}
 
@@ -134,7 +134,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [Типы трансферов](./concepts/transfer-lifecycle.md#transfer-types).
+Подробнее читайте в разделе [Типы трансферов](./concepts/transfer-lifecycle.md#transfer-types).
 
 ## Активируйте трансфер {#activate}
 
@@ -151,7 +151,7 @@
 
 Начнется процесс переноса данных.
 
-Подробнее см. в разделе [{#T}](operations/transfer.md).
+Подробнее читайте в разделе [{#T}](operations/transfer.md).
 
 ## Что дальше {#whats-next}
 

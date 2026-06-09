@@ -1,15 +1,15 @@
-# Установка Crossplane с поддержкой Yandex Cloud
+# Установка Crossplane с поддержкой {{ yandex-cloud }}
 
-[Crossplane](https://crossplane.io/) — свободно распространяемое дополнение к Kubernetes, позволяющее командам разработки платформы собрать инфраструктуру для нескольких вендоров и производить более высокоуровневые [API](../../../glossary/rest-api.md) сервисов для потребления командами разработки приложений.
+[Crossplane](https://crossplane.io/) — свободно распространяемое дополнение к {{ k8s }}, позволяющее командам разработки платформы собрать инфраструктуру для нескольких вендоров и производить более высокоуровневые [API](../../../glossary/rest-api.md) сервисов для потребления командами разработки приложений.
 
 Установить Crossplane можно следующими способами:
-* [В консоли управления с помощью Yandex Cloud Marketplace](#marketplace-install)
-* [C помощью Helm-чарта из репозитория Cloud Marketplace](#helm-install)
+* [В консоли управления с помощью {{ marketplace-full-name }}](#marketplace-install)
+* [C помощью Helm-чарта из репозитория {{ marketplace-name }}](#helm-install)
 * [С помощью Helm-чарта из репозитория Crossplane](#helm-repo-install)
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -22,7 +22,7 @@
      --output key.json
    ```
 
-1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../../vpc/operations/security-group-add-rule.md).
+1. [Убедитесь](../connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте](../../../vpc/operations/security-group-add-rule.md) его.
 
     {% note warning %}
     
@@ -30,34 +30,34 @@
     
     {% endnote %}
 
-## Установка в консоли управления с помощью Cloud Marketplace {#marketplace-install}
+## Установка в консоли управления с помощью {{ marketplace-name }} {#marketplace-install}
 
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;Kubernetes**.
-1. Нажмите на имя нужного [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **Marketplace**.
-1. В разделе **Доступные для установки приложения** выберите [Crossplane с поддержкой Yandex Cloud](https://yandex.cloud/ru/marketplace/products/yc/crossplane) и нажмите кнопку **Перейти к установке**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Нажмите на имя нужного [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
+1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Crossplane с поддержкой {{ yandex-cloud }}](https://yandex.cloud/ru/marketplace/products/yc/crossplane) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
    * **Пространство имен** — создайте новое [пространство имен](../../concepts/index.md#namespace) (например, `crossplane-space`). Если вы оставите пространство имен по умолчанию, Crossplane может работать некорректно.
    * **Название приложения** — укажите название приложения.
    * **Ключ сервисного аккаунта** — вставьте содержимое файла [авторизованного ключа](../../../iam/concepts/authorization/key.md) сервисного аккаунта, [полученного ранее](#before-you-begin), или создайте новый.
-1. Нажмите кнопку **Установить**.
+1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
 1. Дождитесь перехода приложения в статус `Deployed`.
 
-При установке из Cloud Marketplace вместе с Crossplane в кластере будет установлен и настроен [провайдер](https://github.com/yandex-cloud/crossplane-provider-yc/) для работы с ресурсами Yandex Cloud.
+При установке из {{ marketplace-name }} вместе с Crossplane в кластере будет установлен и настроен [провайдер](https://github.com/yandex-cloud/crossplane-provider-yc/) для работы с ресурсами {{ yandex-cloud }}.
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах {{ yandex-cloud }}, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
-## Установка с помощью Helm-чарта из репозитория Cloud Marketplace {#helm-install}
+## Установка с помощью Helm-чарта из репозитория {{ marketplace-name }} {#helm-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. Для установки [Helm-чарта](https://helm.sh/docs/topics/charts/) с Crossplane выполните команду:
 
    ```bash
-   helm pull oci://cr.yandex/yc-marketplace/yandex-cloud/crossplane/crossplane \
-     --version v1.20.6 \
+   helm pull oci://{{ mkt-k8s-key.yc_crossplane.helmChart.name }} \
+     --version {{ mkt-k8s-key.yc_crossplane.helmChart.tag }} \
      --untar && \
    helm install \
      --namespace <пространство_имен> \
@@ -80,16 +80,16 @@
    kubectl get pods -A | grep -E "crossplane|provider-jet-yc"
    ```
 
-При установке из Cloud Marketplace вместе с Crossplane в кластере будет установлен и настроен [провайдер](https://github.com/yandex-cloud/crossplane-provider-yc/) для работы с ресурсами Yandex Cloud.
+При установке из {{ marketplace-name }} вместе с Crossplane в кластере будет установлен и настроен [провайдер](https://github.com/yandex-cloud/crossplane-provider-yc/) для работы с ресурсами {{ yandex-cloud }}.
 
 Вы можете [изменить настройки провайдера](crossplane.md#change-provider-settings), например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы. 
    
-Подробнее о ресурсах Yandex Cloud, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
+Подробнее о ресурсах {{ yandex-cloud }}, которые вы можете создать с помощью Crossplane, см. в подразделе [Получение информации о ресурсах](crossplane.md#see-resources).
 
 ## Установка с помощью Helm-чарта из репозитория Crossplane {#helm-repo-install}
 
 1. [Установите менеджер пакетов Helm](https://helm.sh/ru/docs/intro/install/) версии не ниже 3.8.0.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 1. Создайте пространство имен для Crossplane:
 
    ```bash
@@ -139,13 +139,13 @@
      --from-file=credentials=<путь_к_файлу_key.json>
    ```
 
-1. Убедитесь, что [провайдер Yandex Cloud](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main) установлен:
+1. Убедитесь, что [провайдер {{ yandex-cloud }}](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main) установлен:
    
    ```bash
    kubectl get provider
    ```
 
-1. Создайте манифест с настройками провайдера Yandex Cloud для Crossplane `providerconfig.yaml`:
+1. Создайте манифест с настройками провайдера {{ yandex-cloud }} для Crossplane `providerconfig.yaml`:
 
    ```yaml
    apiVersion: yandex-cloud.jet.crossplane.io/v1beta1
@@ -171,7 +171,7 @@
 
 ## Настройка провайдера {#change-provider-settings}
 
-1. Чтобы изменить настройки провайдера Yandex Cloud для Crossplane, например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы, выполните команду:
+1. Чтобы изменить настройки провайдера {{ yandex-cloud }} для Crossplane, например указать, в каком [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) и каком [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) будут по умолчанию создаваться ресурсы, выполните команду:
 
    ```bash
    kubectl edit ProviderConfig/default
@@ -181,7 +181,7 @@
 
 ## Получение информации о ресурсах {#see-resources}
 
-1. Посмотрите, какие ресурсы Yandex Cloud можно создать с помощью Crossplane:
+1. Посмотрите, какие ресурсы {{ yandex-cloud }} можно создать с помощью Crossplane:
 
    ```bash
    kubectl get crd | grep yandex-cloud.jet.crossplane.io
@@ -193,17 +193,17 @@
    kubectl describe crd <имя_ресурса>
    ```
 
-   Например, запросите параметры для создания [виртуальной машины](../../../compute/concepts/vm.md) Yandex Compute Cloud:
+   Например, запросите параметры для создания [виртуальной машины](../../../compute/concepts/vm.md) {{ compute-full-name }}:
 
    ```bash
    kubectl describe crd instances.compute.yandex-cloud.jet.crossplane.io
    ```
 
-   Примеры конфигурации ресурсов Yandex Cloud см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
+   Примеры конфигурации ресурсов {{ yandex-cloud }} см. в [репозитории провайдера на GitHub](https://github.com/yandex-cloud/crossplane-provider-yc/tree/main/examples).
 
 ## Примеры использования {#examples}
 
-* [Интеграция с Crossplane](../../tutorials/marketplace/crossplane.md)
+* [{#T}](../../tutorials/marketplace/crossplane.md)
 
 ## См. также {#see-also}
 

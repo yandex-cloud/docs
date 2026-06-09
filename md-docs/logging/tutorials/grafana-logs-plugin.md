@@ -1,13 +1,13 @@
-# Визуализация логов в Grafana с помощью плагина Cloud Logging
+# Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-name }}
 
-# Визуализация логов в Grafana с помощью плагина Yandex Cloud Logging
+# Визуализация логов в {{ grafana-name }} с помощью плагина {{ cloud-logging-full-name }}
 
 
-[Плагин Yandex Cloud Logging для Grafana](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для Grafana, с помощью которого можно добавить [Cloud Logging](https://yandex.cloud/ru/services/logging) в качестве источника данных.
+[Плагин {{ cloud-logging-full-name }} для {{ grafana-name }}](https://github.com/yandex-cloud/grafana-logs-plugin/tree/master) — расширение для {{ grafana-name }}, с помощью которого можно добавить [{{ cloud-logging-name }}](https://yandex.cloud/ru/services/logging) в качестве источника данных.
 
 {% note info %}
 
-Плагин Cloud Logging работает с Grafana версии 11.2.0 и ниже. В разных версиях названия меню и элементы интерфейса могут отличаться.
+Плагин {{ cloud-logging-name }} работает с {{ grafana-name }} версии 11.2.0 и ниже. В разных версиях названия меню и элементы интерфейса могут отличаться.
 
 {% endnote %}
 
@@ -18,29 +18,29 @@
 1. [Создайте авторизованный ключ для сервисного аккаунта](#create-key).
 1. [Создайте лог-группу](#create-group).
 1. [Добавьте записи в лог-группу](#add-records).
-1. [Подключите источник данных в Grafana](#connect-plugin).
-1. [Посмотрите логи в Grafana](#see-logs).
+1. [Подключите источник данных в {{ grafana-name }}](#connect-plugin).
+1. [Посмотрите логи в {{ grafana-name }}](#see-logs).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов входит плата за запись и хранение логов в лог-группе (см. [тарифы Yandex Cloud Logging](../pricing.md)).
+В стоимость ресурсов входит плата за запись и хранение логов в лог-группе (см. [тарифы {{ cloud-logging-full-name }}](../pricing.md)).
 
 ## Установите плагин {#install-plugin}
 
 1. [Скачайте](https://github.com/yandex-cloud/grafana-logs-plugin/releases) архив с последней версией плагина.
-1. Распакуйте архив в папку с плагинами. Расположение папки с плагинами указывается в [конфигурации Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/).
+1. Распакуйте архив в папку с плагинами. Расположение папки с плагинами указывается в [конфигурации {{ grafana-name }}](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/).
 
    ```bash
    unzip <путь_к_архиву> -d <путь_к_папке_с_плагинами>
@@ -52,15 +52,15 @@
 
    {% endnote %}
 
-1. Разрешите загрузку плагина без подписи. Для этого в конфигурационном файле Grafana укажите название плагина в параметре `allow_loading_unsigned_plugins`:
+1. Разрешите загрузку плагина без подписи. Для этого в конфигурационном файле {{ grafana-name }} укажите название плагина в параметре `allow_loading_unsigned_plugins`:
 
    ```text
    allow_loading_unsigned_plugins = yandexcloud-logging-datasource
    ```
 
-   Подробнее о загрузке плагинов без подписи см. в [документации Grafana](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
+   Подробнее о загрузке плагинов без подписи см. в [документации {{ grafana-name }}](https://grafana.com/docs/grafana/latest/administration/plugin-management/#allow-unsigned-plugins).
 
-1. Перезапустите сервер Grafana:
+1. Перезапустите сервер {{ grafana-name }}:
 
    {% list tabs group=operating_system %}
 
@@ -90,16 +90,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта: `grafana-plugin`.
-  1. Нажмите **Добавить роль** и выберите роль `logging.reader`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `logging.reader`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -134,10 +134,13 @@
      done (1s)
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
 
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
@@ -161,7 +164,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md). Необязательный параметр. По умолчанию будет использовано значение, указанное в настройках провайдера.
      * `role` — назначаемая роль.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account.md).
+     Более подробную информацию о параметрах ресурса `yandex_iam_service_account` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -172,7 +175,7 @@
          terraform plan
          ```
 
-     Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -184,7 +187,7 @@
 
   1. Подтвердите создание сервисного аккаунта: введите в терминал слово `yes` и нажмите **Enter**.
 
-     После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     После этого будет создан сервисный аккаунт. Проверить появление сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc iam service-account list
@@ -204,17 +207,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервисный аккаунт.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `grafana-plugin`.
-  1. Нажмите кнопку **Создать новый ключ** на верхней панели.
-  1. Выберите пункт **Создать авторизованный ключ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** на верхней панели.
+  1. Выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
   1. Выберите алгоритм шифрования.
   1. Задайте описание ключа, чтобы потом было проще найти его в консоли управления.
-  1. Нажмите кнопку **Создать**.
-  1. В открывшемся окне нажмите кнопку **Скачать файл с ключами**.
-  1. Нажмите кнопку **Закрыть**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
 
 - CLI {#cli}
 
@@ -239,7 +242,7 @@
   }
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -257,7 +260,7 @@
      }
      ```
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../terraform/resources/iam_service_account_key.md).
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_key).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -268,7 +271,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -280,7 +283,7 @@
 
      1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud), а также с помощью команды CLI:
+        После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
 
         ```bash
         yc iam key list --service-account-id <идентификатор_сервисного_аккаунта>
@@ -297,7 +300,7 @@
     --header 'Content-Type: application/json' \
     --header "Authorization: Bearer <IAM-токен>" \
     --data '{"serviceAccountId": "<идентификатор_сервисного_аккаунта>"}' \
-    https://iam.api.cloud.yandex.net/iam/v1/keys
+    https://iam.{{ api-host }}/iam/v1/keys
   ```
 
   Где:
@@ -331,12 +334,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали сервисный аккаунт `grafana-plugin`.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
-  1. Нажмите кнопку **Создать группу**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт `grafana-plugin`.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
   1. Введите имя лог-группы: `grafana-plugin`.
   1. Укажите срок хранения записей в лог-группе.
-  1. Нажмите кнопку **Создать группу**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.logging.button_create-group }}**.
 
 - CLI {#cli}
 
@@ -366,16 +369,15 @@
   retention_period: 3600s
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите в конфигурационном файле параметры лог-группы:
 
      ```hcl
      provider "yandex" {
-       token     = "<OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
-       zone      = "ru-central1-a"
+       zone      = "{{ region-id }}-a"
      }
 
      resource "yandex_logging_group" "grafana-plugin" {
@@ -391,7 +393,7 @@
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
      * `retention_period` — срок хранения записей в лог-группе.
 
-     Более подробную информацию о параметрах ресурса `yandex_logging_group` в Terraform, см. в [документации провайдера](../../terraform/resources/logging_group.md).
+     Более подробную информацию о параметрах ресурса `yandex_logging_group` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/logging_group).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -402,7 +404,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -414,7 +416,7 @@
 
   1. Подтвердите создание ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../cli/quickstart.md):
 
      ```bash
      yc logging group list
@@ -479,27 +481,27 @@
 
 {% endlist %}
 
-## Подключите источник данных в Grafana {#connect-plugin}
+## Подключите источник данных в {{ grafana-name }} {#connect-plugin}
 
 1. В браузере перейдите по адресу `http://localhost:3000/`.
 
    {% note info %}
 
-   По умолчанию Grafana использует порт 3000, если в конфигурационном файле вы не [указали другой](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#http_port).
+   По умолчанию {{ grafana-name }} использует порт 3000, если в конфигурационном файле вы не [указали другой](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#http_port).
 
    {% endnote %}
 
 1. На панели слева выберите **Connections** → **Add new connection**.
-1. В списке источников выберите **Yandex Cloud Logging**.
+1. В списке источников выберите **{{ cloud-logging-full-name }}**.
 1. Нажмите кнопку **Add new data source**.
 1. В блоке **Secret config**, в поле **API Key**, вставьте содержимое файла с [авторизованными ключами](#create-key) `authorized_key.json`.
 1. В блоке **SDK config**, в поле **Folder ID**, укажите идентификатор каталога, в котором находится лог-группа `grafana-plugin`.
 1. Нажмите кнопку **Save & test**.
 
-## Посмотрите логи в Grafana {#see-logs}
+## Посмотрите логи в {{ grafana-name }} {#see-logs}
 
-1. В интерфейсе Grafana на панели слева выберите **Explore**.
-1. В левом верхнем углу выберите из выпадающего списка источник данных **Yandex Cloud Logging**.
+1. В интерфейсе {{ grafana-name }} на панели слева выберите **Explore**.
+1. В левом верхнем углу выберите из выпадающего списка источник данных **{{ cloud-logging-full-name }}**.
 1. В редакторе запросов для источника:
 
    1. В поле **Group** выберите идентификатор лог-группы `grafana-plugin`.

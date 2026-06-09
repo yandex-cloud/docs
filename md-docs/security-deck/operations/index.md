@@ -1,48 +1,48 @@
-# Инструкции по работе с Yandex Security Deck
+# Инструкции по работе с {{ sd-full-name }}
 
-## Окружения Security Deck {#workspaces}
+## Окружения {{ sd-name }} {#workspaces}
 
-* [Создать окружение Security Deck](workspaces/create.md).
-* [Посмотреть дашборд и операции с окружением Security Deck](workspaces/view-dashboard.md).
-* [Изменить окружение Security Deck и его компоненты](workspaces/update.md).
-* [Настроить права доступа к окружению Security Deck](workspaces/manage-access.md).
-* [Удалить окружение Security Deck](workspaces/delete.md).
+* [{#T}](workspaces/create.md).
+* [{#T}](workspaces/view-dashboard.md).
+* [{#T}](workspaces/update.md).
+* [{#T}](workspaces/manage-access.md).
+* [{#T}](workspaces/delete.md).
 
 ## Алерты {#alerts}
 
-* [Посмотреть алерты](alerts/view.md)
-* [Работа с алертами](alerts/work.md)
+* [{#T}](alerts/view.md)
+* [{#T}](alerts/work.md)
 
-## Модуль контроля данных (DSPM) {#dspm}
+## Модуль контроля данных ({{ dspm-name }}) {#dspm}
 
-* [Создать источник данных DSPM](dspm/create-data-source.md).
-* [Создать сканирование DSPM](dspm/create-scan.md).
-* [Управление анализом данных DSPM](dspm/discovery-mode.md).
+* [{#T}](dspm/create-data-source.md).
+* [{#T}](dspm/create-scan.md).
+* [{#T}](dspm/discovery-mode.md).
 
-## Модуль контроля Kubernetes® (KSPM) {#k8s}
+## Модуль контроля {{ k8s }}® ({{ kspm-name }}) {#k8s}
 
-* [Активировать модуль KSPM](kspm/enable-kspm.md).
-* [Работать с дашбордом модуля KSPM](kspm/use-kspm.md).
-* [Посмотреть правила контроля Kubernetes](kspm/view-rules.md).
-* [Управлять исключениями из правил контроля безопасности модуля KSPM](kspm/manage-exceptions.md).
+* [{#T}](kspm/enable-kspm.md).
+* [{#T}](kspm/use-kspm.md).
+* [{#T}](kspm/view-rules.md).
+* [{#T}](kspm/manage-exceptions.md).
 
-## Модуль Контроль конфигурации (CSPM) {#cspm}
+## Модуль Контроль конфигурации ({{ cspm-name }}) {#cspm}
 
-* [Посмотреть правила контроля безопасности модуля CSPM и их нарушения](cspm/view-rules.md).
-* [Проверить соответствие инфраструктуры стандартам безопасности](cspm/check-compliance.md).
-* [Управлять исключениями из правил контроля безопасности модуля CSPM](cspm/manage-exceptions.md).
+* [{#T}](cspm/view-rules.md).
+* [{#T}](cspm/check-compliance.md).
+* [{#T}](cspm/manage-exceptions.md).
 
-## Модуль Обнаружение угроз (TD) {#td}
+## Модуль {{ td-full-name }} ({{ td-name }}) {#td}
 
-* [Посмотреть правила контроля безопасности модуля Обнаружение угроз (TD)](td/view-rules.md).
-* [Управлять исключениями из правил безопасности модуля Обнаружение угроз (TD)](td/manage-exceptions.md).
+* [{#T}](td/view-rules.md).
+* [{#T}](td/manage-exceptions.md).
 
-## Модуль диагностики доступов (CIEM) {#ciem}
+## Модуль диагностики доступов ({{ ciem-name }}) {#ciem}
 
-* [Просмотреть список доступов субъекта](ciem/view-permissions.md).
-* [Отозвать доступ у субъекта](ciem/revoke-permissions.md).
+* [{#T}](ciem/view-permissions.md).
+* [{#T}](ciem/revoke-permissions.md).
 
-## Модуль Управление уязвимостями {#vulnerability-management}
+## Модуль {{ vuln-man-name }} {#vulnerability-management}
 
-* [Активировать модуль Управление уязвимостями (VM)](vulnerability-management/enable-vulnerability-management.md).
-* [Работать с дашбордом модуля Управление уязвимостями (VM)](vulnerability-management/use-vulnerability-management.md).
+* [{#T}](vulnerability-management/enable-vulnerability-management.md).
+* [{#T}](vulnerability-management/use-vulnerability-management.md).

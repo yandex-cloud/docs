@@ -1,10 +1,10 @@
-# Получение значения секрета Yandex Lockbox на стороне GitHub
+# Получение значения секрета {{ lockbox-full-name }} на стороне GitHub
 
-[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и Yandex Cloud по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами Yandex Cloud от имени [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) IAM без использования [авторизованных ключей](../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
+[Федерации сервисных аккаунтов](../../iam/concepts/workload-identity.md) (Workload Identity Federation) позволяют настроить связь между внешними системами и {{ yandex-cloud }} по протоколу [OpenID Connect](https://openid.net/developers/how-connect-works/) (OIDC). За счет этого внешние системы могут выполнять действия с ресурсами {{ yandex-cloud }} от имени [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md) {{ iam-short-name }} без использования [авторизованных ключей](../../iam/concepts/authorization/key.md). Это более безопасный способ, минимизирующий риск утечки учетных данных и возможность несанкционированного доступа.
 
-В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) [Yandex Lockbox](../../lockbox/index.md) со стороны GitHub от имени сервисного аккаунта в Yandex Cloud. Аналогично можно выполнить любое действие через Yandex Cloud [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.md) или [Terraform](../../terraform/index.md).
+В этом руководстве для примера показано, как получить значение [секрета](../../lockbox/concepts/secret.md) [{{ lockbox-full-name }}](../../lockbox/index.md) со стороны GitHub от имени сервисного аккаунта в {{ yandex-cloud }}. Аналогично можно выполнить любое действие через {{ yandex-cloud }} [CLI](../../cli/quickstart.md), [API](../../api-design-guide/index.md) или [{{ TF }}]({{ tf-provider-link }}).
 
-Чтобы получить значение секрета Yandex Lockbox от имени аккаунта на GitHub:
+Чтобы получить значение секрета {{ lockbox-name }} от имени аккаунта на GitHub:
 
 1. [Создайте репозиторий в GitHub](#create-github-repo).
 1. [Подготовьте облако к работе](#prepare-cloud).
@@ -18,17 +18,17 @@
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+В стоимость поддержки инфраструктуры входит плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
 
 ### Создайте федерацию сервисных аккаунтов {#federation-iam-accounts}
 
@@ -36,15 +36,15 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **Федерации сервисных аккаунтов**.
-   1. Нажмите **Создать федерацию**.
-   1. В поле **Значение Issuer (iss)** введите URL OIDC-провайдера `https://token.actions.githubusercontent.com`.
-   1. В поле **Допустимые значения Audience (aud)** введите получателя токена `https://github.com/<имя_пользователя_github>`.
-   1. В поле **Адрес JWKS** введите URL списка публичных ключей `https://token.actions.githubusercontent.com/.well-known/jwks`.
-   1. В поле **Имя** введите имя федерации, например `test-iam-federation`.
-   1. Нажмите кнопку **Создать**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. На панели слева выберите ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
+   1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}**.
+   1. В поле **{{ ui-key.yacloud.iam.federations.field_issuer }}** введите URL OIDC-провайдера `https://token.actions.githubusercontent.com`.
+   1. В поле **{{ ui-key.yacloud.iam.federations.field_audiences }}** введите получателя токена `https://github.com/<имя_пользователя_github>`.
+   1. В поле **{{ ui-key.yacloud.iam.federations.field_jwks }}** введите URL списка публичных ключей `https://token.actions.githubusercontent.com/.well-known/jwks`.
+   1. В поле **{{ ui-key.yacloud.iam.federations.field_name }}** введите имя федерации, например `test-iam-federation`.
+   1. Нажмите кнопку **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
 
 {% endlist %}
 
@@ -54,14 +54,14 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором будет создан секрет.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
-   1. Нажмите кнопку **Создать секрет**.
-   1. В поле **Имя** введите имя секрета `MY_SECRET`.
-   1. Выберите **Тип секрета** `Пользовательский`.
-   1. В поле **Ключ** введите неконфиденциальный идентификатор, например `secret`.
-   1. В поле **Значение** введите конфиденциальные данные для хранения.
-   1. Нажмите кнопку **Создать**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан секрет.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.SecretsPage.button_create-secret }}**.
+   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета `MY_SECRET`.
+   1. Выберите **{{ ui-key.yacloud.lockbox.SecretInfoSection.title_secret-type }}** `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_key }}** введите неконфиденциальный идентификатор, например `secret`.
+   1. В поле **{{ ui-key.yacloud.lockbox.SecretVersionsList.label_value }}** введите конфиденциальные данные для хранения.
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -73,25 +73,25 @@
 
    - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-      1. Нажмите кнопку **Создать сервисный аккаунт**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-lockbox`.
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    {% endlist %}
 
-1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `lockbox.payloadViewer` на каталог: 
+1. Назначьте сервисному аккаунту [роль](../../iam/concepts/access-control/roles.md) `{{ roles-lockbox-payloadviewer }}` на каталог: 
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-      1. На [стартовой странице](https://console.yandex.cloud) консоли управления выберите каталог.
-      1. Перейдите на вкладку **Права доступа**.
+      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
+      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-lockbox` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Нажмите кнопку **Изменить роли**.
-      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роль `lockbox.payloadViewer`.
+      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-lockbox-payloadviewer }}`.
 
    {% endlist %}
 
@@ -101,14 +101,13 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. В списке выберите сервисный аккаунт `sa-lockbox`.
-   1. Перейдите на вкладку **Федерации сервисных аккаунтов**.
-   1. Нажмите кнопку **Привязать к федерации**.
-   1. В поле **Федерация сервисных аккаунтов** выберите ранее созданную федерацию.
-   1. В поле **Значение Subject (sub)** укажите идентификатор внешнего аккаунта `repo:<имя_пользователя_github>/<название_репозитория_github>:ref:refs/heads/main`.
-   1. Нажмите кнопку **Привязать**.
+   1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
+   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
+   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего аккаунта `repo:<имя_пользователя_github>/<название_репозитория_github>:ref:refs/heads/main`.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.connected-federation.action_connect }}**.
 
 {% endlist %}
 
@@ -121,7 +120,7 @@
    ```
 
 1. В локальной копии вашего репозитория создайте файл `blank.yml` в директории `.github/workflows`.
-1. Вставьте в файл `blank.yml` следующий код, который получит значение секрета Yandex Lockbox:
+1. Вставьте в файл `blank.yml` следующий код, который получит значение секрета {{ lockbox-name }}:
 
    ```yaml
    name: CI
@@ -155,14 +154,14 @@
              const coredemo = require('@actions/core')
              let id_token = await coredemo.getIDToken()
              coredemo.setOutput('id_token', id_token)
-       # Обменять токен задания рабочего процесса на IAM-токен сервисного аккаунта в Yandex Cloud
+       # Обменять токен задания рабочего процесса на IAM-токен сервисного аккаунта в {{ yandex-cloud }}
        - name: GetIAMToken
          run: |
            SA_ID="<идентификатор_сервисного_аккаунта>"
-           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token=$not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://auth.yandex.cloud/oauth/token | jq -r '.access_token')
+           IAMTOKEN=$(curl -sH "Content-Type: application/x-www-form-urlencoded" -d "grant_type=urn:ietf:params:oauth:grant-type:token-exchange&requested_token_type=urn:ietf:params:oauth:token-type:access_token&audience=$SA_ID&subject_token=$not_var{{steps.tokenid.outputs.id_token}}&subject_token_type=urn:ietf:params:oauth:token-type:id_token" -X POST https://{{ auth-main-host }}/oauth/token | jq -r '.access_token')
            echo "IAMToken=${IAMTOKEN}" >> $GITHUB_OUTPUT
          id: IAMtoken
-       # Запросить значение секрета через API, используя IAM-токен в Yandex Cloud
+       # Запросить значение секрета через API, используя IAM-токен в {{ yandex-cloud }}
        - name: GetLockboxPayload
          run: |
            SECRET_ID="<идентификатор_секрета>"
@@ -199,9 +198,9 @@
 
 Некоторые ресурсы платные. Удалите ресурсы, которые вы больше не будете использовать, чтобы не платить за них:
 
-* [секрет Yandex Lockbox](../../lockbox/operations/secret-delete.md);
+* [секрет {{ lockbox-name }}](../../lockbox/operations/secret-delete.md);
 * [сервисный аккаунт](../../iam/operations/sa/delete.md).
 
 ## Смотрите также {#see-also}
 
-* [Безопасное хранение паролей для GitLab CI в виде секретов Yandex Lockbox](gitlab-lockbox-integration.md).
+* [{#T}](gitlab-lockbox-integration.md).

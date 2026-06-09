@@ -1,6 +1,6 @@
-# Роли пользователей в Yandex Managed Service for Apache Kafka®
+# Роли пользователей в {{ mkf-full-name }}
 
-Роль [выдается пользователю](../operations/cluster-accounts.md#grant-permission) и предоставляет список прав на управление ресурсами кластера Apache Kafka®.
+Роль [выдается пользователю](../operations/cluster-accounts.md#grant-permission) и предоставляет список прав на управление ресурсами кластера {{ KF }}.
 
 #### ACCESS_ROLE_SCHEMA_READER {#access-role-schema-reader}
 

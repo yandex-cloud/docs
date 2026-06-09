@@ -12,13 +12,13 @@
 
 {% endnote %}
 
-Узнайте как аутентифицироваться в Yandex Cloud CLI:
+Узнайте как аутентифицироваться в {{ yandex-cloud }} CLI:
 
-* [От имени сервисного аккаунта с помощью имперсонации](#use-impersonation). Использование [имперсонации](../../../iam/concepts/access-control/impersonation.md) является рекомендованным и наиболее безопасным способом аутентифицироваться в Yandex Cloud CLI.
-* [От имени сервисного аккаунта с помощью авторизованного ключа](#auth-as-sa). Использование [авторизованного ключа](../../../iam/concepts/authorization/key.md) позволяет постоянно аутентифицироваться в Yandex Cloud CLI с помощью однажды созданного авторизованного ключа. Использование долгоживущего ключа менее безопасно, чем использование имперсонации.
-* [От имени сервисного аккаунта изнутри виртуальной машины](#vm-auth-as-sa). Использование привязанного к [виртуальной машине](../../../compute/concepts/vm.md) Yandex Compute Cloud [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) является рекомендованным способом аутентификации в Yandex Cloud CLI при работе на ВМ.
+* [От имени сервисного аккаунта с помощью имперсонации](#use-impersonation). Использование [имперсонации](../../../iam/concepts/access-control/impersonation.md) является рекомендованным и наиболее безопасным способом аутентифицироваться в {{ yandex-cloud }} CLI.
+* [От имени сервисного аккаунта с помощью авторизованного ключа](#auth-as-sa). Использование [авторизованного ключа](../../../iam/concepts/authorization/key.md) позволяет постоянно аутентифицироваться в {{ yandex-cloud }} CLI с помощью однажды созданного авторизованного ключа. Использование долгоживущего ключа менее безопасно, чем использование имперсонации.
+* [От имени сервисного аккаунта изнутри виртуальной машины](#vm-auth-as-sa). Использование привязанного к [виртуальной машине](../../../compute/concepts/vm.md) {{ compute-full-name }} [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) является рекомендованным способом аутентификации в {{ yandex-cloud }} CLI при работе на ВМ.
 
-[Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) отличается от [аккаунта пользователя Яндекса](../../../iam/concepts/users/accounts.md#passport), [федеративного пользователя](../../../iam/concepts/federations.md) и [локального пользователя](../../../iam/concepts/users/accounts.md#local). Сервисный аккаунт нельзя использовать для входа в [консоль управления](https://console.yandex.cloud), но можно использовать для управления ресурсами в Yandex Cloud.
+[Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) отличается от [аккаунта пользователя Яндекса](../../../iam/concepts/users/accounts.md#passport), [федеративного пользователя](../../../iam/concepts/federations.md) и [локального пользователя](../../../iam/concepts/users/accounts.md#local). Сервисный аккаунт нельзя использовать для входа в [консоль управления]({{ link-console-main }}), но можно использовать для управления ресурсами в {{ yandex-cloud }}.
 
 ## Перед началом работы {#before-begin}
 
@@ -50,7 +50,7 @@
    | ajegtlf2q28a******** | default-sa |        | 2023-06-27 16:18:18 | 2025-08-21 06:30:00   |
    +----------------------+------------+--------+---------------------+-----------------------+
    ```
-1. При выполнении команд Yandex Cloud CLI используйте [имперсонацию](../../../iam/concepts/access-control/impersonation.md) сервисного аккаунта, указывая его идентификатор в параметре `--impersonate-service-account-id`.
+1. При выполнении команд {{ yandex-cloud }} CLI используйте [имперсонацию](../../../iam/concepts/access-control/impersonation.md) сервисного аккаунта, указывая его идентификатор в параметре `--impersonate-service-account-id`.
 
     Например, чтобы создать в каталоге по умолчанию [бакет](../../../storage/concepts/bucket.md) `my-sample-bucket` от имени сервисного аккаунта, выполните команду:
 
@@ -190,13 +190,13 @@
     Все операции в этом профиле будут выполняться от имени привязанного сервисного аккаунта. Вы можете [изменить параметры профиля](../profile/manage-properties.md) или [сменить его](../profile/profile-activate.md).
 
 
-Подробная информация про работу с Yandex Cloud из ВМ в разделе [Работа с Yandex Cloud изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
+Подробная информация про работу с {{ yandex-cloud }} из ВМ в разделе [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).
 
 
 #### См. также
 
-- [Управление конфигурацией CLI](../../concepts/index.md#manage-properties).
-- [Создание профиля](../profile/profile-create.md).
-- [Активация профиля](../profile/profile-activate.md).
-- [Управление параметрами профиля](../profile/manage-properties.md).
-- [Работа с Yandex Cloud изнутри виртуальной машины](../../../compute/operations/vm-connect/auth-inside-vm.md).
+- [{#T}](../../concepts/index.md#manage-properties).
+- [{#T}](../profile/profile-create.md).
+- [{#T}](../profile/profile-activate.md).
+- [{#T}](../profile/manage-properties.md).
+- [{#T}](../../../compute/operations/vm-connect/auth-inside-vm.md).

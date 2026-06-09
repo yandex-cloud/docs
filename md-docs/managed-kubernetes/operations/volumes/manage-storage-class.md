@@ -5,11 +5,11 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% note alert %}
 
-Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски Yandex Compute Cloud](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
+Стоимость использования хранилища зависит от типа его [диска](../../../compute/concepts/disk.md). Ознакомьтесь с [ценами на диски {{ compute-full-name }}](../../../compute/concepts/disk.md#disks_types) перед созданием хранилища.
 
 {% endnote %}
 
-В Managed Service for Kubernetes доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
+В {{ managed-k8s-name }} доступны следующие классы хранилищ, которые отличаются [типом создаваемого диска](../../../compute/concepts/disk.md#disks_types):
 * `yc-network-hdd` (используется по умолчанию) — хранилище на сетевых HDD-дисках (`network-hdd`).
 * `yc-network-ssd` — хранилище на сетевых SSD-дисках (`network-ssd`).
 * `yc-network-ssd-nonreplicated` — хранилище на нереплицируемых SSD-дисках с повышенной производительностью (`network-ssd-nonreplicated`).
@@ -17,7 +17,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 {% note alert %}
 
-Нереплицируемые диски не имеют резервирования. При выходе диска из строя данные будут утеряны безвозвратно. Подробнее см. в разделе [Нереплицируемые диски и сверхбыстрые сетевые хранилища с тремя репликами (SSD)](../../../compute/concepts/disk.md#nr-disks).
+Нереплицируемые диски не имеют резервирования. При выходе диска из строя данные будут утеряны безвозвратно. Подробнее см. в разделе [{#T}](../../../compute/concepts/disk.md#nr-disks).
 
 {% endnote %}
 
@@ -29,7 +29,7 @@ _Класс хранилищ_ (`StorageClass`) предоставляет адм
 
 Вы можете [создать свой класс хранилищ](#sc-create), а также [изменить класс хранилищ по умолчанию](#sc-default).
 
-Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером Managed Service for Kubernetes](../connect/index.md#kubectl-connect).
+Перед началом работы [установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) и [настройте его на работу с созданным кластером {{ managed-k8s-name }}](../connect/index.md#kubectl-connect).
 
 {% note info %}
 
@@ -101,6 +101,7 @@ volumeBindingMode: WaitForFirstConsumer
 parameters: # Параметры класса хранилищ.
   type: <тип_диска>
   csi.storage.k8s.io/fstype: <тип_файловой_системы>
+  blockSize: "<размер_блока_создаваемого_диска>"
 allowVolumeExpansion: <включение_механизма_увеличения_размера_тома>
 reclaimPolicy: <политика_переиспользования>
 ```
@@ -109,6 +110,7 @@ reclaimPolicy: <политика_переиспользования>
 * `parameters`:
   * `type` — `network-hdd`, `network-ssd`, `network-ssd-nonreplicated` или `network-ssd-io-m3`.
   * `csi.storage.k8s.io/fstype` — `ext2`, `ext3`, `ext4` или `btrfs`.
+  * `blockSize` — `4096`, `8192`, `16384`, `32768`, `65536`, `131072`. По умолчанию размер блоков всех создаваемых дисков равен 4096 байт. Подробнее в разделе [создание пустого диска с блоком большого размера](../../../compute/operations/disk-create/empty-disk-blocksize.md).
 * `reclaimPolicy` — `Retain` или `Delete`.
 * `allowVolumeExpansion` — `true` или `false`.
 
@@ -176,7 +178,7 @@ reclaimPolicy: <политика_переиспользования>
 
 ### См. также {#see-also}
 
-* [Том](../../concepts/volume.md)
-* [Использование зашифрованных дисков для постоянных томов](encrypted-disks.md)
-* [Динамическая подготовка тома](dynamic-create-pv.md)
-* [Статическая подготовка тома](static-create-pv.md)
+* [{#T}](../../concepts/volume.md)
+* [{#T}](encrypted-disks.md)
+* [{#T}](dynamic-create-pv.md)
+* [{#T}](static-create-pv.md)

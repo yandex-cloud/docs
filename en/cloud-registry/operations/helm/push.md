@@ -1,5 +1,5 @@
 ---
-title: Pushing a Helm chart to a {{ cloud-registry-name }}
+title: Pushing a Helm chart to {{ cloud-registry-name }}
 description: In this tutorial, you will learn how to push Helm charts to a {{ cloud-registry-name }}.
 ---
 
@@ -33,30 +33,21 @@ To push a Helm chart:
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  1. Authenticate your Helm client in the {{ cloud-registry-name }} registry using one of the available methods.
-     * With an OAuth token:
-       1. If you do not have an OAuth token yet, get one by following [this link]({{ link-cloud-oauth }}).
-       1. Run this command:
+  1. Authenticate your Helm client in {{ cloud-registry-name }} using an IAM token:
 
-          ```bash
-          helm registry login {{ cloud-registry }} -u oauth
-          Password: <OAuth_token>
-          ```
+     1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
+     1. Run this command:
 
-     * With an IAM token:
-       1. [Get an IAM token](../../../iam/operations/iam-token/create.md).
-       1. Run this command:
+        ```bash
+        helm registry login {{ cloud-registry }} -u iam
+        Password: <IAM_token>
+        ```
 
-          ```bash
-          helm registry login {{ cloud-registry }} -u iam
-          Password: <IAM_token>
-          ```
+        Result:
 
-     Result:
-
-     ```text
-     Login succeeded
-     ```
+        ```text
+        Login succeeded
+        ```
 
   1. Create a Helm chart:
   

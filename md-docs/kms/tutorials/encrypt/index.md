@@ -1,6 +1,6 @@
 # Какой способ шифрования выбрать?
 
-В таблице ниже приведено сравнение шифрования средствами Yandex Cloud (CLI, API, SDK) и другими библиотеками (AWS Encryption SDK, Google Tink). Ознакомьтесь с таблицей и выберите наиболее подходящий для вас способ.
+В таблице ниже приведено сравнение шифрования средствами {{ yandex-cloud }} (CLI, API, SDK) и другими библиотеками (AWS Encryption SDK, Google Tink). Ознакомьтесь с таблицей и выберите наиболее подходящий для вас способ.
 
 Особенность | [API](cli-api.md) | [CLI](cli-api.md) | [SDK](sdk.md) |  [Google Tink](google-tink.md) | [AWS Encryption SDK](aws-encryption-sdk.md) |
 ----|:---:|:---:|:---:|:---:|:---:|
@@ -10,7 +10,7 @@
 
 Для шифрования данных большого объема рекомендуется использовать AWS Encryption SDK и Google Tink, так как они работают [по схеме envelope encryption](../../concepts/envelope.md).
 
-Также вы можете самостоятельно реализовать схему envelope encryption с помощью API или SDK Yandex Cloud на основе криптографических методов, предоставляемых Yandex Key Management Service.
+Также вы можете самостоятельно реализовать схему envelope encryption с помощью API или SDK {{ yandex-cloud }} на основе криптографических методов, предоставляемых {{ kms-full-name }}.
 
 {% note warning %}
 

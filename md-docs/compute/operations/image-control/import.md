@@ -7,24 +7,24 @@
      * Роль на облако: `resource-manager.clouds.member`.
      * Роль на каталог: `viewer` или `compute.images.user`.
 
-     Подробнее о назначении ролей см. в инструкции [Назначение роли](../../../iam/operations/roles/grant.md).
+     Подробнее о назначении ролей см. в инструкции [{#T}](../../../iam/operations/roles/grant.md).
 
   1. Импортируйте копию этого образа в ваш каталог с помощью [CLI](../../../cli/quickstart.md):
 
-     Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+     Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
      1. Посмотрите описание команды CLI для создания образа:
 
         ```bash
-        yc compute image create --help
+        {{ yc-compute }} image create --help
         ```
 
-     1. Получите список доступных образов в исходном облаке или каталоге с помощью команды `yc compute image list --folder-name <имя_исходного_каталога>`. Например:
+     1. Получите список доступных образов в исходном облаке или каталоге с помощью команды `{{ yc-compute }} image list --folder-name <имя_исходного_каталога>`. Например:
 
         ```bash
-        yc compute image list --folder-name my-source-folder
+        {{ yc-compute }} image list --folder-name my-source-folder
         ```
 
         Результат:
@@ -39,10 +39,10 @@
 
      1. Выберите идентификатор (`ID`) или имя (`NAME`) импортируемого образа.
 
-     1. Для импорта образа выполните команду `yc compute image create --source-image-id=<идентификатор_исходного_образа>`. Например:
+     1. Для импорта образа выполните команду `{{ yc-compute }} image create --source-image-id=<идентификатор_исходного_образа>`. Например:
 
         ```bash
-        yc compute image create --source-image-id=fd8o0pt9qfbt********
+        {{ yc-compute }} image create --source-image-id=fd8o0pt9qfbt********
         ```
 
         Результат:
@@ -61,10 +61,10 @@
           type: LINUX
         ```
 
-   1. Проверьте результат, выполнив команду `yc compute image list --folder-name <имя_целевого_каталога>`. Например:
+   1. Проверьте результат, выполнив команду `{{ yc-compute }} image list --folder-name <имя_целевого_каталога>`. Например:
 
       ```bash
-      yc compute image list --folder-name my-destination-folder
+      {{ yc-compute }} image list --folder-name my-destination-folder
       ```
 
       Результат:

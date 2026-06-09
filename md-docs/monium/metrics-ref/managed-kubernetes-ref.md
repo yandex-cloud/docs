@@ -1,10 +1,10 @@
-# Метрики Yandex Managed Service for Kubernetes
+# Метрики {{ managed-k8s-full-name }}
 
-В этом разделе описаны метрики сервиса [Managed Service for Kubernetes](../../managed-kubernetes/index.md), поставляемые в Monium Metrics.
+В этом разделе описаны метрики сервиса [{{ managed-k8s-name }}](../../managed-kubernetes/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Managed Service for Kubernetes имеют общую метку `service=managed-kubernetes`.
+Все метрики сервиса {{ managed-k8s-name }} имеют общую метку `service=managed-kubernetes`.
 
 ## Метрики контейнера {#managed-kubernetes-container-metrics}
 

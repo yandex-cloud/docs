@@ -1,10 +1,10 @@
-# Решения для Serverless Containers
+# Решения для {{ serverless-containers-name }}
 
-## Примеры конфигураций и сценариев Serverless Containers {#configuration-examples}
+## Примеры конфигураций и сценариев {{ serverless-containers-name }} {#configuration-examples}
 
 * [Как настроить статический IP-адрес](how-to/static-ip-address.md)
 
-## Решения для известных проблем Serverless Containers {#known-issues-resolving}
+## Решения для известных проблем {{ serverless-containers-name }} {#known-issues-resolving}
 
 * [Устранение ошибки `Code 502 Message Error during function invocation`](known-issues/serverless-container-invoking-error-502.md)
 * [Устранение ошибки `user container exec format error`](known-issues/exec-format-error.md)

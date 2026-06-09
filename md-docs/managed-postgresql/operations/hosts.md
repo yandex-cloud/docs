@@ -1,4 +1,4 @@
-# Управление хостами кластера PostgreSQL
+# Управление хостами кластера {{ PG }}
 
 Вы можете добавлять и удалять хосты кластера, а также управлять их настройками. О том, как перенести хосты кластера в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md).
 
@@ -8,19 +8,19 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список хостов в кластере, выполните команду:
 
   ```bash
-  yc managed-postgresql host list \
+  {{ yc-mdb-pg }} host list \
     --cluster-name <имя_кластера>
   ```
 
@@ -31,8 +31,8 @@
   +----------------------------+----------------------+---------+--------+--------------------+
   |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |      ZONE ID       |
   +----------------------------+----------------------+---------+--------+--------------------+
-  | rc1b***mdb.yandexcloud.net | c9qp71dk1dfg******** | MASTER  | ALIVE  | ru-central1-b      |
-  | rc1a***mdb.yandexcloud.net | c9qp71dk1dfg******** | REPLICA | ALIVE  | ru-central1-a      |
+  | rc1b***{{ dns-zone }} | c9qp71dk1dfg******** | MASTER  | ALIVE  | {{ region-id }}-b      |
+  | rc1a***{{ dns-zone }} | c9qp71dk1dfg******** | REPLICA | ALIVE  | {{ region-id }}-a      |
   +----------------------------+----------------------+---------+--------+--------------------+
   ```
 
@@ -47,13 +47,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request GET \
        --header "Authorization: Bearer $IAM_TOKEN" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts'
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts'
      ```
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -75,7 +75,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -87,7 +87,7 @@
        -d '{
              "cluster_id": "<идентификатор_кластера>"
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.ListHosts
      ```
 
@@ -99,28 +99,28 @@
 
 ## Создать хост {#add}
 
-Количество хостов в кластерах Managed Service for PostgreSQL ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Databases**.
+Количество хостов в кластерах {{ mpg-short-name }} ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [{{ ui-key.yacloud.iam.cloud.switch_quotas }}]({{ link-console-quotas }}) и найдите блок **{{ ui-key.yacloud.iam.folder.dashboard.label_mdb }}**.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы создать хост:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
-  1. Нажмите кнопку **Создать хост**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
 
   
   1. Укажите параметры хоста:
      * Зону доступности.
      * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
      * Источник репликации (если вы используете [каскадную репликацию](../concepts/replication.md#replication-manual)).
-     * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+     * Выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
 
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -139,10 +139,10 @@
      +----------------------+-----------+----------------------+---------------+-------------------+
      |          ID          |   NAME    |      NETWORK ID      |      ZONE     |      RANGE        |
      +----------------------+-----------+----------------------+---------------+-------------------+
-     | b0cl69q1w2e3******** | default-d | enp6rq71w2e3******** | ru-central1-d | [172.16.**.**/20] |
-     | e2lkj9q1w2e3******** | default-b | enp6rq71w2e3******** | ru-central1-b | [10.10.**.**/16]  |
-     | e9b0phq1w2e3******** | a-2       | enp6rq71w2e3******** | ru-central1-a | [172.16.**.**/20] |
-     | e9b9v2q1w2e3******** | default-a | enp6rq71w2e3******** | ru-central1-a | [172.16.**.**/20] |
+     | b0cl69q1w2e3******** | default-d | enp6rq71w2e3******** | {{ region-id }}-d | [172.16.**.**/20] |
+     | e2lkj9q1w2e3******** | default-b | enp6rq71w2e3******** | {{ region-id }}-b | [10.10.**.**/16]  |
+     | e9b0phq1w2e3******** | a-2       | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |
+     | e9b9v2q1w2e3******** | default-a | enp6rq71w2e3******** | {{ region-id }}-a | [172.16.**.**/20] |
      +----------------------+-----------+----------------------+---------------+-------------------+
      ```
 
@@ -152,41 +152,41 @@
   1. Посмотрите описание команды CLI для добавления хостов:
 
      ```bash
-     yc managed-postgresql host add --help
+     {{ yc-mdb-pg }} host add --help
      ```
 
   1. Выполните команду добавления хоста:
 
      
      ```bash
-     yc managed-postgresql host add \
+     {{ yc-mdb-pg }} host add \
        --cluster-name <имя_кластера> \
        --host zone-id=<зона_доступности>,subnet-id=<идентификатор_подсети>
      ```
 
 
      
-     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае Managed Service for PostgreSQL автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+     Идентификатор подсети необходимо указать, если в зоне доступности больше одной подсети, в противном случае {{ mpg-short-name }} автоматически выберет единственную подсеть. Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
      Также вы можете указать несколько дополнительных опций в параметре `--host` для управления публичным доступом к хосту и репликацией в кластере:
      * Источник репликации для хоста в опции `replication-source` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
-     * Доступность хоста извне Yandex Cloud в опции `assign-public-ip`:
+     * Доступность хоста извне {{ yandex-cloud }} в опции `assign-public-ip`:
        * `true` — публичный доступ включен.
        * `false` — публичный доступ выключен.
 
 
-  Managed Service for PostgreSQL запустит операцию добавления хоста.
+  {{ mpg-short-name }} запустит операцию добавления хоста.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   Чтобы создать хост:
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
-  1. Добавьте к описанию кластера Managed Service for PostgreSQL блок `host`.
+     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+  1. Добавьте к описанию кластера {{ mpg-name }} блок `host`.
 
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -211,14 +211,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -242,7 +242,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+     Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
      
      * создание, в том числе путем восстановления из резервной копии, — 30 минут;
      * изменение — 60 минут;
@@ -278,7 +278,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.AddHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      
      ```bash
@@ -286,7 +286,7 @@
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
        --data '{
                  "hostSpecs": [
                    {
@@ -296,8 +296,8 @@
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
-                       "postgresqlConfig_<версия_PostgreSQL>": {
-                         <настройки_PostgreSQL>
+                       "postgresqlConfig_<версия_{{ PG }}>": {
+                         <настройки_{{ PG }}>
                        }
                      }
                    },
@@ -320,9 +320,9 @@
 
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
-     * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
+     * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/addHosts.md#yandex.cloud.mdb.postgresql.v1.AddClusterHostsRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -343,7 +343,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      
      ```bash
@@ -363,8 +363,8 @@
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
-                   "postgresql_config_<версия_PostgreSQL>": {
-                     <настройки_PostgreSQL>
+                   "postgresql_config_<версия_{{ PG }}>": {
+                     <настройки_{{ PG }}>
                    }
                  }
                },
@@ -373,7 +373,7 @@
                { <аналогичный_набор_настроек_для_создаваемого_хоста_N> }
              ]
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.AddHosts
      ```
 
@@ -389,9 +389,9 @@
 
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите [FQDN хоста](connect/fqdn.md#special-fqdns), который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
-     * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
+     * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -409,28 +409,28 @@
 
 ## Изменить хост {#update}
 
-Для каждого хоста в кластере Managed Service for PostgreSQL можно указать источник [репликации](../concepts/replication.md) и управлять [публичным доступом](../concepts/network.md#public-access-to-a-host) к хосту.
+Для каждого хоста в кластере {{ mpg-short-name }} можно указать источник [репликации](../concepts/replication.md) и управлять [публичным доступом](../concepts/network.md#public-access-to-a-host) к хосту.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы изменить параметры хоста в кластере:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
   1. Задайте новые настройки для хоста:
      1. Выберите источник репликации для хоста для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
 
      
-     1. Включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+     1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если хост должен быть доступен извне {{ yandex-cloud }}.
 
 
-  1. Нажмите кнопку **Сохранить**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.postgresql.hosts.dialog.button_choose }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -438,7 +438,7 @@
 
   
   ```bash
-  yc managed-postgresql host update <имя_хоста> \
+  {{ yc-mdb-pg }} host update <имя_хоста> \
     --cluster-name <имя_кластера> \
     --replication-source <имя_хоста-источника> \
     --assign-public-ip=<публичный_доступ_к_хосту>
@@ -459,15 +459,15 @@
   Чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual) в кластере, измените источник репликации для хоста в параметре `--replication-source`.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   Чтобы изменить параметры хоста в кластере:
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
-  1. Измените в описании кластера Managed Service for PostgreSQL атрибуты блока `host`, соответствующего изменяемому хосту.
+     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+  1. Измените в описании кластера {{ mpg-name }} атрибуты блока `host`, соответствующего изменяемому хосту.
 
      ```hcl
      resource "yandex_mdb_postgresql_cluster" "<имя_кластера>" {
@@ -486,14 +486,14 @@
 
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -517,7 +517,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+     Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
      
      * создание, в том числе путем восстановления из резервной копии, — 30 минут;
      * изменение — 60 минут;
@@ -553,7 +553,7 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.UpdateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      {% note warning %}
      
@@ -567,18 +567,18 @@
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
        --data '{
                  "updateHostSpecs": [
                    {
-                     "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<версия_PostgreSQL>",
+                     "updateMask": "assignPublicIp,replicationSource,priority,configSpec.postgresqlConfig_<версия_{{ PG }}>",
                      "hostName": "<FQDN_хоста>",
                      "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
                      "replicationSource": "<FQDN_хоста>",
                      "priority": "<приоритет_хоста>",
                      "configSpec": {
-                       "postgresqlConfig_<версия_PostgreSQL>": {
-                         <настройки_PostgreSQL>
+                       "postgresqlConfig_<версия_{{ PG }}>": {
+                         <настройки_{{ PG }}>
                        }
                      }
                    },
@@ -601,9 +601,9 @@
 
      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
-     * `configSpec.postgresqlConfig_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
+     * `configSpec.postgresqlConfig_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/Cluster/updateHosts.md#yandex.cloud.mdb.postgresql.v1.UpdateClusterHostsRequest). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -624,7 +624,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      {% note warning %}
      
@@ -672,14 +672,14 @@
                  "replication_source": "<FQDN_хоста>",
                  "priority": "<приоритет_хоста>",
                  "config_spec": {
-                   "postgresql_config_<версия_PostgreSQL>": {
-                     <настройки_PostgreSQL>
+                   "postgresql_config_<версия_{{ PG }}>": {
+                     <настройки_{{ PG }}>
                    }
                  }
                }
              ]
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.UpdateHosts
      ```
 
@@ -695,9 +695,9 @@
 
      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#replication-manual). В параметре укажите FQDN хоста, который будет источником репликации.
      * `priority` — приоритет хоста среди всех хостов.
-     * `config_spec.postgresql_config_<версия_PostgreSQL>` — набор настроек PostgreSQL. Укажите каждую настройку на отдельной строке через запятую.
+     * `config_spec.postgresql_config_<версия_{{ PG }}>` — набор настроек {{ PG }}. Укажите каждую настройку на отдельной строке через запятую.
 
-       Список версий PostgreSQL, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [Настройки PostgreSQL](../concepts/settings-list.md).
+       Список версий {{ PG }}, доступных для параметра, см. в [описании метода](../api-ref/grpc/Cluster/create.md#yandex.cloud.mdb.postgresql.v1.ConfigHostSpec). Описание и возможные значения настроек см. в разделе [{#T}](../concepts/settings-list.md).
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -715,53 +715,53 @@
 
 ## Удалить хост {#remove}
 
-Вы можете удалить хост из кластера PostgreSQL, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
+Вы можете удалить хост из кластера {{ PG }}, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
 
-Если хост является мастером в момент удаления, Managed Service for PostgreSQL автоматически назначит мастером следующую по приоритету реплику.
+Если хост является мастером в момент удаления, {{ mpg-short-name }} автоматически назначит мастером следующую по приоритету реплику.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   Чтобы удалить хост из кластера:
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **Удалить** и подтвердите удаление.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста, выберите пункт **{{ ui-key.yacloud.common.delete }}** и подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить хост из кластера, выполните команду:
 
   ```bash
-  yc managed-postgresql host delete <имя_хоста> \
+  {{ yc-mdb-pg }} host delete <имя_хоста> \
     --cluster-name <имя_кластера>
   ```
 
   Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   Чтобы удалить хост из кластера:
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-     Полный список доступных для изменения полей конфигурации кластера Managed Service for PostgreSQL см. в [документации провайдера Terraform](../../terraform/resources/mdb_postgresql_cluster.md).
-  1. Удалите из описания кластера Managed Service for PostgreSQL блок `host`, соответствующий удаляемому хосту.
+     Полный список доступных для изменения полей конфигурации кластера {{ mpg-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mpg }}).
+  1. Удалите из описания кластера {{ mpg-name }} блок `host`, соответствующий удаляемому хосту.
   1. Проверьте корректность настроек.
 
-     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
      1. Выполните команду:
      
         ```bash
         terraform validate
         ```
      
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Введите слово `yes` и нажмите **Enter**.
 
@@ -785,7 +785,7 @@
 
      {% note warning "Ограничения по времени" %}
      
-     Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for PostgreSQL:
+     Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mpg-name }}:
      
      * создание, в том числе путем восстановления из резервной копии, — 30 минут;
      * изменение — 60 минут;
@@ -820,14 +820,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.DeleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
        --data '{
                  "hostNames": [
                    "<FQDN_хоста>"
@@ -856,7 +856,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
@@ -871,7 +871,7 @@
                "<FQDN_хоста>"
              ]
            }' \
-       mdb.api.cloud.yandex.net:443 \
+       {{ api-host-mdb }}:{{ port-https }} \
        yandex.cloud.mdb.postgresql.v1.ClusterService.DeleteHosts
      ```
 

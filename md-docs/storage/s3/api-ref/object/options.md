@@ -15,7 +15,7 @@ OPTIONS /{bucket}/{key} HTTP/2
 Параметр | Описание
 ----- | -----
 `bucket` | Имя бакета.
-`key` | Ключ объекта. Идентификатор, под которым объект будет сохранен в Object Storage.
+`key` | Ключ объекта. Идентификатор, под которым объект будет сохранен в {{ objstorage-name }}.
 
 ### Заголовки {#request-headers}
 
@@ -35,9 +35,9 @@ OPTIONS /{bucket}/{key} HTTP/2
 
 Заголовок | Описание
 --------- | --------
-`Access-Control-Allow-Origin` | Домен, который был передан в заголовке `Origin` запроса.<br/><br/>Если в [конфигурации CORS](../cors/upload.md#request-scheme) в элементе `AllowedOrigin` задано `*`, то значение заголовка `Access-Control-Allow-Origin` также будет `*`.<br/><br/>Если доступ с домена запрещен, то Object Storage возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
+`Access-Control-Allow-Origin` | Домен, который был передан в заголовке `Origin` запроса.<br/><br/>Если в [конфигурации CORS](../cors/upload.md#request-scheme) в элементе `AllowedOrigin` задано `*`, то значение заголовка `Access-Control-Allow-Origin` также будет `*`.<br/><br/>Если доступ с домена запрещен, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
 `Access-Control-Max-Age` | Допустимый период (в секундах) кеширования ответа.
-`Access-Control-Allow-Methods` | Допустимые для использования в запросе методы. Если допустимых методов нет, то Object Storage возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
+`Access-Control-Allow-Methods` | Допустимые для использования в запросе методы. Если допустимых методов нет, то {{ objstorage-name }} возвращает ошибку 403 и отсутствуют все заголовки `Access-Control-*`.
 `Access-Control-Allow-Headers` | Список HTTP-заголовков, которые можно использовать в последующем запросе к объекту. Если все заголовки запрещены, то этот заголовок не входит в ответ.
 `Access-Control-Expose-Headers` | Список HTTP-заголовков, которые получит JavaScript-клиент.
 
@@ -48,17 +48,17 @@ OPTIONS /{bucket}/{key} HTTP/2
 - 200 — если запросы к объекту разрешены.
 - 403 — если запросы к объекту запрещены.
 
-Подробные описания кодов ответов смотрите в разделе [Ответы](../response-codes.md).
+Подробные описания кодов ответов смотрите в разделе [{#T}](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [Объект](../../../concepts/object.md)
+* [{#T}](../../../concepts/object.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [{#T}](../../../operations/buckets/cors.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

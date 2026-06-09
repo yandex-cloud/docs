@@ -5,7 +5,7 @@ Deletes the specified desktop group.
 ## HTTP request
 
 ```
-DELETE https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups/{desktopGroupId}
+DELETE https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktopGroups/{desktopGroupId}
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ DELETE https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktopGroups
 || desktopGroupId | **string**
 
 Required field. ID of the desktop group to delete.
-
 To get a desktop group ID make a [DesktopGroupService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||

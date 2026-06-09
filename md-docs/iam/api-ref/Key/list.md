@@ -5,7 +5,7 @@ Retrieves the list of Key resources for the specified service account.
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/keys
+GET https://iam.{{ api-host }}/iam/v1/keys
 ```
 
 ## Query parameters {#yandex.cloud.iam.v1.ListKeysRequest}
@@ -32,7 +32,7 @@ the service returns a [ListKeysResponse.nextPageToken](#yandex.cloud.iam.v1.List
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the

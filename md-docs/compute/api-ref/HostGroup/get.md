@@ -5,7 +5,7 @@ Returns the specified host group.
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
+GET https://compute.{{ api-host }}/compute/v1/hostGroups/{hostGroupId}
 ```
 
 ## Path parameters
@@ -16,8 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/hostGroups/{hostGroupId}
 
 Required field. ID of the host group to return.
 To get the host group ID, use [HostGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.HostGroup}

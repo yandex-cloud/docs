@@ -5,7 +5,7 @@ Adds users to the specified federation.
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}:addUserAccounts
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}:addUserAccounts
 ```
 
 ## Path parameters
@@ -36,7 +36,7 @@ The maximum string length in characters is 50. ||
 Name IDs returned by the Identity Provider (IdP) on successful authentication.
 These may be UPNs or user email addresses.
 
-The maximum string length in characters for each value is 1000. ||
+The string length in characters for each value must be 1-1000. The number of elements must be in the range 1-1000. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -51,9 +51,7 @@ The maximum string length in characters for each value is 1000. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "federationId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -62,24 +60,7 @@ The maximum string length in characters for each value is 1000. ||
       "object"
     ]
   },
-  "response": {
-    "userAccounts": [
-      {
-        "id": "string",
-        // Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`
-        "yandexPassportUserAccount": {
-          "login": "string",
-          "defaultEmail": "string"
-        },
-        "samlUserAccount": {
-          "federationId": "string",
-          "nameId": "string",
-          "attributes": "object"
-        }
-        // end of the list of possible fields
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -121,7 +102,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddFederatedUserAccountsMetadata](#yandex.cloud.organizationmanager.v1.saml.AddFederatedUserAccountsMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -136,7 +117,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[AddFederatedUserAccountsResponse](#yandex.cloud.organizationmanager.v1.saml.AddFederatedUserAccountsResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -151,15 +132,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddFederatedUserAccountsMetadata {#yandex.cloud.organizationmanager.v1.saml.AddFederatedUserAccountsMetadata}
-
-#|
-||Field | Description ||
-|| federationId | **string**
-
-ID of the federation that is being altered. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -177,79 +149,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## AddFederatedUserAccountsResponse {#yandex.cloud.organizationmanager.v1.saml.AddFederatedUserAccountsResponse}
-
-#|
-||Field | Description ||
-|| userAccounts[] | **[UserAccount](#yandex.cloud.organizationmanager.v1.UserAccount)**
-
-List of users created by [FederationService.AddUserAccounts](#AddUserAccounts) request. ||
-|#
-
-## UserAccount {#yandex.cloud.organizationmanager.v1.UserAccount}
-
-Currently represents only [Yandex account](../../../../iam/concepts/users/accounts.md#passport).
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the user account. ||
-|| yandexPassportUserAccount | **[YandexPassportUserAccount](#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount)**
-
-A YandexPassportUserAccount resource.
-
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
-|| samlUserAccount | **[SamlUserAccount](#yandex.cloud.organizationmanager.v1.SamlUserAccount)**
-
-A SAML federated user.
-
-Includes only one of the fields `yandexPassportUserAccount`, `samlUserAccount`. ||
-|#
-
-## YandexPassportUserAccount {#yandex.cloud.organizationmanager.v1.YandexPassportUserAccount}
-
-A YandexPassportUserAccount resource.
-For more information, see [Yandex account](../../../../iam/concepts/users/accounts.md#passport).
-
-#|
-||Field | Description ||
-|| login | **string**
-
-Login of the Yandex user account. ||
-|| defaultEmail | **string**
-
-Default email of the Yandex user account. ||
-|#
-
-## SamlUserAccount {#yandex.cloud.organizationmanager.v1.SamlUserAccount}
-
-A SAML federated user.
-For more information, see [federations](../../../../iam/concepts/users/accounts.md#saml-federation).
-
-#|
-||Field | Description ||
-|| federationId | **string**
-
-Required field. ID of the federation that the federation belongs to.
-
-The maximum string length in characters is 50. ||
-|| nameId | **string**
-
-Required field. Name Id of the SAML federated user.
-The name is unique within the federation. 1-256 characters long.
-
-The string length in characters must be 1-256. ||
-|| attributes | **object** (map<**string**, **[Attribute](#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute)**>)
-
-Additional attributes of the SAML federated user. ||
-|#
-
-## Attribute {#yandex.cloud.organizationmanager.v1.SamlUserAccount.Attribute}
-
-#|
-||Field | Description ||
-|| value[] | **string** ||
 |#

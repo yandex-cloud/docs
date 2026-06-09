@@ -1,7 +1,6 @@
 # Compute Cloud Instance Groups API, gRPC: InstanceGroupService.Get
 
 Returns the specified InstanceGroup resource.
-
 To get the list of available InstanceGroup resources, make a [List](list.md#List) request.
 
 ## gRPC request
@@ -23,8 +22,8 @@ To get the list of available InstanceGroup resources, make a [List](list.md#List
 
 Required field. ID of the InstanceGroup resource to return.
 To get the instance group ID, use a [InstanceGroupService.List](list.md#List) request.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50.
+This field is required. ||
 || view | enum **InstanceGroupView**
 
 Defines which information about the Instance template should be returned in the server response.
@@ -107,6 +106,7 @@ Defines which information about the Instance template should be returned in the 
               }
             ]
           },
+          "address": "string",
           "dns_record_specs": [
             {
               "fqdn": "string",
@@ -114,8 +114,7 @@ Defines which information about the Instance template should be returned in the 
               "ttl": "int64",
               "ptr": "bool"
             }
-          ],
-          "address": "string"
+          ]
         },
         "primary_v6_address_spec": {
           "one_to_one_nat_spec": {
@@ -130,6 +129,7 @@ Defines which information about the Instance template should be returned in the 
               }
             ]
           },
+          "address": "string",
           "dns_record_specs": [
             {
               "fqdn": "string",
@@ -137,8 +137,7 @@ Defines which information about the Instance template should be returned in the 
               "ttl": "int64",
               "ptr": "bool"
             }
-          ],
-          "address": "string"
+          ]
         },
         "security_group_ids": [
           "string"
@@ -149,11 +148,11 @@ Defines which information about the Instance template should be returned in the 
       "preemptible": "bool"
     },
     "service_account_id": "string",
+    "name": "string",
+    "hostname": "string",
     "network_settings": {
       "type": "Type"
     },
-    "name": "string",
-    "hostname": "string",
     "placement_policy": {
       "placement_group_id": "string",
       "host_affinity_rules": [
@@ -173,6 +172,7 @@ Defines which information about the Instance template should be returned in the 
         "filesystem_id": "string"
       }
     ],
+    "reserved_instance_pool_id": "string",
     "metadata_options": {
       "gce_http_endpoint": "MetadataOption",
       "aws_v1_http_endpoint": "MetadataOption",
@@ -180,8 +180,7 @@ Defines which information about the Instance template should be returned in the 
       "aws_v1_http_token": "MetadataOption",
       "aws_v2_http_endpoint": "MetadataOption",
       "aws_v2_http_token": "MetadataOption"
-    },
-    "reserved_instance_pool_id": "string"
+    }
   },
   "scale_policy": {
     // Includes only one of the fields `fixed_scale`, `auto_scale`
@@ -388,8 +387,7 @@ Status of the instance group.
 - `ACTIVE`: Instance group is active.
 In this state the group manages its instances and monitors their health,
 creating, deleting, stopping, updating and starting instances as needed.
-
-  To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](stop.md#Stop).
+To stop the instance group, call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.Stop](stop.md#Stop).
 To pause the processes in the instance group, i.e. scaling, checking instances' health,
 auto-healing and updating them, without stopping the instances,
 call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.PauseProcesses](pauseProcesses.md#PauseProcesses).
@@ -403,8 +401,7 @@ To start the instance group, call [yandex.cloud.compute.v1.instancegroup.Instanc
 In this state all the processes regarding the group management, i.e. scaling, checking instances' health,
 auto-healing and updating them, are paused. The instances that were running prior to pausing the group, however,
 may still be running.
-
-  To resume the processes in the instance group,
+To resume the processes in the instance group,
 call [yandex.cloud.compute.v1.instancegroup.InstanceGroupService.ResumeProcesses](resumeProcesses.md#ResumeProcesses).
 The group status will change to `ACTIVE`. ||
 || variables[] | **[Variable](#yandex.cloud.compute.v1.instancegroup.Variable)**
@@ -413,9 +410,7 @@ User-defined [variables](docs/compute/concepts/instance-groups/variables-in-the-
 || deletion_protection | **bool**
 
 Flag prohibiting deletion of the instance group.
-
 Allowed values:</br>- `false`: The instance group can be deleted.</br>- `true`: The instance group cannot be deleted.
-
 The default is `false`. ||
 || application_load_balancer_spec | **[ApplicationLoadBalancerSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec)**
 
@@ -424,7 +419,6 @@ Settings for balancing load between instances via [Application Load Balancer](..
 || application_load_balancer_state | **[ApplicationLoadBalancerState](#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerState)**
 
 Status of the Application Load Balancer target group attributed to the instance group.
-
 Returned if there is a working load balancer that the target group is connected to. ||
 || auto_healing_policy | **[AutoHealingPolicy](#yandex.cloud.compute.v1.instancegroup.AutoHealingPolicy)**
 
@@ -441,26 +435,28 @@ List of disabled zones for the instance group. ||
 || description | **string**
 
 Description of the instance template.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
-
-No more than 64 per resource. The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 128.
+The number of elements must be less than or equal to 64. ||
 || platform_id | **string**
 
 Required field. ID of the hardware platform configuration for the instance.
 Platforms allows you to create various types of instances: with a large amount of memory,
 with a large number of cores, with a burstable performance.
-For more information, see [Platforms](../../../../concepts/vm-platforms.md). ||
+For more information, see [Platforms](../../../../concepts/vm-platforms.md).
+This field is required. ||
 || resources_spec | **[ResourcesSpec](#yandex.cloud.compute.v1.instancegroup.ResourcesSpec)**
 
-Required field. Computing resources of the instance such as the amount of memory and number of cores. ||
+Required field. Computing resources of the instance such as the amount of memory and number of cores.
+This field is required. ||
 || metadata | **object** (map<**string**, **string**>)
 
 The metadata `key:value` pairs assigned to this instance template. This includes custom metadata and predefined keys.
-
 Metadata values may contain one of the supported placeholders:
 {instance_group.id}
 {instance.short_id}
@@ -473,31 +469,30 @@ InstanceGroup and Instance labels may be copied to metadata following way:
 These placeholders will be substituted for each created instance anywhere in the value text.
 In the rare case the value requires to contain this placeholder explicitly,
 it must be escaped with double brackets, in example {instance.index}.
-
 For example, you may use the metadata in order to provide your public SSH key to the instance.
 For more information, see [Metadata](../../../../concepts/vm-metadata.md).
-
-No more than 128 per resource. The maximum string length in characters for each value is 262144. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+Each map key must match the regular expression: `[a-z][-_0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 262144.
+The number of elements must be less than or equal to 128. ||
 || boot_disk_spec | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
 
-Required field. Boot disk specification that will be attached to the instance. ||
+Boot disk specification that will be attached to the instance.
+This field is required. ||
 || secondary_disk_specs[] | **[AttachedDiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec)**
 
 Array of secondary disks that will be attached to the instance.
-
-The maximum number of elements is 3. ||
+The number of elements must be less than or equal to 3. ||
 || network_interface_specs[] | **[NetworkInterfaceSpec](#yandex.cloud.compute.v1.instancegroup.NetworkInterfaceSpec)**
 
-Required field. Array of network interfaces that will be attached to the instance. ||
+Array of network interfaces that will be attached to the instance.
+This field is required. ||
 || scheduling_policy | **[SchedulingPolicy](#yandex.cloud.compute.v1.instancegroup.SchedulingPolicy)**
 
 Scheduling policy for the instance. ||
 || service_account_id | **string**
 
 Service account ID for the instance. ||
-|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.instancegroup.NetworkSettings)**
-
-Network settings for the instance. ||
 || name | **string**
 
 Name of the instance.
@@ -508,8 +503,7 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, default is used: {instance_group.id}-{instance.short_id}
 It may also contain another placeholders, see metadata doc for full list.
-
-The maximum string length in characters is 128. ||
+The length must be less than or equal to 128. ||
 || hostname | **string**
 
 Host name for the instance.
@@ -517,7 +511,6 @@ This field is used to generate the [yandex.cloud.compute.v1.Instance.fqdn](../..
 The host name must be unique within the network and region.
 If not specified, the host name will be equal to [yandex.cloud.compute.v1.Instance.id](../../../../api-ref/grpc/GpuCluster/listInstances.md#yandex.cloud.compute.v1.Instance) of the instance
 and FQDN will be `<id>.auto.internal`. Otherwise FQDN will be `<hostname>.<region_id>.internal`.
-
 In order to be unique it must contain at least on of instance unique placeholders:
 {instance.short_id}
 {instance.index}
@@ -525,28 +518,28 @@ combination of {instance.zone_id} and {instance.index_in_zone}
 Example: my-instance-{instance.index}
 If not set, `name` value will be used
 It may also contain another placeholders, see metadata doc for full list.
+The length must be less than or equal to 128. ||
+|| network_settings | **[NetworkSettings](#yandex.cloud.compute.v1.instancegroup.NetworkSettings)**
 
-The maximum string length in characters is 128. ||
+Network settings for the instance. ||
 || placement_policy | **[PlacementPolicy](#yandex.cloud.compute.v1.instancegroup.PlacementPolicy)**
 
 Placement Group ||
 || filesystem_specs[] | **[AttachedFilesystemSpec](#yandex.cloud.compute.v1.instancegroup.AttachedFilesystemSpec)**
 
 Array of filesystems to attach to the instance.
-
 The filesystems must reside in the same availability zone as the instance.
-
 To use the instance with an attached filesystem, the latter must be mounted.
 For details, see [documentation](../../../../operations/filesystem/attach-to-vm.md). ||
-|| metadata_options | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)**
-
-Metadata options for the instance ||
 || reserved_instance_pool_id | **string**
 
 ID of the reserved instance pool that the instance should belong to.
 Attaching/detaching running instance will increase/decrease the size of the reserved instance pool.
 Attaching/detaching stopped instance will leave the size of the reserved instance pool unchanged. Starting such attached instance will use resources from the reserved instance pool.
 Reserved instance pool resource configuration must match the resource configuration of the instance. ||
+|| metadata_options | **[MetadataOptions](#yandex.cloud.compute.v1.instancegroup.MetadataOptions)**
+
+Metadata options for the instance ||
 |#
 
 ## ResourcesSpec {#yandex.cloud.compute.v1.instancegroup.ResourcesSpec}
@@ -556,18 +549,20 @@ Reserved instance pool resource configuration must match the resource configurat
 || memory | **int64**
 
 The amount of memory available to the instance, specified in bytes.
-
-The maximum value is 824633720832. ||
+The value must be less than or equal to 824633720832. ||
 || cores | **int64**
 
-The number of cores available to the instance. ||
+The number of cores available to the instance.
+The value must satisfy: 2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36,40,44,48,52,56,60,64,68,72,76,80. ||
 || core_fraction | **int64**
 
 Baseline level of CPU performance with the ability to burst performance above that baseline level.
-This field sets baseline performance for each core. ||
+This field sets baseline performance for each core.
+The value must satisfy: 0,5,20,50,100. ||
 || gpus | **int64**
 
-The number of GPUs available to the instance. ||
+The number of GPUs available to the instance.
+The value must satisfy: 0,1,2,4. ||
 |#
 
 ## AttachedDiskSpec {#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec}
@@ -577,6 +572,7 @@ The number of GPUs available to the instance. ||
 || mode | enum **Mode**
 
 Required field. Access mode to the Disk resource.
+This field is required.
 
 - `READ_ONLY`: Read-only access.
 - `READ_WRITE`: Read/Write access. ||
@@ -584,24 +580,26 @@ Required field. Access mode to the Disk resource.
 
 Serial number that is reflected in the /dev/disk/by-id/ tree
 of a Linux operating system running within the instance.
-
 This value can be used to reference the device for mounting, resizing, and so on, from within the instance.
+The value must match the regular expression: ```|[a-z][-_0-9a-z]{0,19}```.
 
 Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || disk_spec | **[DiskSpec](#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec)**
 
-Required field. oneof disk_spec or disk_id
-Disk specification that is attached to the instance. For more information, see [Disks](../../../../concepts/disk.md). ||
+oneof disk_spec or disk_id
+Disk specification that is attached to the instance. For more information, see [Disks](../../../../concepts/disk.md).
+This field is required. ||
 || disk_id | **string**
 
 Set to use an existing disk. To set use variables.
+The length must be less than or equal to 128.
+The value must match the regular expression: `[-a-zA-Z0-9._{}]*`.
 
-The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
 || name | **string**
 
 When set can be later used to change DiskSpec of actual disk.
-
-The maximum string length in characters is 128. ||
+The length must be less than or equal to 128. ||
 |#
 
 ## DiskSpec {#yandex.cloud.compute.v1.instancegroup.AttachedDiskSpec.DiskSpec}
@@ -611,28 +609,25 @@ The maximum string length in characters is 128. ||
 || description | **string**
 
 Description of the disk.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || type_id | **string**
 
-Required field. ID of the disk type. ||
+Required field. ID of the disk type.
+This field is required. ||
 || size | **int64**
 
 Size of the disk, specified in bytes.
-
-Acceptable values are 4194304 to 28587302322176, inclusive. ||
+The value must be between 4194304 and 28587302322176. ||
 || image_id | **string**
 
 ID of the image that will be used for disk creation.
-
-The maximum string length in characters is 50.
+The length must be less than or equal to 50.
 
 Includes only one of the fields `image_id`, `snapshot_id`. ||
 || snapshot_id | **string**
 
 ID of the snapshot that will be used for disk creation.
-
-The maximum string length in characters is 50.
+The length must be less than or equal to 50.
 
 Includes only one of the fields `image_id`, `snapshot_id`. ||
 || preserve_after_instance_delete | **bool**
@@ -670,12 +665,14 @@ IDs of security groups. ||
 
 An external IP address configuration.
 If not specified, then this managed instance will have no external internet access. ||
+|| address | **string**
+
+Optional. Manual set static internal IP. To set use variables.
+
+Value must match the regular expression ` [-a-zA-Z0-9._{}:]* `. ||
 || dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
 
 Internal DNS configuration ||
-|| address | **string**
-
-Optional. Manual set static internal IP. To set use variables. ||
 |#
 
 ## OneToOneNatSpec {#yandex.cloud.compute.v1.instancegroup.OneToOneNatSpec}
@@ -690,7 +687,9 @@ IP version for the public IP address.
 - `IPV6`: IPv6 address, not available yet. ||
 || address | **string**
 
-Manual set static public IP. To set use variables. (optional) ||
+Manual set static public IP. To set use variables. (optional)
+
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
 || dns_record_specs[] | **[DnsRecordSpec](#yandex.cloud.compute.v1.instancegroup.DnsRecordSpec)**
 
 External DNS configuration ||
@@ -702,15 +701,15 @@ External DNS configuration ||
 ||Field | Description ||
 || fqdn | **string**
 
-Required field. FQDN (required) ||
+FQDN (required)
+This field is required. ||
 || dns_zone_id | **string**
 
 DNS zone id (optional, if not set, private zone used) ||
 || ttl | **int64**
 
 DNS record ttl, values in 0-86400 (optional)
-
-Acceptable values are 0 to 86400, inclusive. ||
+The value must be between 0 and 86400. ||
 || ptr | **bool**
 
 When set to true, also create PTR DNS record (optional) ||
@@ -733,7 +732,7 @@ For more information, see [Preemptible Virtual Machines](../../../../concepts/pr
 ||Field | Description ||
 || type | enum **Type**
 
-Type of instance network.
+Required field. Type of instance network.
 
 - `STANDARD`: Standard network.
 - `SOFTWARE_ACCELERATED`: Software accelerated network.
@@ -760,7 +759,7 @@ Affinity definition
 ||Field | Description ||
 || key | **string**
 
-Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
+Required field. Affinity label or one of reserved values - 'yc.hostId', 'yc.hostGroupId' ||
 || op | enum **Operator**
 
 Include or exclude action
@@ -785,18 +784,19 @@ Mode of access to the filesystem that should be attached.
 || device_name | **string**
 
 Name of the device representing the filesystem on the instance.
-
 The name should be used for referencing the filesystem from within the instance
 when it's being mounted, resized etc.
-
 If not specified, a random value will be generated.
+The value must match the regular expression: ```|[a-z][-_0-9a-z]{0,19}```.
 
 Value must match the regular expression ``` |[a-z][-_0-9a-z]{0,19} ```. ||
 || filesystem_id | **string**
 
 ID of the filesystem that should be attached.
+The length must be less than or equal to 128.
+The value must match the regular expression: `[-a-zA-Z0-9._{}]*`.
 
-The maximum string length in characters is 128. Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
+Value must match the regular expression ` [-a-zA-Z0-9._{}]* `. ||
 |#
 
 ## MetadataOptions {#yandex.cloud.compute.v1.instancegroup.MetadataOptions}
@@ -867,8 +867,7 @@ Test spec for [automatic scaling policy](../../../../concepts/instance-groups/sc
 || size | **int64**
 
 Number of instances in the instance group.
-
-Acceptable values are 1 to 100, inclusive. ||
+The value must be between 1 and 100. ||
 |#
 
 ## AutoScale {#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale}
@@ -878,47 +877,44 @@ Acceptable values are 1 to 100, inclusive. ||
 || min_zone_size | **int64**
 
 Lower limit for instance count in each zone.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || max_size | **int64**
 
 Upper limit for total instance count (across all zones).
 0 means maximum limit = 100.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || measurement_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Time in seconds allotted for averaging metrics.
-1 minute by default. ||
+1 minute by default.
+The value must satisfy: 1m-10m. ||
 || warmup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 The warmup time of the instance in seconds. During this time,
-traffic is sent to the instance, but instance metrics are not collected. ||
+traffic is sent to the instance, but instance metrics are not collected.
+The value must satisfy: <=10m. ||
 || stabilization_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Minimum amount of time in seconds allotted for monitoring before
 Instance Groups can reduce the number of instances in the group.
 During this time, the group size doesn't decrease, even if the new metric values
-indicate that it should. ||
+indicate that it should.
+The value must satisfy: 1m-30m. ||
 || initial_size | **int64**
 
 Target group size.
-
-The minimum value is 1. ||
+The value must be greater than or equal to 1. ||
 || cpu_utilization_rule | **[CpuUtilizationRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CpuUtilizationRule)**
 
 Defines an autoscaling rule based on the average CPU utilization of the instance group.
-
 If more than one rule is specified, e.g. CPU utilization and one or more Monitoring metrics (`custom_rules`),
 the size of the instance group will be equal to the maximum of sizes calculated according to each metric. ||
 || custom_rules[] | **[CustomRule](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule)**
 
 Defines an autoscaling rule based on a [custom metric](../../../../../monitoring/operations/metric/add.md) from Monitoring.
-
 If more than one rule is specified, e.g. CPU utilization (`cpu_utilization_rule`) and one or more Monitoring
 metrics, the size of the instance group will be equal to the maximum of sizes calculated according to each metric.
-
-The maximum number of elements is 3. ||
+The number of elements must be less than or equal to 3. ||
 || auto_scale_type | enum **AutoScaleType**
 
 Autoscaling type.
@@ -934,8 +930,7 @@ Autoscaling type.
 || utilization_target | **double**
 
 Target CPU utilization level. Instance Groups maintains this level for each availability zone.
-
-Acceptable values are 10 to 100, inclusive. ||
+The value must be between 10 and 100. ||
 |#
 
 ## CustomRule {#yandex.cloud.compute.v1.instancegroup.ScalePolicy.CustomRule}
@@ -946,6 +941,7 @@ Acceptable values are 10 to 100, inclusive. ||
 
 Required field. Custom metric rule type. This field affects which label from
 the custom metric should be used: `zone_id` or `instance_id`.
+This field is required.
 
 - `UTILIZATION`: This type means that the metric applies to one instance.
 First, Instance Groups calculates the average metric value for each instance,
@@ -956,42 +952,42 @@ This type of metric must have the `zone_id` label if ZONAL autoscaling type is c
 || metric_type | enum **MetricType**
 
 Required field. Type of custom metric. This field affects how Instance Groups calculates the average metric value.
+This field is required.
 
 - `GAUGE`: This type is used for metrics that show the metric value at a certain point in time,
 such as requests per second to the server on an instance.
-
-  Instance Groups calculates the average metric value for the period
+Instance Groups calculates the average metric value for the period
 specified in the [AutoScale.measurement_duration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field.
 - `COUNTER`: This type is used for metrics that monotonically increase over time,
 such as the total number of requests to the server on an instance.
-
-  Instance Groups calculates the average value increase for the period
+Instance Groups calculates the average value increase for the period
 specified in the [AutoScale.measurement_duration](#yandex.cloud.compute.v1.instancegroup.ScalePolicy.AutoScale) field. ||
 || metric_name | **string**
 
 Required field. Name of custom metric in Monitoring that should be used for scaling.
+The value must match the regular expression: `[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198}`.
+This field is required.
 
 Value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of custom metric in Monitoring that should be used for scaling.
+Each map key must match the regular expression: `^[a-zA-Z][0-9a-zA-Z_]{0,31}$`.
+Each map value must match the regular expression: `[a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\\[\\]<>-]{0,198}`.
 
-Each value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. Each key must match the regular expression ` ^[a-zA-Z][0-9a-zA-Z_]{0,31}$ `. ||
+Each value must match the regular expression ` [a-zA-Z0-9./@_][ 0-9a-zA-Z./@_,:;()\[\]<>-]{0,198} `. ||
 || target | **double**
 
 Target value for the custom metric. Instance Groups maintains this level for each availability zone.
-
-Value must be greater than 0. ||
+The value must be greater than 0. ||
 || folder_id | **string**
 
 Folder id of custom metric in Monitoring that should be used for scaling.
-
-The maximum string length in characters is 50. ||
+The length must be less than or equal to 50. ||
 || service | **string**
 
 Service of custom metric in Monitoring that should be used for scaling.
-
-The maximum string length in characters is 200. ||
+The length must be less than or equal to 200. ||
 |#
 
 ## DeployPolicy {#yandex.cloud.compute.v1.instancegroup.DeployPolicy}
@@ -1003,35 +999,30 @@ The maximum string length in characters is 200. ||
 The maximum number of running instances that can be taken offline (i.e., stopped or deleted) at the same time
 during the update process.
 If `max_expansion` is not specified or set to zero, `max_unavailable` must be set to a non-zero value.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || max_deleting | **int64**
 
 The maximum number of instances that can be deleted at the same time.
-
 The value 0 is any number of virtual machines within the allowed values.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || max_creating | **int64**
 
 The maximum number of instances that can be created at the same time.
-
 The value 0 is any number of virtual machines within the allowed values.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || max_expansion | **int64**
 
 The maximum number of instances that can be temporarily allocated above the group's target size
 during the update process.
 If `max_unavailable` is not specified or set to zero, `max_expansion` must be set to a non-zero value.
-
-Acceptable values are 0 to 100, inclusive. ||
+The value must be between 0 and 100. ||
 || startup_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Instance startup duration.
 Instance will be considered up and running (and start receiving traffic) only after startup_duration
 has elapsed and all health checks are passed.
-See [ManagedInstance.Status](listInstances.md#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status) for more information. ||
+See [ManagedInstance.Status](listInstances.md#yandex.cloud.compute.v1.instancegroup.ManagedInstance.Status) for more information.
+The value must satisfy: 0m-1h. ||
 || strategy | enum **Strategy**
 
 Affects the lifecycle of the instance during deployment.
@@ -1056,8 +1047,7 @@ Instance Groups performs `minimal_action` to execute the update
 || zones[] | **[Zone](#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone)**
 
 List of availability zones.
-
-The minimum number of elements is 1. ||
+The number of elements must be greater than or equal to 1. ||
 |#
 
 ## Zone {#yandex.cloud.compute.v1.instancegroup.AllocationPolicy.Zone}
@@ -1066,15 +1056,16 @@ The minimum number of elements is 1. ||
 ||Field | Description ||
 || zone_id | **string**
 
-Required field. ID of the availability zone where the instance resides. ||
+Required field. ID of the availability zone where the instance resides.
+This field is required. ||
 || instance_tags_pool[] | **string**
 
 Each instance in a zone will be associated with exactly one of a tag from a pool below.
 All specified tags must be unique across the whole group not only the zone.
 It is guaranteed that during whole deploy only tags from prefix of the specified list will be used.
 It is possible to use tag associated with instance in templating via {instance.tag}.
-
-The string length in characters for each value must be 3-50. ||
+The elements must be unique.
+The length of each element must be between 3 and 50. ||
 |#
 
 ## LoadBalancerState {#yandex.cloud.compute.v1.instancegroup.LoadBalancerState}
@@ -1113,11 +1104,12 @@ The number of instances in flight (for example, updating, starting, deleting). F
 ||Field | Description ||
 || target_group_spec | **[TargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.TargetGroupSpec)**
 
-Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](../../../../../network-load-balancer/concepts/target-resources.md). ||
+Required field. Specification of the target group that the instance group will be added to. For more information, see [Target groups and resources](../../../../../network-load-balancer/concepts/target-resources.md). ||
 || max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
-the VM will be turned off based on the deployment policy. Specified in seconds. ||
+the VM will be turned off based on the deployment policy. Specified in seconds.
+The value must satisfy: >=1s. ||
 || ignore_health_checks | **bool**
 
 Do not wait load balancer health checks. ||
@@ -1130,18 +1122,23 @@ Do not wait load balancer health checks. ||
 || name | **string**
 
 Name of the target group.
+The value must match the regular expression: ```|[a-z]([-a-z0-9]{0,61}[a-z0-9])?```.
 
 Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the target group.
-
-The maximum string length in characters is 256. ||
+The length must be less than or equal to 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
+Each map key must match the regular expression: `[a-z][-_./\\@0-9a-z]*`.
+Each map value must match the regular expression: `[-_./\\@0-9a-z]*`.
+The length of each map key must be between 1 and 63.
+The length of each map value must be less than or equal to 63.
+The number of elements must be less than or equal to 64.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+Each value must match the regular expression ` [-_./\@0-9a-z]* `. ||
 |#
 
 ## HealthChecksSpec {#yandex.cloud.compute.v1.instancegroup.HealthChecksSpec}
@@ -1151,12 +1148,12 @@ No more than 64 per resource. The maximum string length in characters for each v
 || health_check_specs[] | **[HealthCheckSpec](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec)**
 
 Health checking specification. For more information, see [Health check](../../../../../network-load-balancer/concepts/health-check.md).
-
-The minimum number of elements is 1. ||
+The number of elements must be greater than or equal to 1. ||
 || max_checking_health_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to become healthy. If the timeout is exceeded,
-the VM will be turned off based on the deployment policy. Specified in seconds. ||
+the VM will be turned off based on the deployment policy. Specified in seconds.
+The value must satisfy: >=1s. ||
 |#
 
 ## HealthCheckSpec {#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec}
@@ -1165,16 +1162,20 @@ the VM will be turned off based on the deployment policy. Specified in seconds. 
 ||Field | Description ||
 || interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-The interval between health checks. The default is 2 seconds. ||
+The interval between health checks. The default is 2 seconds.
+The value must satisfy: 1s-300s. ||
 || timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
-Timeout for the managed instance to return a response for the health check. The default is 1 second. ||
+Timeout for the managed instance to return a response for the health check. The default is 1 second.
+The value must satisfy: 1s-60s. ||
 || unhealthy_threshold | **int64**
 
-The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2. ||
+The number of failed health checks for the managed instance to be considered unhealthy. The default (0) is 2.
+The value must satisfy: 0,2,3,4,5,6,7,8,9,10. ||
 || healthy_threshold | **int64**
 
-The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2. ||
+The number of successful health checks required in order for the managed instance to be considered healthy. The default (0) is 2.
+The value must satisfy: 0,2,3,4,5,6,7,8,9,10. ||
 || tcp_options | **[TcpOptions](#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.TcpOptions)**
 
 Configuration options for a TCP health check.
@@ -1194,8 +1195,7 @@ Includes only one of the fields `tcp_options`, `http_options`. ||
 || port | **int64**
 
 Port to use for TCP health checks.
-
-Acceptable values are 1 to 65535, inclusive. ||
+The value must be between 1 and 65535. ||
 |#
 
 ## HttpOptions {#yandex.cloud.compute.v1.instancegroup.HealthCheckSpec.HttpOptions}
@@ -1205,8 +1205,7 @@ Acceptable values are 1 to 65535, inclusive. ||
 || port | **int64**
 
 Port to use for HTTP health checks.
-
-Acceptable values are 1 to 65535, inclusive. ||
+The value must be between 1 and 65535. ||
 || path | **string**
 
 URL path to set for health checking requests. ||
@@ -1219,13 +1218,14 @@ URL path to set for health checking requests. ||
 || key | **string**
 
 Name of the variable.
+The length must be between 1 and 128.
+The value must match the regular expression: `[a-zA-Z0-9._-]*`.
 
-The string length in characters must be 1-128. Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
+Value must match the regular expression ` [a-zA-Z0-9._-]* `. ||
 || value | **string**
 
 Value of the variable.
-
-The maximum string length in characters is 128. ||
+The length must be less than or equal to 128. ||
 |#
 
 ## ApplicationLoadBalancerSpec {#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerSpec}
@@ -1234,11 +1234,13 @@ The maximum string length in characters is 128. ||
 ||Field | Description ||
 || target_group_spec | **[ApplicationTargetGroupSpec](#yandex.cloud.compute.v1.instancegroup.ApplicationTargetGroupSpec)**
 
-Required field. Basic properties of the Application Load Balancer target group attributed to the instance group. ||
+Required field. Basic properties of the Application Load Balancer target group attributed to the instance group.
+This field is required. ||
 || max_opening_traffic_duration | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
 
 Timeout for waiting for the VM to be checked by the load balancer. If the timeout is exceeded,
-the VM will be turned off based on the deployment policy. Specified in seconds. ||
+the VM will be turned off based on the deployment policy. Specified in seconds.
+The value must satisfy: >=1s. ||
 || ignore_health_checks | **bool**
 
 Do not wait load balancer health checks. ||
@@ -1250,13 +1252,17 @@ Do not wait load balancer health checks. ||
 ||Field | Description ||
 || name | **string**
 
-Name of the target group. ||
+Name of the target group.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of the target group. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+Each value must match the regular expression ` [-_./\@0-9a-z]* `. ||
 |#
 
 ## ApplicationLoadBalancerState {#yandex.cloud.compute.v1.instancegroup.ApplicationLoadBalancerState}
@@ -1279,9 +1285,9 @@ Status message of the target group. ||
 
 Instance Groups performs `auto_healing_action` when instance becomes unhealthy.
 
+- `NONE`: No action
 - `RESTART`: Re-starting an instance with restart: stopping and then starting the instance.
-- `RECREATE`: Re-creating an instance: deleting an instance and creating a new one.
-- `NONE`: No action ||
+- `RECREATE`: Re-creating an instance: deleting an instance and creating a new one. ||
 |#
 
 ## DisableZoneStatus {#yandex.cloud.compute.v1.instancegroup.DisableZoneStatus}

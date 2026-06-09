@@ -2,26 +2,26 @@
 
 [Apache Spark](https://spark.apache.org/) — это фреймворк для реализации распределенной обработки неструктурированных и слабоструктурированных данных, входящий в экосистему проектов Hadoop.
 
-В этой статье на простом примере показывается, как в Yandex Data Processing использовать интерфейс Spark для языков Scala и Java. При помощи Spark в приведенном примере подсчитывается число случаев употребления каждого из слов, которые встречаются в коротком образце текста.
+В этой статье на простом примере показывается, как в {{ dataproc-name }} использовать интерфейс Spark для языков Scala и Java. При помощи Spark в приведенном примере подсчитывается число случаев употребления каждого из слов, которые встречаются в коротком образце текста.
 
 ## Перед началом работы {#before-you-begin}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролями `dataproc.agent` и `dataproc.provisioner`.
 
-1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
    
    1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
    1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
 
-1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) со следующими настройками:
+1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) со следующими настройками:
 
-    * **Окружение** — `PRODUCTION`.
-    * **Сервисы**:
+    * **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** — `PRODUCTION`.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_services }}**:
         * `HDFS`
         * `SPARK`
         * `YARN`
-    * **Сервисный аккаунт**: выберите созданный ранее сервисный аккаунт.
-    * **Имя бакета**: выберите бакет для результатов обработки.
+    * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}**: выберите созданный ранее сервисный аккаунт.
+    * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}**: выберите бакет для результатов обработки.
 
 ## Создайте задание Spark {#create-job}
 
@@ -42,7 +42,7 @@
    
    1. [Загрузите](../../storage/operations/objects/upload.md) файл `text.txt` в бакет для исходных данных.
 
-1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://storage.yandexcloud.net/examples/scala-spark/word_count.scala) на языке Scala:
+1. Скачайте и загрузите в бакет для исходных данных jar-файл `spark-app_2.11-0.1.0-SNAPSHOT.jar`, собранный из исходного текста программы анализа [word_count.scala](https://{{ s3-storage-host }}/examples/scala-spark/word_count.scala) на языке Scala:
 
     {% cut "word_count.scala" %}
 
@@ -86,13 +86,13 @@
 
     {% endcut %}
 
-    Подробнее о том, как собрать приложение для Spark, написанное на языке Scala, см. в разделе [Использование Spark Submit](../../data-proc/tutorials/run-spark-job.md#spark-submit).
+    Подробнее о том, как собрать приложение для Spark, написанное на языке Scala, см. в разделе [{#T}](../../data-proc/tutorials/run-spark-job.md#spark-submit).
 
 1. [Создайте задание Spark](../../data-proc/operations/jobs-spark.md#create) с параметрами:
 
-    * **Основной JAR файл**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
-    * **Основной класс**: `com.yandex.cloud.dataproc.scala.Main`
-    * **Аргументы**:
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-jar }}**: `s3a://<имя_бакета_для_исходных_данных>/spark-app_2.11-0.1.0-SNAPSHOT.jar`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_main-class }}**: `com.yandex.cloud.dataproc.scala.Main`
+    * **{{ ui-key.yacloud.dataproc.jobs.field_args }}**:
         * `s3a://<имя_бакета_для_исходных_данных>/text.txt`
         * `s3a://<имя_бакета_для_результатов_обработки>/<папка_для_результатов>`
 
@@ -130,7 +130,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% endnote %}
 

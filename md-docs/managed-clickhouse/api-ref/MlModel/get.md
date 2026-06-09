@@ -1,13 +1,12 @@
 # Managed Service for ClickHouse API, REST: MlModel.Get
 
 Returns the specified machine learning model.
-
 To get the list of all available models, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/mlModels/{mlModelName}
 ```
 
 ## Path parameters
@@ -22,7 +21,6 @@ The maximum string length in characters is 50. ||
 || mlModelName | **string**
 
 Required field. Name of the model to return.
-
 To get a model name make a [MlModelService.List](list.md#List) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||

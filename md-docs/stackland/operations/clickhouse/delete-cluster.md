@@ -1,6 +1,6 @@
-# Удалить кластер Managed Service for ClickHouse®
+# Удалить кластер {{ mch-name }}
 
-Если у вас есть кластер [ClickHouse®](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете удалить его.
+Если у вас есть кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете удалить его.
 
 {% note info %}
 
@@ -19,7 +19,7 @@
 - Консоль управления {#console}
 
   1. Откройте ваш проект.
-  1. В левом меню выберите **ClickHouse® Clusters**.
+  1. В левом меню выберите **{{ CH }} Clusters**.
   1. Выберите кластер.
   1. Нажмите **Удалить**.
   1. Подтвердите удаление.

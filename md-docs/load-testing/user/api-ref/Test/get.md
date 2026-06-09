@@ -7,7 +7,7 @@ To get the list of all available tests, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/tests/{testId}
+GET https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}
 ```
 
 ## Path parameters

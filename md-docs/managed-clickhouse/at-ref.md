@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.mdb.clickhouse.<имя_события>
+{{ at-event-prefix }}.audit.mdb.clickhouse.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -15,7 +15,7 @@ yandex.cloud.audit.mdb.clickhouse.<имя_события>
 `AddClusterHosts` | Добавление новых хостов в кластер
 `AddClusterShard` | Добавление шарда в кластер
 `AddClusterShards` | Добавление нескольких шардов в кластер
-`AddClusterZookeeper` | Добавление подкластера ZooKeeper в кластер
+`AddClusterZookeeper` | Добавление подкластера {{ ZK }} в кластер
 `BackupCluster` | Создание резервной копии
 `CreateCluster` | Создание кластера
 `CreateClusterExtension` | Создание расширения
@@ -33,9 +33,11 @@ yandex.cloud.audit.mdb.clickhouse.<имя_события>
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestartClusterHosts` | Перезапуск хостов кластера
 `RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
 `StartCluster` | Запуск кластера
 `StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 `UpdateClusterExtension` | Изменение расширения
 `UpdateClusterExternalDictionary` | Изменение внешнего словаря
 `UpdateClusterHosts` | Изменение хостов в кластере
@@ -68,4 +70,4 @@ yandex.cloud.audit.mdb.clickhouse.<имя_события>
 `UpdateMlModel` | Изменение модели машинного обучения
 `UpdateUser` | Изменение пользователя базы данных
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

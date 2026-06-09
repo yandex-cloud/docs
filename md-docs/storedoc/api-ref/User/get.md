@@ -1,13 +1,12 @@
 # Managed Service for MongoDB API, REST: User.Get
 
 Returns the specified MongoDB User resource.
-
-To get the list of available MongoDB User resources, make a [List](list.md#List) request.
+To get the list of available MongoDB User resources, make a [List](../../../managed-mongodb/api-ref/User/list#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users/{userName}
 ```
 
 ## Path parameters
@@ -17,15 +16,15 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/use
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || userName | **string**
 
 Required field. Name of the MongoDB User resource to return.
-To get the name of the user, use a [UserService.List](list.md#List) request.
+To get the name of the user, use a [UserService.List](../../../managed-mongodb/api-ref/User/list#List) request.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+The maximum string length in characters is 63. Value must match the regular expression ` ^[a-zA-Z0-9_][a-zA-Z0-9_-]*$ `. ||
 |#
 
 ## Response {#yandex.cloud.mdb.mongodb.v1.User}
@@ -48,7 +47,7 @@ The maximum string length in characters is 63. Value must match the regular expr
 ```
 
 A MongoDB User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

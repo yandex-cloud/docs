@@ -5,7 +5,7 @@ Retrieves detailed information about a specific Certificate Authority (CA).
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/certificateAuthorities/{certificateAuthorityId}
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/certificateAuthorities/{certificateAuthorityId}
 ```
 
 ## Path parameters

@@ -1,13 +1,12 @@
 # Federation, REST: Federation.Get
 
 Returns the specified OIDC workload identity federation.
-
 To get the list of available OIDC workload identity federation, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://iam.api.cloud.yandex.net/iam/v1/workload/oidc/federations/{federationId}
+GET https://iam.{{ api-host }}/iam/v1/workload/oidc/federations/{federationId}
 ```
 
 ## Path parameters

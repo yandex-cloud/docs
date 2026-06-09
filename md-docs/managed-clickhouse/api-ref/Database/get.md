@@ -1,13 +1,12 @@
 # Managed Service for ClickHouse API, REST: Database.Get
 
 Returns the specified ClickHouse Database resource.
-
 To get the list of available ClickHouse Database resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters
@@ -47,10 +46,10 @@ A ClickHouse Database resource. For more information, see the
 ||Field | Description ||
 || name | **string**
 
-Name of the database. ||
+Required field. Name of the database. ||
 || clusterId | **string**
 
-ID of the ClickHouse cluster that the database belongs to. ||
+Required field. ID of the ClickHouse cluster that the database belongs to. ||
 || engine | **enum** (DatabaseEngine)
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).

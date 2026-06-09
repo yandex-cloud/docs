@@ -1,6 +1,6 @@
-# Плагины OpenSearch
+# Плагины {{ OS }}
 
-Managed Service for OpenSearch содержит ряд [предустановленных плагинов](https://opensearch.org/docs/latest/install-and-configure/plugins/#bundled-plugins). Также при создании или изменении кластера в Managed Service for OpenSearch вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.
+{{ mos-name }} содержит ряд [предустановленных плагинов]({{ os.docs }}/install-and-configure/plugins/#bundled-plugins). Также при создании или изменении кластера в {{ mos-short-name }} вы можете указать желаемый список [дополнительных плагинов](#opensearch), и они будут автоматически установлены в кластер.
 
 ## Дополнительные предустановленные плагины {#extra-preinstalled}
 
@@ -8,7 +8,7 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
     Добавляет поддержку [AWS S3](https://aws.amazon.com/s3/) в качестве репозитория снапшотов.
 
-## Дополнительные плагины OpenSearch {#opensearch}
+## Дополнительные плагины {{ OS }} {#opensearch}
 
 Полный список поддерживаемых дополнительных плагинов:
 
@@ -58,7 +58,7 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
 * repository-azure
 
-    Добавляет поддержку [хранилища Azure Blob](https://docs.microsoft.com/ru-ru/azure/storage/blobs/storage-blobs-introduction) в качестве репозитория [снапшотов](../../glossary/snapshot.md).
+    Добавляет поддержку [хранилища Azure Blob]({{ ms.docs }}/azure/storage/blobs/storage-blobs-introduction) в качестве репозитория [снапшотов](../../glossary/snapshot.md).
 
 * repository-gcs
 
@@ -70,13 +70,13 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
 * transport-nio
 
-    Серверно-клиентская неблокируемая сетевая библиотека, созданная с помощью Netty. Плагин поддерживает только [версии OpenSearch 2.x](https://opensearch.org/docs/latest/breaking-changes/#transport-nio-plugin).
+    Серверно-клиентская неблокируемая сетевая библиотека, созданная с помощью Netty. Плагин поддерживает только [версии {{ OS }} 2.x]({{ os.docs }}/breaking-changes/#transport-nio-plugin).
 
 * yandex-lemmer
 
-    Добавляет фильтр [yandex-lemmer](#yandex-lemmer), который улучшает поиск текста на русском языке по документам OpenSearch.
+    Добавляет фильтр [yandex-lemmer](#yandex-lemmer), который улучшает поиск текста на русском языке по документам {{ OS }}.
 
-Подробнее см. в [документации OpenSearch](https://opensearch.org/docs/latest/install-and-configure/plugins/#additional-plugins).
+Подробнее см. в [документации {{ OS }}]({{ os.docs }}/install-and-configure/plugins/#additional-plugins).
 
 ### Зачем использовать плагин yandex-lemmer {#yandex-lemmer}
 
@@ -90,7 +90,7 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
 Как работает поиск при использовании фильтра `yandex-lemmer`:
 
-1. OpenSearch анализирует текст запроса при помощи поисковой библиотеки [Apache Lucene](https://lucene.apache.org). В процессе анализа токенизатор разбивает текст на отдельные токены. Токен обычно состоит из слова и метаданных об этом слове. Например, токенизатор может преобразовать предложение `Один в поле не воин` в набор токенов, ориентируясь на пробелы между словами: `Один`, `в`, `поле`, `не`, `воин`.
+1. {{ OS }} анализирует текст запроса при помощи поисковой библиотеки [Apache Lucene](https://lucene.apache.org). В процессе анализа токенизатор разбивает текст на отдельные токены. Токен обычно состоит из слова и метаданных об этом слове. Например, токенизатор может преобразовать предложение `Один в поле не воин` в набор токенов, ориентируясь на пробелы между словами: `Один`, `в`, `поле`, `не`, `воин`.
 
 1. Набор токенов проходит через цепочку фильтров. Фильтр получает токен, анализирует его и возвращает один или несколько токенов. Например, фильтр, который приводит текст к нижнему регистру, вернет то же количество токенов, что и на входе: `один`, `в`, `поле`, `не`, `воин`. Также на выходе токен может отсутствовать, если применен фильтр по стоп-словам.
 
@@ -141,5 +141,5 @@ Managed Service for OpenSearch содержит ряд [предустановл
 
 ## Примеры использования {#examples}
 
-* [Использование плагина yandex-lemmer в Managed Service for OpenSearch](../tutorials/opensearch-yandex-lemmer.md)
-* [Миграция данных из Elasticsearch](../tutorials/migration-to-opensearch.md)
+* [{#T}](../tutorials/opensearch-yandex-lemmer.md)
+* [{#T}](../tutorials/migration-to-opensearch.md)

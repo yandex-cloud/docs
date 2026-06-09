@@ -1,13 +1,13 @@
-# Автоматическое сканирование Docker-образа при загрузке с помощью Terraform
+# Автоматическое сканирование Docker-образа при загрузке с помощью {{ TF }}
 
 
 {% note info %}
 
-Автоматическое [сканирование](../../concepts/vulnerability-scanner.md) [Docker-образов](../../concepts/docker-image.md) на наличие уязвимостей при загрузке в [Yandex Container Registry](../../index.md) можно включить в [настройках сканера уязвимостей](../../operations/scanning-docker-image.md#automatically) без создания [функций](../../../functions/concepts/function.md) и [триггеров](../../../functions/concepts/trigger/index.md) [Yandex Cloud Functions](../../../functions/index.md).
+Автоматическое [сканирование](../../concepts/vulnerability-scanner.md) [Docker-образов](../../concepts/docker-image.md) на наличие уязвимостей при загрузке в [{{ container-registry-full-name }}](../../index.md) можно включить в [настройках сканера уязвимостей](../../operations/scanning-docker-image.md#automatically) без создания [функций](../../../functions/concepts/function.md) и [триггеров](../../../functions/concepts/trigger/index.md) [{{ sf-full-name }}](../../../functions/index.md).
 
 {% endnote %}
 
-Чтобы настроить автоматическое [сканирование](../../concepts/vulnerability-scanner.md) [Docker-образов](index.md) на наличие уязвимостей при загрузке в [Yandex Container Registry](../../index.md) с помощью Terraform:
+Чтобы настроить автоматическое [сканирование](../../concepts/vulnerability-scanner.md) [Docker-образов](index.md) на наличие уязвимостей при загрузке в [{{ container-registry-full-name }}](../../index.md) с помощью {{ TF }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте окружение](#prepare).
@@ -19,19 +19,19 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры входят:
-* плата за хранение Docker-образа в [реестре](../../concepts/registry.md), сканер уязвимостей и исходящий трафик (см. [тарифы Yandex Container Registry](../../pricing.md));
-* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы Yandex Cloud Functions](../../../functions/pricing.md)).
+* плата за хранение Docker-образа в [реестре](../../concepts/registry.md), сканер уязвимостей и исходящий трафик (см. [тарифы {{ container-registry-full-name }}](../../pricing.md));
+* плата за вызовы [функций](../../../functions/concepts/function.md) (см. [тарифы {{ sf-full-name }}](../../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
@@ -39,15 +39,15 @@
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Чтобы создать инфраструктуру для автоматического сканирования Docker-образа при загрузке с помощью Terraform:
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
-1. Укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+Чтобы создать инфраструктуру для автоматического сканирования Docker-образа при загрузке с помощью {{ TF }}:
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform) и [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+1. Укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файлы с описанием инфраструктуры:
 
    {% list tabs group=infrastructure_description %}
@@ -126,13 +126,13 @@ Terraform распространяется под лицензией [Business S
         
         resource "yandex_resourcemanager_folder_iam_member" "sa-role-scanner" {
           folder_id   = var.folder_id
-          role        = "container-registry.images.scanner"
+          role        = "{{ roles-cr-images-scanner }}"
           member      = "serviceAccount:${yandex_iam_service_account.scanner.id}"
         }
         
         resource "yandex_resourcemanager_folder_iam_member" "sa-role-invoker" {
           folder_id   = var.folder_id
-          role        = "functions.functionInvoker"
+          role        = "{{ roles-functions-invoker }}"
           member      = "serviceAccount:${yandex_iam_service_account.invoker.id}"
         }
         
@@ -214,12 +214,12 @@ Terraform распространяется под лицензией [Business S
 
    {% endlist %}
 
-   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
-   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
-   * [Назначение прав доступа к каталогу](../../../iam/concepts/access-control/index.md#access-bindings) — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-   * [Реестр](../../concepts/registry.md) — [yandex_container_registry](../../../terraform/resources/container_registry.md).
-   * [Функция](../../../functions/concepts/function.md) — [yandex_function](../../../terraform/resources/function.md).
-   * [Триггер](../../../functions/concepts/trigger/index.md) — [yandex_function_trigger](../../../terraform/resources/function_trigger.md).
+   Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
+   * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+   * [Назначение прав доступа к каталогу](../../../iam/concepts/access-control/index.md#access-bindings) — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+   * [Реестр](../../concepts/registry.md) — [yandex_container_registry]({{ tf-provider-resources-link }}/container_registry).
+   * [Функция](../../../functions/concepts/function.md) — [yandex_function]({{ tf-provider-resources-link }}/function).
+   * [Триггер](../../../functions/concepts/trigger/index.md) — [yandex_function_trigger]({{ tf-provider-resources-link }}/function_trigger).
 
 1. В файле `image-auto-scan.auto.tfvars` задайте пользовательские параметры:
    * `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой будет создана инфраструктура.
@@ -246,7 +246,7 @@ Terraform распространяется под лицензией [Business S
       terraform plan
       ```
    
-      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
    1. Примените изменения конфигурации:
    
       ```bash
@@ -289,39 +289,45 @@ Terraform распространяется под лицензией [Business S
         В конфигурационном файле `/home/<user>/.docker/config.json` должна появиться строка:
 
         ```json
-        "cr.yandex": "yc"
+        "{{ registry }}": "yc"
         ```
 
      1. Docker готов к использованию, например, для [загрузки Docker-образов](../../operations/docker-image/docker-image-push.md). При этом выполнять команду `docker login` не надо.
 
    - OAuth-токена {#oauth-token}
 
-     1. Если у вас еще нет [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb).
+     {% note info "Аутентификация по OAuth-токенам устарела" %}
+     
+     В будущем этот способ аутентификации перестанет поддерживаться. Рассмотрите использование [IAM-токенов](../../../iam/concepts/authorization/iam-token.md) или [API-ключей](../../../iam/concepts/authorization/api-key.md).
+     
+     {% endnote %}
+
+     1. Если у вас еще нет [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md), получите его по [ссылке]({{ link-cloud-oauth }}).
      1. Выполните команду:
 
         ```bash
-        echo <OAuth-токен> | docker login --username oauth --password-stdin cr.yandex
+        echo <OAuth-токен> | docker login --username oauth --password-stdin {{ registry }}
         ```
-
+ 
         Результат:
 
         ```text
         Login Succeeded
         ```
 
-   - IAM-токена {#iam-token}
+   - {{ iam-short-name }}-токена {#iam-token}
 
      {% note info %}
 
-     У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  12 часов. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
+     У IAM-токена короткое [время жизни](../../../iam/concepts/authorization/iam-token.md#lifetime) — не более  {{ iam-token-lifetime }}. Поэтому такой способ подойдет для приложений, которые будут запрашивать IAM-токен автоматически.
 
      {% endnote %}
 
-     1. [Получите](../../../iam/operations/iam-token/create.md) [IAM-токен](../../../iam/concepts/authorization/iam-token.md).
+     1. [Получите](../../../iam/operations/iam-token/create.md) [{{ iam-short-name }}-токен](../../../iam/concepts/authorization/iam-token.md).
      1. Выполните команду:
 
         ```bash
-        yc iam create-token | docker login --username iam --password-stdin cr.yandex
+        yc iam create-token | docker login --username iam --password-stdin {{ registry }}
         ```
 
         Результат:
@@ -350,19 +356,19 @@ Terraform распространяется под лицензией [Business S
 1. Присвойте тег Docker-образу:
 
    ```bash
-   docker tag ubuntu:20.04 cr.yandex/<идентификатор_реестра>/ubuntu:20.04
+   docker tag ubuntu:20.04 {{ registry }}/<идентификатор_реестра>/ubuntu:20.04
    ```
 
-1. Загрузите Docker-образ в Container Registry:
+1. Загрузите Docker-образ в {{ container-registry-name }}:
 
    ```bash
-   docker push cr.yandex/<идентификатор_реестра>/ubuntu:20.04
+   docker push {{ registry }}/<идентификатор_реестра>/ubuntu:20.04
    ```
 
    Результат:
 
    ```text
-   The push refers to repository [cr.yandex/crpu20rpdc2f********/ubuntu]
+   The push refers to repository [{{ registry }}/crpu20rpdc2f********/ubuntu]
    2f140462f3bc: Layer already exists
    63c99163f472: Layer already exists
    ccdbb80308cc: Layer already exists
@@ -377,9 +383,9 @@ Terraform распространяется под лицензией [Business S
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите сервис **Cloud Functions**.
-     1. Перейдите в раздел **Функции** и выберите функцию `scan-on-push`.
-     1. В открывшемся окне перейдите в раздел **Логи** и укажите период. По умолчанию задан период за 1 час.
+     1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+     1. Перейдите в раздел **{{ ui-key.yacloud.serverless-functions.switch_list }}** и выберите функцию `scan-on-push`.
+     1. В открывшемся окне перейдите в раздел **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и укажите период. По умолчанию задан период за 1 час.
 
    - CLI {#cli}
 
@@ -411,11 +417,11 @@ Terraform распространяется под лицензией [Business S
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит реестр, содержащий Docker-образ.
-     1. Выберите сервис **Container Registry**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит реестр, содержащий Docker-образ.
+     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
      1. Выберите реестр, в который загрузили Docker-образ.
      1. Откройте репозиторий, в котором находится Docker-образ.
-     1. Выберите нужный Docker-образ и проверьте значение параметра **Дата последнего сканирования**.
+     1. Выберите нужный Docker-образ и проверьте значение параметра **{{ ui-key.yacloud.cr.image.label_last-scan-time }}**.
 
    - CLI {#cli}
 
@@ -463,7 +469,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -474,4 +480,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Автоматическое сканирование Docker-образа при загрузке с помощью консоли управления, CLI и API](console.md)
+* [{#T}](console.md)

@@ -114,8 +114,9 @@
         "twoClasses": "string",
         "threeClasses": "string",
         "fourClasses": "string"
-      }
+      },
       // end of the list of possible fields
+      "historyDepth": "string"
     },
     "passwordLifetimePolicy": {
       "minDaysCount": "string",
@@ -340,6 +341,7 @@ Includes only one of the fields `fixed`, `smart`. ||
 || smart | **[Smart](#yandex.cloud.audit.organizationmanager.idp.PasswordQualityPolicy.Smart)**
 
 Includes only one of the fields `fixed`, `smart`. ||
+|| historyDepth | **string** (int64) ||
 |#
 
 ## Fixed {#yandex.cloud.audit.organizationmanager.idp.PasswordQualityPolicy.Fixed}

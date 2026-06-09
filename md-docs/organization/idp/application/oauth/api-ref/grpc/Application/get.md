@@ -1,7 +1,6 @@
 # OAUTH Application API, gRPC: ApplicationService.Get
 
 Returns the specified OAuth application resource.
-
 To get the list of available OAuth applications, make a [List](../../../mapi-ref/grpc/Application/list#List) request.
 
 ## gRPC request
@@ -124,5 +123,5 @@ The maximum string length in characters is 50. ||
 
 List of authorized client scopes by the application
 
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
+The maximum string length in characters for each value is 255. Each value must match the regular expression ` [!#-\[\]-~]+ `. The number of elements must be in the range 1-1000. ||
 |#

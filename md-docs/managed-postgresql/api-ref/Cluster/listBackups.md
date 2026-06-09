@@ -5,7 +5,7 @@ Retrieves the list of available backups for the specified PostgreSQL cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters

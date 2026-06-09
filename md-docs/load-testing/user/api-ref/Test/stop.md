@@ -5,7 +5,7 @@ Stops the specified test.
 ## HTTP request
 
 ```
-POST https://loadtesting.api.cloud.yandex.net/loadtesting/api/v1/tests/{testId}:stop
+POST https://loadtesting.{{ api-host }}/loadtesting/api/v1/tests/{testId}:stop
 ```
 
 ## Path parameters

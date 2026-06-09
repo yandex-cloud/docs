@@ -5,7 +5,7 @@ Update user
 ## HTTP request
 
 ```
-PATCH https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/users/{user.name}
+PATCH https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/users/{user.name}
 ```
 
 ## Path parameters

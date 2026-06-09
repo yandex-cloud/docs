@@ -5,7 +5,7 @@ Retrieves the list of Image resources in the specified registry or repository.
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images
+GET https://container-registry.{{ api-host }}/container-registry/v1/images
 ```
 
 ## Query parameters {#yandex.cloud.containerregistry.v1.ListImagesRequest}
@@ -15,25 +15,20 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images
 || registryId | **string**
 
 ID of the registry to list Docker images in.
-
 `registryId` is ignored if a `ListImagesRequest.repositoryName` is specified in the request.
-
 To get the registry ID use a [RegistryService.List](../Registry/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || repositoryName | **string**
 
 Name of the repository to list Docker images in.
-
 To get the repository name use a [RepositoryService.List](../Repository/list.md#List) request.
 
 Value must match the regular expression ``` |[a-z0-9]+(?:[._-][a-z0-9]+)*(/([a-z0-9]+(?:[._-][a-z0-9]+)*))* ```. ||
 || folderId | **string**
 
 ID of the folder to list Docker images in.
-
 `folderId` is ignored if a `ListImagesRequest.repositoryName` or a `ListImagesRequest.registryId` are specified in the request.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -152,7 +147,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || createdAt | **string** (date-time)
 

@@ -1,21 +1,21 @@
-# Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью Terraform
+# Использование секрета {{ lockbox-full-name }} для хранения статического ключа доступа с помощью {{ TF }}
 
-Чтобы [использовать статический ключ доступа](index.md), сохраненный в секрете Yandex Lockbox, с помощью Terraform:
+Чтобы [использовать статический ключ доступа](index.md), сохраненный в секрете {{ lockbox-name }}, с помощью {{ TF }}:
 
 1. [Подготовьте окружение](#prepare).
 1. [Создайте инфраструктуру](#deploy).
-1. [Используйте ключ из секрета Yandex Lockbox для работы с сервисом](#use-key).
+1. [Используйте ключ из секрета {{ lockbox-name }} для работы с сервисом](#use-key).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -24,8 +24,8 @@
 
 В стоимость поддержки инфраструктуры входят:
 
-* плата за хранение одной версии секрета Yandex Lockbox (см. [тарифы Yandex Lockbox](../../pricing.md#secrets));
-* плата за хранение данных в Object Storage, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, см. [тарифы Object Storage](../../../storage/pricing.md#rules)).
+* плата за хранение одной версии секрета {{ lockbox-name }} (см. [тарифы {{ lockbox-name }}](../../pricing.md#secrets));
+* плата за хранение данных в {{ objstorage-name }}, операции с ними и исходящий трафик (плата не будет взиматься, если в бакете не будут храниться данные, см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md#rules)).
 
 
 ## Подготовьте окружение {#prepare}
@@ -37,15 +37,15 @@
 
 ## Создайте инфраструктуру {#deploy}
 
-[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+[{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
 
-Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+{{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
 
-Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-Для создания инфраструктуры c помощью Terraform:
+Для создания инфраструктуры c помощью {{ TF }}:
 
-1. [Установите Terraform](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. [Установите {{ TF }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера {{ yandex-cloud }} (раздел [{#T}](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
 1. Подготовьте файл с описанием инфраструктуры:
 
     {% list tabs group=infrastructure_description %}
@@ -154,13 +154,13 @@ Terraform распространяется под лицензией [Business S
 
     {% endlist %}
 
-    Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+    Более подробную информацию о параметрах используемых ресурсов в {{ TF }} см. в документации провайдера:
 
-    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../../terraform/resources/iam_service_account.md).
-    * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member](../../../terraform/resources/resourcemanager_folder_iam_member.md).
-    * [Секрет](../../concepts/secret.md) — [yandex_lockbox_secret](../../../terraform/resources/lockbox_secret.md).
-    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../../terraform/resources/iam_service_account_static_access_key.md).
-    * [Версия секрета](../../concepts/secret.md#version) — [yandex_lockbox_secret_version](../../../terraform/resources/lockbox_secret_version.md).
+    * [Сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account]({{ tf-provider-resources-link }}/iam_service_account).
+    * Назначение [роли](../../../iam/concepts/access-control/roles.md) сервисному аккаунту — [yandex_resourcemanager_folder_iam_member]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member).
+    * [Секрет](../../concepts/secret.md) — [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret).
+    * [Статический ключ доступа](../../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
+    * [Версия секрета](../../concepts/secret.md#version) — [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version).
 
 1. В файле `static-key-in-lockbox-config.tf` задайте пользовательские параметры:
     * `zone_id` — [зона доступности](../../../overview/concepts/geo-scope.md).
@@ -187,7 +187,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -199,23 +199,23 @@ Terraform распространяется под лицензией [Business S
 После создания инфраструктуры, [используйте ключ из секрета для работы с сервисом](#use-key).
 
 
-## Используйте ключ из секрета Yandex Lockbox для работы с сервисом {#use-key}
+## Используйте ключ из секрета {{ lockbox-name }} для работы с сервисом {#use-key}
 
-Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь](../../../overview/concepts/console-syntax-guide.md) с особенностями работы с Bash в Microsoft Windows.
+Пример ниже разработан для выполнения в операционных системах MacOS и Linux. Чтобы выполнить его в системе Windows, [ознакомьтесь]({{ link-docs }}/overview/concepts/console-syntax-guide) с особенностями работы с Bash в Microsoft Windows.
 
-Используйте ключ из секрета Yandex Lockbox и создайте бакет в Object Storage:
+Используйте ключ из секрета {{ lockbox-name }} и создайте бакет в {{ objstorage-name }}:
 
 1. Сохраните идентификатор ключа, секретный ключ и значение региона размещения в переменные окружения AWS CLI:
 
     ```bash
     AWS_ACCESS_KEY_ID=$(terraform output key_id)
     AWS_SECRET_ACCESS_KEY=$(terraform output key)
-    AWS_DEFAULT_REGION="ru-central1"
+    AWS_DEFAULT_REGION="{{ region-id }}"
     ```
 
     AWS CLI будет использовать созданные переменные окружения для аутентификации при выполнении операций с ресурсами сервиса.
 
-1. Создайте бакет в Object Storage, указав в команде уникальное [имя бакета](../../../storage/concepts/bucket.md#naming):
+1. Создайте бакет в {{ objstorage-name }}, указав в команде уникальное [имя бакета](../../../storage/concepts/bucket.md#naming):
 
     {% list tabs group=instructions %}
     
@@ -234,7 +234,7 @@ Terraform распространяется под лицензией [Business S
     
     {% endlist %}
     
-    В результате будет создан новый бакет в Object Storage. При создании бакета используется статический ключ доступа, полученный из секрета Yandex Lockbox и сохраненный в переменные окружения.
+    В результате будет создан новый бакет в {{ objstorage-name }}. При создании бакета используется статический ключ доступа, полученный из секрета {{ lockbox-name }} и сохраненный в переменные окружения.
     
     Вы также передать значения идентификатора ключа, секретного ключа и региона размещения непосредственно в каждой команде AWS CLI:
 
@@ -245,7 +245,7 @@ Terraform распространяется под лицензией [Business S
       ```bash
       AWS_ACCESS_KEY_ID=$(terraform output key_id) \
       AWS_SECRET_ACCESS_KEY=$(terraform output key) \
-      AWS_DEFAULT_REGION="ru-central1" \
+      AWS_DEFAULT_REGION="{{ region-id }}" \
       aws --endpoint-url=https://storage.yandexcloud.net \
         s3 mb s3://<имя_бакета>
       ```
@@ -286,7 +286,7 @@ Terraform распространяется под лицензией [Business S
        terraform plan
        ```
     
-       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
     1. Примените изменения конфигурации:
     
        ```bash
@@ -297,4 +297,4 @@ Terraform распространяется под лицензией [Business S
 
 #### См. также {#see-also}
 
-* [Использование секрета Yandex Lockbox для хранения статического ключа доступа с помощью CLI](console.md)
+* [{#T}](console.md)

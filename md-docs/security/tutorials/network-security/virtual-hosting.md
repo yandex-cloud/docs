@@ -1,7 +1,7 @@
 # Организация виртуального хостинга
 
 
-Сценарий описывает организацию виртуального хостинга — размещение нескольких сайтов с разными доменными именами по одному [IP-адресу](../../../vpc/concepts/address.md) — с помощью [Yandex Application Load Balancer](../../../application-load-balancer/index.md).
+Сценарий описывает организацию виртуального хостинга — размещение нескольких сайтов с разными доменными именами по одному [IP-адресу](../../../vpc/concepts/address.md) — с помощью [{{ alb-full-name }}](../../../application-load-balancer/index.md).
 
 В качестве примеров в сценарии будут использоваться три доменных имени: `site-a.com`, `site-b.com` и `default.com`.
 
@@ -10,7 +10,7 @@
 1. [Создайте облачную сеть](#create-network).
 1. [Зарезервируйте статический публичный IP-адрес](#reserve-ip).
 1. [Создайте группы безопасности](#create-security-groups).
-1. [Импортируйте TLS-сертификаты сайтов в Yandex Certificate Manager](#import-certificates).
+1. [Импортируйте TLS-сертификаты сайтов в {{ certificate-manager-full-name }}](#import-certificates).
 1. [Создайте группы виртуальных машин для сайтов](#create-vms).
 1. [Загрузите файлы сайтов на ВМ](#upload-sites-files).
 1. [Создайте группы бэкендов](#create-backend-groups).
@@ -23,21 +23,21 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки виртуального хостинга входят:
-* Плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../../compute/pricing.md)).
-* Плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../../vpc/pricing.md)).
-* Плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) (см. [тарифы Application Load Balancer](../../../application-load-balancer/pricing.md)).
-* Плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../../dns/index.md) (см. [тарифы Cloud DNS](../../../dns/pricing.md)).
+* Плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../../compute/pricing.md)).
+* Плата за использование [публичного статического IP-адреса](../../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Плата за использование вычислительных ресурсов [L7-балансировщика](../../../application-load-balancer/concepts/index.md) (см. [тарифы {{ alb-name }}](../../../application-load-balancer/pricing.md)).
+* Плата за публичные [DNS-запросы](../../../glossary/dns.md) и [зоны DNS](../../../dns/concepts/dns-zone.md), если вы используете [{{ dns-full-name }}](../../../dns/index.md) (см. [тарифы {{ dns-name }}](../../../dns/pricing.md)).
   
 ## Создайте облачную сеть {#create-network}
 
@@ -49,12 +49,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Нажмите кнопку **Создать сеть**.
-  1. Укажите **Имя** сети: `vhosting-network`.
-  1. Выберите опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+  1. Укажите **{{ ui-key.yacloud.vpc.networks.create.field_name }}** сети: `vhosting-network`.
+  1. Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
 {% endlist %}
 
@@ -68,10 +68,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **Публичные IP-адреса**. Нажмите кнопку **Зарезервировать публичный IP-адрес**.
-  1. В открывшемся окне выберите [зону доступности](../../../overview/concepts/geo-scope.md) `ru-central1-d`. Нажмите кнопку **Зарезервировать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
+  1. В открывшемся окне выберите [зону доступности](../../../overview/concepts/geo-scope.md) `{{ region-id }}-d`. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
 
 {% endlist %}
 
@@ -85,46 +85,46 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **Группы безопасности**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Создайте группу безопасности для балансировщика:
-     1. Нажмите кнопку **Создать группу безопасности**.
-     1. Укажите **Имя** группы: `vhosting-sg-balancer`.
-     1. Выберите **Сеть** `vhosting-network`.
-     1. В блоке **Правила** создайте следующие правила по инструкции под таблицей:
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
+     1. Укажите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** группы: `vhosting-sg-balancer`.
+     1. Выберите **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** `vhosting-network`.
+     1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** создайте следующие правила по инструкции под таблицей:
 
-        | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Назначение /<br/>Источник | CIDR блоки |
+        | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
         | --- | --- | --- | --- | --- | --- |
-        | `Исходящий трафик` | `any` | `Выбрать весь диапазон` | `Любой` | `CIDR` | `0.0.0.0/0` |
-        | `Входящий трафик` | `ext-http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0` |
-        | `Входящий трафик` | `ext-https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0` |
-        | `Входящий трафик` | `healthchecks` | `30080` | `TCP` | `Проверки состояния балансировщика` | — |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}` | `any` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.button_select-all-port-range }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+        | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `healthchecks` | `30080` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` | — |
 
-     1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
-     1. Нажмите кнопку **Добавить правило**.
-     1. В открывшемся окне в поле **Диапазон портов** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
-     1. В поле **Протокол** укажите нужный протокол или оставьте `Любой`, чтобы разрешить передачу трафика по всем протоколам.
-     1. В поле **Назначение** или **Источник** выберите назначение правила:
-        * `CIDR` — правило будет применено к диапазону IP-адресов. В поле **CIDR блоки** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **Добавить CIDR**.
-        * `Группа безопасности` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
-        * `Проверки состояния балансировщика` — правило, которое позволяет балансировщику проверять состояние ВМ.
-     1. Нажмите кнопку **Сохранить**. Таким образом создайте все правила из таблицы.
-     1. Нажмите кнопку **Создать**.
+     1. Выберите вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** или **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+     1. В открывшемся окне в поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** укажите один порт или диапазон портов, куда или откуда будет поступать трафик.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** укажите нужный протокол или оставьте `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`, чтобы разрешить передачу трафика по всем протоколам.
+     1. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** или **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** выберите назначение правила:
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` — правило будет применено к диапазону IP-адресов. В поле **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** укажите CIDR и маски подсетей, в которые или из которых будет поступать трафик. Чтобы добавить несколько CIDR, нажимайте кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` — правило будет применено к ВМ из текущей группы или из выбранной группы безопасности.
+        * `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}` — правило, которое позволяет балансировщику проверять состояние ВМ.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Таким образом создайте все правила из таблицы.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Аналогично создайте группу безопасности для ВМ с именем `vhosting-sg-vms`, той же сетью `vhosting-network` и следующими правилами:
 
-     | Направление<br/>трафика | Описание | Диапазон портов | Протокол | Источник | CIDR блоки |
+     | Направление<br/>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }} |
      | --- | --- | --- | --- | --- | --- |
-     | `Входящий трафик` | `balancer` | `80` | `TCP` | `Группа безопасности` | `vhosting-sg-balancer` |
-     | `Входящий трафик` | `ssh` | `22` | `TCP` | `CIDR` | `0.0.0.0/0` |
+     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `balancer` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}` | `vhosting-sg-balancer` |
+     | `{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}` | `ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
 
 {% endlist %}
 
-## Импортируйте TLS-сертификаты сайтов в Certificate Manager {#import-certificates}
+## Импортируйте TLS-сертификаты сайтов в {{ certificate-manager-name }} {#import-certificates}
 
-Чтобы пользователи могли обращаться к сайтам по защищенному протоколу HTTPS (HTTP over TLS), для них должны быть выпущены [TLS-сертификаты](../../../certificate-manager/concepts/managed-certificate.md). Для использования в L7-балансировщике сертификаты нужно импортировать в Certificate Manager.
+Чтобы пользователи могли обращаться к сайтам по защищенному протоколу HTTPS (HTTP over TLS), для них должны быть выпущены [TLS-сертификаты](../../../certificate-manager/concepts/managed-certificate.md). Для использования в L7-балансировщике сертификаты нужно импортировать в {{ certificate-manager-name }}.
 
-Если у ваших сайтов нет сертификатов, вы можете [получить в Certificate Manager сертификаты от Let's Encrypt<sup>®</sup>](../../../certificate-manager/operations/managed/cert-create.md). В этом случае дополнительных действий после создания сертификатов не требуется: они импортируются автоматически.
+Если у ваших сайтов нет сертификатов, вы можете [получить в {{ certificate-manager-name }} сертификаты от Let's Encrypt<sup>®</sup>](../../../certificate-manager/operations/managed/cert-create.md). В этом случае дополнительных действий после создания сертификатов не требуется: они импортируются автоматически.
 
 Чтобы импортировать уже имеющийся сертификат для сайта `site-a.com`:
 
@@ -132,14 +132,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
-  1. Нажмите кнопку **Добавить сертификат** и выберите пункт **Пользовательский сертификат**.
-  1. Укажите **Имя** сертификата: `vhosting-cert-a`.
-  1. В поле **Сертификат** нажмите кнопку **Добавить сертификат**. Загрузите **Файл** с вашим сертификатом или укажите его **Содержимое** и нажмите кнопку **Добавить**.
-  1. Если ваш сертификат выпущен сторонним центром сертификации, в поле **Цепочка промежуточных сертификатов** нажмите кнопку **Добавить цепочку**. Загрузите **Файл** с цепочкой сертификатов или укажите его **Содержимое** и нажмите кнопку **Добавить**.
-  1. В поле **Приватный ключ** нажмите кнопку **Добавить приватный ключ**. Загрузите **Файл** с ключом или укажите его **Содержимое** и нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите пункт **{{ ui-key.yacloud.certificate-manager.action_import }}**.
+  1. Укажите **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** сертификата: `vhosting-cert-a`.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**. Загрузите **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** с вашим сертификатом или укажите его **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** и нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. Если ваш сертификат выпущен сторонним центром сертификации, в поле **{{ ui-key.yacloud.certificate-manager.import.field_chain }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-chain }}**. Загрузите **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** с цепочкой сертификатов или укажите его **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** и нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. В поле **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** нажмите кнопку **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**. Загрузите **{{ ui-key.yacloud.component.file-content-dialog.field_file }}** с ключом или укажите его **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** и нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -147,7 +147,7 @@
 
 ## Создайте группы ВМ для сайтов {#create-vms}
 
-В качестве веб-серверов для двух сайтов будут выступать ВМ Compute Cloud — по одной [группе](../../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, MySQL®, PHP; подробнее см. в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../../tutorials/web/lamp-lemp/index.md)).
+В качестве веб-серверов для двух сайтов будут выступать ВМ {{ compute-name }} — по одной [группе](../../../compute/concepts/instance-groups/index.md) из нескольких одинаковых ВМ на каждый сайт. В этом сценарии серверы будут реализованы на LEMP-стеке (Linux, nginx, {{ MY }}, PHP; подробнее см. в сценарии использования [Сайт на LAMP- или LEMP-стеке](../../../tutorials/web/lamp-lemp/index.md)).
 
 Чтобы создать группу ВМ для сайта `site-a.com`:
 
@@ -155,41 +155,41 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**. Нажмите кнопку **Создать группу виртуальных машин**.
-  1. Укажите **Имя** группы ВМ: `vhosting-ig-a`.
-  1. В блоке **Распределение** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
-  1. В блоке **Шаблон виртуальной машины** нажмите кнопку **Задать**.
-  1. В блоке **Образ загрузочного диска** откройте вкладку **Marketplace** и нажмите кнопку **Показать все продукты Marketplace**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **Использовать**.
-  1. В блоке **Вычислительные ресурсы**:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
+  1. Укажите **{{ ui-key.yacloud.compute.groups.create.field_name }}** группы ВМ: `vhosting-ig-a`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](https://yandex.cloud/ru/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:
      * Выберите [платформу](../../../compute/concepts/vm-platforms.md) ВМ.
      * Укажите необходимое количество vCPU и объем RAM.
 
      Для функционального тестирования сайта хватит минимальной конфигурации:
-     * **Платформа** — `Intel Ice Lake`.
-     * **Гарантированная доля vCPU** — `20%`.
-     * **vCPU** — `2`.
-     * **RAM** — `1 ГБ`.
-  1. В блоке **Сетевые настройки** выберите **Сеть** `vhosting-network`, [созданную ранее](#create-network), и ее [подсети](../../../vpc/concepts/network.md#subnet).
-  1. В поле **Публичный адрес** выберите `Автоматически`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Ice Lake`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+     * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}** выберите **{{ ui-key.yacloud.compute.instances.create.field_instance-group-network }}** `vhosting-network`, [созданную ранее](#create-network), и ее [подсети](../../../vpc/concepts/network.md#subnet).
+  1. В поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}** выберите `{{ ui-key.yacloud.compute.instances.create.value_address-auto }}`.
   1. Выберите группу безопасности `vhosting-sg-vms`, [созданную ранее](#create-security-groups).
   1. Укажите данные для доступа на ВМ:
-     * В поле **Логин** введите имя пользователя.
-     * В поле **SSH-ключ** вставьте содержимое файла открытого ключа.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
+     * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** вставьте содержимое файла открытого ключа.
 
        Пару ключей для подключения по [SSH](../../../glossary/ssh-keygen.md) необходимо создать самостоятельно, см. [раздел о подключении к ВМ по SSH](../../../compute/operations/vm-connect/ssh.md).
 
      {% note alert %}
 
-     IP-адрес и [имя хоста (FQDN)](../../../compute/concepts/network.md#hostname) для подключения к ВМ назначатся ей при создании. Если вы выбрали вариант `Без адреса` в поле **Публичный адрес**, вы не сможете обращаться к ВМ из интернета.
+     IP-адрес и [имя хоста (FQDN)](../../../compute/concepts/network.md#hostname) для подключения к ВМ назначатся ей при создании. Если вы выбрали вариант `{{ ui-key.yacloud.compute.instances.create.value_address-none }}` в поле **{{ ui-key.yacloud.compute.instances.create.field_instance-group-address }}**, вы не сможете обращаться к ВМ из интернета.
 
      {% endnote %}
 
-  1. Нажмите кнопку **Сохранить**.
-  1. В блоке **Масштабирование** укажите **Размер** группы ВМ — `2`.
-  1. В блоке **Интеграция с Application Load Balancer** выберите опцию **Создать целевую группу** и укажите имя группы — `vhosting-tg-a`. [Подробнее о целевых группах](../../../application-load-balancer/concepts/target-group.md).
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_scale }}** укажите **{{ ui-key.yacloud.compute.groups.create.field_scale-size }}** группы ВМ — `2`.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_alb }}** выберите опцию **{{ ui-key.yacloud.compute.groups.create.field_target-group-attached }}** и укажите имя группы — `vhosting-tg-a`. [Подробнее о целевых группах](../../../application-load-balancer/concepts/target-group.md).
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -237,7 +237,7 @@
 
 Чтобы загрузить файл на ВМ:
 
-1. В блоке **Сеть** на странице виртуальной машины в [консоли управления](https://console.yandex.cloud) найдите публичный IP-адрес виртуальной машины.
+1. В блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице виртуальной машины в [консоли управления]({{ link-console-main }}) найдите публичный IP-адрес виртуальной машины.
 1. [Подключитесь](../../../compute/operations/vm-connect/ssh.md) к виртуальной машине по протоколу SSH.
 1. Выдайте права на запись для вашего пользователя на директорию `/var/www/html`:
 
@@ -285,18 +285,18 @@
 Для бэкендов в группах будут созданы [проверки состояния](../../../application-load-balancer/concepts/backend-group.md#health-checks): балансировщик будет периодически отправлять проверочные запросы к ВМ и ожидать ответа в течение определенного периода.
 
 Чтобы создать группу бэкендов для сайта `site-a.com`:
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **Группы бэкендов**. Нажмите кнопку **Создать группу бэкендов**.
-1. Укажите **Имя** группы бэкендов: `vhosting-bg-a`.
-1. В блоке **Бэкенды** нажмите кнопку **Добавить**.
-1. Укажите **Имя** бэкенда: `vhosting-backend-a`.
-1. В поле **Целевые группы** выберите группу `vhosting-tg-a`.
-1. Укажите **Порт**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
-1. Нажмите кнопку **Добавить проверку состояния**.
-1. Укажите **Порт**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
-1. Укажите **Путь**, к которому будет обращаться балансировщик при проверке состояния: `/`.
-1. Нажмите кнопку **Создать**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+1. На панели слева выберите ![image](../../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
+1. Укажите **{{ ui-key.yacloud.common.name }}** группы бэкендов: `vhosting-bg-a`.
+1. В блоке **{{ ui-key.yacloud.alb.label_backends }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+1. Укажите **{{ ui-key.yacloud.common.name }}** бэкенда: `vhosting-backend-a`.
+1. В поле **{{ ui-key.yacloud.alb.label_target-groups }}** выберите группу `vhosting-tg-a`.
+1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать входящий трафик от балансировщика: `80`.
+1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-healthcheck }}**.
+1. Укажите **{{ ui-key.yacloud.alb.label_port }}**, на котором ВМ бэкенда будут принимать проверочные соединения: `80`.
+1. Укажите **{{ ui-key.yacloud.alb.label_path }}**, к которому будет обращаться балансировщик при проверке состояния: `/`.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 Аналогично создайте для сайта `site-b.com` вторую группу бэкендов `vhosting-bg-b`, в ней — бэкенд `vhosting-backend-b` и привяжите к нему целевую группу `vhosting-tg-b`.
 
@@ -312,17 +312,17 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
-  1. Укажите **Имя** HTTP-роутера: `vhosting-router-a`.
-  1. Нажмите кнопку **Добавить виртуальный хост**.
-  1. Укажите **Имя** виртуального хоста: `vhosting-host-a`.
-  1. В поле **Authority** укажите доменное имя сайта: `site-a.com`.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Укажите **Имя** маршрута: `vhosting-route-a`.
-  1. В поле **Группа бэкендов** выберите группу `vhosting-bg-a`.
-  1. Нажмите кнопку **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `vhosting-router-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** виртуального хоста: `vhosting-host-a`.
+  1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите доменное имя сайта: `site-a.com`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** маршрута: `vhosting-route-a`.
+  1. В поле **{{ ui-key.yacloud.alb.label_backend-group }}** выберите группу `vhosting-bg-a`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -336,18 +336,18 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **HTTP-роутеры**. Нажмите кнопку **Создать HTTP-роутер**.
-  1. Укажите **Имя** HTTP-роутера: `vhosting-router-default`.
-  1. Нажмите кнопку **Добавить виртуальный хост**.
-  1. Укажите **Имя** виртуального хоста: `vhosting-host-default`.
-  1. В поле **Authority** укажите доменное имя сайта: `default.com`.
-  1. Нажмите кнопку **Добавить маршрут**.
-  1. Укажите **Имя** маршрута: `vhosting-route-a`.
-  1. В поле **Действие** выберите `Ответ`.
-  1. В поле **Код состояния HTTP** выберите `404 Not Found`.
-  1. В поле **Тело ответа** нажмите кнопку **Выбрать**. Выберите способ `Текст` и в поле **Содержимое** укажите:
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}**. Нажмите кнопку **{{ ui-key.yacloud.alb.button_http-router-create }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** HTTP-роутера: `vhosting-router-default`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_virtual-host-add }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** виртуального хоста: `vhosting-host-default`.
+  1. В поле **{{ ui-key.yacloud.alb.label_authority }}** укажите доменное имя сайта: `default.com`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-route }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** маршрута: `vhosting-route-a`.
+  1. В поле **{{ ui-key.yacloud.alb.label_route-action }}** выберите `{{ ui-key.yacloud.alb.label_route-action-statusResponse }}`.
+  1. В поле **{{ ui-key.yacloud.alb.label_http-status-code }}** выберите `404 Not Found`.
+  1. В поле **{{ ui-key.yacloud.alb.label_body }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_select }}**. Выберите способ `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}` и в поле **{{ ui-key.yacloud.component.file-content-dialog.field_content }}** укажите:
 
      ```text
      404 Not Found
@@ -355,8 +355,8 @@
      This is the default site.
      ```
 
-     Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать**.
+     Нажмите кнопку **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -368,30 +368,30 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. Нажмите кнопку **Создать L7-балансировщик**.
-  1. В открывшемся меню выберите **Вручную**.
-  1. Укажите **Имя** балансировщика: `vhosting-alb`.
-  1. В блоке **Сетевые настройки** выберите группу безопасности `vhosting-sg-balancer`, [созданную ранее](#create-security-groups).
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}**.
+  1. В открывшемся меню выберите **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
+  1. Укажите **{{ ui-key.yacloud.common.name }}** балансировщика: `vhosting-alb`.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите группу безопасности `vhosting-sg-balancer`, [созданную ранее](#create-security-groups).
   1. Создайте обработчик для перенаправления HTTP-запросов на HTTPS:
-     1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**.
-     1. Укажите **Имя** обработчика: `vhosting-listener-http`.
-     1. В блоке **Публичный IP-адрес** выберите **Тип** `Список` и IP-адрес, [зарезервированный ранее](#reserve-ip).
-     1. В поле **Протокол** выберите пункт `Перенаправлять на HTTPS`.
+     1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
+     1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `vhosting-listener-http`.
+     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** выберите **{{ ui-key.yacloud.common.type }}** `{{ ui-key.yacloud.alb.label_address-list }}` и IP-адрес, [зарезервированный ранее](#reserve-ip).
+     1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_redirect-to-https }}`.
   1. Создайте обработчик HTTPS-запросов:
-     1. Снова нажмите кнопку **Добавить обработчик**.
-     1. Укажите **Имя** обработчика: `vhosting-listener-https`.
-     1. В блоке **Публичный IP-адрес** выберите **Тип** `Список` и IP-адрес, [зарезервированный ранее](#reserve-ip).
-     1. В поле **Протокол** выберите пункт `HTTPS`.
-     1. В блоке **Основной обработчик** выберите сертификат `vhosting-cert-default` и HTTP-роутер `vhosting-router-default`.
+     1. Снова нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**.
+     1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика: `vhosting-listener-https`.
+     1. В блоке **{{ ui-key.yacloud.alb.section_external-address-specs }}** выберите **{{ ui-key.yacloud.common.type }}** `{{ ui-key.yacloud.alb.label_address-list }}` и IP-адрес, [зарезервированный ранее](#reserve-ip).
+     1. В поле **{{ ui-key.yacloud.alb.label_protocol-type }}** выберите пункт `{{ ui-key.yacloud.alb.label_proto-http-tls }}`.
+     1. В блоке **{{ ui-key.yacloud.alb.section_default-sni-match }}** выберите сертификат `vhosting-cert-default` и HTTP-роутер `vhosting-router-default`.
      1. Добавьте обработчик SNI для сайта `site-a.com`:
-        1. Нажмите кнопку **Добавить обработчик SNI**.
-        1. Укажите **Имя** обработчика SNI: `vhosting-sni-a`.
-        1. В поле **Имена серверов** укажите `site-a.com`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_add-sni-match }}**.
+        1. Укажите **{{ ui-key.yacloud.common.name }}** обработчика SNI: `vhosting-sni-a`.
+        1. В поле **{{ ui-key.yacloud.alb.label_server-names }}** укажите `site-a.com`.
         1. Выберите сертификат `vhosting-cert-a` и HTTP-роутер `vhosting-router-a`.
      1. Аналогично добавьте обработчик SNI для сайта `site-b.com` — с именем `vhosting-sni-b`, именем сервера `site-b.com`, сертификатом `vhosting-cert-b` и HTTP-роутером `vhosting-router-b`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -400,8 +400,8 @@
 Доменные имена `site-a.com`, `site-b.com` и `default.com` должны быть связаны с IP-адресом L7-балансировщика с помощью записей DNS.
 
 Чтобы настроить DNS для сайта `site-a.com`:
-1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
 1. Скопируйте IP-адрес созданного балансировщика.
 1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
 1. Создайте или измените A-запись для `site-a.com` таким образом, чтобы она указывала на скопированный IP-адрес:
@@ -410,29 +410,29 @@
    site-a.com. A <IP-адрес_L7-балансировщика>
    ```
 
-   Если вы пользуетесь Yandex Cloud DNS, настройте запись по следующей инструкции:
+   Если вы пользуетесь {{ dns-full-name }}, настройте запись по следующей инструкции:
 
-   {% cut "Инструкция по настройке DNS-записей для Cloud DNS" %}
+   {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
      1. Если у вас нет публичной [зоны DNS](../../../dns/concepts/dns-zone.md), создайте ее:
-        1. Нажмите кнопку **Создать зону**.
-        1. Укажите **Имя** зоны: `vhosting-dns-a`.
-        1. В поле **Зона** укажите доменное имя сайта с точкой в конце: `site-a.com.`
-        1. Выберите **Тип** зоны — `Публичная`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
+        1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `vhosting-dns-a`.
+        1. В поле **{{ ui-key.yacloud.dns.label_zone }}** укажите доменное имя сайта с точкой в конце: `site-a.com.`
+        1. Выберите **{{ ui-key.yacloud.common.type }}** зоны — `{{ ui-key.yacloud.dns.label_public }}`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
      1. Создайте запись в зоне:
         1. В списке зон нажмите на зону `vhosting-dns-a`.
-        1. Нажмите кнопку **Создать запись**.
-        1. Поле **Имя** оставьте пустым, чтобы запись соответствовала доменному имени `site-a.com` (а не имени с субдоменом, например `www.site-a.com`).
-        1. Выберите **Тип** записи — **A**.
-        1. В поле **Значение** вставьте скопированный IP-адрес балансировщика.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_record-set-create }}**.
+        1. Поле **{{ ui-key.yacloud.common.name }}** оставьте пустым, чтобы запись соответствовала доменному имени `site-a.com` (а не имени с субдоменом, например `www.site-a.com`).
+        1. Выберите **{{ ui-key.yacloud.common.type }}** записи — **A**.
+        1. В поле **{{ ui-key.yacloud.dns.label_records }}** вставьте скопированный IP-адрес балансировщика.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    {% endlist %}
 
@@ -457,4 +457,4 @@
    1. [Удалите](../../../application-load-balancer/operations/backend-group-delete.md) группы бэкендов `vhosting-bg-a` и `vhosting-bg-b`.
 1. [Удалите](../../../compute/operations/instance-groups/delete.md) группы ВМ `vhosting-ig-a` и `vhosting-ig-b`.
 1. [Удалите](../../../vpc/operations/address-delete.md) зарезервированный статический публичный адрес.
-1. Если вы использовали Yandex Cloud DNS, то [удалите](../../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../../dns/operations/zone-delete.md) DNS-зону.
+1. Если вы использовали {{ dns-full-name }}, то [удалите](../../../dns/operations/resource-record-delete.md) DNS-записи и [удалите](../../../dns/operations/zone-delete.md) DNS-зону.

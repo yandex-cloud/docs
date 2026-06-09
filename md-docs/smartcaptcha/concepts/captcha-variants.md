@@ -88,7 +88,7 @@ sequenceDiagram
     participant Antifraud as Антифрод
     participant Frontend as Фронтенд сайта
     participant User as Пользователь
-    participant CaptchaBackend as Yandex Cloud
+    participant CaptchaBackend as {{ yandex-cloud }}
     participant DB as База данных
 
     %% Ход выполнения
@@ -136,7 +136,7 @@ sequenceDiagram
 
 #|
 || **Тип и виды сопоставления** | **Значения (пример)** | **Оператор** ||
-|| `IP` 
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}` 
 * Совпадает или принадлежит диапазону
 * Не совпадает и не принадлежит диапазону
 * IP принадлежит региону
@@ -147,7 +147,7 @@ sequenceDiagram
 * Диапазон адресов (`1.2.0.0-1.2.1.1`).
 * Двухбуквенный код страны по [ISO 3166-1 alpha-2](https://ru.wikipedia.org/wiki/ISO_3166-1_alpha-2) (`ru`, `kz`).
 | _или_ ||
-|| `HTTP header` 
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-header }}` 
 * Совпадает с
 * Не совпадает с
 * Начинается с
@@ -173,7 +173,7 @@ sequenceDiagram
 
 Например, `/`.
 | Не применяется ||
-|| `Host` 
+|| `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}` 
 * Совпадает с
 * Не совпадает с
 * Начинается с

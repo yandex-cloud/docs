@@ -4,7 +4,7 @@
 
 {% note info %}
 
-Информацию о дате последней верификации пользователя с помощью фактора MFA можно посмотреть на вкладке **Обзор** страницы с информацией о пользователе в интерфейсе Yandex Identity Hub в Cloud Center.
+Информацию о дате последней верификации пользователя с помощью фактора MFA можно посмотреть на вкладке **{{ ui-key.yacloud_org.common.overview }}** страницы с информацией о пользователе в интерфейсе {{ org-full-name }} в {{ cloud-center }}.
 
 {% endnote %}
 
@@ -16,11 +16,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **Пользователи** и выберите нужного федеративного или локального пользователя.
-  1. В правом верхнем углу страницы нажмите **Ещё** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![arrow-rotate-left](../../../_assets/console-icons/arrow-rotate-left.svg) **Сбросить дату верификации**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** и выберите нужного федеративного или локального пользователя.
+  1. В правом верхнем углу страницы нажмите **{{ ui-key.yacloud_org.common.more }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![arrow-rotate-left](../../../_assets/console-icons/arrow-rotate-left.svg) **{{ ui-key.yacloud_org.entity.user.action.reset-date }}**.
   1. В открывшемся окне подтвердите действие.
 
 {% endlist %}
@@ -35,24 +35,24 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **Пользователи** и выберите нужного федеративного или локального пользователя.
-  1. Перейдите на вкладку **MFA**.
-  1. В строке с имеющимся у пользователя фактором аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![icon-users](../../../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}** и выберите нужного федеративного или локального пользователя.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.users.components.title_mfa_5CFwd }}**.
+  1. В строке с имеющимся у пользователя фактором аутентификации нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление.
 
 {% endlist %}
 
-Фактор аутентификации пользователя будет удален, и при следующей аутентификации в Yandex Cloud пользователю придется вновь пройти [верификацию](../../concepts/mfa.md#mfa-factors).
+Фактор аутентификации пользователя будет удален, и при следующей аутентификации в {{ yandex-cloud }} пользователю придется вновь пройти [верификацию](../../concepts/mfa.md#mfa-factors).
 
 #### См. также {#see-also}
 
-* [Создать политику MFA](create-policy.md)
-* [Изменить политику MFA](update-policy.md)
-* [Применить политику MFA к пользователям](add-users.md)
-* [Управлять исключениями политики MFA](excluded-audience.md)
-* [Активировать и деактивировать политику MFA](deactivate-reactivate-policy.md)
-* [Удалить политику MFA](delete-policy.md)
-* [Многофакторная аутентификация в Yandex Identity Hub](../../concepts/mfa.md)
+* [{#T}](create-policy.md)
+* [{#T}](update-policy.md)
+* [{#T}](add-users.md)
+* [{#T}](excluded-audience.md)
+* [{#T}](deactivate-reactivate-policy.md)
+* [{#T}](delete-policy.md)
+* [{#T}](../../concepts/mfa.md)

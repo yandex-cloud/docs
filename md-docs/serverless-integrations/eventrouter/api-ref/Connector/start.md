@@ -5,7 +5,7 @@ Starts the specified connector.
 ## HTTP request
 
 ```
-POST https://serverless-eventrouter.api.cloud.yandex.net/eventrouter/v1/connectors/{connectorId}:start
+POST https://serverless-eventrouter.{{ api-host }}/eventrouter/v1/connectors/{connectorId}:start
 ```
 
 ## Path parameters

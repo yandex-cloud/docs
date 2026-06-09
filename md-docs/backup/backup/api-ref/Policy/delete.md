@@ -5,7 +5,7 @@ Delete specific policy.
 ## HTTP request
 
 ```
-DELETE https://backup.api.cloud.yandex.net/backup/v1/policies/{policyId}
+DELETE https://backup.{{ api-host }}/backup/v1/policies/{policyId}
 ```
 
 ## Path parameters

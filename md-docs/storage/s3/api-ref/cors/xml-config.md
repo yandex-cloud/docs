@@ -1,6 +1,6 @@
 # CORS-конфигурация бакетов
 
-Object Storage позволяет управлять [конфигурацией CORS](../../../concepts/cors.md) бакета. Для загрузки конфигурации CORS в Object Storage необходимо сформировать XML-документ, описанный в этом разделе. Скачивая существующую конфигурацию, вы получаете документ такого же формата.
+{{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../../concepts/cors.md) бакета. Для загрузки конфигурации CORS в {{ objstorage-name }} необходимо сформировать XML-документ, описанный в этом разделе. Скачивая существующую конфигурацию, вы получаете документ такого же формата.
 
 Общий вид конфигурации:
 
@@ -27,7 +27,7 @@ Object Storage позволяет управлять [конфигурацией
 `ID` | Уникальный идентификатор правила (не более 255 символов).<br/><br/>Необязательный. Можно использовать для поиска правила в файле.<br/><br/>Путь: `/CORSConfiguration/CORSRule/ID`.
 `AllowedMethod` | HTTP метод (`PUT`, `GET`, `HEAD`, `POST`, `DELETE`), разрешенный для использования при кросс-доменном запросе. Каждый метод следует указать в отдельном элементе. Обязательно указать хотя бы один метод.<br/><br/>Путь: `/CORSConfiguration/CORSRule/AllowedMethod`.
 `AllowedOrigin` | Сайт, с которого разрешены кросс-доменные запросы к бакету. Должен быть указан хотя бы один элемент `AllowedOrigin`.<br/><br/>Может содержать не более одного символа `*`. Примеры: `http://*.example.com`, `*`.<br/><br/>Путь: `/CORSConfiguration/CORSRule/AllowedOrigin`.
-`AllowedHeader` | Разрешенный заголовок в запросе к объекту. Если разрешенных заголовков несколько, то каждый следует указать в отдельном `AllowedHeader`. В имени заголовка можно использовать один символ `*` для определения шаблона, например `<AllowedHeader>*</AllowedHeader>` означает, что разрешены все заголовки.<br/><br/>Запрос методом [options](../object/options.md) содержит заголовок `Access-Control-Request-Headers`. Object Storage сопоставляет заголовки, переданные в `Access-Control-Request-Headers`, с набором `AllowedHeader` и отвечает на `options` списком разрешенных.<br/><br/>Путь: `/CORSConfiguration/CORSRule/AllowedHeader`.
+`AllowedHeader` | Разрешенный заголовок в запросе к объекту. Если разрешенных заголовков несколько, то каждый следует указать в отдельном `AllowedHeader`. В имени заголовка можно использовать один символ `*` для определения шаблона, например `<AllowedHeader>*</AllowedHeader>` означает, что разрешены все заголовки.<br/><br/>Запрос методом [options](../object/options.md) содержит заголовок `Access-Control-Request-Headers`. {{ objstorage-name }} сопоставляет заголовки, переданные в `Access-Control-Request-Headers`, с набором `AllowedHeader` и отвечает на `options` списком разрешенных.<br/><br/>Путь: `/CORSConfiguration/CORSRule/AllowedHeader`.
 `MaxAgeSeconds` | Время в секундах, в течение которого браузер сохраняет в кеше результат запроса к объекту методом [options](../object/options.md).<br/><br/>Путь: `/CORSConfiguration/CORSRule/MaxAgeSeconds`.
 `ExposeHeader` | Заголовок, разрешенный к показу в JavaScript-приложении в браузере. Если допустимы несколько заголовков, то укажите каждый из них в отдельном элементе.<br/><br/>В запросе к объекту JavaScript-клиент может оперировать только заголовками, определенными в элементах `ExposeHeader`.<br/><br/>Путь: `/CORSConfiguration/CORSRule/ExposeHeader`.
 
@@ -50,13 +50,13 @@ Object Storage позволяет управлять [конфигурацией
 
 #### Связанные статьи {#related-articles}
 
-* [CORS в Object Storage](../../../concepts/cors.md)
+* [{#T}](../../../concepts/cors.md)
 
-* [Настройка CORS](../../../operations/buckets/cors.md)
+* [{#T}](../../../operations/buckets/cors.md)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

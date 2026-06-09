@@ -5,7 +5,7 @@ Lists operations for the specified VRF.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/vrfs/{vrfId}/operations
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}/operations
 ```
 
 ## Path parameters

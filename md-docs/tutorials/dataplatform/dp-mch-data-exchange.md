@@ -1,12 +1,12 @@
-# Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing
+# Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
 
-# Обмен данными между Yandex Managed Service for ClickHouse® и Yandex Data Processing
+# Обмен данными между {{ mch-full-name }} и {{ dataproc-full-name }}
 
 
-С помощью Yandex Data Processing вы можете:
+С помощью {{ dataproc-name }} вы можете:
 
-* [Загрузить данные из Managed Service for ClickHouse® в Spark DataFrame](#export-from-mch).
-* [Выгрузить данные из Spark DataFrame в Managed Service for ClickHouse®](#import-to-mch).
+* [Загрузить данные из {{ mch-name }} в Spark DataFrame](#export-from-mch).
+* [Выгрузить данные из Spark DataFrame в {{ mch-name }}](#import-to-mch).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
@@ -15,11 +15,11 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Yandex Data Processing: использование вычислительных ресурсов ВМ и сетевых дисков Compute Cloud, а также сервиса Cloud Logging для работы с логами (см. [тарифы Yandex Data Processing](../../data-proc/pricing.md)).
-* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Плата за NAT-шлюз (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластеров (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами (см. [тарифы {{ dataproc-name }}](../../data-proc/pricing.md)).
+* Плата за кластер {{ mch-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за публичные IP-адреса для хостов кластеров (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -31,7 +31,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с именем `dataproc-sa` и назначьте ему роли `dataproc.agent` и `dataproc.provisioner`.
-    1. В Object Storage [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
+    1. В {{ objstorage-short-name }} [создайте бакеты](../../storage/operations/buckets/create.md) и [настройте доступ](../../storage/operations/buckets/edit-acl.md) к ним:
        
        1. Создайте бакет для исходных данных и предоставьте сервисному аккаунту кластера разрешение `READ` для этого бакета.
        1. Создайте бакет для результатов обработки и предоставьте сервисному аккаунту кластера разрешение `READ и WRITE` для этого бакета.
@@ -42,37 +42,37 @@
 
         * По одному правилу для входящего и исходящего служебного трафика:
 
-            * **Диапазон портов** — `0-65535`.
-            * **Протокол** — `Любой` (`Any`).
-            * **Источник**/**Назначение** — `Группа безопасности`.
-            * **Группа безопасности** — `Текущая` (`Self`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**/**{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.label_destination-type-security-group }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`).
 
         * Правило для исходящего HTTPS-трафика:
 
-            * **Диапазон портов** — `443`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-https }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-        * Правило для исходящего трафика по протоколу TCP на порт 8443 для доступа к ClickHouse®:
+        * Правило для исходящего трафика по протоколу TCP на порт {{ port-mch-http }} для доступа к {{ CH }}:
 
-            * **Диапазон портов** — `8443`.
-            * **Протокол** — `TCP`.
-            * **Назначение** — `CIDR`.
-            * **CIDR блоки** — `0.0.0.0/0`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mch-http }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+            * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`.
 
-    1. [Создайте кластер Yandex Data Processing](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
+    1. [Создайте кластер {{ dataproc-name }}](../../data-proc/operations/cluster-create.md) с любой [подходящей конфигурацией хостов](../../data-proc/concepts/instance-types.md) и следующими настройками:
 
         * Компоненты:
             * **SPARK**;
             * **YARN**;
             * **HDFS**.
-        * **Сервисный аккаунт** — `dataproc-sa`.
-        * **Имя бакета** — бакет, который вы создали для выходных данных.
-        * **Сеть** — `dataproc-network`.
-        * **Группы безопасности** — `dataproc-sg`.
+        * **{{ ui-key.yacloud.mdb.forms.base_field_service-account }}** — `dataproc-sa`.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_bucket }}** — бакет, который вы создали для выходных данных.
+        * **{{ ui-key.yacloud.mdb.forms.config_field_network }}** — `dataproc-network`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `dataproc-sg`.
 
-    1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
+    1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей [конфигурации](../../managed-clickhouse/concepts/instance-types.md) со следующими настройками:
 
         * С базой данных `db1`.
         * С пользователем `user1`.
@@ -80,17 +80,17 @@
 
             {% note info %}
             
-            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+            Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин {{ yandex-cloud }}, расположенных в той же облачной сети, что и кластер.
             
             {% endnote %}
 
     
-    1. Если вы используете группы безопасности в кластере Managed Service for ClickHouse®, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
+    1. Если вы используете группы безопасности в кластере {{ mch-name }}, убедитесь, что они [настроены правильно](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) и допускают подключение к нему.
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -101,29 +101,29 @@
 
         * [сеть](../../vpc/concepts/network.md#network);
         * [подсеть](../../vpc/concepts/network.md#subnet);
-        * NAT-шлюз и таблица маршрутизации, необходимые для работы Yandex Data Processing;
-        * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров Yandex Data Processing и Managed Service for ClickHouse®;
-        * сервисный аккаунт, необходимый для работы кластера Yandex Data Processing;
-        * сервисный аккаунт, необходимый для создания бакетов в Object Storage;
+        * NAT-шлюз и таблица маршрутизации, необходимые для работы {{ dataproc-name }};
+        * [группы безопасности](../../vpc/concepts/security-groups.md), необходимые для кластеров {{ dataproc-name }} и {{ mch-name }};
+        * сервисный аккаунт, необходимый для работы кластера {{ dataproc-name }};
+        * сервисный аккаунт, необходимый для создания бакетов в {{ objstorage-name }};
         * бакеты для входных и выходных данных;
-        * кластер Yandex Data Processing;
-        * кластер Managed Service for ClickHouse®.
+        * кластер {{ dataproc-name }};
+        * кластер {{ mch-name }}.
 
     1. Укажите в файле `data-proc-data-exchange-with-mch.tf`:
 
         * `folder_id` — идентификатор облачного каталога, такой же как в настройках провайдера.
         * `input_bucket` — имя бакета для входных данных.
         * `output_bucket` — имя бакета для выходных данных.
-        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера Yandex Data Processing. [Подробнее о подключении к хосту Yandex Data Processing по SSH](../../data-proc/operations/connect-ssh.md).
-        * `ch_password` — пароль пользователя ClickHouse®.
+        * `dp_ssh_key` — абсолютный путь к публичному ключу для кластера {{ dataproc-name }}. [Подробнее о подключении к хосту {{ dataproc-name }} по SSH](../../data-proc/operations/connect-ssh.md).
+        * `ch_password` — пароль пользователя {{ CH }}.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
         ```bash
         terraform validate
         ```
 
-        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -145,15 +145,15 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
-## Загрузите данные из Managed Service for ClickHouse® {#export-from-mch}
+## Загрузите данные из {{ mch-name }} {#export-from-mch}
 
-### Подготовьте таблицу в кластере Managed Service for ClickHouse® {#prepare-mch}
+### Подготовьте таблицу в кластере {{ mch-name }} {#prepare-mch}
 
-1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера Managed Service for ClickHouse® от имени пользователя `user1`.
+1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица с именами и возрастом людей.
 
     1. Создайте таблицу:
@@ -188,7 +188,7 @@
         SELECT * FROM persons;
         ```
 
-### Перенесите таблицу из Managed Service for ClickHouse® {#start-mch-export}
+### Перенесите таблицу из {{ mch-name }} {#start-mch-export}
 
 1. Подготовьте файл скрипта:
 
@@ -202,13 +202,13 @@
         # Создание Spark-сессии
         spark = SparkSession.builder.appName("ClickhouseDataproc").getOrCreate()
 
-        # Указание порта и параметров кластера ClickHouse®
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_ClickHouse®>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос таблицы persons из ClickHouse® в DataFrame
+        # Перенос таблицы persons из {{ CH }} в DataFrame
         df = spark.read.format("jdbc") \
         .option("url", jdbcUrl) \
         .option("user","user1") \
@@ -225,23 +225,23 @@
 
     1. Укажите в скрипте:
 
-        * Идентификатор кластера Managed Service for ClickHouse®.
+        * Идентификатор кластера {{ mch-name }}.
         * Пароль пользователя `user1`.
         * Имя выходного бакета.
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `ch-to-dataproc.py`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/ch-to-dataproc.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/ch-to-dataproc.py`.
 
 1. Дождитесь завершения задания и проверьте, что в папке `csv` выходного бакета появилась исходная таблица.
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% endnote %}
 
-## Выгрузите данные в Managed Service for ClickHouse® {#import-to-mch}
+## Выгрузите данные в {{ mch-name }} {#import-to-mch}
 
 1. Подготовьте файл скрипта:
 
@@ -269,20 +269,20 @@
                                     ('Mary', 34),
                                     ('Dmitry', 42)], schema)
 
-        # Указание порта и параметров кластера ClickHouse®
+        # Указание порта и параметров кластера {{ CH }}
         jdbcPort = 8443
-        jdbcHostname = "c-<идентификатор_кластера_ClickHouse®>.rw.mdb.yandexcloud.net"
+        jdbcHostname = "c-<идентификатор_кластера_{{ CH }}>.rw.{{ dns-zone }}"
         jdbcDatabase = "db1"
         jdbcUrl = f"jdbc:clickhouse://{jdbcHostname}:{jdbcPort}/{jdbcDatabase}?ssl=true"
 
-        # Перенос DataFrame в ClickHouse®
+        # Перенос DataFrame в {{ CH }}
         df.write.format("jdbc") \
         .mode("error") \
         .option("url", jdbcUrl) \
         .option("dbtable", "people") \
         .option("createTableOptions", "ENGINE = MergeTree() ORDER BY age") \
         .option("user","user1") \
-        .option("password","<пароль_к_базе_данных_ClickHouse®>") \
+        .option("password","<пароль_к_базе_данных_{{ CH }}>") \
         .save()
         ```
 
@@ -290,16 +290,16 @@
 
     1. Укажите в скрипте:
 
-        * Идентификатор кластера Managed Service for ClickHouse®.
+        * Идентификатор кластера {{ mch-name }}.
         * Пароль пользователя `user1`.
 
     1. Создайте в бакете для входных данных папку `scripts` и [загрузите](../../storage/operations/objects/upload.md#simple) в нее файл `dataproc-to-ch.py`.
 
-1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **Main python файл** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/dataproc-to-ch.py`.
+1. [Создайте задание PySpark](../../data-proc/operations/jobs-pyspark.md#create), указав в поле **{{ ui-key.yacloud.dataproc.jobs.field_main-python-file }}** путь к файлу скрипта: `s3a://<имя_входного_бакета>/scripts/dataproc-to-ch.py`.
 
-1. Дождитесь завершения задания и проверьте, что данные перенеслись в Managed Service for ClickHouse®:
+1. Дождитесь завершения задания и проверьте, что данные перенеслись в {{ mch-name }}:
 
-    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера Managed Service for ClickHouse® от имени пользователя `user1`.
+    1. [Подключитесь к базе данных](../../managed-clickhouse/operations/connect/clients.md) `db1` кластера {{ mch-name }} от имени пользователя `user1`.
     1. Выполните запрос:
 
         ```sql
@@ -310,7 +310,7 @@
 
 {% note info %}
 
-Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [Yandex Cloud Logging](../../logging/index.md). Подробнее см. в разделе [Работа с логами](../../data-proc/operations/logging.md).
+Вы можете просматривать логи выполнения заданий и искать в них информацию с помощью сервиса [{{ cloud-logging-full-name }}](../../logging/index.md). Подробнее в разделе [{#T}](../../data-proc/operations/logging.md).
 
 {% endnote %}
 
@@ -324,22 +324,22 @@
 
     - Вручную {#manual}
 
-        1. [Кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
-        1. [Кластер Yandex Data Processing](../../data-proc/operations/cluster-delete.md).
-        1. [Бакеты Object Storage](../../storage/operations/buckets/delete.md).
+        1. [Кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+        1. [Кластер {{ dataproc-name }}](../../data-proc/operations/cluster-delete.md).
+        1. [Бакеты {{ objstorage-name }}](../../storage/operations/buckets/delete.md).
         1. [Подсеть](../../vpc/operations/subnet-delete.md).
         1. [Таблицу маршрутизации](../../vpc/operations/delete-route-table.md).
         1. [NAT-шлюз](../../vpc/operations/delete-nat-gateway.md).
         1. [Облачную сеть](../../vpc/operations/network-delete.md).
         1. [Сервисный аккаунт](../../iam/operations/sa/delete.md).
 
-    - Terraform {#tf}
+    - {{ TF }} {#tf}
 
         1. В терминале перейдите в директорию с планом инфраструктуры.
         
             {% note warning %}
         
-            Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+            Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
         
             {% endnote %}
         
@@ -353,8 +353,8 @@
         
             1. Подтвердите удаление ресурсов и дождитесь завершения операции.
         
-            Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+            Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
     {% endlist %}
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

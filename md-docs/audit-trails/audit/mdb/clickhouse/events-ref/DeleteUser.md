@@ -134,6 +134,8 @@
         "mergeTreeMinRowsForConcurrentRead": "string",
         "mergeTreeMinBytesForConcurrentRead": "string",
         "maxBytesBeforeExternalGroupBy": "string",
+        "maxBytesRatioBeforeExternalGroupBy": "number",
+        "maxBytesRatioBeforeExternalSort": "number",
         "maxBytesBeforeExternalSort": "string",
         "groupByTwoLevelThreshold": "string",
         "groupByTwoLevelThresholdBytes": "string",
@@ -483,9 +485,7 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| readonly | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| readonly | **string** (int64) ||
 || allowDdl | **boolean** ||
 || allowIntrospectionFunctions | **boolean** ||
 || connectTimeout | **string** (int64) ||
@@ -494,15 +494,11 @@ Acceptable values are 0 to 2, inclusive. ||
 || sendTimeout | **string** (int64) ||
 || idleConnectionTimeout | **string** (int64) ||
 || timeoutBeforeCheckingExecutionSpeed | **string** (int64) ||
-|| insertQuorum | **string** (int64)
-
-The minimum value is 0. ||
+|| insertQuorum | **string** (int64) ||
 || insertQuorumTimeout | **string** (int64) ||
 || insertQuorumParallel | **boolean** ||
 || selectSequentialConsistency | **boolean** ||
-|| replicationAlterPartitionsSync | **string** (int64)
-
-Acceptable values are 0 to 2, inclusive. ||
+|| replicationAlterPartitionsSync | **string** (int64) ||
 || maxReplicaDelayForDistributedQueries | **string** (int64) ||
 || fallbackToStaleReplicasForDistributedQueries | **boolean** ||
 || distributedProductMode | **enum** (DistributedProductMode)
@@ -534,52 +530,24 @@ Acceptable values are 0 to 2, inclusive. ||
 - `LOAD_BALANCING_ROUND_ROBIN` ||
 || preferLocalhostReplica | **boolean** ||
 || compileExpressions | **boolean** ||
-|| minCountToCompileExpression | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBlockSize | **string** (int64)
-
-The minimum value is 1. ||
-|| minInsertBlockSizeRows | **string** (int64)
-
-The minimum value is 0. ||
-|| minInsertBlockSizeBytes | **string** (int64)
-
-The minimum value is 0. ||
-|| maxInsertBlockSize | **string** (int64)
-
-The minimum value is 1. ||
-|| maxPartitionsPerInsertBlock | **string** (int64)
-
-The minimum value is 0. ||
-|| minBytesToUseDirectIo | **string** (int64)
-
-The minimum value is 0. ||
+|| minCountToCompileExpression | **string** (int64) ||
+|| maxBlockSize | **string** (int64) ||
+|| minInsertBlockSizeRows | **string** (int64) ||
+|| minInsertBlockSizeBytes | **string** (int64) ||
+|| maxInsertBlockSize | **string** (int64) ||
+|| maxPartitionsPerInsertBlock | **string** (int64) ||
+|| minBytesToUseDirectIo | **string** (int64) ||
 || useUncompressedCache | **boolean** ||
-|| mergeTreeMaxRowsToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMaxBytesToUseCache | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinRowsForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
-|| mergeTreeMinBytesForConcurrentRead | **string** (int64)
-
-The minimum value is 1. ||
-|| maxBytesBeforeExternalGroupBy | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesBeforeExternalSort | **string** (int64)
-
-The minimum value is 0. ||
-|| groupByTwoLevelThreshold | **string** (int64)
-
-The minimum value is 0. ||
-|| groupByTwoLevelThresholdBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| mergeTreeMaxRowsToUseCache | **string** (int64) ||
+|| mergeTreeMaxBytesToUseCache | **string** (int64) ||
+|| mergeTreeMinRowsForConcurrentRead | **string** (int64) ||
+|| mergeTreeMinBytesForConcurrentRead | **string** (int64) ||
+|| maxBytesBeforeExternalGroupBy | **string** (int64) ||
+|| maxBytesRatioBeforeExternalGroupBy | **number** (double) ||
+|| maxBytesRatioBeforeExternalSort | **number** (double) ||
+|| maxBytesBeforeExternalSort | **string** (int64) ||
+|| groupByTwoLevelThreshold | **string** (int64) ||
+|| groupByTwoLevelThresholdBytes | **string** (int64) ||
 || deduplicateBlocksInDependentMaterializedViews | **boolean** ||
 || localFilesystemReadMethod | **enum** (LocalFilesystemReadMethod)
 
@@ -592,160 +560,84 @@ The minimum value is 0. ||
 
 - `REMOTE_FILESYSTEM_READ_METHOD_READ`
 - `REMOTE_FILESYSTEM_READ_METHOD_THREADPOOL` ||
-|| priority | **string** (int64)
-
-The minimum value is 0. ||
-|| maxThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxInsertThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxMemoryUsage | **string** (int64)
-
-The minimum value is 0. ||
-|| maxMemoryUsageForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryOvercommitRatioDenominator | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryOvercommitRatioDenominatorForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64)
-
-The minimum value is 0. ||
-|| maxNetworkBandwidth | **string** (int64)
-
-The minimum value is 0. ||
-|| maxNetworkBandwidthForUser | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryDataOnDiskSizeForUser | **string** (int64)
-
-The minimum value is 0. ||
+|| priority | **string** (int64) ||
+|| maxThreads | **string** (int64) ||
+|| maxInsertThreads | **string** (int64) ||
+|| maxMemoryUsage | **string** (int64) ||
+|| maxMemoryUsageForUser | **string** (int64) ||
+|| memoryOvercommitRatioDenominator | **string** (int64) ||
+|| memoryOvercommitRatioDenominatorForUser | **string** (int64) ||
+|| memoryUsageOvercommitMaxWaitMicroseconds | **string** (int64) ||
+|| maxNetworkBandwidth | **string** (int64) ||
+|| maxNetworkBandwidthForUser | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForQuery | **string** (int64) ||
+|| maxTemporaryDataOnDiskSizeForUser | **string** (int64) ||
 || maxConcurrentQueriesForUser | **string** (int64) ||
 || forceIndexByDate | **boolean** ||
 || forcePrimaryKey | **boolean** ||
-|| maxRowsToRead | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToRead | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToRead | **string** (int64) ||
+|| maxBytesToRead | **string** (int64) ||
 || readOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsToGroupBy | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToGroupBy | **string** (int64) ||
 || groupByOverflowMode | **enum** (GroupByOverflowMode)
 
 - `GROUP_BY_OVERFLOW_MODE_THROW`
 - `GROUP_BY_OVERFLOW_MODE_BREAK`
 - `GROUP_BY_OVERFLOW_MODE_ANY` ||
-|| maxRowsToSort | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToSort | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToSort | **string** (int64) ||
+|| maxBytesToSort | **string** (int64) ||
 || sortOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxResultRows | **string** (int64)
-
-The minimum value is 0. ||
-|| maxResultBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| maxResultRows | **string** (int64) ||
+|| maxResultBytes | **string** (int64) ||
 || resultOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInDistinct | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInDistinct | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInDistinct | **string** (int64) ||
+|| maxBytesInDistinct | **string** (int64) ||
 || distinctOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsToTransfer | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesToTransfer | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsToTransfer | **string** (int64) ||
+|| maxBytesToTransfer | **string** (int64) ||
 || transferOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxExecutionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| maxExecutionTime | **string** (int64) ||
 || timeoutOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInSet | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInSet | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInSet | **string** (int64) ||
+|| maxBytesInSet | **string** (int64) ||
 || setOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxRowsInJoin | **string** (int64)
-
-The minimum value is 0. ||
-|| maxBytesInJoin | **string** (int64)
-
-The minimum value is 0. ||
+|| maxRowsInJoin | **string** (int64) ||
+|| maxBytesInJoin | **string** (int64) ||
 || joinOverflowMode | **enum** (OverflowMode)
 
 - `OVERFLOW_MODE_THROW`
 - `OVERFLOW_MODE_BREAK` ||
-|| maxColumnsToRead | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryColumns | **string** (int64)
-
-The minimum value is 0. ||
-|| maxTemporaryNonConstColumns | **string** (int64)
-
-The minimum value is 0. ||
-|| maxQuerySize | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstDepth | **string** (int64)
-
-The minimum value is 1. ||
-|| maxAstElements | **string** (int64)
-
-The minimum value is 1. ||
-|| maxExpandedAstElements | **string** (int64)
-
-The minimum value is 1. ||
-|| maxParserDepth | **string** (int64)
-
-The minimum value is 0. ||
-|| minExecutionSpeed | **string** (int64)
-
-The minimum value is 0. ||
-|| minExecutionSpeedBytes | **string** (int64)
-
-The minimum value is 0. ||
+|| maxColumnsToRead | **string** (int64) ||
+|| maxTemporaryColumns | **string** (int64) ||
+|| maxTemporaryNonConstColumns | **string** (int64) ||
+|| maxQuerySize | **string** (int64) ||
+|| maxAstDepth | **string** (int64) ||
+|| maxAstElements | **string** (int64) ||
+|| maxExpandedAstElements | **string** (int64) ||
+|| maxParserDepth | **string** (int64) ||
+|| minExecutionSpeed | **string** (int64) ||
+|| minExecutionSpeedBytes | **string** (int64) ||
 || inputFormatValuesInterpretExpressions | **boolean** ||
 || inputFormatDefaultsForOmittedFields | **boolean** ||
 || inputFormatNullAsDefault | **boolean** ||
@@ -807,9 +699,7 @@ The minimum value is 0. ||
 || useQueryCache | **boolean** ||
 || enableReadsFromQueryCache | **boolean** ||
 || enableWritesToQueryCache | **boolean** ||
-|| queryCacheMinQueryRuns | **string** (int64)
-
-The minimum value is 0. ||
+|| queryCacheMinQueryRuns | **string** (int64) ||
 || queryCacheMinQueryDuration | **string** (int64) ||
 || queryCacheTtl | **string** (int64) ||
 || queryCacheMaxEntries | **string** (int64) ||
@@ -849,21 +739,11 @@ The minimum value is 0. ||
 || anyJoinDistinctRightTableKeys | **boolean** ||
 || allowSuspiciousLowCardinalityTypes | **boolean** ||
 || flattenNested | **boolean** ||
-|| memoryProfilerStep | **string** (int64)
-
-The minimum value is 0. ||
-|| memoryProfilerSampleProbability | **number** (double)
-
-Acceptable values are 0 to 1, inclusive. ||
-|| maxFinalThreads | **string** (int64)
-
-The minimum value is 0. ||
-|| maxReadBufferSize | **string** (int64)
-
-The minimum value is 1. ||
-|| insertKeeperMaxRetries | **string** (int64)
-
-The minimum value is 0. ||
+|| memoryProfilerStep | **string** (int64) ||
+|| memoryProfilerSampleProbability | **number** (double) ||
+|| maxFinalThreads | **string** (int64) ||
+|| maxReadBufferSize | **string** (int64) ||
+|| insertKeeperMaxRetries | **string** (int64) ||
 || doNotMergeAcrossPartitionsSelectFinal | **boolean** ||
 || ignoreMaterializedViewsWithDroppedTargetTable | **boolean** ||
 || enableAnalyzer | **boolean** ||
@@ -881,24 +761,12 @@ The minimum value is 0. ||
 
 #|
 ||Field | Description ||
-|| intervalDuration | **string** (int64)
-
-The minimum value is 1000. ||
-|| queries | **string** (int64)
-
-The minimum value is 0. ||
-|| errors | **string** (int64)
-
-The minimum value is 0. ||
-|| resultRows | **string** (int64)
-
-The minimum value is 0. ||
-|| readRows | **string** (int64)
-
-The minimum value is 0. ||
-|| executionTime | **string** (int64)
-
-The minimum value is 0. ||
+|| intervalDuration | **string** (int64) ||
+|| queries | **string** (int64) ||
+|| errors | **string** (int64) ||
+|| resultRows | **string** (int64) ||
+|| readRows | **string** (int64) ||
+|| executionTime | **string** (int64) ||
 |#
 
 ## ConnectionManager {#yandex.cloud.mdb.clickhouse.v1.ConnectionManager}

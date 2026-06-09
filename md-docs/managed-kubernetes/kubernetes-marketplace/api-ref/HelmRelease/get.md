@@ -5,7 +5,7 @@ Returns the specified Helm release.
 ## HTTP request
 
 ```
-GET https://mks.api.cloud.yandex.net/managed-kubernetes/marketplace/v1/helm-releases/{id}
+GET https://mks.{{ api-host }}/managed-kubernetes/marketplace/v1/helm-releases/{id}
 ```
 
 ## Path parameters

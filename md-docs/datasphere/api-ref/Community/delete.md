@@ -5,7 +5,7 @@ Deletes specified community.
 ## HTTP request
 
 ```
-DELETE https://datasphere.api.cloud.yandex.net/datasphere/v2/communities/{communityId}
+DELETE https://datasphere.{{ api-host }}/datasphere/v2/communities/{communityId}
 ```
 
 ## Path parameters

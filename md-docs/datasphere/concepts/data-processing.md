@@ -1,58 +1,58 @@
-# Способы работы с кластерами Apache Spark™ в DataSphere
+# Способы работы с кластерами Apache Spark™ в {{ ml-platform-name }}
 
-Сервис [Yandex Data Processing](../../data-proc/index.md) позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры Yandex Data Processing, чтобы запускать распределенные обучения на кластерах.
+Сервис [{{ dataproc-full-name }}](../../data-proc/index.md) позволяет разворачивать кластеры Apache Spark™. Вы можете использовать кластеры {{ dataproc-name }}, чтобы запускать распределенные обучения на кластерах.
 
 ## Варианты развертывания кластеров {#types}
 
-Чтобы работать в DataSphere с кластерами Yandex Data Processing, вы можете использовать:
+Чтобы работать в {{ ml-platform-name }} с кластерами {{ dataproc-name }}, вы можете использовать:
 
 * [коннектор Spark](data-processing-operations.md#spark-with-existing-cluster);
 * [Livy-сессию](data-processing-operations.md#livy-sessions).
 
-Если у вас нет существующих кластеров Yandex Data Processing или кластер нужен на непродолжительное время, вы можете использовать временные кластеры Yandex Data Processing. Их можно создать с помощью:
+Если у вас нет существующих кластеров {{ dataproc-name }} или кластер нужен на непродолжительное время, вы можете использовать временные кластеры {{ dataproc-name }}. Их можно создать с помощью:
 
 * [коннектора Spark](temporary-data-processing-clusters.md#spark-with-temporary-cluster) (предпочтительный способ);
-* [шаблона Yandex Data Processing](temporary-data-processing-clusters.md#template).
+* [шаблона {{ dataproc-name }}](temporary-data-processing-clusters.md#template).
 
-Все кластеры Yandex Data Processing вне зависимости от варианта развертывания тарифицируются по [правилам сервиса Yandex Data Processing](../../data-proc/pricing.md).
+Все кластеры {{ dataproc-name }} вне зависимости от варианта развертывания тарифицируются по [правилам сервиса {{ dataproc-name }}](../../data-proc/pricing.md).
 
-## Настройки проекта DataSphere для работы с кластерами Yandex Data Processing {#settings}
+## Настройки проекта {{ ml-platform-name }} для работы с кластерами {{ dataproc-name }} {#settings}
 
-Для работы с кластерами Yandex Data Processing:
+Для работы с кластерами {{ dataproc-name }}:
 
 1. [Укажите в настройках проекта](../operations/projects/update.md) следующие параметры:
 
-   * [Каталог по умолчанию](../../resource-manager/concepts/resources-hierarchy.md#folder) для интеграции с другими сервисами Yandex Cloud. В нем будет развернут кластер Yandex Data Processing в рамках текущих [квот](../../data-proc/concepts/limits.md) облака, а стоимость использования кластера будет списана с платежного аккаунта облака.
-   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `vpc.user`, от имени которого DataSphere будет работать с сетью кластера Yandex Data Processing.
-   * [Подсеть](../../vpc/concepts/network.md#subnet) для связи DataSphere с кластером Yandex Data Processing. Указанная подсеть должна находиться в [зоне доступности](../../overview/concepts/geo-scope.md), в которой создано сообщество. Кластеру Yandex Data Processing необходим доступ в интернет, поэтому в подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md). После указания подсети время выделения вычислительных ресурсов может быть увеличено.
+   * [Каталог по умолчанию](../../resource-manager/concepts/resources-hierarchy.md#folder) для интеграции с другими сервисами {{ yandex-cloud }}. В нем будет развернут кластер {{ dataproc-name }} в рамках текущих [квот](../../data-proc/concepts/limits.md) облака, а стоимость использования кластера будет списана с платежного аккаунта облака.
+   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с [ролью](../../iam/concepts/access-control/roles.md) `vpc.user`, от имени которого {{ ml-platform-name }} будет работать с сетью кластера {{ dataproc-name }}.
+   * [Подсеть](../../vpc/concepts/network.md#subnet) для связи {{ ml-platform-name }} с кластером {{ dataproc-name }}. Указанная подсеть должна находиться в [зоне доступности](../../overview/concepts/geo-scope.md), в которой создано сообщество. Кластеру {{ dataproc-name }} необходим доступ в интернет, поэтому в подсети должен быть [настроен NAT-шлюз](../../vpc/operations/create-nat-gateway.md). После указания подсети время выделения вычислительных ресурсов может быть увеличено.
 
 1. Создайте [сервисного агента](../../iam/concepts/service-control.md#service-agent):
 
-   1. Чтобы разрешить сервисному агенту работать в DataSphere, попросите администратора или владельца вашего облака выполнить команду в Yandex Cloud CLI:
+   1. Чтобы разрешить сервисному агенту работать в {{ ml-platform-name }}, попросите администратора или владельца вашего облака выполнить команду в {{ yandex-cloud }} CLI:
    
       ```bash
       yc iam service-control enable datasphere --cloud-id <идентификатор_облака>
       ```
    
-      Где `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе DataSphere.
+      Где `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), с которым вы будете работать в сообществе {{ ml-platform-name }}.
 
    1. Создайте сервисный аккаунт с ролями:
 
-      * `dataproc.agent` — для использования кластеров Yandex Data Processing.
-      * `dataproc.admin`— для создания кластеров из шаблонов Yandex Data Processing.
-      * `vpc.user` — для работы с сетью кластера Yandex Data Processing.
+      * `dataproc.agent` — для использования кластеров {{ dataproc-name }}.
+      * `dataproc.admin`— для создания кластеров из шаблонов {{ dataproc-name }}.
+      * `vpc.user` — для работы с сетью кластера {{ dataproc-name }}.
       * `iam.serviceAccounts.user` — для создания ресурсов в каталоге от имени сервисного аккаунта.
 
-   1. В настройках сообщества в блоке **Кластеры Spark** нажмите **Добавить сервисный аккаунт** и выберите созданный сервисный аккаунт.
+   1. В настройках сообщества в блоке **{{ ui-key.yc-ui-datasphere.spaces-page.data-processing-sa.title }}** нажмите **{{ ui-key.yc-ui-datasphere.spaces-page.ssa.add-service-account.button }}** и выберите созданный сервисный аккаунт.
    
 {% note warning %}
 
-Постоянный кластер Yandex Data Processing должен иметь настройку `livy:livy.spark.deploy-mode : client`.
+Постоянный кластер {{ dataproc-name }} должен иметь настройку `livy:livy.spark.deploy-mode : client`.
 
 {% endnote %}
 
 #### См. также {#see-also}
 
-* [Шаблоны Yandex Data Processing](data-processing-template.md)
-* [Интеграция с сервисом Yandex Data Processing](../tutorials/data-processing-integration.md)
-* [Коннектор Spark](spark-connector.md)
+* [{#T}](data-processing-template.md)
+* [{#T}](../tutorials/data-processing-integration.md)
+* [{#T}](spark-connector.md)

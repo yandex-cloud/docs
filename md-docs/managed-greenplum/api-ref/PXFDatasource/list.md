@@ -5,7 +5,7 @@ List all PXF datasources
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}/pxf_datasources
 ```
 
 ## Path parameters

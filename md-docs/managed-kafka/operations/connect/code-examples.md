@@ -1,8 +1,8 @@
-# Примеры кода для подключения к кластеру Apache Kafka®
+# Примеры кода для подключения к кластеру {{ KF }}
 
-Вы можете подключаться к хостам кластера Apache Kafka® в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `YandexInternalRootCA.crt` расположен в директории:
+Вы можете подключаться к хостам кластера {{ KF }} в публичном доступе только с использованием [SSL-сертификата](index.md#get-ssl-cert). В примерах ниже предполагается, что сертификат `{{ crt-local-file }}` расположен в директории:
 
-* `/usr/local/share/ca-certificates/Yandex/` для Ubuntu;
+* `{{ crt-local-dir }}` для Ubuntu;
 * `$HOME\.kafka\` для Windows.
 
 
@@ -11,11 +11,11 @@
 При необходимости перед подключением [настройте группы безопасности](index.md#configuring-security-groups) кластера.
 
 
-Примеры кода с заполненным FQDN хоста доступны в [консоли управления](https://console.yandex.cloud) по нажатию кнопки **Подключиться** на странице кластера.
+Примеры кода с заполненным FQDN хоста доступны в [консоли управления]({{ link-console-main }}) по нажатию кнопки **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}** на странице кластера.
 
 Примеры проверялись в следующем окружении:
 
-* Виртуальная машина в Yandex Cloud с Ubuntu 20.04 LTS.
+* Виртуальная машина в {{ yandex-cloud }} с Ubuntu 20.04 LTS.
 * Bash: `5.0.16`.
 * Python: `3.8.2`, pip3: `20.0.2`.
 * Node.JS: `10.19.0`, npm: `6.14.4`.
@@ -211,7 +211,7 @@
                     string TOPIC = "<имя_топика>";
                     string USER = "<имя_производителя>";
                     string PASS = "<пароль_производителя>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var producerConfig = new ProducerConfig(
                         new Dictionary<string,string>{
@@ -266,7 +266,7 @@
                     string TOPIC = "<имя_топика>";
                     string USER = "<имя_потребителя>";
                     string PASS = "<пароль_потребителя>";
-                    string CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+                    string CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
                     var consumerConfig = new ConsumerConfig(
                         new Dictionary<string,string>{
@@ -317,7 +317,7 @@
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.
 
@@ -581,7 +581,7 @@
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                       fmt.Println("Couldn't load cert: ", err.Error())
@@ -656,7 +656,7 @@
               conf.Net.SASL.Mechanism = sarama.SASLMechanism(sarama.SASLTypeSCRAMSHA512)
 
               certs := x509.NewCertPool()
-              pemPath := "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt"
+              pemPath := "{{ crt-local-dir }}{{ crt-local-file }}"
               pemData, err := ioutil.ReadFile(pemPath)
               if err != nil {
                   fmt.Println("Couldn't load cert: ", err.Error())
@@ -736,7 +736,7 @@
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.
 
@@ -982,11 +982,11 @@
      cd /etc/security
      ```
 
-  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер Apache Kafka® мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
+  1. Добавьте SSL-сертификат в хранилище доверенных сертификатов Java (Java Key Store), чтобы драйвер {{ KF }} мог использовать этот сертификат при защищенном подключении к хостам кластера. Задайте пароль не короче 6 символов в параметре `-storepass` для дополнительной защиты хранилища:
      
      ```bash
      sudo keytool -importcert \
-                  -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+                  -alias {{ crt-alias }} -file {{ crt-local-dir }}{{ crt-local-file }} \
                   -keystore ssl -storepass <пароль_хранилища_сертификатов> \
                   --noprompt
      ```
@@ -1121,7 +1121,7 @@
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.
 
@@ -1247,7 +1247,7 @@ npm install node-rdkafka
       const TOPIC = "<имя_топика>";
       const USER = "<имя_производителя>";
       const PASS = "<пароль_производителя>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const producer = new Kafka.Producer({
         'bootstrap.servers': HOST,
@@ -1291,7 +1291,7 @@ npm install node-rdkafka
       const TOPIC = "<имя_топика>";
       const USER = "<имя_потребителя>";
       const PASS = "<пароль_потребителя>";
-      const CA_FILE = "/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt";
+      const CA_FILE = "{{ crt-local-dir }}{{ crt-local-file }}";
 
       const consumer = new Kafka.Consumer({
         'bootstrap.servers': HOST,
@@ -1332,7 +1332,7 @@ npm install node-rdkafka
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.
 
@@ -1414,7 +1414,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_username='<имя_производителя>',
           sasl_plain_password='<пароль_производителя>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       producer.send('<имя_топика>', b'test message', b'key')
       producer.flush()
@@ -1435,7 +1435,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
           sasl_mechanism="SCRAM-SHA-512",
           sasl_plain_username='<имя_потребителя>',
           sasl_plain_password='<пароль_потребителя>',
-          ssl_cafile="/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt")
+          ssl_cafile="{{ crt-local-dir }}{{ crt-local-file }}")
 
       print("ready")
 
@@ -1455,7 +1455,7 @@ pip3 install kafka-python lz4 python-snappy crc32c
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.
 
@@ -1551,7 +1551,7 @@ pip install confluent_kafka
       params = {
           'bootstrap.servers': '<FQDN_хоста-брокера>:9091',
           'security.protocol': 'SASL_SSL',
-          'ssl.ca.location': '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt',
+          'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
           'sasl.username': '<имя_производителя>',
           'sasl.password': '<пароль_производителя>',
@@ -1576,7 +1576,7 @@ pip install confluent_kafka
       params = {
           'bootstrap.servers': '<FQDN_хоста-брокера>:9091',
           'security.protocol': 'SASL_SSL',
-          'ssl.ca.location': '/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt',
+          'ssl.ca.location': '{{ crt-local-dir }}{{ crt-local-file }}',
           'sasl.mechanism': 'SCRAM-SHA-512',
           'sasl.username': '<имя_потребителя>',
           'sasl.password': '<пароль_потребителя>',
@@ -1607,6 +1607,6 @@ pip install confluent_kafka
 
 {% endlist %}
 
-Как получить FQDN хоста-брокера, см. в [инструкции](index.md#get-fqdn).
+Как получить FQDN хоста-брокера, читайте в [инструкции](index.md#get-fqdn).
 
 Сначала запустите приложение-потребитель, которое будет непрерывно считывать новые сообщения из топика. Затем запустите приложение-производитель, которое отправит в топик одно или несколько сообщений `key:test message`. Приложение-потребитель отобразит сообщения, отправленные в топик.

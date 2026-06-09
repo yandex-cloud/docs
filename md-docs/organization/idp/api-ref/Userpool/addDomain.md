@@ -5,7 +5,7 @@ Adds a domain to the specified userpool.
 ## HTTP request
 
 ```
-POST https://organization-manager.api.cloud.yandex.net/organization-manager/v1/idp/userpools/{userpoolId}/domains
+POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/userpools/{userpoolId}/domains
 ```
 
 ## Path parameters
@@ -35,7 +35,9 @@ Request to add a domain to a userpool.
 ||Field | Description ||
 || domain | **string**
 
-Required field. Domain name to add. ||
+Required field. Domain name to add.
+
+The string length in characters must be 1-253. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -50,10 +52,7 @@ Required field. Domain name to add. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "userpoolId": "string",
-    "domain": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -62,29 +61,7 @@ Required field. Domain name to add. ||
       "object"
     ]
   },
-  "response": {
-    "domain": "string",
-    "status": "string",
-    "statusCode": "string",
-    "createdAt": "string",
-    "validatedAt": "string",
-    "challenges": [
-      {
-        "createdAt": "string",
-        "updatedAt": "string",
-        "type": "string",
-        "status": "string",
-        // Includes only one of the fields `dnsChallenge`
-        "dnsChallenge": {
-          "name": "string",
-          "type": "string",
-          "value": "string"
-        }
-        // end of the list of possible fields
-      }
-    ],
-    "deletionProtection": "boolean"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -126,7 +103,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddUserpoolDomainMetadata](#yandex.cloud.organizationmanager.v1.idp.AddUserpoolDomainMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -141,7 +118,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Domain](#yandex.cloud.organizationmanager.v1.idp.Domain)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -156,20 +133,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddUserpoolDomainMetadata {#yandex.cloud.organizationmanager.v1.idp.AddUserpoolDomainMetadata}
-
-Metadata for the [UserpoolService.AddDomain](#AddDomain) operation.
-
-#|
-||Field | Description ||
-|| userpoolId | **string**
-
-ID of the userpool. ||
-|| domain | **string**
-
-Domain name being added. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -187,120 +150,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Domain {#yandex.cloud.organizationmanager.v1.idp.Domain}
-
-A domain associated with a userpool.
-
-#|
-||Field | Description ||
-|| domain | **string**
-
-Domain name. ||
-|| status | **enum** (Status)
-
-Current status of the domain.
-
-- `NEED_TO_VALIDATE`: The domain needs to be validated.
-- `VALIDATING`: The domain is in the process of being validated.
-- `VALID`: The domain has been successfully validated.
-- `INVALID`: The domain validation has failed.
-- `DELETING`: The domain is in the process of being deleted. ||
-|| statusCode | **string**
-
-Optional code providing details about validation errors. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the domain was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| validatedAt | **string** (date-time)
-
-Timestamp when the domain was validated.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| challenges[] | **[DomainChallenge](#yandex.cloud.organizationmanager.v1.idp.DomainChallenge)**
-
-List of challenges associated with this domain. ||
-|| deletionProtection | **boolean**
-
-Whether the domain is protected from deletion. ||
-|#
-
-## DomainChallenge {#yandex.cloud.organizationmanager.v1.idp.DomainChallenge}
-
-A challenge used to validate domain ownership.
-
-#|
-||Field | Description ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the challenge was created.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Timestamp when the challenge was last updated.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| type | **enum** (Type)
-
-Type of the challenge.
-
-- `DNS_TXT`: DNS TXT record challenge. ||
-|| status | **enum** (Status)
-
-Current status of the challenge.
-
-- `PENDING`: The challenge is pending verification.
-- `PROCESSING`: The challenge verification is in progress.
-- `VALID`: The challenge has been successfully verified.
-- `INVALID`: The challenge verification has failed. ||
-|| dnsChallenge | **[DnsRecord](#yandex.cloud.organizationmanager.v1.idp.DomainChallenge.DnsRecord)**
-
-DNS record challenge details.
-
-Includes only one of the fields `dnsChallenge`.
-
-Challenge details. ||
-|#
-
-## DnsRecord {#yandex.cloud.organizationmanager.v1.idp.DomainChallenge.DnsRecord}
-
-DNS record information for domain validation.
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the DNS record. ||
-|| type | **enum** (Type)
-
-Type of the DNS record.
-
-- `TXT`: TXT record type. ||
-|| value | **string**
-
-Value of the DNS record. ||
 |#

@@ -1,43 +1,43 @@
-# Запуск вычислений в DataSphere с помощью API
+# Запуск вычислений в {{ ml-platform-name }} с помощью API
 
-В [Yandex DataSphere](https://datasphere.yandex.cloud) с помощью API можно запускать исполнение кода, не заходя в проект. Это может быть полезно, если нужно автоматизировать рутинные операции, дообучить нейросеть или развернуть сервис, который не требует быстрого ответа по API.
+В [{{ ml-platform-full-name }}]({{ link-datasphere-main }}) с помощью API можно запускать исполнение кода, не заходя в проект. Это может быть полезно, если нужно автоматизировать рутинные операции, дообучить нейросеть или развернуть сервис, который не требует быстрого ответа по API.
 
-В практическом руководстве на примере простой сверточной нейронной сети [CNN](https://ru.wikipedia.org/wiki/Свёрточная_нейронная_сеть) показано, как организовать эксплуатацию модели, обученной в DataSphere, с помощью [Yandex Cloud Functions](../../functions/index.md). Результат работы модели будет записываться в хранилище проекта DataSphere.
+В практическом руководстве на примере простой сверточной нейронной сети [CNN](https://ru.wikipedia.org/wiki/Свёрточная_нейронная_сеть) показано, как организовать эксплуатацию модели, обученной в {{ ml-platform-name }}, с помощью [{{ sf-full-name }}](../../functions/index.md). Результат работы модели будет записываться в хранилище проекта {{ ml-platform-name }}.
 
-Если вы хотите развернуть сервис, который будет возвращать результаты по API, см. [Развертывание сервиса на основе Docker-образа с FastAPI](node-from-docker-fast-api.md).
+Если вы хотите развернуть сервис, который будет возвращать результаты по API, см. [{#T}](node-from-docker-fast-api.md).
 
 1. [Подготовьте инфраструктуру](#infra).
 1. [Подготовьте ноутбуки](#set-notebooks).
 1. [Обучите нейросеть](#ai-training).
 1. [Загрузите архитектуру модели и веса](#load-data).
-1. [Создайте Cloud Functions](#create-function).
+1. [Создайте {{ sf-name }}](#create-function).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-Перед началом работы нужно зарегистрироваться в Yandex Cloud, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. [На главной странице DataSphere](https://datasphere.yandex.cloud) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
-1. Выберите [организацию Yandex Identity Hub](../../organization/index.md), в которой вы будете работать в Yandex Cloud.
+Перед началом работы нужно зарегистрироваться в {{ yandex-cloud }}, настроить [сообщество](../concepts/community.md) и привязать к нему [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. [На главной странице {{ ml-platform-name }}]({{ link-datasphere-main }}) нажмите **Попробовать бесплатно** и выберите аккаунт для входа — Яндекс ID или рабочий аккаунт в федерации (SSO).
+1. Выберите [организацию {{ org-full-name }}](../../organization/index.md), в которой вы будете работать в {{ yandex-cloud }}.
 1. [Создайте сообщество](../operations/community/create.md).
-1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу DataSphere, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе DataSphere.
+1. [Привяжите платежный аккаунт](../operations/community/link-ba.md) к сообществу {{ ml-platform-name }}, в котором вы будете работать. Убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, создайте его в интерфейсе {{ ml-platform-name }}.
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость реализации регулярных запусков входят:
 
-* плата за использование [вычислительных ресурсов DataSphere](../pricing.md);
-* плата за количество вызовов функции [Cloud Functions](../../functions/pricing.md).
+* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../pricing.md);
+* плата за количество вызовов функции [{{ sf-name }}](../../functions/pricing.md).
 
 ## Подготовьте инфраструктуру {#infra}
 
-Войдите в [консоль управления](https://console.yandex.cloud) Yandex Cloud и выберите организацию, в которой вы работаете с DataSphere. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен платежный аккаунт.
+Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }} и выберите организацию, в которой вы работаете с {{ ml-platform-name }}. На странице [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) убедитесь, что у вас подключен платежный аккаунт.
 
-Если у вас есть активный платежный аккаунт, на [странице облака](https://console.yandex.cloud/cloud) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
+Если у вас есть активный платежный аккаунт, на [странице облака]({{ link-console-cloud }}) вы можете создать или выбрать каталог, в котором будет работать ваша инфраструктура.
 
 {% note info %}
 
-Если вы работаете с Yandex Cloud через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в Yandex Cloud.
+Если вы работаете с {{ yandex-cloud }} через [федерацию удостоверений](../../organization/concepts/add-federation.md), вам может быть недоступна платежная информация. В этом случае обратитесь к администратору вашей организации в {{ yandex-cloud }}.
 
 {% endnote %}
 
@@ -47,36 +47,36 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **Создать каталог**.
+   1. В [консоли управления]({{ link-console-main }}) выберите облако и нажмите кнопку ![create](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя каталога, например, `data-folder`.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
 {% endlist %}
 
-### Создайте сервисный аккаунт для проекта DataSphere {#create-sa}
+### Создайте сервисный аккаунт для проекта {{ ml-platform-name }} {#create-sa}
 
-Для доступа к проекту DataSphere из функции Cloud Functions вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `datasphere.community-projects.editor`.
+Для доступа к проекту {{ ml-platform-name }} из функции {{ sf-name }} вам понадобится [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `{{ roles-datasphere-project-editor }}`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-   1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог `data-folder`.
-   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-   1. Нажмите кнопку **Создать сервисный аккаунт**.
+   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
+   1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Введите имя сервисного аккаунта, например, `datasphere-sa`.
-   1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роль `datasphere.community-projects.editor`.
-   1. Нажмите кнопку **Создать**.
+   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-datasphere-project-editor }}`.
+   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
 ### Добавьте сервисный аккаунт в проект {#sa-to-project}
 
-Чтобы сервисный аккаунт мог запускать проект DataSphere, добавьте его в список участников проекта:
+Чтобы сервисный аккаунт мог запускать проект {{ ml-platform-name }}, добавьте его в список участников проекта:
 
-1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-1. На вкладке **Участники** нажмите **Добавить участника**.
-1. Выберите аккаунт `datasphere-sa` и нажмите **Добавить**.
+1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+1. На вкладке **{{ ui-key.yc-ui-datasphere.project-page.tab.members }}** нажмите **{{ ui-key.yc-ui-datasphere.common.add-member }}**.
+1. Выберите аккаунт `datasphere-sa` и нажмите **{{ ui-key.yc-ui-datasphere.common.add }}**.
 
 ## Подготовьте ноутбуки и архитектуру нейросети {#set-notebooks}
 
@@ -121,10 +121,10 @@
 
 В ноутбуке `train_classifier.ipynb` вы скачаете обучающую выборку датасета `CIFAR10` и обучите простую нейронную сеть. Веса обученной модели сохраняются в хранилище проекта под названием `cifar_net.pth`.
 
-1. Откройте проект DataSphere:
+1. Откройте проект {{ ml-platform-name }}:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 
 1. Импортируйте библиотеки, необходимые для обучения модели:
@@ -217,10 +217,10 @@
 
 В ноутбуке `test_classifier.ipynb` вы загрузите архитектуру модели и веса, созданные во время работы файла [`train_classifier.ipynb`](#ai-training). Загруженная модель используется для прогнозов на тестовой выборке. Результаты прогноза сохраняются в файле `test_predictions.csv`.
 
-1. Откройте проект DataSphere:
+1. Откройте проект {{ ml-platform-name }}:
    
-   1. Выберите нужный проект в своем сообществе или на [главной странице](https://datasphere.yandex.cloud) DataSphere во вкладке **Недавние проекты**.
-   1. Нажмите кнопку **Открыть проект в JupyterLab** и дождитесь окончания загрузки.
+   1. Выберите нужный проект в своем сообществе или на [главной странице]({{ link-datasphere-main }}) {{ ml-platform-name }} во вкладке **{{ ui-key.yc-ui-datasphere.main-page.recent-projects }}**.
+   1. Нажмите кнопку **{{ ui-key.yc-ui-datasphere.project-page.project-card.go-to-jupyter }}** и дождитесь окончания загрузки.
    1. Откройте вкладку с ноутбуком.
 
 1. Импортируйте библиотеки, необходимые для работы с моделью и создания прогнозов:
@@ -288,23 +288,23 @@
     final_pred.to_csv('/home/jupyter/datasphere/project/test_predictions.csv')
     ```
 
-## Создайте Cloud Functions {#create-function}
+## Создайте {{ sf-name }} {#create-function}
 
-Чтобы запускать исполнение ячеек, не открывая JupyterLab, вам понадобится Cloud Functions, которая будет инициировать запуск вычислений в ноутбуке по API.
+Чтобы запускать исполнение ячеек, не открывая {{ jlab }}Lab, вам понадобится {{ sf-name }}, которая будет инициировать запуск вычислений в ноутбуке по API.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать функцию.
-    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-    1. Нажмите кнопку **Создать функцию**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
+    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Введите имя функции, например, `ai-function`.
-    1. Нажмите кнопку **Создать функцию**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-function }}**.
 
 {% endlist %}
 
-### Создайте версию Cloud Functions {#create-function-ver}
+### Создайте версию {{ sf-name }} {#create-function-ver}
 
 [Версия](../../functions/concepts/function.md#version) содержит код функции, параметры запуска и все необходимые зависимости.
 
@@ -312,13 +312,13 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится функция.
-    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
+    1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию, версию которой хотите создать.
-    1. В разделе **Последняя версия** нажмите кнопку **Создать в редакторе**.
-    1. Выберите среду выполнения **Python**. Не выбирайте опцию **Добавить файлы с примерами кода**.
-    1. Выберите способ **Редактор кода**.
-    1. Нажмите **Создать файл** и введите имя файла, например `index`.
+    1. В разделе **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
+    1. Выберите среду выполнения **Python**. Не выбирайте опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+    1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+    1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
     1. Введите код функции, подставив идентификатор вашего проекта и абсолютный путь к ноутбуку в проекте:
     
         ```python
@@ -326,7 +326,7 @@
     
         def handler(event, context):
 
-            url = 'https://datasphere.api.cloud.yandex.net/datasphere/v2/projects/<идентификатор_проекта>:execute'
+            url = 'https://datasphere.{{ api-host }}/datasphere/v2/projects/<идентификатор_проекта>:execute'
             body = {"notebookId": "/home/jupyter/datasphere/project/test_classifier.ipynb"}
             headers = {"Content-Type" : "application/json",
                        "Authorization": "Bearer {}".format(context.token['access_token'])}
@@ -338,13 +338,13 @@
         ```
 
        Где:
-       * `<идентификатор_проекта>` — идентификатор проекта DataSphere, который расположен на странице проекта под названием.
+       * `<идентификатор_проекта>` — идентификатор проекта {{ ml-platform-name }}, который расположен на странице проекта под названием.
        * `notebookId` — абсолютный путь к ноутбуку в проекте.
 
-    1. В блоке **Параметры** задайте параметры версии:
-       * **Точка входа**: `index.handler`.
-       * **Сервисный аккаунт**: `datasphere-sa`.
-    1. В правом верхнем углу нажмите **Сохранить изменения**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
+       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `datasphere-sa`.
+    1. В правом верхнем углу нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 

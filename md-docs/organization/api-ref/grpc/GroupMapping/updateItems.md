@@ -5,7 +5,6 @@ Errors:
 - if federation is not found
 - if internal group in the mapping added does not exist
 In case of any error, no changes are applied to existing group mapping
-
 This call is idempotent. The following actions do nothing:
 - adding group mapping items that are already present
 - removing group mapping items that are not present
@@ -89,22 +88,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "federation_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "group_mapping_item_deltas": [
-      {
-        "item": {
-          "external_group_id": "string",
-          "internal_group_id": "string"
-        },
-        "action": "Action"
-      }
-    ]
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -132,7 +119,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateGroupMappingItemsMetadata](#yandex.cloud.organizationmanager.v1.UpdateGroupMappingItemsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -147,7 +134,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[UpdateGroupMappingItemsResponse](#yandex.cloud.organizationmanager.v1.UpdateGroupMappingItemsResponse)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -162,51 +149,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateGroupMappingItemsMetadata {#yandex.cloud.organizationmanager.v1.UpdateGroupMappingItemsMetadata}
-
-#|
-||Field | Description ||
-|| federation_id | **string** ||
-|#
-
-## UpdateGroupMappingItemsResponse {#yandex.cloud.organizationmanager.v1.UpdateGroupMappingItemsResponse}
-
-#|
-||Field | Description ||
-|| group_mapping_item_deltas[] | **[GroupMappingItemDelta](#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta2)**
-
-Effective changes that were applied ||
-|#
-
-## GroupMappingItemDelta {#yandex.cloud.organizationmanager.v1.GroupMappingItemDelta2}
-
-Message describes the user's request to change (add or remove) a single group mapping.
-
-#|
-||Field | Description ||
-|| item | **[GroupMappingItem](#yandex.cloud.organizationmanager.v1.GroupMappingItem2)** ||
-|| action | enum **Action**
-
-- `ADD`: Group mapping item is to be added
-- `REMOVE`: Group mapping item is to be removed ||
-|#
-
-## GroupMappingItem {#yandex.cloud.organizationmanager.v1.GroupMappingItem2}
-
-Group mapping represents which external (federated) groups should match which internal (cloud) groups
-
-#|
-||Field | Description ||
-|| external_group_id | **string**
-
-Required field. External group id (received from identity provider)
-
-The maximum string length in characters is 1000. ||
-|| internal_group_id | **string**
-
-Required field. Internal cloud group id
-
-The maximum string length in characters is 50. ||
 |#

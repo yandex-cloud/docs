@@ -12,22 +12,22 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Security Deck {#cloud-sd}
+- Интерфейс {{ sd-name }} {#cloud-sd}
 
-  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
-  1. На панели слева выберите ![seal-check](../../../_assets/console-icons/seal-check.svg) **Соответствие требованиям**.
+  1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
+  1. На панели слева выберите ![seal-check](../../../_assets/console-icons/seal-check.svg) **{{ ui-key.yacloud_org.security-center.label_comp }}**.
      
      В открывшемся окне отобразится список с информацией о наборах требований безопасности, на соответствие которым в текущий момент проверяется инфраструктура в выбранном окружении. Список содержит следующие сведения:
      
-     * **Набор требований** — имя отраслевого стандарта безопасности или нормативного акта, которому соответствует набор требований.
-     * **Правил в наборе** — количество правил контроля, входящих в набор требований.
-     * **Выполнение правил** — процентное соотношение выполненных правил к общему количеству правил в наборе требований. Значение `100%` означает полное выполнение требований соответствующего стандарта безопасности или нормативного акта. 
+     * **{{ ui-key.yacloud_org.security.comp.SetsTable.field_set_title }}** — имя отраслевого стандарта безопасности или нормативного акта, которому соответствует набор требований.
+     * **{{ ui-key.yacloud_org.security.comp.SetsTable.field_count_rules }}** — количество правил контроля, входящих в набор требований.
+     * **{{ ui-key.yacloud_org.security.comp.SetsTable.field_execution }}** — процентное соотношение выполненных правил к общему количеству правил в наборе требований. Значение `100%` означает полное выполнение требований соответствующего стандарта безопасности или нормативного акта. 
      
-         Если проверка ресурсов окружения на соответствие набору требований отключена, поле содержит значение `Не проверяется`.
+         Если проверка ресурсов окружения на соответствие набору требований отключена, поле содержит значение `{{ ui-key.yacloud_org.security.comp.SetsTable.not_verified }}`.
      
          {% note tip %}
          
-         В интерфейсе соответствия требованиям вы можете включить или отключить для текущего [окружения](../../concepts/workspace.md) проверку на соответствие тому или иному набору требований. Для этого убедитесь, что вы находитесь в нужном окружении, в строке с нужным набором требований нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно ![check](../../../_assets/console-icons/check.svg) **Включить проверку** или ![xmark](../../../_assets/console-icons/xmark.svg) **Выключить проверку**.
+         В интерфейсе соответствия требованиям вы можете включить или отключить для текущего [окружения](../../concepts/workspace.md) проверку на соответствие тому или иному набору требований. Для этого убедитесь, что вы находитесь в нужном окружении, в строке с нужным набором требований нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите соответственно ![check](../../../_assets/console-icons/check.svg) **{{ ui-key.yacloud_org.security.comp.SetsTable.action_enable_9LUFt }}** или ![xmark](../../../_assets/console-icons/xmark.svg) **{{ ui-key.yacloud_org.security.comp.SetsTable.action_disable_5hgkz }}**.
          
          {% endnote %}   
   1. Чтобы посмотреть список правил контроля, входящих в набор требований, нажмите на строку с этим набором требований. В открывшемся окне:
@@ -37,23 +37,23 @@
 
           * ![traffic-light](../../../_assets/console-icons/traffic-light.svg) — уровень критичности правила: значок, информирующий о том, насколько критичным для безопасности является нарушение правила:
             
-            * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — Замечание;
-            * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — Низкая критичность.
-            * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg) — Средняя критичность.
-            * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg) — Высокая критичность.
-          * **Правило контроля** — имя правила контроля.
-          * **Модуль контроля** — модуль Security Deck, который проверяет соответствие инфраструктуры данному правилу: `Контроль конфигурации (CSPM)` или `Контроль Kubernetes® (KSPM)`.
-          * **Нарушения** — количество нарушений правила, выявленных в выбранном [окружении](../../concepts/workspace.md).
+            * ![cspm-rule-notice-icon](../../../_assets/security-deck/cspm-rule-notice-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_info_biSRh }};
+            * ![cspm-low-severity-icon](../../../_assets/security-deck/cspm-low-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_low_tqf9A }}.
+            * ![cspm-moderate-severity-icon](../../../_assets/security-deck/cspm-moderate-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_medium_8LZ4w }}.
+            * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg) — {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}.
+          * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}** — имя правила контроля.
+          * **{{ ui-key.yacloud_org.security.controls.rule-result.module_63uuk }}** — модуль {{ sd-name }}, который проверяет соответствие инфраструктуры данному правилу: `{{ ui-key.yacloud_org.security.workspaces.module-cspm_gozhj }}` или `Контроль {{ k8s }}® ({{ kspm-name }})`.
+          * **{{ ui-key.yacloud_org.security.controls.rule-result.violations_q7AcU }}** — количество нарушений правила, выявленных в выбранном [окружении](../../concepts/workspace.md).
 
           Чтобы посмотреть дополнительную информацию о правиле контроля безопасности, нажмите на строку таблицы с его именем. Открывшееся окно с подробными сведениями содержит следующие вкладки с информацией:
           
           {% list tabs %}
           
-          - Обзор
+          - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}
           
-            Вкладка **Обзор** содержит:
+            Вкладка **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_overview_s9riS }}** содержит:
           
-            * категорию правила — идентификатор модуля Security Deck, который использует данное правило;
+            * категорию правила — идентификатор модуля {{ sd-name }}, который использует данное правило;
             * идентификатор правила;
             * [набор требований](../../concepts/standard-compliance/index.md#security-rule-sets) безопасности, к которому относится данное правило;
             * информацию о дате и времени последней проверки безопасности;
@@ -63,23 +63,23 @@
                 * `Manual` — проверку на выполнение правила необходимо выполнить вручную;
             * подробную информацию о контролируемых функциональностях, их параметрах или действиях с ними.
           
-          - Нарушения
+          - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}
           
-            Вкладка **Нарушения** содержит список выявленных в результате проверок нарушений правила контроля. Обнаруженные нарушения правила не будут включены в этот список, если они удовлетворяют условиям заданных для правила [исключений](../../concepts/cspm.md#exceptions).
+            Вкладка **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_violations_dkbdT }}** содержит список выявленных в результате проверок нарушений правила контроля. Обнаруженные нарушения правила не будут включены в этот список, если они удовлетворяют условиям заданных для правила [исключений](../../concepts/cspm.md#exceptions).
           
-          - Исключения
+          - {{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}
           
-            Вкладка **Исключения** содержит список заданных для правила [исключений](../../concepts/cspm.md#exceptions) и элементы [управления](manage-exceptions.md) исключениями.
+            Вкладка **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** содержит список заданных для правила [исключений](../../concepts/cspm.md#exceptions) и элементы [управления](manage-exceptions.md) исключениями.
           
-          - Рекомендации
+          - {{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_recommendations_qq61Z }}
           
-            Вкладка **Рекомендации** содержит инструкции и решения по выполнению действий, предписанных правилом.
+            Вкладка **{{ ui-key.yacloud_org.security.controls.RulePageLayout.tab_recommendations_qq61Z }}** содержит инструкции и решения по выполнению действий, предписанных правилом.
           
           {% endlist %}
 
       {% note tip %}
 
-      Чтобы настроить исключения, которые будут применяться при проверке контролируемой инфраструктуры на соответствие правилу, воспользуйтесь инструкцией [Управлять исключениями из правил контроля безопасности модуля CSPM](manage-exceptions.md).
+      Чтобы настроить исключения, которые будут применяться при проверке контролируемой инфраструктуры на соответствие правилу, воспользуйтесь инструкцией [{#T}](manage-exceptions.md).
 
       {% endnote %}
 
@@ -87,4 +87,4 @@
 
 #### См. также {#see-also}
 
-* [Интерфейс соответствия требованиям](../../concepts/standard-compliance/index.md)
+* [{#T}](../../concepts/standard-compliance/index.md)

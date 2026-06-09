@@ -1,4 +1,4 @@
-# Использование gp_url_tools в Yandex MPP Analytics for PostgreSQL
+# Использование gp_url_tools в {{ mgp-name }}
 
 Расширение `gp_url_tools` предоставляет функции, которые позволяют кодировать адреса URL/URI в формат, принимаемый веб-браузерами, и декодировать их в исходный формат:
 
@@ -7,7 +7,7 @@
 * `encode_uri(text)` — кодирование URI;
 * `decode_uri(text)` — декодирование URI.
 
-## Установить расширение gp_url_tools в кластер Greenplum® {#gp-url-tools-install}
+## Установить расширение gp_url_tools в кластер {{ mgp-name }} {#gp-url-tools-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -72,5 +72,3 @@
     ```sql
     SELECT name, site, contact FROM companies;
     ```
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

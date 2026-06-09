@@ -1,33 +1,33 @@
-# Миграция в Yandex Cloud CDN из стороннего CDN-провайдера
+# Миграция в {{ cdn-full-name }} из стороннего CDN-провайдера
 
-Если ваш динамический сайт использует сторонний CDN-ресурс для предоставления пользователям доступа к статическому контенту, вы можете бесшовно перейти на использование Yandex Cloud CDN. В данном руководстве описаны шаги, которые позволят выполнить такой переход, сохранив доступность вашего контента на протяжении всего процесса перехода.
+Если ваш динамический сайт использует сторонний CDN-ресурс для предоставления пользователям доступа к статическому контенту, вы можете бесшовно перейти на использование {{ cdn-full-name }}. В данном руководстве описаны шаги, которые позволят выполнить такой переход, сохранив доступность вашего контента на протяжении всего процесса перехода.
 
 ## Схема решения {#solution-overview}
 
 ![cdn-migration-tutorial](../../_assets/cdn/cdn-migration-tutorial.svg)
 
-Для бесшовного перехода вы создадите в Yandex Cloud CDN новый [CDN-ресурс](../../cdn/concepts/resource.md), использующий тот же [источник](../../cdn/concepts/origins.md), который использует сторонний CDN-ресурс. Для нового CDN-ресурса вы создадите новый поддомен, а для домена второго уровня и всех его поддоменов третьего уровня выпустите новый [TLS-сертификат](../../certificate-manager/concepts/managed-certificate.md) в Yandex Certificate Manager.
+Для бесшовного перехода вы создадите в {{ cdn-full-name }} новый [CDN-ресурс](../../cdn/concepts/resource.md), использующий тот же [источник](../../cdn/concepts/origins.md), который использует сторонний CDN-ресурс. Для нового CDN-ресурса вы создадите новый поддомен, а для домена второго уровня и всех его поддоменов третьего уровня выпустите новый [TLS-сертификат](../../certificate-manager/concepts/managed-certificate.md) в {{ certificate-manager-full-name }}.
 
-Убедившись в работоспособности нового CDN-ресурса, на вашем динамическом сайте вы перенастроите ссылки на статический контент, перенаправив их на новый CDN-ресурс. Затем вы удалите сторонний CDN-ресурс, добавив использовавшееся им доменное имя как дополнительное в CDN-ресурс Yandex Cloud CDN.
+Убедившись в работоспособности нового CDN-ресурса, на вашем динамическом сайте вы перенастроите ссылки на статический контент, перенаправив их на новый CDN-ресурс. Затем вы удалите сторонний CDN-ресурс, добавив использовавшееся им доменное имя как дополнительное в CDN-ресурс {{ cdn-full-name }}.
 
-В процессе перехода со стороннего CDN-ресурса на CDN-ресурс в Cloud CDN будет обеспечена непрерывная доступность статического контента для вашего динамического сайта.
+В процессе перехода со стороннего CDN-ресурса на CDN-ресурс в {{ cdn-name }} будет обеспечена непрерывная доступность статического контента для вашего динамического сайта.
 
-Чтобы перенести CDN-ресурс в Yandex Cloud CDN:
+Чтобы перенести CDN-ресурс в {{ cdn-full-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Добавьте TLS-сертификат в Yandex Certificate Manager](#issue-certificate).
-1. [Создайте CDN-ресурс в Cloud CDN](#setup-resource).
+1. [Добавьте TLS-сертификат в {{ certificate-manager-full-name }}](#issue-certificate).
+1. [Создайте CDN-ресурс в {{ cdn-name }}](#setup-resource).
 1. [Создайте CNAME-запись поддомена для нового CDN-ресурса](#setup-subdomain).
 1. [Перенастройте ваш сайт на использование нового CDN-ресурса](#update-website).
-1. [Добавьте дополнительный домен к CDN-ресурсу в Cloud CDN](#add-secondary-domain).
+1. [Добавьте дополнительный домен к CDN-ресурсу в {{ cdn-name }}](#add-secondary-domain).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -39,11 +39,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки создаваемой CDN-инфраструктуры входит плата за исходящий трафик с CDN-серверов (см. [тарифы Cloud CDN](../../cdn/pricing.md)).
+В стоимость поддержки создаваемой CDN-инфраструктуры входит плата за исходящий трафик с CDN-серверов (см. [тарифы {{ cdn-name }}](../../cdn/pricing.md)).
 
-## Добавьте TLS-сертификат в Yandex Certificate Manager {#issue-certificate}
+## Добавьте TLS-сертификат в {{ certificate-manager-full-name }} {#issue-certificate}
 
-Чтобы обеспечить шифрование данных при обращении к новому CDN-ресурсу, добавьте в сервис Yandex Certificate Manager новый [TLS-сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для домена вашего сайта и всех его поддоменов (wildcard-сертификат):
+Чтобы обеспечить шифрование данных при обращении к новому CDN-ресурсу, добавьте в сервис {{ certificate-manager-full-name }} новый [TLS-сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для домена вашего сайта и всех его поддоменов (wildcard-сертификат):
 
 1. Создайте новый TLS-сертификат:
 
@@ -51,13 +51,13 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
-      1. Нажмите кнопку **Добавить сертификат** и выберите **Сертификат от Let's Encrypt**.
-      1. В открывшемся окне в поле **Имя** введите имя сертификата. Например: `my-cdn-certificate`.
-      1. В поле **Домены** задайте маску для вашего домена и его поддоменов. Например: `*.example.com`, где `example.com` — доменное имя вашего сайта.
-      1. В поле **Тип проверки** выберите `DNS`.
-      1. Нажмите кнопку **Создать**.
+      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который будет добавлен сертификат.
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
+      1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** введите имя сертификата. Например: `my-cdn-certificate`.
+      1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** задайте маску для вашего домена и его поддоменов. Например: `*.example.com`, где `example.com` — доменное имя вашего сайта.
+      1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_challenge-type }}** выберите `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
     - CLI {#cli}
 
@@ -98,12 +98,12 @@
 
     - Консоль управления {#console}
 
-      1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен [сертификат](../../certificate-manager/concepts/managed-certificate.md).
-      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Certificate Manager**.
+      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен [сертификат](../../certificate-manager/concepts/managed-certificate.md).
+      1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. В списке сертификатов выберите сертификат, для которого необходимо пройти процедуру проверки.
-      1. В открывшемся окне в блоке **Проверка прав на домены** будет указана информация для прохождения процедуры проверки прав.
+      1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** будет указана информация для прохождения процедуры проверки прав.
 
-          На вкладке **CNAME-запись** скопируйте и сохраните значения полей **Имя** и **Значение**. Они понадобятся для создания CNAME-записи.
+          На вкладке **CNAME-запись** скопируйте и сохраните значения полей **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_dns-name }}** и **{{ ui-key.yacloud.certificate-manager.overview.challenge_label_value }}**. Они понадобятся для создания CNAME-записи.
 
     - CLI {#cli}
 
@@ -138,7 +138,7 @@
     {% endlist %}
 1. Используя сохраненные на предыдущем шаге значения, создайте в публичной доменной зоне доменного имени вашего сайта CNAME-запись для подтверждения ваших прав на домен:
 
-    Если домен вашего сайта делегирован Yandex Cloud DNS, для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
+    Если домен вашего сайта делегирован {{ dns-full-name }}, для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
 
     {% note info %}
 
@@ -148,37 +148,37 @@
 
 Дождитесь успешного прохождения проверки прав на домен, в результате которого созданный wildcard-сертификат будет выпущен и перейдет в статус `Issued`.
 
-Проверить статус сертификата можно на странице сертификата в [консоли управления](https://console.yandex.cloud) либо с помощью команды CLI `yc certificate-manager certificate get <идентификатор_сертификата>`.
+Проверить статус сертификата можно на странице сертификата в [консоли управления]({{ link-console-main }}) либо с помощью команды CLI `yc certificate-manager certificate get <идентификатор_сертификата>`.
 
-## Создайте CDN-ресурс в Cloud CDN {#setup-resource}
+## Создайте CDN-ресурс в {{ cdn-name }} {#setup-resource}
 
-В данном разделе приведена инструкция по созданию CDN-ресурса с типом источника `Сервер`. Если в качестве источника вы используете [бакет](../../storage/concepts/bucket.md) Yandex Object Storage или [балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) Yandex Application Load Balancer, при создании CDN-ресурса воспользуйтесь инструкцией [Создание ресурса](../../cdn/operations/resources/create-resource.md).
+В данном разделе приведена инструкция по созданию CDN-ресурса с типом источника `{{ ui-key.yacloud.cdn.value_source-type-url }}`. Если в качестве источника вы используете [бакет](../../storage/concepts/bucket.md) {{ objstorage-full-name }} или [балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}, при создании CDN-ресурса воспользуйтесь инструкцией [{#T}](../../cdn/operations/resources/create-resource.md).
 
-Создайте новый CDN-ресурс в Yandex Cloud CDN:
+Создайте новый CDN-ресурс в {{ cdn-full-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать CDN-ресурс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. Нажмите **Создать ресурс**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать CDN-ресурс.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. Нажмите **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Задайте основные настройки CDN-ресурса:
-      * В блоке **Контент**:
-        * Включите **Доступ к контенту**.
-        * В поле **Запрос контента** выберите `Из одного источника`.
-        * В поле **Тип источника** выберите `Сервер`.
-        * В поле **Доменное имя источника** укажите доменное имя или публичный IP-адрес вашего источника статического контента.
-        * В поле **Протокол для источников** выберите протокол, по которому CDN-ресурс будет взаимодействовать с источником. Если вы выбираете варианты `HTTPS` или `Как у клиента`, убедитесь, что ваш источник поддерживает HTTPS.
-        * В поле **Доменное имя** укажите новое доменное имя, которое вы присвоили вашему новому CDN-ресурсу. Например: `cdn-new.example.com`.
-      * В блоке **Дополнительно**:
-        * В поле **Переадресация клиентов** выберите `Не использовать`.
-        * В поле **Тип сертификата** выберите `Сертификат из Certificate Manager` и в появившемся списке выберите созданный ранее сертификат, например: `my-cdn-certificate`.
-        * В поле **Заголовок Host** выберите `Основное доменное имя`.
-  1. Нажмите **Продолжить**.
-  1. В разделах **Кеширование**, **HTTP-заголовки и методы** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-content }}**:
+        * Включите **{{ ui-key.yacloud.cdn.label_access }}**.
+        * В поле **{{ ui-key.yacloud.cdn.label_content-query-type }}** выберите `{{ ui-key.yacloud.cdn.value_query-type-one-origin }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_source-type }}** выберите `{{ ui-key.yacloud.cdn.value_source-type-url }}`.
+        * В поле **{{ ui-key.yacloud.cdn.field_origin }}** укажите доменное имя или публичный IP-адрес вашего источника статического контента.
+        * В поле **{{ ui-key.yacloud.cdn.label_protocol }}** выберите протокол, по которому CDN-ресурс будет взаимодействовать с источником. Если вы выбираете варианты `{{ ui-key.yacloud.common.label_https }}` или `{{ ui-key.yacloud.cdn.value_protocol-match }}`, убедитесь, что ваш источник поддерживает HTTPS.
+        * В поле **{{ ui-key.yacloud.cdn.label_personal-domain }}** укажите новое доменное имя, которое вы присвоили вашему новому CDN-ресурсу. Например: `cdn-new.example.com`.
+      * В блоке **{{ ui-key.yacloud.cdn.label_section-additional }}**:
+        * В поле **{{ ui-key.yacloud.cdn.label_redirect }}** выберите `{{ ui-key.yacloud.cdn.value_do-not-use }}`.
+        * В поле **{{ ui-key.yacloud.cdn.label_certificate-type }}** выберите `{{ ui-key.yacloud.cdn.value_certificate-custom }}` и в появившемся списке выберите созданный ранее сертификат, например: `my-cdn-certificate`.
+        * В поле **{{ ui-key.yacloud.cdn.label_host-header }}** выберите `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
+  1. Нажмите **{{ ui-key.yacloud.common.continue }}**.
+  1. В разделах **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** и **Дополнительно** оставьте настройки по умолчанию и нажмите **Продолжить**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Выполните команду:
   
@@ -256,13 +256,13 @@
 
 * Имя записи: имя нового CDN-поддомена. Например: `cdn-new.example.com.`.
 * Тип записи: `CNAME`.
-* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления](https://console.yandex.cloud) на странице CDN-ресурса, например `e1b83ae3********.topology.gslb.yccdn.ru`.
+* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления]({{ link-console-main }}) на странице CDN-ресурса, например `{{ cname-example-yc }}`.
 
-Если домен вашего сайта [делегирован Yandex Cloud DNS](../../dns/concepts/dns-zone.md#public-zones), для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
+Если домен вашего сайта [делегирован {{ dns-full-name }}](../../dns/concepts/dns-zone.md#public-zones), для создания CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-create.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
 
 ## Перенастройте ваш сайт на использование нового CDN-ресурса {#update-website}
 
-После того как вы создали в Cloud CDN новый CDN-ресурс и убедились в его работоспособности, вы можете переходить к перенастройке вашего сайта и удалению старого CDN-ресурса.
+После того как вы создали в {{ cdn-name }} новый CDN-ресурс и убедились в его работоспособности, вы можете переходить к перенастройке вашего сайта и удалению старого CDN-ресурса.
 
 ### Перенаправьте ссылки с динамического сайта {#redirect-links}
 
@@ -270,37 +270,37 @@
 
 Произведя все необходимые изменения, убедитесь, что ссылки на статический контент, генерируемые вашим сайтом, работают, а контент — доступен. Также убедитесь, что на старом CDN-ресурсе прекратился исходящий трафик: для этого воспользуйтесь инструментами статистики и мониторинга стороннего CDN-провайдера.
 
-На этом этапе ваш динамический сайт полностью перешел на использование Yandex Cloud CDN.
+На этом этапе ваш динамический сайт полностью перешел на использование {{ cdn-full-name }}.
 
 ### Измените CNAME-запись исходного CDN-поддомена {#update-cname}
 
-Чтобы исходный CDN-поддомен вашего сайта продолжил работать на новом CDN-ресурсе Cloud CDN, замените значение ресурсной CNAME-записи исходного поддомена на значение, полученное ранее:
+Чтобы исходный CDN-поддомен вашего сайта продолжил работать на новом CDN-ресурсе {{ cdn-name }}, замените значение ресурсной CNAME-записи исходного поддомена на значение, полученное ранее:
 
 * Имя записи: имя исходного CDN-поддомена. Например: `cdn.example.com.`.
 * Тип записи: `CNAME`.
-* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления](https://console.yandex.cloud) на странице CDN-ресурса, например `e1b83ae3********.topology.gslb.yccdn.ru`.
+* Значение записи: значение `cname` для нового CDN-ресурса. Вы можете получить его в [консоли управления]({{ link-console-main }}) на странице CDN-ресурса, например `{{ cname-example-yc }}`.
 
-Если домен вашего сайта делегирован Yandex Cloud DNS, для изменения CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-update.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
+Если домен вашего сайта делегирован {{ dns-full-name }}, для изменения CNAME-записи воспользуйтесь [инструкцией](../../dns/operations/resource-record-update.md). В остальных случаях воспользуйтесь документацией вашего DNS-провайдера или обратитесь в его службу технической поддержки.
 
 ### Удалите сторонний CDN-ресурс {#delete-resource}
 
 Убедившись, что исходный CDN-ресурс у стороннего CDN-провайдера перестал генерировать исходящий трафик, удалите этот CDN-ресурс. Для этого воспользуйтесь документацией стороннего CDN-провайдера или обратитесь в его службу технической поддержки.
 
-## Добавьте дополнительный домен к CDN-ресурсу в Cloud CDN {#add-secondary-domain}
+## Добавьте дополнительный домен к CDN-ресурсу в {{ cdn-name }} {#add-secondary-domain}
 
-После удаления стороннего CDN-ресурса, использовавшего исходный CDN-поддомен, вы можете добавить этот освободившийся поддомен к вашему новому CDN-ресурсу в Cloud CDN в качестве дополнительного домена. Для этого:
+После удаления стороннего CDN-ресурса, использовавшего исходный CDN-поддомен, вы можете добавить этот освободившийся поддомен к вашему новому CDN-ресурсу в {{ cdn-name }} в качестве дополнительного домена. Для этого:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором расположен ваш CDN-ресурс.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud CDN**.
-  1. В строке с созданным ранее CDN-ресурсом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **Редактировать**.
-  1. В блоке **Доменные имена для раздачи контента** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Добавить доменное имя** и в появившемся поле введите доменное имя, оставшееся от прежнего CDN-ресурса. Например: `cdn.example.com`.
-  1. Нажмите кнопку **Сохранить**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором расположен ваш CDN-ресурс.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. В строке с созданным ранее CDN-ресурсом нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
+  1. В блоке **{{ ui-key.yacloud.cdn.label_section-domain }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** и в появившемся поле введите доменное имя, оставшееся от прежнего CDN-ресурса. Например: `cdn.example.com`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   1. Выполните команду:
   
@@ -310,7 +310,7 @@
       ```
 
       Где:
-      * `<идентификатор_CDN-ресурса>` — сохраненный [ранее](#setup-resource) идентификатор CDN-ресурса Cloud CDN.
+      * `<идентификатор_CDN-ресурса>` — сохраненный [ранее](#setup-resource) идентификатор CDN-ресурса {{ cdn-name }}.
       * `--secondary-hostnames` — освободившееся после удаления стороннего CDN-ресурса доменное имя. Например: `cdn.example.com`.
 
       {% note warning %}
@@ -367,4 +367,4 @@
 
 * [Создание CDN-ресурса](../../cdn/operations/resources/create-resource.md)
 * [Добавление сертификата от Let's Encrypt®](../../certificate-manager/operations/managed/cert-create.md)
-* [Начало работы с Cloud DNS](../../dns/quickstart.md)
+* [Начало работы с {{ dns-name }}](../../dns/quickstart.md)

@@ -1,6 +1,14 @@
-# Работа с Yandex IoT Core с устройства Android на языке Java
+# Работа с {{ iot-full-name }} с устройства Android на языке Java
 
-В этом руководстве вы узнаете как подключиться к Yandex IoT Core с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данное руководство предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
+{% note warning %}
+
+Сервис {{ iot-full-name }} больше не доступен для новых пользователей. 
+
+Текущие пользователи могут создавать ресурсы до 1 ноября 2026 года. После сервис перейдет в режим read-only, а 1 декабря 2026 года — прекратит работу. Подробнее о сроках и порядке закрытия читайте на странице [Закрытие сервиса](../sunset.md).
+
+{% endnote %}
+
+В этом руководстве вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данное руководство предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
 
 {% note info %}
 
@@ -13,13 +21,13 @@
 * [Отправлять сообщения](../operations/publish.md).
 * [Подписывать устройство или реестр на получение сообщений](../operations/subscribe.md).
 
-Чтобы подключиться к Yandex IoT Core и начать обмен сообщениями:
+Чтобы подключиться к {{ iot-full-name }} и начать обмен сообщениями:
 
-* [Создайте необходимые ресурсы Yandex IoT Core](#resources):
+* [Создайте необходимые ресурсы {{ iot-full-name }}](#resources):
    * [Создайте реестр и добавьте ему сертификат](#registry).
    * [Создайте устройство и добавьте ему сертификат](#device).
-* [Подключитесь к Yandex IoT Core](#connect).
-* [Аутентифицируйтесь в Yandex IoT Core](#auth):
+* [Подключитесь к {{ iot-full-name }}](#connect).
+* [Аутентифицируйтесь в {{ iot-full-name }}](#auth):
    * [Аутентификация с помощью X.509-сертификатов](#certs).
    * [Аутентификация по логину и паролю](#log-pass).
 * [Установите соединение](#establish-connection).
@@ -29,10 +37,10 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../cli/quickstart.md#install).
 1. Скачайте и установите [Android Studio](https://developer.android.com/studio) — среду разработки для операционной системы Android.
 
-## Создайте необходимые ресурсы Yandex IoT Core {#resources}
+## Создайте необходимые ресурсы {{ iot-full-name }} {#resources}
 
 ### Создайте реестр и добавьте ему сертификат {#registry}
 
@@ -94,7 +102,7 @@
      --certificate-file device-cert.pem # Путь к публичной части сертификата.
    ```
 
-## Подключитесь к Yandex IoT Core {#connect}
+## Подключитесь к {{ iot-full-name }} {#connect}
 
 Перед подключением настройте параметры соединения с помощью следующего кода:
 
@@ -110,10 +118,10 @@ options.setKeepAliveInterval(keepAliveInterval);
 ```
 
 Где:
-* `MqttAndroidClient` — класс, в котором указываются параметры подключения к Yandex IoT Core. Адрес, порт и идентификатор клиента.
+* `MqttAndroidClient` — класс, в котором указываются параметры подключения к {{ iot-full-name }}. Адрес, порт и идентификатор клиента.
 * `MqttConnectOptions` — класс для установки параметров соединения. Вы можете оставить настройки по умолчанию, но рекомендуется задать параметр `KeepAliveInterval`. От его значения зависит частота отправки команд `PINGREQ`. Чем меньше данный параметр, тем быстрее клиент понимает, что соединение было разорвано нештатным путем. Но для этого чаще отправляются тарифицируемые команды `PINGREQ`.
 
-## Аутентифицируйтесь в Yandex IoT Core {#auth}
+## Аутентифицируйтесь в {{ iot-full-name }} {#auth}
 
 Есть два способа [аутентификации](../concepts/authorization.md):
 * [С помощью X.509-сертификатов](#certs).
@@ -171,7 +179,7 @@ options.setSocketFactory(sslSocketFactory);
 
 ### Аутентификация по логину и паролю {#log-pass}
 
-Так как Yandex IoT Core требует TLS-протокол при аутентификации с помощью логина и пароля, инициализируйте класс `AdditionalKeyStoresSSLSocketFactory` с помощью метода:
+Так как {{ iot-full-name }} требует TLS-протокол при аутентификации с помощью логина и пароля, инициализируйте класс `AdditionalKeyStoresSSLSocketFactory` с помощью метода:
 
 ```java
 private SSLSocketFactory getSocketFactory(final InputStream caCrtFile, final InputStream devCert, final String password)
@@ -209,7 +217,7 @@ options.setSocketFactory(sslSocketFactory);
 
 ## Установите соединение {#establish-connection}
 
-Установите соединение с Yandex IoT Core с помощью следующего кода:
+Установите соединение с {{ iot-full-name }} с помощью следующего кода:
 
 ```java
 mqttAndroidClient.connect(options,null, new IMqttActionListener() {
@@ -280,7 +288,7 @@ mqttAndroidClient.setCallback(new MqttCallback() {
 
 ## Завершите соединение {#disconnect}
 
-Завершите соединение с Yandex IoT Core с помощью методов:
+Завершите соединение с {{ iot-full-name }} с помощью методов:
 
 ```java
 mqttAndroidClient.disconnect();

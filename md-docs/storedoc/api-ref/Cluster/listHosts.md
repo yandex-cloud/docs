@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/hos
 || clusterId | **string**
 
 Required field. ID of the MongoDB cluster.
-To get the MongoDB cluster ID, use a [ClusterService.List](list.md#List) request.
+To get the MongoDB cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -101,7 +101,6 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 
 Name of the MongoDB host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 
@@ -159,7 +158,7 @@ Host parameters ||
 || resourcePresetId | **string**
 
 ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
+All available presets are listed in the [documentation](../../../managed-mongodb/concepts/instance-types). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -196,8 +195,16 @@ Aggregated health of the service. If the field has default value, it is not retu
 
 #|
 ||Field | Description ||
-|| hidden | **boolean** ||
-|| secondaryDelaySecs | **string** (int64) ||
-|| priority | **string** ||
-|| tags | **object** (map<**string**, **string**>) ||
+|| hidden | **boolean**
+
+Whether the host is hidden in the replica set. ||
+|| secondaryDelaySecs | **string** (int64)
+
+Replica delay (in seconds) relative to the primary host. ||
+|| priority | **string**
+
+Replica priority used by the replica set when electing a new primary. ||
+|| tags | **object** (map<**string**, **string**>)
+
+Replica tags used to control read preference and write concern. ||
 |#

@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как задать наст
   
    * [Поставка данных из {{ KF }} в {{ MY }}](../../../tutorials/mkf-to-mmy.md).
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Настройка источника данных {#supported-sources}
 
@@ -106,7 +106,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -163,7 +163,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -229,7 +229,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * `timezone` — укажите идентификатор [IANA Time Zone Database](https://www.iana.org/time-zones). По умолчанию используется UTC+0.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
     * {% include [alter-schema-change-tf](../../../../_includes/data-transfer/fields/alter-schema-change-tf.md) %}
 

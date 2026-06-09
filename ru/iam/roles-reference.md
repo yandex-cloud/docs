@@ -314,9 +314,25 @@ description: В статье приведен полный справочник 
 
 {% include [baremetal-editor](../_roles/baremetal/editor.md) %}
 
+{% note warning %}
+
+С 1 августа 2026 года роль `baremetal.editor` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### baremetal.admin {#baremetal-admin}
 
 {% include [baremetal-admin](../_roles/baremetal/admin.md) %}
+
+{% note warning %}
+
+С 1 августа 2026 года роль `baremetal.admin` получает новый набор разрешений, позволяющий подключать серверы к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 Подробнее см. [{#T}](../baremetal/security/index.md).
 
@@ -840,9 +856,25 @@ description: В статье приведен полный справочник 
 
 {% include [compute.editor](../_roles/compute/editor.md) %}
 
+{% note warning %}
+
+С 1 августа 2026 года роль `compute.editor` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
+
 #### compute.admin {#compute-admin}
 
 {% include [compute.admin](../_roles/compute/admin.md) %}
+
+{% note warning %}
+
+С 1 августа 2026 года роль `compute.admin` получает новый набор разрешений, позволяющий подключать виртуальные машины к сервису [{{ backup-full-name }}](../backup/index.yaml), а также привязывать и отвязывать их от [политик резервного копирования](../backup/concepts/policy.md).
+
+{% include [denyActivation-iam-policy-pre-notice](../_includes/backup/denyActivation-iam-policy-pre-notice.md) %}
+
+{% endnote %}
 
 #### compute.osLogin {#compute-oslogin}
 

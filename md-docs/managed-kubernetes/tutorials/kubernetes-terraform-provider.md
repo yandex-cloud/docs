@@ -1,20 +1,20 @@
-# Управление ресурсами Kubernetes в кластере Managed Service for Kubernetes с помощью провайдера Terraform
+# Управление ресурсами {{ k8s }} в кластере {{ managed-k8s-name }} с помощью провайдера {{ TF }}
 
-# Управление ресурсами Kubernetes в кластере Yandex Managed Service for Kubernetes с помощью провайдера Terraform
+# Управление ресурсами {{ k8s }} в кластере {{ managed-k8s-full-name }} с помощью провайдера {{ TF }}
 
-Вы можете создать ресурсы Kubernetes с помощью манифестов Terraform. Для этого подключите Terraform-провайдер `kubernetes`. Он поддерживает Terraform-ресурсы, которые соответствуют конфигурационным файлам YAML для различных Kubernetes-ресурсов.
+Вы можете создать ресурсы {{ k8s }} с помощью манифестов {{ TF }}. Для этого подключите {{ TF }}-провайдер `kubernetes`. Он поддерживает {{ TF }}-ресурсы, которые соответствуют конфигурационным файлам YAML для различных {{ k8s }}-ресурсов.
 
-Использовать Terraform для создания Kubernetes-ресурсов удобно, если через Terraform вы поддерживаете инфраструктуру для [кластера Yandex Managed Service for Kubernetes](../concepts/index.md#kubernetes-cluster). Так вы можете описывать все ресурсы на одном языке разметки.
+Использовать {{ TF }} для создания {{ k8s }}-ресурсов удобно, если через {{ TF }} вы поддерживаете инфраструктуру для [кластера {{ managed-k8s-full-name }}](../concepts/index.md#kubernetes-cluster). Так вы можете описывать все ресурсы на одном языке разметки.
 
-Кроме того, Terraform отслеживает зависимости между ресурсами и предотвращает создание, изменение или удаление ресурса, если для него не готовы зависимости. Допустим, вы создаете ресурс `PersistentVolumeClaim`. Ему нужно определенное пространство в хранилище для ресурса `PersistentVolume`, но места не хватает. Terraform отследит нехватку места и не позволит создать ресурс `PersistentVolumeClaim`.
+Кроме того, {{ TF }} отслеживает зависимости между ресурсами и предотвращает создание, изменение или удаление ресурса, если для него не готовы зависимости. Допустим, вы создаете ресурс `PersistentVolumeClaim`. Ему нужно определенное пространство в хранилище для ресурса `PersistentVolume`, но места не хватает. {{ TF }} отследит нехватку места и не позволит создать ресурс `PersistentVolumeClaim`.
 
-Ниже рассматривается пример, как создать стандартные ресурсы Kubernetes с помощью Terraform.
+Ниже рассматривается пример, как создать стандартные ресурсы {{ k8s }} с помощью {{ TF }}.
 
-Чтобы с помощью Terraform создать ресурсы Kubernetes:
+Чтобы с помощью {{ TF }} создать ресурсы {{ k8s }}:
 
 1. [Подготовьте инфраструктуру](#prepare-kubernetes-infrastructure).
 1. [Подключите провайдер](#apply-kubernetes-provider) `kubernetes`.
-1. [Создайте ресурсы Kubernetes](#create-standard-resources).
+1. [Создайте ресурсы {{ k8s }}](#create-standard-resources).
 1. [Убедитесь, что приложение кластера доступно из интернета](#verify-setup).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
@@ -24,15 +24,15 @@
 
 В стоимость поддержки описываемого решения входят:
 
-* Плата за кластер Managed Service for Kubernetes: использование мастера и исходящий трафик (см. [тарифы Managed Service for Kubernetes](../pricing.md)).
-* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за сетевой балансировщик нагрузки (см. [тарифы Network Load Balancer](../../network-load-balancer/pricing.md)).
-* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за кластер {{ managed-k8s-name }}: использование мастера и исходящий трафик (см. [тарифы {{ managed-k8s-name }}](../pricing.md)).
+* Плата за узлы кластера (ВМ): использование вычислительных ресурсов, операционной системы и хранилища (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за сетевой балансировщик нагрузки (см. [тарифы {{ network-load-balancer-name }}](../../network-load-balancer/pricing.md)).
+* Плата за использование публичных IP-адресов для ВМ и сетевого балансировщика нагрузки (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
 
-## Подготовьте инфраструктуру для Managed Service for Kubernetes {#prepare-kubernetes-infrastructure}
+## Подготовьте инфраструктуру для {{ managed-k8s-name }} {#prepare-kubernetes-infrastructure}
 
-1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
 1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
@@ -47,17 +47,17 @@
    * подсеть;
    * две группы безопасности — для кластера и группы узлов;
    * облачный сервисный аккаунт с ролями `k8s.clusters.agent`, `k8s.tunnelClusters.agent`, `vpc.publicAdmin`, `load-balancer.admin` и `container-registry.images.puller`;
-   * кластер Managed Service for Kubernetes;
-   * группа узлов Kubernetes.
+   * кластер {{ managed-k8s-name }};
+   * группа узлов {{ k8s }}.
 
 1. Укажите значения переменных в файле `k8s-cluster.tf`.
-1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
    ```bash
    terraform validate
    ```
 
-   Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+   Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
 1. Создайте инфраструктуру:
 
@@ -79,9 +79,9 @@
       1. Подтвердите изменение ресурсов.
       1. Дождитесь завершения операции.
 
-   В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+   В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../operations/connect/index.md#kubectl-connect).
 
 ## Подключите провайдер kubernetes {#apply-kubernetes-provider}
 
@@ -98,7 +98,6 @@
     }
 
     provider "yandex" {
-      token     = "<IAM-токен>"
       cloud_id  = "<идентификатор_облака>"
       folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"
@@ -145,7 +144,6 @@
     }
 
     provider "yandex" {
-      token     = "<IAM-токен>"
       cloud_id  = "<идентификатор_облака>"
       folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"
@@ -166,7 +164,7 @@
     terraform init
     ```
 
-## Создайте ресурсы Kubernetes {#create-standard-resources}
+## Создайте ресурсы {{ k8s }} {#create-standard-resources}
 
 Создайте тестовое приложение и сервис типа `LoadBalancer`:
 
@@ -198,7 +196,7 @@
           spec {
             container {
               name  = "hello-app"
-              image = "cr.yandex/crpjd37scfv653nl11i9/hello:1.1"
+              image = "{{ registry }}/crpjd37scfv653nl11i9/hello:1.1"
             }
           }
         }
@@ -226,7 +224,7 @@
     }
     ```
 
-1. Создайте ресурсы Kubernetes:
+1. Создайте ресурсы {{ k8s }}:
 
    1. Посмотрите планируемые изменения:
    
@@ -260,9 +258,9 @@
 
    Когда в столбце `READY` будет указано значение `2/2`, выполните команду `terraform apply` снова.
 
-Вы также можете создавать другие стандартные ресурсы Kubernetes с помощью манифестов Terraform. В качестве основы используйте конфигурацию YAML для нужного ресурса ([пример для пода](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Из конфигурации заимствуйте структуру и параметры и примените разметку Terraform. Например, параметр `containerPort` в YAML замените на параметр `container_port` в Terraform. Полный список Terraform-ресурсов для Kubernetes приведен в [документации провайдера](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
+Вы также можете создавать другие стандартные ресурсы {{ k8s }} с помощью манифестов {{ TF }}. В качестве основы используйте конфигурацию YAML для нужного ресурса ([пример для пода](https://kubernetes.io/docs/concepts/workloads/pods/#using-pods)). Из конфигурации заимствуйте структуру и параметры и примените разметку {{ TF }}. Например, параметр `containerPort` в YAML замените на параметр `container_port` в {{ TF }}. Полный список {{ TF }}-ресурсов для {{ k8s }} приведен в [документации провайдера](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs).
 
-О создании [пользовательских ресурсов](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) с помощью Terraform читайте в [документации Terraform](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
+О создании [пользовательских ресурсов](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) с помощью {{ TF }} читайте в [документации {{ TF }}](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider?variants=kubernetes%3Akind#managing-custom-resources).
 
 ## Убедитесь, что приложение кластера доступно из интернета {#verify-setup}
 
@@ -317,7 +315,7 @@
 
     {% note info %}
     
-    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера Managed Service for Kubernetes и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
+    Если ресурс недоступен по указанному URL, то [убедитесь](../operations/connect/security-groups.md), что группы безопасности для кластера {{ managed-k8s-name }} и его групп узлов настроены корректно. Если отсутствует какое-либо из правил — [добавьте его](../../vpc/operations/security-group-add-rule.md).
     
     {% endnote %}
 
@@ -331,11 +329,11 @@
    terraform destroy
    ```
 
-   Terraform удалит все ресурсы, созданные в текущей конфигурации.
+   {{ TF }} удалит все ресурсы, созданные в текущей конфигурации.
 
-## Пример подготовки постоянного тома с помощью Terraform {#example}
+## Пример подготовки постоянного тома с помощью {{ TF }} {#example}
 
-Подготовьте для кластера Managed Service for Kubernetes [постоянный том](../concepts/volume.md#persistent-volume). Используйте для этого конфигурационный файл:
+Подготовьте для кластера {{ managed-k8s-name }} [постоянный том](../concepts/volume.md#persistent-volume). Используйте для этого конфигурационный файл:
 
 {% cut "pv-pvc.tf" %}
 
@@ -401,7 +399,7 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
 
 В файле `pv-pvc.tf` описаны:
 
-* [Диск](../../compute/concepts/disk.md) Compute Cloud, который используется как хранилище для `PersistentVolume`:
+* [Диск](../../compute/concepts/disk.md) {{ compute-name }}, который используется как хранилище для `PersistentVolume`:
   
     * Имя — `pv-disk`.
     * Зона доступности — `ru-central1-a`.
@@ -440,5 +438,5 @@ resource "kubernetes_persistent_volume_claim" "my_pvc" {
 
 #### См. также {#see-also}
 
-* [Документация Terraform по созданию ресурсов Kubernetes](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
+* [Документация {{ TF }} по созданию ресурсов {{ k8s }}](https://developer.hashicorp.com/terraform/tutorials/kubernetes/kubernetes-provider)
 * [Документация провайдера](https://registry.terraform.io/providers/hashicorp/kubernetes/latest/docs)

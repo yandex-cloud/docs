@@ -19,8 +19,8 @@ toomanyrequests: You have reached your pull rate limit. You may increase the lim
 * Профессиональный план – 50 000 загрузок в течение 24 часов;
 * Командный план – 50 000 загрузок в течение 24 часов.
 
-Чтобы обойти ограничение на количество загрузок образов, вы можете использовать [Yandex Container Registry](../../../container-registry/quickstart/index.md). Образы из Docker Hub можно загрузить на вашу локальную машину, а затем перенести в Container Registry, где таких ограничений нет.
+Чтобы обойти ограничение на количество загрузок образов, вы можете использовать [{{ container-registry-full-name }}](../../../container-registry/quickstart/index.md). Образы из Docker Hub можно загрузить на вашу локальную машину, а затем перенести в {{ container-registry-name }}, где таких ограничений нет.
 
-В Container Registry тарифицируется только использование места для хранения образов. При этом если несколько [Docker-образов](../../../container-registry/concepts/docker-image.md) в одном реестре используют одни и те же слои, хранение каждого переиспользуемого слоя повторно не тарифицируется. Уникальность слоя определяется по его [хешу](../../../container-registry/concepts/docker-image.md#version).
+В {{ container-registry-name }} тарифицируется только использование места для хранения образов. При этом если несколько [Docker-образов](../../../container-registry/concepts/docker-image.md) в одном реестре используют одни и те же слои, хранение каждого переиспользуемого слоя повторно не тарифицируется. Уникальность слоя определяется по его [хешу](../../../container-registry/concepts/docker-image.md#version).
 
-Подробнее о правилах тарификации для Container Registry вы можете узнать [в нашей документации](../../../container-registry/pricing.md).
+Подробнее о правилах тарификации для {{ container-registry-name }} вы можете узнать [в нашей документации](../../../container-registry/pricing.md).

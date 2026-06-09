@@ -30,7 +30,6 @@ For detailed description, see the [Logs](https://yandex.cloud/ru/yandex-mdb-guid
 || cluster_id | **string**
 
 Required field. ID of the OpenSearch cluster to request logs for.
-
 To get the OpenSearch cluster ID use a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -47,7 +46,6 @@ End timestamp for the logs request. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the service returns a [ListClusterLogsResponse.next_page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsResponse)
 that can be used to get the next page of results in subsequent list requests.
 
@@ -64,15 +62,10 @@ The service always returns a [ListClusterLogsResponse.next_page_token](#yandex.c
 || filter | **string**
 
 A filter expression that filters resources listed in the response.
-
 The expression must specify:
-
 1. A field name. Currently filtering can be applied to the [LogRecord.logs.message.hostname] field.
-
 2. A conditional operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
-
 3. A value. Must be 1-63 characters long and match the regular expression `^[a-z0-9.-]{1,61}$`.
-
 Examples of a filter:
 * `message.hostname='node1.db.cloud.yandex.net'`;
 * `message.error_severity IN ("ERROR", "FATAL", "PANIC") AND message.hostname = "node1.db.cloud.yandex.net"`.
@@ -108,12 +101,9 @@ Requested log records. ||
 || next_page_token | **string**
 
 This token allows you to get the next page of results for list requests.
-
 If the number of results is larger than [ListClusterLogsRequest.page_size](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest), use the `next_page_token` as the value
 for the [ListClusterLogsRequest.page_token](#yandex.cloud.mdb.opensearch.v1.ListClusterLogsRequest) query parameter in the next list request.
-
 Each subsequent list request has its own `next_page_token` to continue paging through the results.
-
 This value is interchangeable with the [StreamLogRecord.next_record_token](streamLogs.md#yandex.cloud.mdb.opensearch.v1.StreamLogRecord) from [StreamLogs](streamLogs.md#StreamLogs) method. ||
 |#
 

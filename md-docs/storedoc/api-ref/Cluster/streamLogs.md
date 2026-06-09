@@ -1,11 +1,12 @@
 # Managed Service for MongoDB API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters
@@ -28,9 +29,11 @@ The maximum string length in characters is 50. ||
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
 
-- `MONGOD`: Logs of MongoDB activity.
-- `MONGOS`
-- `MONGOCFG`
+Type of the service to request logs about.
+
+- `MONGOD`: Logs of mongod activity.
+- `MONGOS`: Logs of mongos activity.
+- `MONGOCFG`: Logs of mongocfg activity.
 - `AUDIT`: MongoDB Enterprise audit logs ||
 || fromTime | **string** (date-time)
 

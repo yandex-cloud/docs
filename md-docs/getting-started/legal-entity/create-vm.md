@@ -2,59 +2,59 @@
 
 # Создание виртуальной машины и подключение к ней
 
-После завершения настройки платежного аккаунта вы сможете начать работу с сервисами Yandex Cloud, например создать [виртуальную машину (ВМ)](../../compute/concepts/vm.md) в сервисе [Yandex Compute Cloud](../../compute/concepts/index.md).
+После завершения настройки платежного аккаунта вы сможете начать работу с сервисами {{ yandex-cloud }}, например создать [виртуальную машину (ВМ)](../../compute/concepts/vm.md) в сервисе [{{ compute-full-name }}](../../compute/concepts/index.md).
 
 ## Создайте виртуальную машину {#create-vm}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud) и на панели слева нажмите на аватар вашего аккаунта.
+1. Перейдите в [консоль управления]({{ link-console-main }}) и на панели слева нажмите на аватар вашего аккаунта.
 1. Выберите организацию `Example organization`.
 1. На панели слева выберите каталог `default`.
-1. В списке сервисов выберите **Compute Cloud**.
-1. Выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-1. Нажмите кнопку **Создать виртуальную машину** и задайте настройки ВМ:
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. Выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.group.switch_instances }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}** и задайте настройки ВМ:
 
    1. В блоке **Операционные системы и продукты** выберите **Ubuntu 24.04 LTS**.
    1. В блоке **Вычислительные ресурсы** задайте конфигурацию вычислительных ресурсов для ВМ.
    1. В блоке **Диски** задайте размер и тип диска.
    1. Задайте **Имя ВМ**.
    1. Задайте **Логин** администратора ВМ.
-   1. В поле **SSH-ключ** нажмите кнопку **Добавить ключ**. В открывшемся окне:
+   1. В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**. В открывшемся окне:
       1. Задайте **Имя** SSH-ключа.
       1. В блоке **SSH-ключ** выберите **Сгенерировать ключ**.
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
          SSH-ключ будет загружен на ваш компьютер, а также добавлен в ваш профиль пользователя организации.
 
          Если в организации отключена возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя создаваемой виртуальной машины.
 
-1. Нажмите кнопку **Создать ВМ**.
+1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 ## Настройте группу безопасности для подключения к ВМ {#security-group}
 
-*Группа безопасности* (Security Group, SG) — это ресурс, который создается на уровне [облачной сети](../../vpc/concepts/network.md#network). После создания группа безопасности может использоваться в сервисах Yandex Cloud для разграничения сетевого доступа объекта, к которому она применяется.
+*Группа безопасности* (Security Group, SG) — это ресурс, который создается на уровне [облачной сети](../../vpc/concepts/network.md#network). После создания группа безопасности может использоваться в сервисах {{ yandex-cloud }} для разграничения сетевого доступа объекта, к которому она применяется.
 
 Созданной вами ВМ была присвоена группа безопасности по умолчанию. Чтобы разрешить подключение к ВМ по SSH, создайте в этой группе безопасности правило, разрешающее входящий трафик по протоколу TCP на порт 22:
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud).
-1. В списке сервисов выберите **Compute Cloud** и откройте созданную ранее ВМ.
-1. На странице с информацией о ВМ в блоке **Сеть** откройте группу безопасности, присвоенную ВМ.
-1. В правом верхнем углу нажмите кнопку **Редактировать**.
-1. Откройте вкладку **Входящий трафик** и нажмите кнопку **Добавить правило**.
+1. Перейдите в [консоль управления]({{ link-console-main }}).
+1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** и откройте созданную ранее ВМ.
+1. На странице с информацией о ВМ в блоке **{{ ui-key.yacloud.compute.instance.overview.section_network }}** откройте группу безопасности, присвоенную ВМ.
+1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.
+1. Откройте вкладку **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** и нажмите кнопку **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
 1. В открывшемся окне задайте следующие параметры:
-   1. **Диапазон портов** — `22`.
-   1. **Протокол** — `TCP`.
-   1. **Источник** — `CIDR`.
-   1. **CIDR блоки** — `0.0.0.0/0`
-   1. Нажмите кнопку **Сохранить**. Если требуется, добавьте другие правила.
-1. Нажмите кнопку **Сохранить**.
+   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `22`.
+   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `TCP`.
+   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+   1. **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** — `0.0.0.0/0`
+   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**. Если требуется, добавьте другие правила.
+1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 ## Подключение к ВМ {#vm-connect}
 
 Вы можете подключиться к ВМ в статусе `RUNNING` по протоколу SSH. Для инициализации всех служб после [запуска](../../compute/operations/vm-control/vm-stop-and-start.md#start) ВМ может потребоваться время. Если возникла ошибка соединения, попробуйте снова через несколько минут.
 
-Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **Публичный IPv4-адрес** блока **Сеть** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../../compute/operations/vm-control/vm-attach-public-ip.md).
+Для подключения необходимо указать [публичный IP-адрес](../../vpc/concepts/address.md#public-addresses) ВМ. Публичный IP-адрес можно узнать в консоли управления, в поле **{{ ui-key.yacloud.compute.instance.overview.label_public-ipv4 }}** блока **{{ ui-key.yacloud.compute.instance.overview.section_network }}** на странице ВМ. Если вы создали ВМ только с внутренним IP-адресом, [привяжите к ней публичный IP-адрес](../../compute/operations/vm-control/vm-attach-public-ip.md).
 
-Также можно использовать [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../vpc/concepts/network.md#network) Yandex Cloud.
+Также можно использовать [внутренние IP-адреса](../../vpc/concepts/address.md#internal-addresses) и [FQDN](../../vpc/concepts/address.md#fqdn) для установки SSH-соединения между ВМ внутри одной [облачной сети](../../vpc/concepts/network.md#network) {{ yandex-cloud }}.
 
 {% list tabs group=operating_system %}
 

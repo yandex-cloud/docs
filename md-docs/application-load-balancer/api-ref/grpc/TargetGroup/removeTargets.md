@@ -17,7 +17,8 @@ Removes targets from the specified target group.
       "ip_address": "string",
       // end of the list of possible fields
       "subnet_id": "string",
-      "private_ipv4_address": "bool"
+      "private_ipv4_address": "bool",
+      "external_address": "bool"
     }
   ]
 }
@@ -60,6 +61,10 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|| external_address | **bool**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -89,7 +94,8 @@ Only one of `subnet_id` or `private_ipv4_address` should be set. ||
         "ip_address": "string",
         // end of the list of possible fields
         "subnet_id": "string",
-        "private_ipv4_address": "bool"
+        "private_ipv4_address": "bool",
+        "external_address": "bool"
       }
     ],
     "created_at": "google.protobuf.Timestamp"
@@ -216,4 +222,8 @@ If set, will not require `subnet_id` to validate the target.
 Instead, the address should belong to one of the following ranges:
 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
 Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|| external_address | **bool**
+
+If set, will not require `subnet_id` to validate the target.
+Only one of `subnet_id` or `external_address` should be set. ||
 |#

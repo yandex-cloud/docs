@@ -5,26 +5,26 @@
 В этом руководстве вы развернете макет многопользовательской онлайн-игры, реализованной на Node.js с использованием WebSocket.
 
 Для этого вам понадобятся следующие ресурсы:
-* [бакет](../../storage/concepts/bucket.md) Object Storage для хранения статических ресурсов игры;
-* [базы данных](../../ydb/concepts/index.md) Managed Service for YDB для хранения данных игры;
-* [поток](../../data-streams/concepts/glossary.md#stream-concepts) Data Streams для передачи данных;
-* [функции](../../functions/concepts/function.md) Cloud Functions для обработки данных;
-* [очередь](../concepts/queue.md) Message Queue для передачи сообщений между компонентами приложения;
-* [секреты](../../lockbox/concepts/secret.md) Yandex Lockbox для безопасного хранения и доставки чувствительных данных в приложение;
-* [API-шлюз](../../api-gateway/concepts/index.md) API Gateway для приема и перенаправления запросов от пользователей в функции Cloud Functions.
+* [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }} для хранения статических ресурсов игры;
+* [базы данных](../../ydb/concepts/index.md) {{ ydb-name }} для хранения данных игры;
+* [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} для передачи данных;
+* [функции](../../functions/concepts/function.md) {{ sf-name }} для обработки данных;
+* [очередь](../concepts/queue.md) {{ message-queue-name }} для передачи сообщений между компонентами приложения;
+* [секреты](../../lockbox/concepts/secret.md) {{ lockbox-name }} для безопасного хранения и доставки чувствительных данных в приложение;
+* [API-шлюз](../../api-gateway/concepts/index.md) {{ api-gw-name }} для приема и перенаправления запросов от пользователей в функции {{ sf-name }}.
 
 Для авторизации пользователей игры используется интеграция с Telegram.
 
 Чтобы создать онлайн-игру:
 
 1. [Подготовьте окружение](#prepare).
-1. [Создайте базы данных Yandex Managed Service for YDB](#create-ydb-database).
-1. [Создайте поток данных Yandex Data Streams](#yds-create).
-1. [Создайте секрет Yandex Lockbox](#secrets-create).
+1. [Создайте базы данных {{ ydb-full-name }}](#create-ydb-database).
+1. [Создайте поток данных {{ yds-full-name }}](#yds-create).
+1. [Создайте секрет {{ lockbox-full-name }}](#secrets-create).
 1. [Разверните проект](#app-deploy).
 1. [Создайте ключи доступа для сервисных аккаунтов](#create-extra-sa-keys).
 1. [Создайте новую версию секрета и разверните проект еще раз](#update-and-deploy).
-1. [Создайте API-шлюз Yandex API Gateway](#apigw-create).
+1. [Создайте API-шлюз {{ api-gw-full-name }}](#apigw-create).
 1. [Подключите домен к Telegram-боту](#api-gw-connect).
 1. [Протестируйте приложение](#test-api).
 
@@ -32,11 +32,11 @@
 
 ## Перед началом работы {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -44,13 +44,13 @@
 
 В стоимость поддержки инфраструктуры для данного руководства входят:
 
-* плата за операции с данными и за объем хранимых данных (см. [тарифы Yandex Managed Service for YDB](../../ydb/pricing/serverless.md));
-* плата за использование потока данных (см. [тарифы Yandex Data Streams](../../data-streams/pricing.md));
-* плата за хранение секрета (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md));
-* плата за хранение данных и операции с данными (см. [тарифы Yandex Object Storage](../../storage/pricing.md));
-* плата за запросы к созданным API-шлюзам и исходящий трафик (см. [тарифы Yandex API Gateway](../../api-gateway/pricing.md));
-* плата за запросы к очередям и исходящий трафик (см. [тарифы Yandex Message Queue](../pricing.md));
-* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* плата за операции с данными и за объем хранимых данных (см. [тарифы {{ ydb-full-name }}](../../ydb/pricing/serverless.md));
+* плата за использование потока данных (см. [тарифы {{ yds-full-name }}](../../data-streams/pricing.md));
+* плата за хранение секрета (см. [тарифы {{ lockbox-full-name }}](../../lockbox/pricing.md));
+* плата за хранение данных и операции с данными (см. [тарифы {{ objstorage-full-name }}](../../storage/pricing.md));
+* плата за запросы к созданным API-шлюзам и исходящий трафик (см. [тарифы {{ api-gw-full-name }}](../../api-gateway/pricing.md));
+* плата за запросы к очередям и исходящий трафик (см. [тарифы {{ message-queue-full-name }}](../pricing.md));
+* плата за вызовы функций и вычислительные ресурсы, выделенные для выполнения функций (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
@@ -88,10 +88,10 @@
        sudo apt-get install jq
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -103,7 +103,7 @@
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
-     * [YDB CLI](https://ydb.tech/docs/ru//reference/ydb-cli/install):
+     * [YDB CLI]({{ ydb.docs }}/reference/ydb-cli/install):
 
        ```bash
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
@@ -126,7 +126,7 @@
        ```
 
 
-  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль Yandex Cloud CLI с базовыми параметрами.
+  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
 
 - macOS {#macos}
 
@@ -153,10 +153,10 @@
        brew install jq
        ```
 
-     * [Yandex Cloud CLI](../../cli/quickstart.md):
+     * [{{ yandex-cloud }} CLI](../../cli/quickstart.md):
 
        ```bash
-       curl https://storage.yandexcloud.net/yandexcloud-yc/install.sh | bash
+       curl https://{{ s3-storage-host-cli }}{{ yc-install-path }} | bash
        exec -l $SHELL
        yc version
        ```
@@ -168,7 +168,7 @@
        sudo installer -pkg AWSCLIV2.pkg -target /
        ```
 
-     * [YDB CLI](https://ydb.tech/docs/ru//reference/ydb-cli/install):
+     * [YDB CLI]({{ ydb.docs }}/reference/ydb-cli/install):
 
        ```bash
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
@@ -196,7 +196,7 @@
        npm install -g typescript
        ```
 
-  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль Yandex Cloud CLI с базовыми параметрами.
+  1. [Создайте](../../cli/operations/profile/profile-create.md#interactive-create) профиль {{ yandex-cloud }} CLI с базовыми параметрами.
 
 {% endlist %}
 
@@ -240,27 +240,12 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 ### Получите токен доступа {#create-token}
 
-{% list tabs group=authentication %}
+Получите IAM-токен и сохраните его в переменную `YC_IAM_TOKEN:`
 
-- Федеративный аккаунт {#federated-account}
-
-  Получите IAM-токен и сохраните его в переменную `YC_IAM_TOKEN:`
-
-  ```bash
-  echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
-  echo $YC_IAM_TOKEN
-  ```
-
-- Аккаунт на Яндексе {#yandex-account}
-
-  Получите OAUTH-токен и сохраните его в переменную `OAUTH_TOKEN`:
-
-  ```bash
-  echo "export OAUTH_TOKEN=$(yc config get token)" >> ~/.bashrc && . ~/.bashrc
-  echo $OAUTH_TOKEN
-  ```
-
-{% endlist %}
+```bash
+echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
+echo $YC_IAM_TOKEN
+```
 
 ### Создайте сервисный аккаунт {#setup-sa}
 
@@ -280,7 +265,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
    echo "export SERVICE_ACCOUNT_GAME_ID=<идентификатор_сервисного_аккаунта>" >> ~/.bashrc && . ~/.bashrc
    ```
 
-1. Назначьте сервисному аккаунту роль `editor`:
+1. Назначьте сервисному аккаунту роль `{{ roles-editor }}`:
 
    ```bash
    echo "export YC_FOLDER_ID=$(yc config get folder-id)" >> ~/.bashrc && . ~/.bashrc
@@ -291,7 +276,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
    
    yc resource-manager folder add-access-binding $YC_FOLDER_ID \
    --subject serviceAccount:$SERVICE_ACCOUNT_GAME_ID \
-   --role editor
+   --role {{ roles-editor }}
    ```
 
 1. Создайте авторизованный ключ для сервисного аккаунта:
@@ -342,7 +327,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
    
    * `AWS Access Key ID` — идентификатор ключа доступа `key_id` сервисного аккаунта, полученный ранее.
    * `AWS Secret Access Key` — секретный ключ `secret` сервисного аккаунта, полученный ранее.
-   * `Default region name` — используйте значение `ru-central1`.
+   * `Default region name` — используйте значение `{{ region-id }}`.
    * `Default output format` — оставьте пустым.
 
 1. Проверьте конфигурацию:
@@ -353,9 +338,9 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
    aws configure list
    ```
 
-## Создайте базы данных Managed Service for YDB {#create-ydb-database}
+## Создайте базы данных {{ ydb-name }} {#create-ydb-database}
 
-Создайте базу данных с именем `game-data` для хранения данных игры и базу данных с именем `data-streams` для потока Data Streams.
+Создайте базу данных с именем `game-data` для хранения данных игры и базу данных с именем `data-streams` для потока {{ yds-name }}.
 
 1. Создайте базу данных в режиме serverless с именем `game-data`:
    
@@ -372,10 +357,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     created_at: "2023-03-30T15:01:19Z"
     name: game-data
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn0ejcvmjm4********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********
     serverless_database:
       storage_size_limit: "53687091200"
-    location_id: ru-central1
+    location_id: {{ region-id }}
     ...
     ```
 
@@ -386,7 +371,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     echo $YDB_ENDPOINT
     ```
 
-1. Сохраните в переменной `YDB_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/ru-central1/b1gia87mbaom********/etn0ejcvmjm4********`.
+1. Сохраните в переменной `YDB_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/{{ region-id }}/b1gia87mbaom********/etn0ejcvmjm4********`.
 
     ```bash
     echo "export YDB_DATABASE=<имя_таблицы>" >> ~/.bashrc && . ~/.bashrc
@@ -408,10 +393,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     created_at: "2023-03-30T15:02:44Z"
     name: data-streams
     status: PROVISIONING
-    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/ru-central1/b1gia87mbaom********/etn16k0e1757********
+    endpoint: grpcs://ydb.serverless.yandexcloud.net:2135/?database=/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********
     serverless_database:
       storage_size_limit: "53687091200"
-    location_id: ru-central1
+    location_id: {{ region-id }}
     ```
 
 1. Сохраните  в переменной `YDB_DATA_STREAMS_ENDPOINT` значение `endpoint` из вывода предыдущей команды. В нашем примере оно равняется `grpcs://ydb.serverless.yandexcloud.net:2135`.
@@ -421,7 +406,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     echo $YDB_DATA_STREAMS_ENDPOINT
     ```
 
-1. Сохраните в переменной `YDB_DATA_STREAMS_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/ru-central1/b1gia87mbaom********/etn16k0e1757********`.
+1. Сохраните в переменной `YDB_DATA_STREAMS_DATABASE` значение `database` из вывода предыдущей команды. В нашем примере оно равняется `/{{ region-id }}/b1gia87mbaom********/etn16k0e1757********`.
 
     ```bash
     echo "export YDB_DATA_STREAMS_DATABASE=<имя_таблицы>" >> ~/.bashrc && . ~/.bashrc
@@ -516,7 +501,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     Min partitions count: 1
     ```
 
-## Создайте поток данных Data Streams {#yds-create}
+## Создайте поток данных {{ yds-name }} {#yds-create}
 
 {% list tabs group=instructions %}
 
@@ -533,7 +518,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 {% endlist %}
 
-## Создайте секрет Yandex Lockbox {#secrets-create}
+## Создайте секрет {{ lockbox-name }} {#secrets-create}
 
 1. Создайте секрет с именем `game-secrets` и передайте в него значения переменных `YDB_ENDPOINT` и `YDB_DATABASE`:
 
@@ -577,7 +562,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 1. Перейдите в папку `files` внутри каталога `yc-serverless-game`.
 
-1. Измените конфигурацию для Object Storage. Так как имя бакета должно быть уникальным, замените имя бакета на собственное в следующих файлах:
+1. Измените конфигурацию для {{ objstorage-name }}. Так как имя бакета должно быть уникальным, замените имя бакета на собственное в следующих файлах:
 
     * файл `serverless.yaml`:
        
@@ -614,7 +599,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 При развертывании проекта в вашем рабочем каталоге будут созданы следующие ресурсы:
 
-* Функции Cloud Functions:
+* Функции {{ sf-name }}:
 
   * `get-state`
   * `get-config`
@@ -638,15 +623,15 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
   * `apigw-s3-viewer` с ролью `storage.viewer`
   * `apigw-fn-caller` с ролью `serverless.functions.invoker`
 
-* Бакет Object Storage с именем, которое вы указали в файле `serverless.yaml`
+* Бакет {{ objstorage-name }} с именем, которое вы указали в файле `serverless.yaml`
 
-* Очередь Message Queue — `capturing-queue`
+* Очередь {{ message-queue-name }} — `capturing-queue`
 
 ## Создайте ключи доступа для сервисных аккаунтов {#create-extra-sa-keys}
 
 При развертывании проекта создались следующие сервисные аккаунты:
-* `yds-writer-sa` с ролью `yds.writer` для записи в поток Data Streams;
-* `ymq-writer-sa` с ролью `ymq.writer` для записи в очередь Message Queue.
+* `yds-writer-sa` с ролью `yds.writer` для записи в поток {{ yds-name }};
+* `ymq-writer-sa` с ролью `ymq.writer` для записи в очередь {{ message-queue-name }}.
 
 1. Создайте статический ключ доступа для сервисного аккаунта `yds-writer-sa`:
 
@@ -711,10 +696,10 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 1. Передайте новые значения в секрет `game-secrets`:
 
-    1. В [консоли управления](https://console.yandex.cloud) выберите ваш рабочий каталог.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Message Queue**.
+    1. В [консоли управления]({{ link-console-main }}) выберите ваш рабочий каталог.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Выберите очередь `capturing-queue`.
-    1. Скопируйте значение из поля **URL** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
+    1. Скопируйте значение из поля **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** и сохраните его в переменную `YMQ_CAPTURE_QUEUE_URL`:
 
        ```bash
        echo "export YMQ_CAPTURE_QUEUE_URL=<URL>" >> ~/.bashrc && . ~/.bashrc
@@ -748,11 +733,11 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
     npm run deploy
     ```
 
-## Создайте API-шлюз API Gateway {#apigw-create}
+## Создайте API-шлюз {{ api-gw-name }} {#apigw-create}
 
 При развертывании проекта создались следующие сервисные аккаунты:
-* `apigw-s3-viewer` с ролью `storage.viewer` для чтения объектов из бакета Object Storage.
-* `apigw-fn-caller` с ролью `functions.functionInvoker` для вызова функций Cloud Functions.
+* `apigw-s3-viewer` с ролью `storage.viewer` для чтения объектов из бакета {{ objstorage-name }}.
+* `apigw-fn-caller` с ролью `{{ roles-functions-invoker }}` для вызова функций {{ sf-name }}.
 
 1. Сохраните идентификаторы сервисных аккаунтов `apigw-s3-viewer` и `apigw-fn-caller` в переменные `APIGW_S3_VIEWER_ID` и `APIGW_FN_CALLER_ID`:
 
@@ -796,7 +781,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
    1. В строке `111` замените `<yandex-cloud-nodejs-dev-ws-disconnect-function-id>` на значение идентификатора функции `yandex-cloud-nodejs-dev-ws-disconnect`.
    1. В строке `118` замените `<yandex-cloud-nodejs-dev-auth-function-id>` на значение идентификатора функции `yandex-cloud-nodejs-dev-auth`.
 
-1. Разверните экземпляр API Gateway:
+1. Разверните экземпляр {{ api-gw-name }}:
 
     ```bash
     yc serverless api-gateway create \
@@ -824,22 +809,22 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 1. Скопируйте служебный домен API-шлюза. Он находится в выводе предыдущей команды, в поле `domain`.
 
 1. В Telegram найдите [BotFather](https://t.me/BotFather) и введите команду `/setdomain`.
-1. Выберите из списка своего бота и отправьте служебный домен API-шлюза. Перед доменом добавьте `https://`. Например, если служебный домен API-шлюза — `d5dm1lba80md********.i9******.apigw.yandexcloud.net`, URL будет `https://d5dm1lba80md********.i9******.apigw.yandexcloud.net`.
+1. Выберите из списка своего бота и отправьте служебный домен API-шлюза. Перед доменом добавьте `https://`. Например, если служебный домен API-шлюза — `{{ api-host-apigw }}`, URL будет `https://{{ api-host-apigw }}`.
 
 ## Протестируйте приложение {#test-app}
 
 Перейдите по ссылке, которую отправили Telegram-боту, авторизуйтесь и откройте игру.
 
-В игре доступна статистика игроков. Если служебный домен API-шлюза — `d5dm1lba80md********.i9******.apigw.yandexcloud.net`, тогда по адресу `https://d5dm1lba80md********.i9******.apigw.yandexcloud.net/stats.html` будет доступна страница со статистикой всех игроков.
+В игре доступна статистика игроков. Если служебный домен API-шлюза — `{{ api-host-apigw }}`, тогда по адресу `https://{{ api-host-apigw }}/stats.html` будет доступна страница со статистикой всех игроков.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) базы данных Managed Service for YDB.
-1. [Удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных Data Streams.
-1. [Удалите](../../lockbox/operations/secret-delete.md) секрет Yandex Lockbox.
-1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета Object Storage.
-1. [Удалите](../../storage/operations/buckets/delete.md) пустой бакет Object Storage.
-1. [Удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз API Gateway.
-1. [Удалите](../../functions/operations/function/function-delete.md) функции Cloud Functions.
-1. [Удалите](../operations/message-queue-delete-queue.md) очередь Message Queue.
+1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) базы данных {{ ydb-name }}.
+1. [Удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных {{ yds-name }}.
+1. [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета {{ objstorage-name }}.
+1. [Удалите](../../storage/operations/buckets/delete.md) пустой бакет {{ objstorage-name }}.
+1. [Удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз {{ api-gw-name }}.
+1. [Удалите](../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
+1. [Удалите](../operations/message-queue-delete-queue.md) очередь {{ message-queue-name }}.

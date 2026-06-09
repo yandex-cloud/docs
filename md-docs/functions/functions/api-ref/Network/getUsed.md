@@ -5,7 +5,7 @@ Returns the specified network used in serverless resources.
 ## HTTP request
 
 ```
-GET https://serverless-functions.api.cloud.yandex.net/functions/v1/networks/used/{networkId}
+GET https://serverless-functions.{{ api-host }}/functions/v1/networks/used/{networkId}
 ```
 
 ## Path parameters

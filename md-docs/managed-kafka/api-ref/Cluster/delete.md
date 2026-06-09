@@ -5,7 +5,7 @@ Deletes the specified Apache Kafka® cluster.
 ## HTTP request
 
 ```
-DELETE https://mdb.api.cloud.yandex.net/managed-kafka/v1/clusters/{clusterId}
+DELETE https://{{ api-host-mdb }}/managed-kafka/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

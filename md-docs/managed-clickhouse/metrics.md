@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Managed Service for ClickHouse®, поставляемые в [Monitoring](../monitoring/concepts/index.md).
+В этом разделе описаны метрики сервиса {{ mch-name }}, поставляемые в [{{ monitoring-name }}]({{ monitoring-doc-links }}).
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик сервиса Managed Service for ClickHouse®:
+Общие метки для всех метрик сервиса {{ mch-name }}:
 
 Метка | Значение
 ----|----
@@ -15,7 +15,7 @@ resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
 service | Идентификатор сервиса: `managed-clickhouse`
 shard | Идентификатор шарда
-subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`
+subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`, `keeper_subcluster`
 
 
 ## Метрики CPU {#managed-clickhouse-cpu-metrics}
@@ -47,7 +47,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_s3_disk_parts_size`<br/>`DGAUGE`, байты | Место, занятое кусками таблиц [MergeTree](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/) в сервисе Yandex Object Storage при настроенном [гибридном хранилище](concepts/storage.md#hybrid-storage-features) Managed Service for ClickHouse®. |
+| `ch_s3_disk_parts_size`<br/>`DGAUGE`, байты | Место, занятое кусками таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в сервисе {{ objstorage-full-name }} при настроенном [гибридном хранилище](concepts/storage.md#hybrid-storage-features) {{ mch-name }}. |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. |
 | `disk.free_inodes`<br/>`DGAUGE`, штуки | Свободное количество inodes. |
 | `disk.total_bytes`<br/>`DGAUGE`, байты | Доступное место. |
@@ -112,16 +112,16 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `net.packets_sent`<br/>`DGAUGE`, пакетов/с | Интенсивность отправки данных по сети. |
 
 
-## Метрики ZooKeeper {#managed-clickhouse-zookeeper}
+## Метрики {{ ZK }} {#managed-clickhouse-zookeeper}
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `zk_avg_latency`<br/>`DGAUGE`, миллисекунды | Средняя задержка ответа хоста ZooKeeper. |
+| `zk_avg_latency`<br/>`DGAUGE`, миллисекунды | Средняя задержка ответа хоста {{ ZK }}. |
 | `zk_ephemerals_count`<br/>`DGAUGE`, штуки | Количество объектов Ephemeral node. |
 | `zk_num_alive_connections`<br/>`DGAUGE`, штуки | Количество подключений |
 | `zk_outstanding_requests`<br/>`DGAUGE`, штуки | Количество запросов, находящихся в обработке. |
-| `zk_server_state_follower`<br/>`DGAUGE`, 0/1 | Принимает значение `1`, если роль хоста ZooKeeper — Follower, иначе `0`. |
-| `zk_server_state_leader`<br/>`DGAUGE`, 0/1 | Принимает значение `1`, если роль хоста ZooKeeper — Leader, иначе `0`. |
+| `zk_server_state_follower`<br/>`DGAUGE`, 0/1 | Принимает значение `1`, если роль хоста {{ ZK }} — Follower, иначе `0`. |
+| `zk_server_state_leader`<br/>`DGAUGE`, 0/1 | Принимает значение `1`, если роль хоста {{ ZK }} — Leader, иначе `0`. |
 | `zk_watch_count`<br/>`DGAUGE`, штуки | Количество объектов Watch. |
 | `zk_znode_count`<br/>`DGAUGE`, штуки | Количество объектов Znode. |
 
@@ -130,7 +130,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики системных событий {#managed-clickhouse-system-events-metrics}
 
-Нативные метрики ClickHouse® из таблицы [system.events](https://clickhouse.com/docs/ru/operations/system-tables/events).
+Нативные метрики {{ CH }} из таблицы [system.events]({{ ch.docs }}{{ lang }}/operations/system-tables/events).
 По каждой метрике считается прирост `inc` и скорость изменения `rate` за единицу времени.
 
 | Имя<br/>Тип |
@@ -651,7 +651,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики текущих событий {#managed-clickhouse-system-metrics}
 
-Нативные метрики ClickHouse® из таблицы [system.metrics](https://clickhouse.com/docs/ru/operations/system-tables/metrics/).
+Нативные метрики {{ CH }} из таблицы [system.metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/metrics).
 
 | Имя<br/>Тип |
 | ----- |
@@ -1097,7 +1097,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
 
-Нативные метрики ClickHouse® из таблицы [system.query_log](https://clickhouse.com/docs/ru/operations/system-tables/query_log).
+Нативные метрики {{ CH }} из таблицы [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log).
 По каждой метрике считается прирост за единицу времени (секунда).
 
 | Имя<br>Тип |
@@ -1141,11 +1141,11 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Системные метрики {#managed-clickhouse-config-metrics}
 
-Нативные метрики ClickHouse® из таблицы [system.asynchronous_metrics](https://clickhouse.com/docs/ru/operations/system-tables/asynchronous_metrics).
+Нативные метрики {{ CH }} из таблицы [system.asynchronous_metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/asynchronous_metrics).
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого ClickHouse® отправляет исключение `Too many parts ....` Задается в [настройках](concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
+| `ch_config_merge_tree_parts_to_throw_insert`<br/>`DGAUGE`, штуки | Предельное число активных кусков данных таблицы, при превышении которого {{ CH }} отправляет исключение `Too many parts ....` Задается в [настройках](concepts/settings-list.md#setting-merge-tree). Имеет смысл [анализировать](../glossary/data-analytics.md) в паре с метрикой `ch_system_async_metrics_MaxPartCountForPartition`. |
 | `ch_local_disk_max_parts_per_partition`<br/>`DGAUGE`, штуки | Максимальное число кусков в разделе на локальных дисках. |
 | `ch_local_disk_parts_size`<br/>`DGAUGE`, байты | Размер партиций на локальных дисках. |
 | `ch_system_async_metrics_MaxPartCountForPartition`<br/>`DGAUGE`, штуки | Максимальное число кусков данных в разделе. |
@@ -1162,10 +1162,10 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_async_metrics_NumberOfPendingMutations`<br/>`DGAUGE`, штуки | Число ожидающих мутаций. |
 | `ch_system_async_metrics_NumberOfPendingMutationsOverExecutionTime`<br/>`DGAUGE`, штуки | Число мутаций, превышающих порог времени выполнения. |
 | `ch_system_async_metrics_NumberOfStuckMutations`<br/>`DGAUGE`, штуки | Число застрявших мутаций. |
-| `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, штуки | Общее количество таблиц, суммированных по базам данных на сервере, исключая базы данных, которые не могут содержать таблицы MergeTree. Исключенные движки баз данных — это те, которые генерируют набор таблиц «на лету», такие как Lazy, MySQL®, PostgreSQL, SQLite. |
+| `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, штуки | Общее количество таблиц, суммированных по базам данных на сервере, исключая базы данных, которые не могут содержать таблицы MergeTree. Исключенные движки баз данных — это те, которые генерируют набор таблиц «на лету», такие как Lazy, {{ MY }}, {{ PG }}, SQLite. |
 | `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, штуки | Общее количество таблиц в системной базе данных на сервере, хранящихся в таблицах семейства MergeTree. |
-| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, байты | Объем занятой памяти в кэше запросов. |
-| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, штуки | Число записей в кэше запросов. |
+| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, байты | Объем занятой памяти в кеше запросов. |
+| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, штуки | Число записей в кеше запросов. |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, секунды | Максимальное время задержки репликации. |
 | `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, штуки | Максимальное количество операций INSERT в очереди (все еще подлежащих репликации) в реплицируемых таблицах. |
 | `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, штуки | Максимальное количество операций слияния в очереди (которые еще предстоит применить) для реплицируемых таблиц. |
@@ -1182,8 +1182,8 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_async_metrics_TotalPrimaryKeyBytesInMemoryAllocated`<br/>`DGAUGE`, байты | Общий объем выделенной памяти под значения первичных ключей в оперативной памяти. |
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTables`<br/>`DGAUGE`, штуки | Общее количество строк (записей), хранящихся во всех таблицах семейства MergeTree. |
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, штуки | Общее количество строк (записей), хранящихся в таблицах семейства MergeTree в системной БД. |
-| `ch_system_async_metrics_UncompressedCacheBytes`<br/>`DGAUGE`, байты | Объем памяти, занятой несжатым кэшом. |
-| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, штуки | Количество элементов в несжатом кэше. |
+| `ch_system_async_metrics_UncompressedCacheBytes`<br/>`DGAUGE`, байты | Объем памяти, занятой несжатым кешом. |
+| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, штуки | Количество элементов в несжатом кеше. |
 | `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, секунды | Время безотказной работы сервера в секундах. Включает время, затраченное на инициализацию сервера перед принятием подключений. |
 
 
@@ -1201,6 +1201,6 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### См. также {#see-also}
 
-[Мониторинг состояния кластера ClickHouse® и его хостов](operations/monitoring.md)
+[{#T}](operations/monitoring.md)
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -5,7 +5,7 @@ Retrieves the list of PublicSubnet resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/publicSubnets
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/publicSubnets
 ```
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListPublicSubnetRequest}

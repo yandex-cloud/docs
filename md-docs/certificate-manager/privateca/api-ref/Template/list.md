@@ -5,7 +5,7 @@ Lists all certificate templates in a specified folder.
 ## HTTP request
 
 ```
-GET https://private-ca.certificate-manager.api.cloud.yandex.net/privateca/v1/templates
+GET https://private-ca.certificate-manager.{{ api-host }}/privateca/v1/templates
 ```
 
 ## Query parameters {#yandex.cloud.certificatemanager.v1.privateca.ListTemplateRequest}

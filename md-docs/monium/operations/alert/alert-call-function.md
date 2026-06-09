@@ -1,6 +1,6 @@
-# Webhook с использованием Cloud Functions
+# Webhook с использованием {{ sf-name }}
 
-Для автоматической обработки инцидентов и других событий в вашем облаке вы можете вызывать в Monium Metrics функции Cloud Functions. В этом разделе приведен пример настройки webhook с отправкой POST-запросов при срабатывании алерта. Таким образом при срабатывании алерта вы можете вызывать методы внешнего API. Так же можно вызывать функции Cloud Functions в [эскалациях](create-escalation.md).
+Для автоматической обработки инцидентов и других событий в вашем облаке вы можете вызывать в {{ monitoring-full-name }} функции {{ sf-name }}. В этом разделе приведен пример настройки webhook с отправкой POST-запросов при срабатывании алерта. Таким образом при срабатывании алерта вы можете вызывать методы внешнего API. Так же можно вызывать функции {{ sf-name }} в [эскалациях](create-escalation.md).
 
 Чтобы отправлять POST-запросы при срабатывании алерта:
 
@@ -24,12 +24,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог с ресурсами, которые надо отслеживать в Monium Metrics.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите кнопку **Создать сервисный аккаунт**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с ресурсами, которые надо отслеживать в {{ monitoring-name }}.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `sa-alert-webhook`.
-  1. Добавьте роли `functions.functionInvoker` и `functions.viewer`.
-  1. Нажмите кнопку **Создать**.
+  1. Добавьте роли `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -39,14 +39,14 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
-  1. Нажмите кнопку **Создать функцию**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя функции, например `alert-webhook`.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../../functions/concepts/function.md#version):
-     1. Выберите среду выполнения **Python**, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-     1. Выберите способ **Редактор кода**.
-      1. Нажмите **Создать файл** и введите имя файла, например `index`.
+     1. Выберите среду выполнения **Python**, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Выберите способ **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+      1. Нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}** и введите имя файла, например `index`.
       1. Введите код функции, указав URL для обработки POST-запросов и токен:
     
             ```python
@@ -103,13 +103,13 @@
                     print(f"{result['status']} when invoking {result['url']}. Error message: {result['error']}")
             ```
   
-  1. В блоке **Параметры** задайте параметры версии:
-      * **Точка входа**: `index.handler`.
-      * **Сервисный аккаунт**: `sa-alert-webhook`.
-  1. В блоке **Дополнительные настройки**:
-      1. Включите **Асинхронный вызов**.
-      1. Выберите **Сервисный аккаунт** `sa-alert-webhook`.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
+      * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
+      * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-alert-webhook`.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
+      1. Включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+      1. Выберите **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
 
@@ -117,15 +117,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Monium {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в **Monium** и слева выберите раздел **Способы уведомления**.
+  1. Перейдите в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений, например `channel-function`.
-  1. В списке **Метод** выберите ![image](../../../_assets/console-icons/code.svg)  **Cloud Functions**.
-  1. В списке **Облачная функция** выберите функцию `alert-webhook`.
-  1. В списке **Сервисный аккаунт** выберите аккаунт `sa-alert-webhook`.
-  1. Нажмите **Создать**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![image](../../../_assets/console-icons/code.svg)  **{{ sf-name }}**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_function_title }}** выберите функцию `alert-webhook`.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт `sa-alert-webhook`.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -133,17 +133,17 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Monium {#console}
+- Интерфейс {{ monium-name }} {#console}
 
-  1. В **Monium** выберите раздел **Алерты**.
-  1. Нажмите кнопку **Создать**.
+  1. В **{{ monium-name }}** выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Введите имя алерта, например `alert-function`.
   1. Введите [запрос](../../concepts/alerting/alert.md#queries), по которому будут выбираться метрики для отслеживания.
   1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition).
-  1. В блоке **Уведомления** нажмите **Редактировать** и затем кнопку **Добавить**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}** и затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. Выберите канал `channel-function`.
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
@@ -153,9 +153,9 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `alert-webhook`.
-  1. Выберите вкладку **Тестирование**.
+  1. Выберите вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В качестве входных данных введите:
 
       ```json
@@ -167,7 +167,7 @@
       }
       ```
 
-  1. Нажмите кнопку **Запустить тест**.
-  1. В логах вызова функции на вкладке **Тестирование** или **Логи** посмотрите, что запрос был отправлен на URL `https://my.url/route/for/ok`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}**.
+  1. В логах вызова функции на вкладке **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** или **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** посмотрите, что запрос был отправлен на URL `https://my.url/route/for/ok`.
 
 {% endlist %}

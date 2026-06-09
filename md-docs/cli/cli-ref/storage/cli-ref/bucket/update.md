@@ -123,9 +123,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -153,18 +150,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Настройте политику доступа для бакета](../../../../../storage/operations/buckets/access-via-vpc.md#cli_2)
- * [Открыть публичный доступ](../../../../../storage/operations/buckets/bucket-availability.md#cli_1)
- * [Настройка CORS](../../../../../storage/operations/buckets/cors.md#cli_1)
- * [Запретить доступ в бакет с помощью статических ключей](../../../../../storage/operations/buckets/disable-statickey-auth.md#cli_1)
- * [Редактирование ACL бакета](../../../../../storage/operations/buckets/edit-acl.md#cli_1)
- * [Управление жизненными циклами объектов в бакете](../../../../../storage/operations/buckets/lifecycles.md#cli_1)
- * [Ограничение максимального размера бакета](../../../../../storage/operations/buckets/limit-max-volume.md#cli_1)
- * [Применить или изменить политику](../../../../../storage/operations/buckets/policy.md#cli_1)
- * [Добавить или изменить метки](../../../../../storage/operations/buckets/tagging.md#cli_1)
- * [Управление версионированием бакета](../../../../../storage/operations/buckets/versioning.md#cli_1)
- * [Выбор сертификата из Certificate Manager](../../../../../storage/operations/hosting/certificate.md#cli_1)
- * [Настройте статический сайт для основного домена](../../../../../storage/operations/hosting/multiple-domains/console.md#cli_2)
- * [Хостинг статического сайта](../../../../../storage/operations/hosting/setup.md#cli_1)

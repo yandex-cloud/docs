@@ -49,8 +49,8 @@ Attribute.N.Value (значение атрибута)
 
 Атрибут | Тип | Описание
 ----- | ----- | -----
-`KmsMasterKeyId` | **string** | Атрибут не поддерживается в Yandex Message Queue.
-`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в Yandex Message Queue.
+`KmsMasterKeyId` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
+`KmsDataKeyReusePeriodSeconds` | **string** | Атрибут не поддерживается в {{ message-queue-full-name }}.
 
 
 ## Ответ {#response}
@@ -63,7 +63,7 @@ Attribute.N.Value (значение атрибута)
 
 ### Ошибки GetQueueAttributes {#errors}
 
-Перечень общих для всех методов ошибок смотрите в разделе [Стандартные ошибки](../common-errors.md).
+Перечень общих для всех методов ошибок смотрите в разделе [{#T}](../common-errors.md).
 
 Код HTTP | Идентификатор ошибки | Описание
 ----- | ----- | -----
@@ -74,7 +74,7 @@ Attribute.N.Value (значение атрибута)
 ```text
 Action=GetQueueAttributes
 &Version=2012-11-05
-&QueueUrl=https://message-queue.api.cloud.yandex.net/b1g8ad42m6he********/dj6000000000********/sample-queue
+&QueueUrl=https://message-queue.{{ api-host }}/b1g8ad42m6he********/dj6000000000********/sample-queue
 &AttributeName.1=All
 ```
 

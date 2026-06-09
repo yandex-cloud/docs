@@ -1,8 +1,8 @@
 # Рабочие столы и их группы
 
-Основной ресурс сервиса Cloud Desktop — _рабочий стол_. Это виртуальное рабочее пространство под управлением операционной системы на базе Linux или Windows (будет доступно позднее), развернутое в инфраструктуре Yandex Cloud.
+Основной ресурс сервиса {{ cloud-desktop-name }} — _рабочий стол_. Это виртуальное рабочее пространство под управлением операционной системы на базе Linux или Windows (будет доступно позднее), развернутое в инфраструктуре {{ yandex-cloud }}.
 
-Для подключения к рабочему столу используется [Remote Desktop Protocol](https://ru.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+Для подключения к рабочему столу используется [Remote Desktop Protocol](https://{{ lang }}.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
 
 Рабочие столы создаются в рамках _группы рабочих столов_. Для всех рабочих столов в группе используются одинаковые вычислительные ресурсы, одна и та же [сеть](../../vpc/concepts/network.md) и один образ операционной системы.
 
@@ -13,10 +13,10 @@
 
 Все действия с рабочими столами и группами [логируются](../operations/logging.md).
 
-С рабочим столом могут работать пользователи организации, созданные в [Yandex Identity Hub](../../organization/index.md).
+С рабочим столом могут работать пользователи организации, созданные в [{{ org-full-name }}](../../organization/index.md).
 
-В Cloud Desktop управление доступом реализовано с помощью [разграничения ролей Yandex Identity and Access Management](../security/index.md) и [списков управления доступом (ACL)](acl.md). См. [пример использования механизмов доступа](acl.md#example).
+В {{ cloud-desktop-name }} управление доступом реализовано с помощью [разграничения ролей {{ iam-full-name }}](../security/index.md) и [списков управления доступом (ACL)](acl.md). См. [пример использования механизмов доступа](acl.md#example).
 
 #### См. также {#see-also}
 
-* [Как организовать удаленные рабочие места с помощью Yandex Cloud Desktop](https://yandex.cloud/ru/blog/remote-workplaces)
+* [Как организовать удаленные рабочие места с помощью {{ cloud-desktop-full-name }}](https://yandex.cloud/ru/blog/remote-workplaces)

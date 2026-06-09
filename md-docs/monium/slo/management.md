@@ -1,6 +1,6 @@
-# Управление SLO в Monium
+# Управление SLO в {{ monium-name }}
 
-Для работы со SLO на главной странице сервиса [Monium](https://monium.yandex.cloud) слева выберите **SLO**.
+Для работы со SLO на главной странице сервиса [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.slo.title }}**.
 
 ## Статусы SLO {#status}
 

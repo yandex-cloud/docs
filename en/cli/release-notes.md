@@ -7,6 +7,91 @@ description: This page presents CLI releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 1.9.0 (21/05/26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Added the `yc dns inbound-endpoint` command group for inbound endpoint management:
+  * `yc dns inbound-endpoint get`
+  * `yc dns inbound-endpoint list`
+  * `yc dns inbound-endpoint create`
+  * `yc dns inbound-endpoint update`
+  * `yc dns inbound-endpoint delete`
+  * `yc dns inbound-endpoint add-labels`
+  * `yc dns inbound-endpoint remove-labels`
+  * `yc dns inbound-endpoint list-access-bindings`
+  * `yc dns inbound-endpoint set-access-bindings`
+  * `yc dns inbound-endpoint add-access-binding`
+  * `yc dns inbound-endpoint remove-access-binding`
+  * `yc dns inbound-endpoint list-operations`
+
+## Previous releases {#previous-release}
+
+### Version 1.8.1 (20/05/26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Added the `yc sws waf waf-profile` command group for managing WAF profiles (create, get, list, update, delete) in the syntax-2 CLI:
+  * `yc sws waf waf-profile create`
+  * `yc sws waf waf-profile get`
+  * `yc sws waf waf-profile list`
+  * `yc sws waf waf-profile update`
+  * `yc sws waf waf-profile delete`
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Added the `failover-type` parameter for the `start-failover` command:
+  * `yc redis cluster start-failover`
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Added `folder-id` settings for creating connections and their secrets in the Connection Manager integration for {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`
+  * `yc managed-postgresql cluster restore`
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql user create`
+
+* Removed the deprecated `connection_manager` field from the output with single user details and replaced it with `ser_connection_manager`:
+  * `yc managed-postgresql user get`
+  * `yc managed-postgresql user list`
+  * `yc managed-postgresql user create`
+
+* Discontinued support for {{ PG }} legacy versions (13, 13-1c):
+  * `yc managed-postgresql cluster update`
+  * `yc managed-postgresql cluster create`
+
+### Version 1.8.0 (18/05/26) {#v-1-8-0}
+
+#### Changes to the CLI system commands {#v-1-8-0-yc}
+
+* In `yc`, added command trees for versions `v0` and `v1` at the service level. The `v1` subtree uses the new CLI interface. `v1` trees are available for `yc cic`, `yc cloudrouter`, `yc smartcaptcha`, and `yc smartwebsecurity`.
+* The `--syntax` flag has been removed and is no longer supported. For interface selection, use the `v0` and `v1` versions, as well as the `services.<service>.version` configuration setting.
+
+#### {{ mgp-name }} {#v-1-8-0-mgp-name}
+
+* Added the `--port` flag to specify a specific proxy startup port for {{ mgp-name }}:
+  * `yc managed-greenplum connect`
+
+#### {{ mpg-name }} {#v-1-8-0-mpg-name}
+
+* Added the `--port` flag to specify a specific proxy startup port for {{ mpg-name }}:
+  * `yc managed-postgresql connect`
+
+#### {{ interconnect-name }} {#v-1-8-0-cic-name}
+
+* Added the `name`, `url`, `pop_ids` fields to the output of the following commands:
+  * `yc cic partner get`
+  * `yc cic partner list`
+
+#### {{ sf-name }} {#v-1-8-0-sf-name}
+
+* In the `yc serverless function version create` command, the `--subnet-id` and `--subnet-name` parameters are marked as **DEPRECATED**. To specify network access, use only `--network-id` or `--network-name`.
+
+#### {{ serverless-containers-name }} {#v-1-8-0-serverless-containers-name}
+
+* The `--subnets` parameter is marked as **DEPRECATED**; use only `--network-id` or `--network-name` to specify network access:
+  * `yc serverless container revision deploy`
+
 ### Version 1.7.0 (12/05/26) {#v-1-7-0}
 
 #### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
@@ -17,13 +102,13 @@ Added the `--network-interface-id` and `--configuration-network-interface-id` pa
 
 #### {{ dns-name }} {#v-1-7-0-dns-name}
 
-Fixed the descriptions of the following commands:
+Fixed descriptions of the following commands:
 * `yc dns zone create`
 * `yc dns firewall create`
 
 #### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
 
-The `yc cloudrouter` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cloudrouter ...`; alternatively, set `default-syntax: 2` or `services.cloudrouter.syntax: 2` in the profile:
+The `yc cloudrouter` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cloudrouter ...`, or set `default-syntax: 2` or `services.cloudrouter.syntax: 2` in the profile:
   * `yc cloudrouter routing-instance add-private-connection`
   * `yc cloudrouter routing-instance create`
   * `yc cloudrouter routing-instance delete`
@@ -73,13 +158,13 @@ Added the `--performance-diagnostics-enabled` and `--performance-diagnostics-pro
   * `yc cic private-connection create`
   * `yc cic private-connection update`
 
-* Added the `name`, `address`, and `connection points` fields with additional information about points of presence to the output of the `yc cic point-of-presence get` and `yc cic point-of-presence list` commands.
+* Added the `name`, `address`, and `connection points` fields with additional information about points of presence to the `yc cic point-of-presence get` and `yc cic point-of-presence list` command output.
 
 * Modified the output of the following commands:
   * `yc cic get`
   * `yc cic list`
 
-* The `yc cic` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cic ...`; alternatively, set `default-syntax: 2` or `services.cic.syntax: 2` in the profile:
+* The `yc cic` service commands are available in a new syntax. To run the commands below, use `yc --syntax=2 cic ...`, or set `default-syntax: 2` or `services.cic.syntax: 2` in the profile:
   * `yc cic partner get`
   * `yc cic partner list`
   * `yc cic point-of-presence get`
@@ -105,19 +190,15 @@ Added the `--performance-diagnostics-enabled` and `--performance-diagnostics-pro
   * `yc cic trunk-connection move`
   * `yc cic trunk-connection update`
 
-## Previous releases {#previous-release}
-
 ### Version 1.6.0 (27/04/26) {#v-1-6-0}
 
 #### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
 
-* Added the `yc cloud-registry registry lifecycle-policy dry-run` command to simulate the execution of a lifecycle policy.
+Added the `yc cloud-registry registry lifecycle-policy dry-run` command to simulate the execution of a lifecycle policy.
 
 #### {{ iam-name }} {#v-1-6-0-iam-name}
 
-* Added the `MASKED KEY` field to the output of the `yc iam api-key list` command, containing the last six characters of the key's secret part.
-
-## Previous releases {#previous-release}
+Added the `MASKED KEY` field to the output of the `yc iam api-key list` command, containing the last six characters of the key's secret part.
 
 ### Version 1.5.0 (23/04/26) {#v-1-5-0}
 
@@ -641,7 +722,7 @@ The below workflow management commands now support the `--set-is-public` and `--
 
 #### Changes to the CLI {#cli-0.191.0}
 
-* Changed the procedure for getting an endpoint for authentication.
+* Changed the procedure for getting an endpoint for authorization.
 * Removed commands for working with {{ mms-full-name }}.
 
 #### Changes to {{ yandex-cloud }} services {#services-0.191.0}
@@ -5617,7 +5698,7 @@ Use the keys to protect your secrets, private data, and other confidential infor
 
 #### Changes to the CLI {#cli}
 
-* Added CLI authentication using [SAML-compatible identity federations](../organization/concepts/add-federation.md).
+* Added CLI authorization using [SAML-compatible identity federations](../organization/concepts/add-federation.md).
 
   To use the CLI as a federated user, run the `yc init --federation-id=<FEDERATION_ID>` command.
 

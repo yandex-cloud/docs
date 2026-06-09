@@ -1,13 +1,12 @@
 # Managed Service for SPQR API, REST: Database.Get
 
 Returns the specified SPQR Database resource.
-
 To get the list of available SPQR Database resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/databases/{databaseName}
+GET https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/databases/{databaseName}
 ```
 
 ## Path parameters

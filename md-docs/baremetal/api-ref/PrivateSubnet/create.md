@@ -5,7 +5,7 @@ Creates a private subnet in the specified folder.
 ## HTTP request
 
 ```
-POST https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets
+POST https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets
 ```
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.CreatePrivateSubnetRequest}

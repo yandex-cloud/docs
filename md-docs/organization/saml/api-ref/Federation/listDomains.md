@@ -5,7 +5,7 @@ Retrieves the list of domains in the specified federation.
 ## HTTP request
 
 ```
-GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/saml/federations/{federationId}/domains
+GET https://organization-manager.{{ api-host }}/organization-manager/v1/saml/federations/{federationId}/domains
 ```
 
 ## Path parameters
@@ -47,11 +47,9 @@ The expression supports the following operations:
 - `IN` for multiple values: `status IN ('NEED_TO_VALIDATE', 'VALID')`
 - `contains` for domain substring search: `domain contains '3'`
 - `AND` for combining conditions: `status = 'INVALID' AND domain contains '3'`
-
 Available fields for filtering:
 - `domain` - domain name
 - `status` - domain validation status
-
 Must be 1-1000 characters long.
 
 The maximum string length in characters is 1000. ||

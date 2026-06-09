@@ -1,13 +1,12 @@
 # Container Registry API, REST: Image.Get
 
 Returns the specified Image resource.
-
 To get the list of available Image resources, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images/{imageId}
+GET https://container-registry.{{ api-host }}/container-registry/v1/images/{imageId}
 ```
 
 ## Path parameters
@@ -17,7 +16,6 @@ GET https://container-registry.api.cloud.yandex.net/container-registry/v1/images
 || imageId | **string**
 
 Required field. ID of the Docker image resource to return.
-
 To get the Docker image ID use a [ImageService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -84,7 +82,6 @@ Layers of the Docker image. ||
 || tags[] | **string**
 
 Tags of the Docker image.
-
 Each tag is unique within the repository. ||
 || createdAt | **string** (date-time)
 

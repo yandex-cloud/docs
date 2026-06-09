@@ -1,5 +1,5 @@
-{% note info %}
+{% note warning %}
 
-The configuration you select affects the [cost of using the instance computing resources](../../managed-gitlab/pricing.md#prices-instance).
+In {{ mgl-name }}, you pay for approval rules depending on your [configuration](../../managed-gitlab/concepts/approval-rules.md#packages). For more information, see [{#T}](../../managed-gitlab/pricing.md).
 
 {% endnote %}

@@ -6,7 +6,7 @@ To get the list of standard  resources, make a [List](list.md#List) request.
 ## HTTP request
 
 ```
-GET https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/standardImages/{standardImageId}
+GET https://baremetal.{{ api-host }}/baremetal/v1alpha/standardImages/{standardImageId}
 ```
 
 ## Path parameters

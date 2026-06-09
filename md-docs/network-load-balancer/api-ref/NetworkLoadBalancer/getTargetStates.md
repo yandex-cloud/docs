@@ -5,7 +5,7 @@ Gets states of target resources in the attached target group.
 ## HTTP request
 
 ```
-GET https://load-balancer.api.cloud.yandex.net/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
+GET https://load-balancer.{{ api-host }}/load-balancer/v1/networkLoadBalancers/{networkLoadBalancerId}:getTargetStates
 ```
 
 ## Path parameters

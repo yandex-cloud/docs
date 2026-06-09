@@ -1,11 +1,11 @@
 # Работа с коннекторами Spark
 
-Интеграция DataSphere Jobs с [Yandex Data Processing](../../../data-proc/index.md) через [коннекторы Spark](../spark-connector.md) отличается от стандартной работы заданий. Кластеры Yandex Data Processing имеют строгие требования к окружению, поэтому для заданий есть ряд ограничений:
+Интеграция {{ ds-jobs }} с [{{ dataproc-full-name }}](../../../data-proc/index.md) через [коннекторы Spark](../spark-connector.md) отличается от стандартной работы заданий. Кластеры {{ dataproc-name }} имеют строгие требования к окружению, поэтому для заданий есть ряд ограничений:
 
 * Для заданий, использующих коннектор Spark, нельзя изменить Docker-образ. Попытка указать новый образ приведет к ошибке.
-* [Python-окружение](environment.md) DataSphere Jobs должно соответствовать [окружению](../../../data-proc/concepts/environment.md#current-images) кластера Yandex Data Processing, версии Python и основных библиотек должны совпадать. Для работы с Yandex Data Processing из заданий предпочтительнее использовать [ручное задание](environment.md#manual).
-* Для корректного исполнения задания могут потребоваться дополнительные пакеты. Список пакетов и их версии зависят от версии кластера Yandex Data Processing. Информация о дополнительных пакетах отражается в [логе](cli.md#logs) задания.
-* Для подключения к кластеру Yandex Data Processing из задания необходимо использовать DataSphere SDK из Python-пакета `datasphere`.
+* [Python-окружение](environment.md) {{ ds-jobs }} должно соответствовать [окружению](../../../data-proc/concepts/environment.md#current-images) кластера {{ dataproc-name }}, версии Python и основных библиотек должны совпадать. Для работы с {{ dataproc-name }} из заданий предпочтительнее использовать [ручное задание](environment.md#manual).
+* Для корректного исполнения задания могут потребоваться дополнительные пакеты. Список пакетов и их версии зависят от версии кластера {{ dataproc-name }}. Информация о дополнительных пакетах отражается в [логе](cli.md#logs) задания.
+* Для подключения к кластеру {{ dataproc-name }} из задания необходимо использовать {{ ml-platform-name }} SDK из Python-пакета `datasphere`.
 
 {% note warning %}
 
@@ -26,20 +26,20 @@ spark:
 
 {% note warning %}
 
-Для работы с коннекторами Spark в DataSphere Jobs требуется [DataSphere CLI](cli.md) версии `0.10.0` или выше.
+Для работы с коннекторами Spark в {{ ds-jobs }} требуется [{{ ds-cli }}](cli.md) версии `0.10.0` или выше.
 
 {% endnote %}
 
-## Подключение к кластеру Yandex Data Processing из кода задания {#connect}
+## Подключение к кластеру {{ dataproc-name }} из кода задания {#connect}
 
-Для подключения к кластеру Yandex Data Processing из задания используется DataSphere SDK из Python-пакета `datasphere`. Укажите пакет `datasphere` в `requirements.txt` и подключитесь к кластеру в коде.
+Для подключения к кластеру {{ dataproc-name }} из задания используется {{ ml-platform-name }} SDK из Python-пакета `datasphere`. Укажите пакет `datasphere` в `requirements.txt` и подключитесь к кластеру в коде.
 
 ```python
 from datasphere.sdk import SDK
 
 sdk = SDK()
 
-spark_wrapper = sdk.connect_to_spark()  # Конфигурирует и создает сессию подключения к кластеру Yandex Data Processing
+spark_wrapper = sdk.connect_to_spark()  # Конфигурирует и создает сессию подключения к кластеру {{ dataproc-name }}
 
 spark_session = spark_wrapper.spark # Сессия Spark
 spark_context = spark_wrapper.sc # Контекст Spark
@@ -49,7 +49,7 @@ spark_context = spark_wrapper.sc # Контекст Spark
 
 ### Локальная отладка задания {#debug}
 
-При работе с кластерами Yandex Data Processing в DataSphere SDK предусмотрена возможность создания [локальной сессии PySpark](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.builder.master.html) в момент вызова `sdk.connect_to_spark()`.
+При работе с кластерами {{ dataproc-name }} в {{ ml-platform-name }} SDK предусмотрена возможность создания [локальной сессии PySpark](https://spark.apache.org/docs/latest/api/python/reference/pyspark.sql/api/pyspark.sql.SparkSession.builder.master.html) в момент вызова `sdk.connect_to_spark()`.
 
 Для запуска локальной сессии создайте файл в директории задания с именем `.spark_local_config.json` (или укажите путь до файла через переменную окружения `JOB_DATAPROC_CONNECTION_CONFIG`) и укажите в нем следующие параметры:
 
@@ -61,7 +61,7 @@ spark_context = spark_wrapper.sc # Контекст Spark
 }
 ```
 
-### Пример задания с подключением к кластеру Yandex Data Processing {#example}
+### Пример задания с подключением к кластеру {{ dataproc-name }} {#example}
 
 1. Создайте файл конфигурации задания `config.yaml`:
 

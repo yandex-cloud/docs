@@ -1,6 +1,12 @@
-# Обновление мажорной версии PostgreSQL в Yandex Managed Service for PostgreSQL
+# Обновление мажорной версии {{ PG }} в {{ mpg-full-name }}
 
-Чтобы обновить мажорную версию PostgreSQL в Managed Service for PostgreSQL, выберите подходящее время, версию и [запустите обновление](../operations/cluster-version-update.md#start-update).
+{% note warning %}
+
+Начиная с 12 августа 2026 года, существующие кластеры {{ PG }} версии {{ pg.versions.console.dpr }} будут автоматически обновляться до версии {{ pg.versions.console.str-last }}. Рекомендуем заранее обновиться самостоятельно.
+
+{% endnote %}
+
+Чтобы обновить мажорную версию {{ PG }} в {{ mpg-name }}, выберите подходящее время, версию и [запустите обновление](../operations/cluster-version-update.md#start-update).
 
 Для обновления мажорной версии должно быть свободно:
 

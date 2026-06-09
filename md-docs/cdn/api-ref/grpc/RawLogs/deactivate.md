@@ -1,5 +1,7 @@
 # Cloud CDN API, gRPC: RawLogsService.Deactivate
 
+Deactivate raw log export.
+
 ## gRPC request
 
 **rpc Deactivate ([DeactivateRawLogsRequest](#yandex.cloud.cdn.v1.DeactivateRawLogsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

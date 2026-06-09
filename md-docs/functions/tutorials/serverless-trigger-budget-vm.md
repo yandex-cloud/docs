@@ -1,35 +1,35 @@
-# Создание триггера для бюджетов, который вызывает функцию Cloud Functions для остановки ВМ
+# Создание триггера для бюджетов, который вызывает функцию {{ sf-name }} для остановки ВМ
 
 
-Создайте триггер для [бюджетов](../../billing/concepts/budget.md), который вызывает [функцию](../concepts/function.md) Cloud Functions. Функция будет останавливать [виртуальные машины](../../compute/concepts/vm.md#project) Compute Cloud при превышении пороговых значений, заданных в бюджете.
+Создайте триггер для [бюджетов](../../billing/concepts/budget.md), который вызывает [функцию](../concepts/function.md) {{ sf-name }}. Функция будет останавливать [виртуальные машины](../../compute/concepts/vm.md#project) {{ compute-name }} при превышении пороговых значений, заданных в бюджете.
 
 Чтобы развернуть проект:
 1. [Скачайте проект](#download).
 1. [Создайте сервисный аккаунт](#create-sa).
 1. [Подготовьте ZIP-архив с кодом функции](#prepare-zip).
-1. [Создайте функцию Cloud Functions](#create-function).
+1. [Создайте функцию {{ sf-name }}](#create-function).
 1. [Создайте бюджет](#create-budget).
 1. [Создайте триггер для бюджетов](#create-trigger).
-1. [Создайте виртуальные машины Compute Cloud](#create-vm).
+1. [Создайте виртуальные машины {{ compute-name }}](#create-vm).
 1. [Проверьте, что ВМ останавливаются по триггеру](#test).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость ресурсов входят:
-* Плата за использование виртуальных машин (см. [тарифы Compute Cloud](../../compute/pricing.md)).
-* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы Cloud Functions](../pricing.md)).
+* Плата за использование виртуальных машин (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы {{ sf-name }}](../pricing.md)).
 
 ## Скачайте проект {#download}
 
@@ -45,16 +45,16 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором хотите создать сервисный аккаунт.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-    1. Нажмите кнопку **Создать сервисный аккаунт**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать сервисный аккаунт.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Введите имя сервисного аккаунта `service-account-for-budget`.
-    1. Нажмите **Добавить роль** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker`.
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -105,7 +105,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
         Сохраните идентификатор сервисного аккаунта `service-account-for-budget`.
 
-    1. Назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker` на каталог:
+    1. Назначьте сервисному аккаунту роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}` на каталог:
         ```bash
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
            --role compute.admin \
@@ -116,7 +116,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
 
         yc resource-manager folder add-access-binding <идентификатор_каталога> \
-           --role functions.functionInvoker \
+           --role {{ roles-functions-invoker }} \
            --subject serviceAccount:<идентификатор_сервисного_аккаунта>
         ```
 
@@ -129,7 +129,7 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 
     Чтобы создать сервисный аккаунт, воспользуйтесь методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
-    Чтобы назначить сервисному аккаунта роли `compute.admin`, `iam.serviceAccounts.user` и `functions.functionInvoker` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
+    Чтобы назначить сервисному аккаунта роли `compute.admin`, `iam.serviceAccounts.user` и `{{ roles-functions-invoker }}` на каталог, воспользуйтесь методом [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md).
 
 {% endlist %}
 
@@ -140,30 +140,30 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-trigger-budget
 zip src.zip index.go go.mod
 ```
 
-## Создайте функцию Cloud Functions {#create-function}
+## Создайте функцию {{ sf-name }} {#create-function}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали сервисный аккаунт.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Создайте функцию:
-        1. Нажмите кнопку **Создать функцию**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
         1. Введите имя функции `function-for-budget`.
-        1. Нажмите кнопку **Создать**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
     1. Создайте версию функции:
-        1. Выберите среду выполнения `golang119`, выключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
-        1. Укажите способ загрузки **ZIP-архив** и выберите архив, который создали на предыдущем шаге.
+        1. Выберите среду выполнения `golang119`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+        1. Укажите способ загрузки **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}** и выберите архив, который создали на предыдущем шаге.
         1. Укажите точку входа `index.StopComputeInstances`.
-        1. В блоке **Параметры** укажите:
-            * **Таймаут** — `5`;
-            * **Память** — `512 МБ`;
-            * **Сервисный аккаунт** — `service-account-for-budget`;
-            * **Переменные окружения**:
+        1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** — `5`;
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `512 {{ ui-key.yacloud.common.units.label_megabyte }}`;
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}** — `service-account-for-budget`;
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
                 * `FOLDER_ID` — идентификатор каталога, в котором вы хотите останавливать виртуальные машины.
                 * `TAG` — `target-for-stop`.
-        1. Нажмите кнопку **Сохранить изменения**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
 
@@ -180,7 +180,7 @@ zip src.zip index.go go.mod
         created_at: "2022-12-07T10:44:13.156Z"
         name: function-for-budget
         log_group_id: ckg6bie2rtgd********
-        http_invoke_url: https://functions.yandexcloud.net/d4eiqjdbqt7s********
+        http_invoke_url: https://{{ sf-url }}/d4eiqjdbqt7s********
         status: ACTIVE
         ```
 
@@ -246,29 +246,29 @@ zip src.zip index.go go.mod
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите [платежный аккаунт](../../billing/concepts/billing-account.md).
-  1. В секции **Общие сведения**, в поле **Идентификатор**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании [триггера](../concepts/trigger/index.md) для бюджетов.
-  1. Перейдите на вкладку **Бюджеты** и нажмите кнопку **Создать бюджет**.
-  1. В блоке **Общая информация** укажите:
-     * **Имя** — `vm-budget`.
-     * **Тип** — `К оплате`.
-     * **Сумма** — сумму расходов на потребление, например `10 ₽`.
-     * **Период расчета** — `Месячный`.
-     * **Дата окончания** — дату окончания действия бюджета.
+  1. В секции **{{ ui-key.yacloud_billing.billing.account.overview.section_account-data }}**, в поле **{{ ui-key.yacloud.common.id }}**, скопируйте идентификатор платежного аккаунта. Он пригодится при создании [триггера](../concepts/trigger/index.md) для бюджетов.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_billing.billing.account.switch_budgets }}** и нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.budgets.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.common.section-base }}** укажите:
+     * **{{ ui-key.yacloud.common.name }}** — `vm-budget`.
+     * **{{ ui-key.yacloud.common.type }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.label_type-expense }}`.
+     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_amount }}** — сумму расходов на потребление, например `10 ₽`.
+     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_reset-period }}** — `{{ ui-key.yacloud_billing.billing.account.budgets.reset-period_value_monthly }}`.
+     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_expire }}** — дату окончания действия бюджета.
 
        Дата окончания устанавливает, когда бюджет перестанет считать потребление и отправлять уведомления. Дата окончания — последнее число месяца. Не может быть позже пяти лет от текущей даты.
-     * **Уведомить** — выберите себя.
-  1. В блоке **Область действия** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу, и сервис **Compute Cloud**.
-  1. В блоке **Пороги** укажите пороговые значения в процентах, при достижении которых:
+     * **{{ ui-key.yacloud_billing.billing.account.budgets.label_notify }}** — выберите себя.
+  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.section_scope }}** выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ведете работу, и сервис **{{ compute-name }}**.
+  1. В блоке **{{ ui-key.yacloud_billing.billing.account.budgets.label_limits }}** укажите пороговые значения в процентах, при достижении которых:
      * Указанным пользователям будут приходить уведомления.
      * Будет срабатывать триггер для бюджетов.
 
      Например, можно указать два порога — `50%` и `100%`.
-  1. Нажмите кнопку **Создать**.
-  1. В открывшемся окне появился новый бюджет `vm-budget`. В поле **Идентификатор** скопируйте идентификатор созданного бюджета. Он пригодится позднее при создании триггера.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. В открывшемся окне появился новый бюджет `vm-budget`. В поле **{{ ui-key.yacloud.common.id }}** скопируйте идентификатор созданного бюджета. Он пригодится позднее при создании триггера.
 
 - API {#api}
 
@@ -282,28 +282,28 @@ zip src.zip index.go go.mod
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
+    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали сервисный аккаунт, функцию и бюджет.
 
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **Триггеры**.
+    1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
 
-    1. В блоке **Базовые параметры**:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
 
         * Введите имя триггера `vm-stop-trigger`.
-        * В поле **Тип** выберите `Бюджет`.
-        * В поле **Запускаемый ресурс** выберите `Функция`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_billing-budget }}`.
+        * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
 
-    1. В блоке **Настройки бюджета** выберите платежный аккаунт и бюджет `vm-budget`, который создали на предыдущем шаге.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_billing-budget }}** выберите платежный аккаунт и бюджет `vm-budget`, который создали на предыдущем шаге.
 
-    1. В блоке **Настройки функции** выберите функцию `function-for-budget` и укажите:
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}** выберите функцию `function-for-budget` и укажите:
 
         * [тег версии функции](../concepts/function.md#tag). По умолчанию указан тег `$latest`.
         * сервисный аккаунт `service-account-for-budget`. От его имени будет вызываться функция.
 
-    1. Нажмите кнопку **Создать триггер**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
 
@@ -350,7 +350,7 @@ zip src.zip index.go go.mod
 
 {% endlist %}
 
-## Создайте виртуальные машины Compute Cloud {#create-vm}
+## Создайте виртуальные машины {{ compute-name }} {#create-vm}
 
 {% list tabs group=instructions %}
 
@@ -366,7 +366,7 @@ zip src.zip index.go go.mod
         yc compute instance create \
            --name target-instance-1 \
            --labels target-for-stop=true \
-           --zone ru-central1-d \
+           --zone {{ region-id }}-d \
            --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
            --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2004-lts \
            --ssh-key ~/.ssh/<имя_ключа>.pub
@@ -391,7 +391,7 @@ zip src.zip index.go go.mod
         name: target-instance-1
         labels:
           target-for-stop: "true"
-        zone_id: ru-central1-d
+        zone_id: {{ region-id }}-d
         platform_id: standard-v2
         resources:
           memory: "2147483648"

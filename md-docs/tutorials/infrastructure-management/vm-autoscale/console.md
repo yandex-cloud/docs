@@ -13,15 +13,15 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md) и [привяжите](../../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../../resource-manager/concepts/resources-hierarchy.md).
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите его](../../../cli/quickstart.md#install).
 
 1. Чтобы скрипты из пошагового руководства работали корректно, скачайте и установите утилиту [jq](https://stedolan.github.io/jq/download/).
 
@@ -30,23 +30,23 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость инфраструктуры входят:
-* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы Compute Cloud](../../../compute/pricing.md));
-* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика (см. [тарифы Network Load Balancer](../../../network-load-balancer/pricing.md)).
+* плата за постоянно запущенные [ВМ](../../../compute/concepts/vm.md) (см. [тарифы {{ compute-name }}](../../../compute/pricing.md));
+* плата за [сетевые балансировщики](../../../network-load-balancer/concepts/index.md) и балансировку трафика (см. [тарифы {{ network-load-balancer-name }}](../../../network-load-balancer/pricing.md)).
 
 ## Подготовьте окружение {#prepare}
 
-1. Создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с именем `for-autoscale`. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком Network Load Balancer, назначьте сервисному аккаунту роли [compute.editor](../../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor):
+1. Создайте [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md) с именем `for-autoscale`. Чтобы иметь возможность создавать, обновлять и удалять ВМ в группе, а также интегрировать группу с сетевым балансировщиком {{ network-load-balancer-name }}, назначьте сервисному аккаунту роли [compute.editor](../../../compute/security/index.md#compute-editor) и [load-balancer.editor](../../../network-load-balancer/security/index.md#load-balancer-editor):
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-     1. Нажмите кнопку **Создать сервисный аккаунт**. В открывшемся окне:
-        * В поле **Имя** укажите `for-autoscale`.
-        * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите роли `compute.editor` и `load-balancer.editor`.
-        * Нажмите кнопку **Создать**.
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать сервисный аккаунт.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**. В открывшемся окне:
+        * В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `for-autoscale`.
+        * Чтобы назначить сервисному аккаунту роль на текущий каталог, нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли `compute.editor` и `load-balancer.editor`.
+        * Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
    - CLI {#cli}
 
@@ -95,12 +95,12 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы хотите создать сеть.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-     1. Нажмите кнопку **Создать сеть**.
-     1. В поле **Имя** задайте имя сети `yc-auto-network`.
-     1. В поле **Дополнительно** включите опцию **Создать подсети**.
-     1. Нажмите кнопку **Создать сеть**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы хотите создать сеть.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** задайте имя сети `yc-auto-network`.
+     1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
    - CLI {#cli}
 
@@ -119,13 +119,13 @@
         name: yc-auto-network
         ```
 
-     1. Создайте подсеть в зоне доступности `ru-central1-a`:
+     1. Создайте подсеть в зоне доступности `{{ region-id }}-a`:
 
         ```bash
         yc vpc subnet create \
           --network-id enpabce123hd******** \
           --range 192.168.1.0/24 \
-          --zone ru-central1-a
+          --zone {{ region-id }}-a
         ```
 
         Результат:
@@ -135,18 +135,18 @@
         folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:23:12Z"
         network_id: enpabce123hd********
-        zone_id: ru-central1-a
+        zone_id: {{ region-id }}-a
         v4_cidr_blocks:
         - 192.168.1.0/24
         ```
 
-     1. Создайте подсеть в зоне доступности `ru-central1-b`:
+     1. Создайте подсеть в зоне доступности `{{ region-id }}-b`:
 
         ```bash
         yc vpc subnet create \
           --network-id enpabce123hd******** \
           --range 192.168.2.0/24 \
-          --zone ru-central1-b
+          --zone {{ region-id }}-b
         ```
 
         Результат:
@@ -156,7 +156,7 @@
         folder_id: b0g12ga82bcv********
         created_at: "2020-11-30T16:25:02Z"
         network_id: enpabce123hd********
-        zone_id: ru-central1-b
+        zone_id: {{ region-id }}-b
         v4_cidr_blocks:
         - 192.168.2.0/24
         ```
@@ -166,7 +166,7 @@
      1. Создайте сеть.
 
         Воспользуйтесь методом REST API [create](../../../vpc/api-ref/Network/create.md) для ресурса [Network](../../../vpc/api-ref/Network/index.md) или вызовом gRPC API [NetworkService/Create](../../../vpc/api-ref/grpc/Network/create.md).
-     1. Создайте подсети в зонах доступности `ru-central1-a` и `ru-central1-b`.
+     1. Создайте подсети в зонах доступности `{{ region-id }}-a` и `{{ region-id }}-b`.
 
         Воспользуйтесь методом REST API [create](../../../vpc/api-ref/Subnet/create.md) для ресурса [Subnet](../../../vpc/api-ref/Subnet/index.md) или вызовом gRPC API [SubnetService/Create](../../../vpc/api-ref/grpc/Subnet/create.md).
 
@@ -178,8 +178,8 @@
 
    - Консоль управления {#console}
 
-     1. Откройте [консоль управления](https://console.yandex.cloud).
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
+     1. Откройте [консоль управления]({{ link-console-main }}).
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Откройте вкладку **Группы безопасности**.
      1. Создайте группу безопасности для балансировщика:
         1. Нажмите кнопку **Создать группу**.
@@ -208,11 +208,11 @@
 
 ## Создайте группу ВМ с автоматическим масштабированием и сетевым балансировщиком нагрузки {#create-vm-group}
 
-1. Все ВМ группы создаются из образа [Container Optimized Image](../../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
+1. Все ВМ группы создаются из образа [{{ coi }}](../../../cos/concepts/index.md). Каждая ВМ содержит [Docker-контейнер](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers) с веб-сервером, который эмулирует нагрузку на сервис.
 
-   Узнайте идентификатор последней версии [публичного образа](../../../compute/operations/images-with-pre-installed-software/get-list.md) Container Optimized Image.
+   Узнайте идентификатор последней версии [публичного образа](../../../compute/operations/images-with-pre-installed-software/get-list.md) {{ coi }}.
    
-   Образ Container Optimized Image в реестре [Container Registry](../../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../../compute/concepts/instance-groups/index.md) с последней версией Container Optimized Image, необходимо самостоятельно проверить ее наличие:
+   Образ {{ coi }} в реестре [{{ container-registry-name }}](../../../container-registry/index.md) может обновляться и меняться в соответствии с релизами. При этом образ на [виртуальной машине](../../../compute/concepts/vm.md) не обновится автоматически до последней версии. Чтобы создать [группу ВМ](../../../compute/concepts/instance-groups/index.md) с последней версией {{ coi }}, необходимо самостоятельно проверить ее наличие:
    
    {% list tabs group=instructions %}
    
@@ -230,12 +230,12 @@
      ...
      ```
    
-   - Yandex Cloud Marketplace {#marketplace}
+   - {{ marketplace-full-name }} {#marketplace}
    
-     1. Перейдите на страницу Cloud Marketplace и выберите образ с нужной конфигурацией:
-        * [Container Optimized Image](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
-        * [Container Optimized Image GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
-     1. В блоке **Идентификаторы продукта** скопируйте значение `image_id`.
+     1. Перейдите на страницу {{ marketplace-name }} и выберите образ с нужной конфигурацией:
+        * [{{ coi }}](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image).
+        * [{{ coi }} GPU](https://yandex.cloud/ru/marketplace/products/yc/container-optimized-image-gpu).
+     1. В блоке **{{ ui-key.yacloud_components.marketplace.label_product-ids }}** скопируйте значение `image_id`.
    
    {% endlist %}
 
@@ -258,8 +258,8 @@
      max_unavailable: 1
    allocation_policy:
      zones:
-       - zone_id: ru-central1-a
-       - zone_id: ru-central1-b
+       - zone_id: {{ region-id }}-a
+       - zone_id: {{ region-id }}-b
    load_balancer_spec:
      target_group_spec:
        name: auto-group-tg
@@ -274,7 +274,7 @@
        docker-container-declaration: |-
          spec:
            containers:
-           - image: cr.yandex/yc/demo/web-app:v1
+           - image: {{ registry }}/yc/demo/web-app:v1
              securityContext:
                privileged: false
              tty: false
@@ -284,7 +284,7 @@
        disk_spec:
          type_id: network-hdd
          size: 30G
-         image_id: fd8iv792kira******** # Идентификатор публичного образа Container Optimized Image.
+         image_id: fd8iv792kira******** # Идентификатор публичного образа {{ coi }}.
      network_interface_specs:
        - network_id: <идентификатор_облачной_сети>
          primary_v4_address_spec: { one_to_one_nat_spec: { ip_version: IPV4 }}
@@ -329,9 +329,9 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Выберите группу ВМ `auto-group`.
 
    - CLI {#cli}
@@ -365,23 +365,23 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать балансировщик.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer**.
-     1. Нажмите кнопку **Создать сетевой балансировщик**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать балансировщик.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.button_create }}**.
      1. Укажите имя — `group-balancer`.
-     1. В поле **Публичный адрес** укажите `Автоматически`.
-     1. В блоке **Обработчики** нажмите кнопку **Добавить обработчик**. В открывшемся окне укажите:
-        * **Имя** — `http`.
-        * **Порт** (на нем балансировщик будет принимать входящий трафик) — `80`.
-        * **Целевой порт** (на него балансировщик будет направлять трафик) — `80`.
-        * Нажмите кнопку **Добавить**.
-     1. В блоке **Целевые группы** нажмите кнопку **Добавить целевую группу**.
-     1. В поле **Целевая группа** выберите группу ВМ `auto-group-tg` и нажмите кнопку **Настроить**. В открывшемся окне укажите:
-        * **Имя** — `tcp`.
-        * **Тип** — `TCP`.
-        * **Порт** — `80`.
-        * Нажмите кнопку **Применить**.
-     1. Нажмите кнопку **Создать**.
+     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_address-type }}** укажите `{{ ui-key.yacloud.common.label_auto }}`.
+     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_listeners }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-listener }}**. В открывшемся окне укажите:
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-name }}** — `http`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-port }}** (на нем балансировщик будет принимать входящий трафик) — `80`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.field_listener-target-port }}** (на него балансировщик будет направлять трафик) — `80`.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+     1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.section_target-groups }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_add-target-group }}**.
+     1. В поле **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_target-group-id }}** выберите группу ВМ `auto-group-tg` и нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.form.label_edit-health-check }}**. В открывшемся окне укажите:
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-name }}** — `tcp`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_health-check-port }}** — `80`.
+        * Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
    - CLI {#cli}
 
@@ -419,8 +419,8 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали балансировщик.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Network Load Balancer**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали балансировщик.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. Выберите балансировщик `group-balancer`.
 
    - CLI {#cli}
@@ -435,7 +435,7 @@
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      |          ID          |      NAME      |    REGION ID    |   TYPE   | LISTENER COUNT | ATTACHED TARGET GROUPS | STATUS |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
-     | b0rbabc1m2ed******** | group-balancer | ru-central1 | EXTERNAL |              1 | b0rdabckribe********   | ACTIVE |
+     | b0rbabc1m2ed******** | group-balancer | {{ region-id }} | EXTERNAL |              1 | b0rdabckribe********   | ACTIVE |
      +----------------------+----------------+-----------------+----------+----------------+------------------------+--------+
      ```
 
@@ -470,7 +470,7 @@
      Результат:
 
      ```text
-     projects/b0g12ga82bcv********/zones/ru-central1-b
+     projects/b0g12ga82bcv********/zones/{{ region-id }}-b
      ```
 
    {% endlist %}
@@ -481,11 +481,11 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Выберите группу ВМ `auto-group`.
-     1. Перейдите на вкладку **Мониторинг**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
 
         Балансировщик направил запрос на одну из ВМ группы. В зоне доступности этой ВМ среднее потребление CPU (график **Average CPU utilization in zone**) выше, чем в других.
 
@@ -533,16 +533,16 @@
 
    - Консоль управления {#console}
 
-     1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали группу ВМ `auto-group`.
-     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Группы виртуальных машин**.
+     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали группу ВМ `auto-group`.
+     1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+     1. На панели слева нажмите ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
      1. Выберите группу ВМ `auto-group`.
-     1. Перейдите на вкладку **Мониторинг**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
         На графике **Number of instance in zone** отображены изменения количества ВМ в каждой зоне доступности. На графике **Average CPU utilization in zone** — средняя CPU-нагрузка в каждой зоне доступности.
-     1. Перейдите на вкладку **Логи**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
         На странице отображены сообщения о действиях в рамках автоматического масштабирования группы ВМ.
 
-     Суммарная нагрузка в 240% CPU равномерно распределилась между двумя ВМ в двух зонах доступности и превысила целевой уровень нагрузки в 40% CPU. [Yandex Compute Cloud](../../../compute/index.md) создал по дополнительной ВМ в каждой зоне доступности и в группе стало четыре ВМ. Когда скрипт перестал создавать CPU-нагрузку, Compute Cloud автоматически уменьшил количество ВМ в группе до двух.
+     Суммарная нагрузка в 240% CPU равномерно распределилась между двумя ВМ в двух зонах доступности и превысила целевой уровень нагрузки в 40% CPU. [{{ compute-full-name }}](../../../compute/index.md) создал по дополнительной ВМ в каждой зоне доступности и в группе стало четыре ВМ. Когда скрипт перестал создавать CPU-нагрузку, {{ compute-name }} автоматически уменьшил количество ВМ в группе до двух.
 
    {% endlist %}
 
@@ -554,4 +554,4 @@
 
 #### См. также {#see-also}
 
-* [Работа с группой виртуальных машин с автоматическим масштабированием с помощью Terraform](terraform.md)
+* [{#T}](terraform.md)

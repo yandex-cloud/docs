@@ -5,7 +5,7 @@ Retrieves the list of ClickHouse Database resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/databases
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters
@@ -78,10 +78,10 @@ A ClickHouse Database resource. For more information, see the
 ||Field | Description ||
 || name | **string**
 
-Name of the database. ||
+Required field. Name of the database. ||
 || clusterId | **string**
 
-ID of the ClickHouse cluster that the database belongs to. ||
+Required field. ID of the ClickHouse cluster that the database belongs to. ||
 || engine | **enum** (DatabaseEngine)
 
 Database engine. For details, see [ClickHouse documentation](https://clickhouse.com/docs/engines/database-engines).

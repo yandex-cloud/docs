@@ -5,7 +5,7 @@ Lists desktop images in the specified folder.
 ## HTTP request
 
 ```
-GET https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/images
+GET https://clouddesktops.{{ api-host }}/cloud-desktop/v1/images
 ```
 
 ## Query parameters {#yandex.cloud.clouddesktop.v1.api.ListDesktopImagesRequest}
@@ -63,6 +63,7 @@ The maximum string length in characters is 100. ||
       "status": "string",
       "name": "string",
       "labels": "object",
+      "description": "string",
       "storageSize": "string",
       "minDiskSize": "string"
     }
@@ -119,6 +120,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storageSize | **string** (int64)

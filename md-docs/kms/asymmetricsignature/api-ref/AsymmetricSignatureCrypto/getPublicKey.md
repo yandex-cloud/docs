@@ -5,7 +5,7 @@ Gets value of public key.
 ## HTTP request
 
 ```
-GET https://kms.api.cloud.yandex.net/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
+GET https://{{ api-host-kms }}/kms/v1/asymmetricSignatureKeys/{keyId}/publicKey
 ```
 
 ## Path parameters

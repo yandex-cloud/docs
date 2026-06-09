@@ -5,7 +5,7 @@ Creates new hosts for a cluster.
 ## HTTP request
 
 ```
-POST https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/{clusterId}/hosts:batchCreate
+POST https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/{clusterId}/hosts:batchCreate
 ```
 
 ## Path parameters

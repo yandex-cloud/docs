@@ -18,7 +18,9 @@ Revoke the IAM token.
 ||Field | Description ||
 || iam_token | **string**
 
-Required field. ||
+Required field.
+
+The maximum string length in characters is 4096. ||
 |#
 
 ## RevokeIamTokenResponse {#yandex.cloud.iam.v1.RevokeIamTokenResponse}

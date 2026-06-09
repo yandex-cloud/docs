@@ -20,17 +20,23 @@ Lists operations for the specified TrunkConnection.
 ||Field | Description ||
 || trunk_connection_id | **string**
 
-Required field. ID of the TrunkConnection resource. ||
+Required field. ID of the TrunkConnection resource.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListTrunkConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrunkConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse) returned by a previous list request. ||
+[ListTrunkConnectionOperationsResponse.next_page_token](#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListTrunkConnectionOperationsResponse {#yandex.cloud.cic.v1.ListTrunkConnectionOperationsResponse}

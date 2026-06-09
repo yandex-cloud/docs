@@ -1,26 +1,25 @@
-# Создание инфраструктуры Application Load Balancer с помощью визарда
+# Создание инфраструктуры {{ alb-name }} с помощью визарда
 
 
-Yandex Application Load Balancer служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования. Application Load Balancer работает на 7-м уровне [модели OSI](https://ru.wikipedia.org/wiki/OSI_model) с протоколами HTTP и HTTPS.
+{{ alb-full-name }} служит для распределения запросов по бэкендам ваших сетевых приложений и терминирования TLS-шифрования. {{ alb-name }} работает на 7-м уровне [модели OSI](https://ru.wikipedia.org/wiki/OSI_model) с протоколами HTTP и HTTPS.
 
-С помощью этой инструкции вы развернете инфраструктуру сервиса Application Load Balancer и настроите передачу трафика на бэкенд тестового приложения.
+С помощью этой инструкции вы развернете инфраструктуру сервиса {{ alb-name }} и настроите передачу трафика на бэкенд тестового приложения.
 
 Ниже описано как создать инфраструктуру с помощью [визарда](concepts/index.md#alb-wizard). Также вы можете [создавать каждый компонент по отдельности](quickstart.md).
 
 ## Перед началом работы {#before-begin}
 
-1. Войдите в [консоль управления](https://console.yandex.cloud) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
-1. На странице [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
+1. Войдите в [консоль управления]({{ link-console-main }}) или зарегистрируйтесь. Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
+1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
-
 
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
-1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в зоне доступности `ru-central1-a`.
+1. [Создайте](../compute/operations/vm-create/create-linux-vm.md) виртуальную машину `test-vm1` из публичного образа [Ubuntu 24.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-2404-lts-oslogin) в зоне доступности `{{ region-id }}-a`.
    
 1. [Подключитесь к ВМ по SSH](../compute/operations/vm-connect/ssh.md).
    
-    Если у вас установлен [интерфейс командной строки Yandex Cloud](../cli/quickstart.md), вы можете подключиться к ВМ по [OS Login](../compute/operations/vm-connect/os-login.md):
+    Если у вас установлен [интерфейс командной строки {{ yandex-cloud }}](../cli/quickstart.md), вы можете подключиться к ВМ по [{{ oslogin }}](../compute/operations/vm-connect/os-login.md):
 
     ```bash
     yc compute ssh --name test-vm1
@@ -39,15 +38,15 @@ Yandex Application Load Balancer служит для распределения 
     curl --verbose <публичный_IP-адрес_ВМ>:8080
     ```
 
-## Создайте инфраструктуру Application Load Balancer {#create-alb-infrastructure}
+## Создайте инфраструктуру {{ alb-name }} {#create-alb-infrastructure}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
-  1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **Application Load Balancer**.
-  1. Нажмите кнопку **Создать L7-балансировщик** и выберите **Визард**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан балансировщик.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.alb.button_load-balancer-create }}** и выберите **{{ ui-key.yacloud.alb.label_alb-create-wizard }}**.
 
 {% endlist %}
 
@@ -63,7 +62,7 @@ Yandex Application Load Balancer служит для распределения 
 
   1. Введите имя целевой группы: `test-target-group`.
   1. Выберите ВМ `test-vm1`.
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать и продолжить**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
@@ -77,18 +76,18 @@ Yandex Application Load Balancer служит для распределения 
 
   1. Введите имя группы бэкендов: `test-backend-group`.
    
-  1. Чтобы открыть настройки бэкенда и группы проверки состояния, включите переключатель **Расширенные настройки**.
+  1. Чтобы открыть настройки бэкенда и группы проверки состояния, включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
 
   1. Введите имя бэкенда: `backend-1`.
 
   1. Укажите порт: `8080`.
 
   1. Задайте настройки проверки состояния:
-      1. **Интервал**: `3`.
-      1. **Порог работоспособности**: `2`.
-      1. **Порт**: `8080`.
+      1. **{{ ui-key.yacloud.alb.label_interval }}**: `3`.
+      1. **{{ ui-key.yacloud.alb.label_healthy }}**: `2`.
+      1. **{{ ui-key.yacloud.alb.label_port }}**: `8080`.
   
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать и продолжить**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
@@ -101,11 +100,11 @@ Yandex Application Load Balancer служит для распределения 
 - Консоль управления {#console}
 
   1. Введите имя роутера: `test-http-router`.
-  1. Включите переключатель **Расширенные настройки**.
-  1. В блоке **Виртуальные хосты** введите:
+  1. Включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.label_virtual-hosts }}** введите:
      1. Имя хоста: `test-virtual-host`.
      1. Имя маршрута: `test-route`.
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать и продолжить**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.alb.button_wizard-create-tg }}**.
 
 {% endlist %}
 
@@ -120,16 +119,15 @@ Yandex Application Load Balancer служит для распределения 
 - Консоль управления {#console}
 
   1. Введите имя балансировщика: `test-load-balancer`.
-  1. В блоке **Сетевые настройки** выберите сеть, в подсети которой будет размещаться узел балансировщика.
-  1. Включите переключатель **Расширенные настройки**.
-  1. В блоке **Размещение** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите сеть, в подсети которой будет размещаться узел балансировщика.
+  1. Включите переключатель **{{ ui-key.yacloud.alb.label_detailed-settings }}**.
+  1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
 
       Остальные зоны доступности удалите, нажав ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
 
-
-  1. В блоке **Обработчики** введите имя обработчика: `test-listener`.
+  1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** введите имя обработчика: `test-listener`.
    
-  1. Остальные настройки оставьте без изменений и нажмите кнопку **Создать**.
+  1. Остальные настройки оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 

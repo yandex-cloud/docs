@@ -1,22 +1,22 @@
-# Организация сетевой связности между подсетями Yandex BareMetal и on-premises с помощью Cloud Interconnect
+# Организация сетевой связности между подсетями {{ baremetal-full-name }} и on-premises с помощью {{ interconnect-name }}
 
-В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) BareMetal, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) Yandex BareMetal, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [Cloud Interconnect](../index.md) и [Cloud Router](../../cloud-router/index.md).
+В данном руководстве вы установите сетевую связность между [сервером](../../baremetal/concepts/servers.md) {{ baremetal-name }}, расположенным в [приватной подсети](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }}, и ресурсами, которые развернуты on-premises. Сетевая связность будет организована с помощью сервисов [{{ interconnect-name }}](../index.md) и [{{ cr-name }}](../../cloud-router/index.md).
 
 Схема решения:
 
 ![bms-cic-onprem](../../_assets/tutorials/bms-cic-onprem.svg)
 
-На схеме выше показана организация сетевого взаимодействия между ресурсами в сегменте Yandex BareMetal и удаленными ресурсами на площадке клиента, которая подключена к Yandex Cloud с помощью сервиса Cloud Interconnect.
+На схеме выше показана организация сетевого взаимодействия между ресурсами в сегменте {{ baremetal-full-name }} и удаленными ресурсами на площадке клиента, которая подключена к {{ yandex-cloud }} с помощью сервиса {{ interconnect-name }}.
 
-Для организации сетевого взаимодействия между такими ресурсами и виртуальной сетью нужно добавить соответствующие IP-префиксы подсетей Virtual Private Cloud в Routing Instance. Подробнее с организацией такого вида сетевого взаимодействия можно ознакомиться [в документации](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
+Для организации сетевого взаимодействия между такими ресурсами и виртуальной сетью нужно добавить соответствующие IP-префиксы подсетей {{ vpc-name }} в Routing Instance. Подробнее с организацией такого вида сетевого взаимодействия можно ознакомиться [в документации](../../cloud-router/tutorials/bm-vrf-and-vpc-interconnect.md). 
 
 {% note info %}
 
-Предполагается, что сетевое взаимодействие между on-premises и виртуальной сетью VPC с помощью сервиса Cloud Interconnect уже организовано и работает. 
+Предполагается, что сетевое взаимодействие между on-premises и виртуальной сетью {{ vpc-short-name }} с помощью сервиса {{ interconnect-name }} уже организовано и работает. 
 
 {% endnote %}
 
-Чтобы настроить сетевую связность между приватными подсетями BareMetal и on-premise-ресурсами с помощью Cloud Interconnect необходимо:
+Чтобы настроить сетевую связность между приватными подсетями {{ baremetal-name }} и on-premise-ресурсами с помощью {{ interconnect-name }} необходимо:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте облачную инфраструктуру](#setup-infrastructure).
@@ -28,71 +28,71 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями BareMetal и VPC входят:
+В стоимость поддержки инфраструктуры для организации сетевой связности между подсетями {{ baremetal-name }} и {{ vpc-short-name }} входят:
 
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md));
-* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md));
-* плата за аренду сервера BareMetal (см. [тарифы Yandex BareMetal](../../baremetal/pricing.md)).
+* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) виртуальной машины (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
+* плата за вычислительные ресурсы и диски [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за аренду сервера {{ baremetal-name }} (см. [тарифы {{ baremetal-full-name }}](../../baremetal/pricing.md)).
 
 
 ## Создайте облачную инфраструктуру {#setup-infrastructure}
 
-Создайте необходимую инфраструктуру Yandex Cloud, в которой вы будете настраивать сетевую связность.
+Создайте необходимую инфраструктуру {{ yandex-cloud }}, в которой вы будете настраивать сетевую связность.
 
-Для настройки Cloud Interconnect в сервисе BareMetal понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в BareMetal, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) Virtual Private Cloud, а также Routing Instance, в составе которого будут [анонсированы](../concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC.
+Для настройки {{ interconnect-name }} в сервисе {{ baremetal-name }} понадобятся приватная маршрутизируемая [подсеть](../../baremetal/concepts/private-network.md#private-subnet) и [VRF](../../baremetal/concepts/private-network.md#vrf-segment) в {{ baremetal-name }}, [облачная сеть](../../vpc/concepts/network.md#network) с одной или более [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }}, а также Routing Instance, в составе которого будут [анонсированы](../concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}.
 
-Для проверки сетевой связности понадобятся сервер BareMetal и виртуальная машина Compute Cloud.
+Для проверки сетевой связности понадобятся сервер {{ baremetal-name }} и виртуальная машина {{ compute-name }}.
 
-### Создайте VRF и приватную подсеть BareMetal {#setup-vrf}
+### Создайте VRF и приватную подсеть {{ baremetal-name }} {#setup-vrf}
 
-Создайте виртуальный сегмент сети (VRF) и приватную подсеть в [пуле серверов](../../baremetal/concepts/servers.md#server-pools) `ru-central1-m3`:
+Создайте виртуальный сегмент сети (VRF) и приватную подсеть в [пуле серверов](../../baremetal/concepts/servers.md#server-pools) `{{ region-id }}-m3`:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы будете создавать инфраструктуру.
-  1. В списке сервисов выберите **BareMetal**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Создайте виртуальный сегмент сети:
-        1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и нажмите кнопку **Создать VRF**.
-        1. В поле **Имя** задайте имя VRF: `my-vrf`.
-        1. Нажмите кнопку **Создать VRF**.
+        1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `my-vrf`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. Создайте приватную подсеть:
-        1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **Приватные подсети** и нажмите кнопку **Создать подсеть**.
-        1. В поле **Пул** выберите пул серверов `ru-central1-m3`.
-        1. В поле **Имя** задайте имя подсети: `subnet-m3`.
-        1. Включите опцию **IP-адресация и маршрутизация**.
-        1. В поле **Виртуальный сетевой сегмент (VRF)** выберите созданный ранее сегмент `my-vrf`.
-        1. В поле **CIDR** укажите `192.168.1.0/24`.
-        1. В поле **Шлюз по умолчанию** оставьте значение по умолчанию `192.168.1.1`.
-        1. Включите опцию **Назначение IP-адресов по DHCP** и в появившемся поле **Диапазон IP-адресов** оставьте значения по умолчанию: `192.168.1.1` — `192.168.1.254`.
-        1. Нажмите кнопку **Создать подсеть**.
+        1. На панели слева выберите ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** выберите пул серверов `{{ region-id }}-m3`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя подсети: `subnet-m3`.
+        1. Включите опцию **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_network-id }}** выберите созданный ранее сегмент `my-vrf`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** укажите `192.168.1.0/24`.
+        1. В поле **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** оставьте значение по умолчанию `192.168.1.1`.
+        1. Включите опцию **{{ ui-key.yacloud.baremetal.field_dhcp-settings }}** и в появившемся поле **{{ ui-key.yacloud.baremetal.field_dhcp-ip-range }}** оставьте значения по умолчанию: `192.168.1.1` — `192.168.1.254`.
+        1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
 
 {% endlist %}
 
 
-### Арендуйте сервер BareMetal {#rent-bms}
+### Арендуйте сервер {{ baremetal-name }} {#rent-bms}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. Нажмите кнопку **Заказать сервер** и в открывшемся окне выберите вариант `Готовые конфигурации` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера BareMetal в пуле серверов `ru-central1-m3`.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` и подходящую [конфигурацию](../../baremetal/concepts/server-configurations.md) сервера {{ baremetal-name }} в пуле серверов `{{ region-id }}-m3`.
 
-      Для этого в фильтре в правой части окна в блоке **Пул** выберите пул серверов `ru-central1-m3`.
+      Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m3`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
 
@@ -100,7 +100,7 @@
       
       Вы можете снизить стоимость аренды сервера в некоторых конфигурациях, заказав его [сборку](../../baremetal/concepts/server-custom-configurations.md#assembly).
       
-      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **Дешевле со сборкой** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **Перейти к сборке**.
+      Чтобы воспользоваться скидкой, в блоке с нужной конфигурацией наведите курсор на **{{ ui-key.yacloud_components.baremetal.assemblyDiscountLabel }}** ![circle-info.svg](../../_assets/console-icons/circle-info.svg) и во всплывающем окне нажмите ![person-nut-hex.svg](../../_assets/console-icons/person-nut-hex.svg) **{{ ui-key.yacloud_components.baremetal.goToAssembly }}**.
       
       При заказе сервера со сборкой воспользуйтесь приведенной ниже инструкцией, чтобы задать необходимые параметры сервера. При этом сервер станет доступен вам не сразу, а после завершения сборки (в течение четырех календарных дней) и по более низкой цене.
       
@@ -108,59 +108,61 @@
 
   1. В открывшемся окне с настройками конфигурации сервера:
 
-      1. В поле **Период аренды** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
+      1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите [период](../../baremetal/concepts/servers.md#server-lease), на который вы хотите арендовать сервер: `1 день`, `1 месяц`, `3 месяца`, `6 месяцев` или `1 год`.
          
          По окончании указанного периода аренда сервера будет автоматически продлена на такой же период. Прервать аренду в течение указанного периода аренды нельзя, но можно [отказаться](../../baremetal/operations/servers/server-lease-cancel.md) от дальнейшего продления аренды сервера.
-      1. В блоке **Образ** выберите образ. Например: `Ubuntu 24.04`.
-      1. (Опционально) В блоке **Диск** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ. Например: `Ubuntu 24.04`.
+      1. (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-disk }}** настройте разметку [дисков](../../baremetal/concepts/disks/disk-types.md):
          
-         1. Нажмите кнопку **Настроить разделы диска**.
-         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **Добавить раздел**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}**.
+         1. Укажите параметры разделов. Чтобы создать новый раздел, нажмите кнопку ![icon](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.baremetal.actions_add-partition }}**.
          
-             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **Разобрать RAID**.
-         1. Нажмите кнопку **Сохранить**.
-      1. В блоке **Приватная сеть** в поле **Приватная подсеть** выберите созданную ранее подсеть `subnet-m3`.
-      1. В блоке **Публичная сеть** в поле **Публичный адрес** выберите `Без адреса`.
-      1. В блоке **Доступ**:
+             Чтобы самостоятельно собрать [RAID](../../baremetal/concepts/disks/raid.md)-массивы и настроить разделы дисков, нажмите кнопку **{{ ui-key.yacloud.baremetal.action_destroy-raid }}**.
+         1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
 
-          1. В поле **Пароль** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
+
+          1. В поле **{{ ui-key.yacloud.baremetal.field_password }}** воспользуйтесь одним из вариантов создания пароля для root-пользователя:
           
-              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `Новый пароль` и нажмите кнопку **Сгенерировать**.
+              * Чтобы сгенерировать пароль для root-пользователя, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-plain }}` и нажмите кнопку **{{ ui-key.yacloud.component.password-input.label_button-generate }}**.
           
                   {% note warning %}
                   
-                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в Yandex Cloud, и после заказа сервера вы не сможете посмотреть его.
+                  Этот вариант предусматривает ответственность пользователя за безопасность пароля. Сохраните сгенерированный пароль в надежном месте: он не сохраняется в {{ yandex-cloud }}, и после заказа сервера вы не сможете посмотреть его.
                   
                   {% endnote %}
           
-              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) Yandex Lockbox, выберите опцию `Секрет Lockbox`:
+              * Чтобы использовать пароль root-пользователя, сохраненный в [секрете](../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, выберите опцию `{{ ui-key.yacloud.baremetal.label_password-lockbox }}`:
           
-                  В полях **Имя**, **Версия** и **Ключ** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
+                  В полях **{{ ui-key.yacloud.baremetal.label_lockbox-name }}**, **{{ ui-key.yacloud.baremetal.label_lockbox-version }}** и **{{ ui-key.yacloud.baremetal.label_lockbox-key }}** выберите соответственно секрет, его версию и ключ, в которых сохранен ваш пароль.
                   
-                  Если у вас еще нет секрета Yandex Lockbox, нажмите кнопку **Создать**, чтобы создать его.
+                  Если у вас еще нет секрета {{ lockbox-name }}, нажмите кнопку **{{ ui-key.yacloud.common.create }}**, чтобы создать его.
           
-                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `Пользовательский`), так и использовать пароль, сгенерированный автоматически (тип секрета `Генерируемый`).
+                  Этот вариант позволяет вам как задать собственный пароль (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-custom }}`), так и использовать пароль, сгенерированный автоматически (тип секрета `{{ ui-key.yacloud.lockbox.FormFields.title_secret-type-generated }}`).
           
-          1. В поле **Открытый SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+          1. В поле **{{ ui-key.yacloud.baremetal.field_ssh-public-key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
           
               Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
               
-              1. Нажмите кнопку **Добавить ключ**.
+              1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
               1. Задайте имя SSH-ключа.
               1. Выберите вариант:
               
-                  * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-                  * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-                  * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+                  * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
                   
                     При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
               
-              1. Нажмите кнопку **Добавить**.
+              1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
               
               SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-      1. В блоке **Информация о сервере** в поле **Имя** задайте имя сервера: `server-m3`.
-      1. Нажмите кнопку **Заказать сервер**.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `server-m3`.
+      1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}**.
 
 {% endlist %}
 
@@ -172,13 +174,13 @@
 
 ## Создайте Routing Instance {#create-routing-instance}
 
-Для организации сетевой связности между подсетями BareMetal и on-premise-подсетями необходимо создать ресурс `Routing Instance`. `Routing Instance` можно создать через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
+Для организации сетевой связности между подсетями {{ baremetal-name }} и on-premise-подсетями необходимо создать ресурс `Routing Instance`. `Routing Instance` можно создать через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
 
-Если в вашем каталоге уже есть настроенная сетевая связность с использованием [Cloud Interconnect](../index.md) (VPC-to-On-Prem), то вы можете как использовать уже существующий `Routing Instance`, так и запросить создание нового, дополнительного `Routing Instance` для организации обособленной сетевой связности.
+Если в вашем каталоге уже есть настроенная сетевая связность с использованием [{{ interconnect-name }}](../index.md) (VPC-to-On-Prem), то вы можете как использовать уже существующий `Routing Instance`, так и запросить создание нового, дополнительного `Routing Instance` для организации обособленной сетевой связности.
 
 ### Проверьте наличие Routing Instance в вашем каталоге {#check-for-ri}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -212,7 +214,7 @@
 
 ### Запросите создание Routing Instance {#request-ri}
 
-[Обратитесь](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки для создания `Routing Instance` в вашем каталоге.
+[Обратитесь]({{ link-console-support }}/tickets/create) в службу технической поддержки для создания `Routing Instance` в вашем каталоге.
 
 Оформите ваше обращение следующим образом:
 
@@ -227,21 +229,21 @@ folder_id: <идентификатор_каталога>
 vpc:
   vpc_net_id: <идентификатор_сети>
     vpc_subnets: 
-      ru-central1-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
-      ru-central1-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
-      ru-central1-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
+      {{ region-id }}-a: [CIDR_a1, CIDR_a2, ..., CIDR_an]
+      {{ region-id }}-b: [CIDR_b1, CIDR_b2, ..., CIDR_bn]
+      {{ region-id }}-d: [CIDR_d1, CIDR_d2, ..., CIDR_dn]
 ```
 
 Где:
 * `folder_id` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога.
 * `vpc_net_id` — [идентификатор](../../vpc/operations/network-get-info.md) облачной сети.
-* `vpc_subnets` — список [анонсируемых](../concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети VPC вы укажете `ru-central1-b: [192.168.11.0/24]`.
+* `vpc_subnets` — список [анонсируемых](../concepts/priv-con.md#prc-announce) адресных префиксов для каждой из [зон доступности](../../overview/concepts/geo-scope.md). Например, для созданной ранее подсети {{ vpc-short-name }} вы укажете `{{ region-id }}-b: [192.168.11.0/24]`.
 
     Допускается анонсирование адресных префиксов с [агрегированием](../concepts/priv-con.md#agg-subnets).
 
 {% note info %}
 
-Создание `Routing Instance` службой технической поддержки может занять до 24 часов. В результате вы сможете получить идентификатор созданного `Routing Instance`, выполнив команду [Yandex Cloud CLI](../../cli/index.md) `yc cloudrouter routing-instance list`.
+Создание `Routing Instance` службой технической поддержки может занять до 24 часов. В результате вы сможете получить идентификатор созданного `Routing Instance`, выполнив команду [{{ yandex-cloud }} CLI](../../cli/index.md) `yc cloudrouter routing-instance list`.
 
 {% endnote %}
 
@@ -258,31 +260,31 @@ vpc:
 
 ## Создайте приватное соединение {#create-private-connection}
 
-После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) Cloud Interconnect в сервисе BareMetal:
+После того как в вашем каталоге будет создан необходимый Routing Instance, создайте [приватное соединение](../../baremetal/concepts/private-network.md#private-connection-to-vpc) {{ interconnect-name }} в сервисе {{ baremetal-name }}:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать приватное соединение.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите нужный виртуальный сегмент сети.
-  1. В блоке **Приватное соединение с облачными сетями** нажмите кнопку **Настроить соединение** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать приватное соединение.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и выберите нужный виртуальный сегмент сети.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_add-vrf-interconnect }}** и в открывшемся окне:
 
-      1. В поле **Способ настройки** выберите вариант `Указать идентификатор` и в поле **Идентификатор соединения** вставьте идентификатор приватного соединения `Routing Instance`.
+      1. В поле **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-select-type }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_interconnect-direct-id }}` и в поле **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-direct-type }}** вставьте идентификатор приватного соединения `Routing Instance`.
 
-          Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
+          Вы также можете выбрать вариант `{{ ui-key.yacloud.baremetal.field_interconnect-from-folder }}`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей {{ vpc-name }}, которые будут [анонсироваться](../concepts/priv-con.md#prc-announce) в {{ interconnect-name }}.
 
           {% note warning %}
           
-          Для успешной настройки сетевой связности между подсетями BareMetal и подсетями VPC/on-prem, их диапазоны адресов, заданные CIDR, не должны совпадать или пересекаться.
+          Для успешной настройки сетевой связности между подсетями {{ baremetal-name }} и подсетями {{ vpc-short-name }}/on-prem, их диапазоны адресов, заданные CIDR, не должны совпадать или пересекаться.
           
           {% endnote %}
-      1. Чтобы создать приватное соединение с указанными CIDR подсетей, нажмите кнопку **Сохранить**.
+      1. Чтобы создать приватное соединение с указанными CIDR подсетей, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-  В результате на странице с информацией о VRF в блоке **Приватное соединение с облачными сетями** отобразится идентификатор созданного соединения и его статус.
+  В результате на странице с информацией о VRF в блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** отобразится идентификатор созданного соединения и его статус.
 
 - API {#api}
 
@@ -303,7 +305,7 @@ vpc:
 
   Где:
 
-  * `routingInstanceId` — идентификатор [Routing Instance](../../cloud-router/concepts/routing-instance.md) в Cloud Router.
+  * `routingInstanceId` — идентификатор [Routing Instance](../../cloud-router/concepts/routing-instance.md) в {{ cr-name }}.
   * `vrfId` — идентификатор VRF, который подключается к Routing Instance. Чтобы получить идентификатор VRF, воспользуйтесь методом [VrfService.List](../../baremetal/api-ref/Vrf/list.md).
 
   Результат:
@@ -342,23 +344,23 @@ vpc:
 
 ## Проверьте сетевую связность {#check-connectivity}
 
-После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетями BareMetal и VPC будет установлена и вы сможете приступить к ее проверке.
+После того как статус созданного приватного соединения изменится на `Ready`, сетевая связность между подсетями {{ baremetal-name }} и {{ vpc-short-name }} будет установлена и вы сможете приступить к ее проверке.
 
 Проверка сетевой связности предполагает, что:
 * процесс настройки приватного соединения с облачными подсетями успешно завершен (статус соединения отображается как `Ready`);
-* локальный сервис Firewall на сервере BareMetal разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
-* маршрутная таблица в операционной системе сервера BareMetal содержит маршрут до CIDR подсети с виртуальной машиной;
+* локальный сервис Firewall на сервере {{ baremetal-name }} разрешает прохождение трафика [ICMP](https://ru.wikipedia.org/wiki/ICMP);
+* маршрутная таблица в операционной системе сервера {{ baremetal-name }} содержит маршрут до CIDR подсети с виртуальной машиной;
 * [группа безопасности](../../vpc/concepts/security-groups.md), которая назначена [сетевому интерфейсу](../../compute/concepts/network.md) виртуальной машины, разрешает прохождение ICMP-трафика.
 
-### Проверьте сетевую связность из приватной подсети BareMetal к on-premise-ресурсам {#check-bms-to-onprem}
+### Проверьте сетевую связность из приватной подсети {{ baremetal-name }} к on-premise-ресурсам {#check-bms-to-onprem}
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-  1. В списке сервисов выберите **BareMetal**.
-  1. В строке с сервером `server-m3` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. В строке с сервером `server-m3` нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.baremetal.label_kvm-console_37Kma }}**.
   
       Откроется окно с терминалом KVM-консоли, в котором вы увидите строку аутентификации:
       
@@ -392,7 +394,7 @@ vpc:
       ping <внутренний_IP-адрес_ВМ> -c 5
       ```
 
-      Узнать внутренний IP-адрес ВМ вы можете в [консоли управления](https://console.yandex.cloud) в блоке **Сетевой интерфейс** на странице с информацией о ВМ.
+      Узнать внутренний IP-адрес ВМ вы можете в [консоли управления]({{ link-console-main }}) в блоке **{{ ui-key.yacloud.compute.instance.overview.label_network-interface }}** на странице с информацией о ВМ.
 
       Результат:
 
@@ -409,11 +411,11 @@ vpc:
       rtt min/avg/max/mdev = 0.222/0.964/3.899/1.467 ms
       ```
 
-      Сетевая связность между сервером BareMetal и виртуальной машиной установлена, пакеты проходят без потерь.
+      Сетевая связность между сервером {{ baremetal-name }} и виртуальной машиной установлена, пакеты проходят без потерь.
 
 {% endlist %}
 
-### Проверьте сетевую связность от on-premise-ресурса с приватной подсетью BareMetal {#check-onprem-to-bms}
+### Проверьте сетевую связность от on-premise-ресурса с приватной подсетью {{ baremetal-name }} {#check-onprem-to-bms}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по SSH.
 1. В терминале выполните команду `ping`, чтобы убедиться в доступности сервера `server-m3` по его приватному IP-адресу:
@@ -422,7 +424,7 @@ vpc:
       ping <приватный_IP-адрес_сервера> -c 5
       ```
 
-      Узнать приватный IP-адрес сервера BareMetal вы можете в [консоли управления](https://console.yandex.cloud) в блоке **Сетевые настройки** на странице с информацией о сервере.
+      Узнать приватный IP-адрес сервера {{ baremetal-name }} вы можете в [консоли управления]({{ link-console-main }}) в блоке **Сетевые настройки** на странице с информацией о сервере.
 
       Результат:
 
@@ -439,24 +441,24 @@ vpc:
       rtt min/avg/max/mdev = 0.208/0.235/0.271/0.025 ms
       ```
 
-      Сетевая связность между виртуальной машиной и сервером BareMetal установлена, пакеты проходят без потерь.
+      Сетевая связность между виртуальной машиной и сервером {{ baremetal-name }} установлена, пакеты проходят без потерь.
 
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
 
 1. [Удалите](../../compute/operations/vm-control/vm-delete.md) виртуальную машину.
-1. Удалить сервер BareMetal нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера.
+1. Удалить сервер {{ baremetal-name }} нельзя. Вместо этого [откажитесь](../../baremetal/operations/servers/server-lease-cancel.md) от продления аренды сервера.
 1. При необходимости удалите приватное соединение:
 
     {% list tabs group=instructions %}
 
     - Консоль управления {#console} 
     
-      1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
-      1. В списке сервисов выберите **BareMetal**.
-      1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите виртуальный сегмент сети `my-vrf`.
-      1. В блоке **Приватное соединение с облачными сетями** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **Отключить соединение**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
+      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и выберите виртуальный сегмент сети `my-vrf`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. В открывшемся окне подтвердите удаление.
 
       В результате статус соединения сменится на `Deleting`. После того как все связи будут удалены, соединение пропадет из списка.

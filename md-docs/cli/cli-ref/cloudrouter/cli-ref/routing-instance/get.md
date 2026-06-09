@@ -1,18 +1,13 @@
 # yc cloudrouter routing-instance get
 
-Get information about a routingInstance.
+Returns the specified RoutingInstance resource.
+To get the list of available RoutingInstance resources, make a [List] request.
 
 #### Command Usage
 
 Syntax:
 
-`yc cloudrouter routing-instance get <ROUTING_INSTANCE-ID> [Global Flags...]`
-
-Aliases:
-
-- `describe`
-
-- `show`
+`yc cloudrouter routing-instance get <ROUTING-INSTANCE-ID>`
 
 #### Flags
 
@@ -20,10 +15,10 @@ Aliases:
 ||Flag | Description ||
 || `--id` | `string`
 
-RoutingInstance id. ||
+ID of the RoutingInstance resource to return. To get the routingInstance ID use a [RoutingInstanceService.List] request. ||
 || `--name` | `string`
 
-RoutingInstance name. ||
+Resolve id by resource name within the current scope. ||
 |#
 
 #### Global Flags
@@ -32,51 +27,45 @@ RoutingInstance name. ||
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
+|| `--timeout` | `string`
 
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
-|| `--cloud-id` | `string`
-
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Создать Routing Instance](../../../../../cloud-router/operations/ri-create.md#cli_1)
- * [Удалить Routing Instance](../../../../../cloud-router/operations/ri-delete.md#cli_1)
- * [Получить информацию о Routing Instance](../../../../../cloud-router/operations/ri-get-info.md#cli_1)
- * [Добавить новую облачную сеть в Routing Instance](../../../../../cloud-router/operations/ri-prefixes-upsert.md#cli_1)
- * [Добавить приватное соединение в Routing Instance](../../../../../cloud-router/operations/ri-priv-con-add.md#cli_1)
- * [Удалить приватное соединение из Routing Instance](../../../../../cloud-router/operations/ri-priv-con-del.md#cli_1)
- * [Изменить параметры Routing Instance](../../../../../cloud-router/operations/ri-update.md#cli_1)

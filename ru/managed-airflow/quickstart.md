@@ -68,4 +68,4 @@ keywords:
 
 * Изучите [концепции сервиса {{ maf-name }}](concepts/index.md).
 * Узнайте подробнее о [создании кластера](operations/cluster-create.md) {{ maf-name }} и [работе с интерфейсами](operations/af-interfaces.md) {{ AF }}.
-* Создайте DAG-файлы и [загрузите их](operations/upload-dags.md) в кластер {{ maf-name }}. Пример DAG-файла см. в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).
+* Создайте DAG-файлы и [загрузите их](operations/upload-dags.md) в кластер {{ maf-name }}. Пример DAG-файла в [документации {{ AF }}](https://airflow.apache.org/docs/apache-airflow/stable/tutorial/fundamentals.html).

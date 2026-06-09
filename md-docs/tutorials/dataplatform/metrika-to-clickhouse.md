@@ -1,19 +1,19 @@
-# Асинхронная репликация данных из Яндекс Метрика в ClickHouse® с помощью Yandex Data Transfer
+# Асинхронная репликация данных из {{ metrika }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
-# Загрузка данных из Яндекс Метрика в витрину ClickHouse® с помощью Yandex Data Transfer
+# Загрузка данных из {{ metrika }} в витрину {{ CH }} с помощью {{ data-transfer-full-name }}
 
 
 {% note info %}
 
-Передача данных из источника Яндекс Метрика возможна при подключении пакета [Метрика Про](https://yandex.ru/support/metrica/pro/intro.html) или использовании [Data Streaming из Яндекс Метрики](https://yandex.cloud/ru/marketplace/products/varioqub/metrica-data-streaming).
+Передача данных из источника {{ metrika }} возможна при подключении пакета [{{ metrika-pro }}]({{ link-yandex }}/support/metrica/pro/intro.html) или использовании [Data Streaming из Яндекс Метрики](https://yandex.cloud/ru/marketplace/products/varioqub/metrica-data-streaming).
 
 {% endnote %}
 
-С помощью сервиса Data Transfer вы можете перенести данные из счетчика [Яндекс Метрика](https://metrika.yandex.ru/) в кластер ClickHouse®. Такой перенос обеспечивает полноту переносимых данных из Яндекс Метрика и предоставляет возможности для:
+С помощью сервиса {{ data-transfer-name }} вы можете перенести данные из счетчика [{{ metrika }}]({{ metrika-link }}) в кластер {{ CH }}. Такой перенос обеспечивает полноту переносимых данных из {{ metrika }} и предоставляет возможности для:
 
-* обработки данных средствами ClickHouse®;
-* стриминга из ClickHouse® в другие локации;
-* визуализации с помощью [Yandex DataLens](https://datalens.ru/promo) или других сервисов.
+* обработки данных средствами {{ CH }};
+* стриминга из {{ CH }} в другие локации;
+* визуализации с помощью [{{ datalens-full-name }}]({{ link-datalens-main-promo }}) или других сервисов.
 
 Чтобы перенести данные:
 
@@ -25,49 +25,49 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер Managed Service for ClickHouse®: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
-* Пакет [Метрика Про](https://yandex.ru/support/metrica/pro/price.html).
+* Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Пакет [Метрика Про]({{ link-yandex }}/support/metrica/pro/price.html).
 
 
 ## Перед началом работы {#before-you-begin}
 
 Подготовьте инфраструктуру:
 
-1. [Выберите](https://yandex.ru/support/metrica/general/tag-id.html) счетчик Яндекс Метрика или [создайте и установите](https://yandex.ru/support/metrica/general/creating-counter.html) новый счетчик.
+1. [Выберите]({{ link-yandex }}/support/metrica/general/tag-id.html) счетчик {{ metrika }} или [создайте и установите]({{ link-yandex }}/support/metrica/general/creating-counter.html) новый счетчик.
 
-1. [Создайте кластер-приемник Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
+1. [Создайте кластер-приемник {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации.
 
 ## Подготовьте и активируйте трансфер {#prepare-transfer}
 
-1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `Metrica`](../../data-transfer/operations/endpoint/source/metrika.md).
+1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для [источника `{{ metrika-endpoint }}`](../../data-transfer/operations/endpoint/source/metrika.md).
 
     Хиты и визиты переносятся как отдельные таблицы.
 
 1. [Создайте эндпоинт](../../data-transfer/operations/endpoint/index.md#create) для приемника:
 
-    * **Тип базы данных** — `ClickHouse`.
-    * **Параметры эндпоинта** → **Тип подключения** — `Managed кластер`.
+    * **{{ ui-key.yacloud.data-transfer.forms.label-database_type }}** — `ClickHouse`.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseTarget.title }}** → **{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseConnection.connection_type.title }}** — `{{ ui-key.yc-data-transfer.data-transfer.console.form.clickhouse.console.form.clickhouse.ClickHouseManaged.mdb_cluster_id.title }}`.
 
         Выберите кластер-приемник из списка и укажите [настройки подключения](../../data-transfer/operations/endpoint/target/clickhouse.md) к нему.
 
-1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_Репликация_**, использующий созданные эндпоинты.
+1. [Создайте трансфер](../../data-transfer/operations/transfer.md#create) типа **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**, использующий созданные эндпоинты.
 1. [Активируйте](../../data-transfer/operations/transfer.md#activate) его.
 
 Трансфер не переносит исторические данные, только текущие. Если трансфер деактивировать и активировать снова:
 
-1. Данные полученные счетчиком Яндекс Метрика, пока трансфер был деактивирован, перенесены не будут.
+1. Данные полученные счетчиком {{ metrika }}, пока трансфер был деактивирован, перенесены не будут.
 1. В соответствии с политикой очистки, выбранной в эндпоинте-приемнике, существующие таблицы с данными будут:
 
-    * **Drop** — удалены вместе с данными и созданы заново с теми же именами.
-    * **Truncate** — очищены от существующих данных, но сами таблицы и их схемы останутся.
-    * **Не очищать** — использоваться для дальнейшей записи данных.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DROP.title }}** — удалены вместе с данными и созданы заново с теми же именами.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.TRUNCATE.title }}** — очищены от существующих данных, но сами таблицы и их схемы останутся.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.CleanupPolicy.DISABLED.title }}** — использоваться для дальнейшей записи данных.
 
 ## Проверьте работоспособность трансфера {#verify-transfer}
 
-1. Дождитесь перехода трансфера в статус **Реплицируется**.
+1. Дождитесь перехода трансфера в статус **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
-1. Убедитесь, что в базу данных Managed Service for ClickHouse® перенеслись данные из счетчика Яндекс Метрика:
+1. Убедитесь, что в базу данных {{ mch-name }} перенеслись данные из счетчика {{ metrika }}:
 
     1. [Подключитесь к кластеру](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью `clickhouse-client`.
 
@@ -75,7 +75,7 @@
 
         ```sql
         SELECT table FROM system.tables
-        WHERE database = '<имя_базы_данных_ClickHouse®>'
+        WHERE database = '<имя_базы_данных_{{ CH }}>'
         ```
 
         Результат:
@@ -105,7 +105,7 @@
 
 1. [Удалите трансфер](../../data-transfer/operations/transfer.md#delete-transfer).
 1. [Удалите эндпоинты](../../data-transfer/operations/endpoint/index.md#delete) для источника и приемника.
-1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
-1. Удалите счетчик Яндекс Метрика из личного кабинета [Метрики Про](https://yandex.ru/support/metrica/pro/intro.html).
+1. [Удалите кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-delete.md).
+1. Удалите счетчик {{ metrika }} из личного кабинета [Метрики Про]({{ link-yandex }}/support/metrica/pro/intro.html).
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

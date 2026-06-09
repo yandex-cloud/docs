@@ -1,10 +1,10 @@
-# Метрики Yandex Audit Trails
+# Метрики {{ at-full-name }}
 
-В этом разделе описаны метрики сервиса [Audit Trails](../../audit-trails/index.md), поставляемые в Monitoring.
+В этом разделе описаны метрики сервиса [{{ at-name }}](../../audit-trails/index.md), поставляемые в {{ monitoring-name }}.
 
 Имя метрики пишется в метку `name`.
 
-Общие метки для всех метрик Audit Trails:
+Общие метки для всех метрик {{ at-name }}:
 
 | Метка | Значение |
 | --- | --- |

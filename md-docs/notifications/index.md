@@ -22,7 +22,7 @@ Yandex Cloud Notification Service — сервис для мультиканал
 
  - [Начало работы с топиками](quickstart-topics.md)
 
-## Пошаговые операции
+## Пошаговые инструкции
 
  - [Все инструкции](operations/index.md)
 
@@ -182,8 +182,8 @@ Yandex Cloud Notification Service — сервис для мультиканал
 
  - [Publish](api-ref/publish.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Логи Cloud Logging](concepts/logging.md)
+ - [Логи {{ cloud-logging-name }}](concepts/logging.md)
 
  - [История изменений](release-notes.md)

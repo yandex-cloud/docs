@@ -7,7 +7,7 @@ To get the list of all available Greenplum® clusters, make a [List](list.md#Lis
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-greenplum/v1/clusters/{clusterId}
 ```
 
 ## Path parameters

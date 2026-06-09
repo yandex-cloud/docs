@@ -5,7 +5,7 @@ Updates the specified route of the specified virtual host.
 ## HTTP request
 
 ```
-POST https://alb.api.cloud.yandex.net/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:updateRoute
+POST https://alb.{{ api-host }}/apploadbalancer/v1/httpRouters/{httpRouterId}/virtualHosts/{virtualHostName}:updateRoute
 ```
 
 ## Path parameters

@@ -5,7 +5,7 @@ Creates a Metastore Cluster.
 ## HTTP request
 
 ```
-POST https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters
+POST https://metastore.{{ api-host }}/managed-metastore/v1/clusters
 ```
 
 ## Body parameters {#yandex.cloud.metastore.v1.CreateClusterRequest}

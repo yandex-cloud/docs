@@ -1,30 +1,30 @@
-# Подключение к хосту Yandex Data Processing через OS Login 
+# Подключение к хосту {{ dataproc-name }} через {{ oslogin }} 
 
 {% note warning %}
 
-Включить доступ к хостам через OS Login можно только при [создании кластера](cluster-create.md).
+Включить доступ к хостам через {{ oslogin }} можно только при [создании кластера](cluster-create.md).
 
 {% endnote %}
 
-[OS Login](../../organization/concepts/os-login.md) используется вместо SSH-ключей для доступа к виртуальным машинам Yandex Cloud.
+[{{ oslogin }}](../../organization/concepts/os-login.md) используется вместо SSH-ключей для доступа к виртуальным машинам {{ yandex-cloud }}.
 
-Подключиться к хостам кластера Yandex Data Processing через OS Login можно с помощью [стандартного SSH-клиента](connect-oslogin.md#os-login-ssh) или [Yandex Cloud CLI](connect-oslogin.md#os-login-cli).
+Подключиться к хостам кластера {{ dataproc-name }} через {{ oslogin }} можно с помощью [стандартного SSH-клиента](connect-oslogin.md#os-login-ssh) или [{{ yandex-cloud }} CLI](connect-oslogin.md#os-login-cli).
 
 Перед подключением:
 
-1. [Включите доступ через OS Login](../../organization/operations/os-login-access.md) на уровне организации.
+1. [Включите доступ через {{ oslogin }}](../../organization/operations/os-login-access.md) на уровне организации.
 1. [Настройте группы безопасности](security-groups.md).
 1. Назначьте пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого выполняется подключение, необходимые роли:
     
    * [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin` или `compute.osAdminLogin`.
    * [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на каталог, в котором размещена виртуальная машина.
-   * [роль](../../compute/security/index.md#compute-operator) `compute.operator` для подключении с помощью Yandex Cloud CLI.
+   * [роль](../../compute/security/index.md#compute-operator) `compute.operator` для подключении с помощью {{ yandex-cloud }} CLI.
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
 ## Подключитесь с помощью стандартного SSH-клиента {#os-login-ssh}
 
-1. [Экспортируйте сертификат](../../compute/operations/vm-connect/os-login-export-certificate.md) OS Login.
+1. [Экспортируйте сертификат](../../compute/operations/vm-connect/os-login-export-certificate.md) {{ oslogin }}.
 
    {% note info %}
 
@@ -34,12 +34,12 @@
 
    Сертификат включает публичную и приватную части. Сохраните путь к приватной части `Identity` — он понадобится для подключения к хосту.
 
-1. Узнайте IP-адрес хоста Yandex Data Processing:
+1. Узнайте IP-адрес хоста {{ dataproc-name }}:
 
     1. Получите список хостов:
 
        ```bash
-       yc dataproc cluster list-hosts <имя_или_идентификатор_кластера>
+       {{ yc-dp }} cluster list-hosts <имя_или_идентификатор_кластера>
        ```
 
        Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list) в каталоге.
@@ -86,11 +86,11 @@
     Где:
 
     * `<путь_к_файлу_сертификата>` — путь к сохраненному ранее файлу `Identity` сертификата. Например: `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<логин_пользователя>` — логин, заданный для этого пользователя в [профиле OS Login](../../organization/concepts/os-login.md#os-login-profiles). Логин также указывается в конце имени экспортированного сертификата OS Login. В примере выше это `orgusername`.
+    * `<логин_пользователя>` — логин, заданный для этого пользователя в [профиле {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles). Логин также указывается в конце имени экспортированного сертификата {{ oslogin }}. В примере выше это `orgusername`.
 
         {% note info %}
 
-        Для сервисных аккаунтов [профили OS Login](../../organization/concepts/os-login.md#os-login-profiles) не создаются автоматически. Чтобы подключаться к ВМ или узлу Kubernetes от имени сервисного аккаунта, [вручную создайте](../../organization/operations/os-login-profile-create.md) для него профиль OS Login.
+        Для сервисных аккаунтов [профили {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) не создаются автоматически. Чтобы подключаться к ВМ или узлу {{ k8s }} от имени сервисного аккаунта, [вручную создайте](../../organization/operations/os-login-profile-create.md) для него профиль {{ oslogin }}.
 
         {% endnote %}
 
@@ -108,10 +108,10 @@
 
 ## Подключитесь с помощью CLI {#os-login-cli}
 
-1. Получите список хостов Yandex Data Processing:
+1. Получите список хостов {{ dataproc-name }}:
 
    ```bash
-   yc dataproc cluster list-hosts <имя_или_идентификатор_кластера>
+   {{ yc-dp }} cluster list-hosts <имя_или_идентификатор_кластера>
    ```
 
    Идентификатор и имя кластера можно получить со [списком кластеров](cluster-list.md#list) в каталоге.
@@ -137,6 +137,6 @@
 
     {% note info %}
 
-    Для сервисных аккаунтов [профили OS Login](../../organization/concepts/os-login.md#os-login-profiles) не создаются автоматически. Чтобы подключаться к ВМ или узлу Kubernetes от имени сервисного аккаунта, [вручную создайте](../../organization/operations/os-login-profile-create.md) для него профиль OS Login.
+    Для сервисных аккаунтов [профили {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) не создаются автоматически. Чтобы подключаться к ВМ или узлу {{ k8s }} от имени сервисного аккаунта, [вручную создайте](../../organization/operations/os-login-profile-create.md) для него профиль {{ oslogin }}.
 
     {% endnote %}

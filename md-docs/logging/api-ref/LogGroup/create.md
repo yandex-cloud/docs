@@ -5,7 +5,7 @@ Creates a log group in the specified folder.
 ## HTTP request
 
 ```
-POST https://logging.api.cloud.yandex.net/logging/v1/logGroups
+POST https://logging.{{ api-host }}/logging/v1/logGroups
 ```
 
 ## Body parameters {#yandex.cloud.logging.v1.CreateLogGroupRequest}

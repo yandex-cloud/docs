@@ -1,6 +1,6 @@
 # Поля ресурса RoutePolicy
 
-Ресурс `RoutePolicy` позволяет задавать облако-специфичные политики для ресурсов `HTTPRoute` и других маршрутов в Application Load Balancer. Политики применяются к маршрутам на основе селектора или явных ссылок.
+Ресурс `RoutePolicy` позволяет задавать облако-специфичные политики для ресурсов `HTTPRoute` и других маршрутов в {{ alb-name }}. Политики применяются к маршрутам на основе селектора или явных ссылок.
 
 {% note info %}
 
@@ -10,7 +10,7 @@
 
 {% note tip %}
 
-Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [Yandex Cloud Gwin](gwin-index.md).
+Вместо ALB Ingress-контроллера и Gateway API рекомендуется использовать новый контроллер [{{ yandex-cloud }} Gwin]({{ gwin-tip-local-link }}).
 
 {% endnote %}
 
@@ -147,9 +147,9 @@ spec:
 
   * `name` (`string`, обязательное)
 
-    Имя ресурса. Подробнее о формате см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
+    Имя ресурса. Подробнее о формате см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-    Не является именем балансировщика в Application Load Balancer.
+    Не является именем балансировщика в {{ alb-name }}.
   
   * `namespace` (`string`)
   
@@ -194,7 +194,7 @@ host:
 
   * `securityProfileId` (`string`)
   
-    Идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) Smart Web Security для хоста.
+    Идентификатор [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-name }} для хоста.
 
   * `rbac` (`RBAC`)
   
@@ -227,7 +227,7 @@ http:
 
 * `securityProfileId` (`string`)
 
-  Идентификатор профиля безопасности Smart Web Security.
+  Идентификатор профиля безопасности {{ sws-name }}.
 
 * `rbac` (`RBAC`)
 

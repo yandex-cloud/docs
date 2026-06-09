@@ -1,7 +1,7 @@
-# Создать OIDC-приложение в Yandex Identity Hub
+# Создать OIDC-приложение в {{ org-full-name }}
 
 
-Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне поставщика услуг.
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться во внешних приложениях с помощью технологии единого входа по стандарту [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC), создайте [OIDC-приложение](../../concepts/applications.md#oidc) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне поставщика услуг.
 
 Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
 
@@ -9,32 +9,32 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
-  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
-      1. Выберите метод единого входа **OIDC (OpenID Connect)**.
-      1. В поле **Имя** задайте имя создаваемого приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}**.
+  1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** и в открывшемся окне:
+      1. Выберите метод единого входа **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.oauth-title_uUs4x }}**.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** задайте имя создаваемого приложения. Имя должно быть уникальным в пределах организации и соответствовать требованиям:
 
           * длина — от 1 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-folder_rANM4 }}** выберите каталог, в котором будет создан OAuth-клиент для приложения.
 
           OAuth-клиент является необходимым компонентом при создании OIDC-приложения, создается и удаляется одновременно с OIDC-приложением и неразрывно с ним связан.
-      1. (Опционально) В поле **Описание** задайте описание приложения.
+      1. (Опционально) В поле **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** задайте описание приложения.
       1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
 
-          1. Нажмите **Добавить метку**.
+          1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
           1. Введите метку в формате `ключ: значение`.
           1. Нажмите **Enter**.
-      1. Нажмите кнопку **Создать приложение**.
+      1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -143,17 +143,20 @@
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Опишите в конфигурационном файле Terraform параметры [OAuth-клиента](../../concepts/applications.md):
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OAuth-клиента](../../concepts/applications.md):
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -175,9 +178,9 @@
        * `phone` — номер телефона пользователя.
        * `groups` — группы пользователей в организации.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
 
-  1. Опишите в конфигурационном файле Terraform параметры [секрета](../../concepts/applications.md#oidc-secret) OAuth-клиента:
+  1. Опишите в конфигурационном файле {{ TF }} параметры [секрета](../../concepts/applications.md#oidc-secret) OAuth-клиента:
 
      ```hcl
      resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
@@ -189,9 +192,9 @@
 
      * `oauth_client_id` — идентификатор OAuth-клиента, для которого создается секрет.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера](../../../terraform/resources/iam_oauth_client_secret.md).
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client_secret` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
 
-  1. Опишите в конфигурационном файле Terraform параметры [OIDC-приложения](../../concepts/applications.md#oidc):
+  1. Опишите в конфигурационном файле {{ TF }} параметры [OIDC-приложения](../../concepts/applications.md#oidc):
 
      ```hcl
      resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
@@ -235,7 +238,7 @@
          * `NONE` — поставщику услуг не будут переданы группы, в которые входит пользователь.
      * `labels` — список [меток](../../../resource-manager/concepts/labels.md). Необязательный параметр.
 
-     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application.md).
+     Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Создайте ресурсы:
 
@@ -258,7 +261,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -267,7 +270,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../../cli/index.md):
+     {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/index.md):
 
      ```bash
      yc organization-manager idp application oauth application list --organization-id <идентификатор_организации>
@@ -283,11 +286,11 @@
 
 ## Настройте приложение {#setup-application}
 
-Чтобы настроить интеграцию внешнего приложения с созданным OIDC-приложением в Yandex Identity Hub, выполните настройки на стороне поставщика услуг и на стороне Yandex Identity Hub.
+Чтобы настроить интеграцию внешнего приложения с созданным OIDC-приложением в {{ org-full-name }}, выполните настройки на стороне поставщика услуг и на стороне {{ org-full-name }}.
 
 ### Задайте настройки интеграции на стороне поставщика услуг {#setup-sp}
 
-Значения настроек интеграции, которые нужно задать на стороне поставщика услуг, доступны на странице с информацией о приложении в [интерфейсе Cloud Center](https://center.yandex.cloud/organization/apps).
+Значения настроек интеграции, которые нужно задать на стороне поставщика услуг, доступны на странице с информацией о приложении в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}/apps).
 
 В зависимости от возможностей вашего поставщика услуг вы можете выполнить необходимые настройки вручную или автоматически, указав URL с конфигурацией:
 
@@ -295,19 +298,19 @@
 
 - Настройка вручную
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значения параметров, которые необходимо задать на стороне поставщика услуг:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** разверните секцию **{{ ui-key.yacloud_org.application.overview.idp_section_closed_text }}** и скопируйте значения параметров, которые необходимо задать на стороне поставщика услуг:
 
-      * `ClientID` — уникальный идентификатор приложения.
-      * `Authorization endpoint` — адрес в Yandex Cloud, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
-      * `Token endpoint` — адрес, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
-      * `Userinfo endpoint` — адрес, по которому внешнее приложение может получить атрибуты пользователя.
+      * `{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}` — уникальный идентификатор приложения.
+      * `{{ ui-key.yacloud_org.application.overview.oauth_field_auth_endpoint }}` — адрес в {{ yandex-cloud }}, на который поставщик услуг будет перенаправлять пользователя для прохождения аутентификации.
+      * `{{ ui-key.yacloud_org.application.overview.oauth_field_token_endpoint }}` — адрес, на который от внешнего приложения поступает запрос на получение ID-токена и токена доступа.
+      * `{{ ui-key.yacloud_org.application.overview.oauth_field_user_info_endpoint }}` — адрес, по которому внешнее приложение может получить атрибуты пользователя.
 
-  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
+  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
      
      В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -317,22 +320,22 @@
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
-  1. На стороне поставщика услуг настройте интеграцию с OIDC-приложением Yandex Identity Hub, указав скопированные параметры и сгенерированный секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. На стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные параметры и сгенерированный секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
 
 - URL с конфигурацией
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** скопируйте значение поля **OpenID Configuration**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.overview_b5LJQ }}** в блоке **{{ ui-key.yacloud_org.application.overview.idp_section_title }}** скопируйте значение поля **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}**.
 
       По ссылке доступны значения всех настроек, которые необходимо задать на стороне поставщика услуг (за исключением секрета).
-  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
+  1. В блоке **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** нажмите кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}** и в открывшемся окне:
      
      1. (Опционально) Добавьте произвольное описание создаваемого секрета.
-     1. Нажмите **Создать**.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
      
      В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
      
@@ -342,45 +345,45 @@
      
      {% endnote %}
      
-     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **{{ ui-key.yacloud_org.application.overview.secret_section_add_new_secret_action }}**, чтобы создать новый.
      
-     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
-  1. Если ваш поставщик услуг поддерживает конфигурирование приложения с помощью URL с конфигурацией, на стороне поставщика услуг настройте интеграцию с OIDC-приложением Yandex Identity Hub, указав скопированные ссылку и секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+  1. Если ваш поставщик услуг поддерживает конфигурирование приложения с помощью URL с конфигурацией, на стороне поставщика услуг настройте интеграцию с OIDC-приложением {{ org-full-name }}, указав скопированные ссылку и секрет. При необходимости обратитесь к документации или в службу поддержки вашего поставщика услуг.
 
 {% endlist %}
 
-### Настройте OIDC-приложение на стороне Yandex Identity Hub {#setup-idp}
+### Настройте OIDC-приложение на стороне {{ org-full-name }} {#setup-idp}
 
-Прежде чем настраивать OIDC-приложение на стороне Yandex Identity Hub, получите адрес (адреса) Redirect URI у вашего поставщика услуг. Затем перейдите к настройкам OIDC-приложения в Yandex Identity Hub:
+Прежде чем настраивать OIDC-приложение на стороне {{ org-full-name }}, получите адрес (адреса) Redirect URI у вашего поставщика услуг. Затем перейдите к настройкам OIDC-приложения в {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. Справа сверху нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** и в открывшемся окне:
      
-     1. В поле **Redirect URI** укажите полученный у поставщика услуг адрес.
+     1. В поле **{{ ui-key.yacloud_org.application.overview.oauth_field_redirect_uri }}** укажите полученный у поставщика услуг адрес.
      
-         Используйте кнопку **Добавить URI**, чтобы указать одновременно несколько адресов Redirect URI.
-     1. В поле **Scopes** выберите набор атрибутов пользователей, которые будут доступны поставщику услуг:
+         Используйте кнопку **{{ ui-key.yacloud_org.organization.apps.OauthAppRedirectUrlsField.add-redirect-url_rS5jw }}**, чтобы указать одновременно несколько адресов Redirect URI.
+     1. В поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** выберите набор атрибутов пользователей, которые будут доступны поставщику услуг:
      
-         * `openid (идентификатор пользователя)` — идентификатор пользователя. Обязательный параметр.
-         * `email (адрес электронной почты)` — адрес электронной почты пользователя.
-         * `profile (полное имя, имя, фамилия, аватар и др.)` — дополнительная информация о пользователе.
-         * `groups (группы пользователя в организации)` — [группы пользователей](../../concepts/groups.md) организации, участником которых является аутентифицирующийся пользователь. Возможные значения:
+         * `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-openid_o99tx }}` — идентификатор пользователя. Обязательный параметр.
+         * `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-email_vYNmM }}` — адрес электронной почты пользователя.
+         * `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-profile_sgdKX }}` — дополнительная информация о пользователе.
+         * `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` — [группы пользователей](../../concepts/groups.md) организации, участником которых является аутентифицирующийся пользователь. Возможные значения:
          
-             * `Все группы` — поставщику услуг будут переданы все группы, в которые входит пользователь.
+             * `{{ ui-key.yacloud_org.organization.apps.field_group_all_uY9US }}` — поставщику услуг будут переданы все группы, в которые входит пользователь.
          
                  Максимальное количество передаваемых групп — 1&nbsp;000. Если количество групп, в которые входит пользователь, превышает это число, на сторону поставщика услуг будет передана только первая тысяча групп. 
-             * `Только назначенные группы` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые явно заданы на вкладке **Пользователи и группы** OIDC-приложения.
+             * `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}` — из всех групп, в которые входит пользователь, поставщику услуг будут переданы только те группы, которые явно заданы на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}** OIDC-приложения.
      
-     1. Нажмите кнопку **Сохранить**.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -416,17 +419,20 @@
      ```
 
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. В конфигурационном файле Terraform для ресурса `yandex_iam_oauth_client` укажите параметр `redirect_uris`:
+  1. В конфигурационном файле {{ TF }} для ресурса `yandex_iam_oauth_client` укажите параметр `redirect_uris`:
 
      ```hcl
      resource "yandex_iam_oauth_client" "example_oauth_client" {
@@ -445,7 +451,7 @@
      * `folder_id` — идентификатор каталога, в котором будет создан OAuth-клиент.
      * `redirect_uris` — укажите полученный у поставщика услуг адрес или несколько адресов в квадратных скобках.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера](../../../terraform/resources/iam_oauth_client.md).
+     Более подробную информацию о параметрах ресурса `yandex_iam_oauth_client` см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_oauth_client).
 
   1. Примените изменения:
 
@@ -468,7 +474,7 @@
         terraform plan
         ```
      
-        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
      1. Примените изменения конфигурации:
      
         ```bash
@@ -477,7 +483,7 @@
      
      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-     Проверить изменения ресурсов и их настройки можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../../cli/index.md):
+     Проверить изменения ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/index.md):
 
      ```bash
      yc iam oauth-client get <идентификатор_OAuth-клиента>
@@ -491,7 +497,7 @@
 
 ### Настройте пользователей и группы {#users-and-groups}
 
-Чтобы пользователи вашей организации могли аутентифицироваться во внешнем приложении с помощью OIDC-приложения Yandex Identity Hub, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md):
+Чтобы пользователи вашей организации могли аутентифицироваться во внешнем приложении с помощью OIDC-приложения {{ org-full-name }}, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md):
 
 {% note info %}
 
@@ -501,24 +507,24 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
-  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
-  1. Перейдите на вкладку **Пользователи и группы**.
+  1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное OIDC-приложение.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.assignments_kKzJS }}**.
   1. Чтобы добавить в приложение пользователя или группу пользователей:
 
-      1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+      1. Нажмите кнопку ![person-plus](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppAssignmentsPage.action_add-assignments }}**.
       1. В открывшемся окне выберите нужного пользователя или группу пользователей.
-      1. Нажмите кнопку **Добавить**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Чтобы удалить пользователя или группу пользователей из приложения:
 
-      1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+      1. В списке пользователей и групп в строке с нужным пользователем или группой нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       1. Подтвердите удаление.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -584,15 +590,18 @@
               subject_id: ajetvnq2mil8********
         ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  [{{ TF }}](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в {{ yandex-cloud }} и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций {{ TF }} автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
   
-  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  {{ TF }} распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер {{ yandex-cloud }} для {{ TF }}](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
   
-  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [{{ TF }}](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале]({{ tf-docs-link }}).
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры назначения пользователей и групп приложению:
 
@@ -608,7 +617,7 @@
       * `application_id` — идентификатор OIDC-приложения.
       * `subject_id` — идентификатор нужного пользователя или группы пользователей.
 
-      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` см. в [документации провайдера](../../../terraform/resources/organizationmanager_idp_application_oauth_application_assignment.md).
+      Более подробную информацию о параметрах ресурса `yandex_organizationmanager_idp_application_oauth_application_assignment` см. в [документации провайдера]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application_assignment).
 
   1. Создайте ресурсы:
 
@@ -631,7 +640,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -640,7 +649,7 @@
       
       1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
 
-      Terraform создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе Cloud Center](https://center.yandex.cloud/organization) или с помощью команды [CLI](../../../cli/index.md):
+      {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}) или с помощью команды [CLI](../../../cli/index.md):
 
       ```bash
       yc organization-manager idp application oauth application list-assignments <идентификатор_приложения>
@@ -658,8 +667,8 @@
 
 #### См. также {#see-also}
 
-* [Изменить OIDC-приложение в Yandex Identity Hub](oidc-update.md)
-* [Деактивировать и удалить OIDC-приложение в Yandex Identity Hub](oidc-deactivate-remove.md)
-* [Добавить пользователя](../add-account.md)
-* [OIDC-приложения](../../concepts/applications.md#oidc)
-* [Управление группами пользователей](../manage-groups.md)
+* [{#T}](oidc-update.md)
+* [{#T}](oidc-deactivate-remove.md)
+* [{#T}](../add-account.md)
+* [{#T}](../../concepts/applications.md#oidc)
+* [{#T}](../manage-groups.md)

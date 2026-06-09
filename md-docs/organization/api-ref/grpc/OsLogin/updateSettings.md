@@ -57,20 +57,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "organization_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "user_ssh_key_settings": {
-      "enabled": "bool",
-      "allow_manage_own_keys": "bool"
-    },
-    "ssh_certificate_settings": {
-      "enabled": "bool"
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -98,7 +88,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateOsLoginSettingsMetadata](#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -113,7 +103,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[OsLoginSettings](#yandex.cloud.organizationmanager.v1.OsLoginSettings)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -128,34 +118,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateOsLoginSettingsMetadata {#yandex.cloud.organizationmanager.v1.UpdateOsLoginSettingsMetadata}
-
-#|
-||Field | Description ||
-|| organization_id | **string** ||
-|#
-
-## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}
-
-#|
-||Field | Description ||
-|| user_ssh_key_settings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
-|| ssh_certificate_settings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
-|#
-
-## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UserSshKeySettings}
-
-#|
-||Field | Description ||
-|| enabled | **bool** ||
-|| allow_manage_own_keys | **bool** ||
-|#
-
-## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.SshCertificateSettings}
-
-#|
-||Field | Description ||
-|| enabled | **bool** ||
 |#

@@ -5,7 +5,7 @@ Retrieves the list of Folder resources in the specified cloud.
 ## HTTP request
 
 ```
-GET https://resource-manager.api.cloud.yandex.net/resource-manager/v1/folders
+GET https://resource-manager.{{ api-host }}/resource-manager/v1/folders
 ```
 
 ## Query parameters {#yandex.cloud.resourcemanager.v1.ListFoldersRequest}
@@ -26,7 +26,7 @@ the service returns a [ListFoldersResponse.nextPageToken](#yandex.cloud.resource
 that can be used to get the next page of results in subsequent list requests.
 Default value: 100.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. Set `pageToken`

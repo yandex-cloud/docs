@@ -1,10 +1,10 @@
-# Справочник метрик Yandex Monitoring
+# Справочник метрик {{ monitoring-full-name }}
 
-В этом разделе описаны метрики сервиса Managed Service for Kubernetes, поставляемые в [Monitoring](../monitoring/index.md).
+В этом разделе описаны метрики сервиса {{ managed-k8s-name }}, поставляемые в [{{ monitoring-name }}](../monitoring/index.md).
 
 Имя метрики пишется в метку `name`.
 
-Все метрики сервиса Managed Service for Kubernetes имеют общую метку `service=managed-kubernetes`.
+Все метрики сервиса {{ managed-k8s-name }} имеют общую метку `service=managed-kubernetes`.
 
 ## Метрики контейнера {#managed-kubernetes-container-metrics}
 
@@ -129,5 +129,5 @@ persistentvolumeclaim | Имя Persistent Volume Claim
 
 #### См. также {#see-also}
 
-* [Мониторинг состояния кластера Managed Service for Kubernetes](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
-* [Мониторинг кластера с помощью Prometheus Operator с поддержкой Yandex Monitoring](tutorials/prometheus-grafana-monitoring.md)
+* [{#T}](operations/kubernetes-cluster/kubernetes-cluster-get-stats.md)
+* [{#T}](tutorials/prometheus-grafana-monitoring.md)

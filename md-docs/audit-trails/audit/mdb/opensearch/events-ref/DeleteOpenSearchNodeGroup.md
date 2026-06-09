@@ -300,7 +300,9 @@ A list of messages that carry the error details. ||
 || roles[] | **enum** (GroupRole)
 
 - `DATA`
-- `MANAGER` ||
+- `MANAGER`
+- `WARM`
+- `INGEST` ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)** ||
 |#
 
@@ -309,7 +311,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || resourcePresetId | **string** ||
-|| diskSize | **string** (int64) ||
+|| diskSize | **string** (int64)
+
+Value must be greater than 0. ||
 || diskTypeId | **string** ||
 |#
 

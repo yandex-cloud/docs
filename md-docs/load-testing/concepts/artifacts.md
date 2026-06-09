@@ -2,7 +2,7 @@
 
 {% note warning %}
 
-С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
+С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](../sunset.md).
 
 {% endnote %}
 
@@ -15,5 +15,5 @@
 
 Получить доступ к артефактам тестирования можно:
 
-* Зайдя на агент тестирования [с помощью SHH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
+* Зайдя на агент тестирования [с помощью SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
 * [Сохранив артефакты тестирования в Object Storage](../operations/save-artifacts.md).

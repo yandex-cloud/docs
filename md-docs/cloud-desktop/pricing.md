@@ -1,4 +1,4 @@
-# Правила тарификации для Yandex Cloud Desktop
+# Правила тарификации для {{ cloud-desktop-full-name }}
 
 
 
@@ -9,9 +9,9 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-## Из чего складывается стоимость использования Cloud Desktop {#rules}
+## Из чего складывается стоимость использования {{ cloud-desktop-name }} {#rules}
 
-Расчет стоимости использования Cloud Desktop учитывает:
+Расчет стоимости использования {{ cloud-desktop-name }} учитывает:
 
 * Вычислительные ресурсы:
   * количество ядер (vCPU);
@@ -35,41 +35,34 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
 
-| Услуга                                           | Цена     | Ед. тарификации | Действует с   | Действует до |
-| ------------------------------------------------ | -------- | --------------- | ------------- | ------------ |
-| Cloud Desktop. Быстрый диск (SSD)                | 0,0223 ₽ | ГБ × час        | 1 мая 2026    | —            |
-| Cloud Desktop. Вычислительные ресурсы, 100% vCPU | 1,39 ₽   | vCPU × час      | 1 мая 2026    | —            |
-| Cloud Desktop. Вычислительные ресурсы, 50% vCPU  | 0,84 ₽   | vCPU × час      | 1 мая 2026    | —            |
-| Cloud Desktop. Вычислительные ресурсы, RAM       | 0,4371 ₽ | ГБ × час        | 1 мая 2026    | —            |
-| Cloud Desktop. Стандартный диск (HDD)            | 0,0061 ₽ | ГБ × час        | 1 января 2026 | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
 
 ### Исходящий трафик {#prices-traffic}
 
-При использовании сервиса оплачивается исходящий трафик из Yandex Cloud в интернет. Передача трафика между сервисами Yandex Cloud по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
+При использовании сервиса оплачивается исходящий трафик из {{ yandex-cloud }} в интернет. Передача трафика между сервисами {{ yandex-cloud }} по внутренним адресам, как и входящий трафик из интернета, не тарифицируется.
 
 Каждый месяц не тарифицируются первые 100 ГБ исходящего трафика.
 
 Минимальная единица тарификации — 1 МБ.
 
 
-| Услуга                                                    | Цена              | Ед. тарификации | Действует с | Действует до |
-| --------------------------------------------------------- | ----------------- | --------------- | ----------- | ------------ |
-| Исходящий трафик, от 0 до 100 единицы тарификации в месяц | Не тарифицируется | ГБ              | 1 мая 2026  | —            |
-| Исходящий трафик, от 100 единицы тарификации в месяц      | 1,42 ₽            | ГБ              | 1 мая 2026  | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 ## Пример расчета стоимости {#price-example}
 
-Пример расчета стоимости Cloud Desktop за один месяц для группы из десяти рабочих столов следующей конфигурации:
+Пример расчета стоимости {{ cloud-desktop-name }} за один месяц для группы из десяти рабочих столов следующей конфигурации:
 
 * Вычислительные ресурсы: 2 × 50% vCPU и 2 ГБ RAM.
 * Загрузочный диск: 50 ГБ SSD.
@@ -83,96 +76,96 @@
 
   Расчет стоимости вычислительных ресурсов:
   
-  > (0,84 ₽ × 2 + 0,4371 ₽ × 2) × 1000 = 2 554,2 ₽
+  > ({{ sku|RUB|cloud_desktop.vcpu.c50.v1|string }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|string }} × 2) × 1000 = {% calc [currency=RUB] ({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000 %}
   >
-  > Итого: 2 554,2 ₽ — стоимость 1 000 часов работы вычислительных ресурсов.
+  > Итого: {% calc [currency=RUB] ({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000 %} — стоимость 1 000 часов работы вычислительных ресурсов.
   
   Где:
-  * 0,84 ₽ — стоимость часа использования 50% vCPU.
+  * {{ sku|RUB|cloud_desktop.vcpu.c50.v1|string }} — стоимость часа использования 50% vCPU.
   * 2 — количество vCPU.
-  * 0,4371 ₽ — стоимость часа использования 1 ГБ RAM.
+  * {{ sku|RUB|cloud_desktop.ram.v1|string }} — стоимость часа использования 1 ГБ RAM.
   * 2 — объем RAM (в гигабайтах).
   * 1 000 — общее время работы всех рабочих столов в группе в течении месяца.
   
   Расчет стоимости загрузочных дисков:
   
-  > 16,056 ₽ × 50 × 10 = 8 028 ₽
+  > {{ sku|RUB|cloud_desktop.ssd.v1|month|string }} × 50 × 10 = {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %}
   >
-  > Итого: 8 028 ₽ — стоимость работы загрузочных дисков.
+  > Итого: {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} — стоимость работы загрузочных дисков.
   
   Где:
-  * 16,056 ₽ — стоимость месяца использования загрузочного SSD-диска за 1 ГБ.
+  * {{ sku|RUB|cloud_desktop.ssd.v1|month|string }} — стоимость месяца использования загрузочного SSD-диска за 1 ГБ.
   * 50 — объем загрузочного диска (в гигабайтах).
   * 10 — количество рабочих столов в группе.
   
   Расчет стоимости рабочих дисков:
   
-  > 4,392 ₽ × 30 × 10 = 1 317,6 ₽
+  > {{ sku|RUB|cloud_desktop.hdd.v1|month|string }} × 30 × 10 = {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %}
   >
-  > Итого: 1 317,6 ₽ — стоимость работы рабочих дисков.
+  > Итого: {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} — стоимость работы рабочих дисков.
   
   Где:
-  * 4,392 ₽ — стоимость месяца использования рабочего HDD-диска за 1 ГБ.
+  * {{ sku|RUB|cloud_desktop.hdd.v1|month|string }} — стоимость месяца использования рабочего HDD-диска за 1 ГБ.
   * 30 — объем рабочего диска (в гигабайтах).
   * 10 — количество рабочих столов в группе.
   
   Расчет итоговой стоимости:
   
-  > 2 554,2 ₽ + 8 028 ₽ + 1 317,6 ₽ = 11 899,8 ₽
+  > {% calc [currency=RUB] ({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000 %} + {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} + {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} = {% calc [currency=RUB] (({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %}
   >
-  > Итого: 11 899,8 ₽ — стоимость использования Cloud Desktop за месяц.
+  > Итого: {% calc [currency=RUB] (({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %} — стоимость использования {{ cloud-desktop-name }} за месяц.
   
   Где:
-  * 2 554,2 ₽ — стоимость вычислительных ресурсов.
-  * 8 028 ₽ — стоимость загрузочных дисков.
-  * 1 317,6 ₽ — стоимость рабочих дисков.
+  * {% calc [currency=RUB] ({{ sku|RUB|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|RUB|cloud_desktop.ram.v1|number }} × 2) × 1000 %} — стоимость вычислительных ресурсов.
+  * {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} — стоимость загрузочных дисков.
+  * {% calc [currency=RUB] {{ sku|RUB|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} — стоимость рабочих дисков.
 
 - Расчет в тенге {#prices-kzt}
 
   Расчет стоимости вычислительных ресурсов:
   
-  > (4,2 ₸ × 2 + 2,1855 ₸ × 2) × 1000 = 12 771 ₸
+  > ({{ sku|KZT|cloud_desktop.vcpu.c50.v1|string }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|string }} × 2) × 1000 = {% calc [currency=KZT] ({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000 %}
   >
-  > Итого: 12 771 ₸ — стоимость 1 000 часов работы вычислительных ресурсов.
+  > Итого: {% calc [currency=KZT] ({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000 %} — стоимость 1 000 часов работы вычислительных ресурсов.
   
   Где:
-  * 4,2 ₸ — стоимость часа использования 50% vCPU.
+  * {{ sku|KZT|cloud_desktop.vcpu.c50.v1|string }} — стоимость часа использования 50% vCPU.
   * 2 — количество vCPU.
-  * 2,1855 ₸ — стоимость часа использования 1 ГБ RAM.
+  * {{ sku|KZT|cloud_desktop.ram.v1|string }} — стоимость часа использования 1 ГБ RAM.
   * 2 — объем RAM (в гигабайтах).
   * 1 000 — общее время работы всех рабочих столов в группе в течении месяца.
   
   Расчет стоимости загрузочных дисков:
   
-  > 80,28 ₸ × 50 × 10 = 40 140 ₸
+  > {{ sku|KZT|cloud_desktop.ssd.v1|month|string }} × 50 × 10 = {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %}
   >
-  > Итого: 40 140 ₸ — стоимость работы загрузочных дисков.
+  > Итого: {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} — стоимость работы загрузочных дисков.
   
   Где:
-  * 80,28 ₸ — стоимость месяца использования загрузочного SSD-диска за 1 ГБ.
+  * {{ sku|KZT|cloud_desktop.ssd.v1|month|string }} — стоимость месяца использования загрузочного SSD-диска за 1 ГБ.
   * 50 — объем загрузочного диска (в гигабайтах).
   * 10 — количество рабочих столов в группе.
   
   Расчет стоимости рабочих дисков:
   
-  > 21,96 ₸ × 30 × 10 = 6 588 ₸
+  > {{ sku|KZT|cloud_desktop.hdd.v1|month|string }} × 30 × 10 = {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %}
   >
-  > Итого: 6 588 ₸ — стоимость работы рабочих дисков.
+  > Итого: {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} — стоимость работы рабочих дисков.
   
   Где:
-  * 21,96 ₸ — стоимость месяца использования рабочего HDD-диска за 1 ГБ.
+  * {{ sku|KZT|cloud_desktop.hdd.v1|month|string }} — стоимость месяца использования рабочего HDD-диска за 1 ГБ.
   * 30 — объем рабочего диска (в гигабайтах).
   * 10 — количество рабочих столов в группе.
   
   Расчет итоговой стоимости:
   
-  > 12 771 ₸ + 40 140 ₸ + 6 588 ₸ = 59 499 ₸
+  > {% calc [currency=KZT] ({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000 %} + {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} + {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} = {% calc [currency=KZT] (({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %}
   >
-  > Итого: 59 499 ₸ — стоимость использования Cloud Desktop за месяц.
+  > Итого: {% calc [currency=KZT] (({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000) + ({{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10) + ({{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10) %} — стоимость использования {{ cloud-desktop-name }} за месяц.
   
   Где:
-  * 12 771 ₸ — стоимость вычислительных ресурсов.
-  * 40 140 ₸ — стоимость загрузочных дисков.
-  * 6 588 ₸ — стоимость рабочих дисков.
+  * {% calc [currency=KZT] ({{ sku|KZT|cloud_desktop.vcpu.c50.v1|number }} × 2 + {{ sku|KZT|cloud_desktop.ram.v1|number }} × 2) × 1000 %} — стоимость вычислительных ресурсов.
+  * {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.ssd.v1|month|number }} × 50 × 10 %} — стоимость загрузочных дисков.
+  * {% calc [currency=KZT] {{ sku|KZT|cloud_desktop.hdd.v1|month|number }} × 30 × 10 %} — стоимость рабочих дисков.
 
 {% endlist %}

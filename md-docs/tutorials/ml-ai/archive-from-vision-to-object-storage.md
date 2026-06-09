@@ -1,8 +1,8 @@
-# Распознавание архива изображений в Yandex Vision OCR
+# Распознавание архива изображений в {{ vision-full-name }}
 
-С помощью сервисов [Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/concepts/ocr) и [Yandex Object Storage](../../storage/index.md) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
+С помощью сервисов [{{ vision-name }}]({{ link-docs-ai }}vision/concepts/ocr) и [{{ objstorage-full-name }}](../../storage/index.md) можно организовать распознавание текста на изображениях и хранение архива исходных изображений и результатов распознавания.
 
-Чтобы настроить инфраструктуру для распознавания текста с помощью Vision OCR и автоматической выгрузки результатов в Object Storage:
+Чтобы настроить инфраструктуру для распознавания текста с помощью {{ vision-name }} и автоматической выгрузки результатов в {{ objstorage-name }}:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте бакет](#create-bucket).
@@ -16,37 +16,37 @@
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для распознавания изображений и хранения данных входят:
-* Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) (см. [тарифы Yandex Compute Cloud](../../compute/pricing.md)).
-* Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними (см. [тарифы Object Storage](../../storage/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за использование Vision OCR (см. [тарифы для Vision OCR](https://aistudio.yandex.ru/docs/ru/vision/pricing)).
+* Плата за вычислительные ресурсы и [диски](../../compute/concepts/disk.md) [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
+* Плата за хранение данных в [бакете](../../storage/concepts/bucket.md) и [операции](../../storage/operations/index.md) с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing)).
 
 ## Создайте бакет {#create-bucket}
 
-Чтобы создать бакет Object Storage для хранения исходных изображений и результатов распознавания:
+Чтобы создать бакет {{ objstorage-name }} для хранения исходных изображений и результатов распознавания:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будете выполнять операции.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
-  1. В поле **Чтение объектов** выберите **С авторизацией**.
-  1. В поле **Класс хранилища** выберите **Холодное**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.value_cold }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
 
@@ -56,61 +56,61 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления](https://console.yandex.cloud) нажмите кнопку **Создать ресурс** и выберите `Виртуальная машина`.
-  1. В блоке **Образ загрузочного диска** в поле **Поиск продукта** введите `CentOS 7` и выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
-  1. В блоке **Диски и файловые хранилища** выберите тип [диска](../../compute/concepts/disk.md#disks_types) `SSD` и задайте размер `19 ГБ`.
-  1. В блоке **Вычислительные ресурсы** перейдите на вкладку `Своя конфигурация` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `CentOS 7` и выберите публичный образ [CentOS 7](https://yandex.cloud/ru/marketplace/products/yc/centos-7).
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет создана ВМ. Если вы не знаете, какая зона доступности вам нужна, оставьте выбранную по умолчанию.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** выберите тип [диска](../../compute/concepts/disk.md#disks_types) `{{ ui-key.yacloud.compute.value_disk-type-network-ssd_4Mmub }}` и задайте размер `19 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
 
-      * **Платформа** — `Intel Cascade Lake`.
-      * **vCPU** — `2`.
-      * **Гарантированная доля vCPU** — `20%`.
-      * **RAM** — `2 ГБ`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_platform }}** — `Intel Cascade Lake`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_cores }}** — `2`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_core-fraction }}** — `20%`.
+      * **{{ ui-key.yacloud.component.compute.resources.field_memory }}** — `2 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
 
-  1. В блоке **Сетевые настройки**:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-      * В поле **Подсеть** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
-      * В поле **Публичный IP-адрес** оставьте значение `Автоматически`, чтобы назначить ВМ случайный внешний IP-адрес из пула Yandex Cloud, или выберите статический адрес из списка, если вы зарезервировали его заранее.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** выберите сеть и подсеть, к которым нужно подключить ВМ. Если нужной [сети](../../vpc/concepts/network.md#network) или [подсети](../../vpc/concepts/network.md#subnet) еще нет, [создайте их](../../vpc/operations/subnet-create.md).
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_external }}** оставьте значение `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}`, чтобы назначить ВМ случайный внешний IP-адрес из пула {{ yandex-cloud }}, или выберите статический адрес из списка, если вы зарезервировали его заранее.
 
-  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа на ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите вариант **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа на ВМ:
 
-      * В поле **Логин** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя. Не используйте имя `root` или другие имена, зарезервированные ОС. Для выполнения операций, требующих прав суперпользователя, используйте команду `sudo`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ. Требования к имени:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ. Требования к имени:
 
       * длина — от 3 до 63 символов;
       * может содержать строчные буквы латинского алфавита, цифры и дефисы;
       * первый символ — буква, последний — не дефис.
 
-  1. Нажмите кнопку **Создать ВМ**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
   1. Дождитесь перехода ВМ в статус `Running` и сохраните ее публичный IP-адрес, он понадобится для SSH-подключения.
 
 {% endlist %}
 
 ## Настройте ВМ {#configure-vm}
 
-### Настройте Yandex Cloud CLI {#configure-yc-cli}
+### Настройте {{ yandex-cloud }} CLI {#configure-yc-cli}
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
-1. [Установите](../../cli/quickstart.md#install) на ВМ Yandex Cloud CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
-1. Убедитесь, что Yandex Cloud CLI функционирует корректно:
+1. [Установите](../../cli/quickstart.md#install) на ВМ {{ yandex-cloud }} CLI и [создайте](../../cli/quickstart.md#initialize) профиль.
+1. Убедитесь, что {{ yandex-cloud }} CLI функционирует корректно:
 
    {% list tabs group=instructions %}
 
@@ -223,7 +223,7 @@
      key_algorithm: RSA_2048
      ```
 
-  1. Создайте профиль Yandex Cloud CLI для работы от имени сервисного аккаунта, например `vision-profile`:
+  1. Создайте профиль {{ yandex-cloud }} CLI для работы от имени сервисного аккаунта, например `vision-profile`:
 
      ```bash
      yc config profile create vision-profile
@@ -241,13 +241,13 @@
      yc config set service-account-key key.json
      ```
 
-  1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для сервисного аккаунта:
+  1. Получите [{{ iam-short-name }}-токен](../../iam/concepts/authorization/iam-token.md) для сервисного аккаунта:
 
      ```bash
      yc iam create-token
      ```
 
-     Сохраните IAM-токен, он понадобится для отправки изображений в Vision OCR.
+     Сохраните {{ iam-short-name }}-токен, он понадобится для отправки изображений в {{ vision-name }}.
 
 {% endlist %}
 
@@ -274,7 +274,7 @@
    Укажите значения параметров:
    * `AWS Access Key ID` — идентификатор статического ключа доступа `key_id`, который вы получили при [настройке сервисного аккаунта](#configure-sa).
    * `AWS Secret Access Key` — секретный ключ `secret`, который вы получили при [настройке сервисного аккаунта](#configure-sa).
-   * `Default region name` — `ru-central1`.
+   * `Default region name` — `{{ region-id }}`.
    * `Default output format` — `json`.
 1. Проверьте, что файл `~/.aws/credentials` содержит правильные значения параметров `key_id` и `secret`:
 
@@ -294,20 +294,20 @@
 
    {% note tip %}
    
-   Нужен пример? [Скачайте изображение](https://storage.yandexcloud.net/doc-files/ml/vision/penguins_sample.jpg) дорожного знака, предупреждающего о пингвинах.
+   Нужен пример? [Скачайте изображение](https://{{ s3-storage-host }}/doc-files/ml/vision/penguins_sample.jpg) дорожного знака, предупреждающего о пингвинах.
    
    {% endnote %}
 
 1. Убедитесь, что изображения были загружены, указав в запросе имя бакета:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net s3 ls s3://<имя_бакета>/
+   aws --endpoint-url=https://{{ s3-storage-host }} s3 ls s3://<имя_бакета>/
    ```
 
 1. Сохраните изображения из бакета на ВМ, например в директорию `my_pictures`:
 
    ```bash
-   aws --endpoint-url=https://storage.yandexcloud.net s3 cp s3://<имя_бакета>/ my_pictures --recursive
+   aws --endpoint-url=https://{{ s3-storage-host }} s3 cp s3://<имя_бакета>/ my_pictures --recursive
    ```
 
 1. Запакуйте изображения в архив, например в `my_pictures.tar`:
@@ -332,7 +332,7 @@
    sudo yum install epel-release -y
    ```
 
-1. Установите пакет `jq`, который понадобится для обработки результатов из Vision OCR:
+1. Установите пакет `jq`, который понадобится для обработки результатов из {{ vision-name }}:
 
    ```bash
    sudo yum install jq -y
@@ -355,7 +355,7 @@
    Где:
    * `BUCKETNAME` — имя бакета.
    * `FOLDERID` — идентификатор каталога.
-   * `IAMTOKEN` — IAM-токен, который вы получили при [настройке сервисного аккаунта](#configure-sa).
+   * `IAMTOKEN` — {{ iam-short-name }}-токен, который вы получили при [настройке сервисного аккаунта](#configure-sa).
 
 ### Создайте скрипт {#create-script}
 
@@ -369,11 +369,11 @@
    1. Последовательно обрабатываются все изображения:
       1. Изображение кодируется по стандарту Base64.
       1. Формируется тело запроса для конкретного изображения.
-      1. Изображение отправляется в POST-запросе в Vision OCR для распознавания.
+      1. Изображение отправляется в POST-запросе в {{ vision-name }} для распознавания.
       1. Полученный результат записывается в файл `output.json` в формате JSON.
       1. Из файла `output.json` выделяется распознанный текст и записывается в текстовый файл.
    1. Полученные текстовые файлы запаковываются в архив.
-   1. Архив с текстовыми файлами загружается в Object Storage.
+   1. Архив с текстовыми файлами загружается в {{ objstorage-name }}.
    1. Удаляются служебные файлы.
 
    Для удобства в текст скрипта добавлены комментарии к каждому этапу.
@@ -405,10 +405,10 @@
       for f in $FILES
       # В цикле для каждого файла из директории произвести следующие действия:
       do
-         # Закодировать изображение по стандарту Base64 для отправки в Vision OCR.
+         # Закодировать изображение по стандарту Base64 для отправки в {{ vision-name }}.
          CODEIMG=$(base64 -i $f | cat)
 
-         # Создать файл body.json, который будет отправляться в POST-запросе в Vision OCR.
+         # Создать файл body.json, который будет отправляться в POST-запросе в {{ vision-name }}.
          cat <<EOF > body.json
       {
       "mimeType": "JPEG",
@@ -425,7 +425,7 @@
         --header "x-data-logging-enabled: true" \
         --header "x-folder-id: ${FOLDERID}" \
         --data '@body.json' \
-        https://ocr.api.cloud.yandex.net/ocr/v1/recognizeText \
+        https://ocr.{{ api-host }}/ocr/v1/recognizeText \
         --output output.json
 
       # Получить имя файла с изображением для дальнейшей подстановки.
@@ -442,7 +442,7 @@
 
       # Отправить архив с текстовыми файлами в бакет.
       echo "Sending archive to Object Storage Bucket..."
-      aws --endpoint-url=https://storage.yandexcloud.net s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
+      aws --endpoint-url=https://{{ s3-storage-host }} s3 cp my_pictures_text.tar s3://$BUCKETNAME/ > /dev/null
 
       # Удалить служебные файлы.
       echo "Cleaning up..."
@@ -473,8 +473,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) Yandex Cloud выберите каталог, в котором находится бакет с результатами распознавания.
-  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) {{ yandex-cloud }} выберите каталог, в котором находится бакет с результатами распознавания.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Откройте бакет с результатами распознавания.
   1. Убедитесь, что в бакете появился архив `my_pictures_text.tar`.
   1. Скачайте и распакуйте архив.

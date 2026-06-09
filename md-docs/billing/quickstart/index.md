@@ -1,16 +1,16 @@
-# Регистрация аккаунта в Yandex Cloud
+# Регистрация аккаунта в {{ yandex-cloud }}
 
-Для работы с большинством сервисов Yandex Cloud требуется платежный аккаунт. В аккаунте хранятся сведения о плательщике и реквизиты для оплаты. Yandex Cloud списывает деньги с карты и выставляет счета, только если вы используете [платную версию](../operations/activate-commercial.md).
+Для работы с большинством сервисов {{ yandex-cloud }} требуется платежный аккаунт. В аккаунте хранятся сведения о плательщике и реквизиты для оплаты. {{ yandex-cloud }} списывает деньги с карты и выставляет счета, только если вы используете [платную версию](../operations/activate-commercial.md).
 
 [_Стартовый грант_](../concepts/bonus-account.md#start) выдается после создания платежного аккаунта как физическим, так и юридическим лицам. 
 
-Для новых клиентов, являющихся юридическими лицами, доступен [_пробный период_](../concepts/trial-period.md). Новые клиенты, являющиеся физическими лицами, начинают работу с Yandex Cloud в платном потреблении. Пробный период для них недоступен.
+Для новых клиентов, являющихся юридическими лицами, доступен [_пробный период_](../concepts/trial-period.md). Новые клиенты, являющиеся физическими лицами, начинают работу с {{ yandex-cloud }} в платном потреблении. Пробный период для них недоступен.
 
 Пробный период позволяет бесплатно исследовать возможности облачной инфраструктуры с некоторыми ограничениями. Чтобы продолжить пользоваться ресурсами после завершения пробного периода, необходимо перейти на платную версию.
 
 {% note info %}
 
-В настоящий момент Yandex Cloud не может предоставить возможность регистрации пользователям из ряда стран по техническим причинам.
+В настоящий момент {{ yandex-cloud }} не может предоставить возможность регистрации пользователям из ряда стран по техническим причинам.
 
 {% endnote %}
 
@@ -20,30 +20,30 @@
 
    Чтобы создать платежный аккаунт:
    
-   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
    
       При создании организации укажите ее имя, например, `Example organization`. В организации будет автоматически создан новый каталог с именем `default`.
    
-   1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
-   1. Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **Аккаунт** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать аккаунт**.
+   1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.billing.accounts.listing_button_create }}**.
    
       Чтобы создать еще один платежный аккаунт в дополнение к уже имеющимся, в верхней части экрана рядом с именем существующего платежного аккаунта нажмите на значок ![circle-plus-fill](../../_assets/console-icons/circle-plus-fill.svg).
    
       В открывшемся окне:
    
-      1. В поле **Тип аккаунта** выберите **Физическое лицо**.
-      1. В поле **Страна** выберите страну, резидентом которой является [плательщик](../concepts/glossary.md#payer).
+      1. В поле **{{ ui-key.yacloud_billing_account.create-account.section_account_type }}** выберите **Физическое лицо**.
+      1. В поле **{{ ui-key.yacloud_billing_account.create-account.section_country }}** выберите страну, резидентом которой является [плательщик](../concepts/glossary.md#payer).
    
          В рамках одного пользовательского аккаунта все плательщики должны осуществлять оплату в одной и той же валюте.
    
       1. Если к вашему Яндекс ID привязана контактная информация, она добавится в аккаунт автоматически. Если этого не произошло, укажите актуальные адрес электронной почты и телефон. Контактные данные нужны не только для связи с вами, но и для выставления счетов и финансовых документов.
-      1. Выберите **Способ оплаты** — с помощью привязанной банковской карты или пополнение вручную:
+      1. Выберите **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** — с помощью привязанной банковской карты или пополнение вручную:
    
          * Привяжите банковскую карту. Если к аккаунту пользователя уже привязаны банковские карты, вы можете выбрать одну из них, не добавляя новую.
    
-           После привязки карты вам начислится [стартовый грант](../concepts/bonus-account.md), если ранее вы не пользовались сервисами Yandex Cloud. 
+           После привязки карты вам начислится [стартовый грант](../concepts/bonus-account.md), если ранее вы не пользовались сервисами {{ yandex-cloud }}. 
    
-           Грант доступен в течение 60 дней и может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../../compute/pricing.md#prices-gpu-clusters), [услуг сервиса Yandex Cloud Postbox](../../postbox/pricing.md), [платных тарифов](../../support/pricing.md) технической поддержки и платных продуктов [Yandex Cloud Marketplace](../../marketplace/operations/users/buy-subscription.md).
+           Грант доступен в течение 60 дней и может использоваться для оплаты услуг любых сервисов, кроме [кластеров GPU](../../compute/pricing.md#prices-gpu-clusters), [услуг сервиса {{ postbox-name }}](../../postbox/pricing.md), [платных тарифов](../../support/pricing.md) технической поддержки и платных продуктов [{{ marketplace-full-name }}](../../marketplace/operations/users/buy-subscription.md).
    
            {% note warning %}
            
@@ -61,9 +61,9 @@
                    
            Для проверки валидности карты на вашем счете будет заблокирована незначительная сумма, 11 рублей. Эти средства не списываются и будут снова доступны после завершения проверки и разблокировки. Срок разблокировки несписанных средств зависит от условий работы вашего банка.
    
-         * **Пополнение вручную** — пополняйте баланс вручную по мере необходимости.
+         * **{{ ui-key.yacloud_billing_account.create-account.label_option_card }}** — пополняйте баланс вручную по мере необходимости.
       
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
    
       {% note warning %}
    
@@ -75,19 +75,19 @@
 
    Чтобы создать платежный аккаунт:
    
-   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
+   1. Войдите в свой Яндекс ID или аккаунт в Яндекс 360. Если у вас еще нет аккаунта — [зарегистрируйтесь](https://yandex.ru/support/id/authorization/registration.html). После этого перейдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) и создайте [организацию](../../organization/quickstart.md), в которой вы будете работать. Если для входа на Яндекс вы используете профиль в социальной сети, [заведите логин и пароль](https://passport.yandex.ru/passport?mode=postregistration&create_login=1).
    
       При создании организации укажите ее имя, например, `Example organization`. В организации будет автоматически создан новый каталог с именем `default`.
       
-   1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
-   1. Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **Аккаунт** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **Создать аккаунт**.
+   1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+   1. Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.billing.accounts.listing_button_create }}**.
    
       Чтобы создать еще один платежный аккаунт в дополнение к уже имеющимся, в верхней части экрана рядом с именем существующего платежного аккаунта нажмите на значок ![circle-plus-fill](../../_assets/console-icons/circle-plus-fill.svg).
    
       В открывшемся окне:
    
-      1. В поле **Тип аккаунта** выберите **Юридическое лицо или ИП**.
-      1. В поле **Страна** выберите страну, резидентом которой является [плательщик](../concepts/glossary.md#payer).
+      1. В поле **{{ ui-key.yacloud_billing_account.create-account.section_account_type }}** выберите **Юридическое лицо или ИП**.
+      1. В поле **{{ ui-key.yacloud_billing_account.create-account.section_country }}** выберите страну, резидентом которой является [плательщик](../concepts/glossary.md#payer).
    
          В рамках одного пользовательского аккаунта все плательщики должны осуществлять оплату в одной и той же валюте.
    
@@ -97,27 +97,27 @@
          Данные об организации или ИП отобразятся во всплывающем окне с карточкой компании. Нажмите на появившуюся карточку, чтобы загрузить эти данные в форму создания платежного аккаунта.
          
          Чтобы убедиться в актуальности внесенных данных, нажмите ![circle-plus-fill](../../_assets/console-icons/chevron-down.svg) на карточке компании. При необходимости скорректируйте данные.
-      1. Выберите **Способ оплаты** — с помощью банковского перевода или привязанной банковской карты:
+      1. Выберите **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** — с помощью банковского перевода или привязанной банковской карты:
    
          От выбранного способа оплаты зависит размер [стартового гранта](../concepts/bonus-account.md) и [условия его использования](../../getting-started/usage-grant.md#business).
    
-         * Выберите **Банковский перевод**. После создания аккаунта вы получите письмо с инструкциями по верификации. До прохождения верификации платные ресурсы будут недоступны.
+         * Выберите **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}**. После создания аккаунта вы получите письмо с инструкциями по верификации. До прохождения верификации платные ресурсы будут недоступны.
    
          * Привяжите корпоративную банковскую карту, которой вы уполномочены распоряжаться. Если к аккаунту пользователя уже привязаны банковские карты, вы можете выбрать одну из них, не добавляя новую.
    
            Принимаются банковские карты Мир, Visa и MasterCard.
            
-           * Резиденты Российской Федерации ведут расчеты в RUB и могут использовать для оплаты карты, выпущенные только российскими банками. Клиенты, являющиеся налоговыми резидентами Республики Беларусь, ведут расчеты в RUB и могут использовать для оплаты сервисов Yandex Cloud карты Белкарт, выпущенные в Республике Беларусь, и карты Мир, выпущенные в Российской Федерации.
+           * Резиденты Российской Федерации ведут расчеты в RUB и могут использовать для оплаты карты, выпущенные только российскими банками. Клиенты, являющиеся налоговыми резидентами Республики Беларусь, ведут расчеты в RUB и могут использовать для оплаты сервисов {{ yandex-cloud }} карты Белкарт, выпущенные в Республике Беларусь, и карты Мир, выпущенные в Российской Федерации.
            * Резиденты Республики Казахстан ведут расчеты в KZT и могут использовать для оплаты карты, выпущенные только нероссийскими банками.
            * Нерезиденты Российской Федерации и Республики Казахстан ведут расчеты в USD и могут использовать для оплаты карты, выпущенные только нероссийскими банками.
            
            Для проверки валидности карты на вашем счете будет заблокирована незначительная сумма, 11 рублей. Эти средства не списываются и будут снова доступны после завершения проверки и разблокировки. Срок разблокировки несписанных средств зависит от условий работы вашего банка.      
    
-      1. Нажмите кнопку **Создать**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
    
-   Если вы выбрали способ оплаты **Банковский перевод** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Вы также можете получить такое письмо в случае выбора способа оплаты **Банковская карта**, если после создания платежного аккаунта потребуется его верификация. После проверки документов ваш платежный аккаунт может быть активирован, и вы сможете начать пользоваться Yandex Cloud.
+   Если вы выбрали способ оплаты **{{ ui-key.yacloud_billing_account.create-account.label_payment_invoice }}** или если плательщик — нерезидент РФ и РК, вы получите письмо с описанием дальнейших действий на почту, указанную в аккаунте Яндекса или Яндекс 360. Вы также можете получить такое письмо в случае выбора способа оплаты **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}**, если после создания платежного аккаунта потребуется его верификация. После проверки документов ваш платежный аккаунт может быть активирован, и вы сможете начать пользоваться {{ yandex-cloud }}.
    
-   Отправьте на электронную почту [cloud_docs@support.yandex.ru](mailto:cloud_docs@support.yandex.ru) следующие документы:
+   Отправьте на электронную почту [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}) следующие документы:
    
    
    * Копию протокола или решения о назначении генерального директора.
@@ -125,13 +125,13 @@
    
    
    
-   Если ваша организация является представительством или филиалом иностранного юридического лица на территории РФ, пожалуйста, через обращение в [техническую поддержку](https://center.yandex.cloud/support) отправьте нам сообщение с официальным [письмом](https://storage.yandexcloud.net/doc-files/offer-agreement.docx), подтверждающим ваше согласие с условиями [оферты](https://yandex.ru/legal/cloud_oferta/?lang=ru). Это необходимо для выполнения требований законодательства РФ в области валютного регулирования.
+   Если ваша организация является представительством или филиалом иностранного юридического лица на территории РФ, пожалуйста, через обращение в [техническую поддержку]({{ link-console-support }}) отправьте нам сообщение с официальным [письмом](https://storage.yandexcloud.net/doc-files/offer-agreement.docx), подтверждающим ваше согласие с условиями [оферты]({{ billing-oferta-url }}). Это необходимо для выполнения требований законодательства РФ в области валютного регулирования.
 
 {% endlist %}
 
-На вкладке ![image](../../_assets/console-icons/flag.svg) **Аккаунт** [интерфейса](https://center.yandex.cloud/billing/accounts) Yandex Cloud Billing в блоке **Привязанные облака и сервисы** отображаются все подключенные облака и сервисы, например [DataSphere](../../datasphere/index.md) и&nbsp;др. Если аккаунт добавлен в [организацию](../concepts/organization.md), ее идентификатор также будет показан в блоке **Привязанные облака и сервисы**.
+На вкладке ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** [интерфейса]({{ link-console-billing }}) {{ billing-name }} в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}** отображаются все подключенные облака и сервисы, например [{{ ml-platform-name }}](../../datasphere/index.md) и&nbsp;др. Если аккаунт добавлен в [организацию](../concepts/organization.md), ее идентификатор также будет показан в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}**.
 
-На [главной странице сервиса](https://center.yandex.cloud/billing/accounts) отображаются платежные аккаунты всех ваших организаций, а также аккаунты, к которым у вас есть доступ.
+На [главной странице сервиса]({{ link-console-billing }}) отображаются платежные аккаунты всех ваших организаций, а также аккаунты, к которым у вас есть доступ.
 
 {% note info %}
 
@@ -144,55 +144,55 @@
 - [Платежный аккаунт](../concepts/billing-account.md)
 - [Пробный период](../../getting-started/free-trial/concepts/quickstart.md)
 
-### Начните знакомство с Yandex Cloud {#start}
+### Начните знакомство с {{ yandex-cloud }} {#start}
 
 * Инфраструктура и сеть:
   * [Создайте виртуальную машину Linux](../../compute/quickstart/quick-create-linux.md).
   * [Создайте группу виртуальных машин](../../compute/quickstart/ig.md).
-  * [Разместите файлы в Object Storage](../../storage/quickstart.md).
-  * [Создайте облачную сеть в Virtual Private Cloud](../../vpc/quickstart.md).
-  * [Настройте сетевой балансировщик в Network Load Balancer](../../network-load-balancer/quickstart.md).
-  * [Настройте L7-балансировщик в Application Load Balancer](../../application-load-balancer/quickstart.md).
+  * [Разместите файлы в {{ objstorage-name }}](../../storage/quickstart.md).
+  * [Создайте облачную сеть в {{ vpc-name }}](../../vpc/quickstart.md).
+  * [Настройте сетевой балансировщик в {{ network-load-balancer-name }}](../../network-load-balancer/quickstart.md).
+  * [Настройте L7-балансировщик в {{ alb-name }}](../../application-load-balancer/quickstart.md).
   * [Настройте раздачу контента через CDN](../../cdn/quickstart/index.md).
   * [Создайте зоны DNS](../../dns/quickstart.md).
-  * [Загрузите Docker-образ в реестр в Container Registry](../../container-registry/quickstart/index.md).
+  * [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../../container-registry/quickstart/index.md).
 * Безопасность:
-  * [Добавьте пользователей и назначьте им роли в IAM](../../iam/quickstart.md).
-  * [Создайте новый каталог в облаке и предоставьте к нему доступ в Resource Manager](../../resource-manager/quickstart.md).
-  * [Управляйте ключами шифрования в Key Management Service](../../kms/quickstart/index.md).
-  * [Настройте сертификат для доступа по безопасному соединению в Certificate Manager](../../certificate-manager/quickstart/index.md).
-  * [Безопасно храните конфиденциальные данные в Yandex Lockbox](../../lockbox/quickstart.md).
+  * [Добавьте пользователей и назначьте им роли в {{ iam-short-name }}](../../iam/quickstart.md).
+  * [Создайте новый каталог в облаке и предоставьте к нему доступ в {{ resmgr-name }}](../../resource-manager/quickstart.md).
+  * [Управляйте ключами шифрования в {{ kms-name }}](../../kms/quickstart/index.md).
+  * [Настройте сертификат для доступа по безопасному соединению в {{ certificate-manager-name }}](../../certificate-manager/quickstart/index.md).
+  * [Безопасно храните конфиденциальные данные в {{ lockbox-name }}](../../lockbox/quickstart.md).
 * Ресурсы и управление:
-  * [Управляйте ресурсами в каталогах и облаках с помощью Resource Manager](../../resource-manager/quickstart.md).
-  * [Настраивайте корпоративные аккаунты в Yandex Identity Hub](../../organization/quickstart.md).
-  * [Задавайте метрики и следите за состоянием ресурсов с помощью Monitoring](../../monitoring/quickstart.md).
-  * [Визуализируйте данные в DataLens](../../datalens/quickstart.md).
-  * [Собирайте логи работы ресурсов с помощью Cloud Logging](../../logging/quickstart.md).
+  * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../../resource-manager/quickstart.md).
+  * [Настраивайте корпоративные аккаунты в {{ org-full-name }}](../../organization/quickstart.md).
+  * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../../monitoring/quickstart.md).
+  * [Визуализируйте данные в {{ datalens-name }}](../../datalens/quickstart.md).
+  * [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../../logging/quickstart.md).
 * Контейнерная разработка:
-  * [Создайте кластер Kubernetes](../../managed-kubernetes/quickstart.md).
-  * [Создайте реестр Docker-образов Container Registry](../../container-registry/quickstart/index.md).
+  * [Создайте кластер {{ k8s }}](../../managed-kubernetes/quickstart.md).
+  * [Создайте реестр Docker-образов {{ container-registry-name }}](../../container-registry/quickstart/index.md).
 * Бессерверные вычисления:
-  * [Запускайте ваш код в виде функций в Cloud Functions](../../functions/quickstart/index.md).
-  * [Используйте API Gateway, чтобы интегрировать сервисы Yandex Cloud с другими облачными платформами](../../api-gateway/quickstart/index.md).
-  * [Настраивайте очереди для обмена сообщениями между приложениями с Message Queue](../../message-queue/quickstart.md).
-  * [Управляйте потоками данных в Data Streams](../../data-streams/quickstart/index.md).
-  * [Используйте Yandex IoT Core как основу вашей разработки умного дома](../../iot-core/quickstart.md).
+  * [Запускайте ваш код в виде функций в {{ sf-name }}](../../functions/quickstart/index.md).
+  * [Используйте {{ api-gw-name }}, чтобы интегрировать сервисы {{ yandex-cloud }} с другими облачными платформами](../../api-gateway/quickstart/index.md).
+  * [Настраивайте очереди для обмена сообщениями между приложениями с {{ message-queue-name }}](../../message-queue/quickstart.md).
+  * [Управляйте потоками данных в {{ yds-name }}](../../data-streams/quickstart/index.md).
+  * [Используйте {{ iot-name }} как основу вашей разработки умного дома](../../iot-core/quickstart.md).
 * Базы данных и кластеры баз данных:
-  * [ClickHouse®](../../managed-clickhouse/quickstart.md).
-  * [Yandex StoreDoc](../../storedoc/quickstart.md).
-  * [MySQL®](../../managed-mysql/quickstart.md).
-  * [Valkey™](../../managed-valkey/quickstart.md).
-  * [PostgreSQL](../../managed-postgresql/quickstart.md).
-  * [OpenSearch](../../managed-opensearch/quickstart.md).
-  * [Apache Kafka®](../../managed-kafka/quickstart.md).
-  * [Greenplum®](../../managed-greenplum/quickstart.md).
-  * [Managed Service for YDB](../../ydb/quickstart.md#create-db).
-  * [Копируйте и реплицируйте данные из одной базы в другую с помощью Data Transfer](../../data-transfer/quickstart.md).
+  * [{{ CH }}](../../managed-clickhouse/quickstart.md).
+  * [{{ SD }}](../../storedoc/quickstart.md).
+  * [{{ MY }}](../../managed-mysql/quickstart.md).
+  * [{{ VLK }}](../../managed-valkey/quickstart.md).
+  * [{{ PG }}](../../managed-postgresql/quickstart.md).
+  * [{{ OS }}](../../managed-opensearch/quickstart.md).
+  * [{{ KF }}](../../managed-kafka/quickstart.md).
+  * [{{ mgp-name }}](../../managed-greenplum/quickstart.md).
+  * [{{ ydb-name }}](../../ydb/quickstart.md#create-db).
+  * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../../data-transfer/quickstart.md).
 * Искусственный интеллект:
-  * [Преобразуйте текст в речь и наоборот с помощью SpeechKit](https://aistudio.yandex.ru/docs/ru//speechkit/quickstart/index).
-  * [Переведите текст в Translate](https://aistudio.yandex.ru/docs/ru//translate/quickstart).
-  * [Анализируйте изображение с помощью компьютерного зрения в Vision OCR](https://aistudio.yandex.ru/docs/ru//vision/quickstart).
-  * [Обучайте и запускайте модели машинного обучения в DataSphere](../../datasphere/quickstart.md).
-  * [Создайте AI-агента для своего бизнеса](https://aistudio.yandex.ru/docs/ru/)
+  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
+  * [Переведите текст в {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
+  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
+  * [Обучайте и запускайте модели машинного обучения в {{ ml-platform-name }}](../../datasphere/quickstart.md).
+  * [Создайте AI-агента для своего бизнеса]({{ link-docs-ai }})
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

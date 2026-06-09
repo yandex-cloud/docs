@@ -1,13 +1,12 @@
 # Managed Service for ClickHouse API, REST: Cluster.Get
 
 Returns the specified ClickHouse cluster.
-
 To get the list of available ClickHouse clusters, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}
 ```
 
 ## Path parameters
@@ -383,6 +382,11 @@ The maximum string length in characters is 50. ||
               "value": "string"
             }
           ],
+          "tls": {
+            "trustedCertificates": [
+              "string"
+            ]
+          },
           "builtinDictionariesReloadInterval": "string"
         },
         "userConfig": {
@@ -722,6 +726,11 @@ The maximum string length in characters is 50. ||
               "value": "string"
             }
           ],
+          "tls": {
+            "trustedCertificates": [
+              "string"
+            ]
+          },
           "builtinDictionariesReloadInterval": "string"
         },
         "defaultConfig": {
@@ -1061,6 +1070,11 @@ The maximum string length in characters is 50. ||
               "value": "string"
             }
           ],
+          "tls": {
+            "trustedCertificates": [
+              "string"
+            ]
+          },
           "builtinDictionariesReloadInterval": "string"
         }
       },
@@ -1112,11 +1126,11 @@ The maximum string length in characters is 50. ||
     "sqlUserManagement": "boolean",
     "embeddedKeeper": "boolean",
     "backupRetainPeriodDays": "string",
-    "fullVersion": "string",
     "performanceDiagnostics": {
       "enabled": "boolean",
       "processesRefreshInterval": "string"
-    }
+    },
+    "fullVersion": "string"
   },
   "networkId": "string",
   "health": "string",
@@ -1150,7 +1164,7 @@ A ClickHouse Cluster resource. For more information, see the
 ||Field | Description ||
 || id | **string**
 
-ID of the ClickHouse cluster.
+Required field. ID of the ClickHouse cluster.
 This ID is assigned by MDB at creation time. ||
 || folderId | **string**
 
@@ -1268,7 +1282,9 @@ Time to start the daily backup, in the UTC timezone. ||
 || access | **[Access](#yandex.cloud.mdb.clickhouse.v1.Access)**
 
 Access policy for external services. ||
-|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.clickhouse.v1.CloudStorage)** ||
+|| cloudStorage | **[CloudStorage](#yandex.cloud.mdb.clickhouse.v1.CloudStorage)**
+
+Cloud storage configuration. ||
 || sqlDatabaseManagement | **boolean**
 
 Whether database management through SQL commands is enabled. ||
@@ -1281,12 +1297,12 @@ Whether cluster should use embedded Keeper instead of Zookeeper. ||
 || backupRetainPeriodDays | **string** (int64)
 
 Retain period of automatically created backup in days ||
-|| fullVersion | **string**
-
-Full version ||
 || performanceDiagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
 
 Configuration performance diagnostics ||
+|| fullVersion | **string**
+
+Full version ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ClusterConfig.Clickhouse}
@@ -1334,9 +1350,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_pool_size). ||
 || backgroundMergesMutationsConcurrencyRatio | **string** (int64)
 
 Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently.
@@ -1358,9 +1372,7 @@ Default value: **512**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_schedule_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_schedule_pool_size). ||
 || backgroundFetchesPoolSize | **string** (int64)
 
 The maximum number of threads that will be used for fetching data parts from another replica for MergeTree-engine tables in a background.
@@ -1369,9 +1381,7 @@ Default value: **32** for versions 25.1 and higher, **16** for versions 24.12 an
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_fetches_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_fetches_pool_size). ||
 || backgroundMovePoolSize | **string** (int64)
 
 The maximum number of threads that will be used for moving data parts to another disk or volume for MergeTree-engine tables in a background.
@@ -1380,9 +1390,7 @@ Default value: **8**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_move_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_move_pool_size). ||
 || backgroundDistributedSchedulePoolSize | **string** (int64)
 
 The maximum number of threads that will be used for executing distributed sends.
@@ -1391,9 +1399,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size). ||
 || backgroundBufferFlushSchedulePoolSize | **string** (int64)
 
 The maximum number of threads that will be used for performing flush operations for Buffer-engine tables in the background.
@@ -1402,9 +1408,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size). ||
 || backgroundMessageBrokerSchedulePoolSize | **string** (int64)
 
 The maximum number of threads that will be used for executing background operations for message streaming.
@@ -1413,9 +1417,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size). ||
 || backgroundCommonPoolSize | **string** (int64)
 
 The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for MergeTree-engine tables in a background.
@@ -1424,9 +1426,7 @@ Default value: **8**.
 
 Change of the setting is applied with restart on value decrease and without restart on value increase.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size).
-
-The minimum value is 1. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size). ||
 || dictionariesLazyLoad | **boolean**
 
 Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
@@ -1450,16 +1450,12 @@ Logging level.
 The maximum size that query_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_log data based on size is disabled.
 
-Default value: **1073741824** (1 GiB).
-
-The minimum value is 0. ||
+Default value: **1073741824** (1 GiB). ||
 || queryLogRetentionTime | **string** (int64)
 
 The maximum time that query_log records will be retained before removal. If set to **0**, automatic removal of query_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || queryThreadLogEnabled | **boolean**
 
 Enables or disables query_thread_log system table.
@@ -1474,33 +1470,25 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that query_thread_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_thread_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB).
-
-The minimum value is 0. ||
+Default value: **536870912** (512 MiB). ||
 || queryThreadLogRetentionTime | **string** (int64)
 
 The maximum time that query_thread_log records will be retained before removal. If set to **0**,
 automatic removal of query_thread_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || partLogRetentionSize | **string** (int64)
 
 The maximum size that part_log can grow to before old data will be removed. If set to **0**,
 automatic removal of part_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB).
-
-The minimum value is 0. ||
+Default value: **536870912** (512 MiB). ||
 || partLogRetentionTime | **string** (int64)
 
 The maximum time that part_log records will be retained before removal. If set to **0**,
 automatic removal of part_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || metricLogEnabled | **boolean**
 
 Enables or disables metric_log system table.
@@ -1515,17 +1503,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that metric_log can grow to before old data will be removed. If set to **0**,
 automatic removal of metric_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB).
-
-The minimum value is 0. ||
+Default value: **536870912** (512 MiB). ||
 || metricLogRetentionTime | **string** (int64)
 
 The maximum time that metric_log records will be retained before removal. If set to **0**,
 automatic removal of metric_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || traceLogEnabled | **boolean**
 
 Enables or disables trace_log system table.
@@ -1595,17 +1579,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that opentelemetry_span_log can grow to before old data will be removed. If set to **0**,
 automatic removal of opentelemetry_span_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || opentelemetrySpanLogRetentionTime | **string** (int64)
 
 The maximum time that opentelemetry_span_log records will be retained before removal. If set to **0**,
 automatic removal of opentelemetry_span_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || queryViewsLogEnabled | **boolean**
 
 Enables or disables query_views_log system table.
@@ -1620,17 +1600,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that query_views_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_views_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || queryViewsLogRetentionTime | **string** (int64)
 
 The maximum time that query_views_log records will be retained before removal. If set to **0**,
 automatic removal of query_views_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || asynchronousMetricLogEnabled | **boolean**
 
 Enables or disables asynchronous_metric_log system table.
@@ -1645,17 +1621,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that asynchronous_metric_log can grow to before old data will be removed. If set to **0**,
 automatic removal of asynchronous_metric_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || asynchronousMetricLogRetentionTime | **string** (int64)
 
 The maximum time that asynchronous_metric_log records will be retained before removal. If set to **0**,
 automatic removal of asynchronous_metric_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || sessionLogEnabled | **boolean**
 
 Enables or disables session_log system table.
@@ -1670,17 +1642,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that session_log can grow to before old data will be removed. If set to **0**,
 automatic removal of session_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower.
-
-The minimum value is 0. ||
+Default value: **536870912** (512 MiB) for versions 25.3 and higher, **0** for versions 25.2 and lower. ||
 || sessionLogRetentionTime | **string** (int64)
 
 The maximum time that session_log records will be retained before removal. If set to **0**,
 automatic removal of session_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || zookeeperLogEnabled | **boolean**
 
 Enables or disables zookeeper_log system table.
@@ -1695,17 +1663,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that zookeeper_log can grow to before old data will be removed. If set to **0**,
 automatic removal of zookeeper_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || zookeeperLogRetentionTime | **string** (int64)
 
 The maximum time that zookeeper_log records will be retained before removal. If set to **0**,
 automatic removal of zookeeper_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || asynchronousInsertLogEnabled | **boolean**
 
 Enables or disables asynchronous_insert_log system table.
@@ -1720,17 +1684,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that asynchronous_insert_log can grow to before old data will be removed. If set to **0**,
 automatic removal of asynchronous_insert_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || asynchronousInsertLogRetentionTime | **string** (int64)
 
 The maximum time that asynchronous_insert_log records will be retained before removal. If set to **0**,
 automatic removal of asynchronous_insert_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || processorsProfileLogEnabled | **boolean**
 
 Enables or disables processors_profile_log system table.
@@ -1745,17 +1705,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that processors_profile_log can grow to before old data will be removed. If set to **0**,
 automatic removal of processors_profile_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || processorsProfileLogRetentionTime | **string** (int64)
 
 The maximum time that processors_profile_log records will be retained before removal. If set to **0**,
 automatic removal of processors_profile_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || errorLogEnabled | **boolean**
 
 Enables or disables error_log system table.
@@ -1770,17 +1726,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that error_log can grow to before old data will be removed. If set to **0**,
 automatic removal of error_log data based on size is disabled.
 
-Default value: **0**.
-
-The minimum value is 0. ||
+Default value: **0**. ||
 || errorLogRetentionTime | **string** (int64)
 
 The maximum time that error_log records will be retained before removal. If set to **0**,
 automatic removal of error_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || queryMetricLogEnabled | **boolean**
 
 Enables or disables query_metric_log system table.
@@ -1795,17 +1747,13 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/operatio
 The maximum size that query_metric_log can grow to before old data will be removed. If set to **0**,
 automatic removal of query_metric_log data based on size is disabled.
 
-Default value: **536870912** (512 MiB).
-
-The minimum value is 0. ||
+Default value: **536870912** (512 MiB). ||
 || queryMetricLogRetentionTime | **string** (int64)
 
 The maximum time that query_metric_log records will be retained before removal. If set to **0**,
 automatic removal of query_metric_log data based on time is disabled.
 
-Default value: **2592000000** (30 days).
-
-The minimum value is 0. ||
+Default value: **2592000000** (30 days). ||
 || accessControlImprovements | **[AccessControlImprovements](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.AccessControlImprovements)**
 
 Access control settings. ||
@@ -1817,36 +1765,28 @@ Default value: **4096**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_connections).
-
-Acceptable values are 128 to 8192, inclusive. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_connections). ||
 || maxConcurrentQueries | **string** (int64)
 
 Maximum number of concurrently executed queries.
 
 Default value: **500**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_concurrent_queries).
-
-The minimum value is 100. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_concurrent_queries). ||
 || maxTableSizeToDrop | **string** (int64)
 
 Maximum size of the table that can be deleted using **DROP** or **TRUNCATE** query.
 
 Default value: **50000000000** (48828125 KiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_table_size_to_drop).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_table_size_to_drop). ||
 || maxPartitionSizeToDrop | **string** (int64)
 
 Maximum size of the partition that can be deleted using **DROP** or **TRUNCATE** query.
 
 Default value: **50000000000** (48828125 KiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_partition_size_to_drop).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_partition_size_to_drop). ||
 || keepAliveTimeout | **string** (int64)
 
 The number of seconds that ClickHouse waits for incoming requests for HTTP protocol before closing the connection.
@@ -1924,9 +1864,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#async_insert_threads).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#async_insert_threads). ||
 || backupThreads | **string** (int64)
 
 The maximum number of threads to execute **BACKUP** requests.
@@ -1953,9 +1891,7 @@ Default value: **5368709120** (5 GiB).
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size). ||
 || vectorSimilarityIndexCacheMaxEntries | **string** (int64)
 
 Size of cache for vector similarity indexes, in entries. **0** means disabled.
@@ -1964,9 +1900,7 @@ Default value: **10000000**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries). ||
 || maxBuildVectorSimilarityIndexThreadPoolSize | **string** (int64)
 
 The maximum number of threads to use for building vector indexes. **0** means unlimited.
@@ -1975,9 +1909,7 @@ Default value: **16**.
 
 Change of the setting is applied with restart.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size). ||
 || mergeTree | **[MergeTree](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.MergeTree)**
 
 Settings for the MergeTree table engine family.
@@ -2050,6 +1982,11 @@ For details, see [ClickHouse documentation](https://clickhouse.com/docs/interfac
 || customMacros[] | **[Macro](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro)**
 
 Custom ClickHouse macros. ||
+|| tls | **[Tls](#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls)**
+
+TLS configuration for outgoing connections from ClickHouse.
+
+Change of the settings of **tls** is applied with restart. ||
 || builtinDictionariesReloadInterval | **string** (int64)
 
 The interval in seconds before reloading built-in dictionaries.
@@ -2108,9 +2045,7 @@ an **INSERT** is artificially slowed down.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_delay_insert).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_delay_insert). ||
 || inactivePartsToThrowInsert | **string** (int64)
 
 If the number of inactive parts in a single partition more than the **inactive_parts_to_throw_insert** value,
@@ -2118,9 +2053,7 @@ If the number of inactive parts in a single partition more than the **inactive_p
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_throw_insert).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#inactive_parts_to_throw_insert). ||
 || maxAvgPartSizeForTooManyParts | **string** (int64)
 
 The "Too many parts" check according to **parts_to_delay_insert** and **parts_to_throw_insert** will be active only if the average
@@ -2130,9 +2063,7 @@ if the parts are successfully merged to larger parts. This does not affect the t
 
 Default value: **1073741824** (1 GiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_avg_part_size_for_too_many_parts).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_avg_part_size_for_too_many_parts). ||
 || maxPartsInTotal | **string** (int64)
 
 If the total number of active parts in all partitions of a table exceeds the **max_parts_in_total** value,
@@ -2186,9 +2117,7 @@ Corresponds roughly to the maximum possible part size created by an automatic ba
 
 Default value: **161061273600** (150 GiB).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_bytes_to_merge_at_max_space_in_pool).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_bytes_to_merge_at_max_space_in_pool). ||
 || minBytesForWidePart | **string** (int64)
 
 Minimum number of bytes in a data part that can be stored in Wide format.
@@ -2209,18 +2138,14 @@ Minimum period to clean old queue logs, blocks hashes and parts.
 
 Default value: **30**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#cleanup_delay_period).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#cleanup_delay_period). ||
 || maxCleanupDelayPeriod | **string** (int64)
 
 Maximum period to clean old queue logs, blocks hashes and parts.
 
 Default value: **300** (5 minutes).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_cleanup_delay_period).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_cleanup_delay_period). ||
 || mergeSelectingSleepMs | **string** (int64)
 
 Minimum time to wait before trying to select parts to merge again after no parts were selected. A lower setting value will trigger
@@ -2228,9 +2153,7 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
 Default value: **5000** (5 seconds).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#merge_selecting_sleep_ms).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#merge_selecting_sleep_ms). ||
 || maxMergeSelectingSleepMs | **string** (int64)
 
 Maximum time to wait before trying to select parts to merge again after no parts were selected. A lower setting value will trigger
@@ -2238,18 +2161,14 @@ selecting tasks in background_schedule_pool frequently which result in large amo
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_merge_selecting_sleep_ms).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#max_merge_selecting_sleep_ms). ||
 || minAgeToForceMergeSeconds | **string** (int64)
 
 Merge parts if every part in the range is older than the specified value. **0** means disabled.
 
 Default value: **0**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/merge-tree-settings#min_age_to_force_merge_seconds). ||
 || minAgeToForceMergeOnPartitionOnly | **boolean**
 
 Whether **min_age_to_force_merge_seconds** should be applied only on the entire partition and not on subset.
@@ -2595,9 +2514,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **1000000000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || allowReadExpiredKeys | **boolean**
 
 Allows to read expired keys.
@@ -2613,9 +2530,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **100000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || updateQueuePushTimeoutMilliseconds | **string** (int64)
 
 Max timeout in milliseconds for push update task into queue.
@@ -2623,9 +2538,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **10**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || queryWaitTimeoutMilliseconds | **string** (int64)
 
 Max wait timeout in milliseconds for update task to complete.
@@ -2633,9 +2546,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **60000** (1 minute).
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || maxThreadsForUpdates | **string** (int64)
 
 Max threads for cache dictionary update.
@@ -2643,9 +2554,7 @@ Applicable only for **CACHE** and **COMPLEX_KEY_CACHE** layout types.
 
 Default value: **4**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#cache). ||
 || initialArraySize | **string** (int64)
 
 Initial dictionary key size.
@@ -2653,9 +2562,7 @@ Applicable only for **FLAT** layout type.
 
 Default value: **1024**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
 || maxArraySize | **string** (int64)
 
 Maximum dictionary key size.
@@ -2663,9 +2570,7 @@ Applicable only for **FLAT** layout type.
 
 Default value: **500000**.
 
-For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat).
-
-The minimum value is 0. ||
+For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#flat). ||
 || accessToKeyFromAttributes | **boolean**
 
 Allows to retrieve key attribute using **dictGetString** function.
@@ -2726,9 +2631,7 @@ Required field. Database name. ||
 Required field. Table name. ||
 || port | **string** (int64)
 
-Port to use when connecting to a replica of the dictionary source.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to a replica of the dictionary source. ||
 || user | **string**
 
 Required field. Name of the user for replicas of the dictionary source. ||
@@ -2764,15 +2667,11 @@ The maximum string length in characters is 253. ||
 || priority | **string** (int64)
 
 The priority of the replica that ClickHouse takes into account when connecting.
-Replica with the highest priority should have this field set to the lowest number.
-
-The minimum value is 0. ||
+Replica with the highest priority should have this field set to the lowest number. ||
 || port | **string** (int64)
 
 Port to use when connecting to the replica.
-If a port is not specified for a replica, ClickHouse uses the port specified for the source.
-
-Acceptable values are 0 to 65535, inclusive. ||
+If a port is not specified for a replica, ClickHouse uses the port specified for the source. ||
 || user | **string**
 
 Name of the MySQL database user.
@@ -2800,9 +2699,7 @@ ClickHouse host.
 The maximum string length in characters is 253. ||
 || port | **string** (int64)
 
-Port to use when connecting to the host.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the host. ||
 || user | **string**
 
 Required field. Name of the ClickHouse database user. ||
@@ -2834,9 +2731,7 @@ Required field. MongoDB host.
 The maximum string length in characters is 253. ||
 || port | **string** (int64)
 
-Port to use when connecting to the host.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the host. ||
 || user | **string**
 
 Required field. Name of the MongoDB database user. ||
@@ -2863,9 +2758,7 @@ Required field. Table name. ||
 PostgreSQL hosts. ||
 || port | **string** (int64)
 
-Port to use when connecting to the PostgreSQL hosts.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Port to use when connecting to the PostgreSQL hosts. ||
 || user | **string**
 
 Required field. Name of the PostrgreSQL database user. ||
@@ -2995,18 +2888,14 @@ Maximum allowed time between calls to consume messages for high-level consumers.
 If this interval is exceeded the consumer is considered failed and the group will
 rebalance in order to reassign the partitions to another consumer group member.
 
-Default value: **300000** (5 minutes).
-
-The minimum value is 0. ||
+Default value: **300000** (5 minutes). ||
 || sessionTimeoutMs | **string** (int64)
 
 Client group session and failure detection timeout. The consumer sends periodic heartbeats (heartbeat.interval.ms)
 to indicate its liveness to the broker. If no hearts are received by the broker for a group member within
 the session timeout, the broker will remove the consumer from the group and trigger a rebalance.
 
-Default value: **45000** (45 seconds).
-
-The minimum value is 0. ||
+Default value: **45000** (45 seconds). ||
 || debug | **enum** (Debug)
 
 Debug context to enable.
@@ -3049,16 +2938,12 @@ Default value: **AUTO_OFFSET_RESET_LARGEST**.
 
 Maximum Kafka protocol request message size.
 
-Default value: **1000000**.
-
-Acceptable values are 1000 to 1000000000, inclusive. ||
+Default value: **1000000**. ||
 || batchSize | **string** (int64)
 
 Maximum size (in bytes) of all messages batched in one MessageSet, including protocol framing overhead.
 
-Default value: **1000000**.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
+Default value: **1000000**. ||
 |#
 
 ## KafkaTopic {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.KafkaTopic}
@@ -3118,30 +3003,22 @@ Query cache configuration.
 
 The maximum cache size in bytes.
 
-Default value: **1073741824** (1 GiB).
-
-The minimum value is 0. ||
+Default value: **1073741824** (1 GiB). ||
 || maxEntries | **string** (int64)
 
 The maximum number of **SELECT** query results stored in the cache.
 
-Default value: **1024**.
-
-The minimum value is 0. ||
+Default value: **1024**. ||
 || maxEntrySizeInBytes | **string** (int64)
 
 The maximum size in bytes **SELECT** query results may have to be saved in the cache.
 
-Default value: **1048576** (1 MiB).
-
-The minimum value is 0. ||
+Default value: **1048576** (1 MiB). ||
 || maxEntrySizeInRows | **string** (int64)
 
 The maximum number of rows **SELECT** query results may have to be saved in the cache.
 
-Default value: **30000000**.
-
-The minimum value is 0. ||
+Default value: **30000000**. ||
 |#
 
 ## JdbcBridge {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.JdbcBridge}
@@ -3157,9 +3034,7 @@ Host of jdbc bridge. ||
 
 Port of jdbc bridge.
 
-Default value: **9019**.
-
-Acceptable values are 0 to 65535, inclusive. ||
+Default value: **9019**. ||
 |#
 
 ## Macro {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Macro}
@@ -3172,12 +3047,26 @@ ClickHouse macro.
 
 Required field. Name of the macro.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
 || value | **string**
 
 Required field. Value of the macro.
 
-The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_][a-zA-Z0-9_-]* `. ||
+The maximum string length in characters is 63. ||
+|#
+
+## Tls {#yandex.cloud.mdb.clickhouse.v1.config.ClickhouseConfig.Tls}
+
+TLS configuration for outgoing connections from ClickHouse (e.g. remote tables, dictionaries).
+
+#|
+||Field | Description ||
+|| trustedCertificates[] | **string**
+
+CA certificates in PEM format. Each element must contain a single self-signed CA certificate
+or a certificate chain ordered as leaf -> intermediates -> self-signed root.
+
+Change of the setting is applied with restart. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.clickhouse.v1.Resources}
@@ -3265,12 +3154,10 @@ Allow to export data from the cluster to DataLens. ||
 || webSql | **boolean**
 
 Allow SQL queries to the cluster databases from the management console.
-
 See [SQL queries in the management console](../../operations/web-sql-query.md) for more details. ||
 || metrika | **boolean**
 
 Allow to import data from Yandex Metrica and AppMetrica to the cluster.
-
 See [AppMetrica documentation](https://appmetrica.yandex.com/docs/cloud/index.html) for more details. ||
 || serverless | **boolean**
 
@@ -3292,10 +3179,23 @@ Allow access for Query ||
 Whether to use Object Storage for storing ClickHouse data. ||
 || moveFactor | **number** (double)
 
+The share of available free space on local storage. If the space becomes less, the data will start transferring
+to Object Storage. For transfer, chunks are sorted by size from larger to smaller (descending) and chunks whose
+total size is sufficient to meet the move_factor condition are selected, if the total size of all chunks is
+insufficient, all chunks will be moved.
+
+Default value: **0.01**.
+
 Acceptable values are 0 to 1, inclusive. ||
-|| dataCacheEnabled | **boolean** ||
-|| dataCacheMaxSize | **string** (int64) ||
-|| preferNotToMerge | **boolean** ||
+|| dataCacheEnabled | **boolean**
+
+Enables or disables caching Object Storage data on file system. ||
+|| dataCacheMaxSize | **string** (int64)
+
+Limits the maximum size of Object Storage data cache. ||
+|| preferNotToMerge | **boolean**
+
+Disables or enables merging date parts storing in Object Storage. ||
 |#
 
 ## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}

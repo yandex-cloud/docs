@@ -1,4 +1,4 @@
-# [Yandex DataLens] Requested database column does not exist
+# [{{ datalens-full-name }}] Requested database column does not exist
 
 `ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST`
 
@@ -8,7 +8,7 @@
 
 * В источник данных добавлено новое поле, но датасет не обновлен. Чтобы обновить датасет, нажмите кнопку [Обновить поля](../../dataset/create-dataset.md#update-fields).
 
-* При построении датасета на основе подключения к ClickHouse® используется SQL-подзапрос. В этом случае задайте алиас для выбираемых полей.
+* При построении датасета на основе подключения к {{ CH }} используется SQL-подзапрос. В этом случае задайте алиас для выбираемых полей.
 
    Пример:
 
@@ -19,7 +19,7 @@
      FROM
    ```
 
-   DataLens может некорректно распознать поле `upper(proposed_meta)`, поэтому нужно задать для него алиас:
+   {{ datalens-short-name }} может некорректно распознать поле `upper(proposed_meta)`, поэтому нужно задать для него алиас:
 
    ```sql
    SELECT DISTINCT
@@ -30,4 +30,4 @@
 
 * При построении датасета в SQL-подзапросе неявно указаны выбираемые поля (`SELECT * FROM`). Чтобы избежать ошибки, явно перечислите нужные поля в секции `SELECT`.
 
-_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._
+_{{ CH }} является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

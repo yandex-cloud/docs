@@ -38,7 +38,7 @@ description: Из статьи вы узнаете, как задать наст
 
     * [Загрузка данных {{ PG }} в масштабируемое хранилище {{ objstorage-name }}](../../../tutorials/mpg-to-objstorage.md).
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных источника {#prepare}
 
@@ -107,7 +107,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -164,7 +164,7 @@ description: Из статьи вы узнаете, как задать наст
     ```
 
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -222,7 +222,7 @@ description: Из статьи вы узнаете, как задать наст
 
             Двойные кавычки в имени схемы не поддерживаются.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Поведение трансфера будет также зависеть от настройки **Список включенных таблиц**. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Поведение трансфера будет также зависеть от настройки **Список включенных таблиц**. Подробнее читайте в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки [параллельного копирования таблиц](../../../../data-transfer/concepts/sharded.md) (если в трансфере заданы параметры параллельного копирования):
 
@@ -300,7 +300,7 @@ description: Из статьи вы узнаете, как задать наст
         * `AFTER_DATA` — перенос на этапе деактивации трансфера;
         * `NEVER` — не переносить.
 
-    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
+    Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-dt-endpoint }}).
 
 - API {#api}
 
@@ -372,7 +372,7 @@ description: Из статьи вы узнаете, как задать наст
 * [{{ ytsaurus-name }}](../source/yt.md);
 * [{{ OS }}](../target/opensearch.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).
 

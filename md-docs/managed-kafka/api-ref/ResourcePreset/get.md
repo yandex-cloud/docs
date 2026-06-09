@@ -7,7 +7,7 @@ To get the list of available resource presets, make a [List](list.md#List) reque
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-kafka/v1/resourcePresets/{resourcePresetId}
+GET https://{{ api-host-mdb }}/managed-kafka/v1/resourcePresets/{resourcePresetId}
 ```
 
 ## Path parameters

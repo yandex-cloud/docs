@@ -5,7 +5,7 @@ Retrieves the list of billable object bindings associated with the specified bil
 ## HTTP request
 
 ```
-GET https://billing.api.cloud.yandex.net/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
+GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId}/billableObjectBindings
 ```
 
 ## Path parameters

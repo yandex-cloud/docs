@@ -23,7 +23,7 @@ Registry description ||
 Registry kind Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary' ||
 || `--registry-type` | `string`
 
-Registry type Values: 'local', 'remote', 'virtual' ||
+Registry type Values: 'local', 'remote', 'virtual', 'transitional' ||
 || `--labels` | `key=value[,key=value...]`
 
 List of label KEY=VALUE pairs to add. ||
@@ -48,9 +48,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

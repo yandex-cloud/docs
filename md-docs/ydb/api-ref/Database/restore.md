@@ -5,7 +5,7 @@ Restores the specified backup
 ## HTTP request
 
 ```
-POST https://ydb.api.cloud.yandex.net/ydb/v1/databases:restore
+POST https://ydb.{{ api-host }}/ydb/v1/databases:restore
 ```
 
 ## Body parameters {#yandex.cloud.ydb.v1.RestoreBackupRequest}

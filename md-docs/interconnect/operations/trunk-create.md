@@ -2,107 +2,107 @@
 
 ## Создать прямое транковое подключение {#direct}
 
-Самостоятельное создание транковых подключений через CLI и API недоступно. Все транковые подключения создаются через обращение в службу технической поддержки.
+{% note info %}
+
+Для выполнения операции необходима роль [cic.editor](../security/index.md#cic-editor).
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
-  ## Организация прямого транкового подключения {#trunk-create}
-  
-  В этом разделе описывается порядок действий для организации прямого транкового подключения (транка).
-  
-  ### Предварительная подготовка {#trunk-prep}
-  
-  * Ознакомьтесь с описанием принципов работы услуги в [документации](../concepts/index.md).
-  * Выберите [точку присутствия](../concepts/pops.md) для подключения [транка](../concepts/trunk.md). Для **обеспечения отказоустойчивости** рекомендуется подключать транки на двух точках присутствия.
-  * Выберите тип [оптического трансивера](../concepts/transceivers.md) для подключения кроссировки в оборудование Yandex Cloud в [точке присутствия](../concepts/pops.md). На стороне оборудования Yandex Cloud за вами будет зарезирвирован порт с выбранным типом. Для установки в свое оборудование вам необходимо приобрести трансивер выбранного типа самостоятельно.
-  * Выберите [емкость подключения](../concepts/capacity.md).
-  * Если с вами работает архитектор Yandex Cloud, необходимо обсудить и согласовать с ним схему организации услуги Yandex Cloud Interconnect.
-  
-  ### Обращение в поддержку для организации нового транкового подключения {#trunk-ticket}
-  
-  Создайте [новое обращение в поддержку](https://center.yandex.cloud/support) для резервирования порта на оборудовании Yandex Cloud и настройки транка.
-  
-  Обращение должно быть оформлено следующим образом:
-  
-  ```s
-  Тема: [CIC] Создание нового транка.
-  
-  Текст обращения:
-  Прошу организовать новое Cloud Interconnect подключение (транк)
-  со следующими параметрами:
-  
-  client: ООО "Мое дело" 
-  folder-id: b1g28j9359gi********
-  точка присутствия: M9
-  
-  тип трансивера: 10GBASE-LR
-  емкость подключения: 250mbps
-  
-  Информация для организации приватного соединения будет предоставлена позже в отдельном тикете.
-  ```
-  
-  
-  
-  Где:
-  
-  * `client` — название компании клиента.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга Cloud Interconnect.
-  * `точка присутствия` — [код точки присутствия](../concepts/pops.md).
-  * `тип трансивера` — [тип трансивера](../concepts/transceivers.md) для подключения кроссировки.
-  * `емкость подключения` — [полоса пропускания](../pricing.md) в Мбит/c.
-  
-  Если вам нужно организовать отказоустойчивое подключение Cloud Interconnect на нескольких точках присутствия, создавайте отдельное обращение в поддержку для каждого подключения.
-  
-  ### Ответ поддержки на обращение клиента {#trunk-ticket-resp}
-  
-  Когда работы по организация транка завершатся, поддержка сообщит вам информацию о созданном транке.
-  
-  Пример ответа поддержки:
-  
-  ```s
-  trunk_id: euus5dfgchu2********
-  pop: M9
-  rack: 10 этаж, помещение 30-1, 11 ряд, 10 место
-  unit: 36
-  port: 18
-  ```
-  
-  
-  где: 
-  
-  * `trunk_id` — идентификатор созданного Cloud Interconnect транка.
-  * `pop` — [код точки присутствия](../concepts/pops.md) в которой создан Cloud Interconnect транк.
-  * `rack` — местоположение оборудования Yandex Cloud в точке присутствия.
-  * `unit` — число от 1 до 45. Указывает местоположение оборудования в стойке Yandex Cloud.
-  * `port` — число от 1 до 48. Указывает номер порта на оборудовании к которому будет подключаться кроссировка.
-  
-  ### Оформление согласительного письма для точки присутствия {#letter}
-  
-  * Загрузите [шаблон согласительного письма](../concepts/pops.md#letter) для нужной точки присутствия в формате `.docx`.
-  * Заполните в шаблоне данные о компании и местоположении оборудования на точке присутствия (выделено в шаблоне желтым цветом).
-  * По полученным от поддержки данным заполните в шаблоне значения параметров `unit` и `port` (выделено в шаблоне зеленым цветом).
-  * Загрузите заполненный шаблон в открытое обращение в поддержку.
-  * В течение двух рабочих дней в открытое обращение вам придет подписанное со стороны Yandex Cloud согласительное письмо в pdf-файле.
-  
-  ### Организация кроссировки в точке присутствия {#trunk-cross}
-  
-  Закажите и организуйте кроссировку между своим оборудованием и Yandex Cloud в точке присутствия, используя для этого подписанное согласительное письмо.
-  
-  {% note alert %}
-  
-  Подключение кроссировки в порт оборудования Yandex Cloud производится **только техническим персоналом точки присутствия** без участия технических специалистов Yandex Cloud.
-  
-  При необходимости технический персонал точки присутствия может запросить у дежурных Yandex Cloud дополнительное подтверждение на подключение кроссировки клиента в порт оборудования Yandex Cloud.
-  
-  {% endnote %}
-  
-  ### Контроль состояния транка {#trunk-check}
-  
-  Отслеживайте переход физического порта транка на оборудовании Yandex Cloud в рабочее состояние с помощью сервиса [мониторинга](../concepts/monitoring.md#trunk-mon). При возникновении проблем свяжитесь с поддержкой для их диагностики и устранения.
-  
-  Организация приватного или публичного соединения возможна только после перехода физического порта транка в рабочее состояние.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
+
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-single-port-direct_1QHVe }}`.
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.transceiver-type_2WtM8 }}** выберите тип трансивера, который будет использоваться на стороне {{ interconnect-name }}. На вашем оборудовании должен быть совместимый трансивер.
+      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
+
+          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+
+              * длина — от 3 до 63 символов;
+              * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+              * первый символ — буква, последний — не дефис.
+
+              Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
+          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
+          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для создания [транкового подключения](../concepts/trunk.md):
+
+      ```bash
+      yc cic trunk-connection create --help
+      ```
+
+  1. Создайте прямое транковое подключение в указанном каталоге:
+
+      
+      ```bash
+      yc cic trunk-connection create \
+        --name trunk-m9 \
+        --description "Trunk M9" \
+        --pop ru-msk-m9-0 \
+        --capacity 1-gbps \
+        --trunk-options type=direct,transceiver=10GBASE-LR \
+        --deletion-protection \
+        --folder-id b1gt6g8ht345******** \
+        --async
+      ```
+
+      Ожидаемый результат:
+
+      ```text
+      id: cf3dcodot14p********
+      name: trunk-m9
+      description: Trunk M9
+      cloud_id: b1gia87mbaom********
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      created_at: "2025-03-25T10:54:46Z"
+      single_port_direct_joint:
+        transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
+        port_name: 25GE1/0/12
+      point_of_presence_id: ru-msk-m9-0
+      capacity: CAPACITY_1_GBPS
+      status: ACTIVE
+      ```
+
+
+
+      Где:
+
+      * `id` — идентификатор транкового подключения.
+      * `name` — название транкового подключения.
+      * `description` — описание транкового подключения.
+      * `cloud_id` — идентификатор облака, в каталоге которого было создано транковое подключение.
+      * `folder_id` — идентификатор облачного каталога, в котором было создано транковое подключение.
+      * `region_id` — регион облака, в котором создано транковое подключение.
+      * Тип транкового подключения:
+        * `single_port_direct_joint` — прямое транковое подключение:
+           * `transceiver_type` — тип используемого [трансивера](../concepts/transceivers.md).
+           * `port_name` — номер порта (портов), выделенных на сетевом устройстве для транкового подключения.
+           * `access_device_name` — имя сетевого устройства, на котором были выделены порты для транкового подключения.
+        * `lag_direct_joint` — агрегированное (LAG) прямое транковое подключение:
+           * `transceiver_type` — тип используемого [трансивера](../concepts/transceivers.md).
+           * `lag_id` — идентификатор агрегированного подключения.
+           * `port_names` — список физических портов в LAG.
+        * `partner_joint_info` — транковое подключение через партнера:
+           * `partner_id` — идентификатор партнера.
+           * `service_key` — сервисный ключ для транкового подключения через партнера.
+      * `point_of_presence_id` — идентификатор [точки присутствия](../concepts/pops.md). При создании транка нужное значение необходимо выбрать из столбца «Метка» [таблицы](../concepts/pops.md).
+      * `capacity` — величина [пакета трафика](../concepts/capacity.md) для данного транкового подключения. При создании транка нужное значение необходимо выбрать из столбца «Метка» [таблицы](../concepts/capacity.md).
+      * `status` — состояние ресурса. Целевое состояние — `ACTIVE`.
+      * `created_at` — дата и время создания ресурса.
+      * `deletion-protection` — защита ресурса от случайного удаления. Ресурс невозможно будет удалить без предварительного снятия этого флага.
+      * `async` — выполнение операции в асинхронном режиме. Рекомендуется все операции по изменению состояния ресурса выполнять в этом режиме.
 
 {% endlist %}
 
@@ -112,81 +112,119 @@
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
-  ## Создать новое транковое подключение через партнера
-  
-  ### Предварительная подготовка {#trunk-prep}
-  
-  * Ознакомьтесь с описанием принципов работы услуги в [документации](../concepts/index.md).
-  * Согласуйте со своим менеджером в Yandex Cloud тариф подключения услуги ([емкость подключения](../pricing.md)).
-  * Выберите партнера [из списка](../concepts/partners.md#list) и убедитесь в том, что он может организовать подключение на нужной вам [точке присутствия](../concepts/pops.md) с требуемой вам [емкостью](../concepts/partners.md#list). Для **обеспечения отказоустойчивости** рекомендуется подключать транки на двух точках присутствия.
-  * Если с вами работает архитектор Yandex Cloud, необходимо обсудить и согласовать с ним схему организации услуги Yandex Cloud Interconnect.
-  
-  ### Обращение в поддержку для организации нового партнёрского транкового подключения {#partner-trunk-ticket}
-  
-  Создайте [новое обращение в поддержку](https://center.yandex.cloud/support) для организации нового транкового подключения через партнера.
-  
-  
-  Обращение должно быть оформлено следующим образом:
-  
-  ```text
-  Тема: [CIC] Создание нового транкового подключения через партнера.
-  
-  Текст обращения:
-  
-  Прошу организовать новое транковое подключение через партнера Cloud Interconnect 
-  со следующими параметрами:
-  
-  client: ООО "Моё дело" 
-  folder-id: b1g28j9359gi********
-  партнёр: RETN
-  точка присутствия: M9
-  емкость подключения: 250mbps
-  ```
-  
-  где,
-  
-  * `client` — название компании клиента.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга Cloud Interconnect.
-  * `партнёр` — имя партнёра [из списка партнёров](../concepts/partners.md#list)
-  * `точка присутствия` — код точки присутствия [из списка партнёров](../concepts/partners.md#list) на которых партнёр предоставляет подключения к Yandex Cloud
-  * `емкость подключения` — [полоса пропускания](../pricing.md) в Мбит/c.
-  
-  
-  ### Ответ поддержки на обращение клиента {#partner-trunk-ticket-resp}
-  
-  После выполнения запрошенных действий по организации транкового подключения через партнера, поддержка сообщает клиенту:
-  * Идентификатор созданного транка — `trunk_id`.
-  * Сервисный ключ для созданного транка — `service_key`.
-  * [Емкость транкового подключения](../concepts/capacity.md) - `capacity`.
-  
-  Пример ответа поддержки на обращение с запросом о создании транкового подключения через партнера (для информации):
-  
-  ```s
-  trunk_id: euus5dfgchu2********
-  service_key: euuq3f6g1zk8********
-  capacity: 500mbps
-  ```
-  
-  После создания транкового подключения через партнера поддержка сообщит его параметры партнеру. Список параметров следующий:
-  `partner_joint_id`, `partner_vlan_id`, `capacity` и `service_key`.
-  
-  ### Обращение клиента к партнёру для настройки транкового подключения через партнера {#client-req-partner}
-  
-  После получения ответа от поддержки Yandex Cloud клиент обращается к партнеру с запросом на активацию (конфигурацию) транкового подключения на стороне партнера. В запросе обязательно должен быть указан сервисный ключ `service_key`, полученный на предыдущем шаге.
-  
-  Клиент ожидает подтверждения выполнения запроса со стороны партнёра и самостоятельно взаимодействует с партнёром по организации подключения от оборудования партнёра до своего оборудования.
-  
-  Коммуникация между клиентом и партнёром может быть организована любым согласованным между ними способом, например, с помощью электронной почты.
-  
-  
-  {% note info %}
-  
-  В настоящее время метрики мониторинга для транковых подключений, организованных через партнеров [не предоставляются](../concepts/monitoring.md#notes).
-  Метрики мониторинга для приватного или публичного соединения предоставляются [в полном объёме](../concepts/monitoring.md#private-metrics).
-  
-  {% endnote %}
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
+
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-partner_tsPPf }}` и в появившемся списке выберите нужного партнера.
+
+          Вы можете выбрать только тех партнеров, которые подходят по емкости подключения и точке присутствия.
+      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
+
+          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
+
+              * длина — от 3 до 63 символов;
+              * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+              * первый символ — буква, последний — не дефис.
+
+              Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
+          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
+          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+      1. Создайте [новое обращение в поддержку]({{ link-console-support }}) для информирования партнера о созданном транковом подключении.
+         
+         Обращение должно быть оформлено следующим образом:
+         
+         ```text
+         Тема: [CIC] Уведомление партнера partnerID о созданном
+         транковом подключении {{ interconnect-name }}.
+         
+         Текст обращения: Прошу уведомить партнера о параметрах созданного 
+         транкового подключения trunk_id: euus5dfgchu2********
+         ```
+         
+         {% note info %}
+         
+         В процессе обработки обращения инженер поддержки отправит уведомление партнеру о созданном транковом подключении.
+         
+         Партнеру будут отправлены следующие данные: `partner_joint_id`, `partner_vlan_id`, `capacity` и `service_key`.
+         
+         {% endnote %}
+
+- CLI {#cli}
+
+  1. Посмотрите описание команды CLI для создания [транкового подключения](../concepts/trunk.md):
+
+      ```bash
+      yc cic trunk-connection create --help
+      ```
+
+  1. Получите идентификатор нужного партнерского соединения (`ID`):
+
+      ```bash
+      yc cic partner list
+      ``` 
+
+  1. Создайте транковое подключение через партнера в указанном каталоге:
+
+      ```bash
+      yc cic trunk-connection create \
+        --name trunk-m9 \
+        --description "Trunk M9" \
+        --pop ru-msk-m9-0 \
+        --capacity 500-mbps \
+        --trunk-options type=partner,partner-id=partnerID \
+        --folder-id b1gt6g8ht345******** \
+        --async
+      ```
+
+      {% note info %}
+
+      При создании указывается идентификатор партнера и не указывается тип трансивера.
+
+      {% endnote %}
+
+      Ожидаемый результат:
+
+      ```text
+      id: cf3dcodot14p********
+      name: trunk-m9
+      description: Trunk M9
+      cloud_id: b1gia87mbaom********
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      created_at: "2025-03-25T10:54:46Z"
+      partner_joint_info:
+        partner_id: partnerID
+        service_key: euuclbdga6je********
+      point_of_presence_id: ru-msk-m9-0
+      capacity: CAPACITY_500_MBPS
+      status: ACTIVE
+      ```
+  1. Создайте [новое обращение в поддержку]({{ link-console-support }}) для информирования партнера о созданном транковом подключении.
+     
+     Обращение должно быть оформлено следующим образом:
+     
+     ```text
+     Тема: [CIC] Уведомление партнера partnerID о созданном
+     транковом подключении {{ interconnect-name }}.
+     
+     Текст обращения: Прошу уведомить партнера о параметрах созданного 
+     транкового подключения trunk_id: euus5dfgchu2********
+     ```
+     
+     {% note info %}
+     
+     В процессе обработки обращения инженер поддержки отправит уведомление партнеру о созданном транковом подключении.
+     
+     Партнеру будут отправлены следующие данные: `partner_joint_id`, `partner_vlan_id`, `capacity` и `service_key`.
+     
+     {% endnote %}
 
 {% endlist %}
 
@@ -196,71 +234,77 @@
 
 {% list tabs group=instructions %}
 
-- Через поддержку {#support}
+- Консоль управления {#console}
 
-  ### Предварительная подготовка {#lag-prep}
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![layout-side-content-left](../../_assets/console-icons/layout-side-content-left.svg) или ![chevron-down](../../_assets/console-icons/chevron-down.svg) и выберите нужный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.ui.constants.label_interconnect_aUMcv }}**.
+  1. На панели слева выберите ![pipeline](../../_assets/console-icons/pipeline.svg) **{{ ui-key.yacloud.interconnect.trunk-connection.trunk-connections_kBGNL }}** и нажмите кнопку **{{ ui-key.yacloud.interconnect.trunk-connection.TrunkConnectionListScreen.create-trunk-connection_oUuYo }}**. В открывшемся окне:
 
-  * Ознакомьтесь с описанием принципов работы услуги в [документации](../concepts/index.md).
-  * Выберите [точку присутствия](../concepts/pops.md) для подключения [транка](../concepts/trunk.md).
-  * Выберите тип [оптического трансивера](../concepts/transceivers.md) для каждого порта LAG.
-  * Определите количество физических портов в агрегированном подключении.
-  * Выберите [емкость подключения](../concepts/capacity.md).
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-capacity_tkrnE }}** задайте величину [пакета трафика](../concepts/capacity.md) для создаваемого транкового подключения.
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.point-of-presence_265QN }}** выберите нужную [точку присутствия](../concepts/pops.md).
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type_23Twp }}** выберите `{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-single-port-direct_1QHVe }}`.
+      1. Чтобы использовать [агрегирование](../concepts/trunk.md#lag) каналов связи с помощью [протокола LACP](https://en.wikipedia.org/wiki/Link_aggregation#Link_Aggregation_Control_Protocol), включите опцию **{{ ui-key.yacloud.interconnect.trunk-connection.connection-type-lag_nkLCb }}** и в появившемся поле **{{ ui-key.yacloud.interconnect.trunk-connection.DirectConnectionFields.ports-count_d9Zds }}** задайте количество сетевых портов, которые будут добавлены в группу агрегирования. В группу вы можете добавить до десяти сетевых портов.
+      1. В поле **{{ ui-key.yacloud.interconnect.trunk-connection.transceiver-type_2WtM8 }}** выберите тип трансивера, который будет использоваться на стороне {{ interconnect-name }}. На вашем оборудовании должен быть совместимый трансивер.
 
-  ### Обращение в поддержку для организации нового LAG-транка {#lag-ticket}
+          При использовании агрегирования все физические порты в группе агрегирования должны использовать [трансиверы](../concepts/transceivers.md) только одного типа.
+      1. (Опционально) В блоке **{{ ui-key.yacloud.common.section-base }}** задайте:
 
-  Создайте [новое обращение в поддержку](https://center.yandex.cloud/support) для резервирования портов на оборудовании Yandex Cloud и настройки LAG-транка.
+          * **{{ ui-key.yacloud.common.name }}**. Требования к имени:
 
-  Обращение должно быть оформлено следующим образом:
+              * длина — от 3 до 63 символов;
+              * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+              * первый символ — буква, последний — не дефис.
 
-  ```text
-  Тема: [CIC] Создание нового LAG-транка.
+              Если не указать имя, подключению будет присвоено имя, идентичное [идентификатору](../../api-design-guide/concepts/resources-identification.md) этого подключения.
+          * Произвольное **{{ ui-key.yacloud.common.description }}** подключения.
+          * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md) подключения.
+      1. Чтобы защитить создаваемое подключение от случайного удаления, включите опцию **{{ ui-key.yacloud.common.deletion-protection }}**.
+      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
-  Текст обращения:
-  Прошу организовать новое Cloud Interconnect транковое подключение (LAG)
-  со следующими параметрами:
+- CLI {#cli}
 
-  client: ООО "Мое дело"
-  folder-id: b1g28j9359gi********
-  точка присутствия: M9
-  тип подключения: LAG
-  количество портов в LAG: 2
-  тип трансивера: 10GBASE-LR
-  емкость подключения: 1gbps
+  1. Посмотрите описание команды CLI для создания [транкового подключения](../concepts/trunk.md):
 
-  Информация для организации приватного соединения будет предоставлена позже в отдельном тикете.
-  ```
+      ```bash
+      yc cic trunk-connection create --help
+      ```
 
-  Где:
+  1. Создайте агрегированное (LAG) прямое транковое подключение в указанном каталоге:
 
-  * `client` — название компании клиента.
-  * `folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в который будут отправляться метрики мониторинга Cloud Interconnect.
-  * `точка присутствия` — [код точки присутствия](../concepts/pops.md).
-  * `количество портов в LAG` — число физических портов в агрегированном подключении.
-  * `тип трансивера` — [тип трансивера](../concepts/transceivers.md) для подключения кроссировки.
-  * `емкость подключения` — [полоса пропускания](../pricing.md) в Мбит/с.
+      ```bash
+      yc cic trunk-connection create \
+        --name trunk-m9 \
+        --description "Trunk M9" \
+        --pop ru-msk-m9-0 \
+        --capacity 1-gbps \
+        --trunk-options type=lag,transceiver=10GBASE-LR,size=2 \
+        --folder-id b1gt6g8ht345******** \
+        --async
+      ```
 
-  ### Ответ поддержки на обращение клиента {#lag-ticket-resp}
+      {% note info %}
 
-  Когда работы по организации LAG-транка завершатся, поддержка сообщит вам информацию о созданном транке.
+      При создании указывается тип трансивера и количество портов в агрегированном транке.
 
-  Пример ответа поддержки:
+      {% endnote %}
 
-  ```text
-  trunk_id: euus5dfgchu2********
-  lag_id: 15
-  pop: M9
-  rack: 10 этаж, помещение 30-1, 11 ряд, 10 место
-  port_names: 10GE1/0/1, 10GE1/0/2
-  ```
+      Ожидаемый результат:
 
-  Где:
-
-  * `trunk_id` — идентификатор созданного Cloud Interconnect транка.
-  * `lag_id` — идентификатор агрегированного (LAG) подключения.
-  * `pop` — [код точки присутствия](../concepts/pops.md), в которой создан Cloud Interconnect транк.
-  * `rack` — местоположение оборудования Yandex Cloud в точке присутствия.
-  * `port_names` — список физических портов в LAG.
-
-  Дальнейшие шаги (оформление согласительного письма, организация кроссировки, контроль состояния транка) выполняются аналогично прямому транковому подключению — см. в туториале [Создать прямое транковое подключение и приватное соединение в нем](../tutorials/trunk-priv-add.md).
+      ```text
+      id: cf3dcodot14p********
+      name: trunk-m9
+      description: Trunk M9
+      cloud_id: b1gia87mbaom********
+      folder_id: b1gt6g8ht345********
+      region_id: {{ region-id }}
+      created_at: "2025-03-25T10:54:46Z"
+      lag_direct_joint:
+        lag_id: 15
+        transceiver_type: TRANSCEIVER_TYPE_10GBASE_LR
+        port_names: 10GE1/0/1, 10GE1/0/2 
+      point_of_presence_id: ru-msk-m9-0
+      capacity: CAPACITY_1_GBPS
+      status: ACTIVE
+      ```
 
 {% endlist %}

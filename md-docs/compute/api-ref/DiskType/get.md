@@ -1,13 +1,12 @@
 # Compute Cloud API, REST: DiskType.Get
 
 Returns the information about specified disk type.
-
 To get the list of available disk types, make a [List](list.md#List) request.
 
 ## HTTP request
 
 ```
-GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}
+GET https://compute.{{ api-host }}/compute/v1/diskTypes/{diskTypeId}
 ```
 
 ## Path parameters
@@ -17,7 +16,8 @@ GET https://compute.api.cloud.yandex.net/compute/v1/diskTypes/{diskTypeId}
 || diskTypeId | **string**
 
 Required field. ID of the disk type to return information about.
-To get the disk type ID use a [DiskTypeService.List](list.md#List) request. ||
+To get the disk type ID use a [DiskTypeService.List](list.md#List) request.
+This field is required. ||
 |#
 
 ## Response {#yandex.cloud.compute.v1.DiskType}

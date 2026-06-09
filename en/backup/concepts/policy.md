@@ -56,10 +56,9 @@ If you make changes to the backup retention rules, by default they will take eff
 
 In {{ backup-name }}, you can [create](../operations/policy-vm/create.md) or [update](../operations/policy-vm/update.md) backup policies based on a specification in [JSON](https://en.wikipedia.org/wiki/JSON) format by using the {{ yandex-cloud }} [command line](../../cli/quickstart.md) or making an API request.
 
-Full backup policy specification in {{ backup-name }}:
+The complete backup policy specification for {{ backup-name }} is detailed below. You can also view the current specification version in the [REST API reference](../backup/api-ref/Policy/create.md).
 
 {% include [full-config](../../_includes/backup/operations/full-config.md) %}
-
 
 ## Use cases {#examples}
 

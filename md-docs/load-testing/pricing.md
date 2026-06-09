@@ -1,8 +1,8 @@
-# Правила тарификации для Yandex Load Testing
+# Правила тарификации для {{ load-testing-full-name }}
 
 {% note warning %}
 
-С 1 июля 2026 года сервис Load Testing прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](sunset.md).
+С 1 июля 2026 года сервис {{ load-testing-name }} прекращает работу. Подробнее на странице [Закрытие сервиса Yandex Load Testing](sunset.md).
 
 {% endnote %}
 
@@ -16,7 +16,7 @@
 
 Все цены в рублях и тенге указаны с НДС, все цены в долларах — без НДС.
 
-Плата за использование вычислительных ресурсов [агентов](concepts/agent.md) взимается по тарифам [Yandex Compute Cloud](../compute/pricing.md).
+Плата за использование вычислительных ресурсов [агентов](concepts/agent.md) взимается по тарифам [{{ compute-full-name }}](../compute/pricing.md).
 
 Тарификация посекундная.
 
@@ -26,9 +26,9 @@
 
 {% note info %}
 
-Цены на ресурсы Yandex Cloud в разных регионах различаются. Подробнее о доступных регионах см. [Регионы](../overview/concepts/region.md).
+Цены на ресурсы {{ yandex-cloud }} в разных регионах различаются. Подробнее о доступных регионах см. [{#T}](../overview/concepts/region.md).
 
-Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [Регистрация аккаунта в Yandex Cloud](../billing/quickstart/index.md).
+Валюта, которой можно оплачивать ресурсы, зависит от юридического лица, с которым пользователь заключил договор. Подробнее о регистрации аккаунта см. [{#T}](../billing/quickstart/index.md).
 
 {% endnote %}
 
@@ -37,12 +37,8 @@
 * продолжительность тестов, результаты которых будут храниться.
 
 
-| Услуга                                                                                       | Цена              | Ед. тарификации               | Действует с   | Действует до |
-| -------------------------------------------------------------------------------------------- | ----------------- | ----------------------------- | ------------- | ------------ |
-| Yandex Load Testing. Выполнение теста, от 0 до 180000 единицы тарификации в месяц            | Не тарифицируется | Секунда                       | 1 января 2026 | —            |
-| Yandex Load Testing. Выполнение теста, от 180000 единицы тарификации в месяц                 | 0,549 ₽           | Секунда                       | 1 января 2026 | —            |
-| Yandex Load Testing. Хранение результатов теста, от 0 до 2160000 единицы тарификации в месяц | Не тарифицируется | Секунда времени теста × месяц | 1 января 2026 | —            |
-| Yandex Load Testing. Хранение результатов теста, от 2160000 единицы тарификации в месяц      | 0,0549 ₽          | Секунда времени теста × месяц | 1 января 2026 | —            |
+| Услуга | Цена | Ед. тарификации | Действует с | Действует до |
+| ------ | ---- | --------------- | ----------- | ------------ |
 
 
 
@@ -59,13 +55,13 @@
 
   Например, выполнение тестов суммарной продолжительностью 60 часов будет стоить:
   
-  > (50 × 0 ₽) + (10 × 1 976,4 ₽) = 19 764 ₽
+  > (50 × {% calc [currency=RUB]{{ sku|RUB|load_testing.test_execution.v1|number }} %}) + (10 × {% calc [currency=RUB]{{ sku|RUB|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}) = {% calc [currency=RUB] 50 × {{ sku|RUB|load_testing.test_execution.v1|number }} + 10 × {{ sku|RUB|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}
 
 - Расчет в тенге {#prices-kzt}
 
   Например, выполнение тестов суммарной продолжительностью 60 часов будет стоить:
   
-  > (50 × 0 ₸) + (10 × 9 882 ₸) = 98 820 ₸
+  > (50 × {% calc [currency=KZT] {{ sku|KZT|load_testing.test_execution.v1|number }} %}) + (10 × {% calc [currency=KZT] {{ sku|KZT|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}) = {% calc [currency=KZT] 50 × {{ sku|KZT|load_testing.test_execution.v1|number }} + 10 × {{ sku|KZT|load_testing.test_execution.v1|pricingRate.180000|number }} × 3600 %}
 
 {% endlist %}
 
@@ -80,12 +76,12 @@
 
   Например, месяц хранения результатов тестов суммарной продолжительностью 640 часов будет стоить:
   
-  > (600 × 0 ₽) + (40 × 197,64 ₽) = 7 905,6 ₽
+  > (600 × {% calc [currency=RUB] {{ sku|RUB|load_testing.storage.test_results.v1|number }} %}) + (40 × {% calc [currency=RUB] {{ sku|RUB|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}) = {% calc [currency=RUB] 600 × {{ sku|RUB|load_testing.storage.test_results.v1|number }} + 40 × {{ sku|RUB|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}
 
 - Расчет в тенге {#prices-kzt}
 
   Например, месяц хранения результатов тестов суммарной продолжительностью 640 часов будет стоить:
   
-  > (600 × 0 ₸) + (40 × 988,2 ₸) = 39 528 ₸
+  > (600 × {% calc [currency=KZT] {{ sku|KZT|load_testing.storage.test_results.v1|number }} %}) + (40 × {% calc [currency=KZT] {{ sku|KZT|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}) = {% calc [currency=KZT] 600 × {{ sku|KZT|load_testing.storage.test_results.v1|number }} + 40 × {{ sku|KZT|load_testing.storage.test_results.v1|pricingRate.2160000|number }} × 3600 %}
 
 {% endlist %}

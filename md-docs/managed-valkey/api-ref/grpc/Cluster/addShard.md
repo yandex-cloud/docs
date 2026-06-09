@@ -1,6 +1,7 @@
 # Managed Service for Redis API, gRPC: ClusterService.AddShard
 
 Creates a new shard.
+(-- api-linter: core::0136::http-uri-suffix=disabled --)
 
 ## gRPC request
 
@@ -29,7 +30,7 @@ Creates a new shard.
 || cluster_id | **string**
 
 Required field. ID of the Redis cluster to create a shard in.
-To get the cluster ID use a [ClusterService.List](list.md#List) request.
+To get the cluster ID use a [ClusterService.List](../../../../managed-redis/api-ref/grpc/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 || shard_name | **string**
@@ -53,16 +54,20 @@ The number of elements must be greater than 0. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../../../../compute/api-ref/grpc/Zone/list.md#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](../../../../compute/api-ref/grpc/Zone/list.md#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The ID of the network is set in the field [Cluster.network_id](get.md#yandex.cloud.mdb.redis.v1.Cluster). ||
+The ID of the network is set in the field [Cluster.network_id](../../../../managed-redis/api-ref/grpc/Cluster/get#yandex.cloud.mdb.redis.v1.Cluster).
+
+The maximum string length in characters is 50. ||
 || shard_name | **string**
 
 ID of the Redis shard the host belongs to.
-To get the shard ID use a [ClusterService.ListShards](listShards.md#ListShards) request.
+To get the shard ID use a [ClusterService.ListShards](../../../../managed-redis/api-ref/grpc/Cluster/listShards#ListShards) request.
 
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || replica_priority | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
@@ -73,7 +78,6 @@ Works only for non-sharded clusters. Default value is 100. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
-
 Possible values:
 * false - don't assign a public IP to the host.
 * true - the host should have a public IP address. ||
@@ -89,16 +93,10 @@ Possible values:
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "cluster_id": "string",
-    "shard_name": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "name": "string",
-    "cluster_id": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -126,7 +124,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[AddClusterShardMetadata](#yandex.cloud.mdb.redis.v1.AddClusterShardMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -141,7 +139,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Shard](#yandex.cloud.mdb.redis.v1.Shard)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -156,29 +154,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## AddClusterShardMetadata {#yandex.cloud.mdb.redis.v1.AddClusterShardMetadata}
-
-#|
-||Field | Description ||
-|| cluster_id | **string**
-
-ID of the Redis cluster that a shard is being added to. ||
-|| shard_name | **string**
-
-Name of the Redis shard that is being created. ||
-|#
-
-## Shard {#yandex.cloud.mdb.redis.v1.Shard}
-
-#|
-||Field | Description ||
-|| name | **string**
-
-Name of the Redis shard. The shard name is assigned by user at creation time, and cannot be changed.
-1-63 characters long. ||
-|| cluster_id | **string**
-
-ID of the Redis cluster the shard belongs to. The ID is assigned by MDB at creation time. ||
 |#

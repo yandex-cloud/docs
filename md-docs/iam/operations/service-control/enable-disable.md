@@ -1,7 +1,7 @@
 # Включение и выключение сервиса
 
 
-В Yandex Identity and Access Management есть возможность включать и выключать [доступ сервисов](../../concepts/service-control.md) к ресурсам пользователя в определенном облаке.
+В {{ iam-full-name }} есть возможность включать и выключать [доступ сервисов](../../concepts/service-control.md) к ресурсам пользователя в определенном облаке.
 
 Управлять доступом сервисов к ресурсам могут пользователи с ролью [администратора](../../../resource-manager/security/index.md#resource-manager-admin) или [владельца](../../../resource-manager/security/index.md#resource-manager-clouds-owner) облака.
 
@@ -11,17 +11,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Разрешения**.
-  1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/lock-open.svg) **Включить доступ**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется облако, заданное в профиле CLI. Вы можете задать другое облако в параметре `--cloud-id`.
+  По умолчанию используется облако, заданное в профиле CLI. Если в профиле CLI облако не задано или вы хотите задать другое облако, указывайте идентификатор нужного облака в команде в параметре `--cloud-id`.
 
   1. Посмотрите описание команды CLI для включения сервиса:
 
@@ -65,17 +60,12 @@
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
-
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
-  1. На панели слева нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Разрешения**.
-  1. В строке с нужным сервисом нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите ![image](../../../_assets/console-icons/ban.svg) **Отключить  доступ**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
-  По умолчанию используется облако, заданное в профиле CLI. Вы можете задать другое облако в параметре `--cloud-id`.
+  По умолчанию используется облако, заданное в профиле CLI. Если в профиле CLI облако не задано или вы хотите задать другое облако, указывайте идентификатор нужного облака в команде в параметре `--cloud-id`.
 
   1. Посмотрите описание команды CLI для выключения сервиса:
 
@@ -113,5 +103,5 @@
 
 #### См. также {#see-also}
 
-* [Получение статусов сервисов](list-get.md)
-* [Доступ сервисов к ресурсам пользователя](../../concepts/service-control.md)
+* [{#T}](list-get.md)
+* [{#T}](../../concepts/service-control.md)

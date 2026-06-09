@@ -5,7 +5,7 @@ Retrieves the list of available backups for the specified ClickHouse cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-clickhouse/v1/clusters/{clusterId}/backups
+GET https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/{clusterId}/backups
 ```
 
 ## Path parameters
@@ -85,7 +85,7 @@ for more information.
 ||Field | Description ||
 || id | **string**
 
-ID of the backup. ||
+Required field. ID of the backup. ||
 || folderId | **string**
 
 ID of the folder that the backup belongs to. ||

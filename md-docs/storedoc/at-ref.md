@@ -1,11 +1,11 @@
-# Справочник аудитных логов Yandex Audit Trails
+# Справочник аудитных логов {{ at-full-name }}
 
-В Audit Trails для Yandex StoreDoc поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+В {{ at-name }} для {{ mmg-full-name }} поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
 
 Общий вид значения поля `event_type` (_тип события_):
 
 ```text
-yandex.cloud.audit.mdb.mongodb.<имя_события>
+{{ at-event-prefix }}.audit.mdb.mongodb.<имя_события>
 ```
 
 ## Справочник событий уровня конфигурации {#control-plane-events}
@@ -23,13 +23,15 @@ yandex.cloud.audit.mdb.mongodb.<имя_события>
 `EnableClusterSharding` | Включение шардирования для кластера
 `MoveCluster` | Перемещение кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
-`RestoreCluster` | Создание нового кластера из резервной копии
-`StartCluster` | Запуск кластера
-`StopCluster` | Остановка кластера
-`UpdateCluster` | Изменение кластера
 `ResetupHosts` | Ресинхронизация хоста
 `RestartHosts` | Перезагрузка хоста
+`RestoreCluster` | Создание нового кластера из резервной копии
+`SetClusterAccessBindings` | Назначение прав доступа к кластеру
+`StartCluster` | Запуск кластера
 `StepdownHosts` | Смена мастера хоста
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateClusterAccessBindings` | Изменение прав доступа к кластеру
 
 ## Справочник событий уровня сервисов {#data-plane-events}
 

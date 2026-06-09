@@ -5,7 +5,7 @@ Retrieves the list of databases in a cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/databases
+GET https://{{ api-host-mdb }}/managed-mysql/v1/clusters/{clusterId}/databases
 ```
 
 ## Path parameters
@@ -15,7 +15,6 @@ GET https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/{clusterId}/datab
 || clusterId | **string**
 
 Required field. ID of the cluster to list databases in.
-
 To get this ID, make a [ClusterService.List](../Cluster/list.md#List) request.
 
 The maximum string length in characters is 50. ||
@@ -28,14 +27,12 @@ The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `pageSize`, the API returns a [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) that can be used to get the next page of results in the subsequent [DatabaseService.List](#List) requests.
 
 Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `pageToken` to the [ListDatabasesResponse.nextPageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesResponse) returned by the previous [DatabaseService.List](#List) request.
 
 The maximum string length in characters is 100. ||
@@ -66,16 +63,13 @@ List of databases. ||
 || nextPageToken | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListDatabasesRequest.pageSize](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest), use the `nextPageToken` as the value for the [ListDatabasesRequest.pageToken](#yandex.cloud.mdb.mysql.v1.ListDatabasesRequest) in the subsequent [DatabaseService.List](#List) request to iterate through multiple pages of results.
-
 Each of the subsequent [DatabaseService.List](#List) requests should use the `nextPageToken` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Database {#yandex.cloud.mdb.mysql.v1.Database}
 
 An object that represents MySQL database.
-
 See [the documentation](../../operations/databases.md) for details.
 
 #|
@@ -89,7 +83,6 @@ ID of the cluster that the database belongs to. ||
 || deletionProtectionMode | **enum** (DeletionProtectionMode)
 
 Deletion Protection inhibits deletion of the database
-
 Default value: `DELETION_PROTECTION_MODE_DISABLED` (protection is disabled)
 
 - `DELETION_PROTECTION_MODE_DISABLED`: Deletion protection is disabled

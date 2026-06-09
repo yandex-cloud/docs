@@ -5,8 +5,6 @@ description: В этой статье вы узнаете, как создать
 
 # Создание политики эскалаций
 
-{% include [escalations-preview](../../../_includes/monitoring/escalations-preview.md) %}
-
 
 <iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvwouze3np3m4t5rkb?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
@@ -60,6 +58,8 @@ description: В этой статье вы узнаете, как создать
       * **Метод** — [метод уведомления](../../concepts/alerting/notification-channel.md#channel-parameters):
        
           {% include [escalation-channels](../../../_includes/monitoring/escalation-channels.md) %}
+
+          Стоимость звонков и СМС рассчитывается по [правилам тарификации](../../pricing.md).
 
       * **Задержка после шага** — задержка перед переходом к следующему шагу, если уведомление успешно доставлено, но эскалация не остановлена. Задержку можно установить в секундах или минутах. Например: `30s`, `10m` или `3m30s`.
       

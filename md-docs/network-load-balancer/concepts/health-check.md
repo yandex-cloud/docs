@@ -43,17 +43,17 @@
 Проверки состояния ресурсам в целевых группах передаются из подсетей `198.18.235.0/24` и `198.18.248.0/24`. Настройки правил фильтрации трафика у целевых ресурсов должны разрешать прием трафика из этих подсетей, иначе проверки не будут выполняться — целевые ресурсы не получат статус `HEALTHY` и не смогут принимать трафик.
 
 Для разрешения трафика от модуля проверки состояния можно привязать к целевым ресурсам [группу безопасности](../../vpc/concepts/security-groups.md) со следующим правилом для входящего трафика: 
-* **Диапазон портов** — используйте диапазон портов, который указан в настройках проверки состояния.
-* **Протокол** — `TCP`.
-* **Источник** — `Проверки состояния балансировщика`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — используйте диапазон портов, который указан в настройках проверки состояния.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
+* **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-balancer }}`.
 
 При выполнении HTTP-проверки, ресурс получает статус `HEALTHY` только при ответе с кодом `200`.
 
 
 ## Примеры использования {#examples}
 
-* [Обновление группы виртуальных машин под нагрузкой](../tutorials/updating-under-load.md)
-* [Интеграция Cloud DNS и корпоративного сервиса DNS](../tutorials/dns-integration.md)
-* [Развертывание Microsoft Exchange](../tutorials/exchange.md)
-* [Реализация отказоустойчивых сценариев для сетевых виртуальных машин](../tutorials/route-switcher.md)
-* [Миграция сервисов с балансировщика NLB на L7-балансировщик ALB для подключения защиты Yandex Smart Web Security](../tutorials/migration-from-nlb-to-alb/index.md)
+* [{#T}](../tutorials/updating-under-load.md)
+* [{#T}](../tutorials/dns-integration.md)
+* [{#T}](../tutorials/exchange.md)
+* [{#T}](../tutorials/route-switcher.md)
+* [{#T}](../tutorials/migration-from-nlb-to-alb/index.md)

@@ -6,7 +6,7 @@ The video can be created from different sources: TUS upload, direct link, or S3 
 ## HTTP request
 
 ```
-POST https://video.api.cloud.yandex.net/video/v1/videos
+POST https://video.{{ api-host }}/video/v1/videos
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.CreateVideoRequest}
@@ -25,7 +25,8 @@ POST https://video.api.cloud.yandex.net/video/v1/videos
   // Includes only one of the fields `tusd`
   "tusd": {
     "fileSize": "string",
-    "fileName": "string"
+    "fileName": "string",
+    "isDeferred": "boolean"
   },
   // end of the list of possible fields
   // Includes only one of the fields `publicAccess`, `signUrlAccess`
@@ -90,7 +91,7 @@ Maximum 64 labels per video.
 Keys must be lowercase alphanumeric strings with optional hyphens/underscores.
 Values can contain alphanumeric characters and various symbols.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_.@:/0-9a-zA-Z]* `. No more than 64 per resource. ||
 || tusd | **[VideoTUSDParams](#yandex.cloud.video.v1.VideoTUSDParams)**
 
 Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
@@ -122,12 +123,18 @@ Video access permission settings (exactly one must be chosen). ||
 || fileSize | **string** (int64)
 
 Total size of the file to be uploaded, in bytes.
+MUST be positive if upload length is not deferred, otherwise MUST be 0.
 
-Value must be greater than 0. ||
+The minimum value is 0. ||
 || fileName | **string**
 
 Original name of the file being uploaded.
 This is used for reference and does not affect the upload process. ||
+|| isDeferred | **boolean**
+
+Defer upload file size.
+File size MUST be provided by first client's PATCH request.
+@see https://tus.io/protocols/resumable-upload#post ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -142,9 +149,7 @@ This is used for reference and does not affect the upload process. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "videoId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -153,48 +158,7 @@ This is used for reference and does not affect the upload process. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "channelId": "string",
-    "title": "string",
-    "description": "string",
-    "thumbnailId": "string",
-    "status": "string",
-    "errorMessage": "string",
-    "visibilityStatus": "string",
-    "duration": "string",
-    "autoTranscode": "string",
-    "stylePresetId": "string",
-    "enableAd": "boolean",
-    "subtitleIds": [
-      "string"
-    ],
-    "features": {
-      "summary": {
-        "result": "string",
-        "urls": [
-          {
-            "url": "string",
-            "trackIndex": "string",
-            "srcLang": "string"
-          }
-        ]
-      }
-    },
-    // Includes only one of the fields `tusd`
-    "tusd": {
-      "url": "string",
-      "fileSize": "string"
-    },
-    // end of the list of possible fields
-    // Includes only one of the fields `publicAccess`, `signUrlAccess`
-    "publicAccess": "object",
-    "signUrlAccess": "object",
-    // end of the list of possible fields
-    "createdAt": "string",
-    "updatedAt": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -236,7 +200,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateVideoMetadata](#yandex.cloud.video.v1.CreateVideoMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -251,7 +215,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Video](#yandex.cloud.video.v1.Video)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -266,15 +230,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateVideoMetadata {#yandex.cloud.video.v1.CreateVideoMetadata}
-
-#|
-||Field | Description ||
-|| videoId | **string**
-
-Unique identifier of the video. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -292,182 +247,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Video {#yandex.cloud.video.v1.Video}
-
-Main entity representing a video in the platform.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Unique identifier of the video. ||
-|| channelId | **string**
-
-Identifier of the channel where the video is created and managed. ||
-|| title | **string**
-
-Title of the video displayed to users in interfaces and players. ||
-|| description | **string**
-
-Detailed description of the video content and context. ||
-|| thumbnailId | **string**
-
-Identifier of the thumbnail image used to represent the video visually. ||
-|| status | **enum** (VideoStatus)
-
-Current processing status of the video.
-
-- `WAIT_UPLOADING`: The video upload is in progress, waiting for all bytes to be received.
-- `UPLOADED`: The video has been fully uploaded and is ready for transcoding.
-- `PROCESSING`: The video is currently being processed.
-- `READY`: The video has been successfully processed and is ready for watching.
-- `ERROR`: An error occurred during video processing. ||
-|| errorMessage | **string**
-
-Error message describing the reason for video processing failure, if any. ||
-|| visibilityStatus | **enum** (VisibilityStatus)
-
-Current visibility status controlling whether the video is publicly available.
-
-- `PUBLISHED`: The video is publicly available, subject to its access permission settings.
-- `UNPUBLISHED`: The video is available only to administrators. ||
-|| duration | **string** (duration)
-
-Total duration of the video.
-Optional, may be empty until the transcoding result is ready. ||
-|| autoTranscode | **enum** (AutoTranscode)
-
-Auto-transcoding setting that controls the video processing workflow.
-Set ENABLE to automatically initiate transcoding after upload,
-or DISABLE for manual initiation via the Transcode() method.
-
-- `ENABLE`: Automatically start transcoding after the video upload is complete.
-- `DISABLE`: Do not automatically transcode; requires manual initiation via the Transcode() method. ||
-|| stylePresetId | **string**
-
-Identifier of the style preset applied to the video during processing. ||
-|| enableAd | **boolean**
-
-Controls the ability to display advertisements for this video.
-Default: true.
-Set explicitly to false to disable advertisements for a specific video. ||
-|| subtitleIds[] | **string**
-
-List of identifiers defining the active subtitles available for the video. ||
-|| features | **[VideoFeatures](#yandex.cloud.video.v1.VideoFeatures)**
-
-Additional video processing features and their results, such as summarization. ||
-|| tusd | **[VideoTUSDSource](#yandex.cloud.video.v1.VideoTUSDSource)**
-
-Upload video using the TUS (Tus Resumable Upload Protocol) protocol.
-@see https://tus.io/
-
-Includes only one of the fields `tusd`.
-
-Specifies the video upload source method (one source variant must be chosen). ||
-|| publicAccess | **object**
-
-Allows unrestricted public access to the video via direct link.
-No additional authorization or access control is applied.
-
-Includes only one of the fields `publicAccess`, `signUrlAccess`.
-
-Specifies the video access permission settings. ||
-|| signUrlAccess | **object**
-
-Restricts video access using URL signatures for secure time-limited access.
-
-Includes only one of the fields `publicAccess`, `signUrlAccess`.
-
-Specifies the video access permission settings. ||
-|| createdAt | **string** (date-time)
-
-Timestamp when the video was initially created in the system.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Timestamp of the last modification to the video or its metadata.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom user-defined labels as `key:value` pairs.
-Maximum 64 labels per video.
-Labels can be used for organization, filtering, and metadata purposes. ||
-|#
-
-## VideoFeatures {#yandex.cloud.video.v1.VideoFeatures}
-
-Contains additional processing features and their results for the video.
-
-#|
-||Field | Description ||
-|| summary | **[Summary](#yandex.cloud.video.v1.VideoFeatures.Summary)**
-
-Results of the video content summarization process. ||
-|#
-
-## Summary {#yandex.cloud.video.v1.VideoFeatures.Summary}
-
-Contains the results of video summarization.
-
-#|
-||Field | Description ||
-|| result | **enum** (FeatureResult)
-
-Current status of the summarization process.
-
-- `NOT_REQUESTED`: The feature processing has not been requested.
-- `PROCESSING`: The feature is currently being processed.
-- `SUCCESS`: The feature processing has completed successfully.
-- `FAILED`: The feature processing has failed. ||
-|| urls[] | **[SummaryURL](#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL)**
-
-List of URLs to summarization results for different audio tracks. ||
-|#
-
-## SummaryURL {#yandex.cloud.video.v1.VideoFeatures.Summary.SummaryURL}
-
-Contains a URL to a summarization result for a specific audio track.
-
-#|
-||Field | Description ||
-|| url | **string**
-
-URL to the summarization result file. ||
-|| trackIndex | **string** (int64)
-
-Input audio track index (one-based) that was summarized. ||
-|| srcLang | **string**
-
-Source track language represented as a three-letter code according to ISO 639-2/T. ||
-|#
-
-## VideoTUSDSource {#yandex.cloud.video.v1.VideoTUSDSource}
-
-Represents a video upload source using the TUS (Tus Resumable Upload Protocol) protocol.
-This is a push-based upload method where the client pushes data to the server.
-@see https://tus.io/
-
-#|
-||Field | Description ||
-|| url | **string**
-
-URL endpoint for uploading the video via the TUS protocol. ||
-|| fileSize | **string** (int64)
-
-Total size of the uploaded file, in bytes. ||
 |#

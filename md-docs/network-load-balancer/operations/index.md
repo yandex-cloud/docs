@@ -1,28 +1,28 @@
-# Пошаговые инструкции для Network Load Balancer
+# Пошаговые инструкции для {{ network-load-balancer-name }}
 
 ## Сетевой балансировщик {#load-balancer}
 
-- [Информация об имеющихся сетевых балансировщиках](load-balancer-list.md)
-- [Создать сетевой балансировщик](load-balancer-create.md)
-- [Создать внутренний сетевой балансировщик](internal-lb-create.md)
-- [Остановить и запустить сетевой балансировщик](load-balancer-start-and-stop.md)
-- [Настроить защиту от удаления](deletion-protection.md)
-- [Изменить настройки сетевого балансировщика](load-balancer-update.md)
-- [Переместить ВМ в целевую группу в новой зоне доступности](load-balancer-change-zone.md)
-- [Удалить сетевой балансировщик](load-balancer-delete.md)
-- [Проверить состояние целевых ресурсов](check-resource-health.md)
-- [Добавить обработчик к сетевому балансировщику](listener-add.md)
-- [Удалить обработчик](listener-remove.md)
+- [{#T}](load-balancer-list.md)
+- [{#T}](load-balancer-create.md)
+- [{#T}](internal-lb-create.md)
+- [{#T}](load-balancer-start-and-stop.md)
+- [{#T}](deletion-protection.md)
+- [{#T}](load-balancer-update.md)
+- [{#T}](load-balancer-change-zone.md)
+- [{#T}](load-balancer-delete.md)
+- [{#T}](check-resource-health.md)
+- [{#T}](listener-add.md)
+- [{#T}](listener-remove.md)
 
 ## Управление зоной доступности
 
-- [Разрешить и запретить перенос трафика между зонами доступности](manage-zone/allow-and-deny-shift.md)
-- [Отключить и включить зоны доступности](manage-zone/disable-enable-zone.md)
+- [{#T}](manage-zone/allow-and-deny-shift.md)
+- [{#T}](manage-zone/disable-enable-zone.md)
 
 ## Целевая группа {#target-group}
 
-- [Информация об имеющихся целевых группах](target-group-list.md)
-- [Создать целевую группу Network Load Balancer](target-group-create.md)
-- [Подключить целевую группу к сетевому балансировщику](target-group-attach.md)
-- [Отключить целевую группу от сетевого балансировщика](target-group-detach.md)
-- [Удалить целевую группу Network Load Balancer](target-group-delete.md)
+- [{#T}](target-group-list.md)
+- [{#T}](target-group-create.md)
+- [{#T}](target-group-attach.md)
+- [{#T}](target-group-detach.md)
+- [{#T}](target-group-delete.md)

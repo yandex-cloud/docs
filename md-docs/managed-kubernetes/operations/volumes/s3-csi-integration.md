@@ -1,30 +1,30 @@
-# Интеграция с Object Storage
+# Интеграция с {{ objstorage-name }}
 
-Container Storage Interface позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) [Yandex Object Storage](../../../storage/index.md) и монтировать их к [подам](../../concepts/index.md#pod) [кластера Managed Service for Kubernetes](../../concepts/index.md#kubernetes-cluster). При этом можно монтировать уже существующие бакеты или создавать новые.
+{{ CSI }} позволяет динамически резервировать [бакеты](../../../storage/concepts/bucket.md) [{{ objstorage-full-name }}](../../../storage/index.md) и монтировать их к [подам](../../concepts/index.md#pod) [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster). При этом можно монтировать уже существующие бакеты или создавать новые.
 
-Чтобы воспользоваться возможностями Container Storage Interface:
+Чтобы воспользоваться возможностями {{ CSI }}:
 
 1. [Подготовьте рабочее окружение](#create-environment).
-1. [Настройте Container Storage Interface](#configure-csi).
+1. [Настройте {{ CSI }}](#configure-csi).
 
 См. также:
 
-* [Как использовать Container Storage Interface при работе с `PersistentVolume`](#csi-usage).
+* [Как использовать {{ CSI }} при работе с `PersistentVolume`](#csi-usage).
 * [Примеры создания `PersistentVolume`](#examples).
 
 ## Подготовка рабочего окружения {#create-environment}
 
 1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) с [ролью](../../../iam/concepts/access-control/roles.md) `storage.editor`.
-1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке Container Storage Interface.
-1. [Создайте бакет](../../../storage/operations/buckets/create.md) Object Storage, который будет смонтирован к `PersistentVolume`. Сохраните имя бакета — оно понадобится при установке Container Storage Interface.
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
+1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) для [сервисного аккаунта](../../../iam/concepts/index.md#sa). Сохраните идентификатор ключа и секретный ключ — они понадобятся при установке {{ CSI }}.
+1. [Создайте бакет](../../../storage/operations/buckets/create.md) {{ objstorage-name }}, который будет смонтирован к `PersistentVolume`. Сохраните имя бакета — оно понадобится при установке {{ CSI }}.
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](../connect/index.md#kubectl-connect).
 
-## Настройка Container Storage Interface {#configure-csi}
+## Настройка {{ CSI }} {#configure-csi}
 
 
 {% note info %}
 
-Перед публикацией в Yandex Cloud Marketplace новые версии приложения тестируются на работоспособность в инфраструктуре Yandex Cloud, поэтому могут обновляться с задержкой. Чтобы использовать самую последнюю версию, [установите ее c помощью Helm-чарта из репозитория на GitHub](../applications/csi-s3.md#helm-github-install).
+Перед публикацией в {{ marketplace-full-name }} новые версии приложения тестируются на работоспособность в инфраструктуре {{ yandex-cloud }}, поэтому могут обновляться с задержкой. Чтобы использовать самую последнюю версию, [установите ее c помощью Helm-чарта из репозитория на GitHub](../applications/csi-s3.md#helm-github-install).
 
 {% endnote %}
 
@@ -32,9 +32,9 @@ Container Storage Interface позволяет динамически резер
 {% list tabs group=instructions %}
 
 
-- Yandex Cloud Marketplace {#marketplace}
+- {{ marketplace-full-name }} {#marketplace}
 
-  Установите приложение Container Storage Interface для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#install-fb-marketplace). При установке приложения укажите параметры:
+  Установите приложение {{ CSI }} для S3 с помощью [пошаговой инструкции](../applications/csi-s3.md#install-fb-marketplace). При установке приложения укажите параметры:
 
   * **Пространство имен** — `kube-system`.
   * **Идентификатор ключа S3** — скопируйте в это поле идентификатор ключа [созданного сервисного аккаунта](#create-environment).
@@ -45,12 +45,12 @@ Container Storage Interface позволяет динамически резер
 
   Значения остальных параметров оставьте по умолчанию.
 
-  После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты Object Storage.
+  После установки приложения можно создавать [статические](../../concepts/volume.md#static-provisioning) и [динамические](../../concepts/volume.md#dynamic-provisioning) `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
 
 
 - Вручную {#manual}
 
-  1. Создайте файл `secret.yaml`, в котором укажите настройки доступа для Container Storage Interface:
+  1. Создайте файл `secret.yaml`, в котором укажите настройки доступа для {{ CSI }}:
 
      ```yaml
      ---
@@ -62,7 +62,7 @@ Container Storage Interface позволяет динамически резер
      stringData:
        accessKeyID: <идентификатор_ключа_доступа>
        secretAccessKey: <секретный_ключ>
-       endpoint: https://storage.yandexcloud.net
+       endpoint: https://{{ s3-storage-host }}
      ```
 
      В полях `accessKeyID` и `secretAccessKey` укажите [полученные ранее](#create-environment) идентификатор и значение секретного ключа.
@@ -90,13 +90,13 @@ Container Storage Interface позволяет динамически резер
      ```
 
      Параметр `bucket` опциональный. Задайте его, чтобы использовать существующий бакет. Эта настройка актуальна только для [динамических `PersistentVolume`](#dpvc-csi-usage).
-  1. Клонируйте [GitHub-репозиторий](https://github.com/yandex-cloud/k8s-csi-s3.git), содержащий актуальный драйвер Container Storage Interface:
+  1. Клонируйте [GitHub-репозиторий](https://github.com/yandex-cloud/k8s-csi-s3.git), содержащий актуальный драйвер {{ CSI }}:
 
      ```bash
      git clone https://github.com/yandex-cloud/k8s-csi-s3.git
      ```
 
-  1. Создайте ресурсы для Container Storage Interface и класс хранилища:
+  1. Создайте ресурсы для {{ CSI }} и класс хранилища:
 
      ```bash
      kubectl create -f secret.yaml && \
@@ -106,29 +106,29 @@ Container Storage Interface позволяет динамически резер
      kubectl create -f storageclass.yaml
      ```
 
-     После установки драйвера Container Storage Interface и настройки класса хранилища можно создавать статические и динамические `PersistentVolume`, которые будут использовать бакеты Object Storage.
+     После установки драйвера {{ CSI }} и настройки класса хранилища можно создавать статические и динамические `PersistentVolume`, которые будут использовать бакеты {{ objstorage-name }}.
 
 {% endlist %}
 
-## Использование Container Storage Interface {#csi-usage}
+## Использование {{ CSI }} {#csi-usage}
 
-При настроенном Container Storage Interface создание статических и динамических `PersistentVolumes` имеет свои особенности.
+При настроенном {{ CSI }} создание статических и динамических `PersistentVolumes` имеет свои особенности.
 
 ### Динамический PersistentVolume {#dpvc-csi-usage}
 
 При работе с динамическим `PersistentVolume`:
 
 * Укажите имя нужного класса хранилища в параметре `spec.storageClassName` при создании `PersistentVolumeClaim`.
-* При необходимости укажите имя бакета в параметре `bucket` (в настройках приложения Yandex Cloud Marketplace — поле **Общий бакет S3 для томов**) при [создании класса хранилища](#configure-csi). Это влияет на поведение Container Storage Interface:
-  * Если при настройке класса хранилища было указано имя бакета, Container Storage Interface создаст отдельный каталог внутри этого бакета на каждый созданный `PersistentVolume`.
+* При необходимости укажите имя бакета в параметре `bucket` (в настройках приложения {{ marketplace-full-name }} — поле **Общий бакет S3 для томов**) при [создании класса хранилища](#configure-csi). Это влияет на поведение {{ CSI }}:
+  * Если при настройке класса хранилища было указано имя бакета, {{ CSI }} создаст отдельный каталог внутри этого бакета на каждый созданный `PersistentVolume`.
 
     {% note info %}
 
-    Такая настройка может быть полезна, если в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) действуют строгие [квоты](https://console.yandex.cloud/cloud?section=quotas) на количество бакетов Object Storage.
+    Такая настройка может быть полезна, если в [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud) действуют строгие [квоты]({{ link-console-quotas }}) на количество бакетов {{ objstorage-name }}.
 
     {% endnote %}
 
-  * Если при настройке класса хранилища не было указано имя бакета, то Container Storage Interface создаст отдельный бакет на каждый созданный `PersistentVolume`.
+  * Если при настройке класса хранилища не было указано имя бакета, то {{ CSI }} создаст отдельный бакет на каждый созданный `PersistentVolume`.
 
 См. также [пример создания](#create-dynamic-pvc) динамического `PersistentVolume`.
 
@@ -147,7 +147,7 @@ Container Storage Interface позволяет динамически резер
 
 * Если вам нужно изменить опции клиента [GeeseFS](../../../storage/tools/geesefs.md) для работы с бакетом, укажите их в параметре `spec.csi.volumeAttributes.options` при создании `PersistentVolume`. Например, в опции `--uid` можно указать идентификатор пользователя-владельца всех файлов в хранилище. Список опций GeeseFS см. с помощью команды `geesefs -h` или в [репозитории на GitHub](https://github.com/yandex-cloud/geesefs/blob/master/internal/flags.go#L88).
 
-  Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения Yandex Cloud Marketplace — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
+  Опции GeeseFS, указанные в параметре `parameters.options` (в настройках приложения {{ marketplace-full-name }} — поле **Опции монтирования GeeseFS**) класса хранилища (`StorageClass`), для статических `PersistentVolume` игнорируются. Подробнее см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/storage/storage-classes/#mount-options).
 
 См. также [пример создания](#create-static-pvc) статического `PersistentVolume`.
 
@@ -155,9 +155,9 @@ Container Storage Interface позволяет динамически резер
 
 ### Динамический PersistentVolume {#create-dynamic-pvc}
 
-Чтобы использовать Container Storage Interface совместно с динамическим `PersistentVolume`:
+Чтобы использовать {{ CSI }} совместно с динамическим `PersistentVolume`:
 
-1. [Настройте Container Storage Interface](#configure-csi).
+1. [Настройте {{ CSI }}](#configure-csi).
 1. Создайте `PersistentVolumeClaim`:
    1. Создайте файл `pvc-dynamic.yaml`, содержащий описание `PersistentVolumeClaim`:
 
@@ -248,15 +248,15 @@ Container Storage Interface позволяет динамически резер
     ```
 
 1. Убедитесь, что файл попал в бакет:
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Нажмите на бакет `pvc-<имя_dynamic-бакета>`. Если при настройке класса хранилища было указано имя бакета, то откройте указанный бакет и каталог `pvc-<имя_dynamic-бакета>` внутри него.
 
 ### Статический PersistentVolume {#create-static-pvc}
 
-Чтобы использовать Container Storage Interface совместно со статическим `PersistentVolume`:
+Чтобы использовать {{ CSI }} совместно со статическим `PersistentVolume`:
 
-1. [Настройте Container Storage Interface](#configure-csi).
+1. [Настройте {{ CSI }}](#configure-csi).
 1. Создайте `PersistentVolumeClaim`:
    1. Создайте файл `pvc-static.yaml`, содержащий описание `PersistentVolumeClaim`:
 
@@ -396,6 +396,6 @@ Container Storage Interface позволяет динамически резер
     ```
 
 1. Убедитесь, что файл попал в бакет:
-   1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+   1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Нажмите на бакет `<имя_static-бакета>`. Если вы указали путь к каталогу в бакете в описании статического `PersistentVolume`, то сначала откройте указанный каталог.

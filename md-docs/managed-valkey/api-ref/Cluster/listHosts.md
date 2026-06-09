@@ -5,7 +5,7 @@ Retrieves a list of hosts for the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/hosts
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}/hosts
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}/hosts
 || clusterId | **string**
 
 Required field. ID of the Redis cluster.
-To get the Redis cluster ID use a [ClusterService.List](list.md#List) request.
+To get the Redis cluster ID use a [ClusterService.List](../../../managed-redis/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -92,32 +92,31 @@ Each subsequent list request will have its own `nextPageToken` to continue pagin
 ||Field | Description ||
 || name | **string**
 
-Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
+Required field. Name of the Redis host. The host name is assigned by MDB at creation time, and cannot be changed.
 1-63 characters long.
-
 The name is unique across all MDB hosts that exist on the platform, as it defines the FQDN of the host. ||
 || clusterId | **string**
 
-ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
+Required field. ID of the Redis cluster. The ID is assigned by MDB at creation time. ||
 || zoneId | **string**
 
-ID of the availability zone where the Redis host resides. ||
+Required field. ID of the availability zone where the Redis host resides. ||
 || subnetId | **string**
 
 ID of the subnet that the host belongs to. ||
 || resources | **[Resources](#yandex.cloud.mdb.redis.v1.Resources)**
 
-Resources allocated to the Redis host. ||
+Required field. Resources allocated to the Redis host. ||
 || role | **enum** (Role)
 
-Role of the host in the cluster. If the field has default value, it is not returned in the response.
+Required field. Role of the host in the cluster. If the field has default value, it is not returned in the response.
 
 - `ROLE_UNKNOWN`: Role of the host in the cluster is unknown. Default value.
 - `MASTER`: Host is the master Redis server in the cluster.
 - `REPLICA`: Host is a replica (standby) Redis server in the cluster. ||
 || health | **enum** (Health)
 
-Aggregated health of the host. If the field has default value, it is not returned in the response.
+Required field. Aggregated health of the host. If the field has default value, it is not returned in the response.
 
 - `HEALTH_UNKNOWN`: Health of the host is unknown. Default value.
 - `ALIVE`: The host is performing all its functions normally.
@@ -126,7 +125,9 @@ Aggregated health of the host. If the field has default value, it is not returne
 || services[] | **[Service](#yandex.cloud.mdb.redis.v1.Service)**
 
 Services provided by the host. ||
-|| shardName | **string** ||
+|| shardName | **string**
+
+Name of the shard that the host belongs to. ||
 || replicaPriority | **string** (int64)
 
 A replica with a low priority number is considered better for promotion.
@@ -143,8 +144,8 @@ Flag showing public IP assignment status to this host. ||
 ||Field | Description ||
 || resourcePresetId | **string**
 
-ID of the preset for computational resources available to a host (CPU, memory etc.).
-All available presets are listed in the [documentation](../../concepts/instance-types.md). ||
+Required field. ID of the preset for computational resources available to a host (CPU, memory etc.).
+All available presets are listed in the [documentation](../../../managed-redis/concepts/instance-types). ||
 || diskSize | **string** (int64)
 
 Volume of the storage available to a host, in bytes. ||
@@ -169,7 +170,7 @@ Type of the service provided by the host. If the field has default value, it is 
 - `REDIS_CLUSTER`: The host is a Redis Cluster node. ||
 || health | **enum** (Health)
 
-Aggregated health of the service. If the field has default value, it is not returned in the response.
+Required field. Aggregated health of the service. If the field has default value, it is not returned in the response.
 
 - `HEALTH_UNKNOWN`: Health of the server is unknown. Default value.
 - `ALIVE`: The server is working normally.

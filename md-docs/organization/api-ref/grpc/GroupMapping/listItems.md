@@ -1,7 +1,6 @@
 # Identity Hub API, gRPC: GroupMappingService.ListItems
 
 Returns all the group mappings items
-
 Filtering is only supported by external_group_id or internal_group_id
 
 ## gRPC request

@@ -6,7 +6,7 @@ This is more efficient than making multiple Get requests when retrieving several
 ## HTTP request
 
 ```
-POST https://video.api.cloud.yandex.net/video/v1/streamLines:batchGet
+POST https://video.{{ api-host }}/video/v1/streamLines:batchGet
 ```
 
 ## Body parameters {#yandex.cloud.video.v1.BatchGetStreamLinesRequest}
@@ -31,7 +31,7 @@ The maximum string length in characters is 50. ||
 
 List of stream line IDs to retrieve.
 
-The number of elements must be in the range 1-100. The maximum string length in characters for each value is 50. ||
+The maximum string length in characters for each value is 50. The number of elements must be in the range 1-100. ||
 |#
 
 ## Response {#yandex.cloud.video.v1.BatchGetStreamLinesResponse}

@@ -1,10 +1,10 @@
 # Создать приватное соединение с облачными сетями
 
-С помощью [Yandex Cloud Interconnect](../../interconnect/index.md) вы можете создать [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) между [подсетями](../concepts/private-network.md#private-subnet) BareMetal и [подсетями](../../vpc/concepts/network.md#subnet) Yandex Virtual Private Cloud.
+С помощью [{{ interconnect-full-name }}](../../interconnect/index.md) вы можете создать [приватное соединение](../concepts/private-network.md#private-connection-to-vpc) между [подсетями](../concepts/private-network.md#private-subnet) {{ baremetal-name }} и [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
 
 {% note info %}
 
-Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в BareMetal, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей VPC. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение](https://center.yandex.cloud/support/tickets/create) в службу технической поддержки.
+Прежде чем создавать приватное соединение, убедитесь, что в вашем каталоге есть [VRF](../concepts/private-network.md#vrf-segment) c одной или более маршрутизируемыми подсетями в {{ baremetal-name }}, а также Routing Instance, в составе которого [анонсированы](../../interconnect/concepts/priv-con.md#prc-announce) один или несколько префиксов приватных подсетей {{ vpc-short-name }}. [Заказать](../tutorials/bm-vrf-and-vpc-interconnect.md#request-ri) Routing Instance вы можете через [обращение]({{ link-console-support }}/tickets/create) в службу технической поддержки.
 
 {% endnote %}
 
@@ -14,25 +14,25 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать приватное соединение.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **VRF** и выберите нужный виртуальный сегмент сети.
-  1. В блоке **Приватное соединение с облачными сетями** нажмите кнопку **Настроить соединение** и в открывшемся окне:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы хотите создать приватное соединение.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и выберите нужный виртуальный сегмент сети.
+  1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.action_add-vrf-interconnect }}** и в открывшемся окне:
 
-      1. В поле **Способ настройки** выберите вариант `Указать идентификатор` и в поле **Идентификатор соединения** вставьте идентификатор приватного соединения `Routing Instance`.
+      1. В поле **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-select-type }}** выберите вариант `{{ ui-key.yacloud.baremetal.field_interconnect-direct-id }}` и в поле **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-direct-type }}** вставьте идентификатор приватного соединения `Routing Instance`.
 
-          Вы также можете выбрать вариант `Выбрать из каталога`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
+          Вы также можете выбрать вариант `{{ ui-key.yacloud.baremetal.field_interconnect-from-folder }}`. В этом случае в появившемся списке выберите нужный `Routing Instance`.
 
-          В результате в форме отобразятся CIDR подсетей Virtual Private Cloud, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в Cloud Interconnect.
+          В результате в форме отобразятся CIDR подсетей {{ vpc-name }}, которые будут [анонсироваться](../../interconnect/concepts/priv-con.md#prc-announce) в {{ interconnect-name }}.
 
           {% note warning %}
           
-          Для успешной настройки сетевой связности между подсетями BareMetal и подсетями VPC/on-prem, их диапазоны адресов, заданные CIDR, не должны совпадать или пересекаться.
+          Для успешной настройки сетевой связности между подсетями {{ baremetal-name }} и подсетями {{ vpc-short-name }}/on-prem, их диапазоны адресов, заданные CIDR, не должны совпадать или пересекаться.
           
           {% endnote %}
-      1. Чтобы создать приватное соединение с указанными CIDR подсетей, нажмите кнопку **Сохранить**.
+      1. Чтобы создать приватное соединение с указанными CIDR подсетей, нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-  В результате на странице с информацией о VRF в блоке **Приватное соединение с облачными сетями** отобразится идентификатор созданного соединения и его статус.
+  В результате на странице с информацией о VRF в блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** отобразится идентификатор созданного соединения и его статус.
 
 - API {#api}
 
@@ -53,7 +53,7 @@
 
   Где:
 
-  * `routingInstanceId` — идентификатор [Routing Instance](../../cloud-router/concepts/routing-instance.md) в Cloud Router.
+  * `routingInstanceId` — идентификатор [Routing Instance](../../cloud-router/concepts/routing-instance.md) в {{ cr-name }}.
   * `vrfId` — идентификатор VRF, который подключается к Routing Instance. Чтобы получить идентификатор VRF, воспользуйтесь методом [VrfService.List](../api-ref/Vrf/list.md).
 
   Результат:

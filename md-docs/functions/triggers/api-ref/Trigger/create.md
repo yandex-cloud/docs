@@ -5,7 +5,7 @@ Creates a trigger in the specified folder.
 ## HTTP request
 
 ```
-POST https://serverless-triggers.api.cloud.yandex.net/triggers/v1/triggers
+POST https://serverless-triggers.{{ api-host }}/triggers/v1/triggers
 ```
 
 ## Body parameters {#yandex.cloud.serverless.triggers.v1.CreateTriggerRequest}

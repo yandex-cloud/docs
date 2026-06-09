@@ -4,14 +4,14 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится эндпоинт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
+  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится эндпоинт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cns }}**.
   1. Выберите канал push-уведомлений в браузере.
-  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **Эндпоинты**.
+  1. Перейдите на вкладку ![image](../../../_assets/console-icons/layers-3-diagonal.svg) **{{ ui-key.yacloud.cns.label_endpoints }}**.
   1. Выберите нужный эндпоинт.
-  1. Введите текст уведомления и нажмите **Отправить**.
+  1. Введите текст уведомления и нажмите **{{ ui-key.yacloud.cns.action_send-msg }}**.
 
-  Каждому отправленному уведомлению присваивается уникальный идентификатор. Чтобы сохранить его, нажмите **Скопировать идентификатор**.
+  Каждому отправленному уведомлению присваивается уникальный идентификатор. Чтобы сохранить его, нажмите **{{ ui-key.yacloud.cns.action_copy-msg-id }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -97,6 +97,6 @@
 
 - API {#api}
 
-  Воспользуйтесь методом HTTP API [publish](../../api-ref/publish.md) для ресурса Publish сервиса Yandex Cloud Notification Service.
+  Воспользуйтесь методом HTTP API [publish](../../api-ref/publish.md) для ресурса Publish сервиса {{ cns-full-name }}.
 
 {% endlist %}

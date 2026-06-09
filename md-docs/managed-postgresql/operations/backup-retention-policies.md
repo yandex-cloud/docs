@@ -1,4 +1,4 @@
-# Управление политиками резервного копирования в Managed Service for PostgreSQL
+# Управление политиками резервного копирования в {{ mpg-name }}
 
 Политики [резервного копирования](../concepts/backup.md) позволяют гибко управлять созданием и хранением резервных копий кластера. Вы можете настроить расписание, по которому будут создаваться полные резервные копии, и задать срок их хранения.
 
@@ -8,9 +8,9 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
   1. Нажмите кнопку **Создать политику**.
   1. Укажите параметры новой политики:
 
@@ -25,24 +25,24 @@
 
       1. Укажите параметры хранения резервных копий. Вы можете хранить копии от 7 до 1095 дней (до трех лет).
 
-    1. Нажмите кнопку **Создать**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для создания политики:
 
       ```bash
-      yc managed-postgresql backup-retention-policy create --help
+      {{ yc-mdb-pg }} backup-retention-policy create --help
       ```
 
   1. Создайте политику:
 
       ```bash
-      yc managed-postgresql backup-retention-policy create \
+      {{ yc-mdb-pg }} backup-retention-policy create \
          --cluster-id <идентификатор_кластера> \
          --policy-name <название_политики> \
          --day-of-month <день_месяца> \
@@ -102,14 +102,14 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [BackupRetentionPolicy.Create](../api-ref/BackupRetentionPolicy/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [BackupRetentionPolicy.Create](../api-ref/BackupRetentionPolicy/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
        --request POST \
        --header "Authorization: Bearer $IAM_TOKEN" \
        --header "Content-Type: application/json" \
-       --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies' \
+       --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies' \
        --data '{
                   "cron": {
                     "dayOfMonth": "<день_месяца>",
@@ -169,7 +169,7 @@
 
   1. Чтобы создать политику:
 
-     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.Create](../api-ref/grpc/BackupRetentionPolicy/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.Create](../api-ref/grpc/BackupRetentionPolicy/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -189,7 +189,7 @@
                   "description": "<описание_политики>",
                   "policy_name": "<название_политики>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.Create
         ```     
 
@@ -231,27 +231,27 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
   
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для получения списка политик:
 
       ```bash
-      yc managed-postgresql backup-retention-policy list --help
+      {{ yc-mdb-pg }} backup-retention-policy list --help
       ```
 
-  1. Получите список политик для кластера Managed Service for PostgreSQL:
+  1. Получите список политик для кластера {{ mpg-name }}:
 
       ```bash
-      yc managed-postgresql backup-retention-policy list \
+      {{ yc-mdb-pg }} backup-retention-policy list \
          --cluster-id <идентификатор_кластера>
       ```
 
@@ -277,13 +277,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [BackupRetentionPolicy.List](../api-ref/BackupRetentionPolicy/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [BackupRetentionPolicy.List](../api-ref/BackupRetentionPolicy/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies?pageSize=<количество_результатов>'
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies?pageSize=<количество_результатов>'
       ```
       
       Где `pageSize` — количество результатов запроса, которые возвращаются на одной странице. Укажите число больше нуля.
@@ -310,7 +310,7 @@
 
   1. Чтобы получить список политик для кластера:
 
-     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.List](../api-ref/grpc/BackupRetentionPolicy/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.List](../api-ref/grpc/BackupRetentionPolicy/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -323,7 +323,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "page_size": "<количество_результатов>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.List
         ```
 
@@ -341,30 +341,30 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;PostgreSQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Резервные копии**.
-  1. На странице **Резервные копии** выберите вкладку **Политики резервного копирования**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backups }}**.
+  1. На странице **{{ ui-key.yacloud.mdb.cluster.backups.label_title }}** выберите вкладку **{{ ui-key.yacloud.postgresql.cluster.switch_backup-policies }}**.
 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке политики, которую вы хотите удалить.
-  1. Выберите пункт **Удалить**.
+  1. Выберите пункт **{{ ui-key.yacloud.common.delete }}**.
   1. Подтвердите удаление и нажмите кнопку **Удалить**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для удаления политики:
 
       ```bash
-      yc managed-postgresql backup-retention-policy delete --help
+      {{ yc-mdb-pg }} backup-retention-policy delete --help
       ```
 
   1. Удалите политику:
 
       ```bash
-      yc managed-postgresql backup-retention-policy delete <идентификатор_политики> \
+      {{ yc-mdb-pg }} backup-retention-policy delete <идентификатор_политики> \
          --cluster-id <идентификатор_кластера>
       ```
 
@@ -378,13 +378,13 @@
      export IAM_TOKEN="<IAM-токен>"
      ```
 
-  1. Воспользуйтесь методом [BackupRetentionPolicy.Delete](../api-ref/BackupRetentionPolicy/delete.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [BackupRetentionPolicy.Delete](../api-ref/BackupRetentionPolicy/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request DELETE \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies/<идентификатор_политики>'
+        --url 'https://{{ api-host-mdb }}/managed-postgresql/v1/clusters/<идентификатор_кластера>/retention_policies/<идентификатор_политики>'
       ```
 
      Идентификатор кластера можно запросить со [списком кластеров](cluster-list.md#list-clusters), а идентификатор политики — со [списком политик](#list-policies).
@@ -410,7 +410,7 @@
 
   1. Чтобы удалить политику:
 
-     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.Delete](../api-ref/grpc/BackupRetentionPolicy/delete.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+     1. Воспользуйтесь вызовом [BackupRetentionPolicyService.Delete](../api-ref/grpc/BackupRetentionPolicy/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -423,7 +423,7 @@
                 "policy_id": "<идентификатор_политики>",
                 "cluster_id": "<идентификатор_кластера>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.postgresql.v1.BackupRetentionPolicyService.Delete
         ```
 

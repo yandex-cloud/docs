@@ -8,14 +8,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
 
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу ![image](../../_assets/console-icons/flag.svg) **Аккаунт**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/pencil-to-line.svg) **Переименовать** в верхнем блоке напротив названия аккаунта.
+  1. Перейдите на страницу ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите пункт ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard.label_rename }}** в верхнем блоке напротив названия аккаунта.
   1. Введите новое имя.
-  1. Нажмите кнопку **Переименовать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_action-rename-account }}**.
 
 {% endlist %}
 
@@ -25,19 +25,19 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Yandex Cloud Billing {#billing}
+- {{ billing-interface }} {#billing}
   
-  1. Перейдите в сервис [**Yandex Cloud Billing**](https://center.yandex.cloud/billing/accounts).
+  1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите платежный аккаунт.
-  1. Перейдите на страницу ![image](../../_assets/console-icons/flag.svg) **Аккаунт**.
-  1. Нажмите ссылку **Редактировать данные в Яндекс Балансе**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
+  1. Перейдите на страницу ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}**.
+  1. Нажмите ссылку **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
   1. Воспользуйтесь [инструкцией](https://yandex.ru/support/balance/operations/change-data.html) Яндекс Баланса.
 
 {% endlist %}
 
 ## Изменение любых реквизитов, кроме ИНН {#change-details}
 
-[Напишите запрос](../qa/common.md) в службу поддержки Yandex Cloud. В запросе укажите список измененных реквизитов и номер [договора](../concepts/contract.md), а также прикрепите копию акта, подтверждающего изменения (с подписью и печатью организации).
+[Напишите запрос](../qa/common.md) в службу поддержки {{ yandex-cloud }}. В запросе укажите список измененных реквизитов и номер [договора](../concepts/contract.md), а также прикрепите копию акта, подтверждающего изменения (с подписью и печатью организации).
 
 ## Изменение юридического лица или ИНН {#change-legal-entity}
 

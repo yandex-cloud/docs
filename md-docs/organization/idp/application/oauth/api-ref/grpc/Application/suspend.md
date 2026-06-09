@@ -36,30 +36,10 @@ The maximum string length in characters is 50. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "application_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "name": "string",
-    "organization_id": "string",
-    "description": "string",
-    "group_claims_settings": {
-      "group_distribution_type": "GroupDistributionType"
-    },
-    "client_grant": {
-      "client_id": "string",
-      "authorized_scopes": [
-        "string"
-      ]
-    },
-    "status": "Status",
-    "labels": "map<string, string>",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -87,7 +67,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[SuspendApplicationMetadata](#yandex.cloud.organizationmanager.v1.idp.application.oauth.SuspendApplicationMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -102,7 +82,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Application](#yandex.cloud.organizationmanager.v1.idp.application.oauth.Application)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -117,92 +97,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## SuspendApplicationMetadata {#yandex.cloud.organizationmanager.v1.idp.application.oauth.SuspendApplicationMetadata}
-
-Metadata for the [ApplicationService.Suspend](#Suspend) operation.
-
-#|
-||Field | Description ||
-|| application_id | **string**
-
-ID of the OAuth application that is being suspended. ||
-|#
-
-## Application {#yandex.cloud.organizationmanager.v1.idp.application.oauth.Application}
-
-An OAuth application resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the application. ||
-|| name | **string**
-
-Name of the application.
-The name is unique within the organization. 3-63 characters long. ||
-|| organization_id | **string**
-
-ID of the organization that the application belongs to. ||
-|| description | **string**
-
-Description of the application. 0-256 characters long. ||
-|| group_claims_settings | **[GroupClaimsSettings](#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupClaimsSettings)**
-
-Settings of the group claims ||
-|| client_grant | **[ClientGrant](#yandex.cloud.organizationmanager.v1.idp.application.oauth.ClientGrant)**
-
-Represents current connection to the OAuth client with specified scopes ||
-|| status | enum **Status**
-
-Current status of the application.
-
-- `CREATING`: The apllication is in the process of being created.
-- `ACTIVE`: The apllication is active and operational.
-- `SUSPENDED`: The apllication is suspended. I.e. authentication via this application is disabled.
-- `DELETING`: The apllication is in the process of being deleted. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `` key:value `` pairs. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Modification timestamp. ||
-|#
-
-## GroupClaimsSettings {#yandex.cloud.organizationmanager.v1.idp.application.oauth.GroupClaimsSettings}
-
-Settings of the group claims
-
-#|
-||Field | Description ||
-|| group_distribution_type | enum **GroupDistributionType**
-
-Represents current distribution type of the groups. I.e. which groups are visible for the application users.
-
-- `NONE`: No groups are visible for the application users
-- `ASSIGNED_GROUPS`: Only assigned groups are visible for the application users
-- `ALL_GROUPS`: All groups are visible for the application users ||
-|#
-
-## ClientGrant {#yandex.cloud.organizationmanager.v1.idp.application.oauth.ClientGrant}
-
-Represents connection to the OAuth client with specified scopes
-
-#|
-||Field | Description ||
-|| client_id | **string**
-
-Required field. OAuth client id
-
-The maximum string length in characters is 50. ||
-|| authorized_scopes[] | **string**
-
-List of authorized client scopes by the application
-
-The number of elements must be in the range 1-1000. The maximum string length in characters for each value is 255. ||
 |#

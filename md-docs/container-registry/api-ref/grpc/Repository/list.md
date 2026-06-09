@@ -24,16 +24,13 @@ Retrieves the list of Repository resources in the specified registry.
 || registry_id | **string**
 
 ID of the registry to list repositories in.
-
 To get the registry ID use a [RegistryService.List](../Registry/list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || folder_id | **string**
 
 ID of the folder to list registries in.
-
 `folder_id` is ignored if a [ListImagesRequest.registry_id](../Image/list.md#yandex.cloud.containerregistry.v1.ListImagesRequest) is specified in the request.
-
 To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request.
 
 The maximum string length in characters is 50. ||

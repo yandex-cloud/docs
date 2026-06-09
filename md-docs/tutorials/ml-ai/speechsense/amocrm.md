@@ -1,17 +1,17 @@
-# Интеграция SpeechSense с amoCRM
+# Интеграция {{ speechsense-name }} с {{ amocrm-name }}
 
-Чтобы настроить интеграцию SpeechSense с [amoCRM](https://www.amocrm.ru/):
+Чтобы настроить интеграцию {{ speechsense-name }} с [{{ amocrm-name }}](https://www.amocrm.ru/):
 
 1. [Подготовьте облако к работе](#before-you-begin).
-1. [Настройте выгрузку из amoCRM в SpeechSense](#amocrm-export).
+1. [Настройте выгрузку из {{ amocrm-name }} в {{ speechsense-name }}](#amocrm-export).
 1. [Проверьте результат](#check-result).
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с Yandex Cloud, см. в документе [Начало работы с Yandex Cloud](../../../getting-started/index.md).
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь, если вы еще не зарегистрированы. О том, как начать работать с {{ yandex-cloud }}, см. в документе [Начало работы с {{ yandex-cloud }}](../../../getting-started/index.md).
 1. Примите пользовательское соглашение.
-1. В сервисе [Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account), если платежный аккаунт находится в статусе `TRIAL_ACTIVE`, [активируйте платную версию](../../../billing/operations/activate-commercial.md) аккаунта.
-1. [Назначьте](../../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль `speech-sense.spaces.creator`.
+1. В сервисе [{{ billing-name }}]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../../../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE`. Если платежного аккаунта нет, [создайте его](../../../billing/quickstart/index.md#create_billing_account), если платежный аккаунт находится в статусе `TRIAL_ACTIVE`, [активируйте платную версию](../../../billing/operations/activate-commercial.md) аккаунта.
+1. [Назначьте](../../../iam/operations/roles/grant.md) вашему аккаунту в {{ yandex-cloud }} роль `speech-sense.spaces.creator`.
 
     {% note info %}
     
@@ -19,21 +19,24 @@
     
     {% endnote %}
 
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}]({{ link-docs-ai }}speechsense/pricing)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 
-Создайте сервисный аккаунт с [ролью](../../../speechsense/security/index.md#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту SpeechSense.
+Создайте сервисный аккаунт с [ролью]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) `speech-sense.data.editor` для доступа amoCRM к проекту {{ speechsense-name }}.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. Нажмите **Создать сервисный аккаунт**.
-  1. Введите имя [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md): `speechsense`.
-  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить роль** и выберите `speech-sense.data.editor`.
-  1. Нажмите **Создать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Введите имя [сервисного аккаунта]({{ link-docs }}/iam/concepts/users/service-accounts): `speechsense`.
+  1. Нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите `speech-sense.data.editor`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
 
@@ -44,13 +47,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором был создан сервисный аккаунт.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт `speechsense`.
-  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать API-ключ**.
-  1. В открывшемся окне в поле **Область действия** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
-  1. Нажмите **Создать**.
+  1. На панели сверху нажмите ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
+  1. В открывшемся окне в поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.speech-sense.use`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ — они понадобятся позднее.
 
       {% note alert %}
@@ -66,13 +69,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс SpeechSense {#speechsense}
+- Интерфейс {{ speechsense-name }} {#speechsense}
 
-  1. Откройте [главную страницу](https://speechsense.yandex.cloud/) SpeechSense.
-  1. Нажмите кнопку **Создать пространство**.
-  1. Введите название [пространства](../../../speechsense/concepts/resources-hierarchy.md#space).
-  1. Нажмите кнопку **Создать**.
-  1. [Привяжите платежный аккаунт](../../../speechsense/operations/space/link-ba.md) к пространству для оплаты SpeechSense.
+  1. Откройте [главную страницу]({{ link-speechsense-main }}) {{ speechsense-name }}.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
+  1. Введите название [пространства]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
+  1. [Привяжите платежный аккаунт]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }}.
 
       {% note info %}
       
@@ -87,13 +90,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс SpeechSense {#speechsense}
+- Интерфейс {{ speechsense-name }} {#speechsense}
 
-  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в [новое пространство](#create-space).
-  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **Добавить участника** → ![image](../../../_assets/console-icons/persons.svg) **Добавить из организации**.
+  1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в [новое пространство](#create-space).
+  1. Нажмите кнопку ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
   1. Скопируйте идентификатор [созданного ранее сервисного аккаунта](#create-sa) `speechsense` и вставьте в строку поиска.
-  1. Выберите сервисный аккаунт `speechsense` и укажите роль [Data editor](../../../speechsense/security/index.md#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в SpeechSense.
-  1. Нажмите кнопку **Добавить**.
+  1. Выберите сервисный аккаунт `speechsense` и укажите роль [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor). Эта роль позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.
+  1. Нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 {% endlist %}
 
@@ -102,36 +105,36 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс SpeechSense {#speechsense}
+- Интерфейс {{ speechsense-name }} {#speechsense}
 
-  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в нужное пространство.
-  1. Перейдите на вкладку **Подключения** и выберите шаблон для создания подключения, либо нажмите кнопку **Создать подключение**:
+  1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
+  1. Перейдите на вкладку **{{ ui-key.yc-ui-talkanalytics.connections.connections }}** и выберите шаблон для создания подключения, либо нажмите кнопку **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**:
 
-     * **Пустая форма** — подключение с возможностью добавить ваши собственные ключи для метаданных.
-     * **Bitrix24** — подключение с предустановленным набором ключей для Битрикс24. Дополнительно можно добавить собственные ключи.
-     * **AmoCRM** — подключение с предустановленным набором ключей для amoCRM. Дополнительно можно добавить собственные ключи.
+     * **{{ ui-key.yc-ui-talkanalytics.connections.template.default.name }}** — подключение с возможностью добавить ваши собственные ключи для метаданных.
+     * **{{ ui-key.yc-ui-talkanalytics.connections.template.bitrix24.name }}** — подключение с предустановленным набором ключей для {{ bitrix24-name }}. Дополнительно можно добавить собственные ключи.
+     * **{{ ui-key.yc-ui-talkanalytics.connections.template.amo-crm.name }}** — подключение с предустановленным набором ключей для {{ amocrm-name }}. Дополнительно можно добавить собственные ключи.
  
   1. Укажите название подключения.
-  1. Выберите тип данных `Двухканальное аудио`.
-  1. В блоках **Оператор** и **Клиент** укажите:
+  1. Выберите тип данных `{{ ui-key.yc-ui-talkanalytics.connections.type.two-channel-key-value }}`.
+  1. В блоках **{{ ui-key.yc-ui-talkanalytics.dialogs.operator }}** и **{{ ui-key.yc-ui-talkanalytics.dialogs.client }}** укажите:
 
       1. Каналы, в которых записаны голос оператора и голос клиента.
       1. Ключи из файла метаданных для оператора и клиента. Этот файл содержит информацию о звонке, полученную из CRM-систем, АТС или других источников.
 
-        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
+        По умолчанию в подключение добавлены ключи с именем и идентификатором оператора и клиента. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите **Добавить ключ**.
+        Чтобы указать дополнительные метаданные для оператора и клиента, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
-  1. В блоке **Общие метаданные** укажите не связанные с оператором и клиентом ключи из файла метаданных:
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.fields.metadata }}** укажите не связанные с оператором и клиентом ключи из файла метаданных:
 
-      * В поле **Ключ** укажите транслитерированное название поля — оно понадобится при сопоставлении полей в настройках модуля обмена. Например, `Дата звонка` → `data_zvonka`. Укажите название в системе и описание — они будут отображаться в формах и отчетах SpeechSense.
+      * В поле **Ключ** укажите транслитерированное название поля — оно понадобится при сопоставлении полей в настройках модуля обмена. Например, `Дата звонка` → `data_zvonka`. Укажите название в системе и описание — они будут отображаться в формах и отчетах {{ speechsense-name }}.
       * В поле **Тип** на данный момент поддерживается только значение `Строка`.
 
-      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. Дополнительно можно задать набор ключей, которые вы хотите получать из внешнего сервиса. В поле **Название в системе** введите название, под которым ключ будет отображаться в SpeechSense.
+      По умолчанию в подключение добавлены ключи с датой, направлением звонка и языком диалога. Дополнительно можно задать набор ключей, которые вы хотите получать из внешнего сервиса. В поле **{{ ui-key.yc-ui-talkanalytics.connections.column.name }}** введите название, под которым ключ будет отображаться в {{ speechsense-name }}.
 
-      Чтобы указать дополнительные метаданные, нажмите **Добавить ключ**.
+      Чтобы указать дополнительные метаданные, нажмите **{{ ui-key.yc-ui-talkanalytics.connections.add-key }}**.
 
-  1. Нажмите **Создать подключение**.
+  1. Нажмите **{{ ui-key.yc-ui-talkanalytics.connections.create-connection-key-value }}**.
   1. На странице подключения в левом верхнем углу нажмите **ID** ![image](../../../_assets/console-icons/copy-transparent.svg), чтобы скопировать идентификатор подключения. Сохраните его — он понадобится позднее.
 
 {% endlist %}
@@ -141,28 +144,28 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс SpeechSense {#speechsense}
+- Интерфейс {{ speechsense-name }} {#speechsense}
 
-  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в нужное пространство.
-  1. Нажмите ![create](../../../_assets/console-icons/folder-plus.svg) **Создать проект**.
+  1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
+  1. Нажмите ![create](../../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
   1. Введите имя проекта.
-  1. В блоке **Подключение** нажмите **Добавить подключение** и выберите подключение, созданное [ранее](#create-connection).
-  1. Нажмите **Создать проект**.
+  1. В блоке **{{ ui-key.yc-ui-talkanalytics.connections.connection }}** нажмите **{{ ui-key.yc-ui-talkanalytics.projects.add-connection }}** и выберите подключение, созданное [ранее](#create-connection).
+  1. Нажмите **{{ ui-key.yc-ui-talkanalytics.projects.create-project }}**.
 
 {% endlist %}
 
 
-## Настройте выгрузку из amoCRM в SpeechSense {#amocrm-export}
+## Настройте выгрузку из {{ amocrm-name }} в {{ speechsense-name }} {#amocrm-export}
 
 
-### Установите приложение в amoCRM {#amocrm-app}
+### Установите приложение в {{ amocrm-name }} {#amocrm-app}
 
 {% list tabs group=instructions %}
 
-- Интерфейс amoCRM {#amocrm}
+- Интерфейс {{ amocrm-name }} {#amocrm}
 
-  1. Перейдите в раздел **amoМаркет** в вашем личном кабинете amoCRM.
-  1. В строке поиска введите `Экспорт в SpeechSense`.
+  1. Перейдите в раздел **amoМаркет** в вашем личном кабинете {{ amocrm-name }}.
+  1. В строке поиска введите `Экспорт в {{ speechsense-name }}`.
   1. Нажмите **Установить бесплатно**.
   1. Включите опцию **Согласен на передачу персональных данных...**.
   1. Нажмите **Установить**.
@@ -173,25 +176,25 @@
 {% endlist %}
 
 
-### Настройте выгрузку из amoCRM {#amocrm-config}
+### Настройте выгрузку из {{ amocrm-name }} {#amocrm-config}
 
 {% list tabs group=instructions %}
 
-- Интерфейс amoCRM {#amocrm}
+- Интерфейс {{ amocrm-name }} {#amocrm}
 
-  1. Перейдите в раздел **Настройки** в вашем личном кабинете amoCRM.
-  1. Перейдите на вкладку **Настройки выгрузки SpeechSense**.
+  1. Перейдите в раздел **Настройки** в вашем личном кабинете {{ amocrm-name }}.
+  1. Перейдите на вкладку **Настройки выгрузки {{ speechsense-name }}**.
   1. Настройте подключение:
      
      1. **Язык** — выберите язык для распознавания.
-     1. **ID подключения SpeechSense** — укажите идентификатор подключения, которое вы создали [ранее](#create-audio-connection).
+     1. **ID подключения {{ speechsense-name }}** — укажите идентификатор подключения, которое вы создали [ранее](#create-audio-connection).
      1. **API-ключ** — укажите секретную часть API-ключа, который вы создали [ранее](#create-key).
      1. Нажмите **Проверить подключение**.
      
          Если API-ключ и идентификатор подключения указаны правильно, отобразится сообщение:
      
          ```text
-         Успешный запрос к SpeechSense
+         Успешный запрос к {{ speechsense-name }}
          ```
 
   1. Настройте остальные параметры:
@@ -204,7 +207,7 @@
 
           {% endnote %}
 
-      * **Список пользователей** — укажите пользователей amoCRM, звонки с которыми нужно выгрузить (список ваших операторов). Чтобы выгрузить звонки всех пользователей, оставьте список пустым.
+      * **Список пользователей** — укажите пользователей {{ amocrm-name }}, звонки с которыми нужно выгрузить (список ваших операторов). Чтобы выгрузить звонки всех пользователей, оставьте список пустым.
 
       * **Направление звонка**:
 
@@ -212,18 +215,18 @@
           * `Исходящий` — выгрузка только исходящих звонков.
           * `Входящий` — выгрузка только входящих звонков.
 
-      * **Перевыгружать звонки** — включите эту опцию, если нужно заново выгрузить ранее выгруженные звонки, например, в новое подключение или пространство SpeechSense. Если опция включена, система не будет проверять, выгружались ли до этого звонки, и все звонки будут выгружены снова.
+      * **Перевыгружать звонки** — включите эту опцию, если нужно заново выгрузить ранее выгруженные звонки, например, в новое подключение или пространство {{ speechsense-name }}. Если опция включена, система не будет проверять, выгружались ли до этого звонки, и все звонки будут выгружены снова.
       * Укажите минимальную и максимальную длительность разговора в секундах. Чтобы выгрузить все звонки, оставьте значения `0`.
-      * Настройте соответствие полей amoCRM и SpeechSense:
+      * Настройте соответствие полей {{ amocrm-name }} и {{ speechsense-name }}:
 
-          1. В столбце **amoCRM** выберите ключ поля в amoCRM.
-          1. В столбце **SpeechSense** введите ключ поля, доступного в подключении SpeechSense, которое вы создали [ранее](#create-audio-connection).
+          1. В столбце **{{ amocrm-name }}** выберите ключ поля в {{ amocrm-name }}.
+          1. В столбце **{{ speechsense-name }}** введите ключ поля, доступного в подключении {{ speechsense-name }}, которое вы создали [ранее](#create-audio-connection).
 
           Чтобы добавить новое соответствие, нажмите ![image](../../../_assets/console-icons/plus.svg) **Добавить**.
 
           {% note info %}
 
-          Звонки могут быть привязаны к различным сущностям системы amoCRM. Передаваемые со звонком метаданные могут отличаться в зависимости от связанной сущности: сделка, контакт, компания или звонок. Привязанные к звонку сущности разделены на блоки.
+          Звонки могут быть привязаны к различным сущностям системы {{ amocrm-name }}. Передаваемые со звонком метаданные могут отличаться в зависимости от связанной сущности: сделка, контакт, компания или звонок. Привязанные к звонку сущности разделены на блоки.
 
           {% endnote %}
 
@@ -245,13 +248,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс SpeechSense {#speechsense}
+- Интерфейс {{ speechsense-name }} {#speechsense}
 
-  1. В [интерфейсе](https://speechsense.yandex.cloud/) SpeechSense перейдите в нужное пространство.
+  1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
   1. Выберите созданный [ранее](#create-project) проект.
 
-      На панели проекта вы увидите загруженные звонки и расшифровки. После этого вы сможете [настраивать отчеты](../../../speechsense/operations/data/manage-reports.md).
+      На панели проекта вы увидите загруженные звонки и расшифровки. После этого вы сможете [настраивать отчеты]({{ link-docs-ai }}speechsense/operations/data/manage-reports).
 
 {% endlist %}
 
-В случае возникновения проблем [свяжитесь](#contact-form) со специалистом Yandex Cloud.
+В случае возникновения проблем [свяжитесь](#contact-form) со специалистом {{ yandex-cloud }}.

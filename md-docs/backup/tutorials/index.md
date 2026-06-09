@@ -1,4 +1,4 @@
-# Практические руководства Cloud Backup
+# Практические руководства {{ backup-name }}
 
-* [Автоматическая привязка политики резервного копирования Cloud Backup к ВМ](vm-with-backup-policy/index.md)
-* [Подключить сервер Yandex BareMetal к Cloud Backup](backup-baremetal.md)
+* [Автоматическая привязка политики резервного копирования {{ backup-name }} к ВМ](vm-with-backup-policy/index.md)
+* [Подключить сервер {{ baremetal-full-name }} к {{ backup-name }}](backup-baremetal.md)

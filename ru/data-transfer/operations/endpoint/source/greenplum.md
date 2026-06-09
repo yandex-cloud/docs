@@ -27,7 +27,7 @@ description: Из статьи вы узнаете, как задать наст
     * [Загрузка данных из {{ GP }} в витрину {{ CH }}](../../../tutorials/greenplum-to-clickhouse.md);
     * [Загрузка данных из {{ GP }}  в витрину {{ PG }}](../../../tutorials/greenplum-to-postgresql.md).
 
-Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} см. в разделе [Практические руководства](../../../tutorials/index.md).
+Подробное описание возможных сценариев передачи данных в {{ data-transfer-full-name }} читайте в разделе [Практические руководства](../../../tutorials/index.md).
 
 ## Подготовка базы данных {{ GP }} {#prepare}
 
@@ -160,6 +160,6 @@ SELECT COUNT(*) FROM gp_segment_configuration WHERE role='p' AND content >= 0;
 * [{{ GP }}](../target/greenplum.md);
 * [{{ ytsaurus-name }}](../source/yt.md).
 
-Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} см. в разделе [Доступные трансферы](../../../transfer-matrix.md).
+Полный список поддерживаемых источников и приемников в {{ data-transfer-full-name }} читайте в разделе [Доступные трансферы](../../../transfer-matrix.md).
 
 После настройки источника и приемника данных [создайте и запустите трансфер](../../transfer.md#create).

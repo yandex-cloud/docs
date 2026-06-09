@@ -1,6 +1,6 @@
-# Управление базами данных в Managed Service for MySQL®
+# Управление базами данных в {{ mmy-name }}
 
-Вы можете добавлять и удалять базы данных, просматривать информацию о них, а также управлять некоторыми настройками баз данных с помощью интерфейсов Managed Service for MySQL®.
+Вы можете добавлять и удалять базы данных, просматривать информацию о них, а также управлять некоторыми настройками баз данных с помощью интерфейсов {{ mmy-name }}.
 
 {% note warning %}
 
@@ -14,19 +14,19 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера, затем выберите вкладку **Базы данных**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы получить список баз данных в кластере, выполните команду:
 
   ```bash
-  yc managed-mysql database list \
+  {{ yc-mdb-my }} database list \
      --cluster-name=<имя_кластера>
   ```
 
@@ -40,13 +40,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.list](../api-ref/Database/list.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.list](../api-ref/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
         --request GET \
         --header "Authorization: Bearer $IAM_TOKEN" \
-        --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases'
+        --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/databases'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -68,7 +68,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService/List](../api-ref/grpc/Database/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -80,7 +80,7 @@
         -d '{
               "cluster_id": "<идентификатор_кластера>"
             }' \
-        mdb.api.cloud.yandex.net:443 \
+        {{ api-host-mdb }}:{{ port-https }} \
         yandex.cloud.mdb.mysql.v1.DatabaseService.List
       ```
 
@@ -90,7 +90,7 @@
 
 - SQL {#sql}
 
-  Чтобы получить список всех пользовательских баз данных в кластере MySQL®:
+  Чтобы получить список всех пользовательских баз данных в кластере {{ MY }}:
 
   1. [Выдайте права](grant.md) `mdb_admin` пользователю, от имени которого вы будете подключаться к базе данных.
 
@@ -135,20 +135,20 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
   1. Нажмите на имя нужного кластера.
   1. Если владельцем новой базы данных должен стать еще не существующий пользователь, [создайте его](cluster-users.md#adduser).
-  1. Выберите вкладку **Базы данных**.
-  1. Нажмите кнопку **Создать базу данных**.
-  1. Введите имя для базы данных и нажмите кнопку **Создать**.
+  1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.databases.action_add-database }}**.
+  1. Введите имя для базы данных и нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.popup-add-db_button_add }}**.
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд {{ mmy-name }}. Создавать БД с этими именами нельзя.
 
   1. [Выдайте привилегии](grant.md#grant-privilege) на доступ к созданной базе данных нужным пользователям кластера.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -157,24 +157,24 @@
   1. Посмотрите описание команды CLI для создания БД:
 
      ```bash
-      yc managed-mysql database create --help
+      {{ yc-mdb-my }} database create --help
      ```
 
   1. Выполните команду создания БД:
 
       ```bash
-      yc managed-mysql database create <имя_БД> --cluster-name=<имя_кластера>
+      {{ yc-mdb-my }} database create <имя_БД> --cluster-name=<имя_кластера>
       ```
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд {{ mmy-name }}. Создавать БД с этими именами нельзя.
 
       Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-      Managed Service for MySQL® запустит операцию создания базы данных.
+      {{ mmy-short-name }} запустит операцию создания базы данных.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -187,18 +187,18 @@
       }
       ```
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд {{ mmy-name }}. Создавать БД с этими именами нельзя.
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -220,7 +220,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -230,14 +230,14 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.create](../api-ref/Database/create.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.create](../api-ref/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request POST \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases' \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/databases' \
           --data '{
                     "databaseSpec": {
                       "name": "<имя_БД>"
@@ -245,7 +245,7 @@
                   }'
       ```
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд {{ mmy-name }}. Создавать БД с этими именами нельзя.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -266,7 +266,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService/Create](../api-ref/grpc/Database/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -281,11 +281,11 @@
                   "name": "<имя_БД>"
                 }
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.DatabaseService.Create
       ```
 
-      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд Managed Service for MySQL®. Создавать БД с этими именами нельзя.
+      Имя базы может содержать латинские буквы, цифры, дефис и подчеркивание. Максимальная длина имени 63 символа. Имена `mysql`, `sys`, `information_schema` и `performance_schema` зарезервированы для собственных нужд {{ mmy-name }}. Создавать БД с этими именами нельзя.
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -299,27 +299,27 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Нажмите на имя нужного кластера и выберите вкладку **Базы данных**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **Удалить**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_databases }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной БД и выберите пункт **{{ ui-key.yacloud.mdb.cluster.databases.button_action-remove }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Чтобы удалить базу данных, выполните команду:
 
   ```bash
-   yc managed-mysql database delete <имя_БД> --cluster-name=<имя_кластера>
+   {{ yc-mdb-my }} database delete <имя_БД> --cluster-name=<имя_кластера>
   ```
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+  1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -327,14 +327,14 @@
 
   1. Проверьте корректность настроек.
 
-      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+      1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
       1. Выполните команду:
       
          ```bash
          terraform validate
          ```
       
-         Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+         Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Подтвердите изменение ресурсов.
 
@@ -356,7 +356,7 @@
          1. Подтвердите изменение ресурсов.
          1. Дождитесь завершения операции.
 
-  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_database.md).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_database).
 
 - REST API {#api}
 
@@ -366,13 +366,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Database.delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Database.delete](../api-ref/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request DELETE \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>/databases/<имя_БД>'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters), а имя БД — со [списком БД в кластере](#list-db).
@@ -394,7 +394,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [DatabaseService/Delete](../api-ref/grpc/Database/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -407,7 +407,7 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "database_name": "<имя_БД>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.DatabaseService.Delete
       ```
 
@@ -431,24 +431,24 @@
 
 - Консоль управления {#console}
 
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
-  1. Выберите кластер и нажмите кнопку **Редактировать** на панели сверху.
-  1. В блоке **Настройки СУБД** нажмите кнопку **Настроить**.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Выберите кластер и нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** на панели сверху.
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}** нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. В списке настроек найдите параметр **sql_mode**.
-  1. Задайте набор режимов SQL с помощью выпадающего списка. Чтобы вернуть настройки по умолчанию, нажмите кнопку **Сбросить**.
-  1. Нажмите кнопку **Сохранить** в диалоговом окне настроек СУБД.
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Задайте набор режимов SQL с помощью выпадающего списка. Чтобы вернуть настройки по умолчанию, нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.button_reset }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.component.mdb.settings.popup_settings-submit }}** в диалоговом окне настроек СУБД.
+  1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   Задайте нужные режимы SQL в значении параметра `--set`, например:
 
   ```bash
-  yc managed-mysql cluster update-config \
+  {{ yc-mdb-my }} cluster update-config \
     --name <имя_кластера> \
     --set '"sql_mode=NO_KEY_OPTIONS,NO_TABLE_OPTIONS"'
   ```
@@ -457,9 +457,9 @@
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md).
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
@@ -477,14 +477,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -506,14 +506,14 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-    Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md#mysql-config).
+    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_mysql_cluster#mysql-config).
 
     {% note warning "Ограничения по времени" %}
     
-    Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for MySQL®:
+    Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mmy-name }}:
     
     * создание кластера, в том числе путем восстановления из резервной копии, — 15 минут;
-    * изменение кластера, в том числе обновление версии MySQL®, — 60 минут;
+    * изменение кластера, в том числе обновление версии {{ MY }}, — 60 минут;
     * удаление кластера — 15 минут.
     
     Операции, длящиеся дольше указанного времени, прерываются.
@@ -545,7 +545,7 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       {% note warning %}
       
@@ -558,11 +558,11 @@
           --request PATCH \
           --header "Authorization: Bearer $IAM_TOKEN" \
           --header "Content-Type: application/json" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>' \
+          --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<идентификатор_кластера>' \
           --data '{
-                    "updateMask": "configSpec.mysqlConfig_<версия_MySQL®>",
+                    "updateMask": "configSpec.mysqlConfig_<версия_{{ MY }}>",
                     "configSpec": {
-                      "mysqlConfig_<версия_MySQL®>": {
+                      "mysqlConfig_<версия_{{ MY }}>": {
                         "sqlMode": [
                           "<режим_SQL_1>", "<режим_SQL_2>", ..., "<режим_SQL_N>"
                         ]
@@ -577,7 +577,7 @@
 
           В данном случае передается только один параметр.
 
-      * `configSpec.mysqlConfig_<версия_MySQL®>.sqlMode` — список режимов SQL. Доступные режимы см. в документации MySQL®:
+      * `configSpec.mysqlConfig_<версия_{{ MY }}>.sqlMode` — список режимов SQL. Доступные режимы см. в документации {{ MY }}:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).
@@ -601,7 +601,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService/Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       {% note warning %}
       
@@ -635,18 +635,18 @@
                 "cluster_id": "<идентификатор_кластера>",
                 "update_mask": {
                   "paths": [
-                    "config_spec.mysql_config_<версия_MySQL®>"
+                    "config_spec.mysql_config_<версия_{{ MY }}>"
                   ]
                 },
                 "config_spec": {
-                  "mysql_config_<версия_MySQL®>": {
+                  "mysql_config_<версия_{{ MY }}>": {
                     "sql_mode": [
                       "<режим_SQL_1>", "<режим_SQL_2>", ..., "<режим_SQL_N>"
                     ]
                   }
                 }
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.mysql.v1.ClusterService.Update
       ```
 
@@ -656,7 +656,7 @@
 
           В данном случае передается только один параметр.
 
-      * `config_spec.mysql_config_<версия_MySQL®>.sql_mode` — список режимов SQL. Доступные режимы см. в документации MySQL®:
+      * `config_spec.mysql_config_<версия_{{ MY }}>.sql_mode` — список режимов SQL. Доступные режимы см. в документации {{ MY }}:
 
           * [для версии 5.7](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting);
           * [для версии 8.0](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting).

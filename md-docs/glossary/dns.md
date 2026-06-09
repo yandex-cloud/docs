@@ -146,10 +146,10 @@ DNS-запросы — это запросы от одного сервера к
 
 ## Управление Cloud DNS {#cloud-dns-management}
 
-[Yandex Cloud DNS](https://yandex.cloud/ru/services/dns/) предоставляет управление зонами DNS и доменными именами ресурсов из консоли Yandex Cloud и с помощью интерфейсов API, CLI и Terraform.
+[{{ dns-full-name }}](https://yandex.cloud/ru/services/dns/) предоставляет управление зонами DNS и доменными именами ресурсов из консоли {{ yandex-cloud }} и с помощью интерфейсов API, CLI и Terraform.
 
 1. Создайте [зоны DNS](../dns/operations/zone-create-private.md), где будут храниться ресурсные записи, связывающие IP-адреса ваших виртуальных машин с их доменными именами. Можно создать [внутреннюю DNS-зону](../dns/operations/zone-create-private.md) и [публичную DNS-зону](../dns/operations/zone-create-public.md).
 
 1. Добавьте [ресурсные записи](../dns/operations/resource-record-create.md) и [управляйте доступом](../dns/security/index.md).
 
-1. Чтобы предоставить сотруднику вашей компании доступ к Cloud DNS, настройте соответствующие роли для их [аккаунтов на Яндексе](../iam/concepts/users/accounts.md#passport) или [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), либо для одной из [системных](../iam/concepts/access-control/system-group.md) или [публичных](../iam/concepts/access-control/public-group.md) групп. Как назначить роли см. [Назначение роли](../iam/operations/roles/grant.md).
+1. Чтобы предоставить сотруднику вашей компании доступ к {{ dns-name }}, настройте соответствующие роли для их [аккаунтов на Яндексе](../iam/concepts/users/accounts.md#passport) или [сервисных аккаунтов](../iam/concepts/users/service-accounts.md), либо для одной из [системных](../iam/concepts/access-control/system-group.md) или [публичных](../iam/concepts/access-control/public-group.md) групп. Как назначить роли см. [Назначение роли](../iam/operations/roles/grant.md).

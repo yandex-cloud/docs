@@ -1,11 +1,12 @@
 # Managed Service for Redis API, REST: Cluster.StreamLogs
 
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
+(-- api-linter: yc::1705::http-method-mapping=disabled --)
 
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-redis/v1/clusters/{clusterId}:stream_logs
+GET https://{{ api-host-mdb }}/managed-redis/v1/clusters/{clusterId}:stream_logs
 ```
 
 ## Path parameters
@@ -27,6 +28,8 @@ The maximum string length in characters is 50. ||
 
 Columns from logs table to get in the response. ||
 || serviceType | **enum** (ServiceType)
+
+Type of the service to request logs about.
 
 - `REDIS`: Logs of Redis activity. ||
 || fromTime | **string** (date-time)

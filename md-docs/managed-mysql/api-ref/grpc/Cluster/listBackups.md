@@ -1,7 +1,6 @@
 # Managed Service for MySQL API, gRPC: ClusterService.ListBackups
 
 Retrieves a list of backups for a cluster.
-
 To list all backups in a folder, make a [BackupService.List](../Backup/list.md#List) request.
 
 ## gRPC request
@@ -23,21 +22,18 @@ To list all backups in a folder, make a [BackupService.List](../Backup/list.md#L
 || cluster_id | **string**
 
 Required field. ID of the cluster to list backups for.
-
 To get this ID, make a [ClusterService.List](list.md#List) request.
 
 The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return.
-
 If the number of available results is larger than `page_size`, the API returns a [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) that can be used to get the next page of results in the subsequent [ClusterService.ListBackups](#ListBackups) requests.
 
 The maximum value is 1000. ||
 || page_token | **string**
 
 Page token that can be used to iterate through multiple pages of results.
-
 To get the next page of results, set `page_token` to the [ListClusterBackupsResponse.next_page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsResponse) returned by the previous [ClusterService.ListBackups](#ListBackups) request.
 
 The maximum string length in characters is 100. ||
@@ -72,16 +68,13 @@ List of the cluster backups. ||
 || next_page_token | **string**
 
 The token that can be used to get the next page of results.
-
 If the number of results is larger than [ListClusterBackupsRequest.page_size](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest), use the `next_page_token` as the value for the [ListClusterBackupsRequest.page_token](#yandex.cloud.mdb.mysql.v1.ListClusterBackupsRequest) in the subsequent [ClusterService.ListBackups](#ListBackups) request to iterate through multiple pages of results.
-
 Each of the subsequent [ClusterService.ListBackups](#ListBackups) requests should use the `next_page_token` value returned by the previous request to continue paging through the results. ||
 |#
 
 ## Backup {#yandex.cloud.mdb.mysql.v1.Backup}
 
 An object that represents MySQL backup.
-
 See [the documentation](../../../concepts/backup.md) for details.
 
 #|

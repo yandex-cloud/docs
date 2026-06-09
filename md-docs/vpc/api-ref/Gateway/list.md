@@ -5,7 +5,7 @@ Retrieves the list of Gateway resources in the specified folder.
 ## HTTP request
 
 ```
-GET https://vpc.api.cloud.yandex.net/vpc/v1/gateways
+GET https://vpc.{{ api-host }}/vpc/v1/gateways
 ```
 
 ## Query parameters {#yandex.cloud.vpc.v1.ListGatewaysRequest}

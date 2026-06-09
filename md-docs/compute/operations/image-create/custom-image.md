@@ -4,17 +4,17 @@
 
 Использовать можно только образы, подготовленные по этой инструкции.
 
-Вы также можете ознакомиться с готовыми образами в [Yandex Cloud Marketplace](https://yandex.cloud/ru/marketplace).
+Вы также можете ознакомиться с готовыми образами в [{{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace).
 
 {% endnote %}
 
-Вы можете использовать собственный файл с [образом](../../concepts/image.md) [диска](../../concepts/disk.md) [виртуальной машины](../../concepts/vm.md) под управлением операционной системы из семейства Linux. После подготовки образа [загрузите его](upload.md) в Compute Cloud.
+Вы можете использовать собственный файл с [образом](../../concepts/image.md) [диска](../../concepts/disk.md) [виртуальной машины](../../concepts/vm.md) под управлением операционной системы из семейства Linux. После подготовки образа [загрузите его](upload.md) в {{ compute-name }}.
 
-Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в Yandex Cloud Marketplace.
+Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в {{ marketplace-full-name }}.
 
 {% note tip %}
 
-Чтобы использовать [UEFI/EFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчик, при создании образа и виртуальной машины Compute Cloud выбирайте [поколение оборудования](../../concepts/hardware-generations.md) `Gen 2`. Подробнее о создании ВМ, работающей на виртуализированном оборудовании поколения `Gen 2`, читайте в [инструкции](../vm-create/create-gen2-vm.md).
+Чтобы использовать [UEFI/EFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчик, при создании образа и виртуальной машины {{ compute-name }} выбирайте [поколение оборудования](../../concepts/hardware-generations.md) `Gen 2`. Подробнее о создании ВМ, работающей на виртуализированном оборудовании поколения `Gen 2`, читайте в [инструкции](../vm-create/create-gen2-vm.md).
 
 Чтобы загружаться с дисков объемом более 2 ТБ с разметкой [GUID Partition Table (GPT)](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID) на виртуальных машинах, работающих на оборудовании поколений `Gen 1.1` и `Gen 1.2`, используйте загрузчик [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html).
 
@@ -25,7 +25,7 @@
 Для образов загрузочного диска должны выполняться следующие требования:
 
 * Установлены драйверы `virtio-net`, `virtio-blk` и `virtio-pci`. Если вы собираетесь подключать к [виртуальной машине](../../concepts/vm.md) [файловые хранилища](../../concepts/filesystem.md), также должен быть установлен драйвер `virtiofs`. См. [инструкцию](custom-image.md#virtio).
-* Терминал `ttyS0` (порт COM1) настроен в качестве [серийной консоли](../serial-console/index.md). См. [инструкцию](custom-image.md#serial-console).
+* Терминал `ttyS0` (порт COM1) настроен в качестве [серийной консоли](../../concepts/serial-console.md). См. [инструкцию](custom-image.md#serial-console).
 * Сетевой интерфейс корректно запускается при старте ВМ и получает [IP-адрес](../../../vpc/concepts/address.md) по DHCP.
 * Пакет `cloud-init` установлен и настроен для работы с нашим [сервисом метаданных](../vm-info/get-info.md#inside-instance). Установить пакет для CentOS можно с помощью команды `sudo yum install cloud-init`, для Debian или Ubuntu — `sudo apt update && sudo apt install -y cloud-init`.
 * Если образ создан на основе Amazon Machine Image (AMI), в настройках `cloud-init` отключена проверка облачной платформы, на которой запускается ВМ. См. [инструкцию](custom-image.md#ec2).
@@ -43,7 +43,7 @@
 
 ### Установите virtio-драйверы {#virtio}
 
-Для успешной загрузки в ОС должны присутствовать драйверы `virtio-blk`, `virtio-net` и `virtio-pci`, а для работы с [файловыми хранилищами](../../concepts/filesystem.md) Compute Cloud — `virtiofs`.
+Для успешной загрузки в ОС должны присутствовать драйверы `virtio-blk`, `virtio-net` и `virtio-pci`, а для работы с [файловыми хранилищами](../../concepts/filesystem.md) {{ compute-name }} — `virtiofs`.
 
 Большинство современных дистрибутивов по умолчанию содержит драйверы `virtio`. Драйверы могут быть скомпилированы в виде отдельных файлов `.ko` или входить в состав самого ядра.
 
@@ -145,7 +145,7 @@
 
 ### Настройте серийную консоль {#serial-console}
 
-[Серийная консоль](../serial-console/index.md) — это способ получить доступ к ВМ вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или ОС. Используйте серийную консоль, например, для устранения неисправностей ВМ или при возникновении проблем с доступом через [SSH](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [Начало работы с серийной консолью](../serial-console/index.md).
+[Серийная консоль](../../concepts/serial-console.md) — это способ получить доступ к ВМ вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или ОС. Используйте серийную консоль, например, для устранения неисправностей ВМ или при возникновении проблем с доступом через [SSH](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [{#T}](../../concepts/serial-console.md).
 
 Чтобы к ВМ можно было подключаться с помощью серийной консоли, настройте для образа терминал `ttyS0` (порт COM1) в качестве системной консоли:
 1. В файле с настройками GRUB `/etc/default/grub` добавьте в значение параметра `GRUB_CMDLINE_LINUX` опцию `console=ttyS0`. Строка с этим параметром должна иметь такой вид:
@@ -188,11 +188,11 @@
 
 1. Перезапустите ОС.
 
-После [создания ВМ из образа](upload.md#create-vm-from-user-image) ее нужно будет дополнительно [настроить для работы с серийной консолью](../serial-console/index.md). 
+После [создания ВМ из образа](upload.md#create-vm-from-user-image) ее нужно будет дополнительно [настроить для работы с серийной консолью](../../concepts/serial-console.md).
 
 ## Отключите проверку облачной платформы при создании образа в Amazon EC2 {#ec2}
 
-Если вы создаете образ в Amazon EC2 на основе Amazon Machine Image, `cloud-init` проверяет, что ВМ запускается в Amazon EC2. ВМ в Yandex Compute Cloud не пройдут проверку и могут работать некорректно.
+Если вы создаете образ в Amazon EC2 на основе Amazon Machine Image, `cloud-init` проверяет, что ВМ запускается в Amazon EC2. ВМ в {{ compute-full-name }} не пройдут проверку и могут работать некорректно.
 
 Чтобы этого не произошло, отключите проверку метаданных на ВМ. Для этого создайте в директории `/etc/cloud/cloud.cfg.d` конфигурационный файл, например `99-ec2-datasource.cfg`, и добавьте в него код:
 

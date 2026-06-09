@@ -12,18 +12,18 @@
 
 ## Перед началом работы {#before-you-begin}
 
-1. Если у вас еще нет интерфейса командной строки Yandex Cloud, [установите и инициализируйте его](../../../cli/quickstart.md#install).
+1. Если у вас еще нет интерфейса командной строки {{ yandex-cloud }}, [установите и инициализируйте его](../../../cli/quickstart.md#install).
 1. Подготовьте Document API эндпоинт [созданной БД](../../operations/manage-databases.md).
 
     {% cut "Как узнать Document API эндпоинт базы данных" %}
 
-    1. Перейдите в [консоль управления](https://console.yandex.cloud).
-    1. Выберите нужный каталог и перейдите в сервис **Managed Service for&nbsp;YDB**.
+    1. Перейдите в [консоль управления]({{ link-console-main }}).
+    1. Выберите нужный каталог и перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Выберите базу данных, к которой планируете сделать запрос.
-    1. В меню слева перейдите в раздел **Обзор**.
-    1. Значение эндпоинта указано в строке **Document API эндпоинт**.
+    1. В меню слева перейдите в раздел **{{ ui-key.yacloud.common.overview }}**.
+    1. Значение эндпоинта указано в строке **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}**.
 
-        Пример значения эндпоинта `https://docapi.serverless.yandexcloud.net/ru-central1/b1gia87mbaom********/etnudu2n9ri3********`.
+        Пример значения эндпоинта `{{ ydb.aws-ep }}`.
 
     {% endcut %}
 

@@ -18,7 +18,7 @@
 
     1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) и [назначьте ему роли](../../iam/operations/sa/assign-role-for-sa.md) `k8s.tunnelClusters.agent` и `vpc.publicAdmin`.
 
-    1. [Создайте группы безопасности](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+    1. [Создайте группы безопасности](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
         {% note warning %}
         
@@ -28,31 +28,31 @@
 
     1. [Создайте кластер](kubernetes-cluster/kubernetes-cluster-create.md) любой подходящей конфигурации.
 
-        * Для полей **Сервисный аккаунт для ресурсов** и **Сервисный аккаунт для узлов** выберите `Из списка` и затем выберите созданный сервисный аккаунт из выпадающего списка.
+        * Для полей **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** и **{{ ui-key.yacloud.k8s.clusters.create.field_node-service-account }}** выберите `{{ ui-key.yacloud.component.service-account-field.label_sg-from-list }}` и затем выберите созданный сервисный аккаунт из выпадающего списка.
 
-        * В блоке **Конфигурация мастера** выберите следующие значения:
+        * В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}** выберите следующие значения:
 
-            * **Публичный адрес** — `Автоматически`.
-            * **Группы безопасности** — `Из списка`. Укажите группы безопасности для кластера.
+            * **{{ ui-key.yacloud.k8s.clusters.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.clusters.create.switch_auto }}`.
+            * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Укажите группы безопасности для кластера.
 
-        * В блоке **Сетевые настройки кластера** выберите опцию **Включить туннельный режим**.
+        * В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}** выберите опцию **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}**.
 
     1. [Создайте для кластера группу узлов](node-group/node-group-create.md) любой подходящей конфигурации.
 
-        В блоке **Сетевые настройки** выберите следующие значения:
+        В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}** выберите следующие значения:
 
-        * **Публичный адрес** — `Автоматически`.
-        * **Группы безопасности** — `Из списка`. Укажите группы безопасности для групп узлов.
+        * **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** — `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`.
+        * **{{ ui-key.yacloud.mdb.forms.field_security-group }}** — `{{ ui-key.yacloud.component.security-group-field.label_sg-from-list }}`. Укажите группы безопасности для групп узлов.
 
     {% note warning %}
     
-    Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+    Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
     
     {% endnote %}
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Если у вас еще нет Terraform, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. Если у вас еще нет {{ TF }}, [установите его](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
     1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
     1. [Настройте и инициализируйте провайдер](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
     1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
@@ -62,15 +62,15 @@
 
             {% note warning %}
             
-            Не изменяйте и не удаляйте ресурсы Virtual Private Cloud, которые используются кластером Managed Service for Kubernetes. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
+            Не изменяйте и не удаляйте ресурсы {{ vpc-name }}, которые используются кластером {{ managed-k8s-name }}. Это может привести к некорректной работе кластера и невозможности его последующего удаления.
             
             {% endnote %}
 
-        * Кластер Managed Service for Kubernetes.
+        * Кластер {{ managed-k8s-name }}.
         * Группа узлов для кластера.
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и его группы узлов.
 
-        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера Managed Service for Kubernetes и входящих в него групп узлов.
+        * [Группы безопасности](../../vpc/concepts/security-groups.md), которые содержат [необходимые правила](connect/security-groups.md) для кластера {{ managed-k8s-name }} и входящих в него групп узлов.
 
             {% note warning %}
             
@@ -81,16 +81,16 @@
     1. Укажите в файле `k8s-cilium.tf`:
 
         * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-        * [Версию Kubernetes](../concepts/release-channels-and-updates.md) для кластера и групп узлов.
+        * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов.
         * Имя сервисного аккаунта.
 
-    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
        
        ```bash
        terraform validate
        ```
        
-       Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+       Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Создайте необходимую инфраструктуру:
 
@@ -112,11 +112,11 @@
            1. Подтвердите изменение ресурсов.
            1. Дождитесь завершения операции.
 
-        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером и группой узлов Managed Service for Kubernetes:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером и группой узлов {{ managed-k8s-name }}:
         
         * создание и изменение кластера — 30 минут;
         * создание и изменение группы узлов — 60 минут;
@@ -149,7 +149,7 @@
 
 ### Подготовьтесь к работе с кластером {#do-preparations}
 
-1. [Установите kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
+1. [Установите kubectl]({{ k8s-docs }}/tasks/tools/install-kubectl) и [настройте его на работу с созданным кластером](connect/index.md#kubectl-connect).
 1. [Установите утилиту Cilium CLI](https://github.com/cilium/cilium-cli?tab=readme-ov-file#installation) (`cilium`).
 
 ## Установите и настройте Hubble UI {#install-hubble-ui}
@@ -180,9 +180,9 @@
                            hubble-relay       Running: 1
     Cluster Pods:          5/5 managed by Cilium
     Helm chart version:
-    Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                           cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
-                           hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+    Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                           cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+                           hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
     ```
 
     {% endcut %}
@@ -465,9 +465,9 @@
                            hubble-ui          Running: 1
     Cluster Pods:          6/6 managed by Cilium
     Helm chart version:
-    Image versions         cilium             cr.yandex/******/k8s-addons/cilium/cilium:v1.12.9: 1
-                           hubble-relay       cr.yandex/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
-                           cilium-operator    cr.yandex/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
+    Image versions         cilium             {{ registry }}/******/k8s-addons/cilium/cilium:v1.12.9: 1
+                           hubble-relay       {{ registry }}/******/k8s-addons/cilium/hubble-relay:v1.12.9: 1
+                           cilium-operator    {{ registry }}/******/k8s-addons/cilium/operator-generic:v1.12.9: 1
                            hubble-ui          quay.io/cilium/hubble-ui-backend:v0.13.0@sha256:******: 1
                            hubble-ui          quay.io/cilium/hubble-ui:v0.13.0@sha256:******: 1
     ```
@@ -678,7 +678,7 @@
 
 Примените политику уровня L3/L4, чтобы заблокировать доступ пода `xwing` к сервису `deathstar`. Правила доступа для пода `tiefighter` останутся без изменений.
 
-Для разграничения доступа подам при создании присвоены Kubernetes-метки:
+Для разграничения доступа подам при создании присвоены {{ k8s }}-метки:
 
 * `org: empire` для пода `tiefighter`.
 * `org: alliance` для пода `xwing`.
@@ -914,16 +914,16 @@
 
 - Вручную {#manual}
 
-  1. [Удалите кластер Managed Service for Kubernetes](kubernetes-cluster/kubernetes-cluster-delete.md).
+  1. [Удалите кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-delete.md).
   1. Если для доступа к кластеру или узлам использовались статические публичные IP-адреса, освободите и [удалите](../../vpc/operations/address-delete.md) их.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. В терминале перейдите в директорию с планом инфраструктуры.
   
       {% note warning %}
   
-      Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+      Убедитесь, что в директории нет {{ TF }}-манифестов с ресурсами, которые вы хотите сохранить. {{ TF }} удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
   
       {% endnote %}
   
@@ -937,6 +937,6 @@
   
       1. Подтвердите удаление ресурсов и дождитесь завершения операции.
   
-      Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+      Все ресурсы, которые были описаны в {{ TF }}-манифестах, будут удалены.
 
 {% endlist %}

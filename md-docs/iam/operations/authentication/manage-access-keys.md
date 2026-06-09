@@ -1,6 +1,6 @@
 # Управление статическими ключами доступа
 
-[Часть сервисов](../../concepts/authorization/access-key.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [статических ключей доступа](../../concepts/authorization/access-key.md).
+[Часть сервисов](../../concepts/authorization/access-key.md#supported-services) {{ yandex-cloud }} поддерживает аутентификацию с помощью [статических ключей доступа](../../concepts/authorization/access-key.md).
 
 Статические ключи доступа создаются для [сервисных аккаунтов](../../concepts/users/service-accounts.md). Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [назначьте ему роли](../sa/assign-role-for-sa.md).
 
@@ -18,12 +18,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Выберите сервисный аккаунт, для которого вы хотите создать статический ключ доступа.
-  1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите **Создать статический ключ доступа**.
-  1. Задайте описание ключа и нажмите кнопку **Создать**.
+  1. На панели сверху нажмите кнопку ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
+  1. Задайте описание ключа и нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. Сохраните идентификатор и секретный ключ.
 
       {% note alert %}
@@ -34,7 +34,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -79,9 +79,12 @@
 
   1. Сохраните идентификатор `key_id` и секретный ключ `secret`. Повторно получить значение ключа будет невозможно.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -104,12 +107,12 @@
      * `description` — описание ключа. Необязательный параметр.
      * `pgp_key` — дополнительный PGP-ключ для шифрования закрытого ключа. Необязательный параметр. Указывается публичная часть ключа в кодировке base64, либо в виде `keybase:keybaseusername`.
 
-     * `output_to_lockbox` — описание [секрета](../../../lockbox/concepts/secret.md) Yandex Lockbox, в который будут сохранены секретные значения ключа, во избежание их возможной утечки через файл состояния `terraform.tfstate`. Необязательный параметр. Вложенные параметры:
-         * `secret_id` — идентификатор секрета Yandex Lockbox, в который будут сохранены идентификатор ключа и секретный ключ. Секрет должен быть [пользовательского типа](../../../lockbox/concepts/secret.md#secret-type).
+     * `output_to_lockbox` — описание [секрета](../../../lockbox/concepts/secret.md) {{ lockbox-full-name }}, в который будут сохранены секретные значения ключа, во избежание их возможной утечки через файл состояния `terraform.tfstate`. Необязательный параметр. Вложенные параметры:
+         * `secret_id` — идентификатор секрета {{ lockbox-full-name }}, в который будут сохранены идентификатор ключа и секретный ключ. Секрет должен быть [пользовательского типа](../../../lockbox/concepts/secret.md#secret-type).
          * `entry_for_access_key` — ключ секрета, который будет присвоен сохраняемому значению идентификатора статического ключа доступа.
          * `entry_for_secret_key` — ключ секрета, который будет присвоен сохраняемому значению секретного ключа.
 
-     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
+     Более подробную информацию о параметрах ресурса `yandex_iam_service_account_static_access_key` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
          
   1. Проверьте корректность конфигурационных файлов.
 
@@ -120,7 +123,7 @@
         terraform plan
         ```
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -132,10 +135,10 @@
 
      1. Подтвердите создание статического ключа доступа: введите в терминал слово `yes` и нажмите **Enter**.
 
-        Если при создании ключа возникли ошибки, Terraform на них укажет.
-        При успешном создании ключа Terraform запишет его в свою конфигурацию, но не покажет пользователю. В терминал будет выведен только id созданного ключа.
+        Если при создании ключа возникли ошибки, {{ TF }} на них укажет.
+        При успешном создании ключа {{ TF }} запишет его в свою конфигурацию, но не покажет пользователю. В терминал будет выведен только id созданного ключа.
 
-        Проверить появление ключа у сервисного аккаунта можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../../cli/quickstart.md):
+        Проверить появление ключа у сервисного аккаунта можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
          
         ```bash
         yc iam access-key list --service-account-name=<имя_сервисного_аккаунта>
@@ -163,7 +166,7 @@
     --description "this key is for my bucket"
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   ```hcl
   resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -184,7 +187,7 @@
         "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
         "description": "this key is for my bucket"
     }' \
-    https://iam.api.cloud.yandex.net/iam/aws-compatibility/v1/accessKeys
+    https://iam.{{ api-host }}/iam/aws-compatibility/v1/accessKeys
   ```
 
 {% endlist %}
@@ -197,15 +200,15 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
-  1. В списке сервисов выберите **Identity and Access Management**.
-  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **Сервисные аккаунты** и выберите нужный сервисный аккаунт.
-  1. В блоке **Статические ключи доступа** в строке с ключом, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
-  1. В открывшемся окне нажмите кнопку **Удалить**.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
+  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_service-account-keys }}** в строке с ключом, который нужно удалить, нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.delete }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-confirm_button_delete }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -233,13 +236,16 @@
      yc iam access-key delete <идентификатор_ключа>
      ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-    1. Откройте файл конфигурации Terraform и удалите секцию с описанием статического ключа доступа.
+    1. Откройте файл конфигурации {{ TF }} и удалите секцию с описанием статического ключа доступа.
 
-        Пример описания статического ключа доступа в конфигурации Terraform:
+        Пример описания статического ключа доступа в конфигурации {{ TF }}:
 
         ```hcl
         resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
@@ -254,7 +260,7 @@
         }
         ```
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, см. в [документации провайдера](../../../terraform/resources/iam_service_account_static_access_key.md).
+        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_static_access_key).
 
     1. Проверьте корректность конфигурационных файлов.
 
@@ -265,7 +271,7 @@
             terraform plan
             ```
 
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Разверните облачные ресурсы.
 
@@ -277,7 +283,7 @@
 
         1. Подтвердите создание или удаление ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления](https://console.yandex.cloud), а также с помощью команды CLI:
+        После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
 
         ```bash
         yc iam access-key list --service-account-id <идентификатор_сервисного_аккаунта>
@@ -291,7 +297,7 @@
 
 #### См. также {#see-also}
 
-* [Статические ключи доступа, совместимые с AWS API](../../concepts/authorization/access-key.md)
-* [Настройка инструментов для работы с Object Storage](../../../storage/tools/index.md)
-* [Назначение роли сервисному аккаунту](../sa/assign-role-for-sa.md)
-* [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../../tutorials/static-key-in-lockbox/index.md)
+* [{#T}](../../concepts/authorization/access-key.md)
+* [Настройка инструментов для работы с {{ objstorage-name }}](../../../storage/tools/index.md)
+* [{#T}](../sa/assign-role-for-sa.md)
+* [{#T}](../../tutorials/static-key-in-lockbox/index.md)

@@ -88,7 +88,7 @@
 
  - [Управление авторизованными ключами](operations/authentication/manage-authorized-keys.md)
 
- - [Создание временного ключа доступа с помощью Security Token Service](operations/sa/create-sts-key.md)
+ - [Создание временного ключа доступа с помощью {{ sts-name }}](operations/sa/create-sts-key.md)
 
  - [Управление эфемерными ключами доступа](operations/authentication/manage-ephemeral-keys.md)
 
@@ -108,35 +108,35 @@
 
  - [Разграничение прав доступа для групп пользователей](tutorials/user-group-access-control.md)
 
-### Хранение статического ключа доступа в секрете Yandex Lockbox
+### Хранение статического ключа доступа в секрете {{ lockbox-name }}
 
  - [Обзор](tutorials/static-key-in-lockbox/index.md)
 
  - [CLI](tutorials/static-key-in-lockbox/console.md)
 
- - [Terraform](tutorials/static-key-in-lockbox/terraform.md)
+ - [{{ TF }}](tutorials/static-key-in-lockbox/terraform.md)
 
- - [Сервисный аккаунт с профилем OS Login для управления ВМ с помощью Ansible](tutorials/sa-oslogin-ansible.md)
+ - [Сервисный аккаунт с профилем {{ oslogin }} для управления ВМ с помощью Ansible](tutorials/sa-oslogin-ansible.md)
 
 ### Интеграции федераций удостоверений сервисных аккаунтов
 
  - [GitHub](tutorials/wlif-github-integration.md)
 
- - [GitLab](tutorials/wlif-gitlab-integration.md)
+ - [{{ GL }}](tutorials/wlif-gitlab-integration.md)
 
- - [Пользовательская инсталляция Kubernetes](tutorials/wlif-k8s-integration.md)
+ - [Пользовательская инсталляция {{ k8s }}](tutorials/wlif-k8s-integration.md)
 
- - [Managed Service for Kubernetes](tutorials/wlif-managed-k8s-integration.md)
+ - [{{ managed-k8s-name }}](tutorials/wlif-managed-k8s-integration.md)
 
- - [Настройка CI/CD между Cloud Functions и GitHub](tutorials/ci-cd-github-functions.md)
+ - [Настройка CI/CD между {{ sf-name }} и GitHub](tutorials/ci-cd-github-functions.md)
 
- - [Загрузка объектов в бакет Object Storage с помощью эфемерного ключа доступа](tutorials/ephemeral-key-storage.md)
+ - [Загрузка объектов в бакет {{ objstorage-name }} с помощью эфемерного ключа доступа](tutorials/ephemeral-key-storage.md)
 
 ## Концепции
 
  - [Обзор](concepts/index.md)
 
-### Аккаунты в Yandex Cloud
+### Аккаунты в {{ yandex-cloud }}
 
  - [Обзор](concepts/users/accounts.md)
 
@@ -168,7 +168,7 @@
 
  - [Статический ключ доступа](concepts/authorization/access-key.md)
 
- - [Security Token Service](concepts/authorization/sts.md)
+ - [{{ sts-name }}](concepts/authorization/sts.md)
 
  - [Эфемерные ключи](concepts/authorization/ephemeral-keys.md)
 
@@ -190,7 +190,7 @@
 
  - [Квоты и лимиты](concepts/limits.md)
 
- - [Безопасное использование Yandex Cloud](best-practices/using-iam-securely.md)
+ - [Безопасное использование {{ yandex-cloud }}](best-practices/using-iam-securely.md)
 
  - [Управление доступом](security/index.md)
 
@@ -606,7 +606,7 @@
 
  - [update](cli-ref/workload-identity/oidc/federation/update.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 
@@ -838,13 +838,13 @@
 
  - [Get](workload/oidc/workload-identity/api-ref/grpc/Federation/get.md)
 
- - [List](workload/oidc/workload-identity/api-ref/grpc/Federation/list.md)
-
  - [Create](workload/oidc/workload-identity/api-ref/grpc/Federation/create.md)
 
  - [Update](workload/oidc/workload-identity/api-ref/grpc/Federation/update.md)
 
  - [Delete](workload/oidc/workload-identity/api-ref/grpc/Federation/delete.md)
+
+ - [List](workload/oidc/workload-identity/api-ref/grpc/Federation/list.md)
 
  - [ListAccessBindings](workload/oidc/workload-identity/api-ref/grpc/Federation/listAccessBindings.md)
 
@@ -1086,13 +1086,13 @@
 
  - [Get](workload/oidc/workload-identity/api-ref/Federation/get.md)
 
- - [List](workload/oidc/workload-identity/api-ref/Federation/list.md)
-
  - [Create](workload/oidc/workload-identity/api-ref/Federation/create.md)
 
  - [Update](workload/oidc/workload-identity/api-ref/Federation/update.md)
 
  - [Delete](workload/oidc/workload-identity/api-ref/Federation/delete.md)
+
+ - [List](workload/oidc/workload-identity/api-ref/Federation/list.md)
 
  - [ListAccessBindings](workload/oidc/workload-identity/api-ref/Federation/listAccessBindings.md)
 
@@ -1108,9 +1108,9 @@
 
  - [Cancel](workload/oidc/workload-identity/api-ref/Operation/cancel.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [История изменений](release-notes.md)
 

@@ -4,7 +4,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/iam/v1/workload).
 
-**Service URL**: `https://iam.api.cloud.yandex.net`
+**Service URL**: `https://iam.{{ api-host }}`
 
 #|
 ||Service | Description ||

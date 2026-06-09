@@ -5,7 +5,7 @@ Retrieves the list of MongoDB User resources in the specified cluster.
 ## HTTP request
 
 ```
-GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/users
+GET https://{{ api-host-mdb }}/managed-mongodb/v1/clusters/{clusterId}/users
 ```
 
 ## Path parameters
@@ -15,7 +15,7 @@ GET https://mdb.api.cloud.yandex.net/managed-mongodb/v1/clusters/{clusterId}/use
 || clusterId | **string**
 
 Required field. ID of the cluster to list MongoDB users in.
-To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+To get the cluster ID, use a [ClusterService.List](../../../managed-mongodb/api-ref/Cluster/list#List) request.
 
 The maximum string length in characters is 50. ||
 |#
@@ -30,7 +30,7 @@ The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`, the service returns a [ListUsersResponse.nextPageToken](#yandex.cloud.mdb.mongodb.v1.ListUsersResponse)
 that can be used to get the next page of results in subsequent list requests.
 
-The maximum value is 1000. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
@@ -79,7 +79,7 @@ list request will have its own `nextPageToken` to continue paging through the re
 ## User {#yandex.cloud.mdb.mongodb.v1.User}
 
 A MongoDB User resource. For more information, see the
-[Developer's Guide](../../concepts/index.md).
+[Developer's Guide](../../../managed-mongodb/concepts).
 
 #|
 ||Field | Description ||

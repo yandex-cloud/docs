@@ -12,4 +12,5 @@ A set of methods for managing LifecyclePolicy resources.
 || [Get](get.md) | Returns the specified lifecycle policy. ||
 || [List](list.md) | Retrieves the list of lifecycle policies in the specified registry. ||
 || [ChangeState](changeState.md) | Changes the state of the specified lifecycle policy. ||
+|| [DryRun](dryRun.md) | Creates a request of a dry run of the lifecycle policy. ||
 |#

@@ -5,7 +5,7 @@ Deletes the specified password.
 ## HTTP request
 
 ```
-DELETE https://iot-devices.api.cloud.yandex.net/iot-devices/v1/registries/{registryId}/passwords/{passwordId}
+DELETE https://iot-devices.{{ api-host }}/iot-devices/v1/registries/{registryId}/passwords/{passwordId}
 ```
 
 ## Path parameters

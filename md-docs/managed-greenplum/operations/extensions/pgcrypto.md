@@ -1,8 +1,8 @@
-# Использование pgcrypto в Yandex MPP Analytics for PostgreSQL
+# Использование pgcrypto в {{ mgp-name }}
 
-Расширение [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
+Расширение [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) предоставляет криптографические функции, которые позволяют администраторам баз данных хранить определенные столбцы данных в зашифрованном виде.
 
-## Установить расширение pgcrypto в кластер Greenplum® {#pgcrypto-install}
+## Установить расширение pgcrypto в кластер {{ mgp-name }} {#pgcrypto-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -16,7 +16,7 @@
     SELECT extname FROM pg_extension;
     ```
 
-Подробнее о расширении `pgcrypto` см. в [официальной документации](https://www.postgresql.org/docs/current/static/pgcrypto.html).
+Подробнее о расширении `pgcrypto` см. в [официальной документации]({{ pg-docs }}/static/pgcrypto.html).
 
 ## Примеры использования
 
@@ -128,5 +128,3 @@
         AS decrypted_ssn FROM tbl_asym_crypt
     CROSS JOIN (SELECT dearmor('<содержимое_файла_private.key>') AS privkey) AS keys;
     ```
-
-_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

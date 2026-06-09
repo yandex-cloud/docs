@@ -136,9 +136,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||
@@ -166,21 +163,3 @@ Set the output format: text (default), yaml, json, json-rest. ||
 Query to select values from the response using jq syntax ||
 || `-h`, `--help` | Display help for the command. ||
 |#
-#### Examples
-
- * [Изменить кластер GPU](../../../../../compute/operations/gpu-cluster/gpu-cluster-update.md#cli_1)
- * [Добавить виртуальную машину в группу размещения](../../../../../compute/operations/placement-groups/add-vm.md#cli_1)
- * [Исключить виртуальную машину из группы размещения](../../../../../compute/operations/placement-groups/delete-vm.md#cli_1)
- * [Привязать существующую ВМ к пулу](../../../../../compute/operations/reserved-pools/manage-pool-vms.md#cli_3)
- * [Подключиться к серийной консоли](../../../../../compute/operations/serial-console/connect-cli.md#linux%20c%20ssh-%d0%ba%d0%bb%d1%8e%d1%87%d0%be%d0%bc_1)
- * [Подключиться к серийной консоли](../../../../../compute/operations/serial-console/connect-ssh.md#%d0%a1%20ssh-%d0%ba%d0%bb%d1%8e%d1%87%d0%be%d0%bc_1)
- * [Включите нужный способ авторизации](../../../../../compute/operations/serial-console/index.md#ssh-%d0%ba%d0%bb%d1%8e%d1%87_1)
- * [К существующей ВМ](../../../../../compute/operations/vm-connect/auth-inside-vm.md#cli_1)
- * [Отключить доступ по OS Login](../../../../../compute/operations/vm-connect/enable-os-login.md#cli_1)
- * [К существующей ВМ](../../../../../compute/operations/vm-control/vm-connect-sa.md#cli_1)
- * [Измените тип политики обслуживания для ВМ](../../../../../compute/operations/vm-control/vm-update-policies.md)
- * [Изменить конфигурацию vCPU и RAM](../../../../../compute/operations/vm-control/vm-update-resources.md#cli_1)
- * [Изменить виртуальную машину](../../../../../compute/operations/vm-control/vm-update.md#cli_1)
- * [Сменить тип ВМ](../../../../../compute/operations/vm-create/create-preemptible-vm.md#cli_2)
- * [Настроить параметры сервиса метаданных ВМ](../../../../../compute/operations/vm-metadata/setup-metadata-service.md#cli_1)
- * [Включить доступ по OS Login](../../../../../compute/operations/vm-metadata/update-vm-metadata.md#cli_3)

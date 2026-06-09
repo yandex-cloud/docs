@@ -5,7 +5,7 @@ Creates desktop in the specified folder.
 ## HTTP request
 
 ```
-POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops
+POST https://clouddesktops.{{ api-host }}/cloud-desktop/v1/desktops
 ```
 
 ## Body parameters {#yandex.cloud.clouddesktop.v1.api.CreateDesktopRequest}
@@ -14,6 +14,9 @@ POST https://clouddesktops.api.cloud.yandex.net/cloud-desktop/v1/desktops
 {
   "desktopGroupId": "string",
   "subnetId": "string",
+  "name": "string",
+  "labels": "object",
+  "description": "string",
   "users": [
     {
       "subjectId": "string",
@@ -35,6 +38,21 @@ The maximum string length in characters is 50. ||
 ID of the subnet for desktop.
 
 The maximum string length in characters is 50. ||
+|| name | **string**
+
+Name of the desktop.
+
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9]) ```. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Desktop labels.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+Desktop description.
+
+The maximum string length in characters is 1024. ||
 || users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User)**
 
 List of users.
@@ -88,6 +106,8 @@ The maximum string length in characters is 100. ||
     "createdAt": "string",
     "status": "string",
     "name": "string",
+    "labels": "object",
+    "description": "string",
     "resources": {
       "memory": "string",
       "cores": "string",
@@ -104,8 +124,7 @@ The maximum string length in characters is 100. ||
         "subjectId": "string",
         "subjectType": "string"
       }
-    ],
-    "labels": "object"
+    ]
   }
   // end of the list of possible fields
 }
@@ -249,14 +268,21 @@ Status of the desktop.
 || name | **string**
 
 Name of the desktop. ||
-|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
-
-Resources of the desktop. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)** ||
-|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User2)** ||
 || labels | **object** (map<**string**, **string**>)
 
 Labels of the desktop. ||
+|| description | **string**
+
+Description of the desktop. ||
+|| resources | **[Resources](#yandex.cloud.clouddesktop.v1.api.Resources)**
+
+Resources of the desktop. ||
+|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.clouddesktop.v1.api.NetworkInterface)**
+
+Network interfaces of the desktop. ||
+|| users[] | **[User](#yandex.cloud.clouddesktop.v1.api.User2)**
+
+Users of the desktop. ||
 |#
 
 ## Resources {#yandex.cloud.clouddesktop.v1.api.Resources}
@@ -265,11 +291,19 @@ Labels of the desktop. ||
 ||Field | Description ||
 || memory | **string** (int64)
 
+The amount of memory available to the desktop, specified in bytes.
+
 The minimum value is 1. ||
 || cores | **string** (int64)
 
+The number of cores available to the desktop.
+
 The minimum value is 1. ||
 || coreFraction | **string** (int64)
+
+Baseline level of CPU performance with the ability to burst performance above that baseline level.
+This field sets baseline performance for each core.
+For example, if you need only 5% of the CPU performance, you can set core_fraction=5.
 
 Acceptable values are 0 to 100, inclusive. ||
 |#
@@ -280,12 +314,12 @@ Acceptable values are 0 to 100, inclusive. ||
 ||Field | Description ||
 || networkId | **string**
 
-Required field.
+Required field. ID of the network.
 
 The maximum string length in characters is 50. ||
 || subnetId | **string**
 
-Required field.
+Required field. ID of the subnet.
 
 The maximum string length in characters is 50. ||
 |#

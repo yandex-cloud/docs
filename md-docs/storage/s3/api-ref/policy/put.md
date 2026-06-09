@@ -28,7 +28,7 @@ PUT /{bucket}?policy HTTP/2
 
 ### Схема данных {#request-scheme}
 
-Данные передаются в формате JSON, подробнее читайте в разделе [Схема данных](scheme.md).
+Данные передаются в формате JSON, подробнее читайте в разделе [{#T}](scheme.md).
 
 ## Ответ {#response}
 
@@ -38,17 +38,17 @@ PUT /{bucket}?policy HTTP/2
 
 ### Коды ответов {#response-codes}
 
-Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 #### Связанные статьи {#related-articles}
 
-* [Политика доступа (bucket policy)](../../../concepts/policy.md)
+* [{#T}](../../../concepts/policy.md)
 
 * [Применение или изменение политики](../../../operations/buckets/policy.md#apply-policy)
 
 #### См. также {#see-also}
 
-* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+* [{#T}](../../s3-api-quickstart.md)
 
 * [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
 

@@ -1,8 +1,8 @@
 # Поля и аннотации ресурса Service
 
-Ресурс `Service` определяет [сервис Kubernetes](../../managed-kubernetes/concepts/index.md#service). Для Network Load Balancer для Managed Service for Kubernetes сервисы представляют собой балансировщики входящего трафика.
+Ресурс `Service` определяет [сервис {{ k8s }}](../../managed-kubernetes/concepts/index.md#service). Для {{ network-load-balancer-name }} для {{ managed-k8s-name }} сервисы представляют собой балансировщики входящего трафика.
 
-`Service` — стандартный ресурс Kubernetes. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются Network Load Balancer для Managed Service for Kubernetes. Полный справочник ресурса см. в [документации Kubernetes](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
+`Service` — стандартный ресурс {{ k8s }}. В этом справочнике описаны поля и аннотации ресурса, которые поддерживаются {{ network-load-balancer-name }} для {{ managed-k8s-name }}. Полный справочник ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 
 ## Service {#service}
 
@@ -61,7 +61,7 @@ annotations:
 || `name`        | `string`             | **Обязательное**
 [Имя ресурса](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names)
 
-Не соответствует имени балансировщика в Network Load Balancer ||
+Не соответствует имени балансировщика в {{ network-load-balancer-name }} ||
 || `annotations` | `map[string]string`  | [Аннотации ресурса](#annotations) ||
 |#
 
@@ -118,7 +118,7 @@ externalTrafficPolicy: <string>
 
 {% note warning %}
 
-Сервисы Kubernetes, используемые в качестве сетевых балансировщиков нагрузки, должны иметь тип `LoadBalancer`. Подробнее об этом типе см. в [документации Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
+Сервисы {{ k8s }}, используемые в качестве сетевых балансировщиков нагрузки, должны иметь тип `LoadBalancer`. Подробнее об этом типе см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer).
 
 {% endnote %}
 ||
@@ -139,9 +139,9 @@ externalTrafficPolicy: <string>
 
 ||
 
-|| `externalTrafficPolicy` | `string` | [Политика управления трафиком](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.25/#servicespec-v1-core):
+|| `externalTrafficPolicy` | `string` | [Политика управления трафиком]({{ k8s-api-link }}#servicespec-v1-core):
 
-* `Cluster` — трафик попадает на любой из узлов кластера Kubernetes. В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) на другой узел. Значение по умолчанию.
+* `Cluster` — трафик попадает на любой из узлов кластера {{ k8s }}. В случае отсутствия нужных подов на узле, трафик перенаправляется с помощью [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) на другой узел. Значение по умолчанию.
 * `Local` — трафик напрямую попадает на узлы, где запущены [контейнеры приложений](../../glossary/containerization.md#containers-apps). При этом:
 
   * Сохраняется IP-адрес запроса пользователя.
@@ -178,8 +178,8 @@ nodePort: <int32>
 
 Обычно поле не указывается, поэтому значение `nodePort` выбирается автоматически в указанном диапазоне.
 
-Однако вы можете указать нужный порт явно. Выбранный порт не должен использоваться другими объектами Kubernetes.
+Однако вы можете указать нужный порт явно. Выбранный порт не должен использоваться другими объектами {{ k8s }}.
 
-Диапазон значений: `30000-32767`.
+Диапазон значений: `{{ port-range-k8s-nodeport }}`.
 ||
 |#

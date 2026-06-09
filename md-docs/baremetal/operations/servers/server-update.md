@@ -4,20 +4,20 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
-  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать**.
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите изменения в конфигурацию сервера:
 
-      * (Опционально) В поле **Имя** измените имя сервера. Требования к имени:
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_name_dFuVW }}** измените имя сервера. Требования к имени:
 
           * длина — от 3 до 63 символов;
           * может содержать строчные буквы латинского алфавита, цифры и дефисы;
           * первый символ — буква, последний — не дефис.
 
-      * (Опционально) В поле **Описание** добавьте или измените описание сервера.
-      * (Опционально) В поле **Метки** добавьте или измените [метки](../../../resource-manager/concepts/labels.md) сервера.
-      * (Опционально) В блоке **Условия аренды** измените продолжительность периода аренды сервера.
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.field_description_f2tds }}** добавьте или измените описание сервера.
+      * (Опционально) В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** добавьте или измените [метки](../../../resource-manager/concepts/labels.md) сервера.
+      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-lease-conditions }}** измените продолжительность периода аренды сервера.
 
           {% note info %}
 
@@ -25,9 +25,9 @@
 
           {% endnote %}
       
-      * (Опционально) В блоках **Приватная сеть** и **Публичная сеть** измените [сетевые настройки](../../concepts/network.md) сервера.
+      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** измените [сетевые настройки](../../concepts/network.md) сервера.
 
-          Чтобы привязать к серверу [дополнительную приватную подсеть](../../concepts/private-network.md#tagged-vlan-subnet), в блоке **Приватная сеть** нажмите кнопку **Добавить дополнительную подсеть** и в появившемся поле выберите дополнительную подсеть или создайте новую.
+          Чтобы привязать к серверу [дополнительную приватную подсеть](../../concepts/private-network.md#tagged-vlan-subnet), в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** и в появившемся поле выберите дополнительную подсеть или создайте новую.
 
           {% note info %}
           
@@ -35,7 +35,7 @@
           
           {% endnote %}
 
-          Чтобы отвязать дополнительную подсеть от сервера, в блоке **Приватная сеть** нажмите значок ![trash-bin](../../../_assets/console-icons/trash-bin.svg) в строке с соответствующей дополнительной приватной подсетью.
+          Чтобы отвязать дополнительную подсеть от сервера, в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** нажмите значок ![trash-bin](../../../_assets/console-icons/trash-bin.svg) в строке с соответствующей дополнительной приватной подсетью.
 
           {% note warning %}
 
@@ -43,10 +43,10 @@
 
           {% endnote %}
 
-      * (Опционально) В поле **Объём данных** измените пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
+      * (Опционально) В поле **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** измените пакет [потребления трафика сервера](../../concepts/network-restrictions.md#bandwidth-for-pubic-network). Доступные пакеты потребления трафика:
 
-          * `10 ТБ в сутки, ёмкость подключения — 1 Гбит/с`;
-          * `100 ТБ в сутки, ёмкость подключения — 10 Гбит/с`.
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`;
+          * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan100Tb_4AB2b }}`.
 
           {% note info %}
 
@@ -56,11 +56,11 @@
 
           {% endnote %}
 
-  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save-changes }}**.
 
 - CLI {#cli}
 
-   Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+   Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
    По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 

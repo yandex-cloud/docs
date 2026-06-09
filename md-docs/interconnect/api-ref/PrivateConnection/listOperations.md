@@ -5,7 +5,7 @@ Lists operations for the specified PrivateConnection.
 ## HTTP request
 
 ```
-GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectionId}/operations
+GET https://cic.{{ api-host }}/cic/v1/privateConnections/{privateConnectionId}/operations
 ```
 
 ## Path parameters
@@ -14,7 +14,9 @@ GET https://cic.api.cloud.yandex.net/cic/v1/privateConnections/{privateConnectio
 ||Field | Description ||
 || privateConnectionId | **string**
 
-Required field. ID of the PrivateConnection resource. ||
+Required field. ID of the PrivateConnection resource.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.cic.v1.ListPrivateConnectionOperationsRequest}
@@ -26,11 +28,15 @@ Required field. ID of the PrivateConnection resource. ||
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse)
-that can be used to get the next page of results in subsequent list requests. Default value: 100. ||
+that can be used to get the next page of results in subsequent list requests. Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `pageToken` to the
-[ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request. ||
+[ListPrivateConnectionOperationsResponse.nextPageToken](#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.cic.v1.ListPrivateConnectionOperationsResponse}

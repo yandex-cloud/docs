@@ -1,6 +1,6 @@
 # Аудитный лог событий уровня конфигурации
 
-Аудитный лог [событий уровня конфигурации](events.md) — это запись о событиях, которые произошли с ресурсами Yandex Cloud, в форме JSON-объекта.
+Аудитный лог [событий уровня конфигурации](events.md) — это запись о событиях, которые произошли с ресурсами {{ yandex-cloud }}, в форме JSON-объекта.
 
 [Формат](#scheme) записей универсален для всех событий. Значения некоторых полей определяются ресурсом-источником и типом события.
 
@@ -8,7 +8,7 @@
 
 {% cut "Пример аудитного лога уровня конфигурации при создании ВМ" %}
 
-Если федеративный пользователь создаст в сервисе Yandex Compute Cloud ВМ, в аудитный лог попадет такая запись:
+Если федеративный пользователь создаст в сервисе {{ compute-full-name }} ВМ, в аудитный лог попадет такая запись:
 
 ```json
 {
@@ -171,7 +171,7 @@
 --- | ---
 `event_id` | **string**<br>Идентификатор события.
 `event_source` | **string**<br>Имя сервиса-источника события.
-`event_type` | **string**<br>Тип события. Определяется сервисом-источником события. Подробнее смотрите в разделе [Справочник событий уровня сервисов](events-data-plane.md).
+`event_type` | **string**<br>Тип события. Определяется сервисом-источником события. Подробнее смотрите в разделе [{#T}](events-data-plane.md).
 `event_time` | **string**<br>Время, в которое произошло событие.
 `authentication` ^1^ | **object**<br>Данные аутентификации субъекта события.
 `authentication.authenticated` | **boolean**<br>Результат аутентификации. Возможные значения:<ul><li>`true` — аутентификация успешна;</li><li>`false` — аутентификация неуспешна.</li>
@@ -180,7 +180,7 @@
 `authentication.subject_name` | **string**<br>Имя субъекта.
 `authentication.federation_id` ^2^ | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь.
 `authentication.federation_name` ^2^ | **string**<br>Имя федерации, в которой состоит федеративный пользователь.
-`authentication.federation_type` ^2^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами Yandex Cloud.</li></ul>
+`authentication.federation_type` ^2^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
 `authentication.token_info` ^1^ | **object**<br>Данные аутентификации субъекта события.
 `authentication.token_info.masked_iam_token` | **string**<br>Зашифрованное значение IAM-токена, с которым субъект выполнил запрос.
 `authentication.token_info.iam_token_id` | **string**<br>Идентификатор зашифрованного IAM-токена.
@@ -189,7 +189,7 @@
 `authentication.token_info.impersonator_name` | **string**<br>Имя субъекта-имперсонатора.
 `authentication.token_info.impersonator_federation_id` ^2^ | **string**<br>Идентификатор федерации, в которой состоит федеративный пользователь-имперсонатор.
 `authentication.token_info.impersonator_federation_name`&nbsp;^2^ | **string**<br>Имя федерации, в которой состоит федеративный пользователь-имперсонатор.
-`authentication.token_info.impersonator_federation_type`&nbsp;^2^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами Yandex Cloud.</li></ul>
+`authentication.token_info.impersonator_federation_type`&nbsp;^2^ | **string**<br>Тип федерации. Возможное значение:<ul><li>`PRIVATE_FEDERATION` — федерация, управляемая клиентами {{ yandex-cloud }}.</li></ul>
 `authorization` ^1^ | **object**<br>Данные авторизации субъекта события.
 `authorization.authorized` | **boolean**<br>Результат авторизации. Возможные значения:<ul><li>`true` — авторизация успешна;</li><li>`false` — авторизация неуспешна.</li>
 `resource_metadata` ^1^ | **object**<br>Метаданные объекта события.
@@ -212,7 +212,7 @@
 
 {% note info %}
 
-Если действие выполнил один из инфраструктурных сервисов Yandex Cloud или сотрудник поддержки, то в следующих полях будут указаны специальные значения:
+Если действие выполнил один из инфраструктурных сервисов {{ yandex-cloud }} или сотрудник поддержки, то в следующих полях будут указаны специальные значения:
 
 * `remote_address` — `cloud.yandex`
 * `user_agent` — `Yandex Cloud`
@@ -221,7 +221,7 @@
 
 ## Представление аудитного лога {#log-name}
 
-В зависимости от [объекта назначения](trail.md#target) — [бакет](../../storage/concepts/bucket.md), [лог-группа](../../logging/concepts/log-group.md) или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) — изменяется структура и содержимое сообщения, в составе которого Audit Trails передает объекту назначения аудитные логи:
+В зависимости от [объекта назначения](trail.md#target) — [бакет](../../storage/concepts/bucket.md), [лог-группа](../../logging/concepts/log-group.md) или [поток данных](../../data-streams/concepts/glossary.md#stream-concepts) — изменяется структура и содержимое сообщения, в составе которого {{ at-name }} передает объекту назначения аудитные логи:
 * для бакета — файл, в котором находится массив [JSON-объектов](#scheme) аудитного лога;
 * для лог-группы — сообщение, в котором находится только один JSON-объект аудитного лога;
 * для потока данных — сообщение, в котором находится один или несколько JSON-объектов в формате [JSON Lines](https://jsonlines.org/).
@@ -241,10 +241,10 @@
   * `ERROR` — для значения `ERROR`;
   * `WARN` — для значения `CANCELLED`;
   * `INFO` — в остальных случаях.
-* **Сообщение** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
+* **{{ ui-key.yacloud.logging.column_header-message }}** — содержит значения полей `event_status`, `event_type`, `subject_name`, `cloud_name`, `resource_name`.
 
-При загрузке в Cloud Logging события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
+При загрузке в {{ cloud-logging-name }} события в [лог-группе](../../logging/concepts/log-group.md) могут дублироваться. Чтобы найти дубли, ориентируйтесь на уникальный идентификатор записи `json_payload.event_id`.
 
 ### Сообщение в поток данных {#data-stream-message}
 
-В поток данных Data Streams события передаются в [сообщениях](../../data-streams/concepts/glossary.md#message) в виде JSON-объектов в формате JSON Lines. При этом каждое сообщение может содержать одно или несколько событий (строк JSONL).
+В поток данных {{ yds-name }} события передаются в [сообщениях](../../data-streams/concepts/glossary.md#message) в виде JSON-объектов в формате JSON Lines. При этом каждое сообщение может содержать одно или несколько событий (строк JSONL).

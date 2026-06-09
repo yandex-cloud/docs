@@ -10,21 +10,22 @@ Updates desktop image properties.
 
 ```json
 {
-  "image_id": "string",
   "update_mask": "google.protobuf.FieldMask",
+  "image_id": "string",
   "name": "string",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "description": "string"
 }
 ```
 
 #|
 ||Field | Description ||
-|| image_id | **string**
-
-Required field. Id of image to update. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Mask of fields that need to be update. ||
+|| image_id | **string**
+
+Required field. Id of image to update. ||
 || name | **string**
 
 New desktop image name.
@@ -34,7 +35,12 @@ The maximum string length in characters is 50. ||
 
 New desktop image labels.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| description | **string**
+
+New desktop image description.
+
+The maximum string length in characters is 1024. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -59,6 +65,7 @@ No more than 64 per resource. The maximum string length in characters for each v
     "status": "Status",
     "name": "string",
     "labels": "map<string, string>",
+    "description": "string",
     "storage_size": "int64",
     "min_disk_size": "int64"
   }
@@ -127,7 +134,7 @@ If `done == true`, exactly one of `error` or `response` is set. ||
 ||Field | Description ||
 || image_id | **string**
 
-Required field. ||
+Required field. ID of the image to update. ||
 |#
 
 ## DesktopImage {#yandex.cloud.clouddesktop.v1.api.DesktopImage}
@@ -156,6 +163,9 @@ Status of the image.
 
 Name of the image. ||
 || labels | **object** (map<**string**, **string**>)
+
+Description of the image. ||
+|| description | **string**
 
 Description of the image. ||
 || storage_size | **int64**

@@ -1,12 +1,12 @@
-# Yandex Cloud Stackland
+# {{ stackland-full-name }}
 
-Платформа контейнеризации с интегрированными PaaS‑сервисами Yandex Cloud. Объединяет все необходимые компоненты для централизованного управления микросервисными и ИИ‑приложениями.
+Платформа контейнеризации с интегрированными PaaS‑сервисами {{ yandex-cloud }}. Объединяет все необходимые компоненты для централизованного управления микросервисными и ИИ‑приложениями.
 
-Stackland базируется на Kubernetes®, что позволяет работать с привычными инструментами для управления микросервисными приложениями, а также управлять платформенными сервисами Yandex Cloud через Kubernetes API.
+Stackland базируется на Kubernetes®, что позволяет работать с привычными инструментами для управления микросервисными приложениями, а также управлять платформенными сервисами {{ yandex-cloud }} через Kubernetes API.
 
-В платформу интегрированы объектное хранилище, Managed Service for PostgreSQL, Managed Service for ClickHouse®, Managed Service for Apache Kafka®, а также готовый инструментарий для обеспечения приложений доступом к графическим ускорителям и высокопроизводительным сетям для задач распределенного инференса. Запланирована интеграция баз данных с поддержкой векторного поиска для RAG-сценариев.
+В платформу интегрированы объектное хранилище, {{ mpg-name }}, {{ mch-name }}, {{ mkf-name }}, а также готовый инструментарий для обеспечения приложений доступом к графическим ускорителям и высокопроизводительным сетям для задач распределенного инференса. Запланирована интеграция баз данных с поддержкой векторного поиска для RAG-сценариев.
 
-Платформа позволит быстро развернуть в закрытом контуре AI Studio для разработки AI-приложений и агентов, а также SpeechSense для речевой аналитики и BI-систему DataLens.
+Платформа позволит быстро развернуть в закрытом контуре {{ foundation-models-name }} для разработки AI-приложений и агентов, а также {{ speechsense-name }} для речевой аналитики и BI-систему {{ datalens-name }}.
 
 # Yandex Cloud Stackland
 
@@ -19,6 +19,10 @@ Stackland базируется на Kubernetes®, что позволяет ра
  - [Все руководства](tutorials/index.md)
 
  - [Установить Stackland на Yandex BareMetal](tutorials/install-on-yc-bms.md)
+
+ - [Установка {{ stackland-name }} на {{ baremetal-full-name }} через PXE](tutorials/install-on-yc-bms-pxe.md)
+
+ - [Установка {{ stackland-name }} на виртуальные машины в {{ yandex-cloud }}](tutorials/install-on-yc-vm.md)
 
  - [Настройка внешнего доступа к поду в кластере](tutorials/expose-app-domain.md)
 
@@ -40,7 +44,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
 #### Managed Service for PostgreSQL
 
- - [Создать кластер PostgreSQL](operations/postgresql/create-cluster.md)
+ - [Создать кластер {{ PG }}](operations/postgresql/create-cluster.md)
 
  - [Изменить настройки кластера](operations/postgresql/edit-cluster.md)
 
@@ -54,7 +58,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
 #### Managed Service for ClickHouse®
 
- - [Создать кластер ClickHouse®](operations/clickhouse/create-cluster.md)
+ - [Создать кластер {{ CH }}](operations/clickhouse/create-cluster.md)
 
  - [Изменить настройки кластера](operations/clickhouse/edit-cluster.md)
 
@@ -146,9 +150,19 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Отключить](operations/speechsense/disable.md)
 
+### Secrets Store
+
+ - [Инъекция секретов в переменные окружения](operations/secrets-store/inject-secrets-env.md)
+
+ - [Инъекция секретов через ConfigMap](operations/secrets-store/inject-secrets-configmap.md)
+
+ - [Диагностика Secrets Store](operations/secrets-store/troubleshooting.md)
+
 ### Дисковая подсистема
 
  - [Диагностика дисковой подсистемы](operations/disk-storage/troubleshooting.md)
+
+ - [Переключить класс хранилища компонента](operations/disk-storage/change-storage-class.md)
 
 ### Управление кластером
 
@@ -178,7 +192,7 @@ Stackland базируется на Kubernetes®, что позволяет ра
 
  - [Managed Service for ClickHouse®](concepts/components/clickhouse.md)
 
- - [DataLens](concepts/components/datalens.md)
+ - [{{ datalens-name }}](concepts/components/datalens.md)
 
  - [Monitoring](concepts/components/monitoring.md)
 

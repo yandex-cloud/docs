@@ -1,34 +1,34 @@
 # Обработка потока изменений Debezium
 
-[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью Yandex Data Streams можно захватывать эти изменения, а с помощью Yandex Query выполнять их обработку. Обработанные данные можно:
+[Debezium](https://debezium.io) — это сервис для захвата изменений в базах данных и отправки их на обработку в другие системы. С помощью {{ yds-full-name }} можно захватывать эти изменения, а с помощью {{ yq-full-name }} выполнять их обработку. Обработанные данные можно:
 
-* отправить в Yandex Monitoring для построения графика и алертинга;
-* записать в поток Data Streams и далее отправить на обработку в Yandex Cloud Functions;
-* записать в поток Data Streams и далее передать в Yandex Data Transfer [для отправки в различные системы хранения](data-ingestion.md).
+* отправить в {{ monitoring-full-name }} для построения графика и алертинга;
+* записать в поток {{ yds-short-name }} и далее отправить на обработку в {{ sf-full-name }};
+* записать в поток {{ yds-short-name }} и далее передать в {{ data-transfer-full-name }} [для отправки в различные системы хранения](data-ingestion.md).
 
 ![debezium-architecture](../../_assets/query/debezium-architecture.png)
 
-В этом сценарии вы отправите изменения базы данных [PostgreSQL](https://www.postgresql.org/) в поток Data Streams с помощью Debezium, а затем выполните к ним запрос с помощью Query. В результате выполнения запроса вы получите количество изменений в таблицах БД, сгруппированное по интервалам продолжительностью 10 секунд. Рассматривается установка Debezium на сервер, где уже установлена и запущена PostgreSQL.
+В этом сценарии вы отправите изменения базы данных [{{ PG }}](https://www.postgresql.org/) в поток {{ yds-short-name }} с помощью Debezium, а затем выполните к ним запрос с помощью {{ yq-name }}. В результате выполнения запроса вы получите количество изменений в таблицах БД, сгруппированное по интервалам продолжительностью 10 секунд. Рассматривается установка Debezium на сервер, где уже установлена и запущена {{ PG }}.
 
 Для выполнения сценария:
 
-1. [Создайте поток данных Data Streams](#create-yds-stream).
+1. [Создайте поток данных {{ yds-name }}](#create-yds-stream).
 1. [Настройте реквизиты подключения к потоку](#credentials).
 1. [Настройте Debezium Server](#debezium-server).
-1. [Подключите Query к потоку данных](#connect-query).
+1. [Подключите {{ yq-name }} к потоку данных](#connect-query).
 1. [Выполните запрос к данным](#query).
 
 ## Перед началом работы {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
-## Создайте поток данных Data Streams {#create-yds-stream}
+## Создайте поток данных {{ yds-name }} {#create-yds-stream}
 
 [Создайте поток данных](../operations/manage-streams.md#create-data-stream) c именем `debezium`.
 
@@ -36,7 +36,7 @@
 
 1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему роль `editor` на ваш каталог.
 1. [Создайте](../../iam/operations/authentication/manage-access-keys.md#create-access-key) статический ключ доступа.
-1. На сервере, где уже установлена и запущена PostgreSQL, настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
+1. На сервере, где уже установлена и запущена {{ PG }}, настройте [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html):
     1. [Установите AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) и выполните команду:
 
         ```bash
@@ -47,7 +47,7 @@
 
         * `AWS Access Key ID [None]:` — [идентификатор ключа](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
         * `AWS Secret Access Key [None]:` — [секретный ключ](../../iam/concepts/authorization/access-key.md) сервисного аккаунта.
-        * `Default region name [None]:` — зону доступности `ru-central1`.
+        * `Default region name [None]:` — зону доступности `{{ region-id }}`.
 
 ## Настройте Debezium Server {#debezium-server}
 
@@ -58,7 +58,7 @@
 
     ```text
     debezium.sink.type=kinesis
-    debezium.sink.kinesis.region=ru-central1
+    debezium.sink.kinesis.region={{ region-id }}
     debezium.sink.kinesis.endpoint=<эндпоинт>
     debezium.source.connector.class=io.debezium.connector.postgresql.PostgresConnector
     debezium.source.offset.storage.file.filename=data/offsets.dat
@@ -79,11 +79,11 @@
 
     Где:
 
-    * `<эндпоинт>` — эндпоинт потока данных Data Streams, например, `https://yds.serverless.yandexcloud.net/ru-central1/b1g89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [Посмотреть список потоков](../operations/manage-streams.md#list-data-streams)).
-    * `<поток_данных>` — название потока данных Data Streams.
-    * `<имя_БД>` — название базы данных PostgreSQL.
-    * `<имя_пользователя>` — имя пользователя для подключения к базе данных PostgreSQL.
-    * `<пароль_пользователя>` — пароль пользователя для подключения к базе данных PostgreSQL.
+    * `<эндпоинт>` — эндпоинт потока данных {{ yds-short-name }}, например, `https://yds.serverless.yandexcloud.net/{{ region-id }}/b1g89ae43m6he********/etn01eg4rn1********`. Эндпоинт можно посмотреть на странице потока (см. [{#T}](../operations/manage-streams.md#list-data-streams)).
+    * `<поток_данных>` — название потока данных {{ yds-short-name }}.
+    * `<имя_БД>` — название базы данных {{ PG }}.
+    * `<имя_пользователя>` — имя пользователя для подключения к базе данных {{ PG }}.
+    * `<пароль_пользователя>` — пароль пользователя для подключения к базе данных {{ PG }}.
 1. Запустите Debezium следующей командой:
 
     ```bash
@@ -97,18 +97,18 @@
     2022-02-11 07:31:12,850 INFO  [io.deb.con.com.BaseSourceTask] (pool-7-thread-1) 1 records sent during previous 00:19:59.999, last recorded offset: {transaction_id=null, lsn_proc=23576408, lsn_commit=23576120, lsn=23576408, txId=580, ts_usec=1644564672582666}
     ```
 
-## Подключите Query к потоку данных {#connect-query}
+## Подключите {{ yq-name }} к потоку данных {#connect-query}
 
-1. [Создайте соединение](../../query/operations/connection.md#create) с именем `yds-connection` и типом `Data Streams`.
+1. [Создайте соединение](../../query/operations/connection.md#create) с именем `yds-connection` и типом `{{ ui-key.yql.yq-connection.action_datastreams }}`.
 1. На странице создания привязки:
     * Введите имя привязки `debezium`.
     * Укажите поток данных `cdebezium`.
     * Добавьте колонку `data` с типом `JSON`.
-1. Нажмите кнопку **Создать**.
+1. Нажмите кнопку **{{ ui-key.yql.yq-connection-form.create.button-text }}**.
 
 ## Выполните запрос к данным {#query}
 
-В редакторе запросов в интерфейсе Query выполните следующий запрос:
+В редакторе запросов в интерфейсе {{ yq-name }} выполните следующий запрос:
 
 ```sql
 $debezium_data = 
@@ -136,4 +136,4 @@ LIMIT 2;
 
 ## См. также {#see-also}
 
-* [Чтение данных из Data Streams с помощью соединений в Query](../../query/sources-and-sinks/data-streams.md).
+* [{#T}](../../query/sources-and-sinks/data-streams.md).

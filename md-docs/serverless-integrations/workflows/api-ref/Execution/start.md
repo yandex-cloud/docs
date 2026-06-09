@@ -5,7 +5,7 @@ Starts new Workflow execution.
 ## HTTP request
 
 ```
-POST https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/start
+POST https://serverless-workflows.{{ api-host }}/workflows/v1/execution/start
 ```
 
 ## Body parameters {#yandex.cloud.serverless.workflows.v1.StartExecutionRequest}
@@ -114,7 +114,7 @@ ID of the Workflow execution. ||
 ## HTTP request
 
 ```
-POST https://serverless-workflows.api.cloud.yandex.net/workflows/v1/execution/{workflowId}/start
+POST https://serverless-workflows.{{ api-host }}/workflows/v1/execution/{workflowId}/start
 ```
 
 ## Path parameters

@@ -4,7 +4,7 @@
 
 {% note info %}
 
-В терминологии Yandex Cloud для логической маркировки ресурсов используется понятие _метка_ (_label_). Object Storage поддерживает совместимость с [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html), поэтому в командах для [AWS CLI](../../tools/aws-cli.md) и в параметрах [API](../../s3/index.md) применяется термин AWS — _тег_ (_tag_).
+В терминологии {{ yandex-cloud }} для логической маркировки ресурсов используется понятие _метка_ (_label_). {{ objstorage-name }} поддерживает совместимость с [Amazon S3 API](https://docs.aws.amazon.com/AmazonS3/latest/API/Welcome.html), поэтому в командах для [AWS CLI](../../tools/aws-cli.md) и в параметрах [API](../../s3/index.md) применяется термин AWS — _тег_ (_tag_).
 
 {% endnote %}
 
@@ -14,10 +14,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
   1. Нажмите на кнопку **Добавить метку**.
   1. Через двоеточие введите ключ и значение метки (ключ:значение).
@@ -27,9 +27,9 @@
   1. Нажмите на кнопку **Добавить метку**.
   1. Введите ключ метки, которую вы хотите изменить, и новое значение.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -90,7 +90,7 @@
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
     --tagging 'TagSet=[{Key=<ключ_метки>,Value=<значение_метки>},{Key=<ключ_метки>,Value=<значение_метки>}]' \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   Где:
@@ -99,20 +99,23 @@
   * `--tagging` — массив меток объекта, где:
     * `Key` — ключ метки, тип: `string`.
     * `Value` — значение метки, тип: `string`.
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
 
-  1. Откройте файл конфигурации Terraform и добавьте блок `tags` во фрагмент с описанием объекта:
+  1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием объекта:
 
       ```hcl
       resource "yandex_storage_object" "test-object" {
@@ -130,7 +133,7 @@
 
       Где `tags` — массив меток объекта в формате `<ключ> = "<значение>"`.
       
-      Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform, см. в [документации провайдера](../../../terraform/resources/storage_object.md).
+      Более подробную информацию о параметрах ресурса `yandex_storage_object` в Terraform, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
   1. Примените изменения:
 
@@ -153,7 +156,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash
@@ -178,16 +181,16 @@
 
   Вы можете посмотреть метки в списке объектов бакета и на странице отдельного объекта.
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
 
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -248,13 +251,13 @@
   aws s3api get-object-tagging \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   Где:
   * `--bucket` — имя бакета.
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
   Результат:
 
@@ -285,16 +288,16 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
-  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите нужный бакет из списка.
-  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
   1. Нажмите на имя нужного объекта.
   1. Нажмите на крестик рядом с меткой, которую вы хотите удалить.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -350,21 +353,24 @@
   aws s3api delete-object-tagging \
     --bucket <имя_бакета> \
     --key <ключ_объекта> \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
   Где:
   * `--bucket` — имя бакета.
   * `--key` — [ключ](../../concepts/object.md#key) объекта в бакете.
-  * `--endpoint-url` — эндпоинт Object Storage.
+  * `--endpoint-url` — эндпоинт {{ objstorage-name }}.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../../terraform/authentication.md) соответствующим способом.
 
-  1. Откройте файл конфигураций Terraform и удалите блок `tags` из фрагмента с описанием объекта.
+  1. Откройте файл конфигураций {{ TF }} и удалите блок `tags` из фрагмента с описанием объекта.
 
-     {% cut "Пример описания тегов объекта в конфигурации Terraform" %}
+     {% cut "Пример описания тегов объекта в конфигурации {{ TF }}" %}
 
      ```hcl
       resource "yandex_storage_object" "test-object" {
@@ -400,7 +406,7 @@
          terraform plan
          ```
       
-         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
       1. Примените изменения конфигурации:
       
          ```bash

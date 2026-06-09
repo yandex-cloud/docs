@@ -29,85 +29,46 @@ description: Из статьи вы узнаете, как создать пол
 
 {% include [access-policies-assign-org](../../../_includes/iam/access-policies-assign-org.md) %}
 
-Все шаблоны политик авторизации [без дополнительных параметров](../../concepts/access-control/access-policies.md#fixed) назначаются на ресурсы одинаково. О том, как назначить на ресурс шаблон политики [с дополнительными параметрами](../../concepts/access-control/access-policies.md#customizable), читайте в разделе [{#T}](#examples).
+Все шаблоны политик авторизации [без параметров](../../concepts/access-control/access-policies.md#fixed) назначаются на ресурсы одинаково. О том, как назначить на ресурс шаблон политики [с параметрами](../../concepts/access-control/access-policies.md#customizable), читайте в разделе [{#T}](#examples).
 
 ## Примеры {#examples}
 
-### Создать политику serverless.restrictPrivateNetworkInvocation для каталога {#serverless-restrictPrivateNetworkInvocation}
+### Создать политику авторизации для каталога на основе шаблона serverless.containers.restrictNetworkAccess {#serverless-containers-restrictNetworkAccess}
 
-[Политика](../../concepts/access-control/access-policies.md#serverless-restrictPrivateNetworkInvocation) `serverless.restrictPrivateNetworkInvocation` ограничивает возможность вызова [функций](../../../functions/concepts/function.md) и [контейнеров](../../../serverless-containers/concepts/container.md) с [внутренних IP-адресов](../../../vpc/concepts/address.md#internal-addresses) {{ vpc-full-name }} заданными явно [облачными сетями](../../../vpc/concepts/network.md#network) или определенными IP-адресами в них.
+[Политика](../../concepts/access-control/access-policies.md#serverless-containers-restrictNetworkAccess) `serverless.containers.restrictNetworkAccess` запрещает вызов [контейнеров](../../../serverless-containers/concepts/container.md) {{ serverless-containers-full-name }} и управление ими с любых адресов, за исключением заданных явно IP-адресов или [облачных сетей](../../../vpc/concepts/network.md#network) {{ vpc-full-name }}.
 
-{% include [access-policies-private-endpoint-notice](../../../_includes/iam/access-policies-private-endpoint-notice.md) %}
-
-Чтобы назначить шаблон политики `serverless.restrictPrivateNetworkInvocation` на каталог:
+Чтобы назначить шаблон политики `serverless.containers.restrictNetworkAccess` на каталог:
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
 
-  **Без ограничения по IP-адресам**
-
   ```bash
   yc resource-manager folder bind-access-policy \
-    --name "my-folder" \
-    --access-policy-template-id=serverless.restrictPrivateNetworkInvocation \
-    --parameters '"allowed_vpc_network_ids=[<идентификатор_сети_1>,<идентификатор_сети_2>,<идентификатор_сети_3>]","src_ip_restricted_network_ids=[]","allowed_src_ips=[]"'
-  ```
-
-  Где `allowed_vpc_network_ids` — список идентификаторов облачных сетей, из которых разрешен вызов функций и контейнеров. Вызов функций и контейнеров будет разрешен с любых IP-адресов в [подсетях](../../../vpc/concepts/network.md#subnet), входящих в указанные облачные сети. При этом к функции/контейнеру должна быть привязана облачная сеть, входящая в указанный список.
-
-  Для параметра можно передать нулевое значение — в этом случае необходимо задать ограничение по IP-адресам в параметрах `src_ip_restricted_network_ids` и `allowed_src_ips`.
-
-  В результате применения политики в каталоге `my-folder` с внутренних IP-адресов можно будет вызывать только те функции/контейнеры, к которым привязаны облачные сети с идентификаторами `<идентификатор_сети_1>`, `<идентификатор_сети_2>` и `<идентификатор_сети_3>`, и только с IP-адресов подсетей, относящихся к этим облачным сетям.
-
-  **С ограничением по IP-адресам**
-
-  ```bash
-  yc resource-manager folder bind-access-policy \
-    --name "my-folder" \
-    --access-policy-template-id=serverless.restrictPrivateNetworkInvocation \
-    --parameters '"allowed_vpc_network_ids=[]","src_ip_restricted_network_ids=[<идентификатор_сети_1>,<идентификатор_сети_2>,<идентификатор_сети_3>]","allowed_src_ips=[10.1.2.0/24,172.16.17.0/28,192.168.1.2/32]"'
+    --name my-folder \
+    --access-policy-template-id=serverless.containers.restrictNetworkAccess \
+    --parameters '"allowed_src_ips=[<диапазон_адресов_1>,<диапазон_адресов_2>,<диапазон_адресов_3>]","allowed_vpc_network_ids=[<идентификатор_сети_1>,<идентификатор_сети_2>,<идентификатор_сети_3>]"'
   ```
 
   Где:
+  
+  * `--parameters` — параметры политики авторизации:
 
-  * `src_ip_restricted_network_ids` — список идентификаторов облачных сетей, из которых возможен вызов функций и контейнеров, с дополнительным ограничением разрешенных IP-адресов. Вызов функций и контейнеров будет разрешен с конкретных IP-адресов, входящих в указанные облачные сети и явно заданных в параметре `allowed_src_ips`. При этом к функции/контейнеру должна быть привязана облачная сеть, входящая в указанный список.
-  * `allowed_src_ips` — список внутренних IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и контейнеров.
+      {% note alert %}
 
-      Указанные IP-адреса должны принадлежать облачным сетям, заданным в параметре `src_ip_restricted_network_ids`.
+      Ограничения, задаваемые в параметрах, применяются с логикой `ИЛИ`. 
 
-  В результате применения политики в каталоге `my-folder` с внутренних IP-адресов можно будет вызывать только те функции/контейнеры, к которым привязаны облачные сети с идентификаторами `<идентификатор_сети_1>`, `<идентификатор_сети_2>` и `<идентификатор_сети_3>`, и только с IP-адресов, относящихся одновременно к этим облачным сетям и к диапазонам `10.1.2.0/24`, `172.16.17.0/28` и `192.168.1.2/32`.
+      {% endnote %}
 
-{% endlist %}
+      * `allowed_src_ips` — список IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых будет разрешен вызов контейнеров и управление ими.
 
-{% note info %}
+          Если вы не хотите задавать список IP-адресов или диапазонов IP-адресов, передайте в параметре пустой список: `"allowed_src_ips=[]"`.
+      * `allowed_vpc_network_ids` — список идентификаторов [облачных сетей](../../../vpc/concepts/network.md#network), в которых разрешен вызов контейнеров и управление ими через настроенное [сервисное подключение](../../../vpc/concepts/private-endpoint.md).
 
-Если параметр `allowed_vpc_network_ids` имеет ненулевое значение, то список IP-адресов, заданный параметрами `src_ip_restricted_network_ids` и `allowed_src_ips`, будет проигнорирован.
-
-{% endnote %}
-
-### Создать политику serverless.restrictPublicInvocation для каталога {#serverless-restrictPublicInvocation}
-
-[Политика](../../concepts/access-control/access-policies.md#serverless-restrictPublicInvocation) `serverless.restrictPublicInvocation` ограничивает возможность вызова [функций](../../../functions/concepts/function.md) и [контейнеров](../../../serverless-containers/concepts/container.md) с [публичных IP-адресов](../../../vpc/concepts/address.md#internal-addresses).
-
-Чтобы назначить шаблон политики `serverless.restrictPublicInvocation` на каталог:
-
-{% list tabs group=instructions %}
-
-- CLI {#cli}
-
-  ```bash
-  yc resource-manager folder bind-access-policy \
-    --name "my-folder" \
-    --access-policy-template-id=serverless.restrictPublicInvocation \
-    --parameters '"allowed_src_ips=[198.51.100.104/29,192.0.2.4/30]"'
-  ```
-
-  Где `allowed_src_ip` — список публичных IP-адресов или диапазонов IP-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), с которых разрешен вызов функций и контейнеров.
-
-  В результате применения политики в каталоге `my-folder` с использованием публичных IP-адресов функции/контейнеры можно будет вызывать только с IP-адресов, относящихся к диапазонам `198.51.100.104/29` и `192.0.2.4/30`.
+          Если вы не хотите задавать список идентификаторов облачных сетей, передайте в параметре пустой список: `"allowed_vpc_network_ids=[]"`.
 
 {% endlist %}
+
 
 #### См. также {#see-also}
 

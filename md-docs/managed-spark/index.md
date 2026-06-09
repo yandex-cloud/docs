@@ -1,12 +1,6 @@
-# Yandex Managed Service for Apache Spark™
 
-Сервис Yandex Managed Service for Apache Spark™ помогает разворачивать кластеры Apache Spark™ в инфраструктуре Yandex Cloud и позволяет запускать задания Spark.
 
-Инфраструктура Yandex Cloud <a href="../security/conform.md">защищена</a> в соответствии со следующими стандартами: <ul> <li>Федеральный закон Российской Федерации «О персональных данных» № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li> <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
-
-<em>Apache<sup>®</sup> и Apache Spark<sup>™</sup> являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах.</em>
-
-# Yandex Managed Service for Apache Spark™
+# {{ msp-full-name }}
 
  - [Начало работы](quickstart.md)
 
@@ -24,7 +18,7 @@
 
  - [Изменение кластера](operations/cluster-update.md)
 
- - [Обновление версии Apache Spark™](operations/cluster-version-update.md)
+ - [Обновление версии {{ SPRK }}](operations/cluster-version-update.md)
 
  - [Техническое обслуживание](operations/cluster-maintenance.md)
 
@@ -56,19 +50,19 @@
 
  - [Все руководства](tutorials/index.md)
 
- - [Работа с Yandex Object Storage с использованием локального каталога Hive](tutorials/spark-objstorage-integration.md)
+ - [Работа с {{ objstorage-full-name }} с использованием локального каталога Hive](tutorials/spark-objstorage-integration.md)
 
- - [Работа с Yandex Object Storage с использованием кластера Apache Hive™ Metastore](tutorials/metastore-and-spark.md)
+ - [Работа с {{ objstorage-full-name }} с использованием кластера {{ metastore-full-name }}](tutorials/metastore-and-spark.md)
 
- - [Работа с таблицей формата Apache Iceberg™ из PySpark-задания](tutorials/spark-simple-rw-job.md)
+ - [Работа с таблицей формата {{ IBRG }} из PySpark-задания](tutorials/spark-simple-rw-job.md)
 
- - [Запуск PySpark-задания с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-spark-min.md)
+ - [Запуск PySpark-задания с помощью {{ maf-full-name }}](tutorials/airflow-spark-min.md)
 
- - [Использование секрета Yandex Lockbox в PySpark-задании для подключения к Yandex Managed Service for PostgreSQL](tutorials/job-pyspark-secret-access.md)
+ - [Использование секрета {{ lockbox-name }} в PySpark-задании для подключения к {{ mpg-full-name }}](tutorials/job-pyspark-secret-access.md)
 
- - [Автоматизация работы с помощью Yandex Managed Service for Apache Airflow™](tutorials/airflow-automation.md)
+ - [Автоматизация работы с помощью {{ maf-full-name }}](tutorials/airflow-automation.md)
 
- - [Интеграция с DataSphere](tutorials/spark-and-datasphere.md)
+ - [Интеграция с {{ ml-platform-name }}](tutorials/spark-and-datasphere.md)
 
 ## Концепции
 
@@ -82,15 +76,15 @@
 
  - [Автоматическое масштабирование](concepts/autoscaling.md)
 
- - [Свойства Apache Spark™](concepts/spark-properties.md)
+ - [Свойства {{ SPRK }}](concepts/spark-properties.md)
 
  - [Управление доступом](security.md)
 
  - [Правила тарификации](pricing.md)
 
- - [Метрики Yandex Monitoring](metrics.md)
+ - [Метрики {{ monitoring-full-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
 ## Справочник CLI (англ.)
 
@@ -192,7 +186,7 @@
 
  - [log](cli-ref/v0/job/log.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API
 

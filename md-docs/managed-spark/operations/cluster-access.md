@@ -1,4 +1,4 @@
-# Управление доступом к кластеру Managed Service for Apache Spark™
+# Управление доступом к кластеру {{ msp-name }}
 
 Вы можете предоставить пользователю или сервисному аккаунту [роль](../security.md) для доступа к конкретному [кластеру](../concepts/index.md).
 
@@ -11,20 +11,20 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Получите список кластеров в [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию, выполнив команду:
 
       ```bash
-      yc managed-spark cluster list
+      {{ yc-mdb-sp }} cluster list
       ```
 
   1. Получите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      yc managed-spark cluster list-access-bindings <имя_или_идентификатор_кластера>
+      {{ yc-mdb-sp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - gRPC API {#grpc-api}
@@ -42,7 +42,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.ListAccessBindings](../api-ref/grpc/Cluster/listAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -54,7 +54,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.ListAccessBindings
       ```
 
@@ -69,20 +69,20 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите описание команды CLI для назначения роли на кластер:
 
       ```bash
-      yc managed-spark cluster add-access-binding --help
+      {{ yc-mdb-sp }} cluster add-access-binding --help
       ```
 
   1. Назначьте роль, выполнив команду:
 
       ```bash
-      yc managed-spark cluster add-access-binding <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-sp }} cluster add-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -100,8 +100,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -117,7 +117,7 @@
   1. Проверьте список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      yc managed-spark cluster list-access-bindings <имя_или_идентификатор_кластера>
+      {{ yc-mdb-sp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - gRPC API {#grpc-api}
@@ -135,7 +135,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -159,7 +159,7 @@
                 }
               ]
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -172,8 +172,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -196,7 +196,7 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -209,19 +209,19 @@
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      yc managed-spark cluster list-access-bindings <имя_или_идентификатор_кластера>
+      {{ yc-mdb-sp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
   1. Посмотрите описание команды CLI для назначения ролей на кластер:
 
       ```bash
-      yc managed-spark cluster set-access-bindings --help
+      {{ yc-mdb-sp }} cluster set-access-bindings --help
       ```
 
   1. Назначьте роли, выполнив команду:
 
       ```bash
-      yc managed-spark cluster set-access-bindings <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-sp }} cluster set-access-bindings <имя_или_идентификатор_кластера> \
         --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта_1> \
         --access-binding role=<роль>,subject=<тип_субъекта>:<идентификатор_субъекта_2>
       ```
@@ -239,8 +239,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -274,7 +274,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.SetAccessBindings](../api-ref/grpc/Cluster/setAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -310,7 +310,7 @@
                 }
               ]
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.SetAccessBindings
       ```
 
@@ -323,8 +323,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -347,25 +347,25 @@
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
   1. Посмотрите список ролей, назначенных на кластер, выполнив команду:
 
       ```bash
-      yc managed-spark cluster list-access-bindings <имя_или_идентификатор_кластера>
+      {{ yc-mdb-sp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
   1. Посмотрите описание команды CLI для отзыва роли на кластер:
 
       ```bash
-      yc managed-spark cluster remove-access-binding --help
+      {{ yc-mdb-sp }} cluster remove-access-binding --help
       ```
   1. Отзовите роль, выполнив команду:
 
       ```bash
-      yc managed-spark cluster remove-access-binding <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-sp }} cluster remove-access-binding <имя_или_идентификатор_кластера> \
         --role <роль> \
         --subject <тип_субъекта>:<идентификатор_субъекта>
       ```
@@ -383,8 +383,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -412,7 +412,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.UpdateAccessBindings](../api-ref/grpc/Cluster/updateAccessBindings.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -436,7 +436,7 @@
                 }
               ]
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -449,8 +449,8 @@
 
           Допустимые типы субъектов:
           
-          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в Yandex Cloud, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
-          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в Yandex Cloud.
+          * `userAccount` — [аккаунт на Яндексе](../../iam/concepts/users/accounts.md#passport), добавленный в {{ yandex-cloud }}, или аккаунт из [пула пользователей](../../organization/concepts/user-pools.md).
+          * `serviceAccount` — [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), созданный в {{ yandex-cloud }}.
           * `federatedUser` — аккаунт пользователя [федерации удостоверений](../../organization/concepts/add-federation.md).
           * `system` — [публичная группа](../../iam/concepts/access-control/public-group.md) пользователей.
           
@@ -471,7 +471,7 @@
 
 ### Добавить сервисному аккаунту доступ к управлению кластером {#sa-cluster-control}
 
-Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах Managed Service for Apache Spark™ в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-spark.viewer` на каталог и роль `managed-spark.editor` на этот кластер:
+Чтобы сервисный аккаунт мог просматривать информацию обо всех кластерах {{ msp-name }} в каталоге, но изменять ресурсы только конкретного кластера, выдайте ему роль `managed-spark.viewer` на каталог и роль `managed-spark.editor` на этот кластер:
 
 {% list tabs group=instructions %}
 
@@ -488,14 +488,14 @@
   1. Назначьте роли на кластер:
 
       ```bash
-      yc managed-spark cluster add-access-bindings <имя_или_идентификатор_кластера> \
+      {{ yc-mdb-sp }} cluster add-access-bindings <имя_или_идентификатор_кластера> \
         --access-binding role=managed-spark.editor,subject=serviceAccount:<идентификатор_сервисного_аккаунта>
       ```
 
   1. Проверьте список ролей, назначенных на кластер:
 
       ```bash
-      yc managed-spark cluster list-access-bindings <имя_или_идентификатор_кластера>
+      {{ yc-mdb-sp }} cluster list-access-bindings <имя_или_идентификатор_кластера>
       ```
 
 - gRPC API {#grpc-api}
@@ -537,7 +537,7 @@
                 }
               ]
             }' \
-        resource-manager.api.cloud.yandex.net:443 \
+        resource-manager.{{ api-host }}:443 \
         yandex.cloud.resourcemanager.v1.FolderService.UpdateAccessBindings
       ```
 
@@ -567,7 +567,7 @@
                 }
               ]
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.UpdateAccessBindings
       ```
 
@@ -585,7 +585,7 @@
         -d '{
               "resource_id": "<идентификатор_каталога>"
             }' \
-        resource-manager.api.cloud.yandex.net:443 \
+        resource-manager.{{ api-host }}:443 \
         yandex.cloud.resourcemanager.v1.FolderService.ListAccessBindings
       ```
 
@@ -601,7 +601,7 @@
         -d '{
               "resource_id": "<идентификатор_кластера>"
             }' \
-        spark.api.cloud.yandex.net:443 \
+        {{ api-host-spark }}:{{ port-https }} \
        yandex.cloud.spark.v1.ClusterService.ListAccessBindings
       ```
 

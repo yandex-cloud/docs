@@ -5,7 +5,7 @@ Returns the specified quota limit.
 ## HTTP request
 
 ```
-GET https://quota-manager.api.cloud.yandex.net/quota-manager/v1/quotaLimits/{quotaId}
+GET https://quota-manager.{{ api-host }}/quota-manager/v1/quotaLimits/{quotaId}
 ```
 
 ## Path parameters

@@ -1,10 +1,10 @@
-# Yandex Serverless Containers
+# {{ serverless-containers-full-name }}
 
-Сервис Yandex Serverless Containers позволяет запускать контейнеризированные приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.
+Сервис {{ serverless-containers-full-name }} позволяет запускать контейнеризированные приложения в безопасном, отказоустойчивом и масштабируемом окружении без создания и обслуживания виртуальных машин.
 
-# Yandex Serverless Containers
+# {{ serverless-containers-full-name }}
 
- - [Сопоставление с другими сервисами Yandex Cloud](service-comparison.md)
+ - [Сопоставление с другими сервисами {{ yandex-cloud }}](service-comparison.md)
 
 ## Начало работы
 
@@ -78,7 +78,7 @@
 
  - [Добавить переменные окружения](operations/environment-variables-add.md)
 
- - [Передать секреты Yandex Lockbox](operations/lockbox-secret-transmit.md)
+ - [Передать секреты {{ lockbox-full-name }}](operations/lockbox-secret-transmit.md)
 
  - [Указать облачную сеть](operations/network-add.md)
 
@@ -114,7 +114,7 @@
 
  - [Записать логи](operations/logs-write.md)
 
- - [Миграция в зону ru-central1-d](operations/migration.md)
+ - [Миграция в зону {{ region-id }}-d](operations/migration.md)
 
  - [Удалить контейнер](operations/delete.md)
 
@@ -128,15 +128,15 @@
 
  - [Создать таймер](operations/timer-create.md)
 
- - [Создать триггер для Message Queue](operations/ymq-trigger-create.md)
+ - [Создать триггер для {{ message-queue-name }}](operations/ymq-trigger-create.md)
 
- - [Создать триггер для Object Storage](operations/os-trigger-create.md)
+ - [Создать триггер для {{ objstorage-name }}](operations/os-trigger-create.md)
 
- - [Создать триггер для Container Registry](operations/cr-trigger-create.md)
+ - [Создать триггер для {{ container-registry-name }}](operations/cr-trigger-create.md)
 
- - [Создать триггер для Cloud Logging](operations/cloud-logging-trigger-create.md)
+ - [Создать триггер для {{ cloud-logging-name }}](operations/cloud-logging-trigger-create.md)
 
-#### Создать триггер для Yandex IoT Core
+#### Создать триггер для {{ iot-name }}
 
  - [Устройство](operations/iot-core-trigger-create.md)
 
@@ -144,7 +144,7 @@
 
  - [Создать триггер для бюджетов](operations/budget-trigger-create.md)
 
- - [Создать триггер для Data Streams](operations/data-streams-trigger-create.md)
+ - [Создать триггер для {{ yds-name }}](operations/data-streams-trigger-create.md)
 
  - [Создать триггер для почты](operations/mail-trigger-create.md)
 
@@ -184,19 +184,19 @@
 
  - [Таймер](concepts/trigger/timer.md)
 
- - [Триггер для Message Queue](concepts/trigger/ymq-trigger.md)
+ - [Триггер для {{ message-queue-name }}](concepts/trigger/ymq-trigger.md)
 
- - [Триггер для Object Storage](concepts/trigger/os-trigger.md)
+ - [Триггер для {{ objstorage-name }}](concepts/trigger/os-trigger.md)
 
- - [Триггер для Container Registry](concepts/trigger/cr-trigger.md)
+ - [Триггер для {{ container-registry-name }}](concepts/trigger/cr-trigger.md)
 
- - [Триггер для Yandex Cloud Logging](concepts/trigger/cloud-logging-trigger.md)
+ - [Триггер для {{ cloud-logging-full-name }}](concepts/trigger/cloud-logging-trigger.md)
 
- - [Триггер для Yandex IoT Core](concepts/trigger/iot-core-trigger.md)
+ - [Триггер для {{ iot-full-name }}](concepts/trigger/iot-core-trigger.md)
 
  - [Триггер для бюджетов](concepts/trigger/budget-trigger.md)
 
- - [Триггер для Data Streams](concepts/trigger/data-streams-trigger.md)
+ - [Триггер для {{ yds-name }}](concepts/trigger/data-streams-trigger.md)
 
  - [Триггер для почты](concepts/trigger/mail-trigger.md)
 
@@ -216,23 +216,23 @@
 
  - [Разработка CRUD API для сервиса фильмов](tutorials/movies-database.md)
 
- - [Запуск контейнерного приложения в Yandex Serverless Containers](tutorials/deploy-app-container.md)
+ - [Запуск контейнерного приложения в {{ serverless-containers-full-name }}](tutorials/deploy-app-container.md)
 
- - [Настройка подключения к Yandex Managed Service for PostgreSQL из контейнера Serverless Containers](tutorials/pg-connect.md)
+ - [Настройка подключения к {{ mpg-full-name }} из контейнера {{ serverless-containers-name }}](tutorials/pg-connect.md)
 
- - [Разработка пользовательской интеграции в API Gateway](tutorials/api-gw-integration.md)
+ - [Разработка пользовательской интеграции в {{ api-gw-name }}](tutorials/api-gw-integration.md)
 
- - [Разработка функций в Functions Framework и их развертывание в Yandex Serverless Containers](tutorials/functions-framework-to-container.md)
+ - [Разработка функций в Functions Framework и их развертывание в {{ serverless-containers-full-name }}](tutorials/functions-framework-to-container.md)
 
 ### Рабочие процессы и автоматизация на Serverless
 
- - [Построение пайплайна CI/CD в GitLab с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
+ - [Построение пайплайна CI/CD в {{ GL }} с использованием serverless-продуктов](tutorials/ci-cd-serverless.md)
 
- - [Запуск GitLab Runner в Serverless Containers](tutorials/serverless-gitlab-runner.md)
+ - [Запуск {{ GLR }} в {{ serverless-containers-name }}](tutorials/serverless-gitlab-runner.md)
 
- - [Настройка CI/CD в SourceCraft для развертывания Serverless Containers с помощью GitHub Actions](tutorials/ci-cd-sourcecraft-github-actions.md)
+ - [Настройка CI/CD в {{ src-name }} для развертывания {{ serverless-containers-name }} с помощью GitHub Actions](tutorials/ci-cd-sourcecraft-github-actions.md)
 
- - [Регулярное распознавание изображений и PDF-документов из бакета Object Storage](tutorials/vision-ocrrecognizer-storage.md)
+ - [Регулярное распознавание изображений и PDF-документов из бакета {{ objstorage-short-name }}](tutorials/vision-ocrrecognizer-storage.md)
 
  - [Управление доступом](security/index.md)
 
@@ -248,7 +248,7 @@
 
  - [Network](../cli/cli-ref/serverless/cli-ref/network/index.md)
 
- - [Справочник Terraform](tf-ref.md)
+ - [Справочник {{ TF }}](tf-ref.md)
 
 ## Справочник API Containers
 
@@ -406,9 +406,9 @@
 
  - [ListOperations](triggers/api-ref/Trigger/listOperations.md)
 
- - [Метрики Monitoring](metrics.md)
+ - [Метрики {{ monitoring-name }}](metrics.md)
 
- - [Аудитные логи Audit Trails](at-ref.md)
+ - [Аудитные логи {{ at-name }}](at-ref.md)
 
  - [Публичные материалы](public-talks.md)
 

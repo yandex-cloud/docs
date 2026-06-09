@@ -6,7 +6,7 @@ instance from Cloud Compute service.
 ## HTTP request
 
 ```
-DELETE https://backup.api.cloud.yandex.net/backup/v1/resources/{computeInstanceId}
+DELETE https://backup.{{ api-host }}/backup/v1/resources/{computeInstanceId}
 ```
 
 ## Path parameters

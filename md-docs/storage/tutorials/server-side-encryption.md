@@ -1,9 +1,9 @@
 # Шифрование на стороне сервера
 
-# Шифрование для бакета Object Storage на стороне сервера
+# Шифрование для бакета {{ objstorage-name }} на стороне сервера
 
 
-В этом сценарии вы включите шифрование для бакета. В качестве ключа симметричного шифрования будет использоваться [ключ Yandex Key Management Service](../../kms/concepts/key.md). Все новые объекты в бакете будут шифроваться указанным ключом по схеме [envelope encryption](../../kms/concepts/envelope.md).
+В этом сценарии вы включите шифрование для бакета. В качестве ключа симметричного шифрования будет использоваться [ключ {{ kms-full-name }}](../../kms/concepts/key.md). Все новые объекты в бакете будут шифроваться указанным ключом по схеме [envelope encryption](../../kms/concepts/envelope.md).
 
 
 Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
@@ -12,7 +12,7 @@
 * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
 * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
 
-Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+Подробнее см. [Сервисные роли {{ kms-name }}](../../kms/security/index.md#service-roles).
 
 
 Чтобы включить шифрование бакета на стороне сервера:
@@ -26,11 +26,11 @@
 
 ## Подготовьте облако к работе {#before-you-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -39,9 +39,9 @@
 
 В стоимость поддержки бакета с шифрованием входит:
 
-* плата за хранение данных в бакете (см. [тарифы Object Storage](../pricing.md#prices-storage));
-* плата за операции с данными (см. [тарифы Object Storage](../pricing.md#prices-operations));
-* плата за использование ключей KMS (см. [тарифы Key Management Service](../../kms/pricing.md#prices)).
+* плата за хранение данных в бакете (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-storage));
+* плата за операции с данными (см. [тарифы {{ objstorage-name }}](../pricing.md#prices-operations));
+* плата за использование ключей KMS (см. [тарифы {{ kms-name }}](../../kms/pricing.md#prices)).
 
 
 ## Создайте бакет {#create-bucket}
@@ -52,10 +52,10 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
-  1. Нажмите кнопку **Создать бакет**.
-  1. В поле **Имя** укажите имя бакета.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите имя бакета.
 
      Имя должно удовлетворять требованиям:
 
@@ -66,8 +66,8 @@
      * Имя не должно иметь вид IP-адреса (например `10.1.3.9`).
 
   1. Укажите максимальный размер бакета в ГБ.
-  1. В полях **Чтение объектов**, **Чтение списка объектов** и **Чтение настроек** выберите **С авторизацией**.
-  1. Нажмите кнопку **Создать бакет**.
+  1. В полях **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}**, **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** и **{{ ui-key.yacloud.storage.bucket.settings.field_access-config-read }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -76,7 +76,7 @@
   1. Выполните команду:
 
       ```bash
-      aws s3 mb s3://<имя_бакета> --endpoint-url=https://storage.yandexcloud.net
+      aws s3 mb s3://<имя_бакета> --endpoint-url=https://{{ s3-storage-host }}
       ```
 
       Результат:
@@ -85,15 +85,18 @@
       make_bucket: <имя_бакета>
       ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   {% note info %}
   
-  Если вы работаете с Object Storage через Terraform от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
+  Если вы работаете с {{ objstorage-name }} через {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту нужную [роль](../security/index.md#roles-list), например `storage.admin`, на каталог, в котором будут создаваться ресурсы.
   
   {% endnote %}
 
-  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  
+  
+  Чтобы управлять инфраструктурой с помощью {{ TF }} от имени сервисного аккаунта или пользовательских аккаунтов: аккаунта на Яндексе, федеративного аккаунта и локального пользователя, [аутентифицируйтесь](../../terraform/authentication.md) соответствующим способом.
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -101,11 +104,10 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         bucket_name = "Имя бакета" # Имя создаваемого бакета. Если не задавать имя бакета для ресурса `yandex_storage_bucket`, имя будет сгенерировано автоматически.
@@ -120,7 +122,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -149,7 +150,7 @@
       }
       ```
 
-      Более подробную информацию о ресурсах, которые вы можете создать с помощью [Terraform](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера](../../terraform/index.md).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью [{{ TF }}](https://www.terraform.io/docs/language/index.html), см. в [документации провайдера]({{ tf-provider-link }}).
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -161,7 +162,7 @@
         terraform plan
         ```
 
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -173,14 +174,14 @@
 
       1. Подтвердите создание ресурсов.
 
-          После выполнения команды Terraform обновит или создаст в указанном каталоге следующие ресурсы:
+          После выполнения команды {{ TF }} обновит или создаст в указанном каталоге следующие ресурсы:
 
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
           * Бакет.
 
-          Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+          Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -192,19 +193,19 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором хотите создать ключ.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Key Management Service**.
-  1. Нажмите кнопку **Создать ключ**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать ключ.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}**.
   1. В открывшемся окне:
 
-      * В поле **Имя** укажите `bucket-key`.
-      * В поле **Алгоритм шифрования** выберите `AES-256`.
-      * В поле **Период ротации, дни** выберите период [ротации](../../kms/concepts/version.md#rotate-key) `7 дней`.
-      * Нажмите кнопку **Создать**.
+      * В поле **{{ ui-key.yacloud.common.name }}** укажите `bucket-key`.
+      * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** выберите `AES-256`.
+      * В поле **{{ ui-key.yacloud.kms.symmetric-key.form.field_rotation }}** выберите период [ротации](../../kms/concepts/version.md#rotate-key) `7 дней`.
+      * Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
   Вместе с ключом создается его первая версия: нажмите на ключ в списке, чтобы открыть страницу с его атрибутами.
 
-- Yandex Cloud CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   Выполните команду:
 
@@ -225,7 +226,7 @@
 
   Вместе с ключом создается его первая версия. Она указана в поле `primary_version`.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -233,11 +234,10 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
+        zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
 
         key_name    = "bucket-key" # Имя ключа KMS.
@@ -255,7 +255,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -301,7 +300,7 @@
           terraform plan
           ```
 
-          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -313,15 +312,15 @@
 
       1. Подтвердите создание ресурсов.
 
-          После выполнения команды Terraform обновит или создаст в указанном каталоге следующие ресурсы:
+          После выполнения команды {{ TF }} обновит или создаст в указанном каталоге следующие ресурсы:
 
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ KMS с названием `bucket-key`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет.
 
-          Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+          Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
@@ -331,19 +330,19 @@
 
 ## Включите шифрование {#enable-encryption}
 
-Чтобы включить шифрование бакета ключом KMS, выполните следующее:
+Чтобы включить шифрование бакета ключом {{ kms-short-name }}, выполните следующее:
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
-  1. На панели слева выберите **Безопасность**.
-  1. Откройте вкладку **Шифрование**.
-  1. В поле **Ключ KMS** выберите ключ `bucket-key`.
-  1. Нажмите кнопку **Сохранить**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите ключ `bucket-key`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -352,7 +351,7 @@
   ```
   aws s3api put-bucket-encryption \
     --bucket <имя_бакета> \
-    --endpoint-url=https://storage.yandexcloud.net \
+    --endpoint-url=https://{{ s3-storage-host }} \
     --server-side-encryption-configuration '{
     "Rules": [
       {
@@ -366,7 +365,7 @@
   }'
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы задать параметры, в данном сценарии используется блок `locals`:
 
@@ -374,16 +373,12 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
-
+        zone        = "{{ region-id }}-a"
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
-
         key_name    = "bucket-key" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
-
         bucket_name = "Имя бакета" # Имя бакета.
       }
 
@@ -396,7 +391,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -450,7 +444,7 @@
           terraform plan
           ```
 
-          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -462,15 +456,15 @@
 
       1. Подтвердите создание ресурсов.
 
-          После выполнения команды Terraform обновит или создаст в указанном каталоге следующие ресурсы:
+          После выполнения команды {{ TF }} обновит или создаст в указанном каталоге следующие ресурсы:
 
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ KMS с названием `bucket-key`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет с шифрованием.
 
-          Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud).
+          Проверить появление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -482,7 +476,7 @@
 
 {% note alert %}
 
-После отключения шифрования уже загруженные объекты будут храниться зашифрованными. Данные в Object Storage шифруются по схеме [envelope encryption](../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
+После отключения шифрования уже загруженные объекты будут храниться зашифрованными. Данные в {{ objstorage-name }} шифруются по схеме [envelope encryption](../../kms/concepts/envelope.md). Удаление ключа равносильно уничтожению зашифрованных им данных.
 
 {% endnote %}
 
@@ -490,13 +484,13 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится бакет.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится бакет.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Выберите бакет, созданный ранее.
-  1. На панели слева выберите **Безопасность**.
-  1. Откройте вкладку **Шифрование**.
-  1. В поле **Ключ KMS** выберите `Не выбрано`.
-  1. Нажмите кнопку **Сохранить**.
+  1. На панели слева выберите **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
+  1. Откройте вкладку **{{ ui-key.yacloud.storage.bucket.switch_encryption }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.encryption.field_key }}** выберите `{{ ui-key.yacloud.component.symmetric-key-select.label_no-symmetric-key }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.encryption.button_save }}**.
 
 - AWS CLI {#aws-cli}
 
@@ -505,10 +499,10 @@
   ```bash
   aws s3api delete-bucket-encryption \
     --bucket <имя_бакета> \
-    --endpoint-url=https://storage.yandexcloud.net
+    --endpoint-url=https://{{ s3-storage-host }}
   ```
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
   1. Опишите ресурсы в конфигурационном файле. Чтобы отключить шифрование, удалите или закомментируйте блок `server_side_encryption_configuration` для ресурса `yandex_storage_bucket`:
 
@@ -516,16 +510,12 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
-        zone        = "ru-central1-a"
-
+        zone        = "{{ region-id }}-a"
         sa_name     = "new-buckets-account"
-        sa_desc     = "Аккаунт для управления бакетами Object Storage"
+        sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
-
         key_name    = "bucket-key"
         key_desc    = "Ключ для шифрования бакетов"
-
         bucket_name = "Имя бакета"
       }
 
@@ -538,7 +528,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -593,7 +582,7 @@
           terraform plan
           ```
 
-          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, Terraform на них укажет.
+          Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
   1. Разверните облачные ресурсы.
 
@@ -605,14 +594,14 @@
 
       1. Подтвердите обновление ресурсов.
 
-          После выполнения команды Terraform обновит в указанном каталоге следующие ресурсы:
+          После выполнения команды {{ TF }} обновит в указанном каталоге следующие ресурсы:
 
           * Сервисный аккаунт `new-buckets-account`.
           * Роль `editor` для сервисного аккаунта `new-buckets-account`.
           * Статический ключ для сервисного аккаунта.
-          * Ключ KMS с названием `bucket-key`.
+          * Ключ {{ kms-short-name }} с названием `bucket-key`.
           * Бакет.
 
 {% endlist %}
 
-В результате в указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+В результате в указанном каталоге шифрование для бакета будет отключено. Проверить изменение ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).

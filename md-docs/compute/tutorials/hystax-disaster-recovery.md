@@ -27,11 +27,11 @@
 
 ## Подготовьте облако к работе {#before-begin}
 
-Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
-1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
-1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+Зарегистрируйтесь в {{ yandex-cloud }} и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления]({{ link-console-main }}), затем войдите в {{ yandex-cloud }} или зарегистрируйтесь.
+1. На странице **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
 
-Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака]({{ link-console-cloud }}).
 
 [Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
 
@@ -40,17 +40,17 @@
 
 {% note info %}
 
-Обратите внимание, что оплачиваться и учитываться в [квотах](https://console.yandex.cloud/cloud?section=quotas) будут как инфраструктура для Хайстекс Акура, так и все восстановленные ВМ.
+Обратите внимание, что оплачиваться и учитываться в [квотах]({{ link-console-quotas }}) будут как инфраструктура для Хайстекс Акура, так и все восстановленные ВМ.
 * ВМ для «Хайстекс Акура — Аварийное восстановление» использует 8 ядер vCPU, 16 ГБ памяти и диск на 200 ГБ.
 * Вспомогательные ВМ облачных агентов Хайстекс используют 2 ядра vCPU, 4 ГБ памяти и диск на 10 ГБ. Одна ВМ облачного агента Хайстекс может одновременно обслуживать до 6 реплицируемых дисков. В случае, если дисков больше 6, автоматически будут созданы дополнительные ВМ с облачными агентами Хайстекс.
 
 {% endnote %}
 
 В стоимость ресурсов для использования «Хайстекс Акура — Аварийное восстановление» входят:
-* Плата за диски и постоянно запущенные ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md)).
-* Плата за хранение образов (см. [тарифы Compute Cloud](../pricing.md)).
-* Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
-* Плата за каждую защищаемую ВМ (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) в Cloud Marketplace).
+* Плата за диски и постоянно запущенные ВМ (см. [тарифы {{ compute-full-name }}](../pricing.md)).
+* Плата за хранение образов (см. [тарифы {{ compute-name }}](../pricing.md)).
+* Плата за использование динамического или статического внешнего IP-адреса (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* Плата за каждую защищаемую ВМ (см. [описание продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) в {{ marketplace-name }}).
 
 
 ## Создайте сервисный аккаунт и авторизованный ключ {#create-sa}
@@ -70,28 +70,28 @@
 
 Если группа безопасности доступна, [добавьте](../../vpc/operations/security-group-add-rule.md) в нее следующие правила:
 
-Направление<br>трафика | Описание | Диапазон портов | Протокол | Источник /<br/>Назначение | CIDR блоки
+Направление<br>трафика | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-description }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }} /<br/>{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }} | {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}
 --- | --- | --- | --- | --- | ---
-Входящий | `http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `https` | `4443` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `vmware` | `902` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `vmware` | `902` | `UDP` | `CIDR` | `0.0.0.0/0`
-Входящий | `iSCSI` | `3260` | `TCP` | `CIDR` | `0.0.0.0/0`
-Входящий | `udp` | `12201` | `UDP` | `CIDR` | `0.0.0.0/0`
-Входящий | `tcp` | `15000` | `TCP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `http` | `80` | `TCP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `https` | `443` | `TCP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `vmware` | `902` | `TCP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `vmware` | `902` | `UDP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `iSCSI` | `3260` | `TCP` | `CIDR` | `0.0.0.0/0`
-Исходящий | `udp` | `12201` | `UDP` | `CIDR` | `0.0.0.0/0`
+Входящий | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `https` | `4443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `udp` | `12201` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Входящий | `tcp` | `15000` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `vmware` | `902` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `iSCSI` | `3260` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
+Исходящий | `udp` | `12201` | `{{ ui-key.yacloud.common.label_udp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0`
 
 Сохраните идентификатор группы безопасности. Он понадобится при создании ВМ с Хайстекс Акура.
 
 ## Создайте ВМ с Хайстекс Акура {#create-acura-vm}
 
-Создайте ВМ с загрузочным диском из образа `«Хайстекс Акура — Аварийное восстановление» в Yandex Cloud`.
+Создайте ВМ с загрузочным диском из образа `«Хайстекс Акура — Аварийное восстановление» в {{ yandex-cloud }}`.
 
 ### Запустите ВМ
 
@@ -99,60 +99,60 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
-  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины**.
-  1. Нажмите кнопку **Создать виртуальную машину**.
-  1. В блоке **Образ загрузочного диска**:
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
-      * Перейдите на вкладку **Marketplace**.
-      * Нажмите кнопку **Показать все продукты Marketplace**.
-      * В списке публичных образов выберите [«Хайстекс Акура — Аварийное восстановление» в Yandex Cloud](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) и нажмите кнопку **Использовать**.
+      * Перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}**.
+      * Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**.
+      * В списке публичных образов выберите [«Хайстекс Акура — Аварийное восстановление» в {{ yandex-cloud }}](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
 
-  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
-  1. В блоке **Диски и файловые хранилища** укажите размер загрузочного [диска](../concepts/disk.md): `200 ГБ`.
-  1. В блоке **Вычислительные ресурсы** выберите конфигурацию с `8 vCPU` и `16 ГБ`.
-  1. В блоке **Сетевые настройки**: 
+  1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** укажите размер загрузочного [диска](../concepts/disk.md): `200 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите конфигурацию с `8 vCPU` и `16 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**: 
 
-      * В поле **Подсеть** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
+      * В поле **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** укажите идентификатор подсети в зоне доступности создаваемой ВМ или выберите [облачную сеть](../../vpc/concepts/network.md#network) из списка.
 
-          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **Создать подсеть**.
-          * Если сети нет, нажмите **Создать сеть** и создайте ее:
+          * У каждой сети должна быть как минимум одна [подсеть](../../vpc/concepts/network.md#subnet). Если подсети нет, создайте ее, выбрав **{{ ui-key.yacloud.component.vpc.network-select.button_create-subnetwork }}**.
+          * Если сети нет, нажмите **{{ ui-key.yacloud.component.vpc.network-select.button_create-network }}** и создайте ее:
 
               * В открывшемся окне укажите имя сети и выберите каталог, в котором она будет создана.
-              * (Опционально) Выберите опцию **Создать подсети**, чтобы автоматически создать подсети во всех зонах доступности.
-              * Нажмите **Создать сеть**.
+              * (Опционально) Выберите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**, чтобы автоматически создать подсети во всех зонах доступности.
+              * Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
-      * Если доступен список **Группы безопасности**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
+      * Если доступен список **{{ ui-key.yacloud.component.compute.network-select.field_security-groups }}**, выберите [группу безопасности](../../vpc/concepts/security-groups.md#default-security-group), для которой ранее настраивали разрешения сетевого трафика. Если такого списка нет, для ВМ будет разрешен любой входящий и исходящий трафик.
 
-  1. В блоке **Доступ** выберите **SSH-ключ** и укажите данные для доступа к ВМ:
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** выберите **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** и укажите данные для доступа к ВМ:
 
-      * В поле **Логин** введите имя пользователя, например, `yc-user`.
-      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя, например, `yc-user`.
+      * В поле **{{ ui-key.yacloud.compute.instances.create.field_key }}** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
         
         Если в вашем профиле нет сохраненных SSH-ключей или вы хотите добавить новый ключ:
         
-        1. Нажмите кнопку **Добавить ключ**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_add-ssh-key }}**.
         1. Задайте имя SSH-ключа.
         1. Выберите вариант:
         
-            * `Ввести вручную` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
-            * `Загрузить из файла` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
-            * `Сгенерировать ключ` — автоматическое создание пары SSH-ключей.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-manual }}` — вставьте содержимое открытого [SSH](../../glossary/ssh-keygen.md)-ключа. Пару SSH-ключей необходимо [создать](../operations/vm-connect/ssh.md#creating-ssh-keys) самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-upload }}` — загрузите открытую часть SSH-ключа. Пару SSH-ключей необходимо создать самостоятельно.
+            * `{{ ui-key.yacloud_components.ssh-key-add-dialog.value_radio-generate }}` — автоматическое создание пары SSH-ключей.
             
               При добавлении сгенерированного SSH-ключа будет создан и загружен архив с парой ключей. В ОС на базе Linux или macOS распакуйте архив в папку `/home/<имя_пользователя>/.ssh`. В ОС Windows распакуйте архив в папку `C:\Users\<имя_пользователя>/.ssh`. Дополнительно вводить открытый ключ в консоли управления не требуется.
         
-        1. Нажмите кнопку **Добавить**.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
         
         SSH-ключ будет добавлен в ваш профиль пользователя организации. Если в организации [отключена](../../organization/operations/os-login-access.md) возможность добавления пользователями SSH-ключей в свои профили, добавленный открытый SSH-ключ будет сохранен только в профиле пользователя внутри создаваемого ресурса.
 
-  1. В блоке **Общая информация** задайте имя ВМ: `hystax-acura-vm`.
-  1. В блоке **Дополнительно** выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
-  1. Нажмите кнопку **Создать ВМ**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ: `hystax-acura-vm`.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите сервисный аккаунт `hystax-acura-account`, созданный ранее.
+  1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -173,7 +173,7 @@
    Где:
 
    * `name` — имя ВМ, например, `hystax-acura-vm`.
-   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `ru-central1-a`.
+   * `zone` — [зона доступности](../../overview/concepts/geo-scope.md), например, `{{ region-id }}-a`.
    * `cores` — [количество vCPU](../concepts/vm.md) ВМ.
    * `memory` — [размер оперативной памяти](../concepts/vm.md) ВМ.
    * `network-interface` — описание сетевого интерфейса ВМ:
@@ -189,7 +189,7 @@
       * `size` — размер диска.
       * `image-id` — идентификатор образа диска.
 
-        В данном случае используйте `image_id` из [описания продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) в Cloud Marketplace.
+        В данном случае используйте `image_id` из [описания продукта](https://yandex.cloud/ru/marketplace/products/hystax/hystax-acura-disaster-recovery) в {{ marketplace-name }}.
 
    * `service-account-id` — идентификатор сервисного аккаунта, [созданного ранее](#create-sa).
 
@@ -207,16 +207,16 @@
 - Консоль управления {#console}
 
   Чтобы изменить тип публичного IP-адреса с динамического на статический:
-  1. В [консоли управления](https://console.yandex.cloud) откройте страницу каталога, в котором вы работаете.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Virtual Private Cloud**.
-  1. Перейдите на вкладку **Публичные IP-адреса**.
+  1. В [консоли управления]({{ link-console-main }}) откройте страницу каталога, в котором вы работаете.
+  1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
   1. Нажмите значок ![image](../../_assets/options.svg) в строке адреса ВМ с Хайстекс Акура.
-  1. В открывшемся меню выберите пункт **Сделать статическим**.
-  1. В открывшемся окне нажмите кнопку **Изменить**.
+  1. В открывшемся меню выберите пункт **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.
+  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_static }}**.
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -240,7 +240,7 @@
      +----------------------+------+-----------------+----------+------+
      |          ID          | NAME |     ADDRESS     | RESERVED | USED |
      +----------------------+------+-----------------+----------+------+
-     | e2l46k8conff8n6ru1jl |      | 84.201.155.117  | false    | true |
+     | e2l46k8conff8n6ru1jl |      | {{ external-ip-examples.0 }}  | false    | true |
      +----------------------+------+-----------------+----------+------+
      ```
 
@@ -258,8 +258,8 @@
      folder_id: b1g7gvsi89m34pipa3ke
      created_at: "2023-06-02T09:36:46Z"
      external_ipv4_address:
-       address: 84.201.155.117
-       zone_id: ru-central1-b
+       address: {{ external-ip-examples.0 }}
+       zone_id: {{ region-id }}-b
        requirements: {}
      reserved: true
      used: true
@@ -271,7 +271,7 @@
 
 ## Настройте Хайстекс Акура {#setup-hystax-acura}
 
-1. Откройте в [консоли управления](https://console.yandex.cloud) страницу ВМ `hystax-acura-vm` и найдите ее публичный IP-адрес.
+1. Откройте в [консоли управления]({{ link-console-main }}) страницу ВМ `hystax-acura-vm` и найдите ее публичный IP-адрес.
 1. Введите в браузере публичный IP-адрес ВМ `hystax-acura-vm`. Откроется экран начальной настройки Хайстекс Акура.
 
    {% note info %}
@@ -287,7 +287,7 @@
    * **Пароль** — пароль администратора.
    * **Подтвердите пароль** — пароль администратора повторно.
 1. Нажмите кнопку **Далее**.
-1. Задайте настройки подключения к Yandex Cloud:
+1. Задайте настройки подключения к {{ yandex-cloud }}:
    * **ID сервисного аккаунта** — идентификатор сервисного аккаунта.
    * **ID ключа** — идентификатор авторизованного ключа сервисного аккаунта.
    * **Приватный ключ** — закрытая часть авторизованного ключа сервисного аккаунта.
@@ -308,7 +308,7 @@
 
 ## Подготовьте и установите агенты для аварийного восстановления {#prepare-agent}
 
-Агенты устанавливаются на ВМ, восстановление которых будет происходить в Yandex Cloud. Чтобы получить и установить агент:
+Агенты устанавливаются на ВМ, восстановление которых будет происходить в {{ yandex-cloud }}. Чтобы получить и установить агент:
 1. В административной панели Хайстекс Акура нажмите на логотип Хайстекс в левом верхнем углу.
 1. В блоке **Группы машин** создайте группу защищаемых ВМ, например, `Prod-Web`.
 1. Перейдите на вкладку **Загрузка агента**.
@@ -372,7 +372,7 @@
 
 ## Подготовьте подсети для запуска ВМ {#prepare-network}
 
-При запуске процесса восстановления будет создан Cloud site — инфраструктура для работы вашего приложения в Yandex Cloud, которая включает [подсети](../../vpc/concepts/network.md#subnet) и восстановленные ВМ.
+При запуске процесса восстановления будет создан Cloud site — инфраструктура для работы вашего приложения в {{ yandex-cloud }}, которая включает [подсети](../../vpc/concepts/network.md#subnet) и восстановленные ВМ.
 
 Создайте подсети, CIDR которых будет содержать IP-адреса ваших ВМ.
 
@@ -384,19 +384,19 @@
 
 - Консоль управления {#console}
 
-  1. Откройте раздел **Virtual Private Cloud** в каталоге, где требуется создать подсеть.
+  1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в каталоге, где требуется создать подсеть.
   1. Нажмите на имя облачной сети.
-  1. Нажмите кнопку **Создать подсеть**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
   1. Укажите название подсети, например, `net-b-155`.
-  1. Выберите зону доступности из выпадающего списка, например, `ru-central1-b`.
+  1. Выберите зону доступности из выпадающего списка, например, `{{ region-id }}-b`.
   1. Введите CIDR подсети, например, `10.155.0.0/16`.
-  1. Нажмите кнопку **Создать подсеть**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
 
   Сохраните **Идентификаторы** созданных подсетей. Они понадобятся при создании плана аварийного восстановления (DR plan).
 
 - CLI {#cli}
 
-  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+  Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
   По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -422,7 +422,7 @@
      yc vpc subnet create \
        --name net-b-155 \
        --network-name network \
-       --zone ru-central1-b \
+       --zone {{ region-id }}-b \
        --range 10.155.0.0/16
      ```
 
@@ -438,9 +438,9 @@
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
       |          ID          |    NAME     |      NETWORK ID      | ROUTE TABLE ID |     ZONE      |      RANGE       |
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
-      | e2lgjspicv43ainspl0n | net-b-155   | enplum7a98s1t0lhasi8 |                | ru-central1-b | [10.155.0.0/16]  |
-      | e2l8g5u9ijd1sursv2ov | net-b-192   | enplum7a98s1t0lhasi8 |                | ru-central1-b | [192.168.0.0/24] |
-      | e2l1hqsrpp932ik74aic | net-b       | enplum7a98s1t0lhasi8 |                | ru-central1-b | [192.168.1.0/24] |
+      | e2lgjspicv43ainspl0n | net-b-155   | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [10.155.0.0/16]  |
+      | e2l8g5u9ijd1sursv2ov | net-b-192   | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [192.168.0.0/24] |
+      | e2l1hqsrpp932ik74aic | net-b       | enplum7a98s1t0lhasi8 |                | {{ region-id }}-b | [192.168.1.0/24] |
       +----------------------+-------------+----------------------+----------------+---------------+------------------+
       ```
 
@@ -448,7 +448,7 @@
 
 {% endlist %}
 
-Подробнее см. в разделе [Пошаговые инструкции](../../vpc/operations/subnet-create.md) документации Virtual Private Cloud.
+Подробнее см. в разделе [Пошаговые инструкции](../../vpc/operations/subnet-create.md) документации {{ vpc-name }}.
 
 ## Создайте план аварийного восстановления {#disaster-recovery-plan}
 
@@ -503,7 +503,7 @@
 
 В административной панели Хайстекс Акура появится блок **Cloud Sites**. Дождитесь, когда `Cloud-Site-from-Plan-1` перейдет в состояние `Running`.
 
-Откройте [консоль управления](https://console.yandex.cloud) и проверьте, что требуемые ресурсы успешно перенесены и приложения готовы к работе.
+Откройте [консоль управления]({{ link-console-main }}) и проверьте, что требуемые ресурсы успешно перенесены и приложения готовы к работе.
 
 ## Проведите аварийное восстановление {#run-recover}
 

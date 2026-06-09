@@ -18,11 +18,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **Профиль**.
-  1. В блоке **Данные профиля** отобразятся атрибуты вашего аккаунта.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+  1. В блоке **{{ ui-key.yacloud_org.my-account.ProfileEditPageLayout.main_breadcrumb }}** отобразятся атрибуты вашего аккаунта.
 
 {% endlist %}
 
@@ -36,13 +36,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **Профиль**.
-  1. Нажмите ![alt](../../_assets/console-icons/person-pencil.svg) **Редактировать**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+  1. Нажмите ![alt](../../_assets/console-icons/person-pencil.svg) **{{ ui-key.yacloud_org.my-account.ProfilePage.edit_action }}**.
   1. Отредактируйте имя, фамилию, контактную и организационную информацию.
-  1. Нажмите **Сохранить**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -56,13 +56,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. В блоке **Способы входа** нажмите ![alt](../../_assets/console-icons/pencil.svg) **Изменить**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. В блоке **{{ ui-key.yacloud_org.my-account.login.entry-methods.header }}** нажмите ![alt](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.myaccount.security.EntryMethodsTable.change-action }}**.
   1. Введите текущий пароль и дважды введите новый.
-  1. Нажмите **Сохранить пароль**.
+  1. Нажмите **{{ ui-key.yacloud_org.organization.idp.PasswordDialog.action_save-password_gaB2s }}**.
 
 {% endlist %}
 
@@ -80,11 +80,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. В блоке **Подтверждение входа** нажмите **Добавить способ подтверждения**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. В блоке **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}** нажмите **Добавить способ подтверждения**.
   1. Выберите нужный способ подтверждения входа.
 
 {% endlist %}
@@ -93,12 +93,12 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. В блоке **Подтверждение входа** отобразятся ваши способы подтверждения входа и дата последнего использования.
-  1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **Удалить** рядом с нужным способом подтверждения входа.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. В блоке **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}** отобразятся ваши способы подтверждения входа и дата последнего использования.
+  1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.myaccount.security.LoginConfirmationTable.delete-action }}** рядом с нужным способом подтверждения входа.
 
 {% endlist %}
 
@@ -106,13 +106,13 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. Перейдите на вкладку **Ваши устройства**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}**.
 
-      В результате откроется список [сессий](../concepts/sessions.md), содержащих следующую информацию о приложениях и устройствах, с которых выполнен вход в аккаунт Yandex Identity Hub:
+      В результате откроется список [сессий](../concepts/sessions.md), содержащих следующую информацию о приложениях и устройствах, с которых выполнен вход в аккаунт {{ org-full-name }}:
 
       * идентификатор [User-Agent](https://ru.wikipedia.org/wiki/User_agent) устройства, на котором выполнен вход в аккаунт;
       * время последнего входа в аккаунт;
@@ -124,31 +124,31 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. Перейдите на вкладку **Ваши устройства**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}**.
 
-      В результате откроется список [сессий](../concepts/sessions.md), содержащих информацию о приложениях и устройствах, с которых выполнен вход в аккаунт Yandex Identity Hub.
+      В результате откроется список [сессий](../concepts/sessions.md), содержащих информацию о приложениях и устройствах, с которых выполнен вход в аккаунт {{ org-full-name }}.
   1. Чтобы завершить сессию:
 
-      В строке с сессией, которую вы хотите завершить, нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **Выйти** и в открывшемся окне подтвердите действие.
+      В строке с сессией, которую вы хотите завершить, нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}** и в открывшемся окне подтвердите действие.
 
-      В результате на выбранном устройстве доступ пользователя к сервисам, использующим Yandex Identity Hub в качестве поставщика удостоверений, прекратится. Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в Yandex Identity Hub.
+      В результате на выбранном устройстве доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится. Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в {{ org-full-name }}.
   1. Чтобы завершить все сессии:
 
-      1. В правом верхнем углу экрана нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **Выйти везде**.
+      1. В правом верхнем углу экрана нажмите кнопку ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.SecurityDevicesPage.action_logout_everywhere_xqkwM }}**.
       1. В открывшемся окне:
 
-          * Выберите `Не выходить на этом устройстве` и нажмите **Выйти**, чтобы завершить все сессии, кроме текущей.
+          * Выберите `{{ ui-key.yacloud_org.my-account.security.option_keep_current_iaFpd }}` и нажмите **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}**, чтобы завершить все сессии, кроме текущей.
 
-              В результате доступ пользователя к сервисам, использующим Yandex Identity Hub в качестве поставщика удостоверений, прекратится на всех устройствах, за исключением текущего.
-          * Выберите `Выйти на всех устройствах` и нажмите **Выйти**, чтобы завершить все сессии, включая текущую.
+              В результате доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится на всех устройствах, за исключением текущего.
+          * Выберите `{{ ui-key.yacloud_org.my-account.security.option_all_devices_n3iAA }}` и нажмите **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}**, чтобы завершить все сессии, включая текущую.
 
-              В результате доступ пользователя к сервисам, использующим Yandex Identity Hub в качестве поставщика удостоверений, прекратится на всех устройствах, включая текущее.
+              В результате доступ пользователя к сервисам, использующим {{ org-full-name }} в качестве поставщика удостоверений, прекратится на всех устройствах, включая текущее.
 
-      Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в Yandex Identity Hub.
+      Чтобы возобновить доступ, пользователю придется повторно выполнить аутентификацию в {{ org-full-name }}.
 
 {% endlist %}
 
@@ -156,14 +156,14 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **Вход и безопасность**.
-  1. Перейдите на вкладку **Refresh-токены**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}**.
   1. Отобразятся все приложения, для которых вы добавили [refresh-токены](../../iam/concepts/authorization/refresh-token.md).
   1. Нажмите ![alt](../../_assets/console-icons/trash-bin.svg) в строке с приложением, для которого вы хотите удалить refresh-токен.
-  1. Чтобы удалить все refresh-токены, нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **Удалить все токены**. 
+  1. Чтобы удалить все refresh-токены, нажмите ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**. 
 
 {% endlist %}
 
@@ -171,11 +171,11 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/persons.svg) **Группы**.
-  1. На странице **Мои группы** отобразятся все ваши группы и их идентификаторы.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.groups_pqQRu }}**.
+  1. На странице **{{ ui-key.yacloud_org.my-account.GroupsPageLayout.header }}** отобразятся все ваши группы и их идентификаторы.
 
 {% endlist %}
 
@@ -183,15 +183,15 @@
 
 {% list tabs group=instructions %}
 
-- Интерфейс Cloud Center {#cloud-center}
+- Интерфейс {{ cloud-center }} {#cloud-center}
 
-  1. Перейдите в портал [Мой аккаунт](https://myaccount.yandex.cloud/).
-  1. На панели слева выберите ![alt](../../_assets/console-icons/clock.svg) **Активность**.
+  1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+  1. На панели слева выберите ![alt](../../_assets/console-icons/clock.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.activity_kyqSv }}**.
   1. На открывшейся странице отобразятся ваши аудитные [логи](../concepts/logs.md).
   1. Чтобы увидеть более подробную информацию о событии, нажмите на нужную запись.
 
      Вы также можете воспользоваться фильтрами вверху страницы, чтобы найти нужные логи.
 
-  Чтобы посмотреть логи всех пользователей [организации](../concepts/organization.md) или [пула](../concepts/user-pools.md), в которых вы являетесь администратором, см. страницу [Посмотреть логи пользователя](user-pools/user-get-logs.md).
+  Чтобы посмотреть логи всех пользователей [организации](../concepts/organization.md) или [пула](../concepts/user-pools.md), в которых вы являетесь администратором, см. страницу [{#T}](user-pools/user-get-logs.md).
 
 {% endlist %}

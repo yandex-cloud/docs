@@ -1,7 +1,7 @@
-# Управление группами хостов OpenSearch
+# Управление группами хостов {{ OS }}
 
 
-В кластере Managed Service for OpenSearch вы можете управлять [группами хостов](../concepts/host-roles.md):
+В кластере {{ mos-name }} вы можете управлять [группами хостов](../concepts/host-roles.md):
 
 * [Получить список групп хостов в кластере](#list-groups).
 * [Создать группу хостов](#add-host-group).
@@ -10,7 +10,7 @@
 
 Также вы можете [получить список хостов в кластере](#list-hosts).
 
-О миграции групп хостов в кластере Managed Service for OpenSearch в другую [зону доступности](../../overview/concepts/geo-scope.md) читайте в [инструкции](host-migration.md).
+О миграции групп хостов в кластере {{ mos-name }} в другую [зону доступности](../../overview/concepts/geo-scope.md) читайте в [инструкции](host-migration.md).
 
 ## Получить список групп хостов в кластере {#list-groups}
 
@@ -18,20 +18,20 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
-    Чтобы получить список групп хостов в кластере, запросите информацию о кластере OpenSearch:
+    Чтобы получить список групп хостов в кластере, запросите информацию о кластере {{ OS }}:
 
     ```bash
-    yc managed-opensearch cluster get <имя_или_идентификатор_кластера>
+    {{ yc-mdb-os }} cluster get <имя_или_идентификатор_кластера>
     ```
 
     Список групп хостов указан в параметрах `config.opensearch.node_groups` и `config.dashboards.node_groups`.
@@ -46,13 +46,13 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+    1. Воспользуйтесь методом [Cluster.Get](../api-ref/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
             --request GET \
             --header "Authorization: Bearer $IAM_TOKEN" \
-            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>'
+            --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>'
         ```
 
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](#list-clusters).
@@ -76,7 +76,7 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+    1. Воспользуйтесь вызовом [ClusterService.Get](../api-ref/grpc/Cluster/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -88,7 +88,7 @@
             -d '{
                   "cluster_id": "<идентификатор_кластера>"
                 }' \
-            mdb.api.cloud.yandex.net:443 \
+            {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.opensearch.v1.ClusterService.Get
         ```
 
@@ -104,8 +104,8 @@
 
 При создании групп хостов действуют ограничения:
 
-* В кластере Managed Service for OpenSearch может быть только одна группа хостов `Dashboards`.
-* Если вы добавляете группу хостов `OpenSearch` и назначаете хостам роль `MANAGER`, минимальное количество хостов с такой ролью — три.
+* В кластере {{ mos-name }} может быть только одна группа хостов `Dashboards`.
+* Если вы добавляете группу хостов `{{ OS }}` и назначаете хостам роль `MANAGER`, минимальное количество хостов с такой ролью — три.
 
 {% note warning %}
 
@@ -119,18 +119,18 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
-    1. Нажмите кнопку **Создать группу хостов**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_add-node-group }}**.
     1. Укажите параметры группы:
 
-        * [Тип группы](../concepts/host-roles.md): `OpenSearch` или `Dashboards`.
+        * [Тип группы](../concepts/host-roles.md): `{{ OS }}` или `Dashboards`.
         * Имя. Оно должно быть уникальным в кластере.
-        * Для группы хостов `OpenSearch` выберите [роль хостов](../concepts/host-roles.md).
+        * Для группы хостов `{{ OS }}` выберите [роль хостов](../concepts/host-roles.md).
         * Платформу, тип и класс хостов.
 
-            Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+            Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
 
         * [Тип диска](../concepts/storage.md) и объем хранилища, который будет использоваться для данных.
 
@@ -139,12 +139,12 @@
             * Сетевые HDD- и SSD-диски — с шагом 1 ГБ.
             * Локальные SSD-диски:
                 * для платформы **Intel Cascade Lake** — с шагом 100 ГБ;
-                * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом 368 ГБ.
+                * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
             * Нереплицируемые SSD-диски — с шагом 93 ГБ.
 
         * (Опционально) Настройте автоматическое увеличение размера диска:
 
-            * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
+            * В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** задайте соответствующие условия, чтобы:
             
                 * Размер хранилища увеличился в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window), когда хранилище окажется заполнено более чем на указанную долю (%). Если вы задали этот параметр, настройте расписание окна обслуживания.
                 * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
@@ -155,7 +155,7 @@
             
                     {% endnote %}
             
-            * В поле **Максимальный размер хранилища** укажите максимальный размер хранилища после увеличения.
+            * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища после увеличения.
             
             
             {% note warning %}
@@ -170,14 +170,14 @@
         * Количество создаваемых хостов.
 
         
-        * Включите опцию **Публичный доступ**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
+        * Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
 
-    1. Нажмите кнопку **Создать группу хостов**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_create-node-group }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
@@ -185,8 +185,8 @@
 
     
     ```bash
-    yc managed-opensearch node-group add --cluster-name <имя_кластера> \
-       --opensearch-node-group name=<имя_группы_хостов_OpenSearch>,`
+    {{ yc-mdb-os }} node-group add --cluster-name <имя_кластера> \
+       --opensearch-node-group name=<имя_группы_хостов_{{ OS }}>,`
                               `resource-preset-id=<класс_хостов>,`
                               `disk-size=<размер_диска_в_байтах>,`
                               `disk-type-id=<тип_диска>,`
@@ -208,9 +208,9 @@
 
     В команде укажите нужные параметры в зависимости от того, какую группу хостов вы хотите создать:
 
-    * `--opensearch-node-group` — конфигурация группы хостов `OpenSearch`, где:
+    * `--opensearch-node-group` — конфигурация группы хостов `{{ OS }}`, где:
     
-       * `resource-preset-id` — класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+       * `resource-preset-id` — класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
        * `disk-size` — размер диска в байтах. Минимальное и максимальное значения зависят от выбранного класса хостов.
        * `disk-type-id` — [тип диска](../concepts/storage.md).
        * `zone-ids` — [зоны доступности](../../overview/concepts/geo-scope.md). Несколько зон указываются через запятую и в квадратных скобках. Например:
@@ -239,17 +239,17 @@
           * `manager` — предоставляется только роль `MANAGER`;
           * `data+manager` или `manager+data` — предоставляются обе роли.
     
-    * `--dashboards-node-group` — конфигурация группы хостов `Dashboards`. Настраивается так же, как группа хостов `OpenSearch`, за исключением ролей хостов. Для группы `Dashboards` роли настраивать не нужно.
+    * `--dashboards-node-group` — конфигурация группы хостов `Dashboards`. Настраивается так же, как группа хостов `{{ OS }}`, за исключением ролей хостов. Для группы `Dashboards` роли настраивать не нужно.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы создать группу хостов `OpenSearch`, добавьте блок `node_groups` в блок `opensearch`:
+    1. Чтобы создать группу хостов `{{ OS }}`, добавьте блок `node_groups` в блок `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -312,14 +312,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -343,7 +343,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for OpenSearch:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mos-name }}:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -422,7 +422,7 @@
             * `diskSize` — размер диска в байтах;
             * `diskTypeId` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
         * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zoneIds` — список зон доступности, где размещаются хосты кластера.
 
@@ -460,16 +460,16 @@
             {% endnote %}
 
 
-    1. Чтобы создать группу хостов `OpenSearch`:
+    1. Чтобы создать группу хостов `{{ OS }}`:
 
-        1. Воспользуйтесь методом [Cluster.AddOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.AddOpenSearchNodeGroup](../api-ref/Cluster/addOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups' \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups' \
                 --data "@body.json"
             ```
 
@@ -479,14 +479,14 @@
 
     1. Чтобы создать группу хостов `Dashboards`:
 
-        1. Воспользуйтесь методом [Cluster.AddDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.AddDashboardsNodeGroup](../api-ref/Cluster/addDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request POST \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups' \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups' \
                 --data "@body.json"
             ```
 
@@ -553,7 +553,7 @@
             * `disk_size` — размер диска в байтах;
             * `disk_type_id` — [тип диска](../concepts/storage.md).
 
-        * `roles` (только для хостов `OpenSearch`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
+        * `roles` (только для хостов `{{ OS }}`) — список [ролей хостов](../concepts/host-roles.md): `DATA` или `MANAGER`. На одну группу можно назначить одну или обе роли.
         * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` и `Dashboards` — один, хостов `MANAGER` — три.
         * `zone_ids` — список зон доступности, где размещаются хосты кластера.
 
@@ -591,9 +591,9 @@
             {% endnote %}
 
 
-    1. Чтобы создать группу хостов `OpenSearch`:
+    1. Чтобы создать группу хостов `{{ OS }}`:
 
-        1. Воспользуйтесь вызовом [ClusterService.AddOpenSearchNodeGroup](../api-ref/grpc/Cluster/addOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.AddOpenSearchNodeGroup](../api-ref/grpc/Cluster/addOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -603,7 +603,7 @@
                 -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.AddOpenSearchNodeGroup \
                 < body.json
             ```
@@ -612,7 +612,7 @@
 
     1. Чтобы создать группу хостов `Dashboards`:
 
-        1. Воспользуйтесь вызовом [ClusterService.AddDashboardsNodeGroup](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.AddDashboardsNodeGroup](../api-ref/grpc/Cluster/addDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -622,7 +622,7 @@
                 -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.AddDashboardsNodeGroup \
                 < body.json
             ```
@@ -637,16 +637,16 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **Изменить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_edit }}**.
     1. Измените настройки группы хостов:
 
-        * [Роль хостов](../concepts/host-roles.md) (только для группы хостов `OpenSearch`).
+        * [Роль хостов](../concepts/host-roles.md) (только для группы хостов `{{ OS }}`).
         * Платформу, тип и класс хостов.
 
-            Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+            Класс хостов определяет технические характеристики виртуальных машин, на которых будут развернуты ноды {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
 
         * Размер диска.
 
@@ -657,13 +657,13 @@
 
             * Локальные SSD-диски:
                 * для платформы **Intel Cascade Lake** — с шагом 100 ГБ;
-                * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом 368 ГБ.
+                * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
             * Нереплицируемые SSD-диски — с шагом 93 ГБ.
 
 
         * (Опционально) Настройте автоматическое увеличение размера диска:
 
-            * В поле **Увеличивать размер** задайте соответствующие условия, чтобы:
+            * В поле **{{ ui-key.yacloud.mdb.cluster.field_thresholds }}** задайте соответствующие условия, чтобы:
             
                 * Размер хранилища увеличился в следующее [окно обслуживания](../concepts/maintenance.md#maintenance-window), когда хранилище окажется заполнено более чем на указанную долю (%). Если вы задали этот параметр, настройте расписание окна обслуживания.
                 * Размер хранилища увеличился незамедлительно, когда хранилище окажется заполнено более чем на указанную долю (%).
@@ -674,7 +674,7 @@
             
                     {% endnote %}
             
-            * В поле **Максимальный размер хранилища** укажите максимальный размер хранилища после увеличения.
+            * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища после увеличения.
             
             
             {% note warning %}
@@ -692,18 +692,18 @@
         * Публичный доступ к хостам.
 
 
-    1. Нажмите кнопку **Сохранить**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы изменить конфигурацию группы хостов, выполните команду:
 
     ```bash
-    yc managed-opensearch node-group update --cluster-name <имя_кластера> \
+    {{ yc-mdb-os }} node-group update --cluster-name <имя_кластера> \
        --node-group-name <имя_группы_хостов> \
        --resource-preset-id <класс_хостов> \
        --disk-size <размер_диска_в_байтах> \
@@ -714,7 +714,7 @@
     В команде укажите нужные параметры в зависимости от того, какая конфигурация группы хостов нужна:
 
     * `--node-group-name` — имя группы хостов, которую нужно изменить.
-    * `--resource-preset-id` — новый класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы OpenSearch. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
+    * `--resource-preset-id` — новый класс хостов. Он определяет технические характеристики виртуальных машин, на которых будут развернуты узлы {{ OS }}. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md).
     * `--disk-size` — новый размер диска в байтах. Минимальное и максимальное значения зависят от выбранного класса хостов.
     * `--hosts-count` — новое количество хостов в группе.
     * `--roles` — новые [роли хостов](../concepts/host-roles.md). Возможные значения:
@@ -723,15 +723,15 @@
       * `manager` — предоставляется только роль `MANAGER`;
       * `data+manager` или `manager+data` — предоставляются обе роли.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы изменить конфигурацию группы хостов `OpenSearch`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
+    1. Чтобы изменить конфигурацию группы хостов `{{ OS }}`, измените параметры нужного блока `node_groups` в блоке `opensearch`:
 
         ```hcl
         resource "yandex_mdb_opensearch_cluster" "<имя_кластера>" {
@@ -783,14 +783,14 @@
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите изменение ресурсов.
 
@@ -814,7 +814,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for OpenSearch:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mos-name }}:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -937,16 +937,16 @@
                 {% endnote %}
 
 
-    1. Чтобы изменить конфигурацию группы хостов `OpenSearch`:
+    1. Чтобы изменить конфигурацию группы хостов `{{ OS }}`:
 
-        1. Воспользуйтесь методом [Cluster.UpdateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.UpdateOpenSearchNodeGroup](../api-ref/Cluster/updateOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request PATCH \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups/<название_группы_хостов>' \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups/<название_группы_хостов>' \
                 --data "@body.json"
             ```
 
@@ -956,14 +956,14 @@
 
     1. Чтобы изменить конфигурацию группы хостов `Dashboards`:
 
-        1. Воспользуйтесь методом [Cluster.UpdateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.UpdateDashboardsNodeGroup](../api-ref/Cluster/updateDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request PATCH \
                 --header "Authorization: Bearer $IAM_TOKEN" \
                 --header "Content-Type: application/json" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups/<название_группы_хостов>' \
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups/<название_группы_хостов>' \
                 --data "@body.json"
             ```
 
@@ -1099,9 +1099,9 @@
                 {% endnote %}
 
 
-    1. Чтобы изменить конфигурацию группы хостов `OpenSearch`:
+    1. Чтобы изменить конфигурацию группы хостов `{{ OS }}`:
 
-        1. Воспользуйтесь вызовом [ClusterService.UpdateOpenSearchNodeGroup](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.UpdateOpenSearchNodeGroup](../api-ref/grpc/Cluster/updateOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -1111,7 +1111,7 @@
                 -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.UpdateOpenSearchNodeGroup \
                 < body.json
             ```
@@ -1122,7 +1122,7 @@
 
     1. Чтобы изменить конфигурацию группы хостов `Dashboards`:
 
-        1. Воспользуйтесь вызовом [ClusterService.UpdateDashboardsNodeGroup](../api-ref/grpc/Cluster/updateDashboardsNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.UpdateDashboardsNodeGroup](../api-ref/grpc/Cluster/updateDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -1132,7 +1132,7 @@
                 -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
                 -rpc-header "Authorization: Bearer $IAM_TOKEN" \
                 -d @ \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.UpdateDashboardsNodeGroup \
                 < body.json
             ```
@@ -1148,56 +1148,56 @@
 При удалении группы хостов действуют следующие ограничения:
 
 * Нельзя удалить единственную группу хостов с ролью `DATA`.
-* Нельзя удалить группу хостов с ролью `MANAGER`, если в момент ее добавления в кластере была группа хостов `OpenSearch` с ролями `DATA` и `MANAGER`.
+* Нельзя удалить группу хостов с ролью `MANAGER`, если в момент ее добавления в кластере была группа хостов `{{ OS }}` с ролями `DATA` и `MANAGER`.
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **Группы хостов**.
-    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **Удалить**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![host-groups.svg](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной группы и выберите пункт **{{ ui-key.yacloud.opensearch.cluster.node-groups.action_delete }}**.
 
 - CLI {#cli}
 
-    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+    Если у вас еще нет интерфейса командной строки {{ yandex-cloud }} (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
 
     По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
 
     Чтобы удалить группу хостов, выполните команду:
 
     ```bash
-    yc managed-opensearch node-group delete --cluster-name <имя_кластера> \
+    {{ yc-mdb-os }} node-group delete --cluster-name <имя_кластера> \
        --node-group-name <имя_группы_хостов>
     ```
 
     В команде укажите группу хостов, которую нужно удалить.
 
-- Terraform {#tf}
+- {{ TF }} {#tf}
 
     Чтобы удалить группу хостов из кластера:
 
-    1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
         О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера Managed Service for OpenSearch см. в [документации провайдера Terraform](../../terraform/resources/mdb_opensearch_cluster.md).
+        Полный список доступных для изменения полей конфигурации кластера {{ mos-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mos }}).
 
-    1. Чтобы удалить группу хостов `OpenSearch`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
+    1. Чтобы удалить группу хостов `{{ OS }}`, удалите блок `node_groups`, который соответствует удаляемой группе хостов, из блока `opensearch`.
 
     1. Чтобы удалить группу хостов `Dashboards`, удалите блок `dashboards`.
 
     1. Проверьте корректность настроек.
 
-        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+        1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы {{ TF }} с планом инфраструктуры.
         1. Выполните команду:
         
            ```bash
            terraform validate
            ```
         
-           Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+           Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
 
     1. Подтвердите удаление ресурсов.
 
@@ -1221,7 +1221,7 @@
 
         {% note warning "Ограничения по времени" %}
         
-        Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for OpenSearch:
+        Провайдер {{ TF }} ограничивает время на выполнение операций с кластером {{ mos-name }}:
         
         * создание, в том числе путем восстановления из резервной копии, — 30 минут;
         * изменение — 60 минут;
@@ -1256,15 +1256,15 @@
         export IAM_TOKEN="<IAM-токен>"
         ```
 
-    1. Чтобы удалить группу хостов `OpenSearch`:
+    1. Чтобы удалить группу хостов `{{ OS }}`:
 
-        1. Воспользуйтесь методом [Cluster.DeleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.DeleteOpenSearchNodeGroup](../api-ref/Cluster/deleteOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request DELETE \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups/<название_группы_хостов>'
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/opensearch/node_groups/<название_группы_хостов>'
             ```
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Название группы хостов можно запросить с [детальной информацией о кластере](cluster-list.md#get-cluster).
@@ -1273,13 +1273,13 @@
 
     1. Чтобы удалить группу хостов `Dashboards`:
 
-        1. Воспользуйтесь методом [Cluster.DeleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+        1. Воспользуйтесь методом [Cluster.DeleteDashboardsNodeGroup](../api-ref/Cluster/deleteDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
                 --request DELETE \
                 --header "Authorization: Bearer $IAM_TOKEN" \
-                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups/<название_группы_хостов>'
+                --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/dashboards/node_groups/<название_группы_хостов>'
             ```
 
             Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters). Название группы хостов можно запросить с [детальной информацией о кластере](cluster-list.md#get-cluster).
@@ -1301,9 +1301,9 @@
        ```
        
        Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-    1. Чтобы удалить группу хостов `OpenSearch`:
+    1. Чтобы удалить группу хостов `{{ OS }}`:
 
-        1. Воспользуйтесь вызовом [ClusterService.DeleteOpenSearchNodeGroup](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.DeleteOpenSearchNodeGroup](../api-ref/grpc/Cluster/deleteOpenSearchNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -1316,7 +1316,7 @@
                         "cluster_id": "<идентификатор_кластера>",
                         "name": "<название_группы_хостов>"
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.DeleteOpenSearchNodeGroup
             ```
 
@@ -1326,7 +1326,7 @@
 
     1. Чтобы удалить группу хостов `Dashboards`:
 
-        1. Воспользуйтесь вызовом [ClusterService.DeleteDashboardsNodeGroup](../api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+        1. Воспользуйтесь вызовом [ClusterService.DeleteDashboardsNodeGroup](../api-ref/grpc/Cluster/deleteDashboardsNodeGroup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -1339,7 +1339,7 @@
                         "cluster_id": "<идентификатор_кластера>",
                         "name": "<название_группы_хостов>"
                     }' \
-                mdb.api.cloud.yandex.net:443 \
+                {{ api-host-mdb }}:{{ port-https }} \
                 yandex.cloud.mdb.opensearch.v1.ClusterService.DeleteDashboardsNodeGroup
             ```
 
@@ -1355,9 +1355,9 @@
 
 - Консоль управления {#console}
 
-    1. В [консоли управления](https://console.yandex.cloud) перейдите на страницу каталога.
-    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
-    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **Хосты**.
+    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+    1. Перейдите в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Нажмите на имя нужного кластера, затем выберите вкладку ![hosts](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.switch_hosts }}**.
 
 - REST API {#api}
 
@@ -1367,13 +1367,13 @@
       export IAM_TOKEN="<IAM-токен>"
       ```
 
-  1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+  1. Воспользуйтесь методом [Cluster.ListHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
           --request GET \
           --header "Authorization: Bearer $IAM_TOKEN" \
-          --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/hosts'
+          --url 'https://{{ api-host-mdb }}/managed-opensearch/v1/clusters/<идентификатор_кластера>/hosts'
       ```
 
       Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
@@ -1395,7 +1395,7 @@
      ```
      
      Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
-  1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+  1. Воспользуйтесь вызовом [ClusterService.ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -1407,7 +1407,7 @@
           -d '{
                 "cluster_id": "<идентификатор_кластера>"
               }' \
-          mdb.api.cloud.yandex.net:443 \
+          {{ api-host-mdb }}:{{ port-https }} \
           yandex.cloud.mdb.opensearch.v1.ClusterService.ListHosts
       ```
 
